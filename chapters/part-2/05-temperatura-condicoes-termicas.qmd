@@ -1,0 +1,148 @@
+# Temperatura e condições térmicas {#sec-temperatura}
+
+Temperatura organiza um domínio amplo: condições cotidianas, extremos de calor e frio, conforto térmico, ambientes urbanos e exposição ocupacional. Embora todas essas questões se relacionem ao balanço de energia, não são intercambiáveis. Cada forma de medir deve ser escolhida de acordo com a pergunta de vigilância ou gestão.
+
+## Temperatura do ar
+
+A temperatura do ar é normalmente medida em estações meteorológicas sob condições padronizadas. O valor depende do local, da altura, do abrigo, do instrumento, da frequência de registro e do controle de qualidade. A leitura de uma estação representa seu entorno imediato; não deve ser automaticamente atribuída a todo o município.
+
+Séries subdiárias permitem calcular médias, máximas e mínimas diárias. Para que esses valores sejam comparáveis, é necessário declarar:
+
+- a janela usada para definir o dia;
+- o fuso horário;
+- o critério mínimo de completude;
+- o tratamento de valores suspeitos;
+- a estação e seus metadados;
+- mudanças de instrumento ou localização.
+
+A [ficha de temperatura máxima diária](../../indicators/pages/cli-tem-01.qmd) demonstra como uma variável meteorológica pode ser qualificada como indicador.
+
+## Temperatura da superfície
+
+Temperatura da superfície descreve a emissão térmica da superfície observada ou estimada por sensoriamento remoto. Ela pode revelar contrastes entre materiais urbanos, solo exposto, água e vegetação, sendo útil para estudos de ilhas de calor e heterogeneidade territorial.
+
+Ela não equivale à temperatura do ar. Horário de passagem do satélite, cobertura de nuvens, emissividade, tamanho do pixel e método de recuperação afetam o produto. A ausência de valor em dia nublado também não significa ausência de calor.
+
+::: {.callout-warning title="Atenção"}
+Não use temperatura da superfície e temperatura do ar como medidas substitutas sem uma justificativa física e uma validação compatível com o território e a finalidade.
+:::
+
+## Calor e frio
+
+Calor e frio podem ser representados por limiares absolutos, posição na distribuição local ou combinação de duração e intensidade. Limiares absolutos são fáceis de comunicar, mas uma mesma temperatura pode ter significados diferentes conforme estação, infraestrutura, aclimatação e perfil populacional.
+
+Limiares relativos, como percentis de uma série de referência, reconhecem o contexto climatológico. Em contrapartida, dependem da qualidade, extensão e estabilidade da série. A escolha do período de referência altera a classificação dos eventos e deve permanecer explícita.
+
+Medidas úteis incluem:
+
+- temperatura média, máxima e mínima;
+- amplitude térmica diária;
+- anomalia em relação a uma referência;
+- dias e noites quentes ou frios;
+- duração e intensidade acumulada de episódios;
+- frequência anual ou sazonal.
+
+Cada medida responde a uma pergunta. A máxima diária representa o pico térmico do dia; a mínima pode ser importante para avaliar ausência de resfriamento noturno; a anomalia descreve diferença em relação à referência, não necessariamente risco à saúde.
+
+## Ondas de calor e de frio
+
+Uma onda é um episódio persistente. Sua definição exige ao menos uma variável, um limiar, uma duração mínima e uma regra de continuidade. Algumas definições usam valores absolutos; outras, percentis; outras combinam máximas e mínimas.
+
+Não há definição universal adequada a todos os climas, populações e decisões. Para comparações, use a mesma definição ou apresente análise de sensibilidade. Para alertas, a definição precisa ser validada com capacidade operacional e efeitos relevantes no território.
+
+A [ficha de onda de calor](../../indicators/pages/cli-cal-01.qmd) explicita as decisões mínimas. Além da ocorrência, recomenda-se registrar:
+
+- início e término;
+- duração;
+- maior intensidade;
+- intensidade acumulada;
+- área atingida;
+- população potencialmente exposta;
+- nível de incerteza.
+
+## Umidade e sensação térmica
+
+A umidade influencia a troca de calor entre corpo e ambiente. Índices de sensação térmica combinam variáveis para representar aspectos do estresse térmico, mas diferem em fórmula, domínio de validade e finalidade.
+
+Antes de selecionar um índice:
+
+1. identifique as variáveis necessárias;
+2. confira unidades e condições de validade;
+3. verifique se o índice foi concebido para calor, frio, ambiente interno ou trabalho;
+4. documente categorias e limiares;
+5. evite interpretar o índice como temperatura medida.
+
+## Conforto térmico
+
+Conforto térmico inclui componentes ambientais, fisiológicos, comportamentais e contextuais. Temperatura do ar, umidade, radiação e vento interagem com vestimenta, atividade, adaptação e características do ambiente construído.
+
+Por isso, um índice de conforto não representa sozinho risco sanitário. Ele pode apoiar avaliação de ambientes e comunicação, desde que a população e a situação de uso sejam compatíveis com o método.
+
+## Ilhas de calor
+
+Ilhas de calor descrevem diferenças térmicas entre porções urbanas e áreas de referência. Podem ser analisadas pela temperatura do ar ou da superfície, o que produz medidas distintas.
+
+A delimitação da referência é uma decisão substantiva. Comparar o centro urbano com uma estação rural distante pode introduzir diferenças de altitude, relevo ou circulação atmosférica. Em imagens, a classificação do uso da terra, o horário e a cobertura de nuvens influenciam a estimativa.
+
+Para uso em saúde, a medida térmica deve ser combinada com distribuição da população, condições habitacionais, mobilidade e acesso a proteção. Um mapa de temperatura sem população é um mapa de perigo, não de exposição.
+
+## Exposição ocupacional
+
+Trabalhadores ao ar livre, em cozinhas, fundições, lavanderias, galpões e outros ambientes podem enfrentar calor intenso. A avaliação ocupacional requer medidas, índices e protocolos próprios, além de considerar esforço, vestimenta, pausas, hidratação e organização do trabalho.
+
+::: {.todo}
+TODO: incorporar normas ocupacionais vigentes somente após verificação jurídica e técnica.
+:::
+
+## Impactos sobre a saúde
+
+Condições térmicas podem se relacionar a agravos por caminhos diretos e indiretos. A análise deve considerar o desfecho específico, a escala temporal, a sazonalidade, a adaptação local e fatores que variam junto com a temperatura.
+
+Comparar uma curva de temperatura a uma curva de internações é insuficiente para concluir causalidade. Estudos analíticos precisam tratar tendência, sazonalidade, defasagem, qualidade do desfecho, autocorrelação e possíveis confundidores.
+
+### Efeitos imediatos e defasados
+
+Alguns desfechos podem ocorrer no mesmo dia; outros aparecem após defasagem. Uma única escolha de *lag* pode omitir parte da associação ou selecionar um resultado casual. Defina janelas a priori, com justificativa substantiva, e apresente análises de sensibilidade quando aplicável.
+
+### Grupos e territórios vulnerabilizados
+
+Idade, condições crônicas, uso de medicamentos, gestação, trabalho, isolamento social, moradia, energia, água, arborização, mobilidade e acesso a serviços podem modificar risco e capacidade de proteção. Essas dimensões não devem ser reduzidas a uma lista fixa nem tratadas como atributos naturais dos grupos.
+
+## Fontes de dados
+
+O catálogo inicial registra duas alternativas para temperatura:
+
+- [INMET](../../backmatter/indice-fontes.qmd#inmet), com observações e produtos meteorológicos;
+- [ERA5-Land](../../backmatter/indice-fontes.qmd#era5-land), uma reanálise em grade.
+
+Observação em estação e reanálise não são equivalentes. A escolha depende da pergunta, cobertura, resolução, duração da série, latência e possibilidade de validação. Em qualquer caso, arquive o identificador do produto, versão, data de acesso e transformação aplicada.
+
+## Indicadores
+
+O conjunto previsto para este domínio inclui:
+
+- temperatura média, máxima e mínima;
+- amplitude e anomalia térmicas;
+- dias e noites quentes ou frios;
+- ondas de calor e frio;
+- duração e intensidade acumulada;
+- índices de calor e temperatura de bulbo úmido;
+- população exposta ao calor extremo.
+
+Nesta versão, duas fichas estão implementadas: [temperatura máxima diária](../../indicators/pages/cli-tem-01.qmd) e [onda de calor](../../indicators/pages/cli-cal-01.qmd). As demais serão priorizadas conforme a matriz editorial.
+
+## Aplicação na vigilância e na gestão
+
+Um fluxo operacional possível é:
+
+1. escolher a pergunta e o território;
+2. selecionar fonte e indicador qualificados;
+3. acompanhar o valor atual e sua incerteza;
+4. comparar com referência sazonal e contexto local;
+5. identificar populações e serviços expostos;
+6. articular níveis de ação a protocolos previamente acordados;
+7. comunicar medida, significado e orientação;
+8. registrar ações e avaliar resultados.
+
+Um limiar não deve acionar automaticamente a mesma resposta em todos os municípios. Capacidade assistencial, cobertura territorial, duração prevista e grupos expostos alteram a decisão. O indicador estrutura a situação; o protocolo organiza responsabilidades.
+

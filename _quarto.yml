@@ -1,0 +1,82 @@
+project:
+  type: book
+  output-dir: _output/web
+  pre-render:
+    - Rscript scripts/build_catalogs.R
+
+profile:
+  default: web
+
+lang: pt-BR
+
+book:
+  title: "Dados e Indicadores de Clima e Ambiente para a Saúde"
+  subtitle: "Guia para vigilância, planejamento e gestão pública"
+  author: "Raphael de Freitas Saldanha"
+  date: last-modified
+  output-file: dados-indicadores-clima-ambiente-saude
+  search: true
+  repo-url: "https://github.com/rfsaldanha/dicas"
+  repo-actions: [source, issue]
+  chapters:
+    - index.qmd
+    - frontmatter/ficha-tecnica.qmd
+    - frontmatter/apresentacao.qmd
+    - frontmatter/prefacio.qmd
+    - frontmatter/agradecimentos.qmd
+    - frontmatter/siglas.qmd
+    - frontmatter/sumario.qmd
+    - frontmatter/como-usar.qmd
+    - part: "Parte I — Fundamentos e métodos"
+      chapters:
+        - chapters/part-1/01-clima-ambiente-saude.qmd
+        - chapters/part-1/02-dados-variaveis-indices-indicadores.qmd
+        - chapters/part-1/03-espaco-tempo-qualidade.qmd
+        - chapters/part-1/04-fontes-fichas.qmd
+    - part: "Parte II — Dados e indicadores temáticos"
+      chapters:
+        - chapters/part-2/05-temperatura-condicoes-termicas.qmd
+        - chapters/part-2/06-precipitacao-secas-eventos-hidrologicos.qmd
+        - chapters/part-2/07-qualidade-ar-queimadas-fumaca.qmd
+        - chapters/part-2/08-agua-saneamento-qualidade-ambiental.qmd
+        - chapters/part-2/09-uso-cobertura-terra-ambiente-urbano.qmd
+        - chapters/part-2/10-eventos-severos-desastres.qmd
+    - part: "Parte III — Indicadores integrados de clima, ambiente e saúde"
+      chapters:
+        - chapters/part-3/11-exposicao-vulnerabilidade.qmd
+        - chapters/part-3/12-efeitos-saude.qmd
+        - chapters/part-3/13-resposta-adaptacao-resiliencia.qmd
+    - part: "Parte IV — Aplicação na vigilância e na gestão pública"
+      chapters:
+        - chapters/part-4/14-indicador-decisao.qmd
+    - part: "Fichas demonstrativas"
+      chapters:
+        - indicators/pages/cli-tem-01.qmd
+        - indicators/pages/cli-cal-01.qmd
+        - indicators/pages/amb-ar-01.qmd
+    - part: "Elementos pós-textuais"
+      chapters:
+        - backmatter/glossario.qmd
+        - backmatter/referencias.qmd
+        - backmatter/indice-indicadores.qmd
+        - backmatter/indice-fontes.qmd
+        - backmatter/indice-instituicoes.qmd
+        - backmatter/apendice-metodologico.qmd
+        - backmatter/lista-fichas.qmd
+        - backmatter/lista-tabelas.qmd
+        - backmatter/lista-figuras.qmd
+
+bibliography: references.bib
+
+crossref:
+  chapters: true
+  fig-title: "Figura"
+  tbl-title: "Tabela"
+  fig-prefix: "Figura"
+  tbl-prefix: "Tabela"
+  custom:
+    - kind: float
+      key: qua
+      reference-prefix: "Quadro"
+      caption-prefix: "Quadro"
+      caption-location: top

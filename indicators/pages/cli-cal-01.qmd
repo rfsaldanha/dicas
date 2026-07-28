@@ -1,0 +1,147 @@
+# Onda de calor {#sec-cli-cal-01 .unnumbered}
+
+::: {.indicator-card}
+**Código:** CLI-CAL-01  
+**Tema:** Temperatura e condições térmicas  
+**Dimensão:** perigo; exposição  
+**Disponibilidade:** [requer modelagem]{.availability}
+:::
+
+## Conceituação {.unnumbered}
+
+Episódio com temperatura persistentemente elevada em relação a um limiar e durante uma duração mínima previamente definidos.
+
+## Objetivo {.unnumbered}
+
+Identificar períodos de calor persistente relevantes para vigilância, preparação dos serviços e comunicação de risco.
+
+## Interpretação {.unnumbered}
+
+A ocorrência indica que o limiar térmico adotado foi superado pelo número mínimo de dias consecutivos. Resultados dependem integralmente da definição operacional.
+
+## Usos {.unnumbered}
+
+- Ativar rotinas de monitoramento e preparação.
+- Comparar frequência, duração e intensidade de episódios ao longo do tempo.
+- Delimitar janelas de exposição em análises de saúde.
+
+## Limitações {.unnumbered}
+
+- Não existe uma única definição universal de onda de calor.
+- Limiares absolutos e relativos respondem a perguntas diferentes.
+- A exposição real também depende de moradia, trabalho, mobilidade, umidade e acesso a proteção.
+
+## Método de cálculo {.unnumbered}
+
+Aplicar um limiar térmico previamente documentado a uma série diária e identificar sequências que atendam à duração mínima. Relatar separadamente ocorrência, duração e intensidade.
+
+$$
+I_d = 1(T_d > L); \quad OC = 1\left(\sum_{j=d}^{d+k-1} I_j = k\right)
+$$
+
+::: {.indicator-card}
+**Numerador.**
+
+Número de episódios, dias em episódio ou população exposta, conforme a medida derivada.
+
+**Denominador.**
+
+Não se aplica à ocorrência; pode ser população residente nas medidas de exposição.
+
+**Unidade de medida.**
+
+Episódio, dia, grau-dia ou pessoa, conforme a medida apresentada.
+
+**Categorias para análise.**
+
+Tipo de limiar; duração; intensidade; estação; território; grupos populacionais.
+
+**Unidade territorial.**
+
+Ponto, célula de grade ou território agregado.
+
+**Resolução espacial original.**
+
+Depende da fonte térmica utilizada.
+
+**Resolução temporal.**
+
+Diária para detecção; síntese por evento, mês, estação ou ano.
+
+**Período de referência.**
+
+Declarar o período climatológico quando o limiar for percentílico.
+
+**Limiar ou valor de referência.**
+
+Deve ser escolhido e justificado para o contexto; não usar um valor universal sem validação.
+
+:::
+
+## Fontes e disponibilidade {.unnumbered}
+
+**Fonte primária:** Instituto Nacional de Meteorologia.
+
+**Fonte secundária:** ERA5-Land.
+
+**Instituição responsável.**
+
+A definir conforme a fonte e o protocolo operacional.
+
+**Cobertura geográfica.**
+
+Depende da fonte e da rede de monitoramento.
+
+**Período disponível.**
+
+TODO: verificar para cada conjunto de dados.
+
+**Periodicidade de atualização.**
+
+TODO: verificar para cada conjunto de dados.
+
+**Forma de acesso.**
+
+Indicador geralmente calculado a partir de séries de temperatura.
+
+**URL ou identificador persistente.**
+
+TODO: registrar o protocolo metodológico e a versão da fonte.
+
+**Formato dos arquivos.**
+
+Depende da fonte.
+
+**Necessidade de processamento.**
+
+Requer controle de qualidade, definição de limiar, detecção de sequências e, em análises territoriais, regras de agregação espacial.
+
+## Qualidade, comparação e saúde {.unnumbered}
+
+**Qualidade e incerteza.**
+
+A incerteza provém da fonte térmica, da escolha do limiar, do período de referência, da cobertura espacial e da classificação da exposição.
+
+**Possibilidade de comparação.**
+
+Só comparar estimativas produzidas com a mesma definição ou apresentar análise de sensibilidade entre definições.
+
+**Relação com desfechos de saúde.**
+
+Ondas de calor podem ser usadas como janelas de exposição; a atribuição de efeitos exige desenho epidemiológico e controle de confundimento.
+
+**Defasagens temporais relevantes.**
+
+Avaliar efeitos no mesmo dia e defasagens curtas conforme o desfecho e a literatura específica.
+
+**Aplicação na gestão.**
+
+Apoiar níveis de alerta, planos de contingência, comunicação direcionada e preparação assistencial.
+
+**Observações.**
+
+A ficha qualifica a definição operacional; intensidade, duração e população exposta devem ser registradas como medidas relacionadas, não confundidas.
+
+## Referências {.unnumbered}
+
+Nenhuma referência incluída nesta versão demonstrativa. TODO: revisão bibliográfica.

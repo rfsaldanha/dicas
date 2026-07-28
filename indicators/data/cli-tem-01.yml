@@ -1,0 +1,50 @@
+codigo: CLI-TEM-01
+denominacao: Temperatura máxima diária
+tema: Temperatura e condições térmicas
+definicao: Maior valor de temperatura do ar observado ou estimado em um dia, segundo a fonte, o método e a janela diária declarados.
+objetivo: Descrever a intensidade térmica máxima diária e apoiar a identificação de dias potencialmente relevantes para vigilância e planejamento.
+interpretacao: Valores mais altos representam maior temperatura máxima no local, célula de grade ou território analisado. A interpretação requer comparação com a climatologia, a estação do ano e a população exposta.
+usos:
+  - Monitorar condições térmicas diárias.
+  - Construir limiares locais e indicadores de extremos.
+  - Apoiar análises de exposição ao calor.
+limitacoes:
+  - Estações, grades e sensores de superfície representam fenômenos e suportes espaciais diferentes.
+  - O horário de fechamento do dia e o fuso horário podem alterar o valor diário.
+  - A temperatura do ar isoladamente não representa conforto térmico nem risco individual.
+dimensoes:
+  - perigo
+  - exposição
+metodo_calculo: Selecionar o maior valor de temperatura do ar dentro da janela diária definida, após aplicar os procedimentos de controle de qualidade compatíveis com a fonte.
+formula: 'T_{\max,d} = \max(T_{d,1}, T_{d,2}, \ldots, T_{d,n})'
+numerador: Não se aplica.
+denominador: Não se aplica.
+unidade_medida: Grau Celsius (°C), quando a fonte estiver expressa nessa unidade.
+categorias_analise: Estação do ano; mês; território; faixa de percentil; condição urbana ou rural.
+unidade_territorial: Ponto de estação, célula de grade ou território agregado.
+resolucao_espacial_original: Depende da fonte selecionada; deve ser preservada nos metadados analíticos.
+resolucao_temporal: Diária, derivada de observações ou estimativas subdiárias.
+periodo_referencia: Declarar a janela diária, o fuso horário e o período climatológico usado nas comparações.
+limiar_referencia: Não há um limiar universal; definir conforme finalidade, população e climatologia local.
+fontes_primarias:
+  - inmet
+fontes_secundarias:
+  - era5-land
+instituicao_responsavel: A definir conforme a fonte escolhida.
+cobertura_geografica: Depende da fonte.
+periodo_disponivel: "TODO: verificar para cada conjunto de dados."
+periodicidade_atualizacao: "TODO: verificar para cada conjunto de dados."
+forma_acesso: Consulta, download ou API, conforme a fonte.
+url_persistente: "TODO: registrar o identificador da versão efetivamente utilizada."
+formatos: "TODO: verificar para a fonte selecionada."
+disponibilidade:
+  - cálculo simples
+necessidade_processamento: Requer agregação máxima em janela diária quando a fonte é subdiária; dados em grade requerem decisão explícita de agregação territorial.
+qualidade_incerteza: Documentar falhas, mudanças de estação, controle de qualidade, viés do produto e incerteza introduzida pela agregação espacial.
+comparabilidade: Comparar séries apenas após harmonizar fonte, unidade, janela diária, fuso, suporte espacial e versão do produto.
+relacao_saude: Pode integrar avaliações de exposição térmica, mas não demonstra, isoladamente, efeito sobre a saúde.
+defasagens_temporais: Devem ser definidas conforme o desfecho, o desenho analítico e a hipótese substantiva.
+aplicacao_gestao: Subsidiar boletins, vigilância sazonal, preparação de serviços e avaliação de limiares locais.
+observacoes: Variável meteorológica transformada em indicador somente quando vinculada a finalidade, método, território e interpretação explícitos.
+referencias: []
+

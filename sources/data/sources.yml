@@ -1,0 +1,321 @@
+- id: inmet
+  nome: Instituto Nacional de Meteorologia
+  sigla: INMET
+  instituicao: Ministério da Agricultura e Pecuária
+  descricao: Portal institucional com monitoramento, estações, avisos e produtos meteorológicos.
+  temas: [temperatura, precipitação, eventos meteorológicos]
+  variaveis: [temperatura do ar, precipitação, umidade, vento, pressão]
+  cobertura_geografica: Brasil
+  resolucao_espacial: Rede de estações; consultar metadados de cada estação.
+  resolucao_temporal: "TODO: verificar por produto."
+  periodo_disponivel: "TODO: verificar por produto."
+  atualizacao: "TODO: verificar por produto."
+  acesso: Portal, consultas e downloads.
+  url: https://portal.inmet.gov.br/
+  api: "TODO: verificar."
+  formatos: "TODO: verificar."
+  licenca: "TODO: verificar termos aplicáveis."
+  cadastro: "TODO: verificar por serviço."
+  custos: "TODO: verificar por serviço."
+  limitacoes: Cobertura e continuidade variam entre estações; verificar controle de qualidade e mudanças instrumentais.
+  ultima_verificacao: 2026-07-28
+  indicadores: [CLI-TEM-01, CLI-CAL-01]
+
+- id: cptec
+  nome: Centro de Previsão de Tempo e Estudos Climáticos
+  sigla: CPTEC/INPE
+  instituicao: Instituto Nacional de Pesquisas Espaciais
+  descricao: Produtos e serviços de previsão do tempo, clima e modelagem numérica.
+  temas: [tempo, clima, previsão]
+  variaveis: ["TODO: detalhar por produto."]
+  cobertura_geografica: "TODO: verificar por produto."
+  resolucao_espacial: "TODO: verificar por produto."
+  resolucao_temporal: "TODO: verificar por produto."
+  periodo_disponivel: "TODO: verificar por produto."
+  atualizacao: "TODO: verificar por produto."
+  acesso: Portal e serviços de dados.
+  url: https://www.cptec.inpe.br/
+  api: https://servicos.cptec.inpe.br/XML/
+  formatos: [XML]
+  licenca: "TODO: verificar."
+  cadastro: "TODO: verificar."
+  custos: "TODO: verificar."
+  limitacoes: Previsões não devem ser tratadas como observações; registrar modelo, rodada e horizonte.
+  ultima_verificacao: 2026-07-28
+  indicadores: []
+
+- id: cemaden
+  nome: Centro Nacional de Monitoramento e Alertas de Desastres Naturais
+  sigla: CEMADEN
+  instituicao: Ministério da Ciência, Tecnologia e Inovação
+  descricao: Rede observacional e produtos voltados ao monitoramento e a alertas de riscos de desastres.
+  temas: [precipitação, hidrologia, desastres]
+  variaveis: [precipitação, "TODO: detalhar demais redes."]
+  cobertura_geografica: Brasil; cobertura efetiva depende da rede.
+  resolucao_espacial: Ponto de estação para pluviômetros.
+  resolucao_temporal: Dez minutos para a descrição consultada dos pluviômetros automáticos.
+  periodo_disponivel: "TODO: verificar."
+  atualizacao: Próxima do tempo real para pluviômetros automáticos; confirmar no uso.
+  acesso: Mapa interativo e download.
+  url: https://www2.cemaden.gov.br/mapainterativo/
+  api: "TODO: verificar."
+  formatos: "TODO: verificar no download."
+  licenca: "TODO: verificar."
+  cadastro: Download pode exigir confirmação de segurança; verificar.
+  custos: "TODO: verificar."
+  limitacoes: A página consultada informa que os dados pluviométricos disponibilizados são brutos e em UTC.
+  ultima_verificacao: 2026-07-28
+  indicadores: []
+
+- id: cds
+  nome: Copernicus Climate Data Store
+  sigla: CDS
+  instituicao: Copernicus Climate Change Service
+  descricao: Catálogo e serviço de acesso a conjuntos de dados climáticos.
+  temas: [clima, reanálise, projeção]
+  variaveis: ["TODO: detalhar por conjunto."]
+  cobertura_geografica: "TODO: verificar por conjunto."
+  resolucao_espacial: "TODO: verificar por conjunto."
+  resolucao_temporal: "TODO: verificar por conjunto."
+  periodo_disponivel: "TODO: verificar por conjunto."
+  atualizacao: "TODO: verificar por conjunto."
+  acesso: Catálogo, download e API.
+  url: https://cds.climate.copernicus.eu/
+  api: "TODO: documentar cliente e credenciais."
+  formatos: "TODO: verificar por conjunto."
+  licenca: "TODO: verificar por conjunto."
+  cadastro: "TODO: verificar."
+  custos: A página oficial consultada descreve acesso gratuito ao ERA5; confirmar termos do conjunto.
+  limitacoes: Observação, reanálise, previsão e projeção devem permanecer claramente diferenciadas.
+  ultima_verificacao: 2026-07-28
+  indicadores: []
+
+- id: era5-land
+  nome: ERA5-Land
+  sigla: ERA5-Land
+  instituicao: Copernicus Climate Change Service
+  descricao: Reanálise de variáveis terrestres; não corresponde a observação direta de estação.
+  temas: [temperatura, precipitação, reanálise]
+  variaveis: ["TODO: selecionar e documentar as variáveis usadas."]
+  cobertura_geografica: Global.
+  resolucao_espacial: "TODO: confirmar na versão utilizada."
+  resolucao_temporal: Horária no conjunto consultado.
+  periodo_disponivel: Desde 1950 até o presente, conforme o catálogo consultado; verificar latência e versão.
+  atualizacao: "TODO: verificar no catálogo."
+  acesso: Climate Data Store.
+  url: https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land
+  api: Climate Data Store API; configuração pendente de documentação.
+  formatos: "TODO: verificar no pedido."
+  licenca: "TODO: verificar os termos do conjunto."
+  cadastro: "TODO: verificar requisitos atuais."
+  custos: A documentação consultada descreve acesso gratuito ao ERA5.
+  limitacoes: Reanálise modelada; documentar viés, versão, agregação e diferença em relação a estações.
+  ultima_verificacao: 2026-07-28
+  indicadores: [CLI-TEM-01, CLI-CAL-01]
+
+- id: cams
+  nome: Copernicus Atmosphere Monitoring Service
+  sigla: CAMS
+  instituicao: Copernicus / ECMWF
+  descricao: Serviço de dados e produtos sobre composição atmosférica.
+  temas: [qualidade do ar, composição atmosférica, fumaça]
+  variaveis: ["TODO: detalhar por conjunto e produto."]
+  cobertura_geografica: "TODO: verificar por conjunto."
+  resolucao_espacial: "TODO: verificar por conjunto."
+  resolucao_temporal: "TODO: verificar por conjunto."
+  periodo_disponivel: "TODO: verificar por conjunto."
+  atualizacao: "TODO: verificar por conjunto."
+  acesso: Catálogo e serviços Copernicus.
+  url: https://atmosphere.copernicus.eu/data
+  api: "TODO: verificar por conjunto."
+  formatos: "TODO: verificar."
+  licenca: "TODO: verificar."
+  cadastro: "TODO: verificar."
+  custos: "TODO: verificar."
+  limitacoes: Produtos modelados não equivalem a monitores de superfície; validar o produto para a aplicação.
+  ultima_verificacao: 2026-07-28
+  indicadores: [AMB-AR-01]
+
+- id: mapbiomas
+  nome: MapBiomas Brasil
+  sigla: MapBiomas
+  instituicao: Rede MapBiomas
+  descricao: Plataforma de mapas e estatísticas de cobertura e uso da terra e outros temas ambientais.
+  temas: [uso da terra, cobertura da terra, fogo, água]
+  variaveis: ["TODO: detalhar por coleção."]
+  cobertura_geografica: Brasil para as coleções nacionais.
+  resolucao_espacial: "TODO: registrar a coleção escolhida; há produtos com resoluções distintas."
+  resolucao_temporal: "TODO: verificar por produto."
+  periodo_disponivel: "TODO: verificar por coleção."
+  atualizacao: Por coleção; verificar calendário.
+  acesso: Plataforma e página de downloads.
+  url: https://brasil.mapbiomas.org/downloads/
+  api: "TODO: verificar."
+  formatos: "TODO: verificar por produto."
+  licenca: "TODO: verificar termos da coleção."
+  cadastro: "TODO: verificar."
+  custos: "TODO: verificar."
+  limitacoes: Classes, método, resolução e série podem mudar entre coleções; não combinar versões sem harmonização.
+  ultima_verificacao: 2026-07-28
+  indicadores: []
+
+- id: queimadas-inpe
+  nome: Programa Queimadas do INPE
+  sigla: Programa Queimadas
+  instituicao: Instituto Nacional de Pesquisas Espaciais
+  descricao: Monitoramento por satélite de fogo ativo, risco, extensão e severidade do fogo na vegetação.
+  temas: [queimadas, incêndios florestais, fumaça]
+  variaveis: [focos de fogo ativo, risco de fogo, "TODO: detalhar por produto."]
+  cobertura_geografica: "TODO: verificar por produto."
+  resolucao_espacial: "TODO: verificar por satélite e produto."
+  resolucao_temporal: "TODO: verificar por produto."
+  periodo_disponivel: "TODO: verificar por produto."
+  atualizacao: A página oficial consultada informa atualização a cada três horas para dados de satélite; confirmar produto.
+  acesso: Portal de serviço, consultas e downloads.
+  url: https://www.gov.br/pt-br/servicos/obter-dados-de-queimadas
+  api: "TODO: verificar."
+  formatos: "TODO: verificar."
+  licenca: "TODO: verificar."
+  cadastro: Alguns produtos ou alertas podem exigir cadastro; verificar.
+  custos: A página institucional consultada informa produtos regulares sem custo; verificar termos.
+  limitacoes: Foco detectado por satélite não equivale a incêndio individual nem diretamente a área queimada.
+  ultima_verificacao: 2026-07-28
+  indicadores: []
+
+- id: vigiagua
+  nome: Programa Nacional de Vigilância da Qualidade da Água para Consumo Humano
+  sigla: Vigiagua / Sisagua
+  instituicao: Ministério da Saúde
+  descricao: Programa de vigilância da qualidade da água; o Sisagua apoia o gerenciamento de riscos e a disseminação de informações.
+  temas: [água, qualidade da água, vigilância ambiental]
+  variaveis: [parâmetros de qualidade da água, formas de abastecimento]
+  cobertura_geografica: Municípios brasileiros, condicionada ao registro.
+  resolucao_espacial: "TODO: verificar por conjunto."
+  resolucao_temporal: "TODO: verificar por painel ou conjunto."
+  periodo_disponivel: "TODO: verificar por conjunto."
+  atualizacao: "TODO: verificar por conjunto."
+  acesso: Painéis e Portal de Dados Abertos do SUS.
+  url: https://www.gov.br/saude/pt-br/composicao/seidigi/demas/situacao-de-saude/vigiagua
+  api: "TODO: verificar."
+  formatos: "TODO: verificar por conjunto."
+  licenca: "TODO: verificar por conjunto."
+  cadastro: Consulta pública; verificar requisitos para operação do sistema.
+  custos: "TODO: verificar."
+  limitacoes: A completude depende da alimentação pelos responsáveis e pelas equipes de vigilância.
+  ultima_verificacao: 2026-07-28
+  indicadores: []
+
+- id: sinisa
+  nome: Sistema Nacional de Informações em Saneamento Básico
+  sigla: SINISA
+  instituicao: Ministério das Cidades
+  descricao: Sistema instituído para coletar, sistematizar e disponibilizar dados e indicadores de saneamento básico.
+  temas: [saneamento, água, esgoto, resíduos, drenagem]
+  variaveis: ["TODO: detalhar por módulo."]
+  cobertura_geografica: Brasil.
+  resolucao_espacial: "TODO: verificar por módulo."
+  resolucao_temporal: "TODO: verificar por módulo."
+  periodo_disponivel: "TODO: verificar a transição SNIS–SINISA."
+  atualizacao: "TODO: verificar por módulo."
+  acesso: Portal institucional.
+  url: https://www.gov.br/cidades/pt-br/acesso-a-informacao/acoes-e-programas/saneamento/snis/sinisa
+  api: "TODO: verificar."
+  formatos: "TODO: verificar."
+  licenca: "TODO: verificar."
+  cadastro: "TODO: verificar."
+  custos: "TODO: verificar."
+  limitacoes: Documentar a transição entre sistemas e não combinar séries sem avaliar mudanças conceituais.
+  ultima_verificacao: 2026-07-28
+  indicadores: []
+
+- id: s2id
+  nome: Sistema Integrado de Informações sobre Desastres
+  sigla: S2iD
+  instituicao: Secretaria Nacional de Proteção e Defesa Civil
+  descricao: Plataforma para registros, processos e informações sistematizadas sobre riscos e desastres.
+  temas: [desastres, danos, resposta, recuperação]
+  variaveis: [ocorrências, danos, prejuízos, reconhecimentos, ações de resposta]
+  cobertura_geografica: Brasil.
+  resolucao_espacial: Município para parte dos registros; verificar cada relatório.
+  resolucao_temporal: Por ocorrência e período de relatório.
+  periodo_disponivel: "TODO: verificar por produto."
+  atualizacao: "TODO: verificar."
+  acesso: Portal, relatórios e área autenticada.
+  url: https://www.gov.br/mdr/pt-br/assuntos/protecao-e-defesa-civil/sistema-integrado-de-informacoes-sobre-desastres/s2id-1
+  api: "TODO: verificar."
+  formatos: "TODO: verificar."
+  licenca: "TODO: verificar."
+  cadastro: Necessário para funções operacionais; relatórios públicos estão disponíveis.
+  custos: "TODO: verificar."
+  limitacoes: Registros administrativos dependem de notificação e procedimentos; ausência de registro não implica ausência de evento.
+  ultima_verificacao: 2026-07-28
+  indicadores: []
+
+- id: ibge
+  nome: Instituto Brasileiro de Geografia e Estatística
+  sigla: IBGE
+  instituicao: Instituto Brasileiro de Geografia e Estatística
+  descricao: Provedor oficial de informações estatísticas, geográficas e ambientais do Brasil.
+  temas: [população, território, ambiente, vulnerabilidade]
+  variaveis: ["TODO: detalhar por pesquisa ou produto."]
+  cobertura_geografica: Brasil.
+  resolucao_espacial: Varia por pesquisa e produto geocientífico.
+  resolucao_temporal: Varia por pesquisa e produto.
+  periodo_disponivel: Varia por pesquisa e produto.
+  atualizacao: Varia por pesquisa e produto.
+  acesso: Portal, downloads, SIDRA e serviços geocientíficos.
+  url: https://www.ibge.gov.br/
+  api: "TODO: documentar por serviço."
+  formatos: "TODO: verificar por produto."
+  licenca: "TODO: verificar por produto."
+  cadastro: "TODO: verificar por serviço."
+  custos: "TODO: verificar."
+  limitacoes: Registrar pesquisa, edição, data de referência, recorte territorial e revisão.
+  ultima_verificacao: 2026-07-28
+  indicadores: []
+
+- id: datasus
+  nome: Departamento de Informática do Sistema Único de Saúde
+  sigla: DATASUS
+  instituicao: Ministério da Saúde
+  descricao: Dissemina informações de saúde, demográficas e socioeconômicas, incluindo consultas TABNET.
+  temas: [mortalidade, morbidade, assistência, estabelecimentos]
+  variaveis: ["TODO: detalhar por sistema de informação."]
+  cobertura_geografica: Brasil; detalhamento varia por sistema.
+  resolucao_espacial: Varia por sistema e forma de acesso.
+  resolucao_temporal: Varia por sistema.
+  periodo_disponivel: Varia por sistema.
+  atualizacao: Varia por sistema.
+  acesso: TABNET, downloads e painéis.
+  url: https://datasus.saude.gov.br/informacoes-de-saude-tabnet/
+  api: "TODO: verificar por sistema."
+  formatos: "TODO: verificar por sistema."
+  licenca: "TODO: verificar por conjunto."
+  cadastro: "TODO: verificar por serviço."
+  custos: "TODO: verificar."
+  limitacoes: Sistemas têm coberturas, unidades de análise, revisões e defasagens distintas.
+  ultima_verificacao: 2026-07-28
+  indicadores: []
+
+- id: redes-qualidade-ar
+  nome: Redes de monitoramento da qualidade do ar
+  sigla: "—"
+  instituicao: Órgãos ambientais responsáveis no território analisado
+  descricao: Cadastro editorial provisório para redes de estações de qualidade do ar.
+  temas: [qualidade do ar]
+  variaveis: [PM2,5, PM10, ozônio, dióxido de nitrogênio, dióxido de enxofre, monóxido de carbono]
+  cobertura_geografica: "TODO: selecionar a rede aplicável."
+  resolucao_espacial: Ponto de monitoramento.
+  resolucao_temporal: "TODO: verificar por rede."
+  periodo_disponivel: "TODO: verificar por rede."
+  atualizacao: "TODO: verificar por rede."
+  acesso: "TODO: verificar por rede."
+  url: "TODO: selecionar fonte oficial."
+  api: "TODO: verificar."
+  formatos: "TODO: verificar."
+  licenca: "TODO: verificar."
+  cadastro: "TODO: verificar."
+  custos: "TODO: verificar."
+  limitacoes: Cobertura espacial heterogênea; método e controle de qualidade variam.
+  ultima_verificacao: 2026-07-28
+  indicadores: [AMB-AR-01]
