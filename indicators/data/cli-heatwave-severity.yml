@@ -1,0 +1,72 @@
+common: &severity_common
+  tema: Temperatura e condições térmicas
+  capitulo: chapters/part-2/05-temperatura-condicoes-termicas.qmd
+  dimensoes: [perigo, exposição]
+  variaveis_categorias_analise: Temperatura máxima e mínima diárias ou temperatura média; local; período-base; episódio; temporada.
+  granularidade: Estação ou célula de grade; extensão regional é uma derivação posterior.
+  unidade_territorial: Estação meteorológica, célula de grade ou território derivado.
+  resolucao_espacial_original: A da série meteorológica selecionada.
+  resolucao_temporal: Entrada diária; saída diária, por episódio e anual.
+  fontes_dados:
+    - id: inmet
+      papel: observações diárias de temperatura
+    - id: era5-land
+      papel: reanálise em grade condicionada à validação
+  responsabilidade_gerencial: Serviço meteorológico ou climático que produza o índice e instituição de saúde que valide seu uso.
+  cobertura_geografica: A da fonte, condicionada à qualidade e à extensão da série.
+  periodo_disponivel: O da fonte, incluindo período-base suficiente.
+  periodicidade_atualizacao: Diária em aplicação operacional ou anual em monitoramento climático.
+  forma_acesso: Cálculo sobre série diária com implementação e parâmetros versionados.
+  formatos: Tabela por estação ou arquivo multidimensional por célula.
+  disponibilidade: [requer processamento climatológico]
+  qualidade_incerteza: Relatar falhas, homogeneidade, período-base, algoritmo de percentil, viés da fonte e sensibilidade aos parâmetros.
+  comparabilidade: Manter fórmula, período-base, calendário, fonte harmonizada e tratamento de falhas; variantes não são intercambiáveis.
+  relacao_saude: Índices de magnitude e severidade podem ordenar episódios e apoiar a avaliação de impactos, mas seu gradiente deve ser validado com desfechos e capacidade de resposta locais.
+  defasagens_temporais: Preservar os valores diários e datas para estudar efeitos no mesmo dia e defasados.
+  aplicacao_gestao: Classificar episódios, contextualizar alertas e avaliar retrospectivamente pressão sobre serviços.
+  notas: Estes índices combinam mais de um aspecto do calor. Seus valores não são equivalentes a temperatura do ar nem a risco relativo.
+
+indicators:
+  - <<: *severity_common
+    codigo: CLI-CAL-09
+    titulo_completo: Fator de Excesso de Calor (EHF)
+    titulo_resumido: Fator de Excesso de Calor — EHF
+    referencia_metodologica: Excess Heat Factor de Nairn e Fawcett, usado para intensidade e classificação de severidade de ondas de calor.
+    conceito: Produto entre a significância do calor em uma média de três dias, em relação ao percentil 95 climatológico, e um fator de aclimatação que compara esses três dias aos 30 dias anteriores.
+    objetivo: Identificar calor excepcional e recente, incorporando intensidade climatológica e aclimatação de curto prazo.
+    interpretacao: EHF positivo identifica condições de onda de calor na especificação original; valores positivos maiores indicam maior intensidade. A classificação de severidade requer distribuição local do EHF positivo.
+    usos: [Monitoramento e previsão de ondas de calor., Classificação relativa de intensidade e severidade., Avaliação de utilização de serviços e gatilhos validados.]
+    limitacoes: [Depende de 33 dias consecutivos de dados., Percentil e aclimatação são locais., Valores em °C² não têm interpretação clínica direta., Desempenho sanitário deve ser validado.]
+    metodo_calculo: Calcular a média de temperatura média diária dos dias d a d+2. Subtrair o percentil 95 para obter EHIsig e a média dos 30 dias anteriores para obter EHIaccl. Multiplicar EHIsig pelo máximo entre 1 e EHIaccl.
+    formula_calculo: 'EHF_d = EHI_{sig,d}\max(1,EHI_{accl,d});\quad EHI_{sig,d}=\overline{T}_{d:d+2}-T_{95};\quad EHI_{accl,d}=\overline{T}_{d:d+2}-\overline{T}_{d-30:d-1}'
+    numerador: Não se aplica.
+    denominador: Não se aplica.
+    unidade_medida: Grau Celsius ao quadrado (°C²), segundo a formulação operacional.
+    periodo_referencia: Período climatológico usado para o percentil 95 e histórico local de EHF positivo para severidade.
+    limiar_referencia: EHF maior que zero para condição de onda de calor; categorias de severidade derivam da distribuição local conforme o método.
+    url_persistente: https://doi.org/10.3390/ijerph120100227
+    necessidade_processamento: Calcular temperatura média diária, percentil 95, médias móveis de 3 e 30 dias, EHI e EHF; preservar resultados diários.
+    analise_descritiva: Mostrar EHF diário, início e fim, pico, soma por episódio e classe de severidade com referência local.
+    referencias: ["[@nairn2015ehf]", "[@wmoWho2015heat]"]
+
+  - <<: *severity_common
+    codigo: CLI-CAL-10
+    titulo_completo: Índice Diário de Magnitude de Ondas de Calor (HWMId)
+    titulo_resumido: Magnitude diária — HWMId
+    referencia_metodologica: Heat Wave Magnitude Index daily de Russo, Sillmann e Fischer.
+    conceito: Maior magnitude anual entre ondas de calor, sendo cada magnitude a soma de valores diários normalizados pela amplitude interquartil das máximas anuais no período-base.
+    objetivo: Combinar duração e anomalia térmica em uma escala relativa para comparar a maior onda de cada ano entre climas.
+    interpretacao: Valor maior indica que a onda anual mais expressiva foi mais longa e/ou apresentou máximas mais anômalas na escala local. É adimensional e não representa probabilidade de dano.
+    usos: [Comparar magnitude de ondas entre regiões., Monitorar mudanças na severidade., Caracterizar exposição em estudos de impactos.]
+    limitacoes: [Destaca apenas a onda de maior magnitude do ano., A normalização e o período-base afetam o valor., Não foi concebido como limiar clínico ou alerta isolado.]
+    metodo_calculo: Definir onda como ao menos três dias com TX acima do percentil 90 específico do calendário em janela de 31 dias. Calcular a magnitude diária pela posição de TX em relação aos percentis 25 e 75 das máximas anuais do período-base, truncar negativos em zero, somar por evento e selecionar o maior total anual.
+    formula_calculo: 'M_d=\max\left(0,\frac{TX_d-T^{ann}_{25}}{T^{ann}_{75}-T^{ann}_{25}}\right);\quad HWMId_j=\max_{e\in j}\sum_{d\in e}M_d'
+    numerador: Na magnitude diária, diferença entre TX do dia e percentil 25 das máximas anuais no período-base.
+    denominador: Amplitude interquartil entre os percentis 75 e 25 das máximas anuais no período-base.
+    unidade_medida: Adimensional.
+    periodo_referencia: Período climatológico de 30 anos; a formulação publicada deve ser seguida e declarada.
+    limiar_referencia: TX acima do percentil 90 em janela móvel de 31 dias por pelo menos três dias consecutivos.
+    url_persistente: https://doi.org/10.1088/1748-9326/10/12/124003
+    necessidade_processamento: Percentis diários, detecção de sequências, percentis das máximas anuais, magnitude diária, soma por episódio e máximo anual.
+    analise_descritiva: Apresentar HWMId anual e decompor a onda máxima em duração, magnitudes diárias, datas e área afetada.
+    referencias: ["[@russo2015hwmid]", "[@nawaro2023]"]

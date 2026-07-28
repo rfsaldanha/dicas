@@ -1,0 +1,165 @@
+common: &urban_common
+  tema: Uso e cobertura da terra, vegetação e ambiente urbano
+  capitulo: chapters/part-2/09-uso-cobertura-terra-ambiente-urbano.qmd
+  dimensoes: [exposição, vulnerabilidade, resposta]
+  unidade_territorial: Domicílio ou ponto, zona urbana, bairro, setor censitário ou cidade.
+  responsabilidade_gerencial: Planejamento urbano e ambiental produz intervenções e cadastros; saúde interpreta exposições e desigualdades; geoinformação mantém métodos.
+  qualidade_incerteza: Relatar sensor, produto, data, nuvens, resolução, classificação, delimitação urbana, população, buffer, erros posicionais e análise de sensibilidade.
+  comparabilidade: Manter produto, estação, composição temporal, resolução, definição de verde, limite urbano, população e parâmetros espaciais.
+  relacao_saude: Vegetação e espaços verdes podem influenciar atividade física, contato social, restauração, calor, ruído e poluição, mas efeitos dependem de acesso, qualidade, segurança e contexto.
+  defasagens_temporais: Distinguir exposição contemporânea, histórica e intervenção; atualizar endereço, vegetação e população de maneira compatível.
+  aplicacao_gestao: Identificar desigualdades, priorizar arborização e espaços públicos, avaliar intervenções e integrar planejamento calor–saúde.
+  notas: Verdor espectral, cobertura vegetal, espaço público acessível e uso efetivo são dimensões diferentes.
+
+indicators:
+  - <<: *urban_common
+    codigo: AMB-VEG-01
+    titulo_completo: Índice de Vegetação por Diferença Normalizada residencial médio (NDVI)
+    titulo_resumido: Verdor residencial — NDVI
+    referencia_metodologica: NDVI em buffers residenciais, medida de exposição a verdor mais usada em estudos epidemiológicos de espaços verdes.
+    conceito: Média do NDVI dos pixels válidos dentro de um buffer em torno do endereço, ponto ou unidade residencial durante a janela temporal definida.
+    objetivo: Representar densidade de vegetação fotossinteticamente ativa no entorno residencial de maneira reprodutível.
+    interpretacao: Valores maiores indicam maior verdor espectral no produto e período. NDVI varia teoricamente de −1 a 1; não mede acesso, qualidade, espécie, sombra ou uso.
+    usos: [Estudos de mortalidade e doenças crônicas., Avaliação de desigualdade de verdor., Análise de modificação de efeitos de calor e poluição.]
+    limitacoes: [Satura em vegetação densa., É afetado por nuvens, solo e fenologia., Buffer residencial ignora mobilidade., Água e superfícies não vegetadas alteram média., Tamanho do buffer muda exposição.]
+    metodo_calculo: Obter reflectância corrigida no vermelho e infravermelho próximo, mascarar nuvens e pixels inválidos, calcular NDVI, compor a janela temporal e obter média dos pixels em buffer previamente definido.
+    formula_calculo: 'NDVI=\frac{\rho_{NIR}-\rho_{red}}{\rho_{NIR}+\rho_{red}};\quad \overline{NDVI}_b=\frac{\sum_{g\in b}w_gNDVI_g}{\sum_{g\in b}w_g}'
+    numerador: Na fórmula espectral, diferença entre reflectância no infravermelho próximo e vermelho; no buffer, soma ponderada dos NDVI válidos.
+    denominador: Na fórmula espectral, soma das reflectâncias; no buffer, soma dos pesos ou áreas válidas.
+    unidade_medida: Adimensional.
+    variaveis_categorias_analise: Reflectância; NDVI; buffer; endereço; estação; ano; grupo populacional.
+    granularidade: Pixel de entrada e valor por ponto ou unidade.
+    resolucao_espacial_original: A do produto; 30 m em produtos multiespectrais Landsat usuais.
+    resolucao_temporal: Cena e composição sazonal ou anual.
+    periodo_referencia: Janela correspondente à exposição epidemiológica.
+    limiar_referencia: Não há ponto de corte sanitário universal; analisar continuamente e por quantis pré-especificados.
+    fontes_dados:
+      - id: landsat
+        papel: reflectância multiespectral para NDVI
+      - id: ibge
+        papel: endereços agregados, setores e população quando aplicável
+    cobertura_geografica: Global no Landsat; análise depende de nuvens e geocodificação.
+    periodo_disponivel: Conforme missão e produto selecionados.
+    periodicidade_atualizacao: Sazonal ou anual.
+    forma_acesso: Produtos Landsat de reflectância de superfície.
+    url_persistente: https://doi.org/10.1016/S2542-5196(19)30215-3
+    formatos: GeoTIFF e tabela por unidade.
+    disponibilidade: [requer processamento de sensoriamento remoto]
+    necessidade_processamento: Correção/seleção do produto, máscara, composição, buffers, ponderação e controle de geocodificação.
+    analise_descritiva: Mostrar distribuição por buffers alternativos, grupos sociais, sazonalidade e mapa sem divulgar endereços individuais.
+    referencias: ["[@rojasrueda2019greenspace]", "[@who2016greenspace]"]
+
+  - <<: *urban_common
+    codigo: AMB-URB-01
+    titulo_completo: Parcela média da área construída da cidade que corresponde a espaço aberto para uso público (ODS 11.7.1)
+    titulo_resumido: Espaço público aberto — ODS 11.7.1
+    referencia_metodologica: Indicador ODS 11.7.1 sob custódia do Programa das Nações Unidas para os Assentamentos Humanos.
+    conceito: Percentual da área construída urbana destinado a espaços abertos de uso público, complementado pela avaliação do acesso populacional e desagregações.
+    objetivo: Monitorar oferta e acesso universal a espaços públicos abertos, seguros, inclusivos e acessíveis.
+    interpretacao: Valor maior indica maior parcela territorial classificada como espaço aberto público. Não informa automaticamente qualidade, vegetação, segurança, acessibilidade ou uso.
+    usos: [Monitorar ODS 11.7.1., Comparar cidades com método harmonizado., Planejar oferta e distribuição de espaços públicos.]
+    limitacoes: [Delimitação da área construída afeta denominador., Propriedade pública não garante acesso., Espaço aberto pode não ser verde., Cadastro incompleto e imagem defasada geram erro.]
+    metodo_calculo: Delimitar área construída urbana segundo o metadado, mapear espaços abertos de uso público e calcular a razão de áreas; calcular separadamente a população com acesso em distância caminhável conforme o protocolo ODS.
+    formula_calculo: 'ODS11.7.1_{área}=100\times\frac{A_{espaço\ aberto\ público}}{A_{área\ construída\ urbana}}'
+    numerador: Área de espaços abertos qualificados para uso público.
+    denominador: Área construída urbana segundo a delimitação ODS.
+    unidade_medida: Percentual (%).
+    variaveis_categorias_analise: Área construída; espaço público; tipo; acessibilidade; população; sexo; idade; deficiência.
+    granularidade: Polígono de espaço e zona urbana.
+    resolucao_espacial_original: A dos cadastros e imagens usados na delimitação.
+    resolucao_temporal: Atualização periódica por edição.
+    periodo_referencia: Ano dos cadastros, imagens e população.
+    limiar_referencia: Não há limiar sanitário universal; monitorar nível, distribuição e acesso.
+    fontes_dados:
+      - id: mapbiomas
+        papel: apoio à delimitação de cobertura e área urbana, com validação cadastral
+      - id: ibge
+        papel: limites, população e desagregações
+    cobertura_geografica: Cidades com dados suficientes; estimativa oficial deve seguir o metadado ODS.
+    periodo_disponivel: Conforme cadastros e imagens.
+    periodicidade_atualizacao: Por ciclo de monitoramento ODS ou planejamento urbano.
+    forma_acesso: Dados municipais, IBGE, sensoriamento e plataforma ODS.
+    url_persistente: https://unstats.un.org/sdgs/metadata/files/Metadata-11-07-01.pdf
+    formatos: Vetores geoespaciais, tabelas e relatórios.
+    disponibilidade: [requer cadastro e processamento geoespacial]
+    necessidade_processamento: Delimitar área urbana, validar espaços públicos, calcular áreas e acesso e documentar omissões.
+    analise_descritiva: Mostrar parcela total, tipos de espaço, acesso por grupo e distribuição intraurbana.
+    referencias: ["[@un2026sdg1171]", "[@who2016greenspace]"]
+
+  - <<: *urban_common
+    codigo: AMB-URB-02
+    titulo_completo: Proporção da população urbana residente a até 300 metros de espaço verde acessível com pelo menos 1 hectare
+    titulo_resumido: Acesso próximo a espaço verde
+    referencia_metodologica: Indicador de acessibilidade a espaço verde detalhado no relatório da OMS Europa sobre espaços verdes urbanos e saúde.
+    conceito: Percentual da população urbana cujo local de residência está dentro de uma área de acesso de 300 m à entrada ou limite acessível de espaço verde com área mínima de 1 ha.
+    objetivo: Medir proximidade residencial a espaço verde de porte mínimo por critério reproduzível.
+    interpretacao: Valor maior indica maior cobertura potencial de proximidade. Não comprova acesso real, qualidade, segurança, gratuidade ou uso.
+    usos: [Planejar espaços verdes e rotas., Monitorar desigualdades territoriais., Avaliar intervenções urbanas relacionadas à saúde.]
+    limitacoes: [Distância linear pode divergir da rede caminhável., Entradas e barreiras podem estar ausentes., Limiar de 300 m/1 ha é convenção de planejamento., População residencial não inclui mobilidade.]
+    metodo_calculo: Selecionar espaços verdes de pelo menos 1 ha com acesso público, construir área de serviço de 300 m pela rede caminhável — ou buffer linear claramente identificado —, intersectar com população e dividir a população coberta pela urbana total.
+    formula_calculo: 'P_{verde300}=100\times\frac{\sum_g Pop_g I(g\ acessa\ verde_{\geq1ha}\ em\leq300m)}{\sum_g Pop_g}'
+    numerador: População urbana em unidades cobertas pela área de acesso.
+    denominador: População urbana total na área analisada.
+    unidade_medida: Percentual (%).
+    variaveis_categorias_analise: Espaço verde; área; acesso; rede; distância; população; idade; renda; raça/cor; deficiência.
+    granularidade: Entrada ou polígono de espaço, segmento de rede e célula/setor populacional.
+    resolucao_espacial_original: A dos cadastros e da superfície populacional.
+    resolucao_temporal: Atualização periódica.
+    periodo_referencia: Mesmo ano ou anos compatíveis para espaço, rede e população.
+    limiar_referencia: Espaço verde acessível ≥1 ha e distância ≤300 m, segundo a aplicação metodológica declarada.
+    fontes_dados:
+      - id: mapbiomas
+        papel: apoio à identificação de cobertura vegetal
+      - id: landsat
+        papel: verificação de vegetação e atualização
+      - id: ibge
+        papel: população, malha e rede/endereço quando disponíveis
+    cobertura_geografica: Áreas urbanas com cadastro e população detalhados.
+    periodo_disponivel: Conforme fontes locais.
+    periodicidade_atualizacao: Anual ou por revisão do plano urbano.
+    forma_acesso: Cadastros municipais, dados de cobertura e população.
+    url_persistente: https://www.who.int/europe/publications/i/item/WHO-EURO-2016-3352-43111-60341
+    formatos: Vetor geoespacial, raster populacional e tabela.
+    disponibilidade: [requer processamento de rede e população]
+    necessidade_processamento: Validar espaços e entradas, construir rede/área, interpolar população e testar sensibilidades.
+    analise_descritiva: Mostrar cobertura total e por grupos, bairros sem acesso, distância média e sensibilidade a limiar e método.
+    referencias: ["[@who2016greenspace]"]
+
+  - <<: *urban_common
+    codigo: AMB-URB-03
+    titulo_completo: Intensidade da ilha de calor urbana de superfície (SUHII)
+    titulo_resumido: Ilha de calor de superfície — SUHII
+    referencia_metodologica: Índice de ilha de calor baseado em temperatura radiométrica de superfície e cobertura da terra, conforme Jin.
+    conceito: Diferença entre temperatura média da superfície na área urbana e temperatura média da superfície em área não urbana de referência comparável, na mesma aquisição.
+    objetivo: Quantificar o contraste térmico de superfície associado à urbanização e mapear heterogeneidade territorial.
+    interpretacao: Valor positivo indica superfície urbana mais quente que a referência naquele sensor, data e horário. Não equivale à ilha de calor do ar nem à exposição térmica humana.
+    usos: [Avaliar materiais e cobertura urbana., Priorizar mitigação e arborização., Contextualizar risco de calor com população e dados do ar.]
+    limitacoes: [Referência rural determina o resultado., Temperatura da superfície difere da temperatura do ar., Nuvens e horário limitam amostragem., Emissividade e resolução introduzem erro., Uma cena não representa noite ou estação.]
+    metodo_calculo: Selecionar produto validado de temperatura da superfície, mascarar pixels inválidos, delimitar área urbana e referência não urbana com altitude, água, topografia e cobertura controladas e subtrair as médias ponderadas da mesma aquisição.
+    formula_calculo: 'SUHII_t=\overline{LST}_{urb,t}-\overline{LST}_{ref,t}'
+    numerador: Não se aplica.
+    denominador: Não se aplica.
+    unidade_medida: Grau Celsius (°C) ou kelvin de diferença.
+    variaveis_categorias_analise: LST; urbano; referência; sensor; horário; estação; cobertura; população.
+    granularidade: Pixel e resumo urbano por aquisição.
+    resolucao_espacial_original: A do produto térmico; declarar resolução nativa e reamostrada.
+    resolucao_temporal: Aquisição instantânea e composições sazonais.
+    periodo_referencia: Mesmas datas e horários para urbano e referência.
+    limiar_referencia: Zero indica ausência de contraste médio; não há limiar sanitário universal.
+    fontes_dados:
+      - id: landsat
+        papel: produto de temperatura da superfície e cobertura
+      - id: mapbiomas
+        papel: classificação urbano/não urbano e controle de cobertura
+      - id: ibge
+        papel: limite urbano, altitude/cartografia e população para análise de exposição
+    cobertura_geografica: Cidades com cenas válidas e referência comparável.
+    periodo_disponivel: Conforme missão e produto.
+    periodicidade_atualizacao: Sazonal ou anual.
+    forma_acesso: Produtos de temperatura da superfície e cobertura versionados.
+    url_persistente: https://doi.org/10.1175/JCLI-D-11-00509.1
+    formatos: Raster e tabela.
+    disponibilidade: [requer processamento térmico e territorial]
+    necessidade_processamento: Máscara, emissividade/produto, delimitação urbana e referência, estratificação temporal e ponderação.
+    analise_descritiva: Mostrar distribuição urbana, contraste médio, dia/noite quando houver, estações, população em pontos quentes e sensibilidade à referência.
+    referencias: ["[@jin2012uhi]", "[@who2016greenspace]"]

@@ -1,0 +1,120 @@
+## Ficha do indicador: Magnitude ou intensidade média das ondas de calor (HWM/HWI) {#sec-cli-cal-07}
+
+::: {.indicator-card}
+**Código:** CLI-CAL-07 \
+**Título resumido:** Magnitude média — HWM \
+**Tema:** Temperatura e condições térmicas \
+**Dimensão:** perigo; exposição \
+**Disponibilidade:** [requer processamento climatológico]{.availability}
+:::
+
+### Identificação e fundamento
+
+**Indicador consolidado em.** Estrutura multiaspecto de ondas de calor proposta por Perkins e Alexander (2013), aplicada a episódios definidos por temperatura máxima, temperatura mínima ou EHF.
+
+### Conceito
+
+Média da medida térmica ou da magnitude normalizada nos dias pertencentes às ondas de calor, segundo a estrutura e a definição adotadas.
+
+### Objetivo
+
+Quantificar o nível médio do calor durante os episódios.
+
+### Interpretação
+
+Valor maior indica maior magnitude média segundo a escala escolhida. Temperatura absoluta, excesso ao limiar e magnitude normalizada não são intercambiáveis.
+
+### Usos
+
+- Comparar intensidade média de temporadas.
+- Caracterizar exposição térmica nos dias de onda.
+- Relacionar gradiente de intensidade a desfechos.
+
+### Limitações
+
+- O nome HWM/HWI é usado com fórmulas distintas.
+- A média atenua picos.
+- Unidade depende da medida de magnitude.
+
+### Fontes de dados
+
+- Instituto Nacional de Meteorologia — observações diárias de temperatura em estação ([cadastro](../../backmatter/indice-fontes.qmd#inmet))
+- ERA5-Land — reanálise em grade quando validada para a finalidade ([cadastro](../../backmatter/indice-fontes.qmd#era5-land))
+
+### Método de cálculo
+
+Definir a magnitude diária — temperatura, excesso ao limiar, EHF ou escala normalizada — e calcular a média em todos os dias participantes, mantendo a especificação original.
+
+$$
+HWM_j = \frac{1}{HWF_j}\sum_{d \in HW_j} M_d
+$$
+
+::: {.indicator-card}
+**Numerador.** Soma das magnitudes diárias nos dias de onda.
+
+**Denominador.** Número total de dias em ondas (HWF).
+
+**Unidade de medida.** A da magnitude diária; frequentemente °C, °C acima do limiar ou unidade normalizada.
+
+**Variáveis e categorias de análise.** Definição térmica; estação quente; local; estação meteorológica ou célula; faixa etária e outros estratos apenas quando combinados com dados populacionais ou de saúde.
+
+**Granularidade.** Estação ou célula de grade; sínteses territoriais exigem regra explícita de agregação.
+
+**Periodicidade de atualização.** Sazonal ou anual para monitoramento; versões operacionais podem ser atualizadas diariamente com previsão, sob protocolo distinto.
+
+**Responsabilidade gerencial.** Serviço meteorológico ou climático produtor e instituição de saúde usuária devem pactuar definição, calendário, atualização e interpretação.
+
+**Notas.** A estrutura multiaspecto separa propriedades que não devem ser usadas como sinônimos. A definição do episódio precede o cálculo de qualquer aspecto.
+
+**Análise descritiva do indicador.** Declarar a variante de HWM/HWI, apresentar distribuição diária e nunca comparar unidades diferentes.
+
+:::
+
+### Campos complementares para clima, ambiente e saúde
+
+::: {.indicator-card}
+**Unidade territorial.** Estação meteorológica, célula de grade ou território derivado.
+
+**Resolução espacial original.** A da fonte meteorológica; não atribuir automaticamente um ponto a todo o município.
+
+**Resolução temporal.** Entrada diária; saída por estação quente ou ano, preservando o calendário do hemisfério e a regra para episódios que cruzam limites.
+
+**Período de referência.** Período-base usado para estimar percentis e normalizar magnitudes; deve ser fixo e comum às comparações.
+
+**Limiar ou valor de referência.** Pelo menos três dias consecutivos acima do percentil 90 de TX, acima do percentil 90 de TN ou com EHF positivo, conforme a definição escolhida; não misturar definições numa mesma série.
+
+:::
+
+### Disponibilidade e acesso
+
+**Cobertura geográfica.** Determinada pela rede ou produto; a cobertura analítica depende também da completude da série.
+
+**Período disponível.** O da fonte selecionada, com extensão suficiente para período-base e análise.
+
+**Periodicidade de atualização.** Sazonal ou anual para monitoramento; versões operacionais podem ser atualizadas diariamente com previsão, sob protocolo distinto.
+
+**Forma de acesso.** Cálculo reprodutível sobre séries diárias de temperatura máxima, mínima ou média.
+
+**URL ou identificador persistente.** https://doi.org/10.1175/JCLI-D-12-00383.1
+
+**Formato dos arquivos.** Tabela diária por estação ou arquivo multidimensional por célula, com códigos de qualidade e metadados.
+
+**Necessidade de processamento.** Controle de qualidade, cálculo do limiar, detecção de sequências, identificação de eventos e síntese do aspecto específico.
+
+### Qualidade, comparação e saúde
+
+**Qualidade e incerteza.** Relatar fonte, falhas que criem ou interrompam sequências, período-base, algoritmo de percentil, definição da estação, viés de grades e sensibilidade à definição.
+
+**Possibilidade de comparação.** Exige a mesma variável térmica, limiar, período-base, duração mínima, estação, calendário, completude e tratamento de eventos de fronteira.
+
+**Relação com desfechos de saúde.** Ondas de calor estão associadas a aumento de morbidade, mortalidade e demanda de serviços. A magnitude da associação varia com definição, clima, população, desfecho e adaptação.
+
+**Defasagens temporais relevantes.** Para efeitos agudos, conservar datas dos eventos e analisar defasagens segundo o desfecho; a síntese sazonal não substitui a exposição diária.
+
+**Aplicação na gestão.** Caracterizar episódios, comparar temporadas, apoiar planejamento calor–saúde e avaliar retrospectivamente alertas e pressão assistencial.
+
+### Referências metodológicas
+
+- [@perkins2013heatwaves]
+- [@nawaro2023]
+- [@wmoWho2015heat]

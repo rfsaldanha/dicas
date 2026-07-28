@@ -136,7 +136,8 @@ if (length(unresolved_html)) {
 pdf_status <- system2("sh", c("scripts/check_pdf.sh", pdf))
 if (pdf_status != 0L) fail("O pré-voo do PDF falhou.")
 
+indicator_count <- length(list.files("indicators/includes", pattern = "\\.qmd$"))
 message(
-  "Projeto validado: 14 capítulos; 3 fichas; HTML com ",
+  "Projeto validado: 14 capítulos; ", indicator_count, " fichas; HTML com ",
   length(html_files), " páginas; links e âncoras íntegros; PDF presente."
 )

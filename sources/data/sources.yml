@@ -7,18 +7,18 @@
   recursos_relacionados: [Portal INMET — plataforma de acesso; estações e produtos meteorológicos — recursos a selecionar]
   temas: [temperatura, precipitação, eventos meteorológicos]
   variaveis: [temperatura do ar, precipitação, umidade, vento, pressão]
-  cobertura_geografica: Brasil
-  resolucao_espacial: Rede de estações; consultar metadados de cada estação.
-  resolucao_temporal: "TODO: verificar por produto."
-  periodo_disponivel: "TODO: verificar por produto."
-  atualizacao: "TODO: verificar por produto."
-  acesso: Portal, consultas e downloads.
+  cobertura_geografica: Brasil, segundo a distribuição e os períodos de operação das estações convencionais e automáticas.
+  resolucao_espacial: Ponto de estação; latitude, longitude, altitude, tipo e histórico devem ser obtidos no catálogo de estações.
+  resolucao_temporal: Horária nas estações automáticas; horários sinóticos, resumos diários e mensais em produtos convencionais e climatológicos.
+  periodo_disponivel: O banco digital contém informações diárias desde 1961; os arquivos anuais de estações automáticas são divulgados a partir de 2000, com início variável por estação.
+  atualizacao: Contínua no Banco de Dados Meteorológicos e operacional nos produtos de tempo; arquivos históricos são publicados e podem ser revistos.
+  acesso: Portal, Banco de Dados Meteorológicos, catálogo de estações e arquivos históricos anuais.
   url: https://portal.inmet.gov.br/
-  api: "TODO: verificar."
-  formatos: "TODO: verificar."
-  licenca: "TODO: verificar termos aplicáveis."
-  cadastro: "TODO: verificar por serviço."
-  custos: "TODO: verificar por serviço."
+  api: Não há uma API pública única documentada para todo o acervo; usar os mecanismos oficiais de consulta e download.
+  formatos: [CSV nos históricos de estações automáticas, tabelas e gráficos web, documentos e mapas]
+  licenca: Dados públicos federais; citar INMET, estação, produto, período e data de acesso e observar os termos apresentados no serviço utilizado.
+  cadastro: O BDMEP pode exigir credenciamento; arquivos históricos e visualizações do portal têm acesso público.
+  custos: Consulta e downloads públicos sem cobrança.
   limitacoes: Cobertura e continuidade variam entre estações; verificar controle de qualidade e mudanças instrumentais.
   ultima_verificacao: 2026-07-28
   indicadores: [CLI-TEM-01, CLI-CAL-01]
@@ -31,19 +31,19 @@
   descricao: Produtos e serviços de previsão do tempo, clima e modelagem numérica.
   recursos_relacionados: [Portal CPTEC — plataforma de acesso; serviço XML — API]
   temas: [tempo, clima, previsão]
-  variaveis: ["TODO: detalhar por produto."]
-  cobertura_geografica: "TODO: verificar por produto."
-  resolucao_espacial: "TODO: verificar por produto."
-  resolucao_temporal: "TODO: verificar por produto."
-  periodo_disponivel: "TODO: verificar por produto."
-  atualizacao: "TODO: verificar por produto."
+  variaveis: [condição do tempo, temperatura mínima e máxima, precipitação prevista, vento, umidade, índice ultravioleta, ondas]
+  cobertura_geografica: Municípios brasileiros e localidades adicionais nos serviços por cidade; outros domínios dependem do produto numérico.
+  resolucao_espacial: Localidade ou município nos serviços XML; grade e domínio específicos nos produtos de modelagem.
+  resolucao_temporal: Diária na previsão de sete dias e na estendida; outras frequências dependem do produto.
+  periodo_disponivel: Serviço operacional de previsão, sem compromisso de série histórica na interface XML.
+  atualizacao: Operacional; a previsão pode mudar entre rodadas e horários de consulta.
   acesso: Portal e serviços de dados.
   url: https://www.cptec.inpe.br/
   api: https://servicos.cptec.inpe.br/XML/
   formatos: [XML]
-  licenca: "TODO: verificar."
-  cadastro: "TODO: verificar."
-  custos: "TODO: verificar."
+  licenca: A página do serviço XML não declara licença específica; a reutilização deve reconhecer CPTEC/INPE e preservar data, rodada e produto.
+  cadastro: Não exigido para consultas públicas ao serviço XML.
+  custos: Acesso público sem cobrança.
   limitacoes: Previsões não devem ser tratadas como observações; registrar modelo, rodada e horizonte.
   ultima_verificacao: 2026-07-28
   indicadores: []
@@ -56,22 +56,22 @@
   descricao: Rede observacional e produtos voltados ao monitoramento e a alertas de riscos de desastres.
   recursos_relacionados: [Mapa interativo — painel; rede de pluviômetros — base observacional]
   temas: [precipitação, hidrologia, desastres]
-  variaveis: [precipitação, "TODO: detalhar demais redes."]
+  variaveis: [precipitação acumulada, nível de rios em estações hidrológicas, umidade do solo em redes específicas, localização e estado operacional]
   cobertura_geografica: Brasil; cobertura efetiva depende da rede.
   resolucao_espacial: Ponto de estação para pluviômetros.
   resolucao_temporal: Dez minutos para a descrição consultada dos pluviômetros automáticos.
-  periodo_disponivel: "TODO: verificar."
+  periodo_disponivel: Varia por estação desde sua instalação; a interface permite selecionar período e baixar a série disponível.
   atualizacao: Próxima do tempo real para pluviômetros automáticos; confirmar no uso.
   acesso: Mapa interativo e download.
   url: https://www2.cemaden.gov.br/mapainterativo/
-  api: "TODO: verificar."
-  formatos: "TODO: verificar no download."
-  licenca: "TODO: verificar."
-  cadastro: Download pode exigir confirmação de segurança; verificar.
-  custos: "TODO: verificar."
+  api: Não há API pública estável documentada na página do Mapa Interativo; o acesso oficial é por visualização e download.
+  formatos: [arquivo tabular de dados pluviométricos, gráficos web]
+  licenca: Uso público com citação obrigatória da Rede de Monitoramento de Desastres Naturais do Cemaden/MCTI.
+  cadastro: Não exigido; o download pode solicitar confirmação de segurança.
+  custos: Acesso público sem cobrança.
   limitacoes: A página consultada informa que os dados pluviométricos disponibilizados são brutos e em UTC.
   ultima_verificacao: 2026-07-28
-  indicadores: []
+  indicadores: [CLI-PRC-01, CLI-PRC-02, CLI-PRC-03, CLI-PRC-04, CLI-PRC-05, CLI-SEC-01]
 
 - id: cds
   tipo_registro: plataforma
@@ -81,19 +81,19 @@
   descricao: Catálogo e serviço de acesso a conjuntos de dados climáticos.
   recursos_relacionados: [Catálogo CDS — plataforma; conjuntos de dados — bases e produtos selecionados separadamente]
   temas: [clima, reanálise, projeção]
-  variaveis: ["TODO: detalhar por conjunto."]
-  cobertura_geografica: "TODO: verificar por conjunto."
-  resolucao_espacial: "TODO: verificar por conjunto."
-  resolucao_temporal: "TODO: verificar por conjunto."
-  periodo_disponivel: "TODO: verificar por conjunto."
-  atualizacao: "TODO: verificar por conjunto."
+  variaveis: [atmosfera, superfície terrestre, oceano, criosfera, índices climáticos, projeções e observações, conforme o conjunto]
+  cobertura_geografica: Global, regional ou local conforme o conjunto selecionado.
+  resolucao_espacial: Definida por conjunto; o catálogo reúne pontos, grades e agregações com resoluções diferentes.
+  resolucao_temporal: Definida por conjunto, de subdiária a climatológica.
+  periodo_disponivel: Definido por conjunto; reanálises, observações, previsões sazonais e projeções têm coberturas distintas.
+  atualizacao: Definida nos metadados de cada conjunto.
   acesso: Catálogo, download e API.
   url: https://cds.climate.copernicus.eu/
-  api: "TODO: documentar cliente e credenciais."
-  formatos: "TODO: verificar por conjunto."
-  licenca: "TODO: verificar por conjunto."
-  cadastro: "TODO: verificar."
-  custos: A página oficial consultada descreve acesso gratuito ao ERA5; confirmar termos do conjunto.
+  api: Climate Data Store API e catálogo STAC, conforme disponibilidade do conjunto.
+  formatos: [GRIB, NetCDF, CSV e outros formatos indicados pelo conjunto]
+  licenca: Cada conjunto declara sua licença; produtos Copernicus frequentemente usam licença Copernicus ou CC BY, que deve ser registrada no processamento.
+  cadastro: Conta e aceitação dos termos do conjunto podem ser exigidas para downloads e API.
+  custos: Consulta e conjuntos públicos sem cobrança; custos locais de processamento e armazenamento permanecem com o usuário.
   limitacoes: Observação, reanálise, previsão e projeção devem permanecer claramente diferenciadas.
   ultima_verificacao: 2026-07-28
   indicadores: []
@@ -106,22 +106,47 @@
   descricao: Reanálise de variáveis terrestres; não corresponde a observação direta de estação.
   recursos_relacionados: [ERA5-Land — produto de reanálise; Climate Data Store — plataforma de acesso]
   temas: [temperatura, precipitação, reanálise]
-  variaveis: ["TODO: selecionar e documentar as variáveis usadas."]
+  variaveis: [temperatura do ar a 2 m, temperatura do ponto de orvalho a 2 m, precipitação total, vento a 10 m, radiação, pressão, temperatura e umidade do solo, escoamento]
   cobertura_geografica: Global.
-  resolucao_espacial: "TODO: confirmar na versão utilizada."
+  resolucao_espacial: Grade regular de 0,1° por 0,1°; resolução nativa aproximada de 9 km.
   resolucao_temporal: Horária no conjunto consultado.
   periodo_disponivel: Desde 1950 até o presente, conforme o catálogo consultado; verificar latência e versão.
-  atualizacao: "TODO: verificar no catálogo."
+  atualizacao: Diária.
   acesso: Climate Data Store.
   url: https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land
-  api: Climate Data Store API; configuração pendente de documentação.
-  formatos: "TODO: verificar no pedido."
-  licenca: "TODO: verificar os termos do conjunto."
-  cadastro: "TODO: verificar requisitos atuais."
+  api: Climate Data Store API; o catálogo também publica metadados STAC.
+  formatos: [GRIB no produto em grade, NetCDF e CSV no produto de séries por ponto]
+  licenca: CC BY para a versão do conjunto consultada; registrar DOI 10.24381/cds.e2161bac e a data de extração.
+  cadastro: Conta no Climate Data Store e aceitação dos termos podem ser necessárias para solicitar arquivos.
   custos: A documentação consultada descreve acesso gratuito ao ERA5.
   limitacoes: Reanálise modelada; documentar viés, versão, agregação e diferença em relação a estações.
   ultima_verificacao: 2026-07-28
   indicadores: [CLI-TEM-01, CLI-CAL-01]
+
+- id: era5-heat
+  tipo_registro: produto
+  nome: ERA5-HEAT — índices de conforto térmico derivados do ERA5
+  sigla: ERA5-HEAT
+  instituicao: Copernicus Climate Change Service
+  descricao: Produto global horário de temperatura radiante média e Índice Térmico Universal do Clima, calculado com variáveis do ERA5 e modelos de termorregulação e vestimenta.
+  recursos_relacionados: [Produto em grade — Thermal comfort indices derived from ERA5 reanalysis; produto de séries temporais — extração por ponto ou pequena área]
+  temas: [temperatura, estresse térmico, biometeorologia, reanálise]
+  variaveis: [temperatura radiante média, UTCI]
+  cobertura_geografica: Global, exceto Antártica no produto de séries temporais, de 90°N a 60°S.
+  resolucao_espacial: Grade regular de 0,25°.
+  resolucao_temporal: Horária; o catálogo também oferece estatísticas agregadas no produto em grade.
+  periodo_disponivel: Desde janeiro de 1940 até próximo do presente.
+  atualizacao: Extensão regular conforme disponibilidade do ERA5; o produto de séries temporais informa atualização diária com cerca de cinco dias de latência.
+  acesso: Climate Data Store, por interface e API.
+  url: https://cds.climate.copernicus.eu/datasets/derived-utci-historical
+  api: Climate Data Store API.
+  formatos: [NetCDF, CSV no produto de séries temporais]
+  licenca: Licença de produtos Copernicus indicada no conjunto; registrar a versão aplicável.
+  cadastro: Conta do Climate Data Store e aceitação dos termos podem ser necessárias para download.
+  custos: Acesso público sem cobrança pelo conjunto.
+  limitacoes: Reanálise modelada em grade; não representa sombra, materiais e ventilação em microescala urbana ou ocupacional; validar para a aplicação local.
+  ultima_verificacao: 2026-07-28
+  indicadores: [CLI-EST-04]
 
 - id: cams
   tipo_registro: serviço
@@ -131,19 +156,19 @@
   descricao: Serviço de dados e produtos sobre composição atmosférica.
   recursos_relacionados: [Catálogo CAMS — plataforma de acesso; conjuntos atmosféricos — bases e produtos a selecionar]
   temas: [qualidade do ar, composição atmosférica, fumaça]
-  variaveis: ["TODO: detalhar por conjunto e produto."]
-  cobertura_geografica: "TODO: verificar por conjunto."
-  resolucao_espacial: "TODO: verificar por conjunto."
-  resolucao_temporal: "TODO: verificar por conjunto."
-  periodo_disponivel: "TODO: verificar por conjunto."
-  atualizacao: "TODO: verificar por conjunto."
+  variaveis: [PM2,5, PM10, ozônio, dióxido de nitrogênio, monóxido de carbono, dióxido de enxofre, poeira, sal marinho, carbono negro, matéria orgânica e variáveis meteorológicas]
+  cobertura_geografica: Global nos produtos globais; produtos regionais possuem domínios próprios.
+  resolucao_espacial: 0,4° por 0,4° na previsão global consultada; reanálises e produtos regionais têm outras grades.
+  resolucao_temporal: Horária em níveis únicos e a cada três horas em múltiplos níveis na previsão global.
+  periodo_disponivel: Previsão global desde 2015; a reanálise global coerente começa em 2003.
+  atualizacao: Duas rodadas diárias para a previsão global; o sistema recebe atualizações científicas aproximadamente anuais.
   acesso: Catálogo e serviços Copernicus.
   url: https://atmosphere.copernicus.eu/data
-  api: "TODO: verificar por conjunto."
-  formatos: "TODO: verificar."
-  licenca: "TODO: verificar."
-  cadastro: "TODO: verificar."
-  custos: "TODO: verificar."
+  api: Atmosphere Data Store API e catálogo STAC para produtos compatíveis.
+  formatos: [GRIB, NetCDF por conversão]
+  licenca: CC BY no produto de previsão global consultado; verificar e registrar a licença do conjunto efetivamente utilizado.
+  cadastro: Conta e aceitação de termos podem ser exigidas para download e API.
+  custos: Acesso público sem cobrança aos conjuntos; processamento local pode ser oneroso.
   limitacoes: Produtos modelados não equivalem a monitores de superfície; validar o produto para a aplicação.
   ultima_verificacao: 2026-07-28
   indicadores: [AMB-AR-01]
@@ -156,22 +181,22 @@
   descricao: Plataforma de mapas e estatísticas de cobertura e uso da terra e outros temas ambientais.
   recursos_relacionados: [Coleções MapBiomas — produtos versionados; página de downloads — plataforma de acesso]
   temas: [uso da terra, cobertura da terra, fogo, água]
-  variaveis: ["TODO: detalhar por coleção."]
+  variaveis: [classes de cobertura e uso da terra, área por classe, transições, água, área queimada e temas derivados, conforme a coleção]
   cobertura_geografica: Brasil para as coleções nacionais.
-  resolucao_espacial: "TODO: registrar a coleção escolhida; há produtos com resoluções distintas."
-  resolucao_temporal: "TODO: verificar por produto."
-  periodo_disponivel: "TODO: verificar por coleção."
-  atualizacao: Por coleção; verificar calendário.
+  resolucao_espacial: 30 m na Coleção 10 de cobertura e uso da terra; a Coleção 3 beta de maior detalhe usa 10 m; estatísticas são agregadas por território.
+  resolucao_temporal: Mapas anuais de cobertura e uso; produtos de fogo, água e monitores possuem periodicidades próprias.
+  periodo_disponivel: 1985 a 2024 na Coleção 10/10.1 de cobertura e uso da terra; outras coleções têm períodos documentados separadamente.
+  atualizacao: Por coleção versionada; a Coleção 10.1 e suas estatísticas foram atualizadas em 2026.
   acesso: Plataforma e página de downloads.
   url: https://brasil.mapbiomas.org/downloads/
-  api: "TODO: verificar."
-  formatos: "TODO: verificar por produto."
-  licenca: "TODO: verificar termos da coleção."
-  cadastro: "TODO: verificar."
-  custos: "TODO: verificar."
+  api: Assets públicos no Google Earth Engine e links diretos; não há API única para todos os produtos.
+  formatos: [GeoTIFF, CSV, XLSX, vetores compactados e assets do Google Earth Engine]
+  licenca: Creative Commons CC BY, com citação da iniciativa, coleção, versão, data e ligação de acesso.
+  cadastro: Downloads diretos e estatísticas não exigem cadastro; Google Earth Engine exige conta própria.
+  custos: Dados públicos, abertos e gratuitos.
   limitacoes: Classes, método, resolução e série podem mudar entre coleções; não combinar versões sem harmonização.
   ultima_verificacao: 2026-07-28
-  indicadores: []
+  indicadores: [AMB-VEG-01, AMB-URB-02, AMB-URB-03]
 
 - id: queimadas-inpe
   tipo_registro: programa
@@ -181,22 +206,22 @@
   descricao: Monitoramento por satélite de fogo ativo, risco, extensão e severidade do fogo na vegetação.
   recursos_relacionados: [Portal do Programa Queimadas — plataforma; focos e demais produtos — bases e produtos a selecionar]
   temas: [queimadas, incêndios florestais, fumaça]
-  variaveis: [focos de fogo ativo, risco de fogo, "TODO: detalhar por produto."]
-  cobertura_geografica: "TODO: verificar por produto."
-  resolucao_espacial: "TODO: verificar por satélite e produto."
-  resolucao_temporal: "TODO: verificar por produto."
-  periodo_disponivel: "TODO: verificar por produto."
-  atualizacao: A página oficial consultada informa atualização a cada três horas para dados de satélite; confirmar produto.
+  variaveis: [coordenadas e horário de focos de fogo ativo, satélite e sensor, município e bioma, risco de fogo, área queimada, extensão e severidade]
+  cobertura_geografica: Brasil e América do Sul para arquivos de focos; outros domínios dependem do produto.
+  resolucao_espacial: Coordenada do pixel detectado, com tamanho dependente do sensor; área queimada possui produtos em grade, inclusive produto diário de 30 m para o Cerrado.
+  resolucao_temporal: Passagem do satélite para focos; arquivos de 24 e 48 horas e produtos diários ou mensais conforme o tema.
+  periodo_disponivel: Séries variam por satélite e produto; a base histórica deve ser filtrada com um satélite de referência consistente.
+  atualizacao: Arquivos de focos em tempo quase real podem ser atualizados a cada dez minutos; a página de serviço informa atualização periódica de até três horas para produtos regulares.
   acesso: Portal de serviço, consultas e downloads.
   url: https://www.gov.br/pt-br/servicos/obter-dados-de-queimadas
-  api: "TODO: verificar."
-  formatos: "TODO: verificar."
-  licenca: "TODO: verificar."
-  cadastro: Alguns produtos ou alertas podem exigir cadastro; verificar.
-  custos: A página institucional consultada informa produtos regulares sem custo; verificar termos.
+  api: Serviços OGC WMS e WFS e acesso HTTP a arquivos de focos; consulta histórica pela base do Programa Queimadas.
+  formatos: [CSV, KML, GeoTIFF e serviços WMS/WFS]
+  licenca: Dados públicos do INPE; citar Programa Queimadas, produto, satélite, período e data de acesso e observar os termos da interface.
+  cadastro: Consulta e arquivos recentes são públicos; solicitações extensas podem pedir endereço eletrônico para entrega.
+  custos: Produtos regulares disponibilizados sem cobrança.
   limitacoes: Foco detectado por satélite não equivale a incêndio individual nem diretamente a área queimada.
   ultima_verificacao: 2026-07-28
-  indicadores: []
+  indicadores: [AMB-FUM-01]
 
 - id: vigiagua
   tipo_registro: programa
@@ -208,20 +233,20 @@
   temas: [água, qualidade da água, vigilância ambiental]
   variaveis: [parâmetros de qualidade da água, formas de abastecimento]
   cobertura_geografica: Municípios brasileiros, condicionada ao registro.
-  resolucao_espacial: "TODO: verificar por conjunto."
-  resolucao_temporal: "TODO: verificar por painel ou conjunto."
-  periodo_disponivel: "TODO: verificar por conjunto."
-  atualizacao: "TODO: verificar por conjunto."
+  resolucao_espacial: Município, forma de abastecimento, ponto de captação e ponto ou amostra, com campos e regras de divulgação próprios de cada conjunto.
+  resolucao_temporal: Cadastro, registro mensal de controle e registro por amostra da vigilância, conforme o conjunto.
+  periodo_disponivel: Conjuntos públicos anuais de parâmetros básicos desde 2015 no portal consultado.
+  atualizacao: Arquivos anuais e painéis atualizados segundo o fluxo do Sisagua; registrar ano e data de extração.
   acesso: Painéis e Portal de Dados Abertos do SUS.
   url: https://www.gov.br/saude/pt-br/composicao/seidigi/demas/situacao-de-saude/vigiagua
-  api: "TODO: verificar."
-  formatos: "TODO: verificar por conjunto."
-  licenca: "TODO: verificar por conjunto."
+  api: API dos portais de Dados Abertos do SUS e do Governo Federal para conjuntos publicados.
+  formatos: [CSV, JSON, XML e API, acompanhados por dicionários]
+  licenca: Licença e termos informados no registro de cada conjunto do Portal de Dados Abertos do SUS.
   cadastro: Consulta pública; verificar requisitos para operação do sistema.
-  custos: "TODO: verificar."
+  custos: Consulta, API e downloads públicos sem cobrança.
   limitacoes: A completude depende da alimentação pelos responsáveis e pelas equipes de vigilância.
   ultima_verificacao: 2026-07-28
-  indicadores: []
+  indicadores: [SAN-AGU-02, SAN-AGU-03, SAN-AGU-04]
 
 - id: sinisa
   tipo_registro: sistema de informação
@@ -231,22 +256,22 @@
   descricao: Sistema instituído para coletar, sistematizar e disponibilizar dados e indicadores de saneamento básico.
   recursos_relacionados: [Módulos do SINISA — bases e produtos a selecionar; portal institucional — plataforma de acesso]
   temas: [saneamento, água, esgoto, resíduos, drenagem]
-  variaveis: ["TODO: detalhar por módulo."]
+  variaveis: [prestadores e reguladores, atendimento, infraestrutura, volumes, qualidade, perdas, custos, receitas, resíduos sólidos, drenagem e planejamento municipal]
   cobertura_geografica: Brasil.
-  resolucao_espacial: "TODO: verificar por módulo."
-  resolucao_temporal: "TODO: verificar por módulo."
-  periodo_disponivel: "TODO: verificar a transição SNIS–SINISA."
-  atualizacao: "TODO: verificar por módulo."
-  acesso: Portal institucional.
+  resolucao_espacial: Município e prestador local ou regional, conforme o módulo e a planilha.
+  resolucao_temporal: Ano de referência.
+  periodo_disponivel: Primeira coleta SINISA em 2024 com ano de referência 2023; o SNIS anterior possui séries desde 1995 para água e esgoto, 2002 para resíduos e 2015 para drenagem.
+  atualizacao: Coleta e divulgação anuais, com retificações versionadas.
+  acesso: Relatórios, planilhas, glossários e arquivos públicos no portal institucional.
   url: https://www.gov.br/cidades/pt-br/acesso-a-informacao/acoes-e-programas/saneamento/snis/sinisa
-  api: "TODO: verificar."
-  formatos: "TODO: verificar."
-  licenca: "TODO: verificar."
-  cadastro: "TODO: verificar."
-  custos: "TODO: verificar."
+  api: Não há API pública única documentada; usar planilhas e produtos oficiais versionados.
+  formatos: [XLSX, ZIP, PDF e painéis]
+  licenca: Conteúdo do portal sob Creative Commons Atribuição-SemDerivações 3.0 Não Adaptada; arquivos podem declarar termos próprios.
+  cadastro: Não exigido para resultados públicos; prestadores e titulares usam área autenticada na coleta.
+  custos: Consulta e downloads públicos sem cobrança.
   limitacoes: Documentar a transição entre sistemas e não combinar séries sem avaliar mudanças conceituais.
   ultima_verificacao: 2026-07-28
-  indicadores: []
+  indicadores: [SAN-AGU-01, SAN-ESG-01]
 
 - id: s2id
   tipo_registro: sistema de informação
@@ -260,18 +285,18 @@
   cobertura_geografica: Brasil.
   resolucao_espacial: Município para parte dos registros; verificar cada relatório.
   resolucao_temporal: Por ocorrência e período de relatório.
-  periodo_disponivel: "TODO: verificar por produto."
-  atualizacao: "TODO: verificar."
-  acesso: Portal, relatórios e área autenticada.
-  url: https://www.gov.br/mdr/pt-br/assuntos/protecao-e-defesa-civil/sistema-integrado-de-informacoes-sobre-desastres/s2id-1
-  api: "TODO: verificar."
-  formatos: "TODO: verificar."
-  licenca: "TODO: verificar."
+  periodo_disponivel: O Atlas Digital consolida registros municipais de 1991 a 2025 na edição consultada; processos operacionais do S2iD seguem calendário próprio.
+  atualizacao: Anual no Atlas Digital após tratamento dos registros, além do fluxo operacional contínuo do S2iD.
+  acesso: Atlas Digital aberto com mapa, painel, base completa e manual; área autenticada para funções operacionais do S2iD.
+  url: https://atlasdigital.mdr.gov.br/
+  api: Não há API pública documentada; a base completa pode ser baixada.
+  formatos: [XLSX, CSV, PDF, tabelas e mapas web]
+  licenca: Dados oficiais de acesso público; citar Sedec/MIDR, Atlas Digital, edição, período e data de acesso.
   cadastro: Necessário para funções operacionais; relatórios públicos estão disponíveis.
-  custos: "TODO: verificar."
+  custos: Atlas, relatórios e base pública gratuitos e sem login.
   limitacoes: Registros administrativos dependem de notificação e procedimentos; ausência de registro não implica ausência de evento.
   ultima_verificacao: 2026-07-28
-  indicadores: []
+  indicadores: [DES-HUM-01, DES-HUM-02, DES-SAU-01, DES-SAU-02]
 
 - id: ibge
   tipo_registro: instituição
@@ -281,7 +306,7 @@
   descricao: Provedor oficial de informações estatísticas, geográficas e ambientais do Brasil.
   recursos_relacionados: [SIDRA — plataforma e API; pesquisas e produtos geocientíficos — bases e produtos a selecionar]
   temas: [população, território, ambiente, vulnerabilidade]
-  variaveis: ["TODO: detalhar por pesquisa ou produto."]
+  variaveis: [população, idade, sexo, cor ou raça, domicílio, habitação, renda, trabalho, território, limites administrativos, endereços, uso e cobertura da terra, conforme o produto]
   cobertura_geografica: Brasil.
   resolucao_espacial: Varia por pesquisa e produto geocientífico.
   resolucao_temporal: Varia por pesquisa e produto.
@@ -289,14 +314,14 @@
   atualizacao: Varia por pesquisa e produto.
   acesso: Portal, downloads, SIDRA e serviços geocientíficos.
   url: https://www.ibge.gov.br/
-  api: "TODO: documentar por serviço."
-  formatos: "TODO: verificar por produto."
-  licenca: "TODO: verificar por produto."
-  cadastro: "TODO: verificar por serviço."
-  custos: "TODO: verificar."
+  api: API SIDRA para tabelas estatísticas, API de localidades e serviços geocientíficos específicos.
+  formatos: [CSV, XLSX, JSON, shapefile, GeoPackage, GeoTIFF, PDF e outros formatos por produto]
+  licenca: Dados oficiais abertos segundo a política do IBGE; citar pesquisa ou produto, edição, tabela, data e endereço de acesso.
+  cadastro: Não exigido para SIDRA, APIs e downloads públicos usuais; microdados restritos podem ter regras próprias.
+  custos: Consulta, APIs e downloads públicos sem cobrança.
   limitacoes: Registrar pesquisa, edição, data de referência, recorte territorial e revisão.
   ultima_verificacao: 2026-07-28
-  indicadores: []
+  indicadores: [CLI-EXP-02, AMB-FUM-01, AMB-URB-01, AMB-URB-02, AMB-URB-03, DES-HUM-01, DES-HUM-02, EFE-MOR-01, EFE-MOR-02, EFE-MOB-01, EFE-EXC-01, EFE-EXC-02, EXP-VUL-01, EXP-HAB-01, SAN-AGU-01, SAN-ESG-01, SAN-HIG-01]
 
 - id: datasus
   tipo_registro: unidade institucional
@@ -306,7 +331,7 @@
   descricao: Dissemina informações de saúde, demográficas e socioeconômicas, incluindo consultas TABNET.
   recursos_relacionados: [TABNET — plataforma de consulta; sistemas de informação em saúde — bases a selecionar; painéis — produtos a selecionar]
   temas: [mortalidade, morbidade, assistência, estabelecimentos]
-  variaveis: ["TODO: detalhar por sistema de informação."]
+  variaveis: [óbitos, nascidos vivos, notificações, internações, produção ambulatorial, estabelecimentos, equipes, recursos físicos e humanos, imunizações, população e finanças, conforme o sistema]
   cobertura_geografica: Brasil; detalhamento varia por sistema.
   resolucao_espacial: Varia por sistema e forma de acesso.
   resolucao_temporal: Varia por sistema.
@@ -314,36 +339,286 @@
   atualizacao: Varia por sistema.
   acesso: TABNET, downloads e painéis.
   url: https://datasus.saude.gov.br/informacoes-de-saude-tabnet/
-  api: "TODO: verificar por sistema."
-  formatos: "TODO: verificar por sistema."
-  licenca: "TODO: verificar por conjunto."
-  cadastro: "TODO: verificar por serviço."
-  custos: "TODO: verificar."
+  api: TABNET para tabulação e downloads por sistema; não existe uma API única e estável que represente todo o acervo.
+  formatos: [DBC e DBF após conversão nos arquivos de disseminação, CSV e planilhas exportadas, tabelas web]
+  licenca: Dados públicos sujeitos à legislação, aos termos de cada sistema, à confidencialidade e à citação do Ministério da Saúde.
+  cadastro: Não exigido para TABNET e arquivos públicos; dados identificados ou restritos exigem autorização.
+  custos: Consulta e downloads públicos sem cobrança.
   limitacoes: Sistemas têm coberturas, unidades de análise, revisões e defasagens distintas.
   ultima_verificacao: 2026-07-28
-  indicadores: []
+  indicadores: [DES-HUM-01, DES-SAU-01, DES-SAU-02]
 
 - id: redes-qualidade-ar
-  tipo_registro: cadastro provisório
-  nome: Redes de monitoramento da qualidade do ar
-  sigla: "—"
-  instituicao: Órgãos ambientais responsáveis no território analisado
-  descricao: Cadastro editorial provisório para redes de estações de qualidade do ar.
-  recursos_relacionados: [Rede territorial — instituição e base ainda não selecionadas; painel e API — verificar após a seleção]
+  tipo_registro: plataforma
+  nome: Sistema Nacional de Gestão da Qualidade do Ar
+  sigla: MonitorAr
+  instituicao: Ministério do Meio Ambiente e Mudança do Clima
+  descricao: Plataforma nacional que integra e divulga dados das estações oficiais estaduais e distrital de monitoramento da qualidade do ar e calcula o Índice de Qualidade do Ar.
+  recursos_relacionados: [MonitorAr Web — plataforma, aplicativos móveis — consulta, redes estaduais e distrital — fontes primárias]
   temas: [qualidade do ar]
   variaveis: [PM2,5, PM10, ozônio, dióxido de nitrogênio, dióxido de enxofre, monóxido de carbono]
-  cobertura_geografica: "TODO: selecionar a rede aplicável."
+  cobertura_geografica: Estações oficiais integradas ao MonitorAr; a cobertura é parcial e desigual entre unidades da Federação e áreas urbanas.
   resolucao_espacial: Ponto de monitoramento.
-  resolucao_temporal: "TODO: verificar por rede."
-  periodo_disponivel: "TODO: verificar por rede."
-  atualizacao: "TODO: verificar por rede."
-  acesso: "TODO: verificar por rede."
-  url: "TODO: selecionar fonte oficial."
-  api: "TODO: verificar."
-  formatos: "TODO: verificar."
-  licenca: "TODO: verificar."
-  cadastro: "TODO: verificar."
-  custos: "TODO: verificar."
-  limitacoes: Cobertura espacial heterogênea; método e controle de qualidade variam.
+  resolucao_temporal: Tempo real, horário ou diário conforme disponibilidade e integração da estação; o IQAr usa a janela definida para cada poluente.
+  periodo_disponivel: Varia por estação e órgão ambiental; a plataforma oferece dados atuais e consulta histórica.
+  atualizacao: Imediata quando a rede de origem transmite em tempo real; atrasos e validação variam por órgão.
+  acesso: Website e aplicativos públicos, com busca por localização, estação, mapas e histórico.
+  url: https://monitorar.mma.gov.br/
+  api: Não há API pública documentada na página de serviço; dados detalhados podem exigir consulta à rede de origem.
+  formatos: [mapas e gráficos web, visualizações no aplicativo]
+  licenca: Dados produzidos pelas redes oficiais; citar MonitorAr e o órgão ambiental responsável pela estação e observar os termos da rede de origem.
+  cadastro: Não exigido.
+  custos: Serviço público gratuito.
+  limitacoes: Cobertura espacial heterogênea; integração, método, validação e disponibilidade histórica variam; estação representa seu entorno e não todo o município.
+  ultima_verificacao: 2026-07-28
+  indicadores: [AMB-AR-02, AMB-AR-03]
+
+- id: who-air
+  tipo_registro: base de dados
+  nome: Banco Mundial de Qualidade do Ar da OMS
+  sigla: WHO Ambient Air Quality Database
+  instituicao: Organização Mundial da Saúde
+  descricao: Compila medições de concentrações médias anuais de PM2,5, PM10 e NO2 e apoia a produção das estimativas do indicador ODS 11.6.2.
+  recursos_relacionados: [Observatório Global de Saúde — plataforma; indicador ODS 11.6.2 — estimativa modelada]
+  temas: [qualidade do ar, exposição, saúde ambiental]
+  variaveis: [PM2,5, PM10, NO2, população]
+  cobertura_geografica: Global, com registros e estimativas por cidades e países conforme a edição.
+  resolucao_espacial: Cidade ou local monitorado na base; grades e agregações territoriais nas estimativas modeladas.
+  resolucao_temporal: Média anual.
+  periodo_disponivel: Conforme a edição do banco e a série de estimativas da OMS.
+  atualizacao: Edições periódicas; a oitava edição foi publicada em 30 de junho de 2026.
+  acesso: Consulta e download públicos no portal da OMS.
+  url: https://www.who.int/data/gho/data/themes/air-pollution/who-air-quality-database
+  api: API OData do Observatório Global de Saúde para indicadores disponibilizados nesse serviço.
+  formatos: [planilha, tabela web, API]
+  licenca: Termos de uso da Organização Mundial da Saúde aplicáveis ao recurso.
+  cadastro: Não exigido para consulta pública.
+  custos: Acesso público sem cobrança.
+  limitacoes: Cobertura de monitores é desigual; estimativas modeladas e medições locais têm métodos e suportes diferentes; registrar edição e incerteza.
   ultima_verificacao: 2026-07-28
   indicadores: [AMB-AR-01]
+
+- id: jmp
+  tipo_registro: programa
+  nome: Programa Conjunto OMS/UNICEF de Monitoramento do Abastecimento de Água, Saneamento e Higiene
+  sigla: JMP
+  instituicao: Organização Mundial da Saúde e Fundo das Nações Unidas para a Infância
+  descricao: Programa custodiante das estimativas internacionais dos indicadores ODS 6.1.1 e 6.2.1 e das escadas de serviço de água, saneamento e higiene.
+  recursos_relacionados: [Portal WASH Data — plataforma; estimativas nacionais — base de dados; metadados ODS — documentos metodológicos]
+  temas: [água, saneamento, higiene, ODS]
+  variaveis: [fonte de água, localização, disponibilidade, qualidade, instalação sanitária, manejo de excretas, lavagem das mãos]
+  cobertura_geografica: Global, com estimativas nacionais e desagregações quando disponíveis.
+  resolucao_espacial: Nacional; urbano e rural e outras desagregações conforme as fontes de cada país.
+  resolucao_temporal: Anual por estimativa modelada a partir de censos, pesquisas e dados administrativos.
+  periodo_disponivel: Séries estimadas desde 2000, condicionadas à disponibilidade nacional.
+  atualizacao: Periódica, segundo o ciclo de estimativas e consulta aos países.
+  acesso: Portal público, downloads e relatórios.
+  url: https://washdata.org/
+  api: Downloads estruturados; verificar o mecanismo vigente no portal.
+  formatos: [CSV, XLSX, PDF]
+  licenca: Termos indicados em cada produto do portal; citar OMS/UNICEF JMP.
+  cadastro: Não exigido para consulta e downloads públicos.
+  custos: Gratuito para os recursos públicos.
+  limitacoes: Estimativas combinam fontes heterogêneas; a disponibilidade de componentes de serviço varia e o valor nacional não substitui dados subnacionais operacionais.
+  ultima_verificacao: 2026-07-28
+  indicadores: [SAN-AGU-01, SAN-ESG-01, SAN-HIG-01]
+
+- id: landsat
+  tipo_registro: programa
+  nome: Landsat
+  sigla: Landsat
+  instituicao: United States Geological Survey e National Aeronautics and Space Administration
+  descricao: Programa de observação da Terra com séries multiespectrais usadas para cobertura da terra, índices de vegetação e temperatura da superfície.
+  recursos_relacionados: [Landsat Collection 2 — coleção; EarthExplorer — plataforma de acesso]
+  temas: [vegetação, uso da terra, temperatura da superfície]
+  variaveis: [reflectância de superfície, bandas espectrais, temperatura da superfície, qualidade do pixel]
+  cobertura_geografica: Global.
+  resolucao_espacial: 30 m para bandas multiespectrais usuais; bandas térmicas e produtos podem ter resolução nativa e reamostrada distinta.
+  resolucao_temporal: Revisita nominal de 16 dias por satélite; disponibilidade efetiva depende de nuvens e sensores.
+  periodo_disponivel: Desde 1972 para o programa; a comparabilidade depende da missão e produto selecionados.
+  atualizacao: Contínua conforme aquisição e processamento das coleções.
+  acesso: EarthExplorer, catálogos e serviços documentados.
+  url: https://www.usgs.gov/landsat-missions/landsat-data-access
+  api: Serviços de catálogo e download do USGS; requisitos variam.
+  formatos: [GeoTIFF, metadados]
+  licenca: Dados Landsat do USGS em domínio público, com reconhecimento da fonte.
+  cadastro: Pode ser necessário para serviços de download.
+  custos: Gratuito para dados públicos.
+  limitacoes: Nuvens, sombra, diferenças entre sensores, correção atmosférica, emissividade e datas de aquisição condicionam o uso.
+  ultima_verificacao: 2026-07-28
+  indicadores: [AMB-VEG-01, AMB-URB-02, AMB-URB-03]
+
+- id: ipea-ivs
+  tipo_registro: plataforma
+  nome: Atlas da Vulnerabilidade Social
+  sigla: AVS
+  instituicao: Instituto de Pesquisa Econômica Aplicada
+  descricao: Plataforma e conjunto de publicações metodológicas do Índice de Vulnerabilidade Social e de seus indicadores para diferentes recortes brasileiros.
+  recursos_relacionados: [Índice de Vulnerabilidade Social — índice composto; dimensões e indicadores — componentes; relatórios metodológicos — documentação]
+  temas: [vulnerabilidade social, desigualdade, infraestrutura urbana, capital humano, renda e trabalho]
+  variaveis: [16 indicadores do IVS, três subíndices, IVS total, sexo, cor, situação do domicílio]
+  cobertura_geografica: Brasil, unidades da Federação, municípios, regiões metropolitanas e unidades de desenvolvimento humano conforme a edição; PNAD para desagregações nacionais.
+  resolucao_espacial: Varia entre agregado nacional, unidades da Federação, municípios e unidades intrametropolitanas segundo a fonte.
+  resolucao_temporal: Anos censitários e anos de pesquisas domiciliares contemplados em cada edição.
+  periodo_disponivel: Censos de 2000 e 2010 no atlas original e atualizações por PNAD Contínua e Censo 2022 conforme publicação metodológica.
+  atualizacao: Por edição metodológica e disponibilidade de Censo ou PNAD Contínua.
+  acesso: Plataforma, repositório do Ipea, tabelas e publicações abertas.
+  url: https://ivs.ipea.gov.br/
+  api: Não é necessária para consulta; verificar serviços de download disponibilizados na edição.
+  formatos: [tabelas, planilhas, mapas, PDF]
+  licenca: Reprodução permitida com citação da fonte; observar os termos de cada arquivo.
+  cadastro: Não exigido para consulta pública.
+  custos: Acesso público sem cobrança.
+  limitacoes: Versões censitárias e amostrais têm suportes e desagregações distintos; registrar edição, variáveis, pesos e ajustes de compatibilização.
+  ultima_verificacao: 2026-07-28
+  indicadores: [EXP-VUL-01]
+
+- id: cdc-svi
+  tipo_registro: produto
+  nome: CDC/ATSDR Social Vulnerability Index
+  sigla: CDC/ATSDR SVI
+  instituicao: Agency for Toxic Substances and Disease Registry, Centers for Disease Control and Prevention
+  descricao: Índice de vulnerabilidade social para apoiar planejamento de saúde pública e resposta a emergências nos Estados Unidos.
+  recursos_relacionados: [SVI por setor censitário — base; SVI por condado — base; documentação 2022 — metodologia]
+  temas: [vulnerabilidade social, emergências, saúde pública, território]
+  variaveis: [16 variáveis censitárias, quatro temas, percentis temáticos, percentil geral]
+  cobertura_geografica: Estados Unidos, Porto Rico e áreas cobertas pela edição.
+  resolucao_espacial: Setor censitário e condado ou equivalentes definidos pela edição.
+  resolucao_temporal: Edições baseadas em estimativas quinquenais da American Community Survey ou Censo decenal.
+  periodo_disponivel: Edições desde 2000, com mudanças de variáveis e fontes documentadas.
+  atualizacao: Por edição do SVI; a documentação consultada refere-se ao SVI 2022.
+  acesso: Download público de bases, mapas e documentação.
+  url: https://www.atsdr.cdc.gov/place-health/php/svi/
+  api: Downloads estruturados; o produto não depende de API para uso.
+  formatos: [CSV, geodatabase, documentação PDF]
+  licenca: Material do governo federal dos Estados Unidos em domínio público, salvo indicação específica.
+  cadastro: Não exigido para downloads públicos.
+  custos: Acesso público sem cobrança.
+  limitacoes: Índice relativo e específico do sistema censitário estadunidense; não transferir variáveis, grupos ou percentis diretamente ao Brasil.
+  ultima_verificacao: 2026-07-28
+  indicadores: [EXP-VUL-02]
+
+- id: unhabitat-urban
+  tipo_registro: programa
+  nome: Programa de Indicadores Urbanos do UN-Habitat
+  sigla: UN-Habitat
+  instituicao: Programa das Nações Unidas para os Assentamentos Humanos
+  descricao: Metodologia e dados internacionais para monitorar condições urbanas, incluindo o indicador ODS 11.1.1 sobre assentamentos precários, informais e moradia inadequada.
+  recursos_relacionados: [Metadados ODS 11.1.1 — documento metodológico; base global ODS — base de dados]
+  temas: [habitação, assentamentos informais, cidades, ODS]
+  variaveis: [água, saneamento, adensamento domiciliar, durabilidade, segurança da posse, custo da moradia]
+  cobertura_geografica: Global, condicionada às fontes nacionais.
+  resolucao_espacial: Nacional urbano na base global; desagregações subnacionais dependem de censos e pesquisas.
+  resolucao_temporal: Anual na base ODS, com estimativas apoiadas em censos e pesquisas de anos específicos.
+  periodo_disponivel: Conforme a série da base global ODS e a disponibilidade nacional.
+  atualizacao: Segundo o ciclo de reporte dos ODS.
+  acesso: Portal dos indicadores ODS e publicações do UN-Habitat.
+  url: https://unstats.un.org/sdgs/metadata/?Goal=11&Target=11.1
+  api: API da base global de indicadores ODS para séries publicadas.
+  formatos: [CSV, planilha, PDF]
+  licenca: Termos das Nações Unidas aplicáveis ao recurso consultado.
+  cadastro: Não exigido para consulta pública.
+  custos: Acesso público sem cobrança.
+  limitacoes: Definições operacionais e disponibilidade dos componentes variam entre países; publicar separadamente as privações e a união composta.
+  ultima_verificacao: 2026-07-28
+  indicadores: [EXP-HAB-01]
+
+- id: sim
+  tipo_registro: sistema de informação
+  nome: Sistema de Informações sobre Mortalidade
+  sigla: SIM
+  instituicao: Ministério da Saúde
+  descricao: Sistema nacional de registro de óbitos baseado na Declaração de Óbito, com causa básica codificada pela Classificação Internacional de Doenças.
+  recursos_relacionados: [Microdados de mortalidade — base; TABNET — plataforma de consulta; painéis de qualidade — produtos]
+  temas: [mortalidade, causas de morte, vigilância em saúde]
+  variaveis: [causa básica, causas associadas, data do óbito, idade, sexo, raça ou cor, escolaridade, residência, ocorrência]
+  cobertura_geografica: Brasil, com qualidade e completude variáveis no tempo e entre territórios.
+  resolucao_espacial: Município de residência e de ocorrência nos arquivos públicos; níveis mais detalhados sujeitos a proteção e acesso.
+  resolucao_temporal: Registro individual com data; divulgação mensal ou anual conforme o produto.
+  periodo_disponivel: Séries nacionais em CID-10 desde 1996 no portal consultado; períodos anteriores usam classificação distinta.
+  atualizacao: Dados preliminares e consolidados seguem calendários do Ministério da Saúde; registrar situação da base.
+  acesso: TABNET e transferência de arquivos no DATASUS.
+  url: https://datasus.saude.gov.br/mortalidade-desde-1996-pela-cid-10
+  api: Consultas TABNET e downloads; não há uma única API oficial para todos os usos.
+  formatos: [DBC, DBF após conversão, CSV por tabulação]
+  licenca: Dados públicos sujeitos às regras de uso, confidencialidade e citação do Ministério da Saúde.
+  cadastro: Não exigido para arquivos públicos agregados ou anonimizados.
+  custos: Acesso público sem cobrança.
+  limitacoes: Sub-registro, causas mal definidas, investigação, recodificação e defasagem afetam comparabilidade; pequenas contagens exigem proteção.
+  ultima_verificacao: 2026-07-28
+  indicadores: [EFE-MOR-01, EFE-MOR-02, EFE-EXC-01, EFE-EXC-02, EFE-ATR-01, EFE-CAR-01]
+
+- id: sih-sus
+  tipo_registro: sistema de informação
+  nome: Sistema de Informações Hospitalares do SUS
+  sigla: SIH/SUS
+  instituicao: Ministério da Saúde
+  descricao: Sistema administrativo baseado na Autorização de Internação Hospitalar que registra internações financiadas pelo SUS.
+  recursos_relacionados: [Arquivos de AIH — base; TABNET Morbidade Hospitalar — plataforma; documentação SIH — dicionário]
+  temas: [internações, morbidade hospitalar, assistência, financiamento]
+  variaveis: [diagnóstico principal e secundário, procedimentos, data, permanência, alta, óbito hospitalar, residência, estabelecimento]
+  cobertura_geografica: Brasil para internações financiadas pelo SUS; não cobre integralmente internações privadas sem financiamento público.
+  resolucao_espacial: Município de residência e de internação, estabelecimento e demais campos conforme arquivo e regras de divulgação.
+  resolucao_temporal: Competência mensal e datas do episódio conforme o registro.
+  periodo_disponivel: Séries de morbidade no portal; a CID-10 e mudanças de processamento devem ser consideradas a partir de 1998.
+  atualizacao: Mensal no fluxo administrativo, com revisões; registrar competência de processamento e data de extração.
+  acesso: TABNET, TABWIN e transferência de arquivos do DATASUS.
+  url: https://datasus.saude.gov.br/acesso-a-informacao/morbidade-hospitalar-do-sus-sih-sus/
+  api: Consultas TABNET e downloads; não há uma única API oficial para todos os arquivos.
+  formatos: [DBC, DBF após conversão, CSV por tabulação]
+  licenca: Dados públicos sujeitos às regras de uso, confidencialidade e citação do Ministério da Saúde.
+  cadastro: Não exigido para arquivos públicos.
+  custos: Acesso público sem cobrança.
+  limitacoes: Unidade é a AIH e não a pessoa; reinternações e AIH de longa permanência podem gerar múltiplos registros; cobertura depende do SUS e de regras de faturamento.
+  ultima_verificacao: 2026-07-28
+  indicadores: [EFE-MOB-01]
+
+- id: who-ghe
+  tipo_registro: base de dados
+  nome: Estimativas Globais de Saúde da OMS
+  sigla: WHO Global Health Estimates
+  instituicao: Organização Mundial da Saúde
+  descricao: Estimativas comparáveis de mortalidade, anos de vida perdidos, anos vividos com incapacidade e anos de vida ajustados por incapacidade.
+  recursos_relacionados: [Global Health Estimates — base; métodos e fontes — documentação]
+  temas: [mortalidade, carga de doença, DALY, YLL, YLD]
+  variaveis: [óbitos, taxas padronizadas, YLL, YLD, DALY, causa, idade, sexo]
+  cobertura_geografica: Global, regional e nacional.
+  resolucao_espacial: País e agregados internacionais.
+  resolucao_temporal: Anual para anos disponibilizados na edição.
+  periodo_disponivel: Séries desde 2000 nas edições recentes, com anos finais conforme atualização.
+  atualizacao: Por edição das Estimativas Globais de Saúde.
+  acesso: Downloads públicos no Observatório Global de Saúde.
+  url: https://www.who.int/data/gho/data/themes/mortality-and-global-health-estimates
+  api: Serviços do Observatório Global de Saúde para indicadores disponibilizados.
+  formatos: [CSV, planilha, tabela web, PDF metodológico]
+  licenca: Termos de uso da Organização Mundial da Saúde aplicáveis ao recurso.
+  cadastro: Não exigido para consulta pública.
+  custos: Acesso público sem cobrança.
+  limitacoes: Estimativas modeladas podem diferir de registros nacionais; versões não devem ser combinadas sem harmonização.
+  ultima_verificacao: 2026-07-28
+  indicadores: [EFE-MOR-02, EFE-CAR-01]
+
+- id: who-resilience-package
+  tipo_registro: produto
+  nome: Pacote integrado de indicadores de resiliência dos sistemas de saúde
+  sigla: WHO HSR Indicators
+  instituicao: Organização Mundial da Saúde
+  descricao: Conjunto de 64 indicadores centrais, com metadados, para medir e monitorar capacidades, processos e resultados relacionados à resiliência dos sistemas de saúde.
+  recursos_relacionados: [publicação metodológica — documento, fichas dos 64 indicadores — metadados, instrumentos de avaliação de estabelecimentos — fontes recomendadas]
+  temas: [resiliência do sistema de saúde, preparação, continuidade de serviços, infraestrutura, vigilância]
+  variaveis: [governança, força de trabalho, informação, produtos e tecnologias, financiamento, prestação de serviços, participação comunitária]
+  cobertura_geografica: Estrutura internacional destinada à adaptação e aplicação por países e níveis subnacionais; não constitui uma base pronta com valores para todos os países.
+  resolucao_espacial: Nacional, subnacional e estabelecimento, conforme o indicador.
+  resolucao_temporal: Varia entre avaliação periódica, situação atual e eventos na semana anterior, conforme a ficha.
+  periodo_disponivel: Publicação metodológica lançada em 2024; séries dependem da implementação nos sistemas e inquéritos de cada país.
+  atualizacao: Conforme ciclos nacionais de monitoramento e futuras edições da OMS.
+  acesso: Publicação e metadados de acesso público no portal da OMS; cálculo requer dados administrativos, avaliações ou inquéritos de estabelecimentos.
+  url: https://www.who.int/publications/i/item/9789240088986
+  api: Não há API única; os instrumentos e sistemas de origem variam por indicador.
+  formatos: [PDF, tabelas produzidas localmente]
+  licenca: CC BY-NC-SA 3.0 IGO para a publicação consultada.
+  cadastro: Não exigido para consultar a publicação.
+  custos: Acesso público sem cobrança; a coleta local pode exigir recursos.
+  limitacoes: A estrutura requer adaptação ao contexto, definição do universo avaliado e verificação documental ou funcional; percentuais não devem ser interpretados como cobertura nacional quando a amostra não for representativa.
+  ultima_verificacao: 2026-07-28
+  indicadores: [RES-GOV-01, RES-RIS-01, RES-ALR-01, RES-WAT-01, RES-ENE-01, RES-PLA-01, RES-INF-01]

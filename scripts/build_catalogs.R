@@ -53,10 +53,16 @@ required_indicator <- c(
   "tema", "objetivo", "dimensoes", "unidade_medida", "unidade_territorial",
   "resolucao_temporal", "disponibilidade", "qualidade_incerteza",
   "comparabilidade", "relacao_saude", "aplicacao_gestao"
+  , "capitulo", "referencia_metodologica"
 )
 
-indicators <- lapply(yaml_files, yaml::read_yaml)
-names(indicators) <- basename(yaml_files)
+indicator_documents <- lapply(yaml_files, yaml::read_yaml)
+indicators <- unlist(lapply(seq_along(indicator_documents), function(i) {
+  document <- indicator_documents[[i]]
+  entries <- if (!is.null(document$indicators)) document$indicators else list(document)
+  names(entries) <- paste0(basename(yaml_files[[i]]), "#", seq_along(entries))
+  entries
+}), recursive = FALSE)
 for (name in names(indicators)) {
   missing <- setdiff(required_indicator, names(indicators[[name]]))
   if (length(missing)) {
@@ -125,8 +131,8 @@ for (indicator in indicators) {
       " ([cadastro](../../backmatter/indice-fontes.qmd#", entry$id, "))"
     )
   }, character(1L))
-  page <- c(
-    paste0("# ", indicator$titulo_completo, " {#sec-", slug, " .unnumbered}"),
+  ficha <- c(
+    paste0("## Ficha do indicador: ", indicator$titulo_completo, " {#sec-", slug, "}"),
     "",
     "::: {.indicator-card}",
     paste0("**Código:** ", indicator$codigo, " \\"),
@@ -136,31 +142,34 @@ for (indicator in indicators) {
     paste0("**Disponibilidade:** ", paste0("[", as_list(indicator$disponibilidade), "]{.availability}", collapse = " ")),
     ":::",
     "",
-    "## Conceito {.unnumbered}",
+    "### Identificação e fundamento",
+    "",
+    field("Indicador consolidado em", indicator$referencia_metodologica),
+    "### Conceito",
     "",
     as_text(indicator$conceito),
     "",
-    "## Objetivo {.unnumbered}",
+    "### Objetivo",
     "",
     as_text(indicator$objetivo),
     "",
-    "## Interpretação {.unnumbered}",
+    "### Interpretação",
     "",
     as_text(indicator$interpretacao),
     "",
-    "## Usos {.unnumbered}",
+    "### Usos",
     "",
     md_list(indicator$usos),
     "",
-    "## Limitações {.unnumbered}",
+    "### Limitações",
     "",
     md_list(indicator$limitacoes),
     "",
-    "## Fontes de dados {.unnumbered}",
+    "### Fontes de dados",
     "",
     source_lines,
     "",
-    "## Método de cálculo {.unnumbered}",
+    "### Método de cálculo",
     "",
     as_text(indicator$metodo_calculo),
     "",
@@ -180,7 +189,7 @@ for (indicator in indicators) {
     field("Análise descritiva do indicador", indicator$analise_descritiva),
     ":::",
     "",
-    "## Campos complementares para clima, ambiente e saúde {.unnumbered}",
+    "### Campos complementares para clima, ambiente e saúde",
     "",
     "::: {.indicator-card}",
     field("Unidade territorial", indicator$unidade_territorial),
@@ -190,7 +199,7 @@ for (indicator in indicators) {
     field("Limiar ou valor de referência", indicator$limiar_referencia),
     ":::",
     "",
-    "## Disponibilidade e acesso {.unnumbered}",
+    "### Disponibilidade e acesso",
     "",
     field("Cobertura geográfica", indicator$cobertura_geografica),
     field("Período disponível", indicator$periodo_disponivel),
@@ -199,24 +208,24 @@ for (indicator in indicators) {
     field("URL ou identificador persistente", indicator$url_persistente),
     field("Formato dos arquivos", indicator$formatos),
     field("Necessidade de processamento", indicator$necessidade_processamento),
-    "## Qualidade, comparação e saúde {.unnumbered}",
+    "### Qualidade, comparação e saúde",
     "",
     field("Qualidade e incerteza", indicator$qualidade_incerteza),
     field("Possibilidade de comparação", indicator$comparabilidade),
     field("Relação com desfechos de saúde", indicator$relacao_saude),
     field("Defasagens temporais relevantes", indicator$defasagens_temporais),
     field("Aplicação na gestão", indicator$aplicacao_gestao),
-    "## Referências {.unnumbered}",
+    "### Referências metodológicas",
     "",
-    if (length(as_list(indicator$referencias))) md_list(indicator$referencias) else "Nenhuma referência incluída nesta versão demonstrativa. TODO: revisão bibliográfica."
+    md_list(indicator$referencias)
   )
-  write_utf8(page, file.path(root, "indicators", "pages", paste0(slug, ".qmd")))
+  write_utf8(ficha, file.path(root, "indicators", "includes", paste0(slug, ".qmd")))
 }
 
 indicator_rows <- vapply(indicators, function(x) {
   slug <- tolower(as.character(x$codigo))
   paste0(
-    "| [", x$codigo, "](../indicators/pages/", slug, ".qmd) | ",
+    "| [", x$codigo, "](../", x$capitulo, "#sec-", slug, ") | ",
     x$titulo_completo, " | ", x$tema, " | ",
     paste(as_list(x$dimensoes), collapse = "; "), " | ",
     paste(as_list(x$disponibilidade), collapse = "; "), " |"
@@ -293,11 +302,11 @@ source_cards <- unlist(lapply(sources, function(x) {
     paste0("**Atualização:** ", x$atualizacao, " \\"),
     paste0("**Acesso:** ", x$acesso, " \\"),
     paste0("**URL:** ", if (grepl("^https?://", x$url)) paste0("<", x$url, ">") else x$url, " \\"),
-    paste0("**API:** ", as_text(x$api, "TODO: verificar."), " \\"),
+    paste0("**API:** ", as_text(x$api, "Não informada para este recurso."), " \\"),
     paste0("**Formatos:** ", paste(as_list(x$formatos), collapse = "; "), " \\"),
-    paste0("**Licença:** ", as_text(x$licenca, "TODO: verificar."), " \\"),
-    paste0("**Cadastro:** ", as_text(x$cadastro, "TODO: verificar."), " \\"),
-    paste0("**Custos:** ", as_text(x$custos, "TODO: verificar."), " \\"),
+    paste0("**Licença:** ", as_text(x$licenca, "Não informada para este recurso."), " \\"),
+    paste0("**Cadastro:** ", as_text(x$cadastro, "Não informado para este recurso."), " \\"),
+    paste0("**Custos:** ", as_text(x$custos, "Não informados para este recurso."), " \\"),
     paste0("**Limitações:** ", x$limitacoes, " \\"),
     paste0("**Última verificação:** ", x$ultima_verificacao),
     ""

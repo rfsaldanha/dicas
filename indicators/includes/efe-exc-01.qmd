@@ -1,0 +1,123 @@
+## Ficha do indicador: Número de óbitos em excesso {#sec-efe-exc-01}
+
+::: {.indicator-card}
+**Código:** EFE-EXC-01 \
+**Título resumido:** Óbitos em excesso \
+**Tema:** Efeitos do clima e do ambiente sobre a saúde \
+**Dimensão:** efeito \
+**Disponibilidade:** [dados secundários de saúde]{.availability} [requer qualificação]{.availability}
+:::
+
+### Identificação e fundamento
+
+**Indicador consolidado em.** Definição epidemiológica e métodos de mortalidade em excesso da Organização Mundial da Saúde.
+
+### Conceito
+
+Diferença entre o número de óbitos observados e o número que seria esperado na ausência do período ou evento de interesse, segundo um modelo contrafactual.
+
+### Objetivo
+
+Detectar e quantificar mortalidade acima ou abaixo do padrão esperado por todas as causas ou causas definidas.
+
+### Interpretação
+
+Excesso positivo indica mais óbitos que o esperado; valor negativo indica déficit. O total inclui efeitos diretos e indiretos e não identifica sozinho qual parcela foi causada pelo evento.
+
+### Usos
+
+- Monitorar ondas de calor
+- desastres e emergências.
+- Captar efeitos não registrados em códigos específicos.
+- Comparar impacto temporal.
+- Avaliar pressão e interrupção do sistema.
+
+### Limitações
+
+- O resultado depende criticamente do modelo esperado.
+- Tendência
+- sazonalidade
+- envelhecimento e feriados devem ser tratados.
+- Atraso de registro pode criar excesso ou déficit artificial.
+- Excesso temporal não prova atribuição causal ao perigo.
+
+### Fontes de dados
+
+- Sistema de Informações sobre Mortalidade — óbitos observados por data, idade, sexo, causa e território ([cadastro](../../backmatter/indice-fontes.qmd#sim))
+- Instituto Brasileiro de Geografia e Estatística — população e mudanças demográficas para taxas ou compensação do modelo ([cadastro](../../backmatter/indice-fontes.qmd#ibge))
+
+### Método de cálculo
+
+Modelar óbitos esperados com período anterior não afetado, controlando tendência, sazonalidade e calendário e incorporando estrutura demográfica quando necessário. Prever cada unidade temporal com intervalo. Subtrair o esperado do observado e somar no período. Informar resultados usando tanto a média esperada quanto, quando pertinente, o limite superior preditivo.
+
+$$
+Excesso_t=O_t-E_t;\qquad Excesso_P=\sum_{t\in P}(O_t-E_t)
+$$
+
+::: {.indicator-card}
+**Numerador.** Não se aplica; diferença entre contagem observada e esperada.
+
+**Denominador.** Não se aplica; pode-se dividir pela população para obter taxa de excesso.
+
+**Unidade de medida.** Óbitos; adicionalmente óbitos por população.
+
+**Variáveis e categorias de análise.** Óbitos por todas as causas ou causa; data; idade; sexo; raça ou cor; território; observado; esperado; intervalo preditivo.
+
+**Granularidade.** Dia ou semana antes da agregação; território-período no resumo.
+
+**Periodicidade de atualização.** Semanal ou mensal em monitoramento com dados preliminares; revisão após consolidação.
+
+**Responsabilidade gerencial.** Área de vigilância epidemiológica e informação em saúde, com apoio de epidemiologia e estatística para modelagem e interpretação.
+
+**Notas.** Contagens, taxas, excesso, associação e atribuição respondem a perguntas diferentes. Resultados estimados devem informar modelo, referência contrafactual e incerteza.
+
+**Análise descritiva do indicador.** Plotar observado e esperado com intervalo, excesso diário e acumulado, estratos e revisões; testar baselines alternativos e mortalidade deslocada.
+
+:::
+
+### Campos complementares para clima, ambiente e saúde
+
+::: {.indicator-card}
+**Unidade territorial.** Território com série suficientemente estável e registro oportuno.
+
+**Resolução espacial original.** A dos óbitos; modelagem em pequenas áreas requer pooling ou estrutura hierárquica.
+
+**Resolução temporal.** Diário ou semanal para eventos agudos; mensal para séries menos densas.
+
+**Período de referência.** Anos anteriores selecionados antes do evento, excluindo períodos anômalos conforme protocolo.
+
+**Limiar ou valor de referência.** Esperado e intervalo preditivo do modelo; exceder o limite superior é sinal estatístico, não prova causal.
+
+:::
+
+### Disponibilidade e acesso
+
+**Cobertura geográfica.** Brasil conforme o SIM e a oportunidade dos registros.
+
+**Período disponível.** Conforme a série histórica qualificada.
+
+**Periodicidade de atualização.** Semanal ou mensal em monitoramento com dados preliminares; revisão após consolidação.
+
+**Forma de acesso.** Modelagem sobre série de óbitos do SIM e denominadores do IBGE.
+
+**URL ou identificador persistente.** https://www.who.int/publications/m/item/methods-for-estimating-the-excess-mortality-associatedwith-the-covid-19-pandemic
+
+**Formato dos arquivos.** Série temporal de contagens, previsões e intervalos.
+
+**Necessidade de processamento.** Corrigir atraso, definir baseline, modelar tendência e sazonalidade, prever esperado, calcular diferenças e intervalos.
+
+### Qualidade, comparação e saúde
+
+**Qualidade e incerteza.** Avaliar cobertura, completude, oportunidade, duplicidade, definição de caso, codificação CID, causa básica e associadas, revisões, estabilidade do denominador, pequenas contagens e intervalos de incerteza.
+
+**Possibilidade de comparação.** Manter desfecho, definição, códigos, população, fonte, território, calendário, padronização e versão; mudanças assistenciais e de registro podem alterar o indicador sem mudança igual na ocorrência.
+
+**Relação com desfechos de saúde.** Mede ocorrência observada ou carga estimada de desfechos; a relação com clima ou ambiente exige exposição definida e desenho analítico compatível.
+
+**Defasagens temporais relevantes.** Registrar data do evento de saúde e considerar o intervalo biologicamente plausível entre exposição e desfecho; data de processamento ou competência não deve substituir automaticamente a data clínica.
+
+**Aplicação na gestão.** Monitorar impacto, desigualdades e pressão sobre serviços, avaliar alertas e intervenções e apoiar priorização, sem atribuir causalidade além do desenho.
+
+### Referências metodológicas
+
+- [@who2023excess]

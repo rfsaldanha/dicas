@@ -23,10 +23,30 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 1em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -79,6 +99,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Procurar"
   }
 }</script>
+<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="../../styles/web/styles.css">
@@ -256,7 +279,7 @@ ul.task-list li input[type="checkbox"] {
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/part-1/01-clima-ambiente-saude.html">Parte I — Fundamentos e métodos</a></li><li class="breadcrumb-item"><a href="../../chapters/part-1/01-clima-ambiente-saude.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Clima, ambiente e saúde pública</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Procurar" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
@@ -270,7 +293,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../../">Dados e Indicadores de Clima e Ambiente para a Saúde</a> 
+      <a href="../../">Dados e Indicadores de Clima e Ambiente para a Saúde</a>
         <div class="sidebar-tools-main">
     <a href="https://github.com/rfsaldanha/dicas" title="Código fonte" class="quarto-navigation-tool px-1" aria-label="Código fonte"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo escuro"><i class="bi"></i></a>
@@ -282,85 +305,85 @@ ul.task-list li input[type="checkbox"] {
         <div id="quarto-search" class="" title="Procurar"></div>
         </div>
         </div>
-    <div class="sidebar-menu-container"> 
+    <div class="sidebar-menu-container">
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Bem-vindo</span></a>
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../frontmatter/ficha-tecnica.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Ficha técnica</span></a>
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../frontmatter/apresentacao.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Apresentação</span></a>
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../frontmatter/prefacio.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Prefácio</span></a>
+ <span class="menu-text">Prefácio do autor</span></a>
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../frontmatter/agradecimentos.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Agradecimentos</span></a>
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../frontmatter/siglas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lista de siglas</span></a>
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../frontmatter/sumario.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sumário</span></a>
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../frontmatter/como-usar.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Como utilizar este livro</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
+      <div class="sidebar-item-container">
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Parte I — Fundamentos e métodos</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+          </a>
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-1/01-clima-ambiente-saude.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Clima, ambiente e saúde pública</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-1/02-dados-variaveis-indices-indicadores.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Dados, variáveis, índices e indicadores</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-1/03-espaco-tempo-qualidade.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Espaço, tempo e qualidade dos dados</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-1/04-fontes-fichas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Fontes de dados e fichas de indicadores</span></span></a>
   </div>
@@ -368,46 +391,46 @@ ul.task-list li input[type="checkbox"] {
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
+      <div class="sidebar-item-container">
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
  <span class="menu-text">Parte II — Dados e indicadores temáticos</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+          </a>
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-2/05-temperatura-condicoes-termicas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Temperatura e condições térmicas</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-2/06-precipitacao-secas-eventos-hidrologicos.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Precipitação, secas e eventos hidrológicos</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-2/07-qualidade-ar-queimadas-fumaca.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Qualidade do ar, queimadas e fumaça</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-2/08-agua-saneamento-qualidade-ambiental.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Água, saneamento e qualidade ambiental</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-2/09-uso-cobertura-terra-ambiente-urbano.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Uso e cobertura da terra, vegetação e ambiente urbano</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-2/10-eventos-severos-desastres.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Eventos meteorológicos severos e desastres</span></span></a>
   </div>
@@ -415,28 +438,28 @@ ul.task-list li input[type="checkbox"] {
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
+      <div class="sidebar-item-container">
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
  <span class="menu-text">Parte III — Indicadores integrados de clima, ambiente e saúde</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+          </a>
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-3/11-exposicao-vulnerabilidade.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Exposição e vulnerabilidade socioambiental</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-3/12-efeitos-saude.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Efeitos do clima e do ambiente sobre a saúde</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-3/13-resposta-adaptacao-resiliencia.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Capacidade de resposta, adaptação e resiliência</span></span></a>
   </div>
@@ -444,16 +467,16 @@ ul.task-list li input[type="checkbox"] {
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
+      <div class="sidebar-item-container">
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
  <span class="menu-text">Parte IV — Aplicação na vigilância e na gestão pública</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+          </a>
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-4/14-indicador-decisao.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Do indicador à decisão pública</span></span></a>
   </div>
@@ -461,93 +484,64 @@ ul.task-list li input[type="checkbox"] {
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
+      <div class="sidebar-item-container">
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
- <span class="menu-text">Fichas demonstrativas</span></a>
+ <span class="menu-text">Elementos pós-textuais</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+          </a>
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../indicators/pages/cli-tem-01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Temperatura máxima diária</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../indicators/pages/cli-cal-01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Ocorrência de onda de calor</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../indicators/pages/amb-ar-01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Concentração média diária de material particulado fino (PM2,5)</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
- <span class="menu-text">Elementos pós-textuais</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Alternar seção">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/glossario.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Glossário</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/referencias.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Referências</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/indice-indicadores.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Índice alfabético de indicadores</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/indice-fontes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Índice de fontes de dados</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/indice-instituicoes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Índice de instituições</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/apendice-metodologico.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Apêndice metodológico</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/lista-fichas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lista de fichas</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/lista-tabelas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lista de tabelas</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/lista-figuras.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lista de figuras</span></a>
   </div>
@@ -562,19 +556,32 @@ ul.task-list li input[type="checkbox"] {
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Índice</h2>
-   
+
   <ul>
   <li><a href="#tempo-clima-e-ambiente" id="toc-tempo-clima-e-ambiente" class="nav-link active" data-scroll-target="#tempo-clima-e-ambiente"><span class="header-section-number">1.1</span> Tempo, clima e ambiente</a></li>
-  <li><a href="#mudanças-climáticas" id="toc-mudanças-climáticas" class="nav-link" data-scroll-target="#mudanças-climáticas"><span class="header-section-number">1.2</span> Mudanças climáticas</a></li>
+  <li><a href="#variabilidade-e-mudança-climática" id="toc-variabilidade-e-mudança-climática" class="nav-link" data-scroll-target="#variabilidade-e-mudança-climática"><span class="header-section-number">1.2</span> Variabilidade e mudança climática</a>
+  <ul class="collapse">
+  <li><a href="#detecção-e-atribuição" id="toc-detecção-e-atribuição" class="nav-link" data-scroll-target="#detecção-e-atribuição"><span class="header-section-number">1.2.1</span> Detecção e atribuição</a></li>
+  <li><a href="#cenários-previsões-e-projeções" id="toc-cenários-previsões-e-projeções" class="nav-link" data-scroll-target="#cenários-previsões-e-projeções"><span class="header-section-number">1.2.2</span> Cenários, previsões e projeções</a></li>
+  </ul></li>
   <li><a href="#determinantes-ambientais-da-saúde" id="toc-determinantes-ambientais-da-saúde" class="nav-link" data-scroll-target="#determinantes-ambientais-da-saúde"><span class="header-section-number">1.3</span> Determinantes ambientais da saúde</a></li>
   <li><a href="#caminhos-de-impacto-sobre-a-saúde" id="toc-caminhos-de-impacto-sobre-a-saúde" class="nav-link" data-scroll-target="#caminhos-de-impacto-sobre-a-saúde"><span class="header-section-number">1.4</span> Caminhos de impacto sobre a saúde</a>
   <ul class="collapse">
   <li><a href="#efeitos-diretos-e-indiretos" id="toc-efeitos-diretos-e-indiretos" class="nav-link" data-scroll-target="#efeitos-diretos-e-indiretos"><span class="header-section-number">1.4.1</span> Efeitos diretos e indiretos</a></li>
   <li><a href="#efeitos-imediatos-e-prolongados" id="toc-efeitos-imediatos-e-prolongados" class="nav-link" data-scroll-target="#efeitos-imediatos-e-prolongados"><span class="header-section-number">1.4.2</span> Efeitos imediatos e prolongados</a></li>
   </ul></li>
-  <li><a href="#desigualdades-e-vulnerabilidades" id="toc-desigualdades-e-vulnerabilidades" class="nav-link" data-scroll-target="#desigualdades-e-vulnerabilidades"><span class="header-section-number">1.5</span> Desigualdades e vulnerabilidades</a></li>
-  <li><a href="#relevância-para-o-sus" id="toc-relevância-para-o-sus" class="nav-link" data-scroll-target="#relevância-para-o-sus"><span class="header-section-number">1.6</span> Relevância para o SUS</a></li>
-  <li><a href="#vigilância-planejamento-e-gestão" id="toc-vigilância-planejamento-e-gestão" class="nav-link" data-scroll-target="#vigilância-planejamento-e-gestão"><span class="header-section-number">1.7</span> Vigilância, planejamento e gestão</a></li>
+  <li><a href="#desigualdades-e-processos-de-vulnerabilização" id="toc-desigualdades-e-processos-de-vulnerabilização" class="nav-link" data-scroll-target="#desigualdades-e-processos-de-vulnerabilização"><span class="header-section-number">1.5</span> Desigualdades e processos de vulnerabilização</a>
+  <ul class="collapse">
+  <li><a href="#justiça-ambiental-e-climática" id="toc-justiça-ambiental-e-climática" class="nav-link" data-scroll-target="#justiça-ambiental-e-climática"><span class="header-section-number">1.5.1</span> Justiça ambiental e climática</a></li>
+  </ul></li>
+  <li><a href="#impactos-sobre-a-saúde-humana" id="toc-impactos-sobre-a-saúde-humana" class="nav-link" data-scroll-target="#impactos-sobre-a-saúde-humana"><span class="header-section-number">1.6</span> Impactos sobre a saúde humana</a></li>
+  <li><a href="#impactos-sobre-a-saúde-pública" id="toc-impactos-sobre-a-saúde-pública" class="nav-link" data-scroll-target="#impactos-sobre-a-saúde-pública"><span class="header-section-number">1.7</span> Impactos sobre a saúde pública</a></li>
+  <li><a href="#relevância-para-o-sus" id="toc-relevância-para-o-sus" class="nav-link" data-scroll-target="#relevância-para-o-sus"><span class="header-section-number">1.8</span> Relevância para o SUS</a></li>
+  <li><a href="#vigilância-planejamento-e-gestão" id="toc-vigilância-planejamento-e-gestão" class="nav-link" data-scroll-target="#vigilância-planejamento-e-gestão"><span class="header-section-number">1.9</span> Vigilância, planejamento e gestão</a>
+  <ul class="collapse">
+  <li><a href="#leitura-integrada-dos-indicadores" id="toc-leitura-integrada-dos-indicadores" class="nav-link" data-scroll-target="#leitura-integrada-dos-indicadores"><span class="header-section-number">1.9.1</span> Leitura integrada dos indicadores</a></li>
+  </ul></li>
+  <li><a href="#síntese" id="toc-síntese" class="nav-link" data-scroll-target="#síntese"><span class="header-section-number">1.10</span> Síntese</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/rfsaldanha/dicas/blob/main/chapters/part-1/01-clima-ambiente-saude.qmd" class="toc-action"><i class="bi bi-github"></i>Ver o código fonte</a></li><li><a href="https://github.com/rfsaldanha/dicas/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></nav>
     </div>
@@ -591,65 +598,409 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="quarto-title-meta">
 
-    
-  
-    
+
+
+
   </div>
-  
+
 
 
 </header>
 
 
-<p>Este capítulo estabelecerá o vocabulário comum para interpretar fenômenos climáticos e ambientais no contexto da saúde pública.</p>
-<p>Seu escopo é conceitual: apresenta as relações entre clima, ambiente, desigualdades e ação pública. A mensuração desses componentes fica nos capítulos temáticos e integradores, evitando antecipar métodos ou repetir fichas.</p>
-<p><strong>Indicadores previstos:</strong> não se aplica como conjunto autônomo. O capítulo deverá usar exemplos dos indicadores desenvolvidos nas Partes II e III para demonstrar os caminhos entre perigo, exposição, vulnerabilidade, efeito e resposta.</p>
+<p>Clima e ambiente participam da produção social da saúde. Temperatura, chuva, qualidade do ar, disponibilidade de água, cobertura vegetal, condições de moradia e organização das cidades influenciam a ocorrência de doenças e agravos, mas não atuam isoladamente. Seus efeitos são mediados pelas condições de vida, pelo trabalho, pela mobilidade, pelas desigualdades e pela capacidade de prevenção e resposta do poder público. O mesmo fenômeno físico pode, portanto, produzir consequências muito diferentes entre pessoas, bairros e municípios.</p>
+<p>Este capítulo estabelece o vocabulário comum do livro. Seu objetivo é tornar explícitas as relações entre fenômenos climáticos e ambientais, exposição, vulnerabilidade, efeitos sobre a saúde e ação pública. A mensuração específica aparece nos capítulos temáticos e integradores. Aqui, o foco é compreender o que cada dimensão significa, como elas se conectam e quais erros conceituais devem ser evitados.</p>
 <section id="tempo-clima-e-ambiente" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="tempo-clima-e-ambiente"><span class="header-section-number">1.1</span> Tempo, clima e ambiente</h2>
-<div class="todo">
-<p>TODO: diferenciar condições atmosféricas momentâneas, padrões climáticos e o conjunto mais amplo de condições ambientais.</p>
+<p><strong>Tempo meteorológico</strong> é o estado da atmosfera em determinado lugar e momento. Uma tarde quente, uma tempestade ou uma sequência de dias com baixa umidade são condições de tempo. Sua descrição usa variáveis como temperatura, precipitação, umidade, vento, pressão e radiação, observadas ou estimadas em uma escala temporal definida.</p>
+<p><strong>Clima</strong> corresponde à descrição estatística das condições meteorológicas ao longo de períodos suficientemente extensos para caracterizar valores típicos, variabilidade e extremos. Uma climatologia não se resume à média: inclui distribuição, sazonalidade, percentis, persistência, frequência de eventos e relações entre variáveis. A duração e o período de referência precisam ser declarados, porque duas climatologias calculadas em janelas diferentes podem produzir referências distintas.</p>
+<p><strong>Ambiente</strong> é um conceito mais amplo. Abrange componentes físicos, químicos, biológicos, territoriais e construídos, bem como as relações sociais que organizam o acesso a bens, riscos e proteção. Qualidade do ar e da água, saneamento, vegetação, solo, uso da terra, resíduos, ruído, moradia e infraestrutura urbana integram o ambiente relevante para a saúde. O ambiente não é um cenário externo e neutro: ele é transformado por decisões econômicas, políticas e técnicas.</p>
+<p>O <a href="#tbl-tempo-clima-ambiente" class="quarto-xref">Tabela&nbsp;<span>1.1</span></a> sintetiza as diferenças operacionais. As categorias se relacionam, mas não são intercambiáveis.</p>
+<div id="tbl-tempo-clima-ambiente" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-tempo-clima-ambiente-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;1.1: Distinções operacionais entre tempo, clima e ambiente
+</figcaption>
+<div aria-describedby="tbl-tempo-clima-ambiente-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Conceito</th>
+<th>Pergunta típica</th>
+<th>Escala frequente</th>
+<th>Exemplo de informação</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Tempo meteorológico</td>
+<td>O que está ocorrendo ou poderá ocorrer nas próximas horas e dias?</td>
+<td>Minutos a dias</td>
+<td>Previsão de chuva intensa para amanhã</td>
+</tr>
+<tr class="even">
+<td>Clima</td>
+<td>Como a variável se distribui, varia e muda em um período longo?</td>
+<td>Meses a décadas</td>
+<td>Percentual anual de dias com máxima acima do percentil 90</td>
+</tr>
+<tr class="odd">
+<td>Ambiente</td>
+<td>Que condições físicas, químicas, biológicas e construídas afetam a vida no território?</td>
+<td>Do local ao global; do instante a décadas</td>
+<td>Concentração de PM2,5, cobertura de água segura ou área verde acessível</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Uma previsão meteorológica pode orientar um alerta de curto prazo; uma série climática pode fundamentar o planejamento sazonal; um cadastro ambiental pode revelar exposição persistente. Combinar essas informações exige compatibilizar tempo, espaço, população e finalidade. A integração não ocorre simplesmente porque as bases compartilham coordenadas ou datas.</p>
+</section>
+<section id="variabilidade-e-mudança-climática" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="variabilidade-e-mudança-climática"><span class="header-section-number">1.2</span> Variabilidade e mudança climática</h2>
+<p>A variabilidade climática inclui flutuações em torno das condições de referência em escalas que vão de dias a décadas. Parte dessa variabilidade decorre de processos internos do sistema climático; parte está associada a forçantes naturais ou humanas. A <strong>mudança climática</strong> refere-se a alterações persistentes no estado do clima, identificáveis por mudanças na média e/ou na variabilidade de suas propriedades. No uso científico, é indispensável explicitar a escala, o período e a evidência considerada <span class="citation" data-cites="ipcc2022glossario">(<a href="../../backmatter/referencias.html#ref-ipcc2022glossario" role="doc-biblioref">Matthews et al., 2022</a>)</span>.</p>
+<p>Uma tendência de longo prazo não elimina a variabilidade. Anos relativamente frios podem ocorrer em um clima que se aquece; episódios chuvosos podem ocorrer durante uma seca prolongada. Da mesma forma, uma anomalia local não basta para demonstrar uma mudança do clima. A análise precisa distinguir sinal, variabilidade, incerteza da observação e mudanças no sistema de medição.</p>
+<section id="detecção-e-atribuição" class="level3" data-number="1.2.1">
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="detecção-e-atribuição"><span class="header-section-number">1.2.1</span> Detecção e atribuição</h3>
+<p><strong>Detecção</strong> investiga se uma mudança observada é incompatível com a variabilidade esperada sem especificar, necessariamente, sua causa. <strong>Atribuição</strong> avalia as contribuições relativas de diferentes fatores causais para uma mudança ou evento, com métodos próprios e incerteza quantificada. Associar automaticamente uma tempestade, enchente, seca ou onda de calor particular à mudança climática confunde a existência de um evento com a alteração de sua probabilidade ou intensidade.</p>
+<p>Na saúde pública, há ainda outro nível de atribuição: estimar quanto de um desfecho de saúde é atribuível a determinada exposição. Essa pergunta requer desenho epidemiológico, modelo de exposição, definição de contrafactual e tratamento de fatores de confusão. Uma análise climática de atribuição e uma análise epidemiológica de carga atribuível são relacionadas, porém distintas.</p>
+<div class="callout callout-style-default callout-warning callout-titled" title="Atenção à linguagem causal">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Aviso</span>Atenção à linguagem causal
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>“O evento ocorreu durante um período de aquecimento” não significa “o aquecimento causou sozinho o evento”. “Internações aumentaram durante uma onda de calor” também não demonstra, por si, que todo o aumento foi causado pelo calor. O texto técnico deve separar coincidência temporal, associação estimada, contribuição causal e atribuição quantificada.</p>
+</div>
 </div>
 </section>
-<section id="mudanças-climáticas" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="mudanças-climáticas"><span class="header-section-number">1.2</span> Mudanças climáticas</h2>
-<div class="todo">
-<p>TODO: apresentar conceitos, escalas e atribuição sem associar automaticamente cada evento observado à mudança climática.</p>
-</div>
+<section id="cenários-previsões-e-projeções" class="level3" data-number="1.2.2">
+<h3 data-number="1.2.2" class="anchored" data-anchor-id="cenários-previsões-e-projeções"><span class="header-section-number">1.2.2</span> Cenários, previsões e projeções</h3>
+<p>Previsões descrevem estados futuros condicionados ao conhecimento atual do sistema e a um horizonte definido. Projeções climáticas descrevem respostas possíveis a trajetórias de emissões, concentração de gases, uso da terra e outras hipóteses. Cenários não são previsões determinísticas. Eles permitem explorar futuros plausíveis e testar a robustez de decisões.</p>
+<p>Para o planejamento sanitário, a pergunta útil raramente é “qual será exatamente a temperatura deste município em 2050?”. Perguntas mais defensáveis incluem: quais perigos poderão se intensificar; que populações e serviços já estão expostos; quais medidas são benéficas em vários cenários; que decisões têm longa vida útil; e quais sinais exigiriam revisão da estratégia.</p>
+</section>
 </section>
 <section id="determinantes-ambientais-da-saúde" class="level2" data-number="1.3">
 <h2 data-number="1.3" class="anchored" data-anchor-id="determinantes-ambientais-da-saúde"><span class="header-section-number">1.3</span> Determinantes ambientais da saúde</h2>
-<div class="todo">
-<p>TODO: organizar determinantes físicos, biológicos, sociais e institucionais e suas interações.</p>
+<p>Determinantes ambientais da saúde são condições do ambiente natural e construído que influenciam a saúde individual e coletiva. Sua ação ocorre em interação com determinantes sociais, econômicos, políticos e institucionais. A vigilância em saúde ambiental, no âmbito do SUS, identifica mudanças em fatores ambientais que interferem na saúde humana para orientar prevenção, promoção e resposta <span class="citation" data-cites="brasilsaudeambiental">(<a href="../../backmatter/referencias.html#ref-brasilsaudeambiental" role="doc-biblioref">Brasil. Ministério da Saúde, 2026a</a>)</span>.</p>
+<p>Uma classificação prática distingue quatro grupos:</p>
+<ol type="1">
+<li><strong>físicos e químicos</strong> — temperatura, radiação, umidade, poluentes atmosféricos, substâncias químicas, ruído e qualidade da água;</li>
+<li><strong>biológicos e ecológicos</strong> — vetores, reservatórios, microrganismos, florações, biodiversidade e alterações de habitats;</li>
+<li><strong>territoriais e construídos</strong> — uso da terra, saneamento, drenagem, habitação, mobilidade, arborização, impermeabilização e localização de serviços;</li>
+<li><strong>sociais e institucionais</strong> — renda, racismo, gênero, trabalho, proteção social, governança, informação, capacidade assistencial e acesso a medidas de proteção.</li>
+</ol>
+<p>Essa divisão organiza a análise, mas não cria compartimentos independentes. Uma chuva intensa torna-se inundação conforme drenagem, impermeabilização, ocupação e manutenção urbana. A inundação torna-se crise sanitária conforme contaminação da água, desalojamento, interrupção de serviços, proteção social e capacidade de resposta. O resultado emerge de uma cadeia de relações.</p>
+<div id="tbl-determinantes-cadeias" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-determinantes-cadeias-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;1.2: Exemplos de cadeias entre determinantes ambientais e ação pública
+</figcaption>
+<div aria-describedby="tbl-determinantes-cadeias-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Determinante</th>
+<th>Mecanismo intermediário</th>
+<th>Possíveis efeitos sanitários</th>
+<th>Respostas públicas relacionadas</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Calor persistente</td>
+<td>Sobrecarga termorregulatória; piora da qualidade do ar; aumento da demanda elétrica</td>
+<td>Doença relacionada ao calor; agravamento cardiovascular e renal; acidentes de trabalho</td>
+<td>Alerta calor–saúde; proteção laboral; busca ativa; preparação de serviços</td>
+</tr>
+<tr class="even">
+<td>Precipitação extrema</td>
+<td>Inundação, deslizamento, contaminação e interrupção de mobilidade</td>
+<td>Lesões, óbitos, doenças de veiculação hídrica, sofrimento mental</td>
+<td>Alerta, evacuação, água segura, vigilância pós-evento</td>
+</tr>
+<tr class="odd">
+<td>Seca</td>
+<td>Escassez hídrica, concentração de contaminantes, perda de produção e queimadas</td>
+<td>Insegurança alimentar, doenças respiratórias, agravos relacionados à água</td>
+<td>Segurança hídrica, assistência, vigilância da qualidade da água</td>
+</tr>
+<tr class="even">
+<td>Poluição atmosférica</td>
+<td>Inalação de partículas e gases</td>
+<td>Agravos respiratórios e cardiovasculares; mortalidade prematura</td>
+<td>Monitoramento, controle de emissões, comunicação a grupos de risco</td>
+</tr>
+<tr class="odd">
+<td>Saneamento inadequado</td>
+<td>Contato com água ou solo contaminados</td>
+<td>Doenças diarreicas, parasitoses e outros agravos</td>
+<td>Abastecimento seguro, esgotamento, vigilância e controle</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
 </div>
 </section>
 <section id="caminhos-de-impacto-sobre-a-saúde" class="level2" data-number="1.4">
 <h2 data-number="1.4" class="anchored" data-anchor-id="caminhos-de-impacto-sobre-a-saúde"><span class="header-section-number">1.4</span> Caminhos de impacto sobre a saúde</h2>
+<p>O IPCC organiza os riscos à saúde associados ao clima por caminhos diretos e indiretos, reconhecendo que exposição e vulnerabilidade distribuem os impactos de forma desigual <span class="citation" data-cites="ipcc2022saude">(<a href="../../backmatter/referencias.html#ref-ipcc2022saude" role="doc-biblioref">Cissé et al., 2022</a>)</span>. A OMS acrescenta que mudanças climáticas afetam tanto desfechos quanto os sistemas dos quais a saúde depende, incluindo água, alimentos, meios de vida e funcionamento dos serviços <span class="citation" data-cites="who2023climatehealth">(<a href="../../backmatter/referencias.html#ref-who2023climatehealth" role="doc-biblioref">World Health Organization, 2023b</a>)</span>.</p>
 <section id="efeitos-diretos-e-indiretos" class="level3" data-number="1.4.1">
 <h3 data-number="1.4.1" class="anchored" data-anchor-id="efeitos-diretos-e-indiretos"><span class="header-section-number">1.4.1</span> Efeitos diretos e indiretos</h3>
+<p>Efeitos <strong>diretos</strong> decorrem do contato relativamente imediato com o perigo: estresse térmico durante calor extremo, trauma em inundação, lesão por vendaval ou intoxicação por fumaça em concentração elevada. “Direto” não significa simples, inevitável ou igualmente distribuído. Moradia, ocupação e acesso a abrigo continuam mediando o contato.</p>
+<p>Efeitos <strong>indiretos</strong> ocorrem por alterações em sistemas ecológicos, sociais ou de infraestrutura. Temperatura e chuva podem modificar a adequação ambiental para vetores; seca e enchente podem afetar produção, preços e segurança alimentar; desastres podem interromper vacinação, diálise, atenção pré-natal ou fornecimento de medicamentos. O caminho indireto pode ser mais longo, mas nem por isso menos importante.</p>
 </section>
 <section id="efeitos-imediatos-e-prolongados" class="level3" data-number="1.4.2">
 <h3 data-number="1.4.2" class="anchored" data-anchor-id="efeitos-imediatos-e-prolongados"><span class="header-section-number">1.4.2</span> Efeitos imediatos e prolongados</h3>
-<div class="todo">
-<p>TODO: construir modelo conceitual com exposição, mediação, desfecho e resposta.</p>
+<p>Outra distinção considera o tempo. Lesões e doença aguda relacionada ao calor podem ocorrer durante o evento. Infecções, agravamentos de doenças crônicas, sofrimento mental, deslocamento populacional e insegurança alimentar podem aparecer depois e persistir. A janela de vigilância deve corresponder ao mecanismo plausível e ao desfecho, em vez de se limitar ao dia do evento.</p>
+<p>O quadro conceitual do <a href="#fig-cadeia-risco" class="quarto-xref">Figura&nbsp;<span>1.1</span></a> evita tratar um indicador ambiental como se fosse um desfecho de saúde.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div id="fig-cadeia-risco" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-cadeia-risco-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-cadeia-risco">flowchart LR
+  P[Perigo climático&lt;br/&gt;ou ambiental] --&gt; E[Exposição de pessoas,&lt;br/&gt;territórios e serviços]
+  V[Vulnerabilidade e&lt;br/&gt;capacidade de proteção] --&gt; E
+  E --&gt; D[Doença, agravo,&lt;br/&gt;óbito ou interrupção]
+  R[Prevenção, adaptação&lt;br/&gt;e resposta] -. reduz .-&gt; E
+  R -. reduz .-&gt; V
+  D --&gt; S[Vigilância e&lt;br/&gt;avaliação]
+  S --&gt; R
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cadeia-risco-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;1.1: Cadeia conceitual entre perigo, exposição, vulnerabilidade, efeitos e resposta
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>No modelo:</p>
+<ul>
+<li><strong>perigo</strong> é a possível ocorrência de um evento ou tendência capaz de causar dano;</li>
+<li><strong>exposição</strong> é a presença de pessoas, meios de vida, ecossistemas, infraestrutura ou serviços em lugares e situações suscetíveis;</li>
+<li><strong>vulnerabilidade</strong> é a propensão a ser adversamente afetado, incluindo sensibilidade e limitações de capacidade;</li>
+<li><strong>risco</strong> resulta da interação dinâmica entre perigo, exposição e vulnerabilidade;</li>
+<li><strong>resposta</strong> reúne ações que previnem exposição, reduzem vulnerabilidade, preparam serviços, atendem necessidades e aprendem com os efeitos.</li>
+</ul>
+<p>Esses termos seguem o vocabulário do IPCC <span class="citation" data-cites="ipcc2022glossario">(<a href="../../backmatter/referencias.html#ref-ipcc2022glossario" role="doc-biblioref">Matthews et al., 2022</a>)</span>. Eles não formam uma equação universal. Multiplicar escores de perigo, exposição e vulnerabilidade pode ser uma opção de modelagem, mas exige justificativa, análise de sensibilidade e interpretação substantiva. O diagrama é uma estrutura para raciocinar, não uma fórmula automática.</p>
+<div class="visual-needed">
+<p><strong>Necessidade de ilustração — cadeia de impacto em território brasileiro.</strong> Produzir uma ilustração original, em página dupla, mostrando um mesmo episódio de chuva extrema em dois territórios com infraestrutura, exposição e capacidade de resposta contrastantes. A arte deve explicitar que o perigo pode ser semelhante e o dano, diferente.</p>
 </div>
 </section>
 </section>
-<section id="desigualdades-e-vulnerabilidades" class="level2" data-number="1.5">
-<h2 data-number="1.5" class="anchored" data-anchor-id="desigualdades-e-vulnerabilidades"><span class="header-section-number">1.5</span> Desigualdades e vulnerabilidades</h2>
-<div class="todo">
-<p>TODO: incorporar desigualdades sociais, raciais, territoriais, ocupacionais e de acesso a serviços.</p>
+<section id="desigualdades-e-processos-de-vulnerabilização" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="desigualdades-e-processos-de-vulnerabilização"><span class="header-section-number">1.5</span> Desigualdades e processos de vulnerabilização</h2>
+<p>Vulnerabilidade não é sinônimo de pobreza nem uma característica natural de determinados grupos. Ela é produzida e modificada por processos históricos, políticos e econômicos. Racismo ambiental, segregação urbana, precarização do trabalho, déficit habitacional, barreiras de acessibilidade e distribuição desigual de infraestrutura condicionam quem se expõe, por quanto tempo e com quais recursos de proteção.</p>
+<p>Pessoas idosas, crianças, gestantes, pessoas com deficiência, populações indígenas, comunidades tradicionais, pessoas em situação de rua e indivíduos com doenças crônicas podem apresentar necessidades específicas. Entretanto, listas fixas escondem heterogeneidade. Uma pessoa idosa com moradia termicamente adequada, apoio social e acesso a cuidados pode estar mais protegida que uma pessoa jovem submetida a trabalho pesado ao ar livre sem água ou pausas.</p>
+<p>Convém distinguir:</p>
+<ul>
+<li><strong>suscetibilidade biológica</strong>, relacionada a características fisiológicas ou clínicas;</li>
+<li><strong>exposição diferencial</strong>, determinada por local de moradia, ocupação, mobilidade e tempo de contato;</li>
+<li><strong>capacidade de proteção</strong>, associada a renda, informação, redes sociais, infraestrutura e políticas;</li>
+<li><strong>capacidade institucional</strong>, referente à prevenção, alerta, assistência, recuperação e continuidade dos serviços.</li>
+</ul>
+<section id="justiça-ambiental-e-climática" class="level3" data-number="1.5.1">
+<h3 data-number="1.5.1" class="anchored" data-anchor-id="justiça-ambiental-e-climática"><span class="header-section-number">1.5.1</span> Justiça ambiental e climática</h3>
+<p>Justiça ambiental pergunta como benefícios, danos, poder decisório e reconhecimento são distribuídos. Uma política pode reduzir um indicador médio e ampliar desigualdades se seus benefícios alcançarem apenas grupos com mais recursos. Por isso, a avaliação deve examinar distribuição territorial e social, participação das populações afetadas e possíveis efeitos adversos das próprias medidas de adaptação.</p>
+<p>Indicadores desagregados ajudam, mas não substituem participação social e conhecimento local. Uma área classificada como de “alta vulnerabilidade” não deve ser tratada apenas como objeto de intervenção. Moradores, trabalhadores e organizações locais conhecem rotas de exposição, barreiras e capacidades que bases administrativas não registram.</p>
+</section>
+</section>
+<section id="impactos-sobre-a-saúde-humana" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="impactos-sobre-a-saúde-humana"><span class="header-section-number">1.6</span> Impactos sobre a saúde humana</h2>
+<p>Os efeitos climáticos e ambientais podem alcançar múltiplos sistemas do organismo. Calor excessivo compromete a termorregulação e pode agravar doenças cardiovasculares, renais, respiratórias, metabólicas e mentais. Poluição do ar está associada a morbidade e mortalidade, especialmente por doenças respiratórias e cardiovasculares. Alterações hidrológicas podem aumentar riscos de trauma, contato com contaminantes e doenças relacionadas à água. Mudanças ecológicas podem alterar a distribuição de vetores e reservatórios <span class="citation" data-cites="ipcc2022saude brasil2026guiaclima">(<a href="../../backmatter/referencias.html#ref-brasil2026guiaclima" role="doc-biblioref">Brasil. Ministério da Saúde, 2026b</a>; <a href="../../backmatter/referencias.html#ref-ipcc2022saude" role="doc-biblioref">Cissé et al., 2022</a>)</span>.</p>
+<p>Saúde mental merece atenção antes, durante e depois de eventos. Medo, perdas, deslocamento, ruptura de vínculos e incerteza econômica podem produzir sofrimento imediato e persistente. Trabalhadores de emergência e equipes de saúde também se expõem a sobrecarga, risco físico e exaustão.</p>
+<p>Não existe um “desfecho climático” único. Cada agravo tem definição, sistema de informação, latência e limitações. O capítulo de efeitos em saúde diferencia eventos clínicos diretamente relacionados à exposição, agravamentos de condições existentes, desfechos infecciosos, saúde mental, mortalidade e carga atribuível.</p>
+</section>
+<section id="impactos-sobre-a-saúde-pública" class="level2" data-number="1.7">
+<h2 data-number="1.7" class="anchored" data-anchor-id="impactos-sobre-a-saúde-pública"><span class="header-section-number">1.7</span> Impactos sobre a saúde pública</h2>
+<p>Saúde pública inclui mais que a soma de casos individuais. Fenômenos climáticos e ambientais alteram demanda assistencial, disponibilidade de trabalhadores, logística, energia, água, medicamentos, cadeia de frio, transporte sanitário e funcionamento de estabelecimentos. Uma unidade pode permanecer fisicamente intacta e, ainda assim, perder capacidade operacional por falta de acesso, energia, pessoal ou insumos.</p>
+<p>Os efeitos também alcançam programas de rotina. Campanhas podem ser interrompidas; equipes podem ser deslocadas para emergências; territórios podem perder continuidade de acompanhamento; sistemas de informação podem sofrer atraso. A análise precisa considerar capacidade de absorver o choque, manter funções essenciais, adaptar operações e recuperar-se sem reproduzir desigualdades.</p>
+<p>A OMS organiza a construção de sistemas de saúde resilientes ao clima em componentes que incluem liderança, força de trabalho, avaliação de vulnerabilidade, vigilância integrada, pesquisa, tecnologias, infraestrutura, gestão de emergências, financiamento e ação sobre determinantes ambientais <span class="citation" data-cites="who2023framework">(<a href="../../backmatter/referencias.html#ref-who2023framework" role="doc-biblioref">World Health Organization, 2023a</a>)</span>. No Brasil, o AdaptaSUS incorpora ameaça, exposição e vulnerabilidade à avaliação de riscos do setor saúde <span class="citation" data-cites="brasil2026adaptasus">(<a href="../../backmatter/referencias.html#ref-brasil2026adaptasus" role="doc-biblioref">Brasil. Ministério da Saúde, 2026c</a>)</span>.</p>
+</section>
+<section id="relevância-para-o-sus" class="level2" data-number="1.8">
+<h2 data-number="1.8" class="anchored" data-anchor-id="relevância-para-o-sus"><span class="header-section-number">1.8</span> Relevância para o SUS</h2>
+<p>O SUS reúne funções decisivas para prevenir e reduzir impactos: vigilância epidemiológica, sanitária, ambiental e em saúde do trabalhador; atenção primária; urgência e emergência; assistência farmacêutica; laboratórios; promoção da saúde; participação social; regulação; planejamento e gestão interfederativa.</p>
+<p>Informação climática e ambiental torna-se útil quando conectada a responsabilidades e tempos decisórios. Uma previsão de calor pode orientar comunicação e preparação imediata. Uma série de internações e temperatura pode apoiar a definição de limiares locais. Um mapa de cobertura de água e risco de inundação pode orientar inspeção e plano de contingência. Uma projeção climática pode fundamentar investimento em infraestrutura e localização de serviços.</p>
+<div id="tbl-horizontes-sus" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-horizontes-sus-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;1.3: Horizontes de informação para decisões no SUS
+</figcaption>
+<div aria-describedby="tbl-horizontes-sus-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Horizonte</th>
+<th>Pergunta de gestão</th>
+<th>Informação necessária</th>
+<th>Exemplo de ação</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Horas a dias</td>
+<td>Há perigo iminente e quem precisa agir?</td>
+<td>Previsão, alerta, população e serviços expostos</td>
+<td>Ativar protocolo e comunicar medidas de proteção</td>
+</tr>
+<tr class="even">
+<td>Semanas a meses</td>
+<td>Que pressão sazonal é provável?</td>
+<td>Sazonalidade, vigilância de agravos, capacidade instalada</td>
+<td>Organizar equipes, insumos e busca ativa</td>
+</tr>
+<tr class="odd">
+<td>Anos</td>
+<td>Onde reduzir risco estrutural?</td>
+<td>Séries históricas, desigualdades, infraestrutura e cenários</td>
+<td>Adaptar unidades, ampliar saneamento e arborização</td>
+</tr>
+<tr class="even">
+<td>Contínuo</td>
+<td>As medidas funcionaram e foram equitativas?</td>
+<td>Processo, cobertura, efeitos e distribuição</td>
+<td>Revisar limiares, fluxos e prioridades</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
 </div>
 </section>
-<section id="relevância-para-o-sus" class="level2" data-number="1.6">
-<h2 data-number="1.6" class="anchored" data-anchor-id="relevância-para-o-sus"><span class="header-section-number">1.6</span> Relevância para o SUS</h2>
-</section>
-<section id="vigilância-planejamento-e-gestão" class="level2" data-number="1.7">
-<h2 data-number="1.7" class="anchored" data-anchor-id="vigilância-planejamento-e-gestão"><span class="header-section-number">1.7</span> Vigilância, planejamento e gestão</h2>
-<div class="todo">
-<p>TODO: relacionar informação ambiental aos ciclos de vigilância, preparação, resposta e avaliação.</p>
+<section id="vigilância-planejamento-e-gestão" class="level2" data-number="1.9">
+<h2 data-number="1.9" class="anchored" data-anchor-id="vigilância-planejamento-e-gestão"><span class="header-section-number">1.9</span> Vigilância, planejamento e gestão</h2>
+<p>Um ciclo de uso da informação pode ser organizado em oito movimentos:</p>
+<ol type="1">
+<li>definir a decisão e os responsáveis;</li>
+<li>caracterizar perigo, exposição, vulnerabilidade e capacidade;</li>
+<li>selecionar indicadores consolidados e fontes qualificadas;</li>
+<li>estabelecer referência, limiar e incerteza aceitável;</li>
+<li>monitorar e comunicar a situação;</li>
+<li>executar ações previamente pactuadas;</li>
+<li>registrar cobertura, oportunidade e efeitos;</li>
+<li>avaliar e revisar o protocolo.</li>
+</ol>
+<p>O indicador não substitui o protocolo. Um valor só produz ação consistente quando existem responsabilidades, canais, recursos, público prioritário e critérios de encerramento. Alertas sem capacidade de resposta podem transferir para indivíduos a responsabilidade por riscos estruturais.</p>
+<section id="leitura-integrada-dos-indicadores" class="level3" data-number="1.9.1">
+<h3 data-number="1.9.1" class="anchored" data-anchor-id="leitura-integrada-dos-indicadores"><span class="header-section-number">1.9.1</span> Leitura integrada dos indicadores</h3>
+<p>Este livro não propõe um índice genérico de “risco climático e saúde”. Ele apresenta indicadores consolidados na literatura e em sistemas oficiais, inseridos nos capítulos correspondentes. A leitura integrada ocorre preservando o significado de cada medida.</p>
+<div id="tbl-familias-indicadores" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-familias-indicadores-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;1.4: Famílias de indicadores adotadas no livro
+</figcaption>
+<div aria-describedby="tbl-familias-indicadores-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Dimensão</th>
+<th>Tipo de indicador consolidado</th>
+<th>Pergunta que responde</th>
+<th>Limite principal</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Perigo climático</td>
+<td>Índices de extremos ETCCDI, SPI/SPEI, medidas meteorológicas normalizadas</td>
+<td>O fenômeno ocorreu, com que intensidade e duração?</td>
+<td>Não informa sozinho quem esteve exposto</td>
+</tr>
+<tr class="even">
+<td>Exposição ambiental</td>
+<td>PM2,5 ponderado pela população, cobertura de água segura</td>
+<td>Que contato potencial existe no território?</td>
+<td>Exposição territorial não equivale à dose individual</td>
+</tr>
+<tr class="odd">
+<td>Efeito em saúde</td>
+<td>Mortalidade, incidência, internação, excesso e fração atribuível</td>
+<td>Que desfecho ocorreu ou foi estimado?</td>
+<td>Depende da qualidade do sistema e do desenho analítico</td>
+</tr>
+<tr class="even">
+<td>Impacto em desastres</td>
+<td>Indicadores ODS/Marco de Sendai</td>
+<td>Quantas pessoas morreram, desapareceram ou foram diretamente afetadas?</td>
+<td>Registros podem ser incompletos e definições precisam ser harmonizadas</td>
+</tr>
+<tr class="odd">
+<td>Resposta</td>
+<td>Cobertura de alerta, implementação de planos e continuidade de serviços</td>
+<td>A capacidade prevista existe e foi acionada?</td>
+<td>Presença formal não demonstra efetividade</td>
+</tr>
+</tbody>
+</table>
 </div>
+</figure>
+</div>
+<p>As fichas documentam conceito, método, unidade, fonte normativa ou científica, relação com a saúde, limitações e aplicação. Indicadores sem fundamentação metodológica verificável não integram o catálogo. Quando uma adaptação territorial for necessária, ela será identificada como adaptação de um indicador existente, e não apresentada como nova medida consolidada.</p>
+</section>
+</section>
+<section id="síntese" class="level2" data-number="1.10">
+<h2 data-number="1.10" class="anchored" data-anchor-id="síntese"><span class="header-section-number">1.10</span> Síntese</h2>
+<p>Clima descreve padrões e variabilidade de condições meteorológicas; ambiente reúne condições naturais, construídas e sociais que estruturam a vida. Perigos só se transformam em danos por meio de exposição e vulnerabilidade, e esses componentes são modificáveis por políticas públicas. Efeitos podem ser diretos ou indiretos, imediatos ou prolongados, individuais ou sistêmicos.</p>
+<p>Para o SUS, a pergunta central não é apenas “qual é o valor do indicador?”, mas “que decisão ele informa, para quem, em qual tempo, com que incerteza e sob responsabilidade de quem?”. Os capítulos seguintes transformam esse quadro conceitual em procedimentos de dados, fichas de indicadores consolidados e aplicações de vigilância e gestão.</p>
 
 
+<div id="refs" class="references csl-bib-body" data-entry-spacing="1" role="list" style="display: none">
+<div id="ref-brasil2026guiaclima" class="csl-entry" role="listitem">
+BRASIL. MINISTÉRIO DA SAÚDE. <strong><a href="https://www.gov.br/saude/pt-br/centrais-de-conteudo/publicacoes/svsa/vigilancia-ambiental/mudancas-climaticas-para-profissionais-de-saude-guia-de-bolso">Mudanças climáticas para profissionais de saúde: guia de bolso</a></strong>. Brasília, DF: Ministério da Saúde, 2026b.
+</div>
+<div id="ref-brasil2026adaptasus" class="csl-entry" role="listitem">
+BRASIL. MINISTÉRIO DA SAÚDE. <strong><a href="https://www.gov.br/saude/pt-br/centrais-de-conteudo/publicacoes/svsa/vigilancia-ambiental/plano-setorial-de-saude-adaptasus.pdf">Plano Clima Adaptação: Plano Setorial de Saúde — AdaptaSUS</a></strong>. Brasília, DF: Ministério da Saúde, 2026c.
+</div>
+<div id="ref-brasilsaudeambiental" class="csl-entry" role="listitem">
+BRASIL. MINISTÉRIO DA SAÚDE. <strong>Saúde ambiental</strong>. Disponível em: &lt;<a href="https://www.gov.br/saude/pt-br/composicao/svsa/saude-ambiental">https://www.gov.br/saude/pt-br/composicao/svsa/saude-ambiental</a>&gt;. Acesso em: 28 jul. 2026a.
+</div>
+<div id="ref-ipcc2022saude" class="csl-entry" role="listitem">
+CISSÉ, Guéladio <em>et al.</em> <a href="https://doi.org/10.1017/9781009325844.009">Health, Wellbeing, and the Changing Structure of Communities</a>. <em>In</em>: PÖRTNER, Hans-Otto <em>et al.</em> (Orgs.). <strong>Climate Change 2022: Impacts, Adaptation and Vulnerability</strong>. Cambridge: Cambridge University Press, 2022. p. 1041–1170.
+</div>
+<div id="ref-ipcc2022glossario" class="csl-entry" role="listitem">
+MATTHEWS, J. B. Robin <em>et al.</em> <a href="https://doi.org/10.1017/9781009325844.029">Annex II: Glossary</a>. <em>In</em>: PÖRTNER, Hans-Otto <em>et al.</em> (Orgs.). <strong>Climate Change 2022: Impacts, Adaptation and Vulnerability</strong>. Cambridge: Cambridge University Press, 2022. p. 2897–2930.
+</div>
+<div id="ref-who2023framework" class="csl-entry" role="listitem">
+WORLD HEALTH ORGANIZATION. <strong><a href="https://www.who.int/publications/i/item/9789240081888">Operational framework for building climate resilient and low carbon health systems</a></strong>. Geneva: World Health Organization, 2023a.
+</div>
+<div id="ref-who2023climatehealth" class="csl-entry" role="listitem">
+WORLD HEALTH ORGANIZATION. <strong>Climate change and health</strong>. Disponível em: &lt;<a href="https://www.who.int/news-room/fact-sheets/detail/climate-change-and-health">https://www.who.int/news-room/fact-sheets/detail/climate-change-and-health</a>&gt;. Acesso em: 28 jul. 2026b.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -677,7 +1028,7 @@ ul.task-list li input[type="checkbox"] {
     anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
-        if (clz.startsWith('code-annotation-')) {                     
+        if (clz.startsWith('code-annotation-')) {
           return true;
         }
       }
@@ -697,11 +1048,11 @@ ul.task-list li input[type="checkbox"] {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
         button.setAttribute("data-bs-title", "Copiada");
-        tooltip = new bootstrap.Tooltip(button, 
-          { trigger: "manual", 
+        tooltip = new bootstrap.Tooltip(button,
+          { trigger: "manual",
             customClass: "code-copy-button-tooltip",
             offset: [0, -8]});
-        tooltip.show();    
+        tooltip.show();
       }
       setTimeout(function() {
         if (tooltip) {
@@ -783,7 +1134,7 @@ ul.task-list li input[type="checkbox"] {
       if (onUntriggerFn) {
         config.onUntrigger = onUntriggerFn;
       }
-      window.tippy(el, config); 
+      window.tippy(el, config);
     }
     const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
     for (var i=0; i<noterefs.length; i++) {
@@ -858,7 +1209,7 @@ ul.task-list li input[type="checkbox"] {
       tippyHover(xref, undefined, function(instance) {
         instance.disable();
         let url = xref.getAttribute('href');
-        let hash = undefined; 
+        let hash = undefined;
         if (url.startsWith('#')) {
           hash = url;
         } else {
@@ -886,7 +1237,7 @@ ul.task-list li input[type="checkbox"] {
               if (note !== null) {
                 const html = processXRef(id, note);
                 instance.setContent(html);
-              } 
+              }
             }).finally(() => {
               instance.enable();
               instance.show();
@@ -910,7 +1261,7 @@ ul.task-list li input[type="checkbox"] {
               }
               const html = processXRef(null, note);
               instance.setContent(html);
-            } 
+            }
           }).finally(() => {
             instance.enable();
             instance.show();
@@ -950,7 +1301,7 @@ ul.task-list li input[type="checkbox"] {
               height = bottom - top;
             }
             if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
+              // cook up a div (if necessary) and position it
               let div = window.document.getElementById("code-annotation-line-highlight");
               if (div === null) {
                 div = window.document.createElement("div");
@@ -1075,7 +1426,7 @@ ul.task-list li input[type="checkbox"] {
   <div class="nav-page nav-page-previous">
       <a href="../../frontmatter/como-usar.html" class="pagination-link" aria-label="Como utilizar este livro">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Como utilizar este livro</span>
-      </a>          
+      </a>
   </div>
   <div class="nav-page nav-page-next">
       <a href="../../chapters/part-1/02-dados-variaveis-indices-indicadores.html" class="pagination-link" aria-label="Dados, variáveis, índices e indicadores">

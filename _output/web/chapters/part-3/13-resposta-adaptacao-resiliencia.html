@@ -23,10 +23,30 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 1em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -79,7 +99,39 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Procurar"
   }
 }</script>
+<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles/web/styles.css">
 </head>
@@ -256,7 +308,7 @@ ul.task-list li input[type="checkbox"] {
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/part-3/11-exposicao-vulnerabilidade.html">Parte III — Indicadores integrados de clima, ambiente e saúde</a></li><li class="breadcrumb-item"><a href="../../chapters/part-3/13-resposta-adaptacao-resiliencia.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Capacidade de resposta, adaptação e resiliência</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Procurar" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
@@ -270,7 +322,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../../">Dados e Indicadores de Clima e Ambiente para a Saúde</a> 
+      <a href="../../">Dados e Indicadores de Clima e Ambiente para a Saúde</a>
         <div class="sidebar-tools-main">
     <a href="https://github.com/rfsaldanha/dicas" title="Código fonte" class="quarto-navigation-tool px-1" aria-label="Código fonte"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo escuro"><i class="bi"></i></a>
@@ -282,85 +334,85 @@ ul.task-list li input[type="checkbox"] {
         <div id="quarto-search" class="" title="Procurar"></div>
         </div>
         </div>
-    <div class="sidebar-menu-container"> 
+    <div class="sidebar-menu-container">
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Bem-vindo</span></a>
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../frontmatter/ficha-tecnica.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Ficha técnica</span></a>
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../frontmatter/apresentacao.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Apresentação</span></a>
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../frontmatter/prefacio.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Prefácio</span></a>
+ <span class="menu-text">Prefácio do autor</span></a>
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../frontmatter/agradecimentos.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Agradecimentos</span></a>
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../frontmatter/siglas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lista de siglas</span></a>
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../frontmatter/sumario.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sumário</span></a>
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../frontmatter/como-usar.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Como utilizar este livro</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
+      <div class="sidebar-item-container">
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Parte I — Fundamentos e métodos</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+          </a>
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-1/01-clima-ambiente-saude.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Clima, ambiente e saúde pública</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-1/02-dados-variaveis-indices-indicadores.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Dados, variáveis, índices e indicadores</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-1/03-espaco-tempo-qualidade.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Espaço, tempo e qualidade dos dados</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-1/04-fontes-fichas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Fontes de dados e fichas de indicadores</span></span></a>
   </div>
@@ -368,46 +420,46 @@ ul.task-list li input[type="checkbox"] {
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
+      <div class="sidebar-item-container">
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
  <span class="menu-text">Parte II — Dados e indicadores temáticos</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+          </a>
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-2/05-temperatura-condicoes-termicas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Temperatura e condições térmicas</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-2/06-precipitacao-secas-eventos-hidrologicos.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Precipitação, secas e eventos hidrológicos</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-2/07-qualidade-ar-queimadas-fumaca.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Qualidade do ar, queimadas e fumaça</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-2/08-agua-saneamento-qualidade-ambiental.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Água, saneamento e qualidade ambiental</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-2/09-uso-cobertura-terra-ambiente-urbano.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Uso e cobertura da terra, vegetação e ambiente urbano</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-2/10-eventos-severos-desastres.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Eventos meteorológicos severos e desastres</span></span></a>
   </div>
@@ -415,28 +467,28 @@ ul.task-list li input[type="checkbox"] {
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
+      <div class="sidebar-item-container">
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
  <span class="menu-text">Parte III — Indicadores integrados de clima, ambiente e saúde</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+          </a>
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-3/11-exposicao-vulnerabilidade.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Exposição e vulnerabilidade socioambiental</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-3/12-efeitos-saude.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Efeitos do clima e do ambiente sobre a saúde</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-3/13-resposta-adaptacao-resiliencia.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Capacidade de resposta, adaptação e resiliência</span></span></a>
   </div>
@@ -444,16 +496,16 @@ ul.task-list li input[type="checkbox"] {
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
+      <div class="sidebar-item-container">
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
  <span class="menu-text">Parte IV — Aplicação na vigilância e na gestão pública</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+          </a>
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-4/14-indicador-decisao.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Do indicador à decisão pública</span></span></a>
   </div>
@@ -461,93 +513,64 @@ ul.task-list li input[type="checkbox"] {
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
+      <div class="sidebar-item-container">
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
- <span class="menu-text">Fichas demonstrativas</span></a>
+ <span class="menu-text">Elementos pós-textuais</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+          </a>
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../indicators/pages/cli-tem-01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Temperatura máxima diária</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../indicators/pages/cli-cal-01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Ocorrência de onda de calor</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../indicators/pages/amb-ar-01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Concentração média diária de material particulado fino (PM2,5)</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
- <span class="menu-text">Elementos pós-textuais</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Alternar seção">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/glossario.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Glossário</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/referencias.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Referências</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/indice-indicadores.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Índice alfabético de indicadores</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/indice-fontes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Índice de fontes de dados</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/indice-instituicoes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Índice de instituições</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/apendice-metodologico.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Apêndice metodológico</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/lista-fichas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lista de fichas</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/lista-tabelas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lista de tabelas</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/lista-figuras.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lista de figuras</span></a>
   </div>
@@ -562,18 +585,131 @@ ul.task-list li input[type="checkbox"] {
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Índice</h2>
-   
+
   <ul>
-  <li><a href="#capacidade-instalada-do-sus" id="toc-capacidade-instalada-do-sus" class="nav-link active" data-scroll-target="#capacidade-instalada-do-sus"><span class="header-section-number">13.1</span> Capacidade instalada do SUS</a></li>
-  <li><a href="#preparação-dos-serviços-e-vigilância-ambiental" id="toc-preparação-dos-serviços-e-vigilância-ambiental" class="nav-link" data-scroll-target="#preparação-dos-serviços-e-vigilância-ambiental"><span class="header-section-number">13.2</span> Preparação dos serviços e vigilância ambiental</a></li>
-  <li><a href="#planos-de-contingência-e-adaptação" id="toc-planos-de-contingência-e-adaptação" class="nav-link" data-scroll-target="#planos-de-contingência-e-adaptação"><span class="header-section-number">13.3</span> Planos de contingência e adaptação</a></li>
-  <li><a href="#alertas-e-comunicação-de-risco" id="toc-alertas-e-comunicação-de-risco" class="nav-link" data-scroll-target="#alertas-e-comunicação-de-risco"><span class="header-section-number">13.4</span> Alertas e comunicação de risco</a></li>
-  <li><a href="#infraestrutura-resiliente" id="toc-infraestrutura-resiliente" class="nav-link" data-scroll-target="#infraestrutura-resiliente"><span class="header-section-number">13.5</span> Infraestrutura resiliente</a></li>
-  <li><a href="#continuidade-do-atendimento" id="toc-continuidade-do-atendimento" class="nav-link" data-scroll-target="#continuidade-do-atendimento"><span class="header-section-number">13.6</span> Continuidade do atendimento</a></li>
-  <li><a href="#capacidade-laboratorial" id="toc-capacidade-laboratorial" class="nav-link" data-scroll-target="#capacidade-laboratorial"><span class="header-section-number">13.7</span> Capacidade laboratorial</a></li>
-  <li><a href="#resposta-às-emergências" id="toc-resposta-às-emergências" class="nav-link" data-scroll-target="#resposta-às-emergências"><span class="header-section-number">13.8</span> Resposta às emergências</a></li>
-  <li><a href="#recuperação-dos-serviços" id="toc-recuperação-dos-serviços" class="nav-link" data-scroll-target="#recuperação-dos-serviços"><span class="header-section-number">13.9</span> Recuperação dos serviços</a></li>
-  <li><a href="#avaliação-da-capacidade-institucional" id="toc-avaliação-da-capacidade-institucional" class="nav-link" data-scroll-target="#avaliação-da-capacidade-institucional"><span class="header-section-number">13.10</span> Avaliação da capacidade institucional</a></li>
+  <li><a href="#o-que-deve-ser-medido" id="toc-o-que-deve-ser-medido" class="nav-link active" data-scroll-target="#o-que-deve-ser-medido"><span class="header-section-number">13.1</span> O que deve ser medido</a></li>
+  <li><a href="#governança-e-responsabilidade" id="toc-governança-e-responsabilidade" class="nav-link" data-scroll-target="#governança-e-responsabilidade"><span class="header-section-number">13.2</span> Governança e responsabilidade</a></li>
+  <li><a href="#sec-res-gov-01" id="toc-sec-res-gov-01" class="nav-link" data-scroll-target="#sec-res-gov-01"><span class="header-section-number">13.3</span> Ficha do indicador: Percentual de estabelecimentos com equipe ou pessoa focal designada para gestão de emergências e continuidade dos serviços</a>
+  <ul class="collapse">
+  <li><a href="#identificação-e-fundamento" id="toc-identificação-e-fundamento" class="nav-link" data-scroll-target="#identificação-e-fundamento"><span class="header-section-number">13.3.1</span> Identificação e fundamento</a></li>
+  <li><a href="#conceito" id="toc-conceito" class="nav-link" data-scroll-target="#conceito"><span class="header-section-number">13.3.2</span> Conceito</a></li>
+  <li><a href="#objetivo" id="toc-objetivo" class="nav-link" data-scroll-target="#objetivo"><span class="header-section-number">13.3.3</span> Objetivo</a></li>
+  <li><a href="#interpretação" id="toc-interpretação" class="nav-link" data-scroll-target="#interpretação"><span class="header-section-number">13.3.4</span> Interpretação</a></li>
+  <li><a href="#usos" id="toc-usos" class="nav-link" data-scroll-target="#usos"><span class="header-section-number">13.3.5</span> Usos</a></li>
+  <li><a href="#limitações" id="toc-limitações" class="nav-link" data-scroll-target="#limitações"><span class="header-section-number">13.3.6</span> Limitações</a></li>
+  <li><a href="#fontes-de-dados" id="toc-fontes-de-dados" class="nav-link" data-scroll-target="#fontes-de-dados"><span class="header-section-number">13.3.7</span> Fontes de dados</a></li>
+  <li><a href="#método-de-cálculo" id="toc-método-de-cálculo" class="nav-link" data-scroll-target="#método-de-cálculo"><span class="header-section-number">13.3.8</span> Método de cálculo</a></li>
+  <li><a href="#campos-complementares-para-clima-ambiente-e-saúde" id="toc-campos-complementares-para-clima-ambiente-e-saúde" class="nav-link" data-scroll-target="#campos-complementares-para-clima-ambiente-e-saúde"><span class="header-section-number">13.3.9</span> Campos complementares para clima, ambiente e saúde</a></li>
+  <li><a href="#disponibilidade-e-acesso" id="toc-disponibilidade-e-acesso" class="nav-link" data-scroll-target="#disponibilidade-e-acesso"><span class="header-section-number">13.3.10</span> Disponibilidade e acesso</a></li>
+  <li><a href="#qualidade-comparação-e-saúde" id="toc-qualidade-comparação-e-saúde" class="nav-link" data-scroll-target="#qualidade-comparação-e-saúde"><span class="header-section-number">13.3.11</span> Qualidade, comparação e saúde</a></li>
+  <li><a href="#referências-metodológicas" id="toc-referências-metodológicas" class="nav-link" data-scroll-target="#referências-metodológicas"><span class="header-section-number">13.3.12</span> Referências metodológicas</a></li>
+  <li><a href="#coordenação-em-rede" id="toc-coordenação-em-rede" class="nav-link" data-scroll-target="#coordenação-em-rede"><span class="header-section-number">13.3.13</span> Coordenação em rede</a></li>
+  </ul></li>
+  <li><a href="#perfis-de-risco" id="toc-perfis-de-risco" class="nav-link" data-scroll-target="#perfis-de-risco"><span class="header-section-number">13.4</span> Perfis de risco</a></li>
+  <li><a href="#sec-res-ris-01" id="toc-sec-res-ris-01" class="nav-link" data-scroll-target="#sec-res-ris-01"><span class="header-section-number">13.5</span> Ficha do indicador: Percentual de estabelecimentos com perfil de riscos para choques e estressores documentado e atualizado</a>
+  <ul class="collapse">
+  <li><a href="#identificação-e-fundamento-1" id="toc-identificação-e-fundamento-1" class="nav-link" data-scroll-target="#identificação-e-fundamento-1"><span class="header-section-number">13.5.1</span> Identificação e fundamento</a></li>
+  <li><a href="#conceito-1" id="toc-conceito-1" class="nav-link" data-scroll-target="#conceito-1"><span class="header-section-number">13.5.2</span> Conceito</a></li>
+  <li><a href="#objetivo-1" id="toc-objetivo-1" class="nav-link" data-scroll-target="#objetivo-1"><span class="header-section-number">13.5.3</span> Objetivo</a></li>
+  <li><a href="#interpretação-1" id="toc-interpretação-1" class="nav-link" data-scroll-target="#interpretação-1"><span class="header-section-number">13.5.4</span> Interpretação</a></li>
+  <li><a href="#usos-1" id="toc-usos-1" class="nav-link" data-scroll-target="#usos-1"><span class="header-section-number">13.5.5</span> Usos</a></li>
+  <li><a href="#limitações-1" id="toc-limitações-1" class="nav-link" data-scroll-target="#limitações-1"><span class="header-section-number">13.5.6</span> Limitações</a></li>
+  <li><a href="#fontes-de-dados-1" id="toc-fontes-de-dados-1" class="nav-link" data-scroll-target="#fontes-de-dados-1"><span class="header-section-number">13.5.7</span> Fontes de dados</a></li>
+  <li><a href="#método-de-cálculo-1" id="toc-método-de-cálculo-1" class="nav-link" data-scroll-target="#método-de-cálculo-1"><span class="header-section-number">13.5.8</span> Método de cálculo</a></li>
+  <li><a href="#campos-complementares-para-clima-ambiente-e-saúde-1" id="toc-campos-complementares-para-clima-ambiente-e-saúde-1" class="nav-link" data-scroll-target="#campos-complementares-para-clima-ambiente-e-saúde-1"><span class="header-section-number">13.5.9</span> Campos complementares para clima, ambiente e saúde</a></li>
+  <li><a href="#disponibilidade-e-acesso-1" id="toc-disponibilidade-e-acesso-1" class="nav-link" data-scroll-target="#disponibilidade-e-acesso-1"><span class="header-section-number">13.5.10</span> Disponibilidade e acesso</a></li>
+  <li><a href="#qualidade-comparação-e-saúde-1" id="toc-qualidade-comparação-e-saúde-1" class="nav-link" data-scroll-target="#qualidade-comparação-e-saúde-1"><span class="header-section-number">13.5.11</span> Qualidade, comparação e saúde</a></li>
+  <li><a href="#referências-metodológicas-1" id="toc-referências-metodológicas-1" class="nav-link" data-scroll-target="#referências-metodológicas-1"><span class="header-section-number">13.5.12</span> Referências metodológicas</a></li>
+  <li><a href="#do-mapa-ao-investimento" id="toc-do-mapa-ao-investimento" class="nav-link" data-scroll-target="#do-mapa-ao-investimento"><span class="header-section-number">13.5.13</span> Do mapa ao investimento</a></li>
+  </ul></li>
+  <li><a href="#alertas-vigilância-e-comunicação" id="toc-alertas-vigilância-e-comunicação" class="nav-link" data-scroll-target="#alertas-vigilância-e-comunicação"><span class="header-section-number">13.6</span> Alertas, vigilância e comunicação</a></li>
+  <li><a href="#sec-res-alr-01" id="toc-sec-res-alr-01" class="nav-link" data-scroll-target="#sec-res-alr-01"><span class="header-section-number">13.7</span> Ficha do indicador: Nível de estabelecimento do sistema de alerta precoce, alerta e resposta</a>
+  <ul class="collapse">
+  <li><a href="#identificação-e-fundamento-2" id="toc-identificação-e-fundamento-2" class="nav-link" data-scroll-target="#identificação-e-fundamento-2"><span class="header-section-number">13.7.1</span> Identificação e fundamento</a></li>
+  <li><a href="#conceito-2" id="toc-conceito-2" class="nav-link" data-scroll-target="#conceito-2"><span class="header-section-number">13.7.2</span> Conceito</a></li>
+  <li><a href="#objetivo-2" id="toc-objetivo-2" class="nav-link" data-scroll-target="#objetivo-2"><span class="header-section-number">13.7.3</span> Objetivo</a></li>
+  <li><a href="#interpretação-2" id="toc-interpretação-2" class="nav-link" data-scroll-target="#interpretação-2"><span class="header-section-number">13.7.4</span> Interpretação</a></li>
+  <li><a href="#usos-2" id="toc-usos-2" class="nav-link" data-scroll-target="#usos-2"><span class="header-section-number">13.7.5</span> Usos</a></li>
+  <li><a href="#limitações-2" id="toc-limitações-2" class="nav-link" data-scroll-target="#limitações-2"><span class="header-section-number">13.7.6</span> Limitações</a></li>
+  <li><a href="#fontes-de-dados-2" id="toc-fontes-de-dados-2" class="nav-link" data-scroll-target="#fontes-de-dados-2"><span class="header-section-number">13.7.7</span> Fontes de dados</a></li>
+  <li><a href="#método-de-cálculo-2" id="toc-método-de-cálculo-2" class="nav-link" data-scroll-target="#método-de-cálculo-2"><span class="header-section-number">13.7.8</span> Método de cálculo</a></li>
+  <li><a href="#campos-complementares-para-clima-ambiente-e-saúde-2" id="toc-campos-complementares-para-clima-ambiente-e-saúde-2" class="nav-link" data-scroll-target="#campos-complementares-para-clima-ambiente-e-saúde-2"><span class="header-section-number">13.7.9</span> Campos complementares para clima, ambiente e saúde</a></li>
+  <li><a href="#disponibilidade-e-acesso-2" id="toc-disponibilidade-e-acesso-2" class="nav-link" data-scroll-target="#disponibilidade-e-acesso-2"><span class="header-section-number">13.7.10</span> Disponibilidade e acesso</a></li>
+  <li><a href="#qualidade-comparação-e-saúde-2" id="toc-qualidade-comparação-e-saúde-2" class="nav-link" data-scroll-target="#qualidade-comparação-e-saúde-2"><span class="header-section-number">13.7.11</span> Qualidade, comparação e saúde</a></li>
+  <li><a href="#referências-metodológicas-2" id="toc-referências-metodológicas-2" class="nav-link" data-scroll-target="#referências-metodológicas-2"><span class="header-section-number">13.7.12</span> Referências metodológicas</a></li>
+  <li><a href="#alertas-climáticos-e-ambientais" id="toc-alertas-climáticos-e-ambientais" class="nav-link" data-scroll-target="#alertas-climáticos-e-ambientais"><span class="header-section-number">13.7.13</span> Alertas climáticos e ambientais</a></li>
+  </ul></li>
+  <li><a href="#planos-de-emergência-e-continuidade" id="toc-planos-de-emergência-e-continuidade" class="nav-link" data-scroll-target="#planos-de-emergência-e-continuidade"><span class="header-section-number">13.8</span> Planos de emergência e continuidade</a></li>
+  <li><a href="#sec-res-pla-01" id="toc-sec-res-pla-01" class="nav-link" data-scroll-target="#sec-res-pla-01"><span class="header-section-number">13.9</span> Ficha do indicador: Percentual de estabelecimentos com plano de gestão de emergências que incorpora continuidade dos serviços</a>
+  <ul class="collapse">
+  <li><a href="#identificação-e-fundamento-3" id="toc-identificação-e-fundamento-3" class="nav-link" data-scroll-target="#identificação-e-fundamento-3"><span class="header-section-number">13.9.1</span> Identificação e fundamento</a></li>
+  <li><a href="#conceito-3" id="toc-conceito-3" class="nav-link" data-scroll-target="#conceito-3"><span class="header-section-number">13.9.2</span> Conceito</a></li>
+  <li><a href="#objetivo-3" id="toc-objetivo-3" class="nav-link" data-scroll-target="#objetivo-3"><span class="header-section-number">13.9.3</span> Objetivo</a></li>
+  <li><a href="#interpretação-3" id="toc-interpretação-3" class="nav-link" data-scroll-target="#interpretação-3"><span class="header-section-number">13.9.4</span> Interpretação</a></li>
+  <li><a href="#usos-3" id="toc-usos-3" class="nav-link" data-scroll-target="#usos-3"><span class="header-section-number">13.9.5</span> Usos</a></li>
+  <li><a href="#limitações-3" id="toc-limitações-3" class="nav-link" data-scroll-target="#limitações-3"><span class="header-section-number">13.9.6</span> Limitações</a></li>
+  <li><a href="#fontes-de-dados-3" id="toc-fontes-de-dados-3" class="nav-link" data-scroll-target="#fontes-de-dados-3"><span class="header-section-number">13.9.7</span> Fontes de dados</a></li>
+  <li><a href="#método-de-cálculo-3" id="toc-método-de-cálculo-3" class="nav-link" data-scroll-target="#método-de-cálculo-3"><span class="header-section-number">13.9.8</span> Método de cálculo</a></li>
+  <li><a href="#campos-complementares-para-clima-ambiente-e-saúde-3" id="toc-campos-complementares-para-clima-ambiente-e-saúde-3" class="nav-link" data-scroll-target="#campos-complementares-para-clima-ambiente-e-saúde-3"><span class="header-section-number">13.9.9</span> Campos complementares para clima, ambiente e saúde</a></li>
+  <li><a href="#disponibilidade-e-acesso-3" id="toc-disponibilidade-e-acesso-3" class="nav-link" data-scroll-target="#disponibilidade-e-acesso-3"><span class="header-section-number">13.9.10</span> Disponibilidade e acesso</a></li>
+  <li><a href="#qualidade-comparação-e-saúde-3" id="toc-qualidade-comparação-e-saúde-3" class="nav-link" data-scroll-target="#qualidade-comparação-e-saúde-3"><span class="header-section-number">13.9.11</span> Qualidade, comparação e saúde</a></li>
+  <li><a href="#referências-metodológicas-3" id="toc-referências-metodológicas-3" class="nav-link" data-scroll-target="#referências-metodológicas-3"><span class="header-section-number">13.9.12</span> Referências metodológicas</a></li>
+  <li><a href="#exercício-e-evento-real" id="toc-exercício-e-evento-real" class="nav-link" data-scroll-target="#exercício-e-evento-real"><span class="header-section-number">13.9.13</span> Exercício e evento real</a></li>
+  <li><a href="#continuidade-dos-serviços-essenciais" id="toc-continuidade-dos-serviços-essenciais" class="nav-link" data-scroll-target="#continuidade-dos-serviços-essenciais"><span class="header-section-number">13.9.14</span> Continuidade dos serviços essenciais</a></li>
+  </ul></li>
+  <li><a href="#água-e-energia-em-estabelecimentos" id="toc-água-e-energia-em-estabelecimentos" class="nav-link" data-scroll-target="#água-e-energia-em-estabelecimentos"><span class="header-section-number">13.10</span> Água e energia em estabelecimentos</a></li>
+  <li><a href="#sec-res-wat-01" id="toc-sec-res-wat-01" class="nav-link" data-scroll-target="#sec-res-wat-01"><span class="header-section-number">13.11</span> Ficha do indicador: Percentual de estabelecimentos de saúde que tiveram interrupção do abastecimento de água na semana anterior</a>
+  <ul class="collapse">
+  <li><a href="#identificação-e-fundamento-4" id="toc-identificação-e-fundamento-4" class="nav-link" data-scroll-target="#identificação-e-fundamento-4"><span class="header-section-number">13.11.1</span> Identificação e fundamento</a></li>
+  <li><a href="#conceito-4" id="toc-conceito-4" class="nav-link" data-scroll-target="#conceito-4"><span class="header-section-number">13.11.2</span> Conceito</a></li>
+  <li><a href="#objetivo-4" id="toc-objetivo-4" class="nav-link" data-scroll-target="#objetivo-4"><span class="header-section-number">13.11.3</span> Objetivo</a></li>
+  <li><a href="#interpretação-4" id="toc-interpretação-4" class="nav-link" data-scroll-target="#interpretação-4"><span class="header-section-number">13.11.4</span> Interpretação</a></li>
+  <li><a href="#usos-4" id="toc-usos-4" class="nav-link" data-scroll-target="#usos-4"><span class="header-section-number">13.11.5</span> Usos</a></li>
+  <li><a href="#limitações-4" id="toc-limitações-4" class="nav-link" data-scroll-target="#limitações-4"><span class="header-section-number">13.11.6</span> Limitações</a></li>
+  <li><a href="#fontes-de-dados-4" id="toc-fontes-de-dados-4" class="nav-link" data-scroll-target="#fontes-de-dados-4"><span class="header-section-number">13.11.7</span> Fontes de dados</a></li>
+  <li><a href="#método-de-cálculo-4" id="toc-método-de-cálculo-4" class="nav-link" data-scroll-target="#método-de-cálculo-4"><span class="header-section-number">13.11.8</span> Método de cálculo</a></li>
+  <li><a href="#campos-complementares-para-clima-ambiente-e-saúde-4" id="toc-campos-complementares-para-clima-ambiente-e-saúde-4" class="nav-link" data-scroll-target="#campos-complementares-para-clima-ambiente-e-saúde-4"><span class="header-section-number">13.11.9</span> Campos complementares para clima, ambiente e saúde</a></li>
+  <li><a href="#disponibilidade-e-acesso-4" id="toc-disponibilidade-e-acesso-4" class="nav-link" data-scroll-target="#disponibilidade-e-acesso-4"><span class="header-section-number">13.11.10</span> Disponibilidade e acesso</a></li>
+  <li><a href="#qualidade-comparação-e-saúde-4" id="toc-qualidade-comparação-e-saúde-4" class="nav-link" data-scroll-target="#qualidade-comparação-e-saúde-4"><span class="header-section-number">13.11.11</span> Qualidade, comparação e saúde</a></li>
+  <li><a href="#referências-metodológicas-4" id="toc-referências-metodológicas-4" class="nav-link" data-scroll-target="#referências-metodológicas-4"><span class="header-section-number">13.11.12</span> Referências metodológicas</a></li>
+  </ul></li>
+  <li><a href="#sec-res-ene-01" id="toc-sec-res-ene-01" class="nav-link" data-scroll-target="#sec-res-ene-01"><span class="header-section-number">13.12</span> Ficha do indicador: Percentual de estabelecimentos de saúde que tiveram interrupção de energia elétrica na semana anterior</a>
+  <ul class="collapse">
+  <li><a href="#identificação-e-fundamento-5" id="toc-identificação-e-fundamento-5" class="nav-link" data-scroll-target="#identificação-e-fundamento-5"><span class="header-section-number">13.12.1</span> Identificação e fundamento</a></li>
+  <li><a href="#conceito-5" id="toc-conceito-5" class="nav-link" data-scroll-target="#conceito-5"><span class="header-section-number">13.12.2</span> Conceito</a></li>
+  <li><a href="#objetivo-5" id="toc-objetivo-5" class="nav-link" data-scroll-target="#objetivo-5"><span class="header-section-number">13.12.3</span> Objetivo</a></li>
+  <li><a href="#interpretação-5" id="toc-interpretação-5" class="nav-link" data-scroll-target="#interpretação-5"><span class="header-section-number">13.12.4</span> Interpretação</a></li>
+  <li><a href="#usos-5" id="toc-usos-5" class="nav-link" data-scroll-target="#usos-5"><span class="header-section-number">13.12.5</span> Usos</a></li>
+  <li><a href="#limitações-5" id="toc-limitações-5" class="nav-link" data-scroll-target="#limitações-5"><span class="header-section-number">13.12.6</span> Limitações</a></li>
+  <li><a href="#fontes-de-dados-5" id="toc-fontes-de-dados-5" class="nav-link" data-scroll-target="#fontes-de-dados-5"><span class="header-section-number">13.12.7</span> Fontes de dados</a></li>
+  <li><a href="#método-de-cálculo-5" id="toc-método-de-cálculo-5" class="nav-link" data-scroll-target="#método-de-cálculo-5"><span class="header-section-number">13.12.8</span> Método de cálculo</a></li>
+  <li><a href="#campos-complementares-para-clima-ambiente-e-saúde-5" id="toc-campos-complementares-para-clima-ambiente-e-saúde-5" class="nav-link" data-scroll-target="#campos-complementares-para-clima-ambiente-e-saúde-5"><span class="header-section-number">13.12.9</span> Campos complementares para clima, ambiente e saúde</a></li>
+  <li><a href="#disponibilidade-e-acesso-5" id="toc-disponibilidade-e-acesso-5" class="nav-link" data-scroll-target="#disponibilidade-e-acesso-5"><span class="header-section-number">13.12.10</span> Disponibilidade e acesso</a></li>
+  <li><a href="#qualidade-comparação-e-saúde-5" id="toc-qualidade-comparação-e-saúde-5" class="nav-link" data-scroll-target="#qualidade-comparação-e-saúde-5"><span class="header-section-number">13.12.11</span> Qualidade, comparação e saúde</a></li>
+  <li><a href="#referências-metodológicas-5" id="toc-referências-metodológicas-5" class="nav-link" data-scroll-target="#referências-metodológicas-5"><span class="header-section-number">13.12.12</span> Referências metodológicas</a></li>
+  <li><a href="#redundância-funcional" id="toc-redundância-funcional" class="nav-link" data-scroll-target="#redundância-funcional"><span class="header-section-number">13.12.13</span> Redundância funcional</a></li>
+  </ul></li>
+  <li><a href="#infraestrutura-resiliente" id="toc-infraestrutura-resiliente" class="nav-link" data-scroll-target="#infraestrutura-resiliente"><span class="header-section-number">13.13</span> Infraestrutura resiliente</a></li>
+  <li><a href="#sec-res-inf-01" id="toc-sec-res-inf-01" class="nav-link" data-scroll-target="#sec-res-inf-01"><span class="header-section-number">13.14</span> Ficha do indicador: Percentual de estabelecimentos de saúde que atendem aos padrões de infraestrutura</a>
+  <ul class="collapse">
+  <li><a href="#identificação-e-fundamento-6" id="toc-identificação-e-fundamento-6" class="nav-link" data-scroll-target="#identificação-e-fundamento-6"><span class="header-section-number">13.14.1</span> Identificação e fundamento</a></li>
+  <li><a href="#conceito-6" id="toc-conceito-6" class="nav-link" data-scroll-target="#conceito-6"><span class="header-section-number">13.14.2</span> Conceito</a></li>
+  <li><a href="#objetivo-6" id="toc-objetivo-6" class="nav-link" data-scroll-target="#objetivo-6"><span class="header-section-number">13.14.3</span> Objetivo</a></li>
+  <li><a href="#interpretação-6" id="toc-interpretação-6" class="nav-link" data-scroll-target="#interpretação-6"><span class="header-section-number">13.14.4</span> Interpretação</a></li>
+  <li><a href="#usos-6" id="toc-usos-6" class="nav-link" data-scroll-target="#usos-6"><span class="header-section-number">13.14.5</span> Usos</a></li>
+  <li><a href="#limitações-6" id="toc-limitações-6" class="nav-link" data-scroll-target="#limitações-6"><span class="header-section-number">13.14.6</span> Limitações</a></li>
+  <li><a href="#fontes-de-dados-6" id="toc-fontes-de-dados-6" class="nav-link" data-scroll-target="#fontes-de-dados-6"><span class="header-section-number">13.14.7</span> Fontes de dados</a></li>
+  <li><a href="#método-de-cálculo-6" id="toc-método-de-cálculo-6" class="nav-link" data-scroll-target="#método-de-cálculo-6"><span class="header-section-number">13.14.8</span> Método de cálculo</a></li>
+  <li><a href="#campos-complementares-para-clima-ambiente-e-saúde-6" id="toc-campos-complementares-para-clima-ambiente-e-saúde-6" class="nav-link" data-scroll-target="#campos-complementares-para-clima-ambiente-e-saúde-6"><span class="header-section-number">13.14.9</span> Campos complementares para clima, ambiente e saúde</a></li>
+  <li><a href="#disponibilidade-e-acesso-6" id="toc-disponibilidade-e-acesso-6" class="nav-link" data-scroll-target="#disponibilidade-e-acesso-6"><span class="header-section-number">13.14.10</span> Disponibilidade e acesso</a></li>
+  <li><a href="#qualidade-comparação-e-saúde-6" id="toc-qualidade-comparação-e-saúde-6" class="nav-link" data-scroll-target="#qualidade-comparação-e-saúde-6"><span class="header-section-number">13.14.11</span> Qualidade, comparação e saúde</a></li>
+  <li><a href="#referências-metodológicas-6" id="toc-referências-metodológicas-6" class="nav-link" data-scroll-target="#referências-metodológicas-6"><span class="header-section-number">13.14.12</span> Referências metodológicas</a></li>
+  </ul></li>
+  <li><a href="#força-de-trabalho-e-capacidade-operacional" id="toc-força-de-trabalho-e-capacidade-operacional" class="nav-link" data-scroll-target="#força-de-trabalho-e-capacidade-operacional"><span class="header-section-number">13.15</span> Força de trabalho e capacidade operacional</a></li>
+  <li><a href="#laboratórios-produtos-e-cadeias-de-suprimento" id="toc-laboratórios-produtos-e-cadeias-de-suprimento" class="nav-link" data-scroll-target="#laboratórios-produtos-e-cadeias-de-suprimento"><span class="header-section-number">13.16</span> Laboratórios, produtos e cadeias de suprimento</a></li>
+  <li><a href="#resposta-recuperação-e-adaptação" id="toc-resposta-recuperação-e-adaptação" class="nav-link" data-scroll-target="#resposta-recuperação-e-adaptação"><span class="header-section-number">13.17</span> Resposta, recuperação e adaptação</a></li>
+  <li><a href="#principais-indicadores-usados-na-avaliação-da-resiliência" id="toc-principais-indicadores-usados-na-avaliação-da-resiliência" class="nav-link" data-scroll-target="#principais-indicadores-usados-na-avaliação-da-resiliência"><span class="header-section-number">13.18</span> Principais indicadores usados na avaliação da resiliência</a></li>
+  <li><a href="#conjunto-mínimo-para-gestão" id="toc-conjunto-mínimo-para-gestão" class="nav-link" data-scroll-target="#conjunto-mínimo-para-gestão"><span class="header-section-number">13.19</span> Conjunto mínimo para gestão</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/rfsaldanha/dicas/blob/main/chapters/part-3/13-resposta-adaptacao-resiliencia.qmd" class="toc-action"><i class="bi bi-github"></i>Ver o código fonte</a></li><li><a href="https://github.com/rfsaldanha/dicas/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></nav>
     </div>
@@ -590,53 +726,1070 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="quarto-title-meta">
 
-    
-  
-    
+
+
+
   </div>
-  
+
 
 
 </header>
 
 
-<p>Este capítulo descreverá recursos, processos e resultados intermediários que permitem ao SUS antecipar, absorver, responder e se recuperar de riscos climáticos e ambientais.</p>
-<p>Seu foco é a capacidade mensurável. A aplicação desses indicadores a escolhas, metas e instrumentos de planejamento será tratada no <a href="../part-4/14-indicador-decisao.html" class="quarto-xref"><span>Capítulo 14</span></a>.</p>
-<section id="capacidade-instalada-do-sus" class="level2" data-number="13.1">
-<h2 data-number="13.1" class="anchored" data-anchor-id="capacidade-instalada-do-sus"><span class="header-section-number">13.1</span> Capacidade instalada do SUS</h2>
-</section>
-<section id="preparação-dos-serviços-e-vigilância-ambiental" class="level2" data-number="13.2">
-<h2 data-number="13.2" class="anchored" data-anchor-id="preparação-dos-serviços-e-vigilância-ambiental"><span class="header-section-number">13.2</span> Preparação dos serviços e vigilância ambiental</h2>
-</section>
-<section id="planos-de-contingência-e-adaptação" class="level2" data-number="13.3">
-<h2 data-number="13.3" class="anchored" data-anchor-id="planos-de-contingência-e-adaptação"><span class="header-section-number">13.3</span> Planos de contingência e adaptação</h2>
-</section>
-<section id="alertas-e-comunicação-de-risco" class="level2" data-number="13.4">
-<h2 data-number="13.4" class="anchored" data-anchor-id="alertas-e-comunicação-de-risco"><span class="header-section-number">13.4</span> Alertas e comunicação de risco</h2>
-</section>
-<section id="infraestrutura-resiliente" class="level2" data-number="13.5">
-<h2 data-number="13.5" class="anchored" data-anchor-id="infraestrutura-resiliente"><span class="header-section-number">13.5</span> Infraestrutura resiliente</h2>
-</section>
-<section id="continuidade-do-atendimento" class="level2" data-number="13.6">
-<h2 data-number="13.6" class="anchored" data-anchor-id="continuidade-do-atendimento"><span class="header-section-number">13.6</span> Continuidade do atendimento</h2>
-</section>
-<section id="capacidade-laboratorial" class="level2" data-number="13.7">
-<h2 data-number="13.7" class="anchored" data-anchor-id="capacidade-laboratorial"><span class="header-section-number">13.7</span> Capacidade laboratorial</h2>
-</section>
-<section id="resposta-às-emergências" class="level2" data-number="13.8">
-<h2 data-number="13.8" class="anchored" data-anchor-id="resposta-às-emergências"><span class="header-section-number">13.8</span> Resposta às emergências</h2>
-</section>
-<section id="recuperação-dos-serviços" class="level2" data-number="13.9">
-<h2 data-number="13.9" class="anchored" data-anchor-id="recuperação-dos-serviços"><span class="header-section-number">13.9</span> Recuperação dos serviços</h2>
-</section>
-<section id="avaliação-da-capacidade-institucional" class="level2" data-number="13.10">
-<h2 data-number="13.10" class="anchored" data-anchor-id="avaliação-da-capacidade-institucional"><span class="header-section-number">13.10</span> Avaliação da capacidade institucional</h2>
-<p><strong>Indicadores previstos:</strong> cobertura de planos de contingência; equipes e serviços preparados; disponibilidade de alertas e protocolos; redundância de infraestrutura crítica; continuidade do atendimento; capacidade laboratorial; tempo de ativação e recuperação; implementação de medidas de adaptação.</p>
-<div class="todo">
-<p>TODO: diferenciar existência documental, implementação, cobertura, qualidade e efetividade das capacidades avaliadas.</p>
+<p>Um sistema de saúde resiliente mantém funções essenciais diante de choques e estressores, adapta sua organização e aprende com a experiência. Resiliência não significa retornar exatamente à situação anterior. Se a situação anterior continha serviços frágeis, desigualdades e infraestrutura exposta, recuperar-se deve incluir correção dessas condições.</p>
+<p>O marco operacional da OMS organiza a resiliência climática em componentes como governança, força de trabalho, avaliação de riscos, vigilância, infraestrutura, tecnologias, financiamento e gestão de emergências <span class="citation" data-cites="who2023framework">(<a href="../../backmatter/referencias.html#ref-who2023framework" role="doc-biblioref">World Health Organization, 2023</a>)</span>. O pacote integrado de indicadores de resiliência dos sistemas de saúde acrescenta medidas com definições, numeradores, denominadores e fontes recomendadas <span class="citation" data-cites="who2024resilienceindicators">(<a href="../../backmatter/referencias.html#ref-who2024resilienceindicators" role="doc-biblioref">World Health Organization, 2024</a>)</span>. Este capítulo apresenta diretamente sete dessas medidas, selecionadas por sua aplicação a riscos climáticos, ambientais e à continuidade do cuidado.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div id="fig-ciclo-resiliencia-saude" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ciclo-resiliencia-saude-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-ciclo-resiliencia-saude">flowchart LR
+  A["Antecipar&lt;br/&gt;perfil de riscos e alerta"] --&gt; P["Preparar&lt;br/&gt;pessoas, planos e recursos"]
+  P --&gt; B["Absorver&lt;br/&gt;manter serviços essenciais"]
+  B --&gt; R["Responder&lt;br/&gt;coordenar e ampliar capacidade"]
+  R --&gt; C["Recuperar&lt;br/&gt;restabelecer com segurança"]
+  C --&gt; D["Adaptar e transformar&lt;br/&gt;corrigir vulnerabilidades"]
+  D --&gt; A
+</pre>
 </div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ciclo-resiliencia-saude-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;13.1: Ciclo de capacidades do sistema de saúde diante de choques e estressores
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<section id="o-que-deve-ser-medido" class="level2" data-number="13.1">
+<h2 data-number="13.1" class="anchored" data-anchor-id="o-que-deve-ser-medido"><span class="header-section-number">13.1</span> O que deve ser medido</h2>
+<p>Capacidade de resposta não é uma variável única. Recursos, processos, produtos, desempenho e resultados ocupam posições distintas:</p>
+<div id="tbl-niveis-resiliencia" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-niveis-resiliencia-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;13.1: Níveis complementares para avaliar capacidade e resiliência
+</figcaption>
+<div aria-describedby="tbl-niveis-resiliencia-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Nível</th>
+<th>Exemplo</th>
+<th>O que demonstra</th>
+<th>O que não demonstra</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Estrutura</td>
+<td>pessoa focal designada, reservatório, gerador</td>
+<td>Recurso ou responsabilidade existente</td>
+<td>Funcionamento em emergência</td>
+</tr>
+<tr class="even">
+<td>Processo</td>
+<td>perfil de riscos atualizado, plano elaborado e exercitado</td>
+<td>Atividade institucional realizada</td>
+<td>Continuidade efetiva</td>
+</tr>
+<tr class="odd">
+<td>Produto</td>
+<td>alerta emitido e recebido, equipe ativada</td>
+<td>Entrega operacional</td>
+<td>Redução do dano</td>
+</tr>
+<tr class="even">
+<td>Desempenho</td>
+<td>tempo de ativação, horas de interrupção, serviços mantidos</td>
+<td>Comportamento durante o evento</td>
+<td>Efeito final isolado</td>
+</tr>
+<tr class="odd">
+<td>Resultado</td>
+<td>menor interrupção, recuperação mais rápida</td>
+<td>Consequência para o sistema</td>
+<td>Causalidade sem comparação adequada</td>
+</tr>
+<tr class="even">
+<td>Efeito em saúde</td>
+<td>eventos evitados ou carga reduzida</td>
+<td>Benefício populacional estimado</td>
+<td>Contribuição exclusiva de uma medida sem desenho</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Uma lista de planos não mede preparação completa. Um gerador instalado não garante partida, combustível, autonomia e ligação às cargas críticas. Um alerta emitido não garante que tenha chegado em formato acessível, sido compreendido ou produzido uma ação possível. A avaliação deve ligar estrutura, implementação e desempenho.</p>
+</section>
+<section id="governança-e-responsabilidade" class="level2" data-number="13.2">
+<h2 data-number="13.2" class="anchored" data-anchor-id="governança-e-responsabilidade"><span class="header-section-number">13.2</span> Governança e responsabilidade</h2>
+<p>Emergências atravessam vigilância, atenção primária, urgência, hospitais, assistência farmacêutica, laboratório, regulação, infraestrutura, comunicação, saúde do trabalhador e gestão. Sem responsabilidade definida, tarefas críticas podem ficar sem dono ou ser duplicadas.</p>
+<p>O indicador da OMS sobre equipe ou pessoa focal mede se há designação formal para gestão de emergências e continuidade dos serviços. Os termos de referência são essenciais: uma portaria com nome, mas sem atribuição, autoridade ou substituição, oferece pouca capacidade. Além do percentual, a análise deve verificar treinamento, tempo protegido, acesso à direção, meios de comunicação e suplência.</p>
+</section>
+<section id="sec-res-gov-01" class="level2" data-number="13.3">
+<h2 data-number="13.3" class="anchored" data-anchor-id="sec-res-gov-01"><span class="header-section-number">13.3</span> Ficha do indicador: Percentual de estabelecimentos com equipe ou pessoa focal designada para gestão de emergências e continuidade dos serviços</h2>
+<div class="indicator-card">
+<p><strong>Código:</strong> RES-GOV-01<br>
+<strong>Título resumido:</strong> Ponto focal de emergência e continuidade<br>
+<strong>Tema:</strong> Capacidade de resposta, adaptação e resiliência<br>
+<strong>Dimensão:</strong> resposta<br>
+<strong>Disponibilidade:</strong> <span class="availability">requer avaliação de estabelecimentos</span> <span class="availability">requer adaptação nacional</span></p>
+</div>
+<section id="identificação-e-fundamento" class="level3" data-number="13.3.1">
+<h3 data-number="13.3.1" class="anchored" data-anchor-id="identificação-e-fundamento"><span class="header-section-number">13.3.1</span> Identificação e fundamento</h3>
+<p><strong>Indicador consolidado em.</strong> Indicador 11 do pacote integrado de indicadores de resiliência dos sistemas de saúde da OMS.</p>
+</section>
+<section id="conceito" class="level3" data-number="13.3.2">
+<h3 data-number="13.3.2" class="anchored" data-anchor-id="conceito"><span class="header-section-number">13.3.2</span> Conceito</h3>
+<p>Percentual de estabelecimentos com equipe ou pessoa focal formalmente designada, cujos termos de referência incluem liderar e coordenar a gestão de emergências e a continuidade dos serviços essenciais.</p>
+</section>
+<section id="objetivo" class="level3" data-number="13.3.3">
+<h3 data-number="13.3.3" class="anchored" data-anchor-id="objetivo"><span class="header-section-number">13.3.3</span> Objetivo</h3>
+<p>Medir se existe responsabilidade institucional explícita para coordenar preparação, resposta e continuidade assistencial.</p>
+</section>
+<section id="interpretação" class="level3" data-number="13.3.4">
+<h3 data-number="13.3.4" class="anchored" data-anchor-id="interpretação"><span class="header-section-number">13.3.4</span> Interpretação</h3>
+<p>Valor de 80% significa que oito em cada dez estabelecimentos avaliados apresentaram equipe ou pessoa focal que atende aos critérios. Não demonstra, sozinho, treinamento, disponibilidade ou desempenho em evento real.</p>
+</section>
+<section id="usos" class="level3" data-number="13.3.5">
+<h3 data-number="13.3.5" class="anchored" data-anchor-id="usos"><span class="header-section-number">13.3.5</span> Usos</h3>
+<ul>
+<li>Mapear responsabilidade institucional.</li>
+<li>Identificar redes sem coordenação local.</li>
+<li>Planejar capacitação e substituição.</li>
+<li>Acompanhar preparação por tipo de estabelecimento.</li>
+</ul>
+</section>
+<section id="limitações" class="level3" data-number="13.3.6">
+<h3 data-number="13.3.6" class="anchored" data-anchor-id="limitações"><span class="header-section-number">13.3.6</span> Limitações</h3>
+<ul>
+<li>Designação formal pode existir sem autoridade ou recursos.</li>
+<li>Termos de referência podem estar desatualizados.</li>
+<li>Auto relato requer comprovação.</li>
+<li>Percentual depende do universo avaliado.</li>
+</ul>
+</section>
+<section id="fontes-de-dados" class="level3" data-number="13.3.7">
+<h3 data-number="13.3.7" class="anchored" data-anchor-id="fontes-de-dados"><span class="header-section-number">13.3.7</span> Fontes de dados</h3>
+<ul>
+<li>Pacote integrado de indicadores de resiliência dos sistemas de saúde — definição, metadados, numerador, denominador e fonte recomendada (<a href="../../backmatter/indice-fontes.html#who-resilience-package">cadastro</a>)</li>
+</ul>
+</section>
+<section id="método-de-cálculo" class="level3" data-number="13.3.8">
+<h3 data-number="13.3.8" class="anchored" data-anchor-id="método-de-cálculo"><span class="header-section-number">13.3.8</span> Método de cálculo</h3>
+<p>Definir o universo de estabelecimentos; verificar ato de designação e termos de referência vigentes; contar os que incluem gestão de emergências e continuidade dos serviços; dividir pelo total avaliado e multiplicar por 100. Registrar estabelecimentos sem informação separadamente.</p>
+<p><span class="math display">\[
+P_{focal}=100\times\frac{N(\text{estabelecimentos com equipe ou focal conforme})}{N(\text{estabelecimentos avaliados})}
+\]</span></p>
+<div class="indicator-card">
+<p><strong>Numerador.</strong> Estabelecimentos com equipe ou pessoa focal designada conforme a definição.</p>
+<p><strong>Denominador.</strong> Total de estabelecimentos avaliados.</p>
+<p><strong>Unidade de medida.</strong> Percentual de estabelecimentos (%).</p>
+<p><strong>Variáveis e categorias de análise.</strong> Tipo e gestão do estabelecimento; urbano ou rural; território; ato e data de designação; termos de referência; substituto; treinamento.</p>
+<p><strong>Granularidade.</strong> Estabelecimento na coleta e território ou rede no resumo.</p>
+<p><strong>Periodicidade de atualização.</strong> Anual ou conforme o ciclo de gestão, com verificação extraordinária após eventos e mudanças relevantes.</p>
+<p><strong>Responsabilidade gerencial.</strong> Gestão do SUS e direção do estabelecimento, com participação da vigilância, atenção, engenharia clínica, infraestrutura, saúde do trabalhador e proteção e defesa civil conforme o indicador.</p>
+<p><strong>Notas.</strong> Existência documental, implementação, cobertura, qualidade, desempenho durante eventos e efetividade sobre a saúde são níveis diferentes de evidência.</p>
+<p><strong>Análise descritiva do indicador.</strong> Mostrar numerador, denominador, não resposta, percentual por tipo e território, data do ato, treinamento e lacunas de cobertura.</p>
+</div>
+</section>
+<section id="campos-complementares-para-clima-ambiente-e-saúde" class="level3" data-number="13.3.9">
+<h3 data-number="13.3.9" class="anchored" data-anchor-id="campos-complementares-para-clima-ambiente-e-saúde"><span class="header-section-number">13.3.9</span> Campos complementares para clima, ambiente e saúde</h3>
+<div class="indicator-card">
+<p><strong>Unidade territorial.</strong> Estabelecimento e agregações da rede de saúde.</p>
+<p><strong>Resolução espacial original.</strong> Estabelecimento.</p>
+<p><strong>Resolução temporal.</strong> Situação na data da avaliação.</p>
+<p><strong>Período de referência.</strong> Data de verificação e vigência da designação.</p>
+<p><strong>Limiar ou valor de referência.</strong> Conformidade exige designação e responsabilidade explícita por emergência e continuidade; metas de cobertura são pactuadas localmente.</p>
+</div>
+</section>
+<section id="disponibilidade-e-acesso" class="level3" data-number="13.3.10">
+<h3 data-number="13.3.10" class="anchored" data-anchor-id="disponibilidade-e-acesso"><span class="header-section-number">13.3.10</span> Disponibilidade e acesso</h3>
+<p><strong>Cobertura geográfica.</strong> Aplicável internacionalmente após adaptação; resultados existem apenas para os estabelecimentos e níveis efetivamente avaliados.</p>
+<p><strong>Período disponível.</strong> A partir da implementação local; referência metodológica publicada em 2024.</p>
+<p><strong>Periodicidade de atualização.</strong> Anual ou conforme o ciclo de gestão, com verificação extraordinária após eventos e mudanças relevantes.</p>
+<p><strong>Forma de acesso.</strong> Avaliação de estabelecimentos, sistema rotineiro de informação e verificação documental segundo o indicador.</p>
+<p><strong>URL ou identificador persistente.</strong> https://www.who.int/publications/i/item/9789240088986</p>
+<p><strong>Formato dos arquivos.</strong> Formulário eletrônico ou papel, base tabular e documentação comprobatória.</p>
+<p><strong>Necessidade de processamento.</strong> Validar universo, aplicar critérios, calcular numerador e denominador, estratificar e registrar evidências e data.</p>
+</section>
+<section id="qualidade-comparação-e-saúde" class="level3" data-number="13.3.11">
+<h3 data-number="13.3.11" class="anchored" data-anchor-id="qualidade-comparação-e-saúde"><span class="header-section-number">13.3.11</span> Qualidade, comparação e saúde</h3>
+<p><strong>Qualidade e incerteza.</strong> Definir universo elegível, cobertura e instrumento; verificar documentos, datas, funcionalidade e evidências; informar não resposta, amostragem e intervalo quando houver inferência.</p>
+<p><strong>Possibilidade de comparação.</strong> Manter definição, critérios de conformidade, janela temporal, universo, instrumento e desagregações; mudanças no número de estabelecimentos avaliados alteram o percentual.</p>
+<p><strong>Relação com desfechos de saúde.</strong> Mede capacidade ou interrupção do sistema, não o efeito final na saúde; a relação com desfechos depende do perigo, da continuidade dos serviços e das populações atendidas.</p>
+<p><strong>Defasagens temporais relevantes.</strong> Estrutura e planos podem anteceder eventos; interrupções devem ser registradas próximo da ocorrência; resultados em saúde e recuperação podem aparecer depois.</p>
+<p><strong>Aplicação na gestão.</strong> Identificar lacunas, priorizar investimento, pactuar responsáveis e prazos, acompanhar preparação e verificar continuidade antes, durante e depois de emergências.</p>
+</section>
+<section id="referências-metodológicas" class="level3" data-number="13.3.12">
+<h3 data-number="13.3.12" class="anchored" data-anchor-id="referências-metodológicas"><span class="header-section-number">13.3.12</span> Referências metodológicas</h3>
+<ul>
+<li><span class="citation" data-cites="who2024resilienceindicators">(<a href="../../backmatter/referencias.html#ref-who2024resilienceindicators" role="doc-biblioref">World Health Organization, 2024</a>)</span></li>
+<li><span class="citation" data-cites="who2023framework">(<a href="../../backmatter/referencias.html#ref-who2023framework" role="doc-biblioref">World Health Organization, 2023</a>)</span></li>
+</ul>
+</section>
+<section id="coordenação-em-rede" class="level3" data-number="13.3.13">
+<h3 data-number="13.3.13" class="anchored" data-anchor-id="coordenação-em-rede"><span class="header-section-number">13.3.13</span> Coordenação em rede</h3>
+<p>O estabelecimento não é autossuficiente. Continuidade depende de transporte sanitário, regulação, referência e contrarreferência, laboratórios, fornecedores, telecomunicação, água, energia, limpeza, resíduos e segurança. Cada plano local deve identificar dependências externas, contatos, alternativas e critérios de escalonamento.</p>
+<p>No SUS, municípios e estados possuem atribuições diferentes e capacidades compartilhadas. A unidade de avaliação deve respeitar a organização regional: perguntar apenas se cada unidade tem um recurso pode ocultar uma solução de rede; presumir que um recurso regional atende a todos pode ocultar tempo de deslocamento e perda simultânea de acesso.</p>
+</section>
+</section>
+<section id="perfis-de-risco" class="level2" data-number="13.4">
+<h2 data-number="13.4" class="anchored" data-anchor-id="perfis-de-risco"><span class="header-section-number">13.4</span> Perfis de risco</h2>
+<p>Um perfil de riscos de estabelecimento liga perigos do território à fragilidade dos edifícios, equipamentos, processos e pessoas. Deve considerar:</p>
+<ul>
+<li>natureza, intensidade, duração e probabilidade dos perigos;</li>
+<li>segurança estrutural e não estrutural;</li>
+<li>acesso, rotas e possibilidade de isolamento;</li>
+<li>dependência de água, energia, comunicação e fornecedores;</li>
+<li>capacidade de aumento temporário da demanda;</li>
+<li>serviços que não podem ser interrompidos;</li>
+<li>populações que dependem de tecnologias ou cuidado contínuo;</li>
+<li>medidas existentes e riscos residuais.</li>
+</ul>
+<p>O indicador 20 da OMS calcula o percentual de estabelecimentos com perfil documentado e atualizado. A publicação usa atualização nos últimos cinco anos como exemplo, mas o ciclo local deve reagir a obras, mudança de serviço, novos mapas de perigo e eventos. Uma unidade inundada após a última avaliação não deve aguardar cinco anos.</p>
+</section>
+<section id="sec-res-ris-01" class="level2" data-number="13.5">
+<h2 data-number="13.5" class="anchored" data-anchor-id="sec-res-ris-01"><span class="header-section-number">13.5</span> Ficha do indicador: Percentual de estabelecimentos com perfil de riscos para choques e estressores documentado e atualizado</h2>
+<div class="indicator-card">
+<p><strong>Código:</strong> RES-RIS-01<br>
+<strong>Título resumido:</strong> Perfil de riscos do estabelecimento<br>
+<strong>Tema:</strong> Capacidade de resposta, adaptação e resiliência<br>
+<strong>Dimensão:</strong> resposta<br>
+<strong>Disponibilidade:</strong> <span class="availability">requer avaliação de estabelecimentos</span> <span class="availability">requer adaptação nacional</span></p>
+</div>
+<section id="identificação-e-fundamento-1" class="level3" data-number="13.5.1">
+<h3 data-number="13.5.1" class="anchored" data-anchor-id="identificação-e-fundamento-1"><span class="header-section-number">13.5.1</span> Identificação e fundamento</h3>
+<p><strong>Indicador consolidado em.</strong> Indicador 20 do pacote integrado de indicadores de resiliência dos sistemas de saúde da OMS.</p>
+</section>
+<section id="conceito-1" class="level3" data-number="13.5.2">
+<h3 data-number="13.5.2" class="anchored" data-anchor-id="conceito-1"><span class="header-section-number">13.5.2</span> Conceito</h3>
+<p>Percentual de estabelecimentos com perfil de riscos atualizado, informado por avaliação de perigos e das condições estruturais, não estruturais, funcionais e de preparação.</p>
+</section>
+<section id="objetivo-1" class="level3" data-number="13.5.3">
+<h3 data-number="13.5.3" class="anchored" data-anchor-id="objetivo-1"><span class="header-section-number">13.5.3</span> Objetivo</h3>
+<p>Verificar se os estabelecimentos conhecem e priorizam os riscos capazes de interromper, reduzir ou tornar inseguros os serviços.</p>
+</section>
+<section id="interpretação-1" class="level3" data-number="13.5.4">
+<h3 data-number="13.5.4" class="anchored" data-anchor-id="interpretação-1"><span class="header-section-number">13.5.4</span> Interpretação</h3>
+<p>Valor de 60% indica que seis em cada dez estabelecimentos avaliados têm perfil conforme. O conteúdo deve incluir natureza e extensão das ameaças, probabilidade, consequências e efetividade das medidas de mitigação.</p>
+</section>
+<section id="usos-1" class="level3" data-number="13.5.5">
+<h3 data-number="13.5.5" class="anchored" data-anchor-id="usos-1"><span class="header-section-number">13.5.5</span> Usos</h3>
+<ul>
+<li>Priorizar obras e redundâncias.</li>
+<li>Atualizar planos de continuidade.</li>
+<li>Integrar mapas de perigo e ativos críticos.</li>
+<li>Direcionar inspeções.</li>
+</ul>
+</section>
+<section id="limitações-1" class="level3" data-number="13.5.6">
+<h3 data-number="13.5.6" class="anchored" data-anchor-id="limitações-1"><span class="header-section-number">13.5.6</span> Limitações</h3>
+<ul>
+<li>Documento pode omitir perigos emergentes.</li>
+<li>Atualização nominal não garante nova avaliação.</li>
+<li>Critérios locais podem variar.</li>
+<li>Risco de viés favorável em autoavaliação.</li>
+</ul>
+</section>
+<section id="fontes-de-dados-1" class="level3" data-number="13.5.7">
+<h3 data-number="13.5.7" class="anchored" data-anchor-id="fontes-de-dados-1"><span class="header-section-number">13.5.7</span> Fontes de dados</h3>
+<ul>
+<li>Pacote integrado de indicadores de resiliência dos sistemas de saúde — definição, metadados, numerador, denominador e fonte recomendada (<a href="../../backmatter/indice-fontes.html#who-resilience-package">cadastro</a>)</li>
+</ul>
+</section>
+<section id="método-de-cálculo-1" class="level3" data-number="13.5.8">
+<h3 data-number="13.5.8" class="anchored" data-anchor-id="método-de-cálculo-1"><span class="header-section-number">13.5.8</span> Método de cálculo</h3>
+<p>Definir prazo de atualização, recomendado pela ficha da OMS como exemplo dentro dos últimos cinco anos; verificar se o documento contempla perigos, probabilidade, impactos, mitigação e avaliação estrutural, não estrutural, funcional e de preparação; dividir estabelecimentos conformes pelo total avaliado e multiplicar por 100.</p>
+<p><span class="math display">\[
+P_{risco}=100\times\frac{N(\text{estabelecimentos com perfil atualizado e conforme})}{N(\text{estabelecimentos avaliados})}
+\]</span></p>
+<div class="indicator-card">
+<p><strong>Numerador.</strong> Estabelecimentos com perfil de riscos atualizado e conforme.</p>
+<p><strong>Denominador.</strong> Total de estabelecimentos avaliados.</p>
+<p><strong>Unidade de medida.</strong> Percentual de estabelecimentos (%).</p>
+<p><strong>Variáveis e categorias de análise.</strong> Perigos; probabilidade; impacto; custos de interrupção; segurança estrutural e não estrutural; funcionalidade; preparação; mitigação; data.</p>
+<p><strong>Granularidade.</strong> Estabelecimento e componente do perfil.</p>
+<p><strong>Periodicidade de atualização.</strong> Anual ou conforme o ciclo de gestão, com verificação extraordinária após eventos e mudanças relevantes.</p>
+<p><strong>Responsabilidade gerencial.</strong> Gestão do SUS e direção do estabelecimento, com participação da vigilância, atenção, engenharia clínica, infraestrutura, saúde do trabalhador e proteção e defesa civil conforme o indicador.</p>
+<p><strong>Notas.</strong> Existência documental, implementação, cobertura, qualidade, desempenho durante eventos e efetividade sobre a saúde são níveis diferentes de evidência.</p>
+<p><strong>Análise descritiva do indicador.</strong> Apresentar percentual e componentes faltantes, data, perigos incluídos, prioridades de mitigação, tipo de estabelecimento e território.</p>
+</div>
+</section>
+<section id="campos-complementares-para-clima-ambiente-e-saúde-1" class="level3" data-number="13.5.9">
+<h3 data-number="13.5.9" class="anchored" data-anchor-id="campos-complementares-para-clima-ambiente-e-saúde-1"><span class="header-section-number">13.5.9</span> Campos complementares para clima, ambiente e saúde</h3>
+<div class="indicator-card">
+<p><strong>Unidade territorial.</strong> Estabelecimento, rede, município, região de saúde e demais agregações.</p>
+<p><strong>Resolução espacial original.</strong> Estabelecimento.</p>
+<p><strong>Resolução temporal.</strong> Avaliação periódica e atualização após mudança relevante ou evento.</p>
+<p><strong>Período de referência.</strong> Data do perfil e prazo nacional definido para atualização.</p>
+<p><strong>Limiar ou valor de referência.</strong> Todos os componentes mínimos e prazo de atualização definidos no protocolo; a OMS cita cinco anos como exemplo, a ser adaptado.</p>
+</div>
+</section>
+<section id="disponibilidade-e-acesso-1" class="level3" data-number="13.5.10">
+<h3 data-number="13.5.10" class="anchored" data-anchor-id="disponibilidade-e-acesso-1"><span class="header-section-number">13.5.10</span> Disponibilidade e acesso</h3>
+<p><strong>Cobertura geográfica.</strong> Aplicável internacionalmente após adaptação; resultados existem apenas para os estabelecimentos e níveis efetivamente avaliados.</p>
+<p><strong>Período disponível.</strong> A partir da implementação local; referência metodológica publicada em 2024.</p>
+<p><strong>Periodicidade de atualização.</strong> Anual ou conforme o ciclo de gestão, com verificação extraordinária após eventos e mudanças relevantes.</p>
+<p><strong>Forma de acesso.</strong> Avaliação de estabelecimentos, sistema rotineiro de informação e verificação documental segundo o indicador.</p>
+<p><strong>URL ou identificador persistente.</strong> https://www.who.int/publications/i/item/9789240088986</p>
+<p><strong>Formato dos arquivos.</strong> Formulário eletrônico ou papel, base tabular e documentação comprobatória.</p>
+<p><strong>Necessidade de processamento.</strong> Validar universo, aplicar critérios, calcular numerador e denominador, estratificar e registrar evidências e data.</p>
+</section>
+<section id="qualidade-comparação-e-saúde-1" class="level3" data-number="13.5.11">
+<h3 data-number="13.5.11" class="anchored" data-anchor-id="qualidade-comparação-e-saúde-1"><span class="header-section-number">13.5.11</span> Qualidade, comparação e saúde</h3>
+<p><strong>Qualidade e incerteza.</strong> Definir universo elegível, cobertura e instrumento; verificar documentos, datas, funcionalidade e evidências; informar não resposta, amostragem e intervalo quando houver inferência.</p>
+<p><strong>Possibilidade de comparação.</strong> Manter definição, critérios de conformidade, janela temporal, universo, instrumento e desagregações; mudanças no número de estabelecimentos avaliados alteram o percentual.</p>
+<p><strong>Relação com desfechos de saúde.</strong> Mede capacidade ou interrupção do sistema, não o efeito final na saúde; a relação com desfechos depende do perigo, da continuidade dos serviços e das populações atendidas.</p>
+<p><strong>Defasagens temporais relevantes.</strong> Estrutura e planos podem anteceder eventos; interrupções devem ser registradas próximo da ocorrência; resultados em saúde e recuperação podem aparecer depois.</p>
+<p><strong>Aplicação na gestão.</strong> Identificar lacunas, priorizar investimento, pactuar responsáveis e prazos, acompanhar preparação e verificar continuidade antes, durante e depois de emergências.</p>
+</section>
+<section id="referências-metodológicas-1" class="level3" data-number="13.5.12">
+<h3 data-number="13.5.12" class="anchored" data-anchor-id="referências-metodológicas-1"><span class="header-section-number">13.5.12</span> Referências metodológicas</h3>
+<ul>
+<li><span class="citation" data-cites="who2024resilienceindicators">(<a href="../../backmatter/referencias.html#ref-who2024resilienceindicators" role="doc-biblioref">World Health Organization, 2024</a>)</span></li>
+<li><span class="citation" data-cites="who2023framework">(<a href="../../backmatter/referencias.html#ref-who2023framework" role="doc-biblioref">World Health Organization, 2023</a>)</span></li>
+</ul>
+</section>
+<section id="do-mapa-ao-investimento" class="level3" data-number="13.5.13">
+<h3 data-number="13.5.13" class="anchored" data-anchor-id="do-mapa-ao-investimento"><span class="header-section-number">13.5.13</span> Do mapa ao investimento</h3>
+<p>O perfil só é útil se gerar uma lista priorizada de mitigação. Cada risco deve ter responsável, ação, custo, prazo, dependência e risco residual. Medidas simples — fixação de equipamentos, elevação de tomadas e insumos, limpeza de drenagem, proteção de arquivos e revisão de contatos — podem ser acompanhadas junto a obras estruturais de longo prazo.</p>
+<p>Priorizar apenas pela probabilidade é insuficiente. Uma interrupção rara pode ser intolerável quando ameaça UTI, diálise, parto, cadeia de frio ou fornecimento de oxigênio. Criticidade combina probabilidade, consequência, duração, população atendida, possibilidade de substituição e tempo para recuperar.</p>
+</section>
+</section>
+<section id="alertas-vigilância-e-comunicação" class="level2" data-number="13.6">
+<h2 data-number="13.6" class="anchored" data-anchor-id="alertas-vigilância-e-comunicação"><span class="header-section-number">13.6</span> Alertas, vigilância e comunicação</h2>
+<p>Sistemas de alerta precoce transformam sinais em decisão antes que o dano se amplie. A vigilância baseada em indicadores usa dados estruturados e regulares; a vigilância baseada em eventos examina informações não estruturadas sobre ameaças emergentes. Ambas exigem triagem, verificação, análise, comunicação e resposta.</p>
+<p>O indicador 21 da OMS adota a escala da capacidade C5.1 do eSPAR. Os cinco níveis são cumulativos: diretrizes ausentes ou em elaboração; diretrizes existentes, porém incompletamente implementadas; implementação nacional; implementação nacional e intermediária; e implementação até o nível local, exercitada, avaliada e atualizada. O nível não deve ser tratado como nota contínua nem convertido em percentual.</p>
+</section>
+<section id="sec-res-alr-01" class="level2" data-number="13.7">
+<h2 data-number="13.7" class="anchored" data-anchor-id="sec-res-alr-01"><span class="header-section-number">13.7</span> Ficha do indicador: Nível de estabelecimento do sistema de alerta precoce, alerta e resposta</h2>
+<div class="indicator-card">
+<p><strong>Código:</strong> RES-ALR-01<br>
+<strong>Título resumido:</strong> Sistema de alerta precoce e resposta<br>
+<strong>Tema:</strong> Capacidade de resposta, adaptação e resiliência<br>
+<strong>Dimensão:</strong> resposta<br>
+<strong>Disponibilidade:</strong> <span class="availability">requer avaliação de estabelecimentos</span> <span class="availability">requer adaptação nacional</span></p>
+</div>
+<section id="identificação-e-fundamento-2" class="level3" data-number="13.7.1">
+<h3 data-number="13.7.1" class="anchored" data-anchor-id="identificação-e-fundamento-2"><span class="header-section-number">13.7.1</span> Identificação e fundamento</h3>
+<p><strong>Indicador consolidado em.</strong> Indicador 21 do pacote integrado de indicadores de resiliência dos sistemas de saúde da OMS, alinhado à capacidade C5.1 do instrumento eSPAR.</p>
+</section>
+<section id="conceito-2" class="level3" data-number="13.7.2">
+<h3 data-number="13.7.2" class="anchored" data-anchor-id="conceito-2"><span class="header-section-number">13.7.2</span> Conceito</h3>
+<p>Nível de desenvolvimento e implementação da função de vigilância de alerta precoce, desde ausência de diretrizes até implementação em todos os níveis, exercícios, avaliação e atualização periódica.</p>
+</section>
+<section id="objetivo-2" class="level3" data-number="13.7.3">
+<h3 data-number="13.7.3" class="anchored" data-anchor-id="objetivo-2"><span class="header-section-number">13.7.3</span> Objetivo</h3>
+<p>Avaliar a capacidade institucional de detectar, comunicar, analisar e responder oportunamente a eventos de saúde pública.</p>
+</section>
+<section id="interpretação-2" class="level3" data-number="13.7.4">
+<h3 data-number="13.7.4" class="anchored" data-anchor-id="interpretação-2"><span class="header-section-number">13.7.4</span> Interpretação</h3>
+<p>A escala varia de 1 a 5. Nível 1 indica diretrizes ausentes ou em elaboração; nível 5 indica implementação nacional, intermediária e local, com exercício, revisão, avaliação e atualização regulares.</p>
+</section>
+<section id="usos-2" class="level3" data-number="13.7.5">
+<h3 data-number="13.7.5" class="anchored" data-anchor-id="usos-2"><span class="header-section-number">13.7.5</span> Usos</h3>
+<ul>
+<li>Monitorar capacidade de alerta.</li>
+<li>Identificar nível administrativo não coberto.</li>
+<li>Integrar vigilância baseada em indicadores e eventos.</li>
+<li>Planejar exercícios e melhoria.</li>
+</ul>
+</section>
+<section id="limitações-2" class="level3" data-number="13.7.6">
+<h3 data-number="13.7.6" class="anchored" data-anchor-id="limitações-2"><span class="header-section-number">13.7.6</span> Limitações</h3>
+<ul>
+<li>Autoavaliação pode superestimar capacidade.</li>
+<li>Uma nota nacional oculta desigualdades locais.</li>
+<li>Existência do sistema não mede antecedência nem alcance de cada alerta.</li>
+<li>O indicador foi concebido para ameaças de saúde pública e requer adaptação explícita para alertas climáticos.</li>
+</ul>
+</section>
+<section id="fontes-de-dados-2" class="level3" data-number="13.7.7">
+<h3 data-number="13.7.7" class="anchored" data-anchor-id="fontes-de-dados-2"><span class="header-section-number">13.7.7</span> Fontes de dados</h3>
+<ul>
+<li>Pacote integrado de indicadores de resiliência dos sistemas de saúde — definição, metadados, numerador, denominador e fonte recomendada (<a href="../../backmatter/indice-fontes.html#who-resilience-package">cadastro</a>)</li>
+</ul>
+</section>
+<section id="método-de-cálculo-2" class="level3" data-number="13.7.8">
+<h3 data-number="13.7.8" class="anchored" data-anchor-id="método-de-cálculo-2"><span class="header-section-number">13.7.8</span> Método de cálculo</h3>
+<p>Aplicar os critérios da capacidade C5.1 do eSPAR. Classificar no maior nível integralmente atendido, do 1 ao 5, verificando diretrizes, implementação, reporte imediato e semanal, cobertura dos níveis administrativos, exercícios, revisão e atualização. Documentar evidências e lacunas.</p>
+<p><span class="math display">\[
+Nivel_{EWARS}=\max\{k\in\{1,\ldots,5\}: \text{todos os critérios do nível }k\text{ são atendidos}\}
+\]</span></p>
+<div class="indicator-card">
+<p><strong>Numerador.</strong> Não se aplica.</p>
+<p><strong>Denominador.</strong> Não se aplica.</p>
+<p><strong>Unidade de medida.</strong> Nível ordinal de 1 a 5.</p>
+<p><strong>Variáveis e categorias de análise.</strong> Diretrizes e procedimentos; implementação nacional, intermediária e local; reporte imediato e semanal; vigilância baseada em indicadores e eventos; exercícios; revisão.</p>
+<p><strong>Granularidade.</strong> País ou nível administrativo avaliado, com evidências por critério.</p>
+<p><strong>Periodicidade de atualização.</strong> Anual ou conforme o ciclo de gestão, com verificação extraordinária após eventos e mudanças relevantes.</p>
+<p><strong>Responsabilidade gerencial.</strong> Gestão do SUS e direção do estabelecimento, com participação da vigilância, atenção, engenharia clínica, infraestrutura, saúde do trabalhador e proteção e defesa civil conforme o indicador.</p>
+<p><strong>Notas.</strong> Existência documental, implementação, cobertura, qualidade, desempenho durante eventos e efetividade sobre a saúde são níveis diferentes de evidência.</p>
+<p><strong>Análise descritiva do indicador.</strong> Mostrar nível, critérios atendidos e ausentes, níveis administrativos cobertos, oportunidade de reporte, exercícios e evolução anual.</p>
+</div>
+</section>
+<section id="campos-complementares-para-clima-ambiente-e-saúde-2" class="level3" data-number="13.7.9">
+<h3 data-number="13.7.9" class="anchored" data-anchor-id="campos-complementares-para-clima-ambiente-e-saúde-2"><span class="header-section-number">13.7.9</span> Campos complementares para clima, ambiente e saúde</h3>
+<div class="indicator-card">
+<p><strong>Unidade territorial.</strong> Nacional e subnacional conforme a aplicação.</p>
+<p><strong>Resolução espacial original.</strong> Nível administrativo da avaliação.</p>
+<p><strong>Resolução temporal.</strong> Situação no ciclo anual do eSPAR ou avaliação equivalente.</p>
+<p><strong>Período de referência.</strong> Ciclo de avaliação e data das evidências.</p>
+<p><strong>Limiar ou valor de referência.</strong> Cinco níveis cumulativos definidos pela OMS; não calcular média aritmética entre níveis.</p>
+</div>
+</section>
+<section id="disponibilidade-e-acesso-2" class="level3" data-number="13.7.10">
+<h3 data-number="13.7.10" class="anchored" data-anchor-id="disponibilidade-e-acesso-2"><span class="header-section-number">13.7.10</span> Disponibilidade e acesso</h3>
+<p><strong>Cobertura geográfica.</strong> Aplicável internacionalmente após adaptação; resultados existem apenas para os estabelecimentos e níveis efetivamente avaliados.</p>
+<p><strong>Período disponível.</strong> A partir da implementação local; referência metodológica publicada em 2024.</p>
+<p><strong>Periodicidade de atualização.</strong> Anual ou conforme o ciclo de gestão, com verificação extraordinária após eventos e mudanças relevantes.</p>
+<p><strong>Forma de acesso.</strong> Avaliação de estabelecimentos, sistema rotineiro de informação e verificação documental segundo o indicador.</p>
+<p><strong>URL ou identificador persistente.</strong> https://www.who.int/publications/i/item/9789240088986</p>
+<p><strong>Formato dos arquivos.</strong> Formulário eletrônico ou papel, base tabular e documentação comprobatória.</p>
+<p><strong>Necessidade de processamento.</strong> Validar universo, aplicar critérios, calcular numerador e denominador, estratificar e registrar evidências e data.</p>
+</section>
+<section id="qualidade-comparação-e-saúde-2" class="level3" data-number="13.7.11">
+<h3 data-number="13.7.11" class="anchored" data-anchor-id="qualidade-comparação-e-saúde-2"><span class="header-section-number">13.7.11</span> Qualidade, comparação e saúde</h3>
+<p><strong>Qualidade e incerteza.</strong> Definir universo elegível, cobertura e instrumento; verificar documentos, datas, funcionalidade e evidências; informar não resposta, amostragem e intervalo quando houver inferência.</p>
+<p><strong>Possibilidade de comparação.</strong> Manter definição, critérios de conformidade, janela temporal, universo, instrumento e desagregações; mudanças no número de estabelecimentos avaliados alteram o percentual.</p>
+<p><strong>Relação com desfechos de saúde.</strong> Mede capacidade ou interrupção do sistema, não o efeito final na saúde; a relação com desfechos depende do perigo, da continuidade dos serviços e das populações atendidas.</p>
+<p><strong>Defasagens temporais relevantes.</strong> Estrutura e planos podem anteceder eventos; interrupções devem ser registradas próximo da ocorrência; resultados em saúde e recuperação podem aparecer depois.</p>
+<p><strong>Aplicação na gestão.</strong> Identificar lacunas, priorizar investimento, pactuar responsáveis e prazos, acompanhar preparação e verificar continuidade antes, durante e depois de emergências.</p>
+</section>
+<section id="referências-metodológicas-2" class="level3" data-number="13.7.12">
+<h3 data-number="13.7.12" class="anchored" data-anchor-id="referências-metodológicas-2"><span class="header-section-number">13.7.12</span> Referências metodológicas</h3>
+<ul>
+<li><span class="citation" data-cites="who2024resilienceindicators">(<a href="../../backmatter/referencias.html#ref-who2024resilienceindicators" role="doc-biblioref">World Health Organization, 2024</a>)</span></li>
+</ul>
+</section>
+<section id="alertas-climáticos-e-ambientais" class="level3" data-number="13.7.13">
+<h3 data-number="13.7.13" class="anchored" data-anchor-id="alertas-climáticos-e-ambientais"><span class="header-section-number">13.7.13</span> Alertas climáticos e ambientais</h3>
+<p>Para calor, fumaça, qualidade da água, inundação e eventos severos, o sistema precisa conectar fontes ambientais à vigilância e à assistência. Um protocolo deve declarar:</p>
+<ol type="1">
+<li>variável e fonte monitoradas;</li>
+<li>limiar ou regra de classificação;</li>
+<li>território e população;</li>
+<li>antecedência e validade do alerta;</li>
+<li>autoridade que decide;</li>
+<li>destinatários e canais redundantes;</li>
+<li>ações esperadas por nível;</li>
+<li>confirmação de recebimento;</li>
+<li>critérios de encerramento;</li>
+<li>avaliação após o evento.</li>
+</ol>
+<p>A antecedência ideal varia. Um alerta de calor com dias de antecedência permite ajustar equipes, contato com pessoas de maior risco, água e horários. Uma falha de qualidade da água pode exigir bloqueio imediato. Avisos longos demais perdem credibilidade; avisos tardios não permitem ação.</p>
+<p>Cobertura nominal de telefone ou internet não representa alcance. Mensagens precisam de linguagem clara, Libras e outros formatos acessíveis, idiomas pertinentes, canais comunitários e ações viáveis para quem não pode interromper trabalho, comprar equipamento ou se deslocar. Comunicação de risco sem oferta de proteção pode transferir responsabilidade para a população.</p>
+</section>
+</section>
+<section id="planos-de-emergência-e-continuidade" class="level2" data-number="13.8">
+<h2 data-number="13.8" class="anchored" data-anchor-id="planos-de-emergência-e-continuidade"><span class="header-section-number">13.8</span> Planos de emergência e continuidade</h2>
+<p>O plano de emergência coordena resposta ao perigo. O plano de continuidade identifica funções críticas, recursos mínimos e alternativas para mantê-las ou recuperá-las. Eles podem estar integrados, desde que os serviços essenciais não sejam um apêndice genérico.</p>
+<p>O indicador 44 da OMS mede estabelecimentos com plano de gestão de emergências que incorpora continuidade dos serviços. Uma verificação robusta procura prioridades assistenciais, cadeia de comando, contatos, pessoal mínimo, suprimentos, referência, transporte, informação, comunicação, critérios de suspensão e sequência de recuperação.</p>
+</section>
+<section id="sec-res-pla-01" class="level2" data-number="13.9">
+<h2 data-number="13.9" class="anchored" data-anchor-id="sec-res-pla-01"><span class="header-section-number">13.9</span> Ficha do indicador: Percentual de estabelecimentos com plano de gestão de emergências que incorpora continuidade dos serviços</h2>
+<div class="indicator-card">
+<p><strong>Código:</strong> RES-PLA-01<br>
+<strong>Título resumido:</strong> Plano de emergência com continuidade<br>
+<strong>Tema:</strong> Capacidade de resposta, adaptação e resiliência<br>
+<strong>Dimensão:</strong> resposta<br>
+<strong>Disponibilidade:</strong> <span class="availability">requer avaliação de estabelecimentos</span> <span class="availability">requer adaptação nacional</span></p>
+</div>
+<section id="identificação-e-fundamento-3" class="level3" data-number="13.9.1">
+<h3 data-number="13.9.1" class="anchored" data-anchor-id="identificação-e-fundamento-3"><span class="header-section-number">13.9.1</span> Identificação e fundamento</h3>
+<p><strong>Indicador consolidado em.</strong> Indicador 44 do pacote integrado de indicadores de resiliência dos sistemas de saúde da OMS.</p>
+</section>
+<section id="conceito-3" class="level3" data-number="13.9.2">
+<h3 data-number="13.9.2" class="anchored" data-anchor-id="conceito-3"><span class="header-section-number">13.9.2</span> Conceito</h3>
+<p>Percentual de estabelecimentos com plano de gestão de emergências que inclui a manutenção ou recuperação de serviços rotineiros e essenciais.</p>
+</section>
+<section id="objetivo-3" class="level3" data-number="13.9.3">
+<h3 data-number="13.9.3" class="anchored" data-anchor-id="objetivo-3"><span class="header-section-number">13.9.3</span> Objetivo</h3>
+<p>Verificar se a preparação formal identifica funções críticas, impactos dos perigos e ações para sustentar a assistência.</p>
+</section>
+<section id="interpretação-3" class="level3" data-number="13.9.4">
+<h3 data-number="13.9.4" class="anchored" data-anchor-id="interpretação-3"><span class="header-section-number">13.9.4</span> Interpretação</h3>
+<p>Valor de 70% indica plano conforme em sete de cada dez estabelecimentos avaliados. Não demonstra que foi difundido, exercitado, financiado ou eficaz.</p>
+</section>
+<section id="usos-3" class="level3" data-number="13.9.5">
+<h3 data-number="13.9.5" class="anchored" data-anchor-id="usos-3"><span class="header-section-number">13.9.5</span> Usos</h3>
+<ul>
+<li>Identificar estabelecimentos sem plano.</li>
+<li>Verificar incorporação de serviços essenciais.</li>
+<li>Programar exercícios.</li>
+<li>Pactuar continuidade em redes.</li>
+</ul>
+</section>
+<section id="limitações-3" class="level3" data-number="13.9.6">
+<h3 data-number="13.9.6" class="anchored" data-anchor-id="limitações-3"><span class="header-section-number">13.9.6</span> Limitações</h3>
+<ul>
+<li>Documento pode ser genérico ou desatualizado.</li>
+<li>Conformidade documental não prova implementação.</li>
+<li>Critérios de serviço essencial podem variar.</li>
+<li>Exercícios e eventos reais exigem indicadores de desempenho.</li>
+</ul>
+</section>
+<section id="fontes-de-dados-3" class="level3" data-number="13.9.7">
+<h3 data-number="13.9.7" class="anchored" data-anchor-id="fontes-de-dados-3"><span class="header-section-number">13.9.7</span> Fontes de dados</h3>
+<ul>
+<li>Pacote integrado de indicadores de resiliência dos sistemas de saúde — definição, metadados, numerador, denominador e fonte recomendada (<a href="../../backmatter/indice-fontes.html#who-resilience-package">cadastro</a>)</li>
+</ul>
+</section>
+<section id="método-de-cálculo-3" class="level3" data-number="13.9.8">
+<h3 data-number="13.9.8" class="anchored" data-anchor-id="método-de-cálculo-3"><span class="header-section-number">13.9.8</span> Método de cálculo</h3>
+<p>Definir critérios mínimos; verificar plano vigente e se ele prioriza funções críticas, avalia impactos, define ações, responsabilidades, recursos, comunicação e continuidade ou recuperação de serviços essenciais; contar estabelecimentos conformes, dividir pelos avaliados e multiplicar por 100.</p>
+<p><span class="math display">\[
+P_{plano}=100\times\frac{N(\text{estabelecimentos com plano conforme})}{N(\text{estabelecimentos avaliados})}
+\]</span></p>
+<div class="indicator-card">
+<p><strong>Numerador.</strong> Estabelecimentos com plano de gestão de emergências que incorpora continuidade dos serviços.</p>
+<p><strong>Denominador.</strong> Total de estabelecimentos avaliados.</p>
+<p><strong>Unidade de medida.</strong> Percentual de estabelecimentos (%).</p>
+<p><strong>Variáveis e categorias de análise.</strong> Vigência; perigos; serviços essenciais; responsabilidades; pessoal; suprimentos; referência e contrarreferência; comunicação; recuperação; exercícios.</p>
+<p><strong>Granularidade.</strong> Estabelecimento e componente do plano.</p>
+<p><strong>Periodicidade de atualização.</strong> Anual ou conforme o ciclo de gestão, com verificação extraordinária após eventos e mudanças relevantes.</p>
+<p><strong>Responsabilidade gerencial.</strong> Gestão do SUS e direção do estabelecimento, com participação da vigilância, atenção, engenharia clínica, infraestrutura, saúde do trabalhador e proteção e defesa civil conforme o indicador.</p>
+<p><strong>Notas.</strong> Existência documental, implementação, cobertura, qualidade, desempenho durante eventos e efetividade sobre a saúde são níveis diferentes de evidência.</p>
+<p><strong>Análise descritiva do indicador.</strong> Apresentar percentual e componentes ausentes, data, perigos cobertos, serviços priorizados, exercícios, correções e diferenças por território e tipo.</p>
+</div>
+</section>
+<section id="campos-complementares-para-clima-ambiente-e-saúde-3" class="level3" data-number="13.9.9">
+<h3 data-number="13.9.9" class="anchored" data-anchor-id="campos-complementares-para-clima-ambiente-e-saúde-3"><span class="header-section-number">13.9.9</span> Campos complementares para clima, ambiente e saúde</h3>
+<div class="indicator-card">
+<p><strong>Unidade territorial.</strong> Estabelecimento e agregações da rede.</p>
+<p><strong>Resolução espacial original.</strong> Estabelecimento.</p>
+<p><strong>Resolução temporal.</strong> Situação na data da avaliação e histórico de revisões e exercícios.</p>
+<p><strong>Período de referência.</strong> Vigência e data da última atualização do plano.</p>
+<p><strong>Limiar ou valor de referência.</strong> Todos os critérios mínimos definidos no protocolo; plano sem continuidade dos serviços não entra no numerador.</p>
+</div>
+</section>
+<section id="disponibilidade-e-acesso-3" class="level3" data-number="13.9.10">
+<h3 data-number="13.9.10" class="anchored" data-anchor-id="disponibilidade-e-acesso-3"><span class="header-section-number">13.9.10</span> Disponibilidade e acesso</h3>
+<p><strong>Cobertura geográfica.</strong> Aplicável internacionalmente após adaptação; resultados existem apenas para os estabelecimentos e níveis efetivamente avaliados.</p>
+<p><strong>Período disponível.</strong> A partir da implementação local; referência metodológica publicada em 2024.</p>
+<p><strong>Periodicidade de atualização.</strong> Anual ou conforme o ciclo de gestão, com verificação extraordinária após eventos e mudanças relevantes.</p>
+<p><strong>Forma de acesso.</strong> Avaliação de estabelecimentos, sistema rotineiro de informação e verificação documental segundo o indicador.</p>
+<p><strong>URL ou identificador persistente.</strong> https://www.who.int/publications/i/item/9789240088986</p>
+<p><strong>Formato dos arquivos.</strong> Formulário eletrônico ou papel, base tabular e documentação comprobatória.</p>
+<p><strong>Necessidade de processamento.</strong> Validar universo, aplicar critérios, calcular numerador e denominador, estratificar e registrar evidências e data.</p>
+</section>
+<section id="qualidade-comparação-e-saúde-3" class="level3" data-number="13.9.11">
+<h3 data-number="13.9.11" class="anchored" data-anchor-id="qualidade-comparação-e-saúde-3"><span class="header-section-number">13.9.11</span> Qualidade, comparação e saúde</h3>
+<p><strong>Qualidade e incerteza.</strong> Definir universo elegível, cobertura e instrumento; verificar documentos, datas, funcionalidade e evidências; informar não resposta, amostragem e intervalo quando houver inferência.</p>
+<p><strong>Possibilidade de comparação.</strong> Manter definição, critérios de conformidade, janela temporal, universo, instrumento e desagregações; mudanças no número de estabelecimentos avaliados alteram o percentual.</p>
+<p><strong>Relação com desfechos de saúde.</strong> Mede capacidade ou interrupção do sistema, não o efeito final na saúde; a relação com desfechos depende do perigo, da continuidade dos serviços e das populações atendidas.</p>
+<p><strong>Defasagens temporais relevantes.</strong> Estrutura e planos podem anteceder eventos; interrupções devem ser registradas próximo da ocorrência; resultados em saúde e recuperação podem aparecer depois.</p>
+<p><strong>Aplicação na gestão.</strong> Identificar lacunas, priorizar investimento, pactuar responsáveis e prazos, acompanhar preparação e verificar continuidade antes, durante e depois de emergências.</p>
+</section>
+<section id="referências-metodológicas-3" class="level3" data-number="13.9.12">
+<h3 data-number="13.9.12" class="anchored" data-anchor-id="referências-metodológicas-3"><span class="header-section-number">13.9.12</span> Referências metodológicas</h3>
+<ul>
+<li><span class="citation" data-cites="who2024resilienceindicators">(<a href="../../backmatter/referencias.html#ref-who2024resilienceindicators" role="doc-biblioref">World Health Organization, 2024</a>)</span></li>
+<li><span class="citation" data-cites="who2023framework">(<a href="../../backmatter/referencias.html#ref-who2023framework" role="doc-biblioref">World Health Organization, 2023</a>)</span></li>
+</ul>
+</section>
+<section id="exercício-e-evento-real" class="level3" data-number="13.9.13">
+<h3 data-number="13.9.13" class="anchored" data-anchor-id="exercício-e-evento-real"><span class="header-section-number">13.9.13</span> Exercício e evento real</h3>
+<p>Planos devem ser testados. Exercícios de mesa percorrem decisões e responsabilidades; simulações funcionais testam partes do processo; exercícios em escala ampliada testam coordenação e logística. A modalidade deve corresponder ao risco e não colocar pacientes em perigo.</p>
+<p>Depois de cada exercício ou evento, a equipe deve registrar: o que se esperava, o que ocorreu, decisões, tempos, falhas, improvisações, impactos, responsáveis e prazos de correção. O número de exercícios é um indicador de atividade, não de qualidade. O resultado importante é o fechamento das ações corretivas e a melhoria verificada no ciclo seguinte.</p>
+</section>
+<section id="continuidade-dos-serviços-essenciais" class="level3" data-number="13.9.14">
+<h3 data-number="13.9.14" class="anchored" data-anchor-id="continuidade-dos-serviços-essenciais"><span class="header-section-number">13.9.14</span> Continuidade dos serviços essenciais</h3>
+<p>“Serviço essencial” não é uma lista fixa e nacional. Deve ser definido segundo necessidades da população, rede disponível, dependência temporal e consequências da interrupção. Vacinação, pré-natal, parto, urgência, saúde mental, dispensação de medicamentos, diálise, oxigenoterapia e vigilância podem ter criticidades diferentes por território.</p>
+<p>Um painel de continuidade pode combinar:</p>
+<ul>
+<li>percentual de serviços essenciais mantidos;</li>
+<li>horas ou dias de interrupção;</li>
+<li>consultas, procedimentos ou doses adiados;</li>
+<li>pessoas transferidas;</li>
+<li>tempo até restabelecimento;</li>
+<li>estoque e dias de autonomia;</li>
+<li>perdas de cadeia de frio;</li>
+<li>demanda reprimida após o evento.</li>
+</ul>
+<p>Essas medidas dependem de uma linha de base assistencial. Produção menor pode decorrer de evacuação, perda do sistema de informação ou mudança de demanda. O denominador deve ser capacidade planejada, produção esperada ou população elegível, conforme a pergunta.</p>
+</section>
+</section>
+<section id="água-e-energia-em-estabelecimentos" class="level2" data-number="13.10">
+<h2 data-number="13.10" class="anchored" data-anchor-id="água-e-energia-em-estabelecimentos"><span class="header-section-number">13.10</span> Água e energia em estabelecimentos</h2>
+<p>Água segura e energia contínua sustentam prevenção de infecção, limpeza, esterilização, laboratório, alimentação, refrigeração, iluminação, equipamentos, climatização, tecnologia e comunicação. Interrupções ambientais e falhas de infraestrutura podem ocorrer juntas: enchentes contaminam fontes e desligam energia; secas reduzem abastecimento; calor eleva demanda elétrica.</p>
+<p>Os indicadores 28 e 29 da OMS usam uma janela simples: percentual de estabelecimentos com interrupção na semana anterior. Essa definição favorece coleta rotineira e detecção rápida. Ela precisa ser complementada por duração, recorrência e impacto, pois uma oscilação breve e uma falha de dois dias entram igualmente no numerador básico.</p>
+</section>
+<section id="sec-res-wat-01" class="level2" data-number="13.11">
+<h2 data-number="13.11" class="anchored" data-anchor-id="sec-res-wat-01"><span class="header-section-number">13.11</span> Ficha do indicador: Percentual de estabelecimentos de saúde que tiveram interrupção do abastecimento de água na semana anterior</h2>
+<div class="indicator-card">
+<p><strong>Código:</strong> RES-WAT-01<br>
+<strong>Título resumido:</strong> Interrupção de água em estabelecimentos<br>
+<strong>Tema:</strong> Capacidade de resposta, adaptação e resiliência<br>
+<strong>Dimensão:</strong> resposta<br>
+<strong>Disponibilidade:</strong> <span class="availability">requer avaliação de estabelecimentos</span> <span class="availability">requer adaptação nacional</span></p>
+</div>
+<section id="identificação-e-fundamento-4" class="level3" data-number="13.11.1">
+<h3 data-number="13.11.1" class="anchored" data-anchor-id="identificação-e-fundamento-4"><span class="header-section-number">13.11.1</span> Identificação e fundamento</h3>
+<p><strong>Indicador consolidado em.</strong> Indicador 28 do pacote integrado de indicadores de resiliência dos sistemas de saúde da OMS.</p>
+</section>
+<section id="conceito-4" class="level3" data-number="13.11.2">
+<h3 data-number="13.11.2" class="anchored" data-anchor-id="conceito-4"><span class="header-section-number">13.11.2</span> Conceito</h3>
+<p>Percentual de estabelecimentos que tiveram interrupção de água corrente ou de outra fonte de água segura na semana anterior.</p>
+</section>
+<section id="objetivo-4" class="level3" data-number="13.11.3">
+<h3 data-number="13.11.3" class="anchored" data-anchor-id="objetivo-4"><span class="header-section-number">13.11.3</span> Objetivo</h3>
+<p>Monitorar falhas recentes de um serviço essencial à assistência segura e identificar estabelecimentos para intervenção.</p>
+</section>
+<section id="interpretação-4" class="level3" data-number="13.11.4">
+<h3 data-number="13.11.4" class="anchored" data-anchor-id="interpretação-4"><span class="header-section-number">13.11.4</span> Interpretação</h3>
+<p>Valor de 15% significa que 15 de cada 100 estabelecimentos avaliados relataram ao menos uma interrupção na janela. Não informa duração, horário, volume nem efeito sobre serviços sem variáveis complementares.</p>
+</section>
+<section id="usos-4" class="level3" data-number="13.11.5">
+<h3 data-number="13.11.5" class="anchored" data-anchor-id="usos-4"><span class="header-section-number">13.11.5</span> Usos</h3>
+<ul>
+<li>Detectar interrupções durante seca</li>
+<li>inundação ou falha de rede.</li>
+<li>Priorizar reservação e fontes alternativas.</li>
+<li>Monitorar continuidade assistencial.</li>
+<li>Comparar tipos de estabelecimento.</li>
+</ul>
+</section>
+<section id="limitações-4" class="level3" data-number="13.11.6">
+<h3 data-number="13.11.6" class="anchored" data-anchor-id="limitações-4"><span class="header-section-number">13.11.6</span> Limitações</h3>
+<ul>
+<li>Janela curta não representa o ano inteiro.</li>
+<li>Qualquer interrupção recebe o mesmo peso.</li>
+<li>Segurança da fonte alternativa precisa ser verificada.</li>
+<li>Memória e não resposta podem afetar a medida.</li>
+</ul>
+</section>
+<section id="fontes-de-dados-4" class="level3" data-number="13.11.7">
+<h3 data-number="13.11.7" class="anchored" data-anchor-id="fontes-de-dados-4"><span class="header-section-number">13.11.7</span> Fontes de dados</h3>
+<ul>
+<li>Pacote integrado de indicadores de resiliência dos sistemas de saúde — definição, metadados, numerador, denominador e fonte recomendada (<a href="../../backmatter/indice-fontes.html#who-resilience-package">cadastro</a>)</li>
+</ul>
+</section>
+<section id="método-de-cálculo-4" class="level3" data-number="13.11.8">
+<h3 data-number="13.11.8" class="anchored" data-anchor-id="método-de-cálculo-4"><span class="header-section-number">13.11.8</span> Método de cálculo</h3>
+<p>Em data comum, perguntar ou consultar registros sobre qualquer interrupção de água corrente ou outra fonte segura nos sete dias anteriores. Contar estabelecimentos afetados, dividir pelos avaliados e multiplicar por 100. Complementar com número, duração e serviços afetados.</p>
+<p><span class="math display">\[
+P_{agua}=100\times\frac{N(\text{estabelecimentos com interrupção de água nos 7 dias})}{N(\text{estabelecimentos avaliados})}
+\]</span></p>
+<div class="indicator-card">
+<p><strong>Numerador.</strong> Estabelecimentos com ao menos uma interrupção de água na semana anterior.</p>
+<p><strong>Denominador.</strong> Total de estabelecimentos avaliados.</p>
+<p><strong>Unidade de medida.</strong> Percentual de estabelecimentos (%).</p>
+<p><strong>Variáveis e categorias de análise.</strong> Ocorrência, número e duração da interrupção; fonte; reserva; qualidade; serviço afetado; tipo, gestão e território.</p>
+<p><strong>Granularidade.</strong> Estabelecimento e episódio; percentual por rede ou território.</p>
+<p><strong>Periodicidade de atualização.</strong> Anual ou conforme o ciclo de gestão, com verificação extraordinária após eventos e mudanças relevantes.</p>
+<p><strong>Responsabilidade gerencial.</strong> Gestão do SUS e direção do estabelecimento, com participação da vigilância, atenção, engenharia clínica, infraestrutura, saúde do trabalhador e proteção e defesa civil conforme o indicador.</p>
+<p><strong>Notas.</strong> Existência documental, implementação, cobertura, qualidade, desempenho durante eventos e efetividade sobre a saúde são níveis diferentes de evidência.</p>
+<p><strong>Análise descritiva do indicador.</strong> Mostrar percentual, contagens, duração, recorrência, fonte alternativa, serviços suspensos, tipo de estabelecimento e distribuição territorial.</p>
+</div>
+</section>
+<section id="campos-complementares-para-clima-ambiente-e-saúde-4" class="level3" data-number="13.11.9">
+<h3 data-number="13.11.9" class="anchored" data-anchor-id="campos-complementares-para-clima-ambiente-e-saúde-4"><span class="header-section-number">13.11.9</span> Campos complementares para clima, ambiente e saúde</h3>
+<div class="indicator-card">
+<p><strong>Unidade territorial.</strong> Estabelecimento e agregações da rede.</p>
+<p><strong>Resolução espacial original.</strong> Estabelecimento.</p>
+<p><strong>Resolução temporal.</strong> Janela móvel ou semana padronizada de sete dias.</p>
+<p><strong>Período de referência.</strong> Sete dias anteriores à avaliação; adaptações mensais devem receber outro rótulo.</p>
+<p><strong>Limiar ou valor de referência.</strong> Qualquer interrupção classifica o estabelecimento no numerador; metas de redução são locais.</p>
+</div>
+</section>
+<section id="disponibilidade-e-acesso-4" class="level3" data-number="13.11.10">
+<h3 data-number="13.11.10" class="anchored" data-anchor-id="disponibilidade-e-acesso-4"><span class="header-section-number">13.11.10</span> Disponibilidade e acesso</h3>
+<p><strong>Cobertura geográfica.</strong> Aplicável internacionalmente após adaptação; resultados existem apenas para os estabelecimentos e níveis efetivamente avaliados.</p>
+<p><strong>Período disponível.</strong> A partir da implementação local; referência metodológica publicada em 2024.</p>
+<p><strong>Periodicidade de atualização.</strong> Anual ou conforme o ciclo de gestão, com verificação extraordinária após eventos e mudanças relevantes.</p>
+<p><strong>Forma de acesso.</strong> Avaliação de estabelecimentos, sistema rotineiro de informação e verificação documental segundo o indicador.</p>
+<p><strong>URL ou identificador persistente.</strong> https://www.who.int/publications/i/item/9789240088986</p>
+<p><strong>Formato dos arquivos.</strong> Formulário eletrônico ou papel, base tabular e documentação comprobatória.</p>
+<p><strong>Necessidade de processamento.</strong> Validar universo, aplicar critérios, calcular numerador e denominador, estratificar e registrar evidências e data.</p>
+</section>
+<section id="qualidade-comparação-e-saúde-4" class="level3" data-number="13.11.11">
+<h3 data-number="13.11.11" class="anchored" data-anchor-id="qualidade-comparação-e-saúde-4"><span class="header-section-number">13.11.11</span> Qualidade, comparação e saúde</h3>
+<p><strong>Qualidade e incerteza.</strong> Definir universo elegível, cobertura e instrumento; verificar documentos, datas, funcionalidade e evidências; informar não resposta, amostragem e intervalo quando houver inferência.</p>
+<p><strong>Possibilidade de comparação.</strong> Manter definição, critérios de conformidade, janela temporal, universo, instrumento e desagregações; mudanças no número de estabelecimentos avaliados alteram o percentual.</p>
+<p><strong>Relação com desfechos de saúde.</strong> Mede capacidade ou interrupção do sistema, não o efeito final na saúde; a relação com desfechos depende do perigo, da continuidade dos serviços e das populações atendidas.</p>
+<p><strong>Defasagens temporais relevantes.</strong> Estrutura e planos podem anteceder eventos; interrupções devem ser registradas próximo da ocorrência; resultados em saúde e recuperação podem aparecer depois.</p>
+<p><strong>Aplicação na gestão.</strong> Identificar lacunas, priorizar investimento, pactuar responsáveis e prazos, acompanhar preparação e verificar continuidade antes, durante e depois de emergências.</p>
+</section>
+<section id="referências-metodológicas-4" class="level3" data-number="13.11.12">
+<h3 data-number="13.11.12" class="anchored" data-anchor-id="referências-metodológicas-4"><span class="header-section-number">13.11.12</span> Referências metodológicas</h3>
+<ul>
+<li><span class="citation" data-cites="who2024resilienceindicators">(<a href="../../backmatter/referencias.html#ref-who2024resilienceindicators" role="doc-biblioref">World Health Organization, 2024</a>)</span></li>
+<li><span class="citation" data-cites="who2023framework">(<a href="../../backmatter/referencias.html#ref-who2023framework" role="doc-biblioref">World Health Organization, 2023</a>)</span></li>
+</ul>
+</section>
+</section>
+<section id="sec-res-ene-01" class="level2" data-number="13.12">
+<h2 data-number="13.12" class="anchored" data-anchor-id="sec-res-ene-01"><span class="header-section-number">13.12</span> Ficha do indicador: Percentual de estabelecimentos de saúde que tiveram interrupção de energia elétrica na semana anterior</h2>
+<div class="indicator-card">
+<p><strong>Código:</strong> RES-ENE-01<br>
+<strong>Título resumido:</strong> Interrupção de energia em estabelecimentos<br>
+<strong>Tema:</strong> Capacidade de resposta, adaptação e resiliência<br>
+<strong>Dimensão:</strong> resposta<br>
+<strong>Disponibilidade:</strong> <span class="availability">requer avaliação de estabelecimentos</span> <span class="availability">requer adaptação nacional</span></p>
+</div>
+<section id="identificação-e-fundamento-5" class="level3" data-number="13.12.1">
+<h3 data-number="13.12.1" class="anchored" data-anchor-id="identificação-e-fundamento-5"><span class="header-section-number">13.12.1</span> Identificação e fundamento</h3>
+<p><strong>Indicador consolidado em.</strong> Indicador 29 do pacote integrado de indicadores de resiliência dos sistemas de saúde da OMS.</p>
+</section>
+<section id="conceito-5" class="level3" data-number="13.12.2">
+<h3 data-number="13.12.2" class="anchored" data-anchor-id="conceito-5"><span class="header-section-number">13.12.2</span> Conceito</h3>
+<p>Percentual de estabelecimentos que tiveram ao menos uma interrupção de energia elétrica na semana anterior.</p>
+</section>
+<section id="objetivo-5" class="level3" data-number="13.12.3">
+<h3 data-number="13.12.3" class="anchored" data-anchor-id="objetivo-5"><span class="header-section-number">13.12.3</span> Objetivo</h3>
+<p>Monitorar falhas recentes capazes de comprometer iluminação, equipamentos, tecnologia da informação, refrigeração, climatização e serviços essenciais.</p>
+</section>
+<section id="interpretação-5" class="level3" data-number="13.12.4">
+<h3 data-number="13.12.4" class="anchored" data-anchor-id="interpretação-5"><span class="header-section-number">13.12.4</span> Interpretação</h3>
+<p>Valor de 10% significa que um em cada dez estabelecimentos avaliados teve interrupção. Gerador disponível não elimina o evento; deve-se medir se a transição e a autonomia mantiveram cargas críticas.</p>
+</section>
+<section id="usos-5" class="level3" data-number="13.12.5">
+<h3 data-number="13.12.5" class="anchored" data-anchor-id="usos-5"><span class="header-section-number">13.12.5</span> Usos</h3>
+<ul>
+<li>Priorizar redundância elétrica.</li>
+<li>Proteger cadeia de frio e equipamentos.</li>
+<li>Monitorar impactos de eventos severos.</li>
+<li>Planejar combustível e manutenção.</li>
+</ul>
+</section>
+<section id="limitações-5" class="level3" data-number="13.12.6">
+<h3 data-number="13.12.6" class="anchored" data-anchor-id="limitações-5"><span class="header-section-number">13.12.6</span> Limitações</h3>
+<ul>
+<li>Janela curta não descreve frequência anual.</li>
+<li>Interrupções de segundos e horas são contadas igualmente no indicador básico.</li>
+<li>Auto relato pode omitir falhas.</li>
+<li>Não mede diretamente perda de serviço.</li>
+</ul>
+</section>
+<section id="fontes-de-dados-5" class="level3" data-number="13.12.7">
+<h3 data-number="13.12.7" class="anchored" data-anchor-id="fontes-de-dados-5"><span class="header-section-number">13.12.7</span> Fontes de dados</h3>
+<ul>
+<li>Pacote integrado de indicadores de resiliência dos sistemas de saúde — definição, metadados, numerador, denominador e fonte recomendada (<a href="../../backmatter/indice-fontes.html#who-resilience-package">cadastro</a>)</li>
+</ul>
+</section>
+<section id="método-de-cálculo-5" class="level3" data-number="13.12.8">
+<h3 data-number="13.12.8" class="anchored" data-anchor-id="método-de-cálculo-5"><span class="header-section-number">13.12.8</span> Método de cálculo</h3>
+<p>Registrar qualquer interrupção elétrica nos sete dias anteriores à data de avaliação; contar estabelecimentos afetados, dividir pelo total avaliado e multiplicar por 100. Vincular duração, cargas críticas, acionamento de gerador, combustível e perda de serviços.</p>
+<p><span class="math display">\[
+P_{energia}=100\times\frac{N(\text{estabelecimentos com interrupção elétrica nos 7 dias})}{N(\text{estabelecimentos avaliados})}
+\]</span></p>
+<div class="indicator-card">
+<p><strong>Numerador.</strong> Estabelecimentos com ao menos uma interrupção de energia na semana anterior.</p>
+<p><strong>Denominador.</strong> Total de estabelecimentos avaliados.</p>
+<p><strong>Unidade de medida.</strong> Percentual de estabelecimentos (%).</p>
+<p><strong>Variáveis e categorias de análise.</strong> Ocorrência, duração, causa, gerador, autonomia, combustível, cargas críticas, cadeia de frio, serviço afetado, tipo e território.</p>
+<p><strong>Granularidade.</strong> Estabelecimento e episódio; percentual por rede ou território.</p>
+<p><strong>Periodicidade de atualização.</strong> Anual ou conforme o ciclo de gestão, com verificação extraordinária após eventos e mudanças relevantes.</p>
+<p><strong>Responsabilidade gerencial.</strong> Gestão do SUS e direção do estabelecimento, com participação da vigilância, atenção, engenharia clínica, infraestrutura, saúde do trabalhador e proteção e defesa civil conforme o indicador.</p>
+<p><strong>Notas.</strong> Existência documental, implementação, cobertura, qualidade, desempenho durante eventos e efetividade sobre a saúde são níveis diferentes de evidência.</p>
+<p><strong>Análise descritiva do indicador.</strong> Mostrar percentual, duração e recorrência, causa, acionamento e autonomia da fonte alternativa, cargas e serviços afetados e distribuição territorial.</p>
+</div>
+</section>
+<section id="campos-complementares-para-clima-ambiente-e-saúde-5" class="level3" data-number="13.12.9">
+<h3 data-number="13.12.9" class="anchored" data-anchor-id="campos-complementares-para-clima-ambiente-e-saúde-5"><span class="header-section-number">13.12.9</span> Campos complementares para clima, ambiente e saúde</h3>
+<div class="indicator-card">
+<p><strong>Unidade territorial.</strong> Estabelecimento e agregações da rede.</p>
+<p><strong>Resolução espacial original.</strong> Estabelecimento.</p>
+<p><strong>Resolução temporal.</strong> Janela móvel ou semana padronizada de sete dias.</p>
+<p><strong>Período de referência.</strong> Sete dias anteriores à avaliação.</p>
+<p><strong>Limiar ou valor de referência.</strong> Qualquer interrupção classifica no numerador, ainda que exista fonte alternativa; desempenho da redundância é analisado separadamente.</p>
+</div>
+</section>
+<section id="disponibilidade-e-acesso-5" class="level3" data-number="13.12.10">
+<h3 data-number="13.12.10" class="anchored" data-anchor-id="disponibilidade-e-acesso-5"><span class="header-section-number">13.12.10</span> Disponibilidade e acesso</h3>
+<p><strong>Cobertura geográfica.</strong> Aplicável internacionalmente após adaptação; resultados existem apenas para os estabelecimentos e níveis efetivamente avaliados.</p>
+<p><strong>Período disponível.</strong> A partir da implementação local; referência metodológica publicada em 2024.</p>
+<p><strong>Periodicidade de atualização.</strong> Anual ou conforme o ciclo de gestão, com verificação extraordinária após eventos e mudanças relevantes.</p>
+<p><strong>Forma de acesso.</strong> Avaliação de estabelecimentos, sistema rotineiro de informação e verificação documental segundo o indicador.</p>
+<p><strong>URL ou identificador persistente.</strong> https://www.who.int/publications/i/item/9789240088986</p>
+<p><strong>Formato dos arquivos.</strong> Formulário eletrônico ou papel, base tabular e documentação comprobatória.</p>
+<p><strong>Necessidade de processamento.</strong> Validar universo, aplicar critérios, calcular numerador e denominador, estratificar e registrar evidências e data.</p>
+</section>
+<section id="qualidade-comparação-e-saúde-5" class="level3" data-number="13.12.11">
+<h3 data-number="13.12.11" class="anchored" data-anchor-id="qualidade-comparação-e-saúde-5"><span class="header-section-number">13.12.11</span> Qualidade, comparação e saúde</h3>
+<p><strong>Qualidade e incerteza.</strong> Definir universo elegível, cobertura e instrumento; verificar documentos, datas, funcionalidade e evidências; informar não resposta, amostragem e intervalo quando houver inferência.</p>
+<p><strong>Possibilidade de comparação.</strong> Manter definição, critérios de conformidade, janela temporal, universo, instrumento e desagregações; mudanças no número de estabelecimentos avaliados alteram o percentual.</p>
+<p><strong>Relação com desfechos de saúde.</strong> Mede capacidade ou interrupção do sistema, não o efeito final na saúde; a relação com desfechos depende do perigo, da continuidade dos serviços e das populações atendidas.</p>
+<p><strong>Defasagens temporais relevantes.</strong> Estrutura e planos podem anteceder eventos; interrupções devem ser registradas próximo da ocorrência; resultados em saúde e recuperação podem aparecer depois.</p>
+<p><strong>Aplicação na gestão.</strong> Identificar lacunas, priorizar investimento, pactuar responsáveis e prazos, acompanhar preparação e verificar continuidade antes, durante e depois de emergências.</p>
+</section>
+<section id="referências-metodológicas-5" class="level3" data-number="13.12.12">
+<h3 data-number="13.12.12" class="anchored" data-anchor-id="referências-metodológicas-5"><span class="header-section-number">13.12.12</span> Referências metodológicas</h3>
+<ul>
+<li><span class="citation" data-cites="who2024resilienceindicators">(<a href="../../backmatter/referencias.html#ref-who2024resilienceindicators" role="doc-biblioref">World Health Organization, 2024</a>)</span></li>
+<li><span class="citation" data-cites="who2023framework">(<a href="../../backmatter/referencias.html#ref-who2023framework" role="doc-biblioref">World Health Organization, 2023</a>)</span></li>
+</ul>
+</section>
+<section id="redundância-funcional" class="level3" data-number="13.12.13">
+<h3 data-number="13.12.13" class="anchored" data-anchor-id="redundância-funcional"><span class="header-section-number">13.12.13</span> Redundância funcional</h3>
+<p>Redundância deve ser testada como sistema. Para água, importa origem segura, reservação, tratamento, pressão, pontos de uso e plano de abastecimento alternativo. Para energia, importam partida automática, manutenção, combustível, autonomia, capacidade, prioridade de circuitos e proteção contra o mesmo perigo que derrubou a rede.</p>
+<p>Um gerador no subsolo de área inundável ou uma cisterna exposta à contaminação adicionam falsa segurança. A independência entre fonte principal e alternativa deve fazer parte do perfil de riscos. Testes precisam simular carga e duração, não apenas ligar o equipamento por alguns minutos.</p>
+</section>
+</section>
+<section id="infraestrutura-resiliente" class="level2" data-number="13.13">
+<h2 data-number="13.13" class="anchored" data-anchor-id="infraestrutura-resiliente"><span class="header-section-number">13.13</span> Infraestrutura resiliente</h2>
+<p>O indicador 47 da OMS reúne cinco componentes: segurança estrutural diante dos riscos prioritários; infraestrutura segura, acessível e capaz de absorver aumento de demanda; água, saneamento, higiene e resíduos; energia sustentável; e tecnologias de informação adequadas. A conformidade deve seguir padrão nacional ou subnacional compatível com a avaliação local de risco.</p>
+</section>
+<section id="sec-res-inf-01" class="level2" data-number="13.14">
+<h2 data-number="13.14" class="anchored" data-anchor-id="sec-res-inf-01"><span class="header-section-number">13.14</span> Ficha do indicador: Percentual de estabelecimentos de saúde que atendem aos padrões de infraestrutura</h2>
+<div class="indicator-card">
+<p><strong>Código:</strong> RES-INF-01<br>
+<strong>Título resumido:</strong> Infraestrutura conforme aos padrões<br>
+<strong>Tema:</strong> Capacidade de resposta, adaptação e resiliência<br>
+<strong>Dimensão:</strong> resposta<br>
+<strong>Disponibilidade:</strong> <span class="availability">requer avaliação de estabelecimentos</span> <span class="availability">requer adaptação nacional</span></p>
+</div>
+<section id="identificação-e-fundamento-6" class="level3" data-number="13.14.1">
+<h3 data-number="13.14.1" class="anchored" data-anchor-id="identificação-e-fundamento-6"><span class="header-section-number">13.14.1</span> Identificação e fundamento</h3>
+<p><strong>Indicador consolidado em.</strong> Indicador 47 do pacote integrado de indicadores de resiliência dos sistemas de saúde da OMS.</p>
+</section>
+<section id="conceito-6" class="level3" data-number="13.14.2">
+<h3 data-number="13.14.2" class="anchored" data-anchor-id="conceito-6"><span class="header-section-number">13.14.2</span> Conceito</h3>
+<p>Percentual de estabelecimentos que atendem a padrão nacional ou subnacional de infraestrutura apropriada aos serviços essenciais e aos perigos prioritários.</p>
+</section>
+<section id="objetivo-6" class="level3" data-number="13.14.3">
+<h3 data-number="13.14.3" class="anchored" data-anchor-id="objetivo-6"><span class="header-section-number">13.14.3</span> Objetivo</h3>
+<p>Avaliar conformidade estrutural e funcional necessária para segurança e continuidade do cuidado.</p>
+</section>
+<section id="interpretação-6" class="level3" data-number="13.14.4">
+<h3 data-number="13.14.4" class="anchored" data-anchor-id="interpretação-6"><span class="header-section-number">13.14.4</span> Interpretação</h3>
+<p>O estabelecimento só é conforme segundo a regra integral quando atende aos componentes exigidos de segurança estrutural, acessibilidade e capacidade, WASH e resíduos, energia sustentável e tecnologia da informação.</p>
+</section>
+<section id="usos-6" class="level3" data-number="13.14.5">
+<h3 data-number="13.14.5" class="anchored" data-anchor-id="usos-6"><span class="header-section-number">13.14.5</span> Usos</h3>
+<ul>
+<li>Priorizar investimento de capital.</li>
+<li>Verificar segurança diante de perigos.</li>
+<li>Integrar WASH</li>
+<li>energia e tecnologia.</li>
+<li>Monitorar desigualdade da infraestrutura.</li>
+</ul>
+</section>
+<section id="limitações-6" class="level3" data-number="13.14.6">
+<h3 data-number="13.14.6" class="anchored" data-anchor-id="limitações-6"><span class="header-section-number">13.14.6</span> Limitações</h3>
+<ul>
+<li>Depende da existência e qualidade do padrão nacional.</li>
+<li>Um percentual total oculta componentes críticos.</li>
+<li>Inspeções demandam qualificação técnica.</li>
+<li>Conformidade na data não garante desempenho em evento acima do nível de projeto.</li>
+</ul>
+</section>
+<section id="fontes-de-dados-6" class="level3" data-number="13.14.7">
+<h3 data-number="13.14.7" class="anchored" data-anchor-id="fontes-de-dados-6"><span class="header-section-number">13.14.7</span> Fontes de dados</h3>
+<ul>
+<li>Pacote integrado de indicadores de resiliência dos sistemas de saúde — definição, metadados, numerador, denominador e fonte recomendada (<a href="../../backmatter/indice-fontes.html#who-resilience-package">cadastro</a>)</li>
+</ul>
+</section>
+<section id="método-de-cálculo-6" class="level3" data-number="13.14.8">
+<h3 data-number="13.14.8" class="anchored" data-anchor-id="método-de-cálculo-6"><span class="header-section-number">13.14.8</span> Método de cálculo</h3>
+<p>Adotar padrão oficial coerente com o perfil de riscos; inspecionar segurança estrutural, infraestrutura segura e acessível inclusive para aumento de demanda, WASH e resíduos, energia e tecnologia da informação; classificar cada componente e a conformidade integral; dividir estabelecimentos integralmente conformes pelo total examinado e multiplicar por 100.</p>
+<p><span class="math display">\[
+P_{infra}=100\times\frac{N(\text{estabelecimentos conformes em todos os componentes exigidos})}{N(\text{estabelecimentos examinados})}
+\]</span></p>
+<div class="indicator-card">
+<p><strong>Numerador.</strong> Estabelecimentos que atendem ao padrão de infraestrutura adotado.</p>
+<p><strong>Denominador.</strong> Total de estabelecimentos examinados ou amostrados.</p>
+<p><strong>Unidade de medida.</strong> Percentual de estabelecimentos (%).</p>
+<p><strong>Variáveis e categorias de análise.</strong> Segurança estrutural; acesso; capacidade e surge; WASH; resíduos; energia; tecnologia; tipo, gestão, urbano ou rural e território.</p>
+<p><strong>Granularidade.</strong> Estabelecimento, componente e item de inspeção.</p>
+<p><strong>Periodicidade de atualização.</strong> Anual ou conforme o ciclo de gestão, com verificação extraordinária após eventos e mudanças relevantes.</p>
+<p><strong>Responsabilidade gerencial.</strong> Gestão do SUS e direção do estabelecimento, com participação da vigilância, atenção, engenharia clínica, infraestrutura, saúde do trabalhador e proteção e defesa civil conforme o indicador.</p>
+<p><strong>Notas.</strong> Existência documental, implementação, cobertura, qualidade, desempenho durante eventos e efetividade sobre a saúde são níveis diferentes de evidência.</p>
+<p><strong>Análise descritiva do indicador.</strong> Mostrar percentual integral e por componente, gravidade das não conformidades, custo e prazo de correção, tipo de estabelecimento, território e evolução.</p>
+</div>
+</section>
+<section id="campos-complementares-para-clima-ambiente-e-saúde-6" class="level3" data-number="13.14.9">
+<h3 data-number="13.14.9" class="anchored" data-anchor-id="campos-complementares-para-clima-ambiente-e-saúde-6"><span class="header-section-number">13.14.9</span> Campos complementares para clima, ambiente e saúde</h3>
+<div class="indicator-card">
+<p><strong>Unidade territorial.</strong> Estabelecimento e agregações da rede.</p>
+<p><strong>Resolução espacial original.</strong> Estabelecimento.</p>
+<p><strong>Resolução temporal.</strong> Data da inspeção; atualização após obra, dano ou mudança de padrão.</p>
+<p><strong>Período de referência.</strong> Edição do padrão e data da inspeção.</p>
+<p><strong>Limiar ou valor de referência.</strong> Critérios do padrão oficial; publicar componentes e regra de conformidade integral.</p>
+</div>
+</section>
+<section id="disponibilidade-e-acesso-6" class="level3" data-number="13.14.10">
+<h3 data-number="13.14.10" class="anchored" data-anchor-id="disponibilidade-e-acesso-6"><span class="header-section-number">13.14.10</span> Disponibilidade e acesso</h3>
+<p><strong>Cobertura geográfica.</strong> Aplicável internacionalmente após adaptação; resultados existem apenas para os estabelecimentos e níveis efetivamente avaliados.</p>
+<p><strong>Período disponível.</strong> A partir da implementação local; referência metodológica publicada em 2024.</p>
+<p><strong>Periodicidade de atualização.</strong> Anual ou conforme o ciclo de gestão, com verificação extraordinária após eventos e mudanças relevantes.</p>
+<p><strong>Forma de acesso.</strong> Avaliação de estabelecimentos, sistema rotineiro de informação e verificação documental segundo o indicador.</p>
+<p><strong>URL ou identificador persistente.</strong> https://www.who.int/publications/i/item/9789240088986</p>
+<p><strong>Formato dos arquivos.</strong> Formulário eletrônico ou papel, base tabular e documentação comprobatória.</p>
+<p><strong>Necessidade de processamento.</strong> Validar universo, aplicar critérios, calcular numerador e denominador, estratificar e registrar evidências e data.</p>
+</section>
+<section id="qualidade-comparação-e-saúde-6" class="level3" data-number="13.14.11">
+<h3 data-number="13.14.11" class="anchored" data-anchor-id="qualidade-comparação-e-saúde-6"><span class="header-section-number">13.14.11</span> Qualidade, comparação e saúde</h3>
+<p><strong>Qualidade e incerteza.</strong> Definir universo elegível, cobertura e instrumento; verificar documentos, datas, funcionalidade e evidências; informar não resposta, amostragem e intervalo quando houver inferência.</p>
+<p><strong>Possibilidade de comparação.</strong> Manter definição, critérios de conformidade, janela temporal, universo, instrumento e desagregações; mudanças no número de estabelecimentos avaliados alteram o percentual.</p>
+<p><strong>Relação com desfechos de saúde.</strong> Mede capacidade ou interrupção do sistema, não o efeito final na saúde; a relação com desfechos depende do perigo, da continuidade dos serviços e das populações atendidas.</p>
+<p><strong>Defasagens temporais relevantes.</strong> Estrutura e planos podem anteceder eventos; interrupções devem ser registradas próximo da ocorrência; resultados em saúde e recuperação podem aparecer depois.</p>
+<p><strong>Aplicação na gestão.</strong> Identificar lacunas, priorizar investimento, pactuar responsáveis e prazos, acompanhar preparação e verificar continuidade antes, durante e depois de emergências.</p>
+</section>
+<section id="referências-metodológicas-6" class="level3" data-number="13.14.12">
+<h3 data-number="13.14.12" class="anchored" data-anchor-id="referências-metodológicas-6"><span class="header-section-number">13.14.12</span> Referências metodológicas</h3>
+<ul>
+<li><span class="citation" data-cites="who2024resilienceindicators">(<a href="../../backmatter/referencias.html#ref-who2024resilienceindicators" role="doc-biblioref">World Health Organization, 2024</a>)</span></li>
+<li><span class="citation" data-cites="who2023framework">(<a href="../../backmatter/referencias.html#ref-who2023framework" role="doc-biblioref">World Health Organization, 2023</a>)</span></li>
+</ul>
+<p>O percentual integral é deliberadamente exigente. Se quatro componentes estão adequados e um componente crítico falha, o estabelecimento não deve ser apresentado como plenamente conforme. Para a gestão, entretanto, é indispensável publicar também cada componente e a gravidade da não conformidade. Isso orienta correções e impede que médias escondam risco estrutural.</p>
+<p>Infraestrutura resiliente também deve reduzir emissões e consumo de recursos sem comprometer a assistência. Eficiência energética, geração renovável, conforto térmico passivo, uso seguro de água e compras sustentáveis podem aumentar autonomia. A solução precisa ser avaliada no ciclo de vida e no perfil de perigo; tecnologia complexa sem manutenção local pode reduzir confiabilidade.</p>
+</section>
+</section>
+<section id="força-de-trabalho-e-capacidade-operacional" class="level2" data-number="13.15">
+<h2 data-number="13.15" class="anchored" data-anchor-id="força-de-trabalho-e-capacidade-operacional"><span class="header-section-number">13.15</span> Força de trabalho e capacidade operacional</h2>
+<p>Pessoas mantêm o sistema. Preparação deve considerar número, competências, distribuição, saúde ocupacional, transporte, responsabilidades familiares, descanso e apoio psicossocial. Eventos extensos afetam trabalhadores e suas famílias ao mesmo tempo em que aumentam a demanda.</p>
+<p>Contar profissionais cadastrados mede estoque nominal, não presença em turno nem capacidade de mobilização. Para funções críticas, convém acompanhar:</p>
+<ul>
+<li>escala mínima por serviço;</li>
+<li>percentual de pessoas treinadas e com treinamento vigente;</li>
+<li>cobertura de suplência;</li>
+<li>absenteísmo durante o evento;</li>
+<li>horas adicionais e descanso;</li>
+<li>disponibilidade de equipamento de proteção;</li>
+<li>exposição ocupacional e incidentes;</li>
+<li>apoio psicossocial e acompanhamento pós-evento.</li>
+</ul>
+<p>Essas medidas devem respeitar vínculos e categorias sem supor que todos podem exercer a mesma função. Realocação exige competência, supervisão e proteção. Metas de produtividade não podem substituir segurança do trabalhador.</p>
+</section>
+<section id="laboratórios-produtos-e-cadeias-de-suprimento" class="level2" data-number="13.16">
+<h2 data-number="13.16" class="anchored" data-anchor-id="laboratórios-produtos-e-cadeias-de-suprimento"><span class="header-section-number">13.16</span> Laboratórios, produtos e cadeias de suprimento</h2>
+<p>Capacidade laboratorial inclui coleta, transporte, processamento, biossegurança, energia, água, reagentes, pessoal, informação e devolução do resultado. O “número de laboratórios” pouco informa sem escopo, qualidade, tempo de resposta e funcionamento durante o choque.</p>
+<p>Para cada exame prioritário, devem ser definidos capacidade diária, tempo entre coleta e resultado, percentual de amostras adequadas, estoque, autonomia e contingência. Na vigilância de água ou surtos após desastre, transporte e comunicação podem ser o elo limitante.</p>
+<p>Medicamentos, vacinas, oxigênio, hemoderivados, filtros, reagentes e equipamentos dependem de fornecedores e rotas. Dias de estoque precisam ser estimados com demanda de emergência, não apenas consumo médio. Dois fornecedores que usam a mesma estrada não constituem redundância independente.</p>
+</section>
+<section id="resposta-recuperação-e-adaptação" class="level2" data-number="13.17">
+<h2 data-number="13.17" class="anchored" data-anchor-id="resposta-recuperação-e-adaptação"><span class="header-section-number">13.17</span> Resposta, recuperação e adaptação</h2>
+<p>Durante uma emergência, o acompanhamento deve ser frequente e orientado à decisão. Um quadro situacional pode reunir perigos, estabelecimentos afetados, serviços interrompidos, demanda, pessoal, água, energia, estoque, transferências, população sem acesso, ações e necessidades. Cada item deve ter horário de atualização e responsável.</p>
+<p>Recuperação começa durante a resposta. O tempo até restabelecer um serviço é uma medida importante, mas “restabelecido” requer critério: capacidade parcial, plena, segura ou adaptada. Reabrir rapidamente sem água segura, equipe ou documentação pode aumentar o dano.</p>
+<p>Adaptação é a mudança deliberada que reduz risco futuro. Instalar sombreamento, elevar equipamentos, redesenhar rotas, descentralizar estoque, ajustar protocolos e ampliar vigilância são medidas diferentes. Seu acompanhamento precisa de linha de base, entrega, cobertura, prazo, manutenção e resultado. O número de ações listadas em um plano não mede implementação.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div id="fig-ciclo-melhoria-capacidade" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ciclo-melhoria-capacidade-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-ciclo-melhoria-capacidade">flowchart TD
+  R["Risco ou falha identificada"] --&gt; A["Ação corretiva definida"]
+  A --&gt; G["Responsável, recurso e prazo"]
+  G --&gt; I["Implementação verificada"]
+  I --&gt; T["Teste, exercício ou evento real"]
+  T --&gt; Q{"Funcionou conforme o critério?"}
+  Q --&gt;|sim| M["Manter e monitorar"]
+  Q --&gt;|não| C["Corrigir desenho ou execução"]
+  C --&gt; A
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ciclo-melhoria-capacidade-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;13.2: Ciclo mínimo de melhoria da capacidade institucional
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="principais-indicadores-usados-na-avaliação-da-resiliência" class="level2" data-number="13.18">
+<h2 data-number="13.18" class="anchored" data-anchor-id="principais-indicadores-usados-na-avaliação-da-resiliência"><span class="header-section-number">13.18</span> Principais indicadores usados na avaliação da resiliência</h2>
+<div id="tbl-indicadores-resiliencia" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-indicadores-resiliencia-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;13.2: Indicadores de capacidade e resiliência apresentados no capítulo
+</figcaption>
+<div aria-describedby="tbl-indicadores-resiliencia-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Código</th>
+<th>Indicador consolidado</th>
+<th>Tipo predominante</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>RES-GOV-01</td>
+<td>Estabelecimentos com equipe ou pessoa focal para emergência e continuidade</td>
+<td>Estrutura</td>
+</tr>
+<tr class="even">
+<td>RES-RIS-01</td>
+<td>Estabelecimentos com perfil de riscos atualizado</td>
+<td>Estrutura e processo</td>
+</tr>
+<tr class="odd">
+<td>RES-ALR-01</td>
+<td>Nível de estabelecimento do sistema de alerta precoce e resposta</td>
+<td>Estrutura</td>
+</tr>
+<tr class="even">
+<td>RES-WAT-01</td>
+<td>Estabelecimentos com interrupção de água na semana anterior</td>
+<td>Estrutura e desempenho</td>
+</tr>
+<tr class="odd">
+<td>RES-ENE-01</td>
+<td>Estabelecimentos com interrupção de energia na semana anterior</td>
+<td>Estrutura e desempenho</td>
+</tr>
+<tr class="even">
+<td>RES-PLA-01</td>
+<td>Estabelecimentos com plano de emergência que incorpora continuidade</td>
+<td>Processo</td>
+</tr>
+<tr class="odd">
+<td>RES-INF-01</td>
+<td>Estabelecimentos conformes aos padrões de infraestrutura</td>
+<td>Estrutura</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>As sete medidas têm especificações publicadas, mas não substituem indicadores locais de desempenho. Um conjunto equilibrado combina conformidade antes do evento, interrupção durante o evento, tempo de recuperação e fechamento de ações corretivas.</p>
+</section>
+<section id="conjunto-mínimo-para-gestão" class="level2" data-number="13.19">
+<h2 data-number="13.19" class="anchored" data-anchor-id="conjunto-mínimo-para-gestão"><span class="header-section-number">13.19</span> Conjunto mínimo para gestão</h2>
+<p>Um painel de capacidade deve permitir abrir o percentual e chegar ao estabelecimento e ao critério, com acesso protegido quando necessário. Para cada medida, deve informar:</p>
+<ol type="1">
+<li>universo elegível e cobertura da avaliação;</li>
+<li>definição de conformidade;</li>
+<li>evidência e data;</li>
+<li>numerador, denominador e não resposta;</li>
+<li>distribuição territorial e por tipo de estabelecimento;</li>
+<li>componente que falhou;</li>
+<li>gravidade e risco assistencial;</li>
+<li>ação, responsável, recurso e prazo;</li>
+<li>resultado do teste ou evento;</li>
+<li>situação da correção.</li>
+</ol>
+<p>Percentuais altos podem coexistir com risco concentrado. Se 95% dos estabelecimentos têm energia redundante, mas os 5% restantes incluem o único hospital de referência de uma região, a média não orienta a prioridade. O painel deve combinar cobertura, criticidade e dependência da rede.</p>
+<p>A resiliência se torna mensurável quando cada capacidade é vinculada a evidências e ações: quem coordena, quais riscos foram avaliados, que alerta funciona, que serviço deve continuar, qual infraestrutura sustenta o cuidado e o que foi corrigido depois do teste. O próximo capítulo transforma essa arquitetura em processos de escolha e decisão.</p>
 
 
+<div id="refs" class="references csl-bib-body" data-entry-spacing="1" role="list" style="display: none">
+<div id="ref-who2023framework" class="csl-entry" role="listitem">
+WORLD HEALTH ORGANIZATION. <strong><a href="https://www.who.int/publications/i/item/9789240081888">Operational framework for building climate resilient and low carbon health systems</a></strong>. Geneva: World Health Organization, 2023.
+</div>
+<div id="ref-who2024resilienceindicators" class="csl-entry" role="listitem">
+WORLD HEALTH ORGANIZATION. <strong><a href="https://www.who.int/publications/i/item/9789240088986">Health system resilience indicators: an integrated package for measuring and monitoring health system resilience in countries</a></strong>. Geneva: World Health Organization, 2024.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -664,7 +1817,7 @@ ul.task-list li input[type="checkbox"] {
     anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
-        if (clz.startsWith('code-annotation-')) {                     
+        if (clz.startsWith('code-annotation-')) {
           return true;
         }
       }
@@ -684,11 +1837,11 @@ ul.task-list li input[type="checkbox"] {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
         button.setAttribute("data-bs-title", "Copiada");
-        tooltip = new bootstrap.Tooltip(button, 
-          { trigger: "manual", 
+        tooltip = new bootstrap.Tooltip(button,
+          { trigger: "manual",
             customClass: "code-copy-button-tooltip",
             offset: [0, -8]});
-        tooltip.show();    
+        tooltip.show();
       }
       setTimeout(function() {
         if (tooltip) {
@@ -770,7 +1923,7 @@ ul.task-list li input[type="checkbox"] {
       if (onUntriggerFn) {
         config.onUntrigger = onUntriggerFn;
       }
-      window.tippy(el, config); 
+      window.tippy(el, config);
     }
     const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
     for (var i=0; i<noterefs.length; i++) {
@@ -845,7 +1998,7 @@ ul.task-list li input[type="checkbox"] {
       tippyHover(xref, undefined, function(instance) {
         instance.disable();
         let url = xref.getAttribute('href');
-        let hash = undefined; 
+        let hash = undefined;
         if (url.startsWith('#')) {
           hash = url;
         } else {
@@ -873,7 +2026,7 @@ ul.task-list li input[type="checkbox"] {
               if (note !== null) {
                 const html = processXRef(id, note);
                 instance.setContent(html);
-              } 
+              }
             }).finally(() => {
               instance.enable();
               instance.show();
@@ -897,7 +2050,7 @@ ul.task-list li input[type="checkbox"] {
               }
               const html = processXRef(null, note);
               instance.setContent(html);
-            } 
+            }
           }).finally(() => {
             instance.enable();
             instance.show();
@@ -937,7 +2090,7 @@ ul.task-list li input[type="checkbox"] {
               height = bottom - top;
             }
             if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
+              // cook up a div (if necessary) and position it
               let div = window.document.getElementById("code-annotation-line-highlight");
               if (div === null) {
                 div = window.document.createElement("div");
@@ -1062,7 +2215,7 @@ ul.task-list li input[type="checkbox"] {
   <div class="nav-page nav-page-previous">
       <a href="../../chapters/part-3/12-efeitos-saude.html" class="pagination-link" aria-label="Efeitos do clima e do ambiente sobre a saúde">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Efeitos do clima e do ambiente sobre a saúde</span></span>
-      </a>          
+      </a>
   </div>
   <div class="nav-page nav-page-next">
       <a href="../../chapters/part-4/14-indicador-decisao.html" class="pagination-link" aria-label="Do indicador à decisão pública">

@@ -1,0 +1,120 @@
+## Ficha do indicador: Proporção da população urbana residente a até 300 metros de espaço verde acessível com pelo menos 1 hectare {#sec-amb-urb-02}
+
+::: {.indicator-card}
+**Código:** AMB-URB-02 \
+**Título resumido:** Acesso próximo a espaço verde \
+**Tema:** Uso e cobertura da terra, vegetação e ambiente urbano \
+**Dimensão:** exposição; vulnerabilidade; resposta \
+**Disponibilidade:** [requer processamento de rede e população]{.availability}
+:::
+
+### Identificação e fundamento
+
+**Indicador consolidado em.** Indicador de acessibilidade a espaço verde detalhado no relatório da OMS Europa sobre espaços verdes urbanos e saúde.
+
+### Conceito
+
+Percentual da população urbana cujo local de residência está dentro de uma área de acesso de 300 m à entrada ou limite acessível de espaço verde com área mínima de 1 ha.
+
+### Objetivo
+
+Medir proximidade residencial a espaço verde de porte mínimo por critério reproduzível.
+
+### Interpretação
+
+Valor maior indica maior cobertura potencial de proximidade. Não comprova acesso real, qualidade, segurança, gratuidade ou uso.
+
+### Usos
+
+- Planejar espaços verdes e rotas.
+- Monitorar desigualdades territoriais.
+- Avaliar intervenções urbanas relacionadas à saúde.
+
+### Limitações
+
+- Distância linear pode divergir da rede caminhável.
+- Entradas e barreiras podem estar ausentes.
+- Limiar de 300 m/1 ha é convenção de planejamento.
+- População residencial não inclui mobilidade.
+
+### Fontes de dados
+
+- MapBiomas Brasil — apoio à identificação de cobertura vegetal ([cadastro](../../backmatter/indice-fontes.qmd#mapbiomas))
+- Landsat — verificação de vegetação e atualização ([cadastro](../../backmatter/indice-fontes.qmd#landsat))
+- Instituto Brasileiro de Geografia e Estatística — população, malha e rede/endereço quando disponíveis ([cadastro](../../backmatter/indice-fontes.qmd#ibge))
+
+### Método de cálculo
+
+Selecionar espaços verdes de pelo menos 1 ha com acesso público, construir área de serviço de 300 m pela rede caminhável — ou buffer linear claramente identificado —, intersectar com população e dividir a população coberta pela urbana total.
+
+$$
+P_{verde300}=100\times\frac{\sum_g Pop_g I(g\ acessa\ verde_{\geq1ha}\ em\leq300m)}{\sum_g Pop_g}
+$$
+
+::: {.indicator-card}
+**Numerador.** População urbana em unidades cobertas pela área de acesso.
+
+**Denominador.** População urbana total na área analisada.
+
+**Unidade de medida.** Percentual (%).
+
+**Variáveis e categorias de análise.** Espaço verde; área; acesso; rede; distância; população; idade; renda; raça/cor; deficiência.
+
+**Granularidade.** Entrada ou polígono de espaço, segmento de rede e célula/setor populacional.
+
+**Periodicidade de atualização.** Anual ou por revisão do plano urbano.
+
+**Responsabilidade gerencial.** Planejamento urbano e ambiental produz intervenções e cadastros; saúde interpreta exposições e desigualdades; geoinformação mantém métodos.
+
+**Notas.** Verdor espectral, cobertura vegetal, espaço público acessível e uso efetivo são dimensões diferentes.
+
+**Análise descritiva do indicador.** Mostrar cobertura total e por grupos, bairros sem acesso, distância média e sensibilidade a limiar e método.
+
+:::
+
+### Campos complementares para clima, ambiente e saúde
+
+::: {.indicator-card}
+**Unidade territorial.** Domicílio ou ponto, zona urbana, bairro, setor censitário ou cidade.
+
+**Resolução espacial original.** A dos cadastros e da superfície populacional.
+
+**Resolução temporal.** Atualização periódica.
+
+**Período de referência.** Mesmo ano ou anos compatíveis para espaço, rede e população.
+
+**Limiar ou valor de referência.** Espaço verde acessível ≥1 ha e distância ≤300 m, segundo a aplicação metodológica declarada.
+
+:::
+
+### Disponibilidade e acesso
+
+**Cobertura geográfica.** Áreas urbanas com cadastro e população detalhados.
+
+**Período disponível.** Conforme fontes locais.
+
+**Periodicidade de atualização.** Anual ou por revisão do plano urbano.
+
+**Forma de acesso.** Cadastros municipais, dados de cobertura e população.
+
+**URL ou identificador persistente.** https://www.who.int/europe/publications/i/item/WHO-EURO-2016-3352-43111-60341
+
+**Formato dos arquivos.** Vetor geoespacial, raster populacional e tabela.
+
+**Necessidade de processamento.** Validar espaços e entradas, construir rede/área, interpolar população e testar sensibilidades.
+
+### Qualidade, comparação e saúde
+
+**Qualidade e incerteza.** Relatar sensor, produto, data, nuvens, resolução, classificação, delimitação urbana, população, buffer, erros posicionais e análise de sensibilidade.
+
+**Possibilidade de comparação.** Manter produto, estação, composição temporal, resolução, definição de verde, limite urbano, população e parâmetros espaciais.
+
+**Relação com desfechos de saúde.** Vegetação e espaços verdes podem influenciar atividade física, contato social, restauração, calor, ruído e poluição, mas efeitos dependem de acesso, qualidade, segurança e contexto.
+
+**Defasagens temporais relevantes.** Distinguir exposição contemporânea, histórica e intervenção; atualizar endereço, vegetação e população de maneira compatível.
+
+**Aplicação na gestão.** Identificar desigualdades, priorizar arborização e espaços públicos, avaliar intervenções e integrar planejamento calor–saúde.
+
+### Referências metodológicas
+
+- [@who2016greenspace]

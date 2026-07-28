@@ -1,0 +1,87 @@
+common: &heat_exposure_common
+  tema: Temperatura e condições térmicas
+  capitulo: chapters/part-2/05-temperatura-condicoes-termicas.qmd
+  dimensoes: [perigo, exposição]
+  cobertura_geografica: Território de análise coberto simultaneamente pelas superfícies de calor e pelos dados populacionais, quando aplicável.
+  responsabilidade_gerencial: Serviço meteorológico ou climático responsável pelo perigo, instituição estatística responsável pela população e autoridade de saúde responsável pelo uso.
+  disponibilidade: [requer processamento geoespacial]
+  qualidade_incerteza: Documentar definição da onda, período-base, grade, conectividade, área real das células, máscara de terra, fonte e ano da população, imputações, mobilidade não observada e propagação de incerteza.
+  comparabilidade: Manter definição térmica, período-base, resolução, projeção, vizinhança espacial, população de referência e agregação temporal; mudanças metodológicas interrompem comparabilidade direta.
+  defasagens_temporais: Preservar a data de cada dia de onda e do desfecho para análises agudas; pessoas-dia acumuladas não informam sozinhas a sequência nem as defasagens.
+  notas: Extensão e exposição populacional não medem vulnerabilidade nem dano. O mesmo valor pode envolver populações, duração, intensidade e capacidades de proteção muito diferentes.
+  aplicacao_gestao: Dimensionar coordenação regional, comunicação, insumos, capacidade assistencial e avaliação de alcance, sempre combinado com intensidade, duração e vulnerabilidade.
+
+indicators:
+  - <<: *heat_exposure_common
+    codigo: CLI-EXP-01
+    titulo_completo: Extensão espacial diária contígua da onda de calor
+    titulo_resumido: Extensão contígua da onda de calor
+    referencia_metodologica: Método de componentes conexos de Skinner et al. para identificar e medir ondas de calor espacialmente contíguas.
+    conceito: Área total das células de grade espacialmente conectadas que, em um mesmo dia, pertencem a uma onda de calor definida por limiar e duração explícitos.
+    objetivo: Medir o tamanho territorial de episódios de calor espacialmente coerentes.
+    interpretacao: Valor maior indica uma onda simultaneamente mais extensa. Pode-se relatar a maior área diária do episódio, a trajetória diária e a proporção do território afetada.
+    usos: [Caracterizar alcance regional de ondas de calor., Planejar coordenação entre jurisdições e redes assistenciais., Contextualizar população e serviços potencialmente expostos.]
+    limitacoes: [Depende fortemente da resolução e da regra de vizinhança., A definição publicada conecta células por aresta ou canto e admite separações especificadas; adaptações devem ser declaradas., A área não informa intensidade nem população., Continuidade física pode ser afetada por máscaras de costa, ilhas e lacunas.]
+    fontes_dados:
+      - id: era5-land
+        papel: temperatura diária em grade para identificar células em onda de calor
+      - id: inmet
+        papel: observações para avaliar o campo de temperatura e seus extremos
+    metodo_calculo: Em cada célula terrestre, identificar dias de onda segundo uma definição fixa. Para cada dia, criar grade binária e rotular os componentes conexos com vizinhança de oito direções, conforme o método publicado. Somar a área geodésica das células de cada componente. Para cada episódio, registrar a extensão máxima diária e a série de extensões; para um território, pode-se dividir a área afetada pela área elegível.
+    formula_calculo: 'A_{c,d}=\sum_{g\in C_{c,d}}area(g),\qquad A^{max}_e=\max_{d\in e}A_{c,d}'
+    numerador: Soma da área das células pertencentes ao componente contíguo no dia.
+    denominador: Área total elegível do território apenas quando expresso como proporção.
+    unidade_medida: Quilômetro quadrado (km²) e, opcionalmente, percentual do território.
+    variaveis_categorias_analise: Célula em onda ou não; componente; data; episódio; área da célula; território.
+    granularidade: Componente espacial por dia; resumo por episódio, estação ou ano.
+    unidade_territorial: Componente contíguo de células e território de referência.
+    resolucao_espacial_original: A da grade térmica; o método publicado usou grade global e vizinhança de oito direções.
+    resolucao_temporal: Entrada diária; saída diária e por episódio.
+    periodo_referencia: O período-base da definição de onda de calor; no método publicado, 1980–2019 para percentis do calendário.
+    limiar_referencia: No método publicado, TX ou TN acima do percentil 90 do calendário por pelo menos três dias consecutivos; outra definição caracteriza adaptação.
+    url_persistente: https://doi.org/10.1038/s43247-025-02661-y
+    periodo_disponivel: O período da grade térmica, incluindo o período-base.
+    periodicidade_atualizacao: Diária em monitoramento ou anual em avaliação climatológica.
+    forma_acesso: Processamento geoespacial de grade diária com área de célula e algoritmo de componentes conexos versionado.
+    formatos: Raster diário de classificação e tabela de componentes e episódios.
+    necessidade_processamento: Controle de qualidade, percentis, detecção temporal, rotulação espacial, cálculo geodésico de área e agregação por episódio.
+    analise_descritiva: Apresentar mapa e trajetória da extensão, maior área diária, proporção do território, intensidade e duração correspondentes e sensibilidade à grade e conectividade.
+    relacao_saude: Episódios extensos podem expor simultaneamente múltiplas populações e pressionar redes de energia, água, emergência e saúde, mas a extensão não estima sozinha a carga sanitária.
+    referencias: ["[@skinner2025extent]"]
+
+  - <<: *heat_exposure_common
+    codigo: CLI-EXP-02
+    titulo_completo: Pessoas-dia de exposição de populações vulneráveis a ondas de calor
+    titulo_resumido: Pessoas-dia expostas a ondas de calor
+    referencia_metodologica: Indicador 1.1.1 do Lancet Countdown para exposição de menores de um ano e pessoas com 65 anos ou mais a dias de onda de calor.
+    conceito: Soma, em todas as células e dias, do número de pessoas do grupo etário residente em célula classificada como exposta a uma onda de calor.
+    objetivo: Integrar alcance populacional e duração da exposição de grupos etários com maior suscetibilidade ao calor.
+    interpretacao: Uma pessoa-dia equivale a uma pessoa exposta durante um dia. Cem pessoas expostas por dez dias produzem mil pessoas-dia, assim como mil pessoas expostas por um dia; por isso, o total deve ser acompanhado de pessoas expostas, dias por pessoa e distribuição temporal.
+    usos: [Monitorar exposição de lactentes e pessoas idosas., Comparar períodos e territórios com metodologia harmonizada., Dimensionar comunicação, busca ativa e capacidade assistencial.]
+    limitacoes: [População residencial em grade não representa mobilidade, ocupação ou tempo em ambientes internos., A definição do Lancet Countdown considera pelo menos dois dias com TX e TN acima do percentil 95 local., Mudanças demográficas e mudanças no perigo contribuem conjuntamente para o total., Fontes populacionais distintas antes e depois de 2000 podem introduzir inconsistência.]
+    fontes_dados:
+      - id: era5-land
+        papel: temperaturas máxima e mínima diárias em grade para classificar dias de onda
+      - id: ibge
+        papel: população por idade e base territorial para aplicação brasileira
+    metodo_calculo: Em cada célula, identificar sequências de pelo menos dois dias nas quais TX e TN superam os respectivos percentis 95 locais do período 1986–2005. Para cada dia participante, multiplicar o indicador binário pelo número de residentes menores de um ano ou com 65 anos ou mais na célula e somar em dias e células. Calcular também dias médios por pessoa e, quando se pretende separar mudança climática de mudança demográfica, cenário contrafactual com incidência de ondas mantida no nível-base.
+    formula_calculo: 'PD_{a,t}=\sum_d\sum_g I(HW_{g,d}=1)\times Pop_{a,g,t}'
+    numerador: Não se aplica; soma de produtos célula-dia.
+    denominador: População do grupo etário quando expresso adicionalmente como dias de onda por pessoa.
+    unidade_medida: Pessoas-dia; adicionalmente, dias por pessoa exposta ou por pessoa do grupo.
+    variaveis_categorias_analise: TX; TN; percentis locais; dia; célula; idade menor de um ano; idade de 65 anos ou mais; sexo e território quando disponíveis.
+    granularidade: Célula-dia antes da agregação; território-ano na publicação sintética.
+    unidade_territorial: Célula populacional e território de agregação.
+    resolucao_espacial_original: A grade comum entre exposição térmica e população; registrar reamostragem e alocação.
+    resolucao_temporal: Entrada diária de temperatura e população anual; saída anual ou por episódio.
+    periodo_referencia: 1986–2005 para os percentis e a comparação de exposição no indicador do Lancet Countdown.
+    limiar_referencia: Pelo menos dois dias consecutivos com TX e TN acima do percentil 95 da climatologia local.
+    url_persistente: https://lancetcountdown.org/explore-our-data/
+    periodo_disponivel: Desde 1980 no indicador internacional; aplicação brasileira depende das séries térmicas e populacionais harmonizadas.
+    periodicidade_atualizacao: Anual no Lancet Countdown; conforme ciclo de atualização populacional na aplicação local.
+    forma_acesso: Dados e descrição no portal do Lancet Countdown; cálculo brasileiro requer grade térmica e população por idade harmonizadas.
+    formatos: Grade diária de exposição, superfície populacional e tabela anual por território e idade.
+    necessidade_processamento: Construir percentis, detectar ondas, harmonizar grades e anos, multiplicar população por dias expostos, agregar e avaliar incerteza demográfica.
+    analise_descritiva: Apresentar total de pessoas-dia, dias por pessoa, número de pessoas residentes em áreas expostas, grupos etários, tendência, decomposição entre demografia e frequência térmica e distribuição territorial.
+    relacao_saude: Lactentes e pessoas idosas apresentam maior suscetibilidade a agravos e mortalidade pelo calor; o indicador mede exposição populacional, não casos nem risco individual.
+    referencias: ["[@romanello2024lancet]", "[@lancetcountdown2026data]"]

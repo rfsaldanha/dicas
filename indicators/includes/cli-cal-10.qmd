@@ -1,0 +1,119 @@
+## Ficha do indicador: Índice Diário de Magnitude de Ondas de Calor (HWMId) {#sec-cli-cal-10}
+
+::: {.indicator-card}
+**Código:** CLI-CAL-10 \
+**Título resumido:** Magnitude diária — HWMId \
+**Tema:** Temperatura e condições térmicas \
+**Dimensão:** perigo; exposição \
+**Disponibilidade:** [requer processamento climatológico]{.availability}
+:::
+
+### Identificação e fundamento
+
+**Indicador consolidado em.** Heat Wave Magnitude Index daily de Russo, Sillmann e Fischer.
+
+### Conceito
+
+Maior magnitude anual entre ondas de calor, sendo cada magnitude a soma de valores diários normalizados pela amplitude interquartil das máximas anuais no período-base.
+
+### Objetivo
+
+Combinar duração e anomalia térmica em uma escala relativa para comparar a maior onda de cada ano entre climas.
+
+### Interpretação
+
+Valor maior indica que a onda anual mais expressiva foi mais longa e/ou apresentou máximas mais anômalas na escala local. É adimensional e não representa probabilidade de dano.
+
+### Usos
+
+- Comparar magnitude de ondas entre regiões.
+- Monitorar mudanças na severidade.
+- Caracterizar exposição em estudos de impactos.
+
+### Limitações
+
+- Destaca apenas a onda de maior magnitude do ano.
+- A normalização e o período-base afetam o valor.
+- Não foi concebido como limiar clínico ou alerta isolado.
+
+### Fontes de dados
+
+- Instituto Nacional de Meteorologia — observações diárias de temperatura ([cadastro](../../backmatter/indice-fontes.qmd#inmet))
+- ERA5-Land — reanálise em grade condicionada à validação ([cadastro](../../backmatter/indice-fontes.qmd#era5-land))
+
+### Método de cálculo
+
+Definir onda como ao menos três dias com TX acima do percentil 90 específico do calendário em janela de 31 dias. Calcular a magnitude diária pela posição de TX em relação aos percentis 25 e 75 das máximas anuais do período-base, truncar negativos em zero, somar por evento e selecionar o maior total anual.
+
+$$
+M_d=\max\left(0,\frac{TX_d-T^{ann}_{25}}{T^{ann}_{75}-T^{ann}_{25}}\right);\quad HWMId_j=\max_{e\in j}\sum_{d\in e}M_d
+$$
+
+::: {.indicator-card}
+**Numerador.** Na magnitude diária, diferença entre TX do dia e percentil 25 das máximas anuais no período-base.
+
+**Denominador.** Amplitude interquartil entre os percentis 75 e 25 das máximas anuais no período-base.
+
+**Unidade de medida.** Adimensional.
+
+**Variáveis e categorias de análise.** Temperatura máxima e mínima diárias ou temperatura média; local; período-base; episódio; temporada.
+
+**Granularidade.** Estação ou célula de grade; extensão regional é uma derivação posterior.
+
+**Periodicidade de atualização.** Diária em aplicação operacional ou anual em monitoramento climático.
+
+**Responsabilidade gerencial.** Serviço meteorológico ou climático que produza o índice e instituição de saúde que valide seu uso.
+
+**Notas.** Estes índices combinam mais de um aspecto do calor. Seus valores não são equivalentes a temperatura do ar nem a risco relativo.
+
+**Análise descritiva do indicador.** Apresentar HWMId anual e decompor a onda máxima em duração, magnitudes diárias, datas e área afetada.
+
+:::
+
+### Campos complementares para clima, ambiente e saúde
+
+::: {.indicator-card}
+**Unidade territorial.** Estação meteorológica, célula de grade ou território derivado.
+
+**Resolução espacial original.** A da série meteorológica selecionada.
+
+**Resolução temporal.** Entrada diária; saída diária, por episódio e anual.
+
+**Período de referência.** Período climatológico de 30 anos; a formulação publicada deve ser seguida e declarada.
+
+**Limiar ou valor de referência.** TX acima do percentil 90 em janela móvel de 31 dias por pelo menos três dias consecutivos.
+
+:::
+
+### Disponibilidade e acesso
+
+**Cobertura geográfica.** A da fonte, condicionada à qualidade e à extensão da série.
+
+**Período disponível.** O da fonte, incluindo período-base suficiente.
+
+**Periodicidade de atualização.** Diária em aplicação operacional ou anual em monitoramento climático.
+
+**Forma de acesso.** Cálculo sobre série diária com implementação e parâmetros versionados.
+
+**URL ou identificador persistente.** https://doi.org/10.1088/1748-9326/10/12/124003
+
+**Formato dos arquivos.** Tabela por estação ou arquivo multidimensional por célula.
+
+**Necessidade de processamento.** Percentis diários, detecção de sequências, percentis das máximas anuais, magnitude diária, soma por episódio e máximo anual.
+
+### Qualidade, comparação e saúde
+
+**Qualidade e incerteza.** Relatar falhas, homogeneidade, período-base, algoritmo de percentil, viés da fonte e sensibilidade aos parâmetros.
+
+**Possibilidade de comparação.** Manter fórmula, período-base, calendário, fonte harmonizada e tratamento de falhas; variantes não são intercambiáveis.
+
+**Relação com desfechos de saúde.** Índices de magnitude e severidade podem ordenar episódios e apoiar a avaliação de impactos, mas seu gradiente deve ser validado com desfechos e capacidade de resposta locais.
+
+**Defasagens temporais relevantes.** Preservar os valores diários e datas para estudar efeitos no mesmo dia e defasados.
+
+**Aplicação na gestão.** Classificar episódios, contextualizar alertas e avaliar retrospectivamente pressão sobre serviços.
+
+### Referências metodológicas
+
+- [@russo2015hwmid]
+- [@nawaro2023]

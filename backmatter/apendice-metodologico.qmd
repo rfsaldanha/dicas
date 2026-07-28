@@ -1,21 +1,229 @@
 # Apêndice metodológico {.unnumbered}
 
-## Proveniência
+Este apêndice reúne um protocolo mínimo para transformar fontes heterogêneas em indicadores reproduzíveis. Ele complementa as fichas integradas aos capítulos; não substitui a documentação específica de cada indicador.
 
-Toda análise deve registrar fonte, versão, data de acesso, período de referência, unidade, suporte espacial, tratamento de ausências e transformações realizadas.
+## Protocolo da análise
 
-## Harmonização mínima
+O protocolo deve ser escrito antes da produção do resultado e conter:
 
-Antes de combinar dados, conferir:
+1. pergunta e decisão;
+2. população, território e período;
+3. fenômeno e dimensão — perigo, exposição, vulnerabilidade, efeito ou resposta;
+4. indicador, versão e justificativa;
+5. fontes, responsáveis e datas de acesso;
+6. variáveis e critérios de inclusão;
+7. transformações, vínculos e agregações;
+8. regras de qualidade e ausência;
+9. análise principal e sensibilidades;
+10. produtos, acesso e proteção de dados.
 
-- sistema de referência espacial e recorte territorial;
-- fuso horário e definição do dia;
-- unidade e escala;
-- periodicidade e período de disponibilidade;
-- revisões e mudanças metodológicas;
-- natureza observada, estimada, prevista, projetada ou de reanálise.
+Mudanças posteriores são permitidas, mas devem permanecer no histórico com data, motivo e consequência esperada.
 
-::: {.todo}
-TODO: desenvolver protocolos reproduzíveis de agregação espacial, séries temporais, validação e análise de sensibilidade.
-:::
+## Proveniência e versionamento
 
+Cada arquivo recebido ou baixado deve ter:
+
+- endereço e identificador persistente, quando houver;
+- instituição, sistema, produto e edição;
+- data e hora da extração;
+- período de referência;
+- formato, tamanho e soma de verificação;
+- licença ou termos;
+- código e parâmetros usados;
+- arquivo de saída e sua relação com a entrada.
+
+Dados brutos devem ser preservados sem edição manual. Correções e recodificações pertencem a etapas derivadas. Se a fonte substituir um arquivo, conservar a versão usada na publicação quando os termos permitirem.
+
+Uma tabela de proveniência pode adotar os campos:
+
+| Campo | Exemplo de conteúdo |
+|---|---|
+| `source_id` | identificador do catálogo |
+| `resource` | nome exato do conjunto ou produto |
+| `version` | edição, coleção ou rodada |
+| `retrieved_at` | data e hora com fuso |
+| `reference_period` | período representado |
+| `checksum` | soma do arquivo bruto |
+| `license` | licença ou termo aplicável |
+| `script` | código e revisão que processaram |
+
+: Campos mínimos de proveniência {#tbl-apendice-proveniencia}
+
+## Harmonização espacial
+
+Antes de sobrepor dados, verificar sistema de referência, datum, geometria, resolução, data da malha e unidade territorial. Reprojetar não aumenta a informação original.
+
+### Pontos, grades e áreas
+
+Estações são pontos; grades representam células; indicadores administrativos representam áreas. Atribuir o valor da estação mais próxima pressupõe que proximidade represente semelhança. Interpolar cria uma superfície estimada e exige método, validação e incerteza. Agregar grade a município requer função compatível:
+
+- média simples para propriedade distribuída quando as células têm áreas equivalentes;
+- média ponderada pela área para células parciais;
+- média ponderada pela população para exposição residencial;
+- máximo para perguntas sobre extremo territorial, com cautela sobre ruído;
+- soma apenas para quantidades extensivas compatíveis.
+
+Se \(x_g\) é o valor na célula \(g\) e \(w_g\) é o peso:
+
+$$
+\bar{x}_w=\frac{\sum_gx_gw_g}{\sum_gw_g}
+$$
+
+Peso de área e peso de população respondem a perguntas diferentes. O método deve informar como tratou células que cruzam limites, água, áreas sem população e dados ausentes.
+
+### Mudanças territoriais
+
+Municípios, setores e áreas de saúde mudam. Séries longas devem usar:
+
+1. malha vigente em cada ano, aceitando mudança do universo;
+2. malha constante, com harmonização retrospectiva;
+3. áreas mínimas comparáveis;
+4. agregação para nível estável.
+
+A escolha deve ser declarada. Não atribuir dados de um município desmembrado a seus sucessores sem regra e fonte.
+
+### Mobilidade e privacidade
+
+Endereço residencial não representa necessariamente presença. Trabalho, escola, deslocamento, internação e evacuação podem modificar exposição. Quando só houver residência, nomear o resultado dessa forma.
+
+Geocódigos de saúde podem identificar pessoas. A menor escala tecnicamente possível nem sempre é publicável. Aplicar controle de acesso, agregação, supressão ou ruído conforme finalidade, legislação e risco de reidentificação.
+
+## Harmonização temporal
+
+Registrar fuso, calendário, início do dia e unidade temporal. Dados em UTC devem ser convertidos antes de combinar com eventos de saúde em hora local, considerando fusos brasileiros e registros históricos de horário de verão.
+
+### Agregação
+
+Para temperatura, máximo diário é o maior valor válido; média diária depende da frequência e completude. Para precipitação, somar intervalos que pertencem ao mesmo dia local. Para poluentes, a média de 24 horas deve seguir a regra de completude e a janela do padrão ou indicador.
+
+Uma regra de completude pode exigir proporção mínima de subperíodos válidos. O valor adotado deve vir do método do indicador ou da fonte, não de conveniência. Dias inválidos não devem ser transformados em zero.
+
+### Alinhamento entre exposição e saúde
+
+Definir a data clinicamente relevante: início de sintomas, internação, óbito ou coleta. Competência administrativa e data de digitação podem deslocar o evento.
+
+Para lags \(0,\ldots,L\), conservar a série diária completa, inclusive dias sem eventos. Agregar mensalmente antes de modelar um efeito agudo perde informação. Doenças vetoriais e hídricas podem exigir semanas; calor e poluição podem exigir dias.
+
+## Qualidade dos dados
+
+Qualidade deve ser avaliada para o uso específico.
+
+### Observações ambientais
+
+Verificar:
+
+- metadados e deslocamento da estação;
+- calibração e mudança de instrumento;
+- valores fisicamente implausíveis;
+- persistência artificial e saltos;
+- completude por dia, mês e ano;
+- comparação com estações ou produtos independentes;
+- bandeiras de qualidade;
+- homogeneidade para análise climatológica.
+
+Dados brutos de redes operacionais podem ser apropriados para alerta e inadequados para tendência sem qualificação adicional.
+
+### Registros de saúde e administrativos
+
+Examinar:
+
+- unidade de registro e duplicidade;
+- cobertura populacional e assistencial;
+- definição de caso e códigos;
+- causa básica e associadas;
+- residência e ocorrência;
+- oportunidade e revisões;
+- completude de idade, sexo, raça ou cor e demais campos;
+- mudanças de oferta, financiamento e sistema.
+
+Uma queda de internações durante desastre pode representar interrupção de acesso. A interpretação deve usar dados de funcionamento dos serviços.
+
+### Denominadores
+
+Registrar fonte, data de referência e método de interpolação. Estimativas intercensitárias e projeções podem ser revistas. Denominadores pequenos produzem taxas instáveis; apresentar contagem e intervalo, agregar períodos ou usar modelos adequados.
+
+## Ausências e valores extremos
+
+Ausência não é zero. Distinguir:
+
+- não observado;
+- não aplicável;
+- abaixo do limite de detecção;
+- estação inativa;
+- município sem envio;
+- evento verdadeiramente ausente.
+
+Imputação precisa de justificativa, modelo e marcação. Para extremos, remover apenas com evidência de erro. Valores raros são parte do objeto em estudos climáticos; filtros automáticos baseados em poucos desvios-padrão podem apagar eventos reais.
+
+## Cálculo e validação
+
+Implementar testes com casos pequenos cujo resultado possa ser calculado manualmente. Para cada indicador, testar:
+
+- unidade e constante;
+- denominador vazio ou zero;
+- limites e igualdade ao limiar;
+- sequências que cruzam ano ou estação;
+- anos bissextos;
+- dados ausentes;
+- coordenadas fora do domínio;
+- duplicidades;
+- ordenação temporal;
+- versão da classificação.
+
+Recalcular amostra por método independente quando o risco for alto. Comparar totais intermediários com publicações oficiais sem forçar igualdade quando universo ou processamento diferirem.
+
+## Análise de sensibilidade
+
+Sensibilidade não é repetir muitas opções e escolher a mais favorável. Deve examinar decisões plausíveis que podem alterar conclusão:
+
+- fonte ambiental;
+- período de referência;
+- limiar;
+- regra de completude;
+- suporte espacial;
+- população e denominador;
+- especificação de tendência e sazonalidade;
+- janela de defasagem;
+- contrafactual;
+- inclusão de períodos excepcionais.
+
+Apresentar o resultado principal e informar se direção, magnitude ou classificação mudam. Quando escolhas defensáveis levam a conclusões incompatíveis, a incerteza é parte do achado.
+
+## Incerteza
+
+Contagens completas ainda contêm erro de registro; estimativas modeladas acrescentam parâmetros e estrutura. Intervalos podem representar amostragem, previsão, simulação ou distribuição posterior e devem ser nomeados corretamente.
+
+Mapas podem mostrar faixa, transparência, hachura ou painel de qualidade. Não usar número excessivo de casas decimais. A precisão exibida deve corresponder à precisão dos dados e ao uso.
+
+## Reprodutibilidade
+
+O pacote de reprodução deve conter:
+
+- instruções de ambiente;
+- código versionado;
+- parâmetros e configurações;
+- dicionários e esquemas;
+- testes;
+- registro de execução;
+- saídas intermediárias essenciais;
+- metadados das fontes;
+- instruções para obter dados que não podem ser redistribuídos.
+
+Credenciais nunca devem entrar no repositório. Processos manuais inevitáveis devem ser registrados com operador, data, arquivo e decisão.
+
+## Publicação
+
+Antes de publicar, confirmar:
+
+1. definição e fórmula iguais à ficha;
+2. numerador e denominador reproduzíveis;
+3. fonte e versão citadas;
+4. período e território claros;
+5. dados preliminares identificados;
+6. incerteza e limitações próximas ao resultado;
+7. comparação válida;
+8. proteção de dados;
+9. acessibilidade de tabelas, mapas e mensagens;
+10. ligação com decisão e responsável.
+
+Após revisão da fonte, da metodologia ou do dado, a publicação deve conservar histórico de versões. Corrigir silenciosamente impede auditoria e aprendizado.

@@ -1,0 +1,121 @@
+## Ficha do indicador: Exposição populacional média a PM2,5 atribuível à fumaça de incêndios {#sec-amb-fum-01}
+
+::: {.indicator-card}
+**Código:** AMB-FUM-01 \
+**Título resumido:** PM2,5 de fumaça ponderado pela população \
+**Tema:** Qualidade do ar, queimadas e fumaça \
+**Dimensão:** perigo; exposição \
+**Disponibilidade:** [requer produto de atribuição de fonte]{.availability} [requer processamento geoespacial]{.availability}
+:::
+
+### Identificação e fundamento
+
+**Indicador consolidado em.** Indicador de fumaça de incêndios do Lancet Countdown, que integra concentração de PM2,5 atribuível ao fogo e população.
+
+### Conceito
+
+Média espacial da concentração de PM2,5 atribuída a emissões de incêndios, ponderada pela população residente, em período declarado.
+
+### Objetivo
+
+Quantificar a intensidade média de exposição populacional à fumaça de incêndios separada, por modelagem, de outras fontes de PM2,5.
+
+### Interpretação
+
+Valor maior indica que a população do território viveu, em média, maior concentração ambiental de PM2,5 atribuível ao fogo. Não representa dose individual nem a concentração total.
+
+### Usos
+
+- Monitorar exposição a fumaça ao longo do tempo.
+- Comparar desigualdades territoriais.
+- Apoiar estimativas de mortalidade atribuível e preparação sanitária.
+
+### Limitações
+
+- A atribuição ao fogo é modelada e incerta.
+- Satélites podem representar a coluna atmosférica e não apenas a superfície.
+- Ponderação residencial não capta mobilidade ou ambiente interno.
+- Produtos e inventários de emissão geram estimativas distintas.
+
+### Fontes de dados
+
+- Copernicus Atmosphere Monitoring Service — modelagem atmosférica, quando o produto separar contribuição do fogo ([cadastro](../../backmatter/indice-fontes.qmd#cams))
+- Programa Queimadas do INPE — informação de ocorrência e emissão usada na atribuição de fonte ([cadastro](../../backmatter/indice-fontes.qmd#queimadas-inpe))
+- Instituto Brasileiro de Geografia e Estatística — população para ponderação no Brasil ([cadastro](../../backmatter/indice-fontes.qmd#ibge))
+
+### Método de cálculo
+
+Obter para cada célula e período a concentração superficial de PM2,5 atribuída a incêndios por produto validado, compatibilizar com população e calcular média ponderada; agregar temporalmente somente depois de preservar os valores diários.
+
+$$
+\overline{PM}_{2,5}^{fogo,pop}=\frac{\sum_{g}PM_{2,5,g}^{fogo}Pop_g}{\sum_g Pop_g}
+$$
+
+::: {.indicator-card}
+**Numerador.** Soma dos produtos entre concentração de PM2,5 atribuível ao fogo e população da célula.
+
+**Denominador.** População total incluída.
+
+**Unidade de medida.** Microgramas por metro cúbico (µg/m³).
+
+**Variáveis e categorias de análise.** PM2,5 de fogo; população; célula; dia, temporada ou ano; produto; território; grupo populacional.
+
+**Granularidade.** Célula diária e território diário, sazonal ou anual.
+
+**Periodicidade de atualização.** Diária ou anual, conforme a finalidade.
+
+**Responsabilidade gerencial.** Órgão ambiental responsável pelo monitoramento e setor saúde responsável pela vigilância dos efeitos e comunicação sanitária.
+
+**Notas.** Concentração, índice de comunicação e estimativa de fonte específica são indicadores distintos e não devem ser convertidos sem a especificação correspondente.
+
+**Análise descritiva do indicador.** Apresentar série diária, média e soma sazonal, dias de maior exposição, população por faixas, desigualdades e incerteza do modelo.
+
+:::
+
+### Campos complementares para clima, ambiente e saúde
+
+::: {.indicator-card}
+**Unidade territorial.** Estação de monitoramento, célula de grade ou território derivado.
+
+**Resolução espacial original.** A do produto de fumaça e da grade populacional após harmonização.
+
+**Resolução temporal.** Preferencialmente diária; resumo sazonal ou anual.
+
+**Período de referência.** Ano ou temporada, com população correspondente e versão do modelo.
+
+**Limiar ou valor de referência.** Não há limiar universal específico de PM2,5 de fogo; comparações com diretrizes de PM2,5 total devem ser claramente identificadas.
+
+:::
+
+### Disponibilidade e acesso
+
+**Cobertura geográfica.** A do produto atmosférico e populacional selecionados.
+
+**Período disponível.** Conforme produto; não interpolar versões sem avaliação.
+
+**Periodicidade de atualização.** Diária ou anual, conforme a finalidade.
+
+**Forma de acesso.** Produto modelado de fonte específica e grade populacional versionada.
+
+**URL ou identificador persistente.** https://doi.org/10.1016/S2468-2667(24)00055-0
+
+**Formato dos arquivos.** Arquivos multidimensionais e tabelas territoriais.
+
+**Necessidade de processamento.** Harmonizar grade, tempo e unidade; ponderar pela população; agregar e propagar incerteza.
+
+### Qualidade, comparação e saúde
+
+**Qualidade e incerteza.** Relatar método, calibração, completude, representatividade da estação, componente modelado, resolução, incerteza, versão e condições meteorológicas.
+
+**Possibilidade de comparação.** Manter poluente, tempo de média, unidade, método, regra de completude, versão do produto e suporte espacial.
+
+**Relação com desfechos de saúde.** A poluição do ar aumenta morbidade e mortalidade cardiovascular e respiratória e está associada a câncer de pulmão, infecções respiratórias e desfechos materno-infantis.
+
+**Defasagens temporais relevantes.** Preservar concentrações horárias ou diárias para avaliar efeitos agudos e médias de longo prazo para efeitos crônicos.
+
+**Aplicação na gestão.** Apoiar comunicação de risco, vigilância de agravos, avaliação de políticas de emissão e preparação dos serviços.
+
+### Referências metodológicas
+
+- [@vandaalen2024lancet]
+- [@who2021air]

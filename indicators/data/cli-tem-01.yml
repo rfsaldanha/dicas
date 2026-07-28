@@ -1,53 +1,60 @@
 codigo: CLI-TEM-01
-titulo_completo: Temperatura máxima diária
-titulo_resumido: Temperatura máxima
+titulo_completo: Percentual de dias quentes (TX90p)
+titulo_resumido: Dias quentes — TX90p
 tema: Temperatura e condições térmicas
-conceito: Maior valor de temperatura do ar observado ou estimado em um dia, segundo a fonte, o método e a janela diária declarados.
-objetivo: Descrever a intensidade térmica máxima diária e apoiar a identificação de dias potencialmente relevantes para vigilância e planejamento.
-interpretacao: Valores mais altos representam maior temperatura máxima no local, célula de grade ou território analisado. A interpretação requer comparação com a climatologia, a estação do ano e a população exposta.
+capitulo: chapters/part-2/05-temperatura-condicoes-termicas.qmd
+referencia_metodologica: Índice de extremos climáticos TX90p, coordenado pelo ETCCDI e documentado pelo Climdex.
+conceito: Percentual de dias de um período em que a temperatura máxima diária (TX) excede o percentil 90 específico do dia do calendário, calculado em janela móvel de cinco dias durante um período-base.
+objetivo: Monitorar a frequência relativa de dias anomalamente quentes em relação à climatologia local e produzir séries comparáveis de extremos térmicos.
+interpretacao: Valores maiores indicam maior proporção de dias com máximas acima do limiar climatológico. O índice descreve extremos relativos; não equivale a uma medida clínica de estresse térmico nem a um limiar de alerta em saúde.
 usos:
-  - Monitorar condições térmicas diárias.
-  - Construir limiares locais e indicadores de extremos.
-  - Apoiar análises de exposição ao calor.
+  - Monitorar mudanças na frequência de extremos de temperatura máxima.
+  - Comparar períodos e áreas quando fonte, período-base e método são harmonizados.
+  - Caracterizar exposição ambiental em estudos de calor e saúde.
+  - Apoiar avaliações de risco e o desenho de sistemas de alerta validados com desfechos locais.
 limitacoes:
-  - Estações, grades e sensores de superfície representam fenômenos e suportes espaciais diferentes.
-  - O horário de fechamento do dia e o fuso horário podem alterar o valor diário.
-  - A temperatura do ar isoladamente não representa conforto térmico nem risco individual.
+  - O resultado depende do período-base, da homogeneidade e da completude da série.
+  - Percentis relativos podem classificar como extremos valores absolutos diferentes entre localidades.
+  - O índice não incorpora umidade, radiação, vento, temperatura noturna ou exposição individual.
+  - Grades e estações representam suportes espaciais distintos.
 dimensoes:
   - perigo
   - exposição
-metodo_calculo: Selecionar o maior valor de temperatura do ar dentro da janela diária definida, após aplicar os procedimentos de controle de qualidade compatíveis com a fonte.
-formula_calculo: 'T_{\max,d} = \max(T_{d,1}, T_{d,2}, \ldots, T_{d,n})'
-numerador: Não se aplica.
-denominador: Não se aplica.
-unidade_medida: Grau Celsius (°C), quando a fonte estiver expressa nessa unidade.
-variaveis_categorias_analise: Estação do ano; mês; território; faixa de percentil; condição urbana ou rural.
-granularidade: Ponto de estação ou célula de grade; agregações territoriais exigem método explícito.
-unidade_territorial: Ponto de estação, célula de grade ou território agregado.
-resolucao_espacial_original: Depende da fonte selecionada; deve ser preservada nos metadados analíticos.
-resolucao_temporal: Diária, derivada de observações ou estimativas subdiárias.
-periodo_referencia: Declarar a janela diária, o fuso horário e o período climatológico usado nas comparações.
-limiar_referencia: Não há um limiar universal; definir conforme finalidade, população e climatologia local.
+metodo_calculo: Calcular, para cada dia do calendário, o percentil 90 de TX em uma janela centrada de cinco dias no período-base. No período de análise, contar os dias em que TX excede o limiar correspondente e dividir pelo número de dias válidos. Para o período-base, aplicar bootstrap conforme Zhang et al. para evitar descontinuidade artificial entre valores dentro e fora da base.
+formula_calculo: 'TX90p_j = 100 \times \frac{\sum_{i \in j} I(TX_{ij} > TX^{90}_{in})}{N_j}'
+numerador: Número de dias válidos do período j em que TX excede o percentil 90 correspondente ao dia do calendário.
+denominador: Número de dias com temperatura máxima válida no período j.
+unidade_medida: Percentual de dias (%).
+variaveis_categorias_analise: Temperatura máxima diária; dia do calendário; período-base; estação; célula de grade; mês, estação climatológica ou ano.
+granularidade: Ponto de estação ou célula de grade; sínteses territoriais requerem regra explícita e, para exposição, ponderação populacional justificável.
+unidade_territorial: Estação meteorológica, célula de grade ou território derivado.
+resolucao_espacial_original: A da estação ou do produto em grade selecionado.
+resolucao_temporal: Entrada diária; saída mensal, sazonal ou anual.
+periodo_referencia: O padrão clássico ETCCDI usa 1961–1990; outro período-base somente deve ser usado se declarado e mantido em toda a comparação.
+limiar_referencia: Percentil 90 específico do dia do calendário, em janela móvel de cinco dias no período-base.
 fontes_dados:
   - id: inmet
-    papel: observação primária
+    papel: observação de temperatura máxima em estação, sujeita a controle de qualidade e homogeneização
   - id: era5-land
-    papel: fonte secundária modelada
-responsabilidade_gerencial: A definir pela instituição que adotar o indicador; a fonte de dados não determina, por si só, a unidade gestora.
-cobertura_geografica: Depende da fonte.
-periodo_disponivel: "TODO: verificar para cada conjunto de dados."
-periodicidade_atualizacao: "TODO: verificar para cada conjunto de dados."
-forma_acesso: Consulta, download ou API, conforme a fonte.
-url_persistente: "TODO: registrar o identificador da versão efetivamente utilizada."
-formatos: "TODO: verificar para a fonte selecionada."
+    papel: reanálise em grade quando a finalidade e a validação admitirem produto modelado
+responsabilidade_gerencial: Instituição responsável pelo serviço climático ou pela vigilância que adotar o protocolo, com governança compartilhada entre meteorologia e saúde quando usado operacionalmente.
+cobertura_geografica: Definida pela rede de estações ou pelo domínio do produto em grade.
+periodo_disponivel: Definido pela estação ou produto; o cálculo requer série diária suficientemente longa para estimar percentis estáveis.
+periodicidade_atualizacao: Mensal, sazonal ou anual, conforme a finalidade e a latência da fonte.
+forma_acesso: Calculado a partir de série diária de temperatura máxima obtida na fonte documentada.
+url_persistente: https://www.climdex.org/learn/indices/
+formatos: Tabela temporal ou matriz/arquivo multidimensional, preservando identificador, unidade e controle de qualidade.
 disponibilidade:
-  - cálculo simples
-necessidade_processamento: Requer agregação máxima em janela diária quando a fonte é subdiária; dados em grade requerem decisão explícita de agregação territorial.
-qualidade_incerteza: Documentar falhas, mudanças de estação, controle de qualidade, viés do produto e incerteza introduzida pela agregação espacial.
-comparabilidade: Comparar séries apenas após harmonizar fonte, unidade, janela diária, fuso, suporte espacial e versão do produto.
-relacao_saude: Pode integrar avaliações de exposição térmica, mas não demonstra, isoladamente, efeito sobre a saúde.
-defasagens_temporais: Devem ser definidas conforme o desfecho, o desenho analítico e a hipótese substantiva.
-aplicacao_gestao: Subsidiar boletins, vigilância sazonal, preparação de serviços e avaliação de limiares locais.
-notas: Variável meteorológica transformada em indicador somente quando vinculada a finalidade, método, território e interpretação explícitos.
-analise_descritiva: "Não incluída nesta ficha demonstrativa. TODO: produzir somente após definir fonte, território, período, série validada e visualização correspondente."
-referencias: []
+  - requer processamento climatológico
+necessidade_processamento: Controle de qualidade, homogeneização quando aplicável, cálculo de percentis em janela móvel, bootstrap do período-base e agregação temporal.
+qualidade_incerteza: Relatar completude, falhas, mudanças de estação, método de homogeneização, período-base, bootstrap, viés do produto em grade e efeito da agregação espacial.
+comparabilidade: Comparável somente com a mesma definição de TX90p, período-base, calendário, critério de completude, fonte ou fonte harmonizada e procedimento de bootstrap.
+relacao_saude: TX90p é um indicador climático consolidado que pode caracterizar frequência de calor relativo em análises de morbimortalidade. Sua utilização em alerta exige validação com desfechos locais, pois limiares meteorológicos não são automaticamente limiares sanitários.
+defasagens_temporais: Em estudos de saúde, definir a priori defasagens e médias móveis conforme desfecho e literatura; o índice anual não deve substituir a série diária em análises de efeitos agudos.
+aplicacao_gestao: Monitorar tendência de extremos, apoiar avaliação sazonal e selecionar períodos para análise de pressão assistencial; para alertas, combinar com previsão e protocolo calor–saúde validado.
+notas: TX90p foi escolhido por ser um índice internacionalmente coordenado. Temperatura máxima diária permanece variável de entrada e não recebe ficha própria neste catálogo.
+analise_descritiva: Apresentar série do percentual, mediana e amplitude por período, tendência com incerteza e mapa somente após avaliar cobertura e homogeneidade. Evitar rankings territoriais quando as fontes não forem comparáveis.
+referencias:
+  - "[@climdex2024]"
+  - "[@zhang2005]"
+  - "[@wmoWho2015heat]"

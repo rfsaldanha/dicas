@@ -1,33 +1,173 @@
 # Precipitação, secas e eventos hidrológicos {#sec-precipitacao}
 
-Este capítulo organizará a cadeia que vai da precipitação aos processos hidrológicos e geomorfológicos, às exposições e aos efeitos sobre serviços e populações.
+Chuva insuficiente, chuva excessiva e sua distribuição no tempo alteram disponibilidade de água, produção de alimentos, qualidade ambiental, mobilidade, moradia e funcionamento dos serviços de saúde. A precipitação, porém, é apenas uma entrada da cadeia. Inundação, alagamento, enxurrada e movimento de massa resultam também de relevo, solo, cobertura da terra, drenagem, nível antecedente dos rios e ocupação do território. Quando pessoas, bens e serviços expostos sofrem efeitos, entra-se no domínio do desastre.
 
-Seu foco é a caracterização física e territorial dos fenômenos. Registros administrativos de desastre, danos, resposta e recuperação pertencem ao @sec-desastres.
+Este capítulo distingue essas etapas para evitar três atalhos: chamar qualquer chuva forte de inundação; usar um registro de desastre como se fosse medida física da chuva; e atribuir um efeito sanitário ao volume precipitado sem representar a exposição intermediária.
+
+```{mermaid}
+%%| label: fig-cadeia-hidrometeorologica
+%%| fig-cap: "Da precipitação aos efeitos sanitários"
+flowchart LR
+  P[Precipitação] --> A[Acumulação e<br/>condição antecedente]
+  A --> H[Processo hidrológico ou<br/>movimento de massa]
+  T[Relevo, solo, cobertura<br/>e drenagem] --> H
+  H --> E[Pessoas, moradias e<br/>serviços expostos]
+  E --> S[Efeitos sobre saúde<br/>e funcionamento do SUS]
+  V[Condições sociais,<br/>proteção e resposta] --> S
+```
 
 ## Precipitação e variabilidade das chuvas
 
+Precipitação é a água que alcança a superfície em forma líquida ou sólida. No Brasil, a chuva domina a maior parte das aplicações em saúde. Pluviômetros registram uma lâmina acumulada sobre um ponto; radares e satélites estimam campos espaciais; reanálises combinam modelo e observações. Os produtos não são equivalentes e apresentam erros distintos.
+
+Um total diário depende do horário em que o dia é fechado. A soma das 9h às 9h não é necessariamente comparável à soma de meia-noite a meia-noite. Diferenças de fuso, horário de verão, unidade e convenção de traço de chuva também podem deslocar extremos entre datas. Estudos com internações ou óbitos devem compatibilizar o “dia da exposição” com o dia do desfecho e explorar defasagens coerentes.
+
+O acumulado mensal descreve volume, mas oculta distribuição. Cem milímetros podem ocorrer em vinte dias de chuva leve ou em duas tempestades. Para saúde pública, volume, intensidade, persistência e ausência de chuva precisam ser distinguidos.
+
 ### Chuvas intensas
+
+Chuva intensa pode ser definida por um limiar absoluto, por percentil local ou por máximo no período. Rx1day registra a maior acumulação diária; Rx5day, a maior soma em cinco dias; R95pTOT soma a chuva ocorrida em dias acima do percentil 95 dos dias úmidos. Esses indicadores descrevem aspectos diferentes.
+
+Extremos subdiários são decisivos em pequenas bacias e áreas urbanas. Um máximo diário pode esconder 50 mm concentrados em trinta minutos. Quando a pergunta envolve enxurrada, alagamento rápido ou capacidade de drenagem, dados de dez minutos, horários ou curvas intensidade–duração–frequência são mais adequados que um total diário isolado.
+
+Limiar meteorológico não é limiar de impacto universal. A mesma chuva produz respostas distintas conforme declividade, impermeabilização, manutenção da drenagem, saturação do solo, maré e ocupação. Para alertas, a previsão de chuva deve ser combinada com condições antecedentes, suscetibilidade e exposição.
 
 ### Chuvas persistentes
 
+Persistência pode ocorrer com intensidade moderada e ainda assim saturar o solo, elevar rios, contaminar captações e dificultar transporte. Rx5day representa acumulação em janela fixa; CWD representa a maior sequência de dias com ao menos 1 mm. CWD não mede intensidade: dez dias com 1 mm e dez dias com 40 mm produzem a mesma duração.
+
+Janelas fixas facilitam comparação, mas não coincidem necessariamente com o tempo de resposta do sistema. Uma bacia pequena pode responder em horas; um grande rio, após vários dias ou semanas. A seleção do indicador deve acompanhar o mecanismo.
+
 ### Ausência de chuva
+
+CDD mede a maior sequência de dias com menos de 1 mm. É um índice consolidado de extremos climáticos, não uma definição completa de seca. Uma sequência sem chuva pode ter pouco efeito onde há armazenamento e baixa demanda; déficit menos prolongado pode ser crítico sob calor, evapotranspiração elevada e reservatórios baixos.
+
+Anomalias percentuais de precipitação são intuitivas, mas instáveis em meses normalmente secos: uma pequena diferença absoluta pode gerar uma grande porcentagem. O SPI transforma a precipitação acumulada em uma escala padronizada e permite analisar diferentes janelas temporais.
 
 ## Secas e estiagens
 
+A OMS define seca como período seco prolongado do ciclo climático, capaz de produzir escassez de água e afetar saúde, agricultura, economia, energia e ambiente [@who2026drought]. A distinção entre tipos é importante:
+
+| Tipo | Processo dominante | Exemplos de medidas | Relação com saúde |
+|---|---|---|---|
+| Meteorológica | precipitação abaixo do esperado | SPI, anomalia, CDD | sinal inicial e contexto climático |
+| Agrícola ou ecológica | água insuficiente no solo e estresse da vegetação | umidade do solo, balanço hídrico, índices de vegetação | alimento, renda, poeira e fogo |
+| Hidrológica | redução de vazão, nível, reservatório ou aquífero | vazão padronizada, nível, volume útil | abastecimento, energia e operação de serviços |
+| Socioeconômica | demanda supera oferta e produz impactos | interrupção, preço, produção, população afetada | higiene, nutrição, deslocamento e saúde mental |
+
+: Tipos de seca e sua relação com saúde {#tbl-tipos-seca}
+
+O SPI é recomendado pela OMM para caracterizar seca meteorológica [@wmo2012spi; @wmo2016drought]. Sua escala temporal altera o processo representado. SPI-1 responde rapidamente ao mês recente; SPI-3 pode acompanhar uma estação chuvosa; SPI-6 e SPI-12 refletem déficits acumulados mais longos. Não se deve selecionar a escala depois de observar qual produz a associação mais forte sem justificativa e correção analítica.
+
+Seca é evento de início lento. Sua data inicial depende da definição e pode ser revista quando a série avança. Duração, intensidade acumulada, pico e área afetada são componentes úteis, desde que derivados do mesmo índice e limiar.
+
 ## Inundações, alagamentos e enxurradas
+
+Cheia é a elevação do nível no canal sem necessariamente transbordar. Inundação ocorre quando a água ultrapassa o leito habitual e ocupa áreas adjacentes. Alagamento é acúmulo temporário, frequentemente urbano, associado à insuficiência da drenagem. Enxurrada é escoamento concentrado, rápido e de alta energia, muitas vezes provocado por chuva intensa em pequenas bacias ou superfícies impermeabilizadas [@cemaden2016enxurrada].
+
+Esses processos exigem medidas próprias:
+
+- nível e vazão do curso d’água;
+- cota de transbordamento;
+- velocidade de subida e tempo até o pico;
+- profundidade, velocidade e duração da água;
+- extensão inundada;
+- edificações, população e serviços na mancha;
+- interrupção de acesso, água, energia e comunicação.
+
+Uma área inundada obtida por satélite registra a superfície detectável no horário de passagem e sob as limitações do sensor. Nuvem, vegetação, água permanente, resolução e tempo do imageamento afetam a classificação. A população exposta resulta da interseção entre a mancha, uma superfície populacional e uma referência temporal. Não corresponde automaticamente à população diretamente afetada.
 
 ## Deslizamentos
 
-## Impactos sobre a saúde e os serviços
+Deslizamentos e outros movimentos de massa podem ser deflagrados por chuva, mas dependem de geometria da encosta, material, drenagem, cobertura, cortes, aterros e ocupação. Acumulados antecedentes e intensidade recente costumam ser combinados em sistemas de alerta. Um limiar calibrado para uma encosta não deve ser transferido mecanicamente para outra.
+
+Os efeitos diretos incluem trauma, soterramento e asfixia. Também podem ocorrer ruptura de redes de água, esgoto, energia e gás, isolamento territorial, perda de moradia, interrupção de serviços e efeitos prolongados sobre saúde mental [@who2026landslides].
+
+## Impactos sobre a saúde humana
+
+Os efeitos variam com o fenômeno, a via de exposição e o intervalo após o evento.
+
+### Traumas, afogamento e contato elétrico
+
+Enxurradas e inundações rápidas podem causar afogamento, trauma, quedas, colisões, ferimentos por detritos e eletrocussão. O risco se concentra durante deslocamentos, resgates, retorno precoce e limpeza. Contar apenas óbitos no dia do evento subestima desfechos posteriores.
+
+### Água, alimentos e doenças infecciosas
+
+Chuva intensa e inundação podem transportar fezes, resíduos e agentes químicos, comprometer mananciais e interromper tratamento e distribuição. Seca pode reduzir a quantidade de água disponível para higiene, concentrar contaminantes e induzir uso de fontes inseguras. A relação entre chuva, inundação, seca e doença diarreica depende de saneamento, patógeno, estação e defasagem [@levy2016waterborne].
+
+Água parada, armazenamento doméstico e alteração de habitats podem modificar criadouros de vetores. A direção da associação não é universal: chuva pode criar criadouros, enxurradas podem removê-los temporariamente, e seca pode aumentar armazenamento domiciliar.
+
+### Nutrição, ar e saúde mental
+
+Secas podem reduzir produção e renda, elevar preços, piorar diversidade alimentar e aumentar risco de desnutrição. Também favorecem poeira, fumaça e incêndios. Perda de meios de vida, endividamento, deslocamento e incerteza podem afetar sofrimento psíquico. Esses caminhos são mediados por proteção social, mercado, infraestrutura e acesso a serviços; o SPI não é medida de desnutrição nem de saúde mental.
+
+## Impactos sobre a saúde pública e os serviços
+
+Eventos hidrometeorológicos podem aumentar demanda e simultaneamente reduzir capacidade de resposta. Unidades podem ser inundadas, ficar sem água ou energia, perder insumos, ter trabalhadores impedidos de chegar e receber pacientes deslocados de outras áreas.
+
+Para vigilância e preparação, convém monitorar:
+
+- perigo observado e previsto;
+- população e estabelecimentos na área potencialmente atingida;
+- rotas de acesso e alternativas;
+- continuidade de água, energia, oxigênio, cadeia fria e comunicação;
+- capacidade de urgência, internação, laboratório e vigilância;
+- abrigos, deslocamentos e necessidades de continuidade do cuidado;
+- agravos imediatos e sindrômicos nas semanas seguintes.
+
+O indicador meteorológico informa uma parte da situação. A decisão sanitária depende da combinação com exposição, vulnerabilidade, capacidade e protocolo intersetorial.
 
 ## Fontes de dados
 
-## Indicadores
+O [INMET](../../backmatter/indice-fontes.qmd#inmet) fornece observações meteorológicas por estações. O [CEMADEN](../../backmatter/indice-fontes.qmd#cemaden) opera redes pluviométricas e hidrológicas voltadas ao monitoramento de risco; a documentação consultada informa dados pluviométricos brutos e registro em UTC, o que exige controle antes do uso. [ERA5-Land](../../backmatter/indice-fontes.qmd#era5-land) oferece campo em grade de reanálise e não substitui uma observação local.
 
-**Indicadores previstos:** precipitação acumulada; dias com chuva; máxima diária; dias consecutivos com ou sem chuva; anomalia de precipitação; índice padronizado de seca; ocorrência, duração e intensidade de seca; área inundada; pessoas e serviços expostos.
+Registros de ocorrência, pessoas afetadas, danos e resposta são discutidos no @sec-desastres. Para cada análise, mantenha separados:
+
+1. dado de precipitação;
+2. medida hidrológica ou geomorfológica;
+3. superfície de exposição;
+4. registro administrativo de impacto;
+5. desfecho de saúde.
+
+## Principais indicadores usados em saúde pública
+
+Estudos de saúde empregam tanto medidas contínuas de chuva quanto classificações de extremos. Para doença diarreica, por exemplo, são usados acumulados, chuva intensa, inundação e seca, com resultados condicionados ao contexto de água e saneamento [@levy2016waterborne]. Em preparação e resposta, precipitação extrema é combinada com processo hidrológico, população exposta e continuidade de serviços [@who2014floods].
+
+Os indicadores consolidados apresentados neste capítulo cobrem pico diário, acumulação persistente, volume em dias muito úmidos, persistência seca, persistência úmida e seca meteorológica padronizada. Medidas de área inundada, profundidade, população exposta e serviços atingidos são indispensáveis, mas sua ficha deve seguir o produto ou protocolo hidrológico efetivamente adotado; não se cria aqui uma fórmula genérica que misture sensores, modelos e cadastros.
+
+| Indicador | Aspecto representado | Uso em saúde pública | Cuidado de interpretação |
+|---|---|---|---|
+| Rx1day | pico diário | episódios agudos, séries temporais e contexto de alertas | pode ocultar intensidade subdiária |
+| Rx5day | acumulação em cinco dias | persistência, saturação e processos de resposta mais lenta | janela pode não coincidir com a bacia |
+| R95pTOT | volume em dias muito úmidos | concentração da chuva em extremos | depende do período-base |
+| CDD | maior sequência sem dia úmido | persistência seca e contexto de água, alimento, poeira e fogo | não é seca completa |
+| CWD | maior sequência de dias úmidos | umidade persistente, vetores e interrupções | não informa intensidade |
+| SPI | déficit ou excesso padronizado em várias escalas | seca meteorológica, vigilância e estudos de efeitos | não inclui evapotranspiração nem impacto social |
+
+: Indicadores de precipitação e seca usados em saúde pública {#tbl-indicadores-precipitacao}
+
+{{< include ../../indicators/includes/cli-prc-01.qmd >}}
+
+{{< include ../../indicators/includes/cli-prc-02.qmd >}}
+
+{{< include ../../indicators/includes/cli-prc-03.qmd >}}
+
+{{< include ../../indicators/includes/cli-prc-04.qmd >}}
+
+{{< include ../../indicators/includes/cli-prc-05.qmd >}}
+
+{{< include ../../indicators/includes/cli-sec-01.qmd >}}
 
 ## Aplicação na gestão
 
-::: {.todo}
-TODO: desenvolver conceitos e fichas sem confundir fenômeno meteorológico, processo hidrológico, desastre e dano registrado.
+Um painel útil não reúne todos os índices possíveis. Para chuva intensa, pode mostrar previsão e observação subdiária, Rx1day ou acumulados móveis, nível de rios, alertas, população e serviços em áreas suscetíveis. Para seca, pode combinar SPI em escalas justificadas, reservatórios e vazões, regularidade do abastecimento, segurança alimentar, agravos e capacidade dos serviços.
+
+Os limiares de ação devem ser definidos antes do evento, com responsabilidades e mensagens associadas. O fluxo inclui verificação do dado, avaliação do impacto potencial, comunicação intersetorial, registro da decisão e revisão pós-evento.
+
+::: {.visual-needed title="Ilustração editorial necessária"}
+Produzir uma ilustração em corte de uma bacia urbana que diferencie cheia, inundação, alagamento e enxurrada e mostre moradias, unidade de saúde, drenagem e rotas de acesso. A figura deve ser conceitual, sem sugerir escala ou limiar universal.
 :::
+
+## Síntese
+
+Precipitação é um perigo meteorológico; inundação e movimento de massa são processos; exposição descreve quem e o que se encontra na área atingida; desastre e efeito sanitário dependem das consequências. Rx1day, Rx5day, R95pTOT, CDD, CWD e SPI oferecem medidas consolidadas para aspectos específicos. Seu uso em saúde pública requer ligá-los ao mecanismo, ao território, às defasagens e à capacidade de resposta.

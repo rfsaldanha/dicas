@@ -1,0 +1,121 @@
+## Ficha do indicador: Maior precipitação acumulada em cinco dias consecutivos (Rx5day) {#sec-cli-prc-02}
+
+::: {.indicator-card}
+**Código:** CLI-PRC-02 \
+**Título resumido:** Máxima em cinco dias — Rx5day \
+**Tema:** Precipitação, secas e eventos hidrológicos \
+**Dimensão:** perigo; exposição \
+**Disponibilidade:** [requer processamento climatológico]{.availability}
+:::
+
+### Identificação e fundamento
+
+**Indicador consolidado em.** Índice Rx5day do conjunto ETCCDI, documentado pelo Climdex.
+
+### Conceito
+
+Maior soma de precipitação em qualquer janela móvel de cinco dias consecutivos do período.
+
+### Objetivo
+
+Representar acumulação persistente de chuva em janela curta.
+
+### Interpretação
+
+Valor maior indica maior acumulação máxima em cinco dias. Não revela a distribuição interna da chuva nem a saturação real do solo.
+
+### Usos
+
+- Monitorar extremos persistentes.
+- Contextualizar inundações e movimentos de massa.
+- Avaliar exposição em estudos de saúde.
+
+### Limitações
+
+- Janela fixa pode não coincidir com o tempo de resposta da bacia.
+- Falhas dentro da janela afetam o máximo.
+- Não substitui umidade do solo
+- vazão ou nível do rio.
+
+### Fontes de dados
+
+- Instituto Nacional de Meteorologia — observações pluviométricas diárias ([cadastro](../../backmatter/indice-fontes.qmd#inmet))
+- Centro Nacional de Monitoramento e Alertas de Desastres Naturais — observações pluviométricas subdiárias ou diárias para monitoramento ([cadastro](../../backmatter/indice-fontes.qmd#cemaden))
+- ERA5-Land — precipitação em reanálise condicionada à validação ([cadastro](../../backmatter/indice-fontes.qmd#era5-land))
+
+### Método de cálculo
+
+Calcular todas as somas móveis de cinco dias consecutivos no período, segundo a regra de completude, e selecionar a maior.
+
+$$
+Rx5day_p=\max_{d\in p}\left(\sum_{k=0}^{4}PR_{d-k}\right)
+$$
+
+::: {.indicator-card}
+**Numerador.** Não se aplica.
+
+**Denominador.** Não se aplica.
+
+**Unidade de medida.** Milímetros (mm).
+
+**Variáveis e categorias de análise.** Precipitação diária; dia do calendário; mês; estação; ano; estação ou célula de grade.
+
+**Granularidade.** Entrada diária por estação ou célula; resumo mensal, sazonal ou anual.
+
+**Periodicidade de atualização.** Anual para monitoramento climático; diária ou subdiária em protocolo operacional próprio.
+
+**Responsabilidade gerencial.** Serviço meteorológico ou hidrológico responsável pelo dado e órgão de saúde que qualifique o uso sanitário.
+
+**Notas.** Índices ETCCDI descrevem a precipitação observada. Não substituem modelagem hidrológica, mapeamento de inundação ou registro de desastre.
+
+**Análise descritiva do indicador.** Mostrar Rx5day, datas inicial e final, contribuição de cada dia e condições antecedentes.
+
+:::
+
+### Campos complementares para clima, ambiente e saúde
+
+::: {.indicator-card}
+**Unidade territorial.** Estação meteorológica, célula de grade, bacia ou território derivado.
+
+**Resolução espacial original.** A da fonte de precipitação; agregações territoriais exigem ponderação declarada.
+
+**Resolução temporal.** Entrada diária; saída por período.
+
+**Período de referência.** Não se aplica ao valor; declarar o período de análise.
+
+**Limiar ou valor de referência.** Não se aplica; é um máximo móvel.
+
+:::
+
+### Disponibilidade e acesso
+
+**Cobertura geográfica.** A da fonte selecionada, condicionada à densidade observacional e qualidade.
+
+**Período disponível.** O da fonte, incluindo série suficiente para o período-base quando houver percentis.
+
+**Periodicidade de atualização.** Anual para monitoramento climático; diária ou subdiária em protocolo operacional próprio.
+
+**Forma de acesso.** Cálculo sobre série de precipitação controlada, com algoritmo, unidades e calendário versionados.
+
+**URL ou identificador persistente.** https://www.climdex.org/learn/indices/
+
+**Formato dos arquivos.** Tabela por estação ou arquivo multidimensional por célula.
+
+**Necessidade de processamento.** Controle de qualidade, somas móveis completas, regra para janelas que cruzam meses e seleção do máximo.
+
+### Qualidade, comparação e saúde
+
+**Qualidade e incerteza.** Relatar falhas, horário de acumulação, vento e subcaptura do pluviômetro, mudança de instrumento, homogeneidade, viés de grade e cobertura espacial.
+
+**Possibilidade de comparação.** Manter limiar de dia úmido, período-base, calendário, fonte, unidade, regra de falhas e método de agregação.
+
+**Relação com desfechos de saúde.** Extremos e persistência de chuva ou ausência de chuva ajudam a caracterizar perigos relacionados a água, saneamento, vetores, segurança alimentar e acesso a serviços; não equivalem ao efeito sanitário.
+
+**Defasagens temporais relevantes.** Preservar série diária e datas para testar janelas compatíveis com o mecanismo e o desfecho.
+
+**Aplicação na gestão.** Caracterizar sazonalidade e extremos, apoiar vigilância de agravos sensíveis ao clima e contextualizar alertas hidrometeorológicos.
+
+### Referências metodológicas
+
+- [@climdex2024]
+- [@who2014floods]

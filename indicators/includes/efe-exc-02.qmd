@@ -1,0 +1,119 @@
+## Ficha do indicador: P-score de mortalidade em excesso {#sec-efe-exc-02}
+
+::: {.indicator-card}
+**Código:** EFE-EXC-02 \
+**Título resumido:** P-score de excesso de mortalidade \
+**Tema:** Efeitos do clima e do ambiente sobre a saúde \
+**Dimensão:** efeito \
+**Disponibilidade:** [dados secundários de saúde]{.availability} [requer qualificação]{.availability}
+:::
+
+### Identificação e fundamento
+
+**Indicador consolidado em.** Medida percentual usada pela Organização Mundial da Saúde para comparar mortalidade observada e esperada.
+
+### Conceito
+
+Excesso de óbitos expresso como percentual do número esperado no mesmo território e período.
+
+### Objetivo
+
+Tornar o excesso comparável entre populações e períodos com diferentes níveis basais de mortalidade.
+
+### Interpretação
+
+P-score de 20% indica que os óbitos observados ficaram 20% acima do esperado; −10% indica 10% abaixo. Um mesmo percentual pode representar números absolutos muito diferentes.
+
+### Usos
+
+- Comparar intensidade relativa de excesso.
+- Monitorar estratos etários e sexuais.
+- Comunicar desvio proporcional do baseline.
+- Complementar contagem absoluta.
+
+### Limitações
+
+- Herda toda incerteza do esperado.
+- Pode ser instável quando o esperado é pequeno.
+- Percentual alto em pequena população pode corresponder a poucos óbitos.
+- Não substitui contagens nem taxa populacional.
+
+### Fontes de dados
+
+- Sistema de Informações sobre Mortalidade — óbitos observados e série histórica para o esperado ([cadastro](../../backmatter/indice-fontes.qmd#sim))
+
+### Método de cálculo
+
+Obter observado e esperado com o mesmo método da ficha de óbitos em excesso. Subtrair o esperado do observado, dividir pelo esperado e multiplicar por 100. Calcular por unidade temporal ou sobre somas do período; não fazer média simples de P-scores diários com esperados diferentes.
+
+$$
+Pscore_P=100\times\frac{\sum_{t\in P}O_t-\sum_{t\in P}E_t}{\sum_{t\in P}E_t}
+$$
+
+::: {.indicator-card}
+**Numerador.** Óbitos observados menos óbitos esperados no período.
+
+**Denominador.** Óbitos esperados no período.
+
+**Unidade de medida.** Percentual (%).
+
+**Variáveis e categorias de análise.** Observado; esperado; idade; sexo; raça ou cor; causa; território; período.
+
+**Granularidade.** Dia ou semana na origem; período agregado no P-score.
+
+**Periodicidade de atualização.** A mesma da estimativa de excesso.
+
+**Responsabilidade gerencial.** Área de vigilância epidemiológica e informação em saúde, com apoio de epidemiologia e estatística para modelagem e interpretação.
+
+**Notas.** Contagens, taxas, excesso, associação e atribuição respondem a perguntas diferentes. Resultados estimados devem informar modelo, referência contrafactual e incerteza.
+
+**Análise descritiva do indicador.** Apresentar P-score com excesso absoluto, esperado, intervalo e tamanho populacional; evitar ranking sem estabilidade.
+
+:::
+
+### Campos complementares para clima, ambiente e saúde
+
+::: {.indicator-card}
+**Unidade territorial.** Território com esperado suficientemente grande e estável.
+
+**Resolução espacial original.** A da modelagem de excesso.
+
+**Resolução temporal.** Diário, semanal, mensal ou por episódio.
+
+**Período de referência.** O mesmo baseline do modelo de esperado.
+
+**Limiar ou valor de referência.** Zero indica observado igual ao esperado; intervalos devem ser obtidos da incerteza do modelo.
+
+:::
+
+### Disponibilidade e acesso
+
+**Cobertura geográfica.** A do sistema de mortalidade usado.
+
+**Período disponível.** Conforme observado e baseline.
+
+**Periodicidade de atualização.** A mesma da estimativa de excesso.
+
+**Forma de acesso.** Derivação das séries observada e esperada.
+
+**URL ou identificador persistente.** https://www.who.int/publications/m/item/methods-for-estimating-the-excess-mortality-associatedwith-the-covid-19-pandemic
+
+**Formato dos arquivos.** Tabela e série temporal com observado, esperado, excesso e P-score.
+
+**Necessidade de processamento.** Agregar observado e esperado de forma consistente e propagar incerteza.
+
+### Qualidade, comparação e saúde
+
+**Qualidade e incerteza.** Avaliar cobertura, completude, oportunidade, duplicidade, definição de caso, codificação CID, causa básica e associadas, revisões, estabilidade do denominador, pequenas contagens e intervalos de incerteza.
+
+**Possibilidade de comparação.** Manter desfecho, definição, códigos, população, fonte, território, calendário, padronização e versão; mudanças assistenciais e de registro podem alterar o indicador sem mudança igual na ocorrência.
+
+**Relação com desfechos de saúde.** Mede ocorrência observada ou carga estimada de desfechos; a relação com clima ou ambiente exige exposição definida e desenho analítico compatível.
+
+**Defasagens temporais relevantes.** Registrar data do evento de saúde e considerar o intervalo biologicamente plausível entre exposição e desfecho; data de processamento ou competência não deve substituir automaticamente a data clínica.
+
+**Aplicação na gestão.** Monitorar impacto, desigualdades e pressão sobre serviços, avaliar alertas e intervenções e apoiar priorização, sem atribuir causalidade além do desenho.
+
+### Referências metodológicas
+
+- [@who2023excess]

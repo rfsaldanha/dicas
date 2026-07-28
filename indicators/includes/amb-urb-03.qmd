@@ -1,0 +1,122 @@
+## Ficha do indicador: Intensidade da ilha de calor urbana de superfície (SUHII) {#sec-amb-urb-03}
+
+::: {.indicator-card}
+**Código:** AMB-URB-03 \
+**Título resumido:** Ilha de calor de superfície — SUHII \
+**Tema:** Uso e cobertura da terra, vegetação e ambiente urbano \
+**Dimensão:** exposição; vulnerabilidade; resposta \
+**Disponibilidade:** [requer processamento térmico e territorial]{.availability}
+:::
+
+### Identificação e fundamento
+
+**Indicador consolidado em.** Índice de ilha de calor baseado em temperatura radiométrica de superfície e cobertura da terra, conforme Jin.
+
+### Conceito
+
+Diferença entre temperatura média da superfície na área urbana e temperatura média da superfície em área não urbana de referência comparável, na mesma aquisição.
+
+### Objetivo
+
+Quantificar o contraste térmico de superfície associado à urbanização e mapear heterogeneidade territorial.
+
+### Interpretação
+
+Valor positivo indica superfície urbana mais quente que a referência naquele sensor, data e horário. Não equivale à ilha de calor do ar nem à exposição térmica humana.
+
+### Usos
+
+- Avaliar materiais e cobertura urbana.
+- Priorizar mitigação e arborização.
+- Contextualizar risco de calor com população e dados do ar.
+
+### Limitações
+
+- Referência rural determina o resultado.
+- Temperatura da superfície difere da temperatura do ar.
+- Nuvens e horário limitam amostragem.
+- Emissividade e resolução introduzem erro.
+- Uma cena não representa noite ou estação.
+
+### Fontes de dados
+
+- Landsat — produto de temperatura da superfície e cobertura ([cadastro](../../backmatter/indice-fontes.qmd#landsat))
+- MapBiomas Brasil — classificação urbano/não urbano e controle de cobertura ([cadastro](../../backmatter/indice-fontes.qmd#mapbiomas))
+- Instituto Brasileiro de Geografia e Estatística — limite urbano, altitude/cartografia e população para análise de exposição ([cadastro](../../backmatter/indice-fontes.qmd#ibge))
+
+### Método de cálculo
+
+Selecionar produto validado de temperatura da superfície, mascarar pixels inválidos, delimitar área urbana e referência não urbana com altitude, água, topografia e cobertura controladas e subtrair as médias ponderadas da mesma aquisição.
+
+$$
+SUHII_t=\overline{LST}_{urb,t}-\overline{LST}_{ref,t}
+$$
+
+::: {.indicator-card}
+**Numerador.** Não se aplica.
+
+**Denominador.** Não se aplica.
+
+**Unidade de medida.** Grau Celsius (°C) ou kelvin de diferença.
+
+**Variáveis e categorias de análise.** LST; urbano; referência; sensor; horário; estação; cobertura; população.
+
+**Granularidade.** Pixel e resumo urbano por aquisição.
+
+**Periodicidade de atualização.** Sazonal ou anual.
+
+**Responsabilidade gerencial.** Planejamento urbano e ambiental produz intervenções e cadastros; saúde interpreta exposições e desigualdades; geoinformação mantém métodos.
+
+**Notas.** Verdor espectral, cobertura vegetal, espaço público acessível e uso efetivo são dimensões diferentes.
+
+**Análise descritiva do indicador.** Mostrar distribuição urbana, contraste médio, dia/noite quando houver, estações, população em pontos quentes e sensibilidade à referência.
+
+:::
+
+### Campos complementares para clima, ambiente e saúde
+
+::: {.indicator-card}
+**Unidade territorial.** Domicílio ou ponto, zona urbana, bairro, setor censitário ou cidade.
+
+**Resolução espacial original.** A do produto térmico; declarar resolução nativa e reamostrada.
+
+**Resolução temporal.** Aquisição instantânea e composições sazonais.
+
+**Período de referência.** Mesmas datas e horários para urbano e referência.
+
+**Limiar ou valor de referência.** Zero indica ausência de contraste médio; não há limiar sanitário universal.
+
+:::
+
+### Disponibilidade e acesso
+
+**Cobertura geográfica.** Cidades com cenas válidas e referência comparável.
+
+**Período disponível.** Conforme missão e produto.
+
+**Periodicidade de atualização.** Sazonal ou anual.
+
+**Forma de acesso.** Produtos de temperatura da superfície e cobertura versionados.
+
+**URL ou identificador persistente.** https://doi.org/10.1175/JCLI-D-11-00509.1
+
+**Formato dos arquivos.** Raster e tabela.
+
+**Necessidade de processamento.** Máscara, emissividade/produto, delimitação urbana e referência, estratificação temporal e ponderação.
+
+### Qualidade, comparação e saúde
+
+**Qualidade e incerteza.** Relatar sensor, produto, data, nuvens, resolução, classificação, delimitação urbana, população, buffer, erros posicionais e análise de sensibilidade.
+
+**Possibilidade de comparação.** Manter produto, estação, composição temporal, resolução, definição de verde, limite urbano, população e parâmetros espaciais.
+
+**Relação com desfechos de saúde.** Vegetação e espaços verdes podem influenciar atividade física, contato social, restauração, calor, ruído e poluição, mas efeitos dependem de acesso, qualidade, segurança e contexto.
+
+**Defasagens temporais relevantes.** Distinguir exposição contemporânea, histórica e intervenção; atualizar endereço, vegetação e população de maneira compatível.
+
+**Aplicação na gestão.** Identificar desigualdades, priorizar arborização e espaços públicos, avaliar intervenções e integrar planejamento calor–saúde.
+
+### Referências metodológicas
+
+- [@jin2012uhi]
+- [@who2016greenspace]

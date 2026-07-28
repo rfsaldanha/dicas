@@ -23,10 +23,30 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 1em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -79,7 +99,39 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Procurar"
   }
 }</script>
+<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles/web/styles.css">
 </head>
@@ -256,7 +308,7 @@ ul.task-list li input[type="checkbox"] {
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/part-2/05-temperatura-condicoes-termicas.html">Parte II — Dados e indicadores temáticos</a></li><li class="breadcrumb-item"><a href="../../chapters/part-2/10-eventos-severos-desastres.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Eventos meteorológicos severos e desastres</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Procurar" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
@@ -270,7 +322,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../../">Dados e Indicadores de Clima e Ambiente para a Saúde</a> 
+      <a href="../../">Dados e Indicadores de Clima e Ambiente para a Saúde</a>
         <div class="sidebar-tools-main">
     <a href="https://github.com/rfsaldanha/dicas" title="Código fonte" class="quarto-navigation-tool px-1" aria-label="Código fonte"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo escuro"><i class="bi"></i></a>
@@ -282,85 +334,85 @@ ul.task-list li input[type="checkbox"] {
         <div id="quarto-search" class="" title="Procurar"></div>
         </div>
         </div>
-    <div class="sidebar-menu-container"> 
+    <div class="sidebar-menu-container">
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Bem-vindo</span></a>
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../frontmatter/ficha-tecnica.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Ficha técnica</span></a>
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../frontmatter/apresentacao.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Apresentação</span></a>
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../frontmatter/prefacio.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Prefácio</span></a>
+ <span class="menu-text">Prefácio do autor</span></a>
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../frontmatter/agradecimentos.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Agradecimentos</span></a>
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../frontmatter/siglas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lista de siglas</span></a>
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../frontmatter/sumario.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sumário</span></a>
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../frontmatter/como-usar.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Como utilizar este livro</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
+      <div class="sidebar-item-container">
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Parte I — Fundamentos e métodos</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+          </a>
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-1/01-clima-ambiente-saude.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Clima, ambiente e saúde pública</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-1/02-dados-variaveis-indices-indicadores.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Dados, variáveis, índices e indicadores</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-1/03-espaco-tempo-qualidade.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Espaço, tempo e qualidade dos dados</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-1/04-fontes-fichas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Fontes de dados e fichas de indicadores</span></span></a>
   </div>
@@ -368,46 +420,46 @@ ul.task-list li input[type="checkbox"] {
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
+      <div class="sidebar-item-container">
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
  <span class="menu-text">Parte II — Dados e indicadores temáticos</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+          </a>
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-2/05-temperatura-condicoes-termicas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Temperatura e condições térmicas</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-2/06-precipitacao-secas-eventos-hidrologicos.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Precipitação, secas e eventos hidrológicos</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-2/07-qualidade-ar-queimadas-fumaca.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Qualidade do ar, queimadas e fumaça</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-2/08-agua-saneamento-qualidade-ambiental.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Água, saneamento e qualidade ambiental</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-2/09-uso-cobertura-terra-ambiente-urbano.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Uso e cobertura da terra, vegetação e ambiente urbano</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-2/10-eventos-severos-desastres.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Eventos meteorológicos severos e desastres</span></span></a>
   </div>
@@ -415,28 +467,28 @@ ul.task-list li input[type="checkbox"] {
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
+      <div class="sidebar-item-container">
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
  <span class="menu-text">Parte III — Indicadores integrados de clima, ambiente e saúde</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+          </a>
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-3/11-exposicao-vulnerabilidade.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Exposição e vulnerabilidade socioambiental</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-3/12-efeitos-saude.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Efeitos do clima e do ambiente sobre a saúde</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-3/13-resposta-adaptacao-resiliencia.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Capacidade de resposta, adaptação e resiliência</span></span></a>
   </div>
@@ -444,16 +496,16 @@ ul.task-list li input[type="checkbox"] {
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
+      <div class="sidebar-item-container">
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
  <span class="menu-text">Parte IV — Aplicação na vigilância e na gestão pública</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+          </a>
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-4/14-indicador-decisao.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Do indicador à decisão pública</span></span></a>
   </div>
@@ -461,93 +513,64 @@ ul.task-list li input[type="checkbox"] {
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
+      <div class="sidebar-item-container">
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
- <span class="menu-text">Fichas demonstrativas</span></a>
+ <span class="menu-text">Elementos pós-textuais</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+          </a>
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../indicators/pages/cli-tem-01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Temperatura máxima diária</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../indicators/pages/cli-cal-01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Ocorrência de onda de calor</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../indicators/pages/amb-ar-01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Concentração média diária de material particulado fino (PM2,5)</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
- <span class="menu-text">Elementos pós-textuais</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Alternar seção">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/glossario.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Glossário</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/referencias.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Referências</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/indice-indicadores.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Índice alfabético de indicadores</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/indice-fontes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Índice de fontes de dados</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/indice-instituicoes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Índice de instituições</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/apendice-metodologico.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Apêndice metodológico</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/lista-fichas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lista de fichas</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/lista-tabelas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lista de tabelas</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/lista-figuras.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lista de figuras</span></a>
   </div>
@@ -562,7 +585,7 @@ ul.task-list li input[type="checkbox"] {
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Índice</h2>
-   
+
   <ul>
   <li><a href="#ventos-fortes-tempestades-e-ciclones" id="toc-ventos-fortes-tempestades-e-ciclones" class="nav-link active" data-scroll-target="#ventos-fortes-tempestades-e-ciclones"><span class="header-section-number">10.1</span> Ventos fortes, tempestades e ciclones</a>
   <ul class="collapse">
@@ -571,18 +594,82 @@ ul.task-list li input[type="checkbox"] {
   </ul></li>
   <li><a href="#conceitos-de-desastre-e-risco" id="toc-conceitos-de-desastre-e-risco" class="nav-link" data-scroll-target="#conceitos-de-desastre-e-risco"><span class="header-section-number">10.2</span> Conceitos de desastre e risco</a>
   <ul class="collapse">
-  <li><a href="#ameaça" id="toc-ameaça" class="nav-link" data-scroll-target="#ameaça"><span class="header-section-number">10.2.1</span> Ameaça</a></li>
+  <li><a href="#perigo" id="toc-perigo" class="nav-link" data-scroll-target="#perigo"><span class="header-section-number">10.2.1</span> Perigo</a></li>
   <li><a href="#exposição" id="toc-exposição" class="nav-link" data-scroll-target="#exposição"><span class="header-section-number">10.2.2</span> Exposição</a></li>
   <li><a href="#vulnerabilidade" id="toc-vulnerabilidade" class="nav-link" data-scroll-target="#vulnerabilidade"><span class="header-section-number">10.2.3</span> Vulnerabilidade</a></li>
-  <li><a href="#risco" id="toc-risco" class="nav-link" data-scroll-target="#risco"><span class="header-section-number">10.2.4</span> Risco</a></li>
+  <li><a href="#capacidade" id="toc-capacidade" class="nav-link" data-scroll-target="#capacidade"><span class="header-section-number">10.2.4</span> Capacidade</a></li>
+  <li><a href="#risco" id="toc-risco" class="nav-link" data-scroll-target="#risco"><span class="header-section-number">10.2.5</span> Risco</a></li>
   </ul></li>
   <li><a href="#danos-humanos-e-materiais" id="toc-danos-humanos-e-materiais" class="nav-link" data-scroll-target="#danos-humanos-e-materiais"><span class="header-section-number">10.3</span> Danos humanos e materiais</a></li>
-  <li><a href="#impactos-sobre-serviços" id="toc-impactos-sobre-serviços" class="nav-link" data-scroll-target="#impactos-sobre-serviços"><span class="header-section-number">10.4</span> Impactos sobre serviços</a></li>
+  <li><a href="#impactos-sobre-serviços-de-saúde" id="toc-impactos-sobre-serviços-de-saúde" class="nav-link" data-scroll-target="#impactos-sobre-serviços-de-saúde"><span class="header-section-number">10.4</span> Impactos sobre serviços de saúde</a></li>
   <li><a href="#deslocamentos-e-emergências-em-saúde-pública" id="toc-deslocamentos-e-emergências-em-saúde-pública" class="nav-link" data-scroll-target="#deslocamentos-e-emergências-em-saúde-pública"><span class="header-section-number">10.5</span> Deslocamentos e emergências em saúde pública</a></li>
   <li><a href="#recuperação" id="toc-recuperação" class="nav-link" data-scroll-target="#recuperação"><span class="header-section-number">10.6</span> Recuperação</a></li>
-  <li><a href="#fontes-de-dados" id="toc-fontes-de-dados" class="nav-link" data-scroll-target="#fontes-de-dados"><span class="header-section-number">10.7</span> Fontes de dados</a></li>
-  <li><a href="#indicadores" id="toc-indicadores" class="nav-link" data-scroll-target="#indicadores"><span class="header-section-number">10.8</span> Indicadores</a></li>
-  <li><a href="#aplicação-na-gestão" id="toc-aplicação-na-gestão" class="nav-link" data-scroll-target="#aplicação-na-gestão"><span class="header-section-number">10.9</span> Aplicação na gestão</a></li>
+  <li><a href="#impactos-sobre-a-saúde-humana" id="toc-impactos-sobre-a-saúde-humana" class="nav-link" data-scroll-target="#impactos-sobre-a-saúde-humana"><span class="header-section-number">10.7</span> Impactos sobre a saúde humana</a></li>
+  <li><a href="#impactos-sobre-a-saúde-pública" id="toc-impactos-sobre-a-saúde-pública" class="nav-link" data-scroll-target="#impactos-sobre-a-saúde-pública"><span class="header-section-number">10.8</span> Impactos sobre a saúde pública</a></li>
+  <li><a href="#fontes-de-dados" id="toc-fontes-de-dados" class="nav-link" data-scroll-target="#fontes-de-dados"><span class="header-section-number">10.9</span> Fontes de dados</a></li>
+  <li><a href="#principais-indicadores-usados-em-saúde-pública" id="toc-principais-indicadores-usados-em-saúde-pública" class="nav-link" data-scroll-target="#principais-indicadores-usados-em-saúde-pública"><span class="header-section-number">10.10</span> Principais indicadores usados em saúde pública</a></li>
+  <li><a href="#sec-des-hum-01" id="toc-sec-des-hum-01" class="nav-link" data-scroll-target="#sec-des-hum-01"><span class="header-section-number">10.11</span> Ficha do indicador: Número de mortes e pessoas desaparecidas atribuídas a desastres por 100 mil habitantes (ODS 1.5.1/11.5.1/13.1.1)</a>
+  <ul class="collapse">
+  <li><a href="#identificação-e-fundamento" id="toc-identificação-e-fundamento" class="nav-link" data-scroll-target="#identificação-e-fundamento"><span class="header-section-number">10.11.1</span> Identificação e fundamento</a></li>
+  <li><a href="#conceito" id="toc-conceito" class="nav-link" data-scroll-target="#conceito"><span class="header-section-number">10.11.2</span> Conceito</a></li>
+  <li><a href="#objetivo" id="toc-objetivo" class="nav-link" data-scroll-target="#objetivo"><span class="header-section-number">10.11.3</span> Objetivo</a></li>
+  <li><a href="#interpretação" id="toc-interpretação" class="nav-link" data-scroll-target="#interpretação"><span class="header-section-number">10.11.4</span> Interpretação</a></li>
+  <li><a href="#usos" id="toc-usos" class="nav-link" data-scroll-target="#usos"><span class="header-section-number">10.11.5</span> Usos</a></li>
+  <li><a href="#limitações" id="toc-limitações" class="nav-link" data-scroll-target="#limitações"><span class="header-section-number">10.11.6</span> Limitações</a></li>
+  <li><a href="#fontes-de-dados-1" id="toc-fontes-de-dados-1" class="nav-link" data-scroll-target="#fontes-de-dados-1"><span class="header-section-number">10.11.7</span> Fontes de dados</a></li>
+  <li><a href="#método-de-cálculo" id="toc-método-de-cálculo" class="nav-link" data-scroll-target="#método-de-cálculo"><span class="header-section-number">10.11.8</span> Método de cálculo</a></li>
+  <li><a href="#campos-complementares-para-clima-ambiente-e-saúde" id="toc-campos-complementares-para-clima-ambiente-e-saúde" class="nav-link" data-scroll-target="#campos-complementares-para-clima-ambiente-e-saúde"><span class="header-section-number">10.11.9</span> Campos complementares para clima, ambiente e saúde</a></li>
+  <li><a href="#disponibilidade-e-acesso" id="toc-disponibilidade-e-acesso" class="nav-link" data-scroll-target="#disponibilidade-e-acesso"><span class="header-section-number">10.11.10</span> Disponibilidade e acesso</a></li>
+  <li><a href="#qualidade-comparação-e-saúde" id="toc-qualidade-comparação-e-saúde" class="nav-link" data-scroll-target="#qualidade-comparação-e-saúde"><span class="header-section-number">10.11.11</span> Qualidade, comparação e saúde</a></li>
+  <li><a href="#referências-metodológicas" id="toc-referências-metodológicas" class="nav-link" data-scroll-target="#referências-metodológicas"><span class="header-section-number">10.11.12</span> Referências metodológicas</a></li>
+  </ul></li>
+  <li><a href="#sec-des-hum-02" id="toc-sec-des-hum-02" class="nav-link" data-scroll-target="#sec-des-hum-02"><span class="header-section-number">10.12</span> Ficha do indicador: Número de pessoas diretamente afetadas por desastres por 100 mil habitantes (ODS 1.5.1/11.5.1/13.1.1)</a>
+  <ul class="collapse">
+  <li><a href="#identificação-e-fundamento-1" id="toc-identificação-e-fundamento-1" class="nav-link" data-scroll-target="#identificação-e-fundamento-1"><span class="header-section-number">10.12.1</span> Identificação e fundamento</a></li>
+  <li><a href="#conceito-1" id="toc-conceito-1" class="nav-link" data-scroll-target="#conceito-1"><span class="header-section-number">10.12.2</span> Conceito</a></li>
+  <li><a href="#objetivo-1" id="toc-objetivo-1" class="nav-link" data-scroll-target="#objetivo-1"><span class="header-section-number">10.12.3</span> Objetivo</a></li>
+  <li><a href="#interpretação-1" id="toc-interpretação-1" class="nav-link" data-scroll-target="#interpretação-1"><span class="header-section-number">10.12.4</span> Interpretação</a></li>
+  <li><a href="#usos-1" id="toc-usos-1" class="nav-link" data-scroll-target="#usos-1"><span class="header-section-number">10.12.5</span> Usos</a></li>
+  <li><a href="#limitações-1" id="toc-limitações-1" class="nav-link" data-scroll-target="#limitações-1"><span class="header-section-number">10.12.6</span> Limitações</a></li>
+  <li><a href="#fontes-de-dados-2" id="toc-fontes-de-dados-2" class="nav-link" data-scroll-target="#fontes-de-dados-2"><span class="header-section-number">10.12.7</span> Fontes de dados</a></li>
+  <li><a href="#método-de-cálculo-1" id="toc-método-de-cálculo-1" class="nav-link" data-scroll-target="#método-de-cálculo-1"><span class="header-section-number">10.12.8</span> Método de cálculo</a></li>
+  <li><a href="#campos-complementares-para-clima-ambiente-e-saúde-1" id="toc-campos-complementares-para-clima-ambiente-e-saúde-1" class="nav-link" data-scroll-target="#campos-complementares-para-clima-ambiente-e-saúde-1"><span class="header-section-number">10.12.9</span> Campos complementares para clima, ambiente e saúde</a></li>
+  <li><a href="#disponibilidade-e-acesso-1" id="toc-disponibilidade-e-acesso-1" class="nav-link" data-scroll-target="#disponibilidade-e-acesso-1"><span class="header-section-number">10.12.10</span> Disponibilidade e acesso</a></li>
+  <li><a href="#qualidade-comparação-e-saúde-1" id="toc-qualidade-comparação-e-saúde-1" class="nav-link" data-scroll-target="#qualidade-comparação-e-saúde-1"><span class="header-section-number">10.12.11</span> Qualidade, comparação e saúde</a></li>
+  <li><a href="#referências-metodológicas-1" id="toc-referências-metodológicas-1" class="nav-link" data-scroll-target="#referências-metodológicas-1"><span class="header-section-number">10.12.12</span> Referências metodológicas</a></li>
+  </ul></li>
+  <li><a href="#sec-des-sau-01" id="toc-sec-des-sau-01" class="nav-link" data-scroll-target="#sec-des-sau-01"><span class="header-section-number">10.13</span> Ficha do indicador: Número de estabelecimentos de saúde danificados ou destruídos por desastres (componente ODS 11.5.3a)</a>
+  <ul class="collapse">
+  <li><a href="#identificação-e-fundamento-2" id="toc-identificação-e-fundamento-2" class="nav-link" data-scroll-target="#identificação-e-fundamento-2"><span class="header-section-number">10.13.1</span> Identificação e fundamento</a></li>
+  <li><a href="#conceito-2" id="toc-conceito-2" class="nav-link" data-scroll-target="#conceito-2"><span class="header-section-number">10.13.2</span> Conceito</a></li>
+  <li><a href="#objetivo-2" id="toc-objetivo-2" class="nav-link" data-scroll-target="#objetivo-2"><span class="header-section-number">10.13.3</span> Objetivo</a></li>
+  <li><a href="#interpretação-2" id="toc-interpretação-2" class="nav-link" data-scroll-target="#interpretação-2"><span class="header-section-number">10.13.4</span> Interpretação</a></li>
+  <li><a href="#usos-2" id="toc-usos-2" class="nav-link" data-scroll-target="#usos-2"><span class="header-section-number">10.13.5</span> Usos</a></li>
+  <li><a href="#limitações-2" id="toc-limitações-2" class="nav-link" data-scroll-target="#limitações-2"><span class="header-section-number">10.13.6</span> Limitações</a></li>
+  <li><a href="#fontes-de-dados-3" id="toc-fontes-de-dados-3" class="nav-link" data-scroll-target="#fontes-de-dados-3"><span class="header-section-number">10.13.7</span> Fontes de dados</a></li>
+  <li><a href="#método-de-cálculo-2" id="toc-método-de-cálculo-2" class="nav-link" data-scroll-target="#método-de-cálculo-2"><span class="header-section-number">10.13.8</span> Método de cálculo</a></li>
+  <li><a href="#campos-complementares-para-clima-ambiente-e-saúde-2" id="toc-campos-complementares-para-clima-ambiente-e-saúde-2" class="nav-link" data-scroll-target="#campos-complementares-para-clima-ambiente-e-saúde-2"><span class="header-section-number">10.13.9</span> Campos complementares para clima, ambiente e saúde</a></li>
+  <li><a href="#disponibilidade-e-acesso-2" id="toc-disponibilidade-e-acesso-2" class="nav-link" data-scroll-target="#disponibilidade-e-acesso-2"><span class="header-section-number">10.13.10</span> Disponibilidade e acesso</a></li>
+  <li><a href="#qualidade-comparação-e-saúde-2" id="toc-qualidade-comparação-e-saúde-2" class="nav-link" data-scroll-target="#qualidade-comparação-e-saúde-2"><span class="header-section-number">10.13.11</span> Qualidade, comparação e saúde</a></li>
+  <li><a href="#referências-metodológicas-2" id="toc-referências-metodológicas-2" class="nav-link" data-scroll-target="#referências-metodológicas-2"><span class="header-section-number">10.13.12</span> Referências metodológicas</a></li>
+  </ul></li>
+  <li><a href="#sec-des-sau-02" id="toc-sec-des-sau-02" class="nav-link" data-scroll-target="#sec-des-sau-02"><span class="header-section-number">10.14</span> Ficha do indicador: Número de interrupções de serviços de saúde atribuídas a desastres (componente ODS 11.5.3b)</a>
+  <ul class="collapse">
+  <li><a href="#identificação-e-fundamento-3" id="toc-identificação-e-fundamento-3" class="nav-link" data-scroll-target="#identificação-e-fundamento-3"><span class="header-section-number">10.14.1</span> Identificação e fundamento</a></li>
+  <li><a href="#conceito-3" id="toc-conceito-3" class="nav-link" data-scroll-target="#conceito-3"><span class="header-section-number">10.14.2</span> Conceito</a></li>
+  <li><a href="#objetivo-3" id="toc-objetivo-3" class="nav-link" data-scroll-target="#objetivo-3"><span class="header-section-number">10.14.3</span> Objetivo</a></li>
+  <li><a href="#interpretação-3" id="toc-interpretação-3" class="nav-link" data-scroll-target="#interpretação-3"><span class="header-section-number">10.14.4</span> Interpretação</a></li>
+  <li><a href="#usos-3" id="toc-usos-3" class="nav-link" data-scroll-target="#usos-3"><span class="header-section-number">10.14.5</span> Usos</a></li>
+  <li><a href="#limitações-3" id="toc-limitações-3" class="nav-link" data-scroll-target="#limitações-3"><span class="header-section-number">10.14.6</span> Limitações</a></li>
+  <li><a href="#fontes-de-dados-4" id="toc-fontes-de-dados-4" class="nav-link" data-scroll-target="#fontes-de-dados-4"><span class="header-section-number">10.14.7</span> Fontes de dados</a></li>
+  <li><a href="#método-de-cálculo-3" id="toc-método-de-cálculo-3" class="nav-link" data-scroll-target="#método-de-cálculo-3"><span class="header-section-number">10.14.8</span> Método de cálculo</a></li>
+  <li><a href="#campos-complementares-para-clima-ambiente-e-saúde-3" id="toc-campos-complementares-para-clima-ambiente-e-saúde-3" class="nav-link" data-scroll-target="#campos-complementares-para-clima-ambiente-e-saúde-3"><span class="header-section-number">10.14.9</span> Campos complementares para clima, ambiente e saúde</a></li>
+  <li><a href="#disponibilidade-e-acesso-3" id="toc-disponibilidade-e-acesso-3" class="nav-link" data-scroll-target="#disponibilidade-e-acesso-3"><span class="header-section-number">10.14.10</span> Disponibilidade e acesso</a></li>
+  <li><a href="#qualidade-comparação-e-saúde-3" id="toc-qualidade-comparação-e-saúde-3" class="nav-link" data-scroll-target="#qualidade-comparação-e-saúde-3"><span class="header-section-number">10.14.11</span> Qualidade, comparação e saúde</a></li>
+  <li><a href="#referências-metodológicas-3" id="toc-referências-metodológicas-3" class="nav-link" data-scroll-target="#referências-metodológicas-3"><span class="header-section-number">10.14.12</span> Referências metodológicas</a></li>
+  </ul></li>
+  <li><a href="#aplicação-na-gestão" id="toc-aplicação-na-gestão" class="nav-link" data-scroll-target="#aplicação-na-gestão"><span class="header-section-number">10.15</span> Aplicação na gestão</a></li>
+  <li><a href="#síntese" id="toc-síntese" class="nav-link" data-scroll-target="#síntese"><span class="header-section-number">10.16</span> Síntese</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/rfsaldanha/dicas/blob/main/chapters/part-2/10-eventos-severos-desastres.qmd" class="toc-action"><i class="bi bi-github"></i>Ver o código fonte</a></li><li><a href="https://github.com/rfsaldanha/dicas/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></nav>
     </div>
@@ -599,68 +686,662 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="quarto-title-meta">
 
-    
-  
-    
+
+
+
   </div>
-  
+
 
 
 </header>
 
 
-<p>Este capítulo tratará do evento severo quando ele se converte em risco, registro administrativo, dano, resposta ou recuperação, preservando a diferença entre essas etapas.</p>
-<p>Chuvas, secas, inundações e deslizamentos como processos físicos são descritos no <a href="06-precipitacao-secas-eventos-hidrologicos.html" class="quarto-xref"><span>Capítulo 6</span></a>. Aqui entram registros de ocorrência, reconhecimento, pessoas afetadas, danos e continuidade dos serviços.</p>
+<p>Evento severo é uma ocorrência física. Desastre é perturbação grave do funcionamento de uma comunidade ou sociedade produzida pela interação entre evento perigoso e condições de exposição, vulnerabilidade e capacidade. A presença de tempestade, ciclone ou inundação não determina por si só um desastre; impactos dependem de onde e como o fenômeno encontra pessoas, infraestrutura e instituições.</p>
+<p>Este capítulo trata dos perigos de início rápido e dos registros de perdas, danos, interrupções, resposta e recuperação. Indicadores físicos de chuva, seca e calor são apresentados nos capítulos temáticos; aqui, o foco é efeito atribuído ao desastre e continuidade da saúde.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div id="fig-risco-desastre" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-risco-desastre-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-risco-desastre">flowchart LR
+  P[Perigo] --&gt; R[Risco]
+  E[Exposição] --&gt; R
+  V[Vulnerabilidade] --&gt; R
+  C[Capacidade] -. reduz .-&gt; R
+  R --&gt; D[Desastre e impactos]
+  D --&gt; X[Resposta e recuperação]
+  X -. modifica .-&gt; C
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-risco-desastre-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;10.1: Relação entre perigo, risco e desastre
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
 <section id="ventos-fortes-tempestades-e-ciclones" class="level2" data-number="10.1">
 <h2 data-number="10.1" class="anchored" data-anchor-id="ventos-fortes-tempestades-e-ciclones"><span class="header-section-number">10.1</span> Ventos fortes, tempestades e ciclones</h2>
+<p>Tempestades convectivas podem reunir chuva intensa, rajadas, descargas elétricas e granizo. Ciclones organizam vento, chuva, ondas e elevação do nível do mar em escalas maiores. Os perigos associados devem ser separados porque cada um exige medida, previsão e proteção próprias.</p>
+<p>Velocidade máxima do vento, rajada, precipitação, pressão e trajetória são variáveis meteorológicas. O dano depende de norma construtiva, vegetação, redes elétricas, objetos soltos, ocupação e alerta. Uma rajada em estação pode não representar o local atingido.</p>
 <section id="tornados-e-granizo" class="level3" data-number="10.1.1">
 <h3 data-number="10.1.1" class="anchored" data-anchor-id="tornados-e-granizo"><span class="header-section-number">10.1.1</span> Tornados e granizo</h3>
+<p>Tornado é coluna de ar em rotação associada a tempestade e em contato com a superfície. Registros são afetados pela densidade populacional, capacidade de observação e confirmação. Contagem de tornados sem ajuste pode refletir melhoria do registro.</p>
+<p>Granizo é precipitação sólida em pedras de gelo. Diâmetro, densidade, velocidade e duração influenciam dano. Relatos, radares e estações têm coberturas distintas.</p>
 </section>
 <section id="descargas-elétricas" class="level3" data-number="10.1.2">
 <h3 data-number="10.1.2" class="anchored" data-anchor-id="descargas-elétricas"><span class="header-section-number">10.1.2</span> Descargas elétricas</h3>
+<p>Descargas podem causar morte, queimaduras, alterações cardíacas e neurológicas e trauma secundário. Densidade de raios descreve perigo; taxa de mortes descreve efeito. Proximidade espacial ou temporal sem vinculação não prova atribuição.</p>
 </section>
 </section>
 <section id="conceitos-de-desastre-e-risco" class="level2" data-number="10.2">
 <h2 data-number="10.2" class="anchored" data-anchor-id="conceitos-de-desastre-e-risco"><span class="header-section-number">10.2</span> Conceitos de desastre e risco</h2>
-<section id="ameaça" class="level3" data-number="10.2.1">
-<h3 data-number="10.2.1" class="anchored" data-anchor-id="ameaça"><span class="header-section-number">10.2.1</span> Ameaça</h3>
+<section id="perigo" class="level3" data-number="10.2.1">
+<h3 data-number="10.2.1" class="anchored" data-anchor-id="perigo"><span class="header-section-number">10.2.1</span> Perigo</h3>
+<p>Perigo é processo, fenômeno ou atividade com potencial de causar dano. Pode ser caracterizado por intensidade, duração, frequência, extensão e probabilidade. Um mapa de perigo não deve ser rotulado como mapa de risco quando não inclui exposição e vulnerabilidade.</p>
 </section>
 <section id="exposição" class="level3" data-number="10.2.2">
 <h3 data-number="10.2.2" class="anchored" data-anchor-id="exposição"><span class="header-section-number">10.2.2</span> Exposição</h3>
+<p>Exposição é a presença de pessoas, moradias, infraestrutura, meios de vida e ativos em áreas sujeitas ao perigo. População residente é aproximação; turistas, trabalhadores, pessoas em trânsito, institucionalizadas ou sem domicílio podem ser omitidos.</p>
 </section>
 <section id="vulnerabilidade" class="level3" data-number="10.2.3">
 <h3 data-number="10.2.3" class="anchored" data-anchor-id="vulnerabilidade"><span class="header-section-number">10.2.3</span> Vulnerabilidade</h3>
+<p>Vulnerabilidade abrange condições físicas, sociais, econômicas, ambientais e institucionais que aumentam susceptibilidade. Não é atributo natural de grupos. Moradia insegura, racismo ambiental, exclusão, barreiras de mobilidade e acesso precário a serviços são processos modificáveis.</p>
 </section>
-<section id="risco" class="level3" data-number="10.2.4">
-<h3 data-number="10.2.4" class="anchored" data-anchor-id="risco"><span class="header-section-number">10.2.4</span> Risco</h3>
+<section id="capacidade" class="level3" data-number="10.2.4">
+<h3 data-number="10.2.4" class="anchored" data-anchor-id="capacidade"><span class="header-section-number">10.2.4</span> Capacidade</h3>
+<p>Capacidade inclui conhecimento, recursos, redes, infraestrutura e instituições para prevenir, preparar, responder e recuperar. Contar equipamentos não mede funcionamento. Disponibilidade, acesso, pessoal, energia, manutenção e coordenação importam.</p>
+</section>
+<section id="risco" class="level3" data-number="10.2.5">
+<h3 data-number="10.2.5" class="anchored" data-anchor-id="risco"><span class="header-section-number">10.2.5</span> Risco</h3>
+<p>Risco não é simples soma de perigo, exposição e vulnerabilidade. Modelos multiplicativos ou escores podem ser úteis, mas suas escalas e compensações precisam ser justificadas. Um risco alto pode resultar de combinações diferentes e exigir ações diferentes.</p>
 </section>
 </section>
 <section id="danos-humanos-e-materiais" class="level2" data-number="10.3">
 <h2 data-number="10.3" class="anchored" data-anchor-id="danos-humanos-e-materiais"><span class="header-section-number">10.3</span> Danos humanos e materiais</h2>
+<p>Danos humanos incluem mortes, desaparecidos, feridos ou enfermos e pessoas diretamente afetadas. O indicador ODS 11.5.1 reúne séries harmonizadas por 100 mil habitantes <span class="citation" data-cites="un2024disasters">(<a href="../../backmatter/referencias.html#ref-un2024disasters" role="doc-biblioref">United Nations Statistics Division, 2024a</a>)</span>. Os componentes devem permanecer visíveis.</p>
+<p>“Pessoa afetada” pode ser usado coloquialmente de modo amplo, mas o metadado define diretamente afetados por categorias: feridos ou enfermos, pessoas em moradias danificadas ou destruídas e pessoas com meios de vida interrompidos ou destruídos. Estimativas baseadas em moradias precisam declarar coeficiente de ocupação e dupla contagem.</p>
+<p>Taxas facilitam comparação, mas eventos raros geram instabilidade em municípios pequenos. Sempre apresente contagem, taxa, população e período.</p>
+<p>Dano material inclui moradias, escolas, saúde, água, energia, transporte e comunicação. Valor econômico é importante, mas não representa sozinho gravidade sanitária: perda de uma pequena unidade em área remota pode interromper o único serviço disponível.</p>
 </section>
-<section id="impactos-sobre-serviços" class="level2" data-number="10.4">
-<h2 data-number="10.4" class="anchored" data-anchor-id="impactos-sobre-serviços"><span class="header-section-number">10.4</span> Impactos sobre serviços</h2>
+<section id="impactos-sobre-serviços-de-saúde" class="level2" data-number="10.4">
+<h2 data-number="10.4" class="anchored" data-anchor-id="impactos-sobre-serviços-de-saúde"><span class="header-section-number">10.4</span> Impactos sobre serviços de saúde</h2>
+<p>O ODS 11.5.3 mede dano a infraestrutura crítica e interrupções de serviços básicos, incluindo estabelecimentos e serviços de saúde <span class="citation" data-cites="un2024infrastructure">(<a href="../../backmatter/referencias.html#ref-un2024infrastructure" role="doc-biblioref">United Nations Statistics Division, 2024b</a>)</span>. Dano físico e disrupção funcional são distintos.</p>
+<p>Uma unidade pode permanecer intacta e parar por falta de:</p>
+<ul>
+<li>eletricidade ou combustível;</li>
+<li>água, esgoto ou resíduos;</li>
+<li>comunicação;</li>
+<li>acesso viário;</li>
+<li>profissionais;</li>
+<li>medicamentos, sangue, oxigênio ou cadeia fria;</li>
+<li>encaminhamento e transporte.</li>
+</ul>
+<p>Também pode operar parcialmente, com maior demanda e menor capacidade. O registro deve incluir início, duração, serviços afetados, população sem acesso, alternativa implantada e data de restauração.</p>
+<p>A OMS destaca que continuidade da infraestrutura de saúde em emergências é condição de vida ou morte e integra a meta D do Marco de Sendai <span class="citation" data-cites="who2024resilienceindicators">(<a href="../../backmatter/referencias.html#ref-who2024resilienceindicators" role="doc-biblioref">World Health Organization, 2024</a>)</span>.</p>
 </section>
 <section id="deslocamentos-e-emergências-em-saúde-pública" class="level2" data-number="10.5">
 <h2 data-number="10.5" class="anchored" data-anchor-id="deslocamentos-e-emergências-em-saúde-pública"><span class="header-section-number">10.5</span> Deslocamentos e emergências em saúde pública</h2>
+<p>Deslocamento pode ser preventivo, temporário ou prolongado. Abrigos e acolhimento requerem água, saneamento, ventilação, privacidade, segurança, acessibilidade, medicamentos e vigilância.</p>
+<p>Desastres podem alterar risco de infecção por interrupção de água e vacinação, aglomeração, vetores e deslocamento. Também agravam doenças crônicas quando tratamento, dieta ou medicamento são interrompidos.</p>
+<p>Saúde mental pode ser afetada por ameaça, perda, luto, deslocamento, violência e incerteza. Monitoramento deve evitar patologizar reações esperadas e garantir cuidado proporcional e longitudinal.</p>
+<p>Emergência em saúde pública é avaliação institucional que considera magnitude, transcendência, risco de propagação e necessidade de coordenação. Nem todo desastre recebe essa classificação, e classificá-lo não substitui medir efeitos.</p>
 </section>
 <section id="recuperação" class="level2" data-number="10.6">
 <h2 data-number="10.6" class="anchored" data-anchor-id="recuperação"><span class="header-section-number">10.6</span> Recuperação</h2>
+<p>Recuperação não termina quando a água baixa ou o alerta é encerrado. Inclui restauração de serviços, reconstrução segura, reabilitação, saúde mental, vigilância de agravos, moradia e meios de vida.</p>
+<p>Indicadores de recuperação podem acompanhar:</p>
+<ul>
+<li>percentual de serviços essenciais restabelecidos;</li>
+<li>tempo para retorno de cada serviço;</li>
+<li>estabelecimentos reconstruídos com redução de risco;</li>
+<li>continuidade de cuidado de pessoas deslocadas;</li>
+<li>execução de ações do plano;</li>
+<li>participação das comunidades;</li>
+<li>persistência de desfechos e desigualdades.</li>
+</ul>
+<p>“Voltar ao normal” pode restaurar o risco anterior. Reconstrução deve reduzir exposição e vulnerabilidades, sem deslocar populações para condições piores.</p>
 </section>
-<section id="fontes-de-dados" class="level2" data-number="10.7">
-<h2 data-number="10.7" class="anchored" data-anchor-id="fontes-de-dados"><span class="header-section-number">10.7</span> Fontes de dados</h2>
+<section id="impactos-sobre-a-saúde-humana" class="level2" data-number="10.7">
+<h2 data-number="10.7" class="anchored" data-anchor-id="impactos-sobre-a-saúde-humana"><span class="header-section-number">10.7</span> Impactos sobre a saúde humana</h2>
+<p>Efeitos imediatos incluem morte, afogamento, trauma, queimadura, choque elétrico, intoxicação e exacerbação aguda. Nas semanas seguintes, podem aparecer infecções, descompensação de doenças crônicas, sofrimento psíquico, violência e acidentes de limpeza.</p>
+<p>Atribuição requer critério. Óbito durante um desastre pode ter causa independente; óbito posterior pode ser consequência indireta. Sistemas devem preservar causa básica, circunstâncias, vínculo com evento e incerteza.</p>
 </section>
-<section id="indicadores" class="level2" data-number="10.8">
-<h2 data-number="10.8" class="anchored" data-anchor-id="indicadores"><span class="header-section-number">10.8</span> Indicadores</h2>
-<p><strong>Indicadores previstos:</strong> ocorrência registrada; população afetada, desalojada ou desabrigada; óbitos e feridos; danos a estabelecimentos de saúde; interrupção de serviços; reconhecimento administrativo; tempo de resposta; tempo de recuperação.</p>
+<section id="impactos-sobre-a-saúde-pública" class="level2" data-number="10.8">
+<h2 data-number="10.8" class="anchored" data-anchor-id="impactos-sobre-a-saúde-pública"><span class="header-section-number">10.8</span> Impactos sobre a saúde pública</h2>
+<p>A vigilância precisa funcionar sob condições adversas e produzir informação oportuna. Síndromes, atendimentos, óbitos, água, abrigos e serviços devem ser monitorados sem abandonar qualidade e proteção.</p>
+<p>Resposta eficiente integra:</p>
+<ol type="1">
+<li>alerta e avaliação rápida;</li>
+<li>comando e coordenação;</li>
+<li>busca, resgate e atendimento;</li>
+<li>continuidade de serviços essenciais;</li>
+<li>vigilância e laboratório;</li>
+<li>comunicação de risco;</li>
+<li>logística e proteção de trabalhadores;</li>
+<li>recuperação e avaliação pós-ação.</li>
+</ol>
+<p>Dados preliminares são úteis, mas sujeitos a revisão. Versões precisam ser datadas para que decisões e avaliações possam ser reconstruídas.</p>
 </section>
-<section id="aplicação-na-gestão" class="level2" data-number="10.9">
-<h2 data-number="10.9" class="anchored" data-anchor-id="aplicação-na-gestão"><span class="header-section-number">10.9</span> Aplicação na gestão</h2>
-<div class="todo">
-<p>TODO: distinguir evento físico, registro administrativo, reconhecimento e impacto; incorporar sub-registro e mudanças de procedimento.</p>
+<section id="fontes-de-dados" class="level2" data-number="10.9">
+<h2 data-number="10.9" class="anchored" data-anchor-id="fontes-de-dados"><span class="header-section-number">10.9</span> Fontes de dados</h2>
+<p>O <a href="../../backmatter/indice-fontes.html#s2id">S2ID</a> reúne registros brasileiros de desastre, reconhecimento, danos e perdas. O <a href="../../backmatter/indice-fontes.html#datasus">DATASUS</a> permite verificar óbitos, agravos, produção e estabelecimentos, mas o vínculo a evento não deve ser presumido. O <a href="../../backmatter/indice-fontes.html#ibge">IBGE</a> fornece população e cartografia.</p>
+<p>Dados de alertas, perigos e estações vêm de fontes meteorológicas e do CEMADEN. Um alerta é produto prospectivo; um registro S2ID é administrativo; um óbito SIM é registro de saúde. Integração exige chaves, tempo, espaço e regras de atribuição.</p>
+</section>
+<section id="principais-indicadores-usados-em-saúde-pública" class="level2" data-number="10.10">
+<h2 data-number="10.10" class="anchored" data-anchor-id="principais-indicadores-usados-em-saúde-pública"><span class="header-section-number">10.10</span> Principais indicadores usados em saúde pública</h2>
+<p>Indicadores consolidados de desastre priorizam efeitos humanos, infraestrutura crítica e continuidade de serviços. Mortes, desaparecidos e diretamente afetados por 100 mil integram ODS e Sendai. Para saúde, estabelecimentos danificados e interrupções de serviços captam a capacidade de atender durante o choque.</p>
+<div id="tbl-indicadores-desastre" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-indicadores-desastre-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;10.1: Indicadores de desastre usados em saúde pública
+</figcaption>
+<div aria-describedby="tbl-indicadores-desastre-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Indicador</th>
+<th>Base metodológica</th>
+<th>Uso em saúde pública</th>
+<th>Cuidado de interpretação</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Mortes e desaparecidos por 100 mil</td>
+<td>ODS 1.5.1/11.5.1/13.1.1</td>
+<td>impacto humano e redução de risco</td>
+<td>apresentar componentes e revisões</td>
+</tr>
+<tr class="even">
+<td>Diretamente afetados por 100 mil</td>
+<td>ODS/Sendai</td>
+<td>alcance populacional e necessidades</td>
+<td>tratar sobreposição de categorias</td>
+</tr>
+<tr class="odd">
+<td>Feridos ou enfermos atribuídos</td>
+<td>componente Sendai</td>
+<td>demanda assistencial</td>
+<td>depende da atribuição ao evento</td>
+</tr>
+<tr class="even">
+<td>Moradias danificadas/destruídas e ocupantes</td>
+<td>componente Sendai</td>
+<td>deslocamento e continuidade</td>
+<td>ocupantes podem ser estimados</td>
+</tr>
+<tr class="odd">
+<td>Estabelecimentos de saúde danificados/destruídos</td>
+<td>ODS 11.5.3a</td>
+<td>infraestrutura crítica</td>
+<td>contagem não pondera porte</td>
+</tr>
+<tr class="even">
+<td>Interrupções de serviços de saúde</td>
+<td>ODS 11.5.3b</td>
+<td>continuidade assistencial</td>
+<td>registrar duração e serviço</td>
+</tr>
+<tr class="odd">
+<td>Tempo de restauração</td>
+<td>gestão de continuidade e resiliência</td>
+<td>recuperação</td>
+<td>exige início e critério de retorno</td>
+</tr>
+</tbody>
+</table>
 </div>
+</figure>
+</div>
+</section>
+<section id="sec-des-hum-01" class="level2" data-number="10.11">
+<h2 data-number="10.11" class="anchored" data-anchor-id="sec-des-hum-01"><span class="header-section-number">10.11</span> Ficha do indicador: Número de mortes e pessoas desaparecidas atribuídas a desastres por 100 mil habitantes (ODS 1.5.1/11.5.1/13.1.1)</h2>
+<div class="indicator-card">
+<p><strong>Código:</strong> DES-HUM-01<br>
+<strong>Título resumido:</strong> Mortes e desaparecidos por desastres<br>
+<strong>Tema:</strong> Eventos meteorológicos severos e desastres<br>
+<strong>Dimensão:</strong> efeito; resposta; exposição<br>
+<strong>Disponibilidade:</strong> <span class="availability">disponível em registros de desastre</span> <span class="availability">sujeito a revisão</span></p>
+</div>
+<section id="identificação-e-fundamento" class="level3" data-number="10.11.1">
+<h3 data-number="10.11.1" class="anchored" data-anchor-id="identificação-e-fundamento"><span class="header-section-number">10.11.1</span> Identificação e fundamento</h3>
+<p><strong>Indicador consolidado em.</strong> Série harmonizada dos indicadores ODS 1.5.1, 11.5.1 e 13.1.1, sob custódia do UNDRR.</p>
+</section>
+<section id="conceito" class="level3" data-number="10.11.2">
+<h3 data-number="10.11.2" class="anchored" data-anchor-id="conceito"><span class="header-section-number">10.11.2</span> Conceito</h3>
+<p>Soma de pessoas mortas e desaparecidas cuja ocorrência é atribuída a desastres, dividida pela população e multiplicada por 100 mil.</p>
+</section>
+<section id="objetivo" class="level3" data-number="10.11.3">
+<h3 data-number="10.11.3" class="anchored" data-anchor-id="objetivo"><span class="header-section-number">10.11.3</span> Objetivo</h3>
+<p>Monitorar a mortalidade e desaparecimento associados a desastres em escala comparável.</p>
+</section>
+<section id="interpretação" class="level3" data-number="10.11.4">
+<h3 data-number="10.11.4" class="anchored" data-anchor-id="interpretação"><span class="header-section-number">10.11.4</span> Interpretação</h3>
+<p>Valor maior indica maior impacto humano relativo à população. Mortes e desaparecimentos devem também ser apresentados separadamente e por tipo de perigo.</p>
+</section>
+<section id="usos" class="level3" data-number="10.11.5">
+<h3 data-number="10.11.5" class="anchored" data-anchor-id="usos"><span class="header-section-number">10.11.5</span> Usos</h3>
+<ul>
+<li>Monitorar ODS e Marco de Sendai.</li>
+<li>Comparar períodos e territórios.</li>
+<li>Avaliar políticas de redução de risco.</li>
+</ul>
+</section>
+<section id="limitações" class="level3" data-number="10.11.6">
+<h3 data-number="10.11.6" class="anchored" data-anchor-id="limitações"><span class="header-section-number">10.11.6</span> Limitações</h3>
+<ul>
+<li>Atribuição e janela temporal variam.</li>
+<li>Desaparecido não é óbito confirmado.</li>
+<li>Eventos raros produzem taxas instáveis em populações pequenas.</li>
+<li>Sub-registro e revisão pós-evento alteram totais.</li>
+</ul>
+</section>
+<section id="fontes-de-dados-1" class="level3" data-number="10.11.7">
+<h3 data-number="10.11.7" class="anchored" data-anchor-id="fontes-de-dados-1"><span class="header-section-number">10.11.7</span> Fontes de dados</h3>
+<ul>
+<li>Sistema Integrado de Informações sobre Desastres — registros brasileiros de desastre e danos humanos (<a href="../../backmatter/indice-fontes.html#s2id">cadastro</a>)</li>
+<li>Departamento de Informática do Sistema Único de Saúde — verificação complementar de óbitos e causas, sem substituição automática (<a href="../../backmatter/indice-fontes.html#datasus">cadastro</a>)</li>
+<li>Instituto Brasileiro de Geografia e Estatística — população denominadora (<a href="../../backmatter/indice-fontes.html#ibge">cadastro</a>)</li>
+</ul>
+</section>
+<section id="método-de-cálculo" class="level3" data-number="10.11.8">
+<h3 data-number="10.11.8" class="anchored" data-anchor-id="método-de-cálculo"><span class="header-section-number">10.11.8</span> Método de cálculo</h3>
+<p>Consolidar mortes e desaparecidos atribuídos a eventos conforme definições Sendai, deduplicar pessoas e eventos, somar no período e dividir pela população média ou de referência.</p>
+<p><span class="math display">\[
+T_{MM}=100000\times\frac{N_{mortos}+N_{desaparecidos}}{Pop_{referência}}
+\]</span></p>
+<div class="indicator-card">
+<p><strong>Numerador.</strong> Número de mortes mais pessoas desaparecidas atribuídas a desastres, sem duplicidade.</p>
+<p><strong>Denominador.</strong> População do território no período.</p>
+<p><strong>Unidade de medida.</strong> Pessoas por 100 mil habitantes.</p>
+<p><strong>Variáveis e categorias de análise.</strong> Morto; desaparecido; perigo; desastre; sexo; idade; deficiência; município; data.</p>
+<p><strong>Granularidade.</strong> Pessoa/evento no registro e território/período na taxa.</p>
+<p><strong>Periodicidade de atualização.</strong> Por evento e consolidação anual, com revisões.</p>
+<p><strong>Responsabilidade gerencial.</strong> Proteção e defesa civil consolida perdas e danos; saúde verifica óbitos, agravos e serviços; estatística fornece denominadores.</p>
+<p><strong>Notas.</strong> As fichas seguem indicadores Sendai/ODS. Contagens nacionais devem observar os procedimentos oficiais de validação e evitar dupla contagem.</p>
+<p><strong>Análise descritiva do indicador.</strong> Mostrar contagens e taxas, perigo, território, perfil das vítimas, incerteza e evolução de registros.</p>
+</div>
+</section>
+<section id="campos-complementares-para-clima-ambiente-e-saúde" class="level3" data-number="10.11.9">
+<h3 data-number="10.11.9" class="anchored" data-anchor-id="campos-complementares-para-clima-ambiente-e-saúde"><span class="header-section-number">10.11.9</span> Campos complementares para clima, ambiente e saúde</h3>
+<div class="indicator-card">
+<p><strong>Unidade territorial.</strong> Município, estado, país ou agregação.</p>
+<p><strong>Resolução espacial original.</strong> Local do evento e residência quando disponíveis.</p>
+<p><strong>Resolução temporal.</strong> Evento; resumo anual ou plurianual.</p>
+<p><strong>Período de referência.</strong> Ano ou período, com população compatível.</p>
+<p><strong>Limiar ou valor de referência.</strong> Não se aplica; objetivo é redução.</p>
+</div>
+</section>
+<section id="disponibilidade-e-acesso" class="level3" data-number="10.11.10">
+<h3 data-number="10.11.10" class="anchored" data-anchor-id="disponibilidade-e-acesso"><span class="header-section-number">10.11.10</span> Disponibilidade e acesso</h3>
+<p><strong>Cobertura geográfica.</strong> Brasil no S2ID; comparabilidade internacional conforme UNDRR.</p>
+<p><strong>Período disponível.</strong> Conforme registros e consolidação nacional.</p>
+<p><strong>Periodicidade de atualização.</strong> Por evento e consolidação anual, com revisões.</p>
+<p><strong>Forma de acesso.</strong> S2ID, relatórios nacionais e sistema ODS.</p>
+<p><strong>URL ou identificador persistente.</strong> https://unstats.un.org/sdgs/metadata/files/Metadata-01-05-01.pdf</p>
+<p><strong>Formato dos arquivos.</strong> Registros administrativos e tabelas.</p>
+<p><strong>Necessidade de processamento.</strong> Vincular evento, deduplicar, verificar status, harmonizar população e calcular taxa.</p>
+</section>
+<section id="qualidade-comparação-e-saúde" class="level3" data-number="10.11.11">
+<h3 data-number="10.11.11" class="anchored" data-anchor-id="qualidade-comparação-e-saúde"><span class="header-section-number">10.11.11</span> Qualidade, comparação e saúde</h3>
+<p><strong>Qualidade e incerteza.</strong> Relatar definição, desastre, local, período, fonte, verificação, revisões, duplicidades, sub-registro e denominador.</p>
+<p><strong>Possibilidade de comparação.</strong> Manter taxonomia, componente, regra de atribuição, período, população e versão do registro; totais preliminares e consolidados devem ser distinguidos.</p>
+<p><strong>Relação com desfechos de saúde.</strong> Mortes, pessoas afetadas e interrupção de serviços expressam efeitos diretos e condições que ampliam riscos sanitários durante e após desastres.</p>
+<p><strong>Defasagens temporais relevantes.</strong> Registrar data do evento e do efeito; mortes, doenças e interrupções podem ocorrer durante ou depois e exigir janela de atribuição.</p>
+<p><strong>Aplicação na gestão.</strong> Quantificar impactos, organizar resposta, direcionar recursos, monitorar redução de risco e avaliar recuperação.</p>
+</section>
+<section id="referências-metodológicas" class="level3" data-number="10.11.12">
+<h3 data-number="10.11.12" class="anchored" data-anchor-id="referências-metodológicas"><span class="header-section-number">10.11.12</span> Referências metodológicas</h3>
+<ul>
+<li><span class="citation" data-cites="un2024disasters">(<a href="../../backmatter/referencias.html#ref-un2024disasters" role="doc-biblioref">United Nations Statistics Division, 2024a</a>)</span></li>
+<li><span class="citation" data-cites="who2021edrmresearch">(<a href="../../backmatter/referencias.html#ref-who2021edrmresearch" role="doc-biblioref">World Health Organization, 2021</a>)</span></li>
+</ul>
+</section>
+</section>
+<section id="sec-des-hum-02" class="level2" data-number="10.12">
+<h2 data-number="10.12" class="anchored" data-anchor-id="sec-des-hum-02"><span class="header-section-number">10.12</span> Ficha do indicador: Número de pessoas diretamente afetadas por desastres por 100 mil habitantes (ODS 1.5.1/11.5.1/13.1.1)</h2>
+<div class="indicator-card">
+<p><strong>Código:</strong> DES-HUM-02<br>
+<strong>Título resumido:</strong> Pessoas diretamente afetadas por desastres<br>
+<strong>Tema:</strong> Eventos meteorológicos severos e desastres<br>
+<strong>Dimensão:</strong> efeito; resposta; exposição<br>
+<strong>Disponibilidade:</strong> <span class="availability">disponível em registros de desastre</span> <span class="availability">sujeito a revisão</span></p>
+</div>
+<section id="identificação-e-fundamento-1" class="level3" data-number="10.12.1">
+<h3 data-number="10.12.1" class="anchored" data-anchor-id="identificação-e-fundamento-1"><span class="header-section-number">10.12.1</span> Identificação e fundamento</h3>
+<p><strong>Indicador consolidado em.</strong> Componente de pessoas diretamente afetadas dos indicadores ODS 1.5.1, 11.5.1 e 13.1.1 e do Marco de Sendai.</p>
+</section>
+<section id="conceito-1" class="level3" data-number="10.12.2">
+<h3 data-number="10.12.2" class="anchored" data-anchor-id="conceito-1"><span class="header-section-number">10.12.2</span> Conceito</h3>
+<p>Número de pessoas feridas ou enfermas, com moradia danificada ou destruída ou meios de vida interrompidos ou destruídos, atribuídos a desastres, por 100 mil habitantes.</p>
+</section>
+<section id="objetivo-1" class="level3" data-number="10.12.3">
+<h3 data-number="10.12.3" class="anchored" data-anchor-id="objetivo-1"><span class="header-section-number">10.12.3</span> Objetivo</h3>
+<p>Medir a extensão populacional direta dos impactos além de mortes e desaparecimentos.</p>
+</section>
+<section id="interpretação-1" class="level3" data-number="10.12.4">
+<h3 data-number="10.12.4" class="anchored" data-anchor-id="interpretação-1"><span class="header-section-number">10.12.4</span> Interpretação</h3>
+<p>Valor maior indica maior alcance direto relativo. Os componentes devem ser preservados porque representam necessidades diferentes.</p>
+</section>
+<section id="usos-1" class="level3" data-number="10.12.5">
+<h3 data-number="10.12.5" class="anchored" data-anchor-id="usos-1"><span class="header-section-number">10.12.5</span> Usos</h3>
+<ul>
+<li>Dimensionar resposta e assistência.</li>
+<li>Monitorar ODS/Sendai.</li>
+<li>Avaliar desigualdades e recuperação.</li>
+</ul>
+</section>
+<section id="limitações-1" class="level3" data-number="10.12.6">
+<h3 data-number="10.12.6" class="anchored" data-anchor-id="limitações-1"><span class="header-section-number">10.12.6</span> Limitações</h3>
+<ul>
+<li>Categorias podem se sobrepor.</li>
+<li>“Afetado” deve seguir definição de diretamente afetado.</li>
+<li>Danos a moradia podem ser convertidos em pessoas por coeficientes.</li>
+<li>Registros administrativos dependem da capacidade local.</li>
+</ul>
+</section>
+<section id="fontes-de-dados-2" class="level3" data-number="10.12.7">
+<h3 data-number="10.12.7" class="anchored" data-anchor-id="fontes-de-dados-2"><span class="header-section-number">10.12.7</span> Fontes de dados</h3>
+<ul>
+<li>Sistema Integrado de Informações sobre Desastres — danos humanos e materiais vinculados ao evento (<a href="../../backmatter/indice-fontes.html#s2id">cadastro</a>)</li>
+<li>Instituto Brasileiro de Geografia e Estatística — população e características territoriais (<a href="../../backmatter/indice-fontes.html#ibge">cadastro</a>)</li>
+</ul>
+</section>
+<section id="método-de-cálculo-1" class="level3" data-number="10.12.8">
+<h3 data-number="10.12.8" class="anchored" data-anchor-id="método-de-cálculo-1"><span class="header-section-number">10.12.8</span> Método de cálculo</h3>
+<p>Consolidar componentes definidos no metadado, aplicar regras nacionais para evitar dupla contagem e estimativas de ocupantes, somar pessoas únicas ou estimadas e dividir pela população.</p>
+<p><span class="math display">\[
+T_{afetados}=100000\times\frac{N_{diretamente\ afetados}}{Pop_{referência}}
+\]</span></p>
+<div class="indicator-card">
+<p><strong>Numerador.</strong> Pessoas diretamente afetadas segundo os componentes Sendai, com tratamento de sobreposição.</p>
+<p><strong>Denominador.</strong> População do território.</p>
+<p><strong>Unidade de medida.</strong> Pessoas por 100 mil habitantes.</p>
+<p><strong>Variáveis e categorias de análise.</strong> Ferido/enfermo; moradia danificada/destruída; meios de vida; deslocamento; perigo; território; grupo.</p>
+<p><strong>Granularidade.</strong> Componente por evento e território.</p>
+<p><strong>Periodicidade de atualização.</strong> Por evento e consolidação anual.</p>
+<p><strong>Responsabilidade gerencial.</strong> Proteção e defesa civil consolida perdas e danos; saúde verifica óbitos, agravos e serviços; estatística fornece denominadores.</p>
+<p><strong>Notas.</strong> As fichas seguem indicadores Sendai/ODS. Contagens nacionais devem observar os procedimentos oficiais de validação e evitar dupla contagem.</p>
+<p><strong>Análise descritiva do indicador.</strong> Apresentar total e componentes, taxas, perigo, duração, grupos e incerteza de estimativas.</p>
+</div>
+</section>
+<section id="campos-complementares-para-clima-ambiente-e-saúde-1" class="level3" data-number="10.12.9">
+<h3 data-number="10.12.9" class="anchored" data-anchor-id="campos-complementares-para-clima-ambiente-e-saúde-1"><span class="header-section-number">10.12.9</span> Campos complementares para clima, ambiente e saúde</h3>
+<div class="indicator-card">
+<p><strong>Unidade territorial.</strong> Município, estado, país ou agregação.</p>
+<p><strong>Resolução espacial original.</strong> Local do impacto.</p>
+<p><strong>Resolução temporal.</strong> Evento e resumo anual/plurianual.</p>
+<p><strong>Período de referência.</strong> Período e população compatível.</p>
+<p><strong>Limiar ou valor de referência.</strong> Não se aplica; objetivo é redução.</p>
+</div>
+</section>
+<section id="disponibilidade-e-acesso-1" class="level3" data-number="10.12.10">
+<h3 data-number="10.12.10" class="anchored" data-anchor-id="disponibilidade-e-acesso-1"><span class="header-section-number">10.12.10</span> Disponibilidade e acesso</h3>
+<p><strong>Cobertura geográfica.</strong> Brasil, condicionada ao registro municipal e validação.</p>
+<p><strong>Período disponível.</strong> Conforme S2ID.</p>
+<p><strong>Periodicidade de atualização.</strong> Por evento e consolidação anual.</p>
+<p><strong>Forma de acesso.</strong> S2ID e relatórios.</p>
+<p><strong>URL ou identificador persistente.</strong> https://unstats.un.org/sdgs/metadata/files/Metadata-01-05-01.pdf</p>
+<p><strong>Formato dos arquivos.</strong> Registros e tabelas.</p>
+<p><strong>Necessidade de processamento.</strong> Harmonizar componentes, estimar ocupantes quando autorizado, deduplicar e calcular taxa.</p>
+</section>
+<section id="qualidade-comparação-e-saúde-1" class="level3" data-number="10.12.11">
+<h3 data-number="10.12.11" class="anchored" data-anchor-id="qualidade-comparação-e-saúde-1"><span class="header-section-number">10.12.11</span> Qualidade, comparação e saúde</h3>
+<p><strong>Qualidade e incerteza.</strong> Relatar definição, desastre, local, período, fonte, verificação, revisões, duplicidades, sub-registro e denominador.</p>
+<p><strong>Possibilidade de comparação.</strong> Manter taxonomia, componente, regra de atribuição, período, população e versão do registro; totais preliminares e consolidados devem ser distinguidos.</p>
+<p><strong>Relação com desfechos de saúde.</strong> Mortes, pessoas afetadas e interrupção de serviços expressam efeitos diretos e condições que ampliam riscos sanitários durante e após desastres.</p>
+<p><strong>Defasagens temporais relevantes.</strong> Registrar data do evento e do efeito; mortes, doenças e interrupções podem ocorrer durante ou depois e exigir janela de atribuição.</p>
+<p><strong>Aplicação na gestão.</strong> Quantificar impactos, organizar resposta, direcionar recursos, monitorar redução de risco e avaliar recuperação.</p>
+</section>
+<section id="referências-metodológicas-1" class="level3" data-number="10.12.12">
+<h3 data-number="10.12.12" class="anchored" data-anchor-id="referências-metodológicas-1"><span class="header-section-number">10.12.12</span> Referências metodológicas</h3>
+<ul>
+<li><span class="citation" data-cites="un2024disasters">(<a href="../../backmatter/referencias.html#ref-un2024disasters" role="doc-biblioref">United Nations Statistics Division, 2024a</a>)</span></li>
+</ul>
+</section>
+</section>
+<section id="sec-des-sau-01" class="level2" data-number="10.13">
+<h2 data-number="10.13" class="anchored" data-anchor-id="sec-des-sau-01"><span class="header-section-number">10.13</span> Ficha do indicador: Número de estabelecimentos de saúde danificados ou destruídos por desastres (componente ODS 11.5.3a)</h2>
+<div class="indicator-card">
+<p><strong>Código:</strong> DES-SAU-01<br>
+<strong>Título resumido:</strong> Estabelecimentos de saúde danificados<br>
+<strong>Tema:</strong> Eventos meteorológicos severos e desastres<br>
+<strong>Dimensão:</strong> efeito; resposta; exposição<br>
+<strong>Disponibilidade:</strong> <span class="availability">requer vinculação e verificação</span></p>
+</div>
+<section id="identificação-e-fundamento-2" class="level3" data-number="10.13.1">
+<h3 data-number="10.13.1" class="anchored" data-anchor-id="identificação-e-fundamento-2"><span class="header-section-number">10.13.1</span> Identificação e fundamento</h3>
+<p><strong>Indicador consolidado em.</strong> Componente de infraestrutura de saúde do indicador ODS 11.5.3a e meta D do Marco de Sendai.</p>
+</section>
+<section id="conceito-2" class="level3" data-number="10.13.2">
+<h3 data-number="10.13.2" class="anchored" data-anchor-id="conceito-2"><span class="header-section-number">10.13.2</span> Conceito</h3>
+<p>Contagem de estabelecimentos de saúde cuja estrutura, equipamentos ou ativos foram danificados ou destruídos em consequência atribuída a desastres.</p>
+</section>
+<section id="objetivo-2" class="level3" data-number="10.13.3">
+<h3 data-number="10.13.3" class="anchored" data-anchor-id="objetivo-2"><span class="header-section-number">10.13.3</span> Objetivo</h3>
+<p>Monitorar dano físico à infraestrutura crítica de saúde.</p>
+</section>
+<section id="interpretação-2" class="level3" data-number="10.13.4">
+<h3 data-number="10.13.4" class="anchored" data-anchor-id="interpretação-2"><span class="header-section-number">10.13.4</span> Interpretação</h3>
+<p>Valor maior indica maior número de unidades atingidas. Danificado e destruído devem ser separados, e a contagem não mede duração da indisponibilidade.</p>
+</section>
+<section id="usos-2" class="level3" data-number="10.13.5">
+<h3 data-number="10.13.5" class="anchored" data-anchor-id="usos-2"><span class="header-section-number">10.13.5</span> Usos</h3>
+<ul>
+<li>Planejar resposta e reconstrução.</li>
+<li>Monitorar resiliência da infraestrutura.</li>
+<li>Priorizar mitigação e continuidade.</li>
+</ul>
+</section>
+<section id="limitações-2" class="level3" data-number="10.13.6">
+<h3 data-number="10.13.6" class="anchored" data-anchor-id="limitações-2"><span class="header-section-number">10.13.6</span> Limitações</h3>
+<ul>
+<li>Critérios de dano podem variar.</li>
+<li>Um estabelecimento pode ser registrado em mais de um evento.</li>
+<li>Contagem não pondera porte ou serviços.</li>
+<li>Danos não estruturais podem interromper operação sem destruição.</li>
+</ul>
+</section>
+<section id="fontes-de-dados-3" class="level3" data-number="10.13.7">
+<h3 data-number="10.13.7" class="anchored" data-anchor-id="fontes-de-dados-3"><span class="header-section-number">10.13.7</span> Fontes de dados</h3>
+<ul>
+<li>Sistema Integrado de Informações sobre Desastres — registro de dano de infraestrutura atribuído ao desastre (<a href="../../backmatter/indice-fontes.html#s2id">cadastro</a>)</li>
+<li>Departamento de Informática do Sistema Único de Saúde — cadastro de estabelecimentos para identificação e denominador complementar (<a href="../../backmatter/indice-fontes.html#datasus">cadastro</a>)</li>
+</ul>
+</section>
+<section id="método-de-cálculo-2" class="level3" data-number="10.13.8">
+<h3 data-number="10.13.8" class="anchored" data-anchor-id="método-de-cálculo-2"><span class="header-section-number">10.13.8</span> Método de cálculo</h3>
+<p>Vincular evento e estabelecimento por identificador, verificar atribuição, classificar dano conforme protocolo e contar unidades únicas no período, separando danificadas e destruídas.</p>
+<p><span class="math display">\[
+N_{ES,dano}=\sum_f I(f\ danificado\ ou\ destruído\ por\ desastre)
+\]</span></p>
+<div class="indicator-card">
+<p><strong>Numerador.</strong> Não se aplica; contagem de estabelecimentos únicos.</p>
+<p><strong>Denominador.</strong> Não se aplica; pode-se apresentar proporção do cadastro como medida complementar.</p>
+<p><strong>Unidade de medida.</strong> Estabelecimentos.</p>
+<p><strong>Variáveis e categorias de análise.</strong> CNES; tipo; gestão; dano/destroçado; evento; perigo; município; capacidade.</p>
+<p><strong>Granularidade.</strong> Estabelecimento por evento.</p>
+<p><strong>Periodicidade de atualização.</strong> Por evento e consolidação.</p>
+<p><strong>Responsabilidade gerencial.</strong> Proteção e defesa civil consolida perdas e danos; saúde verifica óbitos, agravos e serviços; estatística fornece denominadores.</p>
+<p><strong>Notas.</strong> As fichas seguem indicadores Sendai/ODS. Contagens nacionais devem observar os procedimentos oficiais de validação e evitar dupla contagem.</p>
+<p><strong>Análise descritiva do indicador.</strong> Mostrar danificados/destruídos, tipo, capacidade, serviços, território, custo e prazo de restauração.</p>
+</div>
+</section>
+<section id="campos-complementares-para-clima-ambiente-e-saúde-2" class="level3" data-number="10.13.9">
+<h3 data-number="10.13.9" class="anchored" data-anchor-id="campos-complementares-para-clima-ambiente-e-saúde-2"><span class="header-section-number">10.13.9</span> Campos complementares para clima, ambiente e saúde</h3>
+<div class="indicator-card">
+<p><strong>Unidade territorial.</strong> Estabelecimento, município, estado ou país.</p>
+<p><strong>Resolução espacial original.</strong> Coordenada/endereço do estabelecimento.</p>
+<p><strong>Resolução temporal.</strong> Evento e consolidação anual.</p>
+<p><strong>Período de referência.</strong> Evento ou período, com cadastro contemporâneo.</p>
+<p><strong>Limiar ou valor de referência.</strong> Dano ou destruição segundo o protocolo ODS/Sendai adotado.</p>
+</div>
+</section>
+<section id="disponibilidade-e-acesso-2" class="level3" data-number="10.13.10">
+<h3 data-number="10.13.10" class="anchored" data-anchor-id="disponibilidade-e-acesso-2"><span class="header-section-number">10.13.10</span> Disponibilidade e acesso</h3>
+<p><strong>Cobertura geográfica.</strong> Brasil, condicionada ao preenchimento e vinculação.</p>
+<p><strong>Período disponível.</strong> Conforme S2ID e CNES.</p>
+<p><strong>Periodicidade de atualização.</strong> Por evento e consolidação.</p>
+<p><strong>Forma de acesso.</strong> S2ID e dados de estabelecimentos.</p>
+<p><strong>URL ou identificador persistente.</strong> https://unstats.un.org/sdgs/metadata/files/Metadata-11-05-03.pdf</p>
+<p><strong>Formato dos arquivos.</strong> Registros administrativos e tabela vinculada.</p>
+<p><strong>Necessidade de processamento.</strong> Normalizar estabelecimentos, deduplicar, classificar dano e reconciliar com CNES.</p>
+</section>
+<section id="qualidade-comparação-e-saúde-2" class="level3" data-number="10.13.11">
+<h3 data-number="10.13.11" class="anchored" data-anchor-id="qualidade-comparação-e-saúde-2"><span class="header-section-number">10.13.11</span> Qualidade, comparação e saúde</h3>
+<p><strong>Qualidade e incerteza.</strong> Relatar definição, desastre, local, período, fonte, verificação, revisões, duplicidades, sub-registro e denominador.</p>
+<p><strong>Possibilidade de comparação.</strong> Manter taxonomia, componente, regra de atribuição, período, população e versão do registro; totais preliminares e consolidados devem ser distinguidos.</p>
+<p><strong>Relação com desfechos de saúde.</strong> Mortes, pessoas afetadas e interrupção de serviços expressam efeitos diretos e condições que ampliam riscos sanitários durante e após desastres.</p>
+<p><strong>Defasagens temporais relevantes.</strong> Registrar data do evento e do efeito; mortes, doenças e interrupções podem ocorrer durante ou depois e exigir janela de atribuição.</p>
+<p><strong>Aplicação na gestão.</strong> Quantificar impactos, organizar resposta, direcionar recursos, monitorar redução de risco e avaliar recuperação.</p>
+</section>
+<section id="referências-metodológicas-2" class="level3" data-number="10.13.12">
+<h3 data-number="10.13.12" class="anchored" data-anchor-id="referências-metodológicas-2"><span class="header-section-number">10.13.12</span> Referências metodológicas</h3>
+<ul>
+<li><span class="citation" data-cites="un2024infrastructure">(<a href="../../backmatter/referencias.html#ref-un2024infrastructure" role="doc-biblioref">United Nations Statistics Division, 2024b</a>)</span></li>
+<li><span class="citation" data-cites="who2024resilienceindicators">(<a href="../../backmatter/referencias.html#ref-who2024resilienceindicators" role="doc-biblioref">World Health Organization, 2024</a>)</span></li>
+</ul>
+</section>
+</section>
+<section id="sec-des-sau-02" class="level2" data-number="10.14">
+<h2 data-number="10.14" class="anchored" data-anchor-id="sec-des-sau-02"><span class="header-section-number">10.14</span> Ficha do indicador: Número de interrupções de serviços de saúde atribuídas a desastres (componente ODS 11.5.3b)</h2>
+<div class="indicator-card">
+<p><strong>Código:</strong> DES-SAU-02<br>
+<strong>Título resumido:</strong> Interrupções de serviços de saúde<br>
+<strong>Tema:</strong> Eventos meteorológicos severos e desastres<br>
+<strong>Dimensão:</strong> efeito; resposta; exposição<br>
+<strong>Disponibilidade:</strong> <span class="availability">requer integração intersetorial</span></p>
+</div>
+<section id="identificação-e-fundamento-3" class="level3" data-number="10.14.1">
+<h3 data-number="10.14.1" class="anchored" data-anchor-id="identificação-e-fundamento-3"><span class="header-section-number">10.14.1</span> Identificação e fundamento</h3>
+<p><strong>Indicador consolidado em.</strong> Componente de interrupção de serviços de saúde do indicador ODS 11.5.3b e meta D do Marco de Sendai.</p>
+</section>
+<section id="conceito-3" class="level3" data-number="10.14.2">
+<h3 data-number="10.14.2" class="anchored" data-anchor-id="conceito-3"><span class="header-section-number">10.14.2</span> Conceito</h3>
+<p>Contagem de ocorrências em que serviço de saúde foi interrompido, reduzido ou teve qualidade comprometida por desastre, conforme protocolo de registro.</p>
+</section>
+<section id="objetivo-3" class="level3" data-number="10.14.3">
+<h3 data-number="10.14.3" class="anchored" data-anchor-id="objetivo-3"><span class="header-section-number">10.14.3</span> Objetivo</h3>
+<p>Monitorar continuidade assistencial e efeitos funcionais, inclusive quando não há dano estrutural.</p>
+</section>
+<section id="interpretação-3" class="level3" data-number="10.14.4">
+<h3 data-number="10.14.4" class="anchored" data-anchor-id="interpretação-3"><span class="header-section-number">10.14.4</span> Interpretação</h3>
+<p>Valor maior indica mais ocorrências de disrupção. Deve ser acompanhado por duração, população, serviço e gravidade.</p>
+</section>
+<section id="usos-3" class="level3" data-number="10.14.5">
+<h3 data-number="10.14.5" class="anchored" data-anchor-id="usos-3"><span class="header-section-number">10.14.5</span> Usos</h3>
+<ul>
+<li>Gestão de continuidade.</li>
+<li>Avaliação de resiliência.</li>
+<li>Priorização de redundância e recuperação.</li>
+</ul>
+</section>
+<section id="limitações-3" class="level3" data-number="10.14.6">
+<h3 data-number="10.14.6" class="anchored" data-anchor-id="limitações-3"><span class="header-section-number">10.14.6</span> Limitações</h3>
+<ul>
+<li>Uma unidade pode ter múltiplos serviços interrompidos.</li>
+<li>Definições de ocorrência variam.</li>
+<li>Contagem não expressa duração ou população.</li>
+<li>Quedas de qualidade são difíceis de documentar.</li>
+</ul>
+</section>
+<section id="fontes-de-dados-4" class="level3" data-number="10.14.7">
+<h3 data-number="10.14.7" class="anchored" data-anchor-id="fontes-de-dados-4"><span class="header-section-number">10.14.7</span> Fontes de dados</h3>
+<ul>
+<li>Sistema Integrado de Informações sobre Desastres — evento e registro de interrupções básicas (<a href="../../backmatter/indice-fontes.html#s2id">cadastro</a>)</li>
+<li>Departamento de Informática do Sistema Único de Saúde — cadastro e produção assistencial para verificação complementar (<a href="../../backmatter/indice-fontes.html#datasus">cadastro</a>)</li>
+</ul>
+</section>
+<section id="método-de-cálculo-3" class="level3" data-number="10.14.8">
+<h3 data-number="10.14.8" class="anchored" data-anchor-id="método-de-cálculo-3"><span class="header-section-number">10.14.8</span> Método de cálculo</h3>
+<p>Definir unidade de ocorrência — estabelecimento-serviço-evento —, registrar início, término, nível de funcionamento e causa, verificar atribuição e contar ocorrências únicas.</p>
+<p><span class="math display">\[
+N_{interrupções}=\sum_{f,s,e}I(serviço\ s\ de\ f\ interrompido\ pelo\ evento\ e)
+\]</span></p>
+<div class="indicator-card">
+<p><strong>Numerador.</strong> Não se aplica; contagem de ocorrências únicas.</p>
+<p><strong>Denominador.</strong> Não se aplica; horas-serviço e proporção de estabelecimentos são complementares.</p>
+<p><strong>Unidade de medida.</strong> Ocorrências de interrupção.</p>
+<p><strong>Variáveis e categorias de análise.</strong> Estabelecimento; serviço; interrupção total/parcial; início; duração; barreira; evento; população.</p>
+<p><strong>Granularidade.</strong> Estabelecimento-serviço-evento.</p>
+<p><strong>Periodicidade de atualização.</strong> Durante resposta e até restauração.</p>
+<p><strong>Responsabilidade gerencial.</strong> Proteção e defesa civil consolida perdas e danos; saúde verifica óbitos, agravos e serviços; estatística fornece denominadores.</p>
+<p><strong>Notas.</strong> As fichas seguem indicadores Sendai/ODS. Contagens nacionais devem observar os procedimentos oficiais de validação e evitar dupla contagem.</p>
+<p><strong>Análise descritiva do indicador.</strong> Mostrar número, duração, serviços essenciais, população sem acesso, causas operacionais, substituição e tempo de recuperação.</p>
+</div>
+</section>
+<section id="campos-complementares-para-clima-ambiente-e-saúde-3" class="level3" data-number="10.14.9">
+<h3 data-number="10.14.9" class="anchored" data-anchor-id="campos-complementares-para-clima-ambiente-e-saúde-3"><span class="header-section-number">10.14.9</span> Campos complementares para clima, ambiente e saúde</h3>
+<div class="indicator-card">
+<p><strong>Unidade territorial.</strong> Estabelecimento e território.</p>
+<p><strong>Resolução espacial original.</strong> Local do serviço.</p>
+<p><strong>Resolução temporal.</strong> Horas/dias por evento e consolidação anual.</p>
+<p><strong>Período de referência.</strong> Evento e período de recuperação.</p>
+<p><strong>Limiar ou valor de referência.</strong> Interrupção, redução ou perda de qualidade conforme definição ODS/Sendai adotada.</p>
+</div>
+</section>
+<section id="disponibilidade-e-acesso-3" class="level3" data-number="10.14.10">
+<h3 data-number="10.14.10" class="anchored" data-anchor-id="disponibilidade-e-acesso-3"><span class="header-section-number">10.14.10</span> Disponibilidade e acesso</h3>
+<p><strong>Cobertura geográfica.</strong> Brasil, condicionada a registro específico e integração setorial.</p>
+<p><strong>Período disponível.</strong> Conforme sistemas envolvidos.</p>
+<p><strong>Periodicidade de atualização.</strong> Durante resposta e até restauração.</p>
+<p><strong>Forma de acesso.</strong> Formulários de desastre, sistemas de situação e informação assistencial.</p>
+<p><strong>URL ou identificador persistente.</strong> https://unstats.un.org/sdgs/metadata/files/Metadata-11-05-03.pdf</p>
+<p><strong>Formato dos arquivos.</strong> Registro de incidente, tabela e série assistencial.</p>
+<p><strong>Necessidade de processamento.</strong> Definir ocorrência, vincular serviços, deduplicar, calcular duração e verificar retorno.</p>
+</section>
+<section id="qualidade-comparação-e-saúde-3" class="level3" data-number="10.14.11">
+<h3 data-number="10.14.11" class="anchored" data-anchor-id="qualidade-comparação-e-saúde-3"><span class="header-section-number">10.14.11</span> Qualidade, comparação e saúde</h3>
+<p><strong>Qualidade e incerteza.</strong> Relatar definição, desastre, local, período, fonte, verificação, revisões, duplicidades, sub-registro e denominador.</p>
+<p><strong>Possibilidade de comparação.</strong> Manter taxonomia, componente, regra de atribuição, período, população e versão do registro; totais preliminares e consolidados devem ser distinguidos.</p>
+<p><strong>Relação com desfechos de saúde.</strong> Mortes, pessoas afetadas e interrupção de serviços expressam efeitos diretos e condições que ampliam riscos sanitários durante e após desastres.</p>
+<p><strong>Defasagens temporais relevantes.</strong> Registrar data do evento e do efeito; mortes, doenças e interrupções podem ocorrer durante ou depois e exigir janela de atribuição.</p>
+<p><strong>Aplicação na gestão.</strong> Quantificar impactos, organizar resposta, direcionar recursos, monitorar redução de risco e avaliar recuperação.</p>
+</section>
+<section id="referências-metodológicas-3" class="level3" data-number="10.14.12">
+<h3 data-number="10.14.12" class="anchored" data-anchor-id="referências-metodológicas-3"><span class="header-section-number">10.14.12</span> Referências metodológicas</h3>
+<ul>
+<li><span class="citation" data-cites="un2024infrastructure">(<a href="../../backmatter/referencias.html#ref-un2024infrastructure" role="doc-biblioref">United Nations Statistics Division, 2024b</a>)</span></li>
+<li><span class="citation" data-cites="who2024resilienceindicators">(<a href="../../backmatter/referencias.html#ref-who2024resilienceindicators" role="doc-biblioref">World Health Organization, 2024</a>)</span></li>
+</ul>
+</section>
+</section>
+<section id="aplicação-na-gestão" class="level2" data-number="10.15">
+<h2 data-number="10.15" class="anchored" data-anchor-id="aplicação-na-gestão"><span class="header-section-number">10.15</span> Aplicação na gestão</h2>
+<p>Um quadro de situação deve preservar a cadeia: perigo, alerta, exposição, impacto, necessidade, capacidade, ação e recuperação. Totais devem ser atualizados com horário e status. Mapas precisam distinguir local do evento, residência, atendimento e serviço interrompido.</p>
+<p>Após a resposta, uma revisão deve comparar previsão, decisões, tempos, cobertura, falhas, desfechos e desigualdades. O objetivo não é apenas contar danos, mas reduzir sua repetição.</p>
+<div class="visual-needed" title="Ilustração editorial necessária">
+<p>Produzir uma linha do tempo de desastre com fases de alerta, impacto, resposta e recuperação, mostrando quando são registrados perigo, pessoas afetadas, óbitos, interrupção e restauração de serviços.</p>
+</div>
+</section>
+<section id="síntese" class="level2" data-number="10.16">
+<h2 data-number="10.16" class="anchored" data-anchor-id="síntese"><span class="header-section-number">10.16</span> Síntese</h2>
+<p>Desastre resulta da interação entre perigo e condições sociais e institucionais. Os indicadores ODS/Sendai de mortes, desaparecidos, diretamente afetados, infraestrutura danificada e serviços interrompidos oferecem especificações consolidadas. Em saúde pública, precisam ser combinados com duração, perfil das pessoas, capacidade assistencial e recuperação.</p>
 
 
+<div id="refs" class="references csl-bib-body" data-entry-spacing="1" role="list" style="display: none">
+<div id="ref-un2024infrastructure" class="csl-entry" role="listitem">
+UNITED NATIONS STATISTICS DIVISION. <strong>SDG indicator metadata 11.5.3: damage to critical infrastructure and number of disruptions to basic services, attributed to disasters</strong>. Disponível em: &lt;<a href="https://unstats.un.org/sdgs/metadata/files/Metadata-11-05-03.pdf">https://unstats.un.org/sdgs/metadata/files/Metadata-11-05-03.pdf</a>&gt;. Acesso em: 28 jul. 2026b.
+</div>
+<div id="ref-un2024disasters" class="csl-entry" role="listitem">
+UNITED NATIONS STATISTICS DIVISION. <strong>SDG indicator metadata 1.5.1: number of deaths, missing persons and directly affected persons attributed to disasters per 100,000 population</strong>. Disponível em: &lt;<a href="https://unstats.un.org/sdgs/metadata/files/Metadata-01-05-01.pdf">https://unstats.un.org/sdgs/metadata/files/Metadata-01-05-01.pdf</a>&gt;. Acesso em: 28 jul. 2026a.
+</div>
+<div id="ref-who2021edrmresearch" class="csl-entry" role="listitem">
+WORLD HEALTH ORGANIZATION. <strong><a href="https://www.who.int/publications/i/item/9789240032286">WHO guidance on research methods for health emergency and disaster risk management</a></strong>. Geneva: World Health Organization, 2021.
+</div>
+<div id="ref-who2024resilienceindicators" class="csl-entry" role="listitem">
+WORLD HEALTH ORGANIZATION. <strong><a href="https://www.who.int/publications/i/item/9789240088986">Health system resilience indicators: an integrated package for measuring and monitoring health system resilience in countries</a></strong>. Geneva: World Health Organization, 2024.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -688,7 +1369,7 @@ ul.task-list li input[type="checkbox"] {
     anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
-        if (clz.startsWith('code-annotation-')) {                     
+        if (clz.startsWith('code-annotation-')) {
           return true;
         }
       }
@@ -708,11 +1389,11 @@ ul.task-list li input[type="checkbox"] {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
         button.setAttribute("data-bs-title", "Copiada");
-        tooltip = new bootstrap.Tooltip(button, 
-          { trigger: "manual", 
+        tooltip = new bootstrap.Tooltip(button,
+          { trigger: "manual",
             customClass: "code-copy-button-tooltip",
             offset: [0, -8]});
-        tooltip.show();    
+        tooltip.show();
       }
       setTimeout(function() {
         if (tooltip) {
@@ -794,7 +1475,7 @@ ul.task-list li input[type="checkbox"] {
       if (onUntriggerFn) {
         config.onUntrigger = onUntriggerFn;
       }
-      window.tippy(el, config); 
+      window.tippy(el, config);
     }
     const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
     for (var i=0; i<noterefs.length; i++) {
@@ -869,7 +1550,7 @@ ul.task-list li input[type="checkbox"] {
       tippyHover(xref, undefined, function(instance) {
         instance.disable();
         let url = xref.getAttribute('href');
-        let hash = undefined; 
+        let hash = undefined;
         if (url.startsWith('#')) {
           hash = url;
         } else {
@@ -897,7 +1578,7 @@ ul.task-list li input[type="checkbox"] {
               if (note !== null) {
                 const html = processXRef(id, note);
                 instance.setContent(html);
-              } 
+              }
             }).finally(() => {
               instance.enable();
               instance.show();
@@ -921,7 +1602,7 @@ ul.task-list li input[type="checkbox"] {
               }
               const html = processXRef(null, note);
               instance.setContent(html);
-            } 
+            }
           }).finally(() => {
             instance.enable();
             instance.show();
@@ -961,7 +1642,7 @@ ul.task-list li input[type="checkbox"] {
               height = bottom - top;
             }
             if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
+              // cook up a div (if necessary) and position it
               let div = window.document.getElementById("code-annotation-line-highlight");
               if (div === null) {
                 div = window.document.createElement("div");
@@ -1086,7 +1767,7 @@ ul.task-list li input[type="checkbox"] {
   <div class="nav-page nav-page-previous">
       <a href="../../chapters/part-2/09-uso-cobertura-terra-ambiente-urbano.html" class="pagination-link" aria-label="Uso e cobertura da terra, vegetação e ambiente urbano">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Uso e cobertura da terra, vegetação e ambiente urbano</span></span>
-      </a>          
+      </a>
   </div>
   <div class="nav-page nav-page-next">
       <a href="../../chapters/part-3/11-exposicao-vulnerabilidade.html" class="pagination-link" aria-label="Exposição e vulnerabilidade socioambiental">

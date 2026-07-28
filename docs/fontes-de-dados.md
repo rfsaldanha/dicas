@@ -8,13 +8,13 @@ O catálogo não presume que toda instituição ofereça um único conjunto homo
 
 Os registros ficam em `sources/data/sources.yml`. O índice e os quadros são gerados por `scripts/build_catalogs.R`. O modelo de campos está em `sources/data/source-template.yml`.
 
-Campos sem confirmação usam `TODO: verificar`. A data de verificação não transforma um cadastro incompleto em fonte validada; ela informa quando a página ou documentação foi consultada.
+Todos os campos publicados devem conter informação verificada. Quando a documentação oficial não declarar uma característica, o cadastro registra “não informado” e descreve a consequência em limitações. A data de verificação informa quando a página ou documentação foi consultada.
 
 Cada cadastro identifica primeiro o objeto descrito em `tipo_registro`: instituição, unidade institucional, programa, sistema de informação, plataforma, base de dados, produto, serviço ou cadastro provisório. Recursos associados são classificados separadamente em `recursos_relacionados`; APIs têm campo próprio. Assim, o portal de uma instituição não é tratado como se fosse a base ou o produto usado no cálculo.
 
-## Registros iniciais
+## Registros
 
-Foram criados registros para INMET, CPTEC/INPE, CEMADEN, Climate Data Store, ERA5-Land, CAMS, MapBiomas, Programa Queimadas, Vigiagua/Sisagua, SINISA, S2iD, IBGE, DATASUS e um registro provisório para redes de qualidade do ar.
+O catálogo cobre fontes brasileiras e internacionais usadas pelas fichas, incluindo INMET, CEMADEN, produtos Copernicus, MapBiomas, Programa Queimadas, Vigiagua/Sisagua, SINISA, S2iD e Atlas Digital, IBGE, DATASUS, MonitorAr, OMS, JMP, Landsat, Ipea e UN-Habitat.
 
 ## Critérios de seleção
 

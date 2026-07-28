@@ -21,7 +21,7 @@ if command -v pdfinfo >/dev/null 2>&1; then
   esac
   printf 'PDF: %s páginas; %s\n' "$pages" "$size"
   if [ "$pages" -lt 400 ] || [ "$pages" -gt 500 ]; then
-    printf 'Aviso: o protótipo ainda não atingiu a meta editorial de 400–500 páginas.\n'
+    printf 'Aviso: a paginação está fora da faixa editorial de 400–500 páginas.\n'
   fi
 fi
 

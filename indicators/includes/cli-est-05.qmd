@@ -1,0 +1,123 @@
+## Ficha do indicador: Temperatura de Globo e Bulbo Úmido (WBGT) {#sec-cli-est-05}
+
+::: {.indicator-card}
+**Código:** CLI-EST-05 \
+**Título resumido:** WBGT \
+**Tema:** Temperatura e condições térmicas \
+**Dimensão:** perigo; exposição \
+**Disponibilidade:** [requer processamento meteorológico]{.availability}
+:::
+
+### Identificação e fundamento
+
+**Indicador consolidado em.** ISO 7243:2017 e critérios do NIOSH para triagem de estresse térmico ocupacional.
+
+### Conceito
+
+Índice ambiental ponderado que combina temperatura de bulbo úmido natural, temperatura de globo e, sob sol direto, temperatura do ar.
+
+### Objetivo
+
+Realizar triagem da exposição ao calor ao longo da jornada de trabalho e indicar a necessidade de avaliação e controles.
+
+### Interpretação
+
+WBGT maior representa maior carga ambiental. Sua interpretação ocupacional exige considerar taxa metabólica, vestimenta, aclimatação, distribuição espacial e temporal da exposição e limites adotados no protocolo.
+
+### Usos
+
+- Avaliar ambientes ocupacionais internos e externos.
+- Definir regimes de trabalho
+- descanso e controles segundo norma aplicável.
+- Monitorar atividades físicas e eventos ao ar livre com orientação específica.
+
+### Limitações
+
+- Não interpretar o valor isolado sem esforço
+- vestimenta e aclimatação.
+- A ISO 7243 se aplica à exposição total de adultos aptos ao trabalho em jornadas de até oito horas e não a exposições muito curtas.
+- WBGT estimado de estação não substitui medição no microambiente quando há fontes radiantes.
+- Limites ocupacionais vigentes devem ser verificados na norma e regulação aplicáveis.
+
+### Fontes de dados
+
+- Instituto Nacional de Meteorologia — dados meteorológicos auxiliares para estimativa externa e planejamento de medição ([cadastro](../../backmatter/indice-fontes.qmd#inmet))
+- ERA5-Land — campos meteorológicos auxiliares em avaliações retrospectivas, sem substituir medição ocupacional local ([cadastro](../../backmatter/indice-fontes.qmd#era5-land))
+
+### Método de cálculo
+
+Medir simultaneamente temperatura de bulbo úmido natural, temperatura de globo e temperatura do ar no local representativo da exposição. Para ambiente externo com carga solar, aplicar 0,7Tnwb + 0,2Tg + 0,1Ta. Para ambiente interno ou externo sem carga solar, aplicar 0,7Tnwb + 0,3Tg. Calcular média ponderada no tempo e, se necessário, no corpo conforme o protocolo técnico.
+
+$$
+WBGT_{sol}=0.7T_{nwb}+0.2T_g+0.1T_a;\qquad WBGT_{sem\ sol}=0.7T_{nwb}+0.3T_g
+$$
+
+::: {.indicator-card}
+**Numerador.** Não se aplica; média ponderada de temperaturas ambientais.
+
+**Denominador.** Não se aplica.
+
+**Unidade de medida.** Grau Celsius WBGT (°C).
+
+**Variáveis e categorias de análise.** Bulbo úmido natural; globo; ar; sol ou sombra; posto e tarefa; esforço metabólico; vestimenta; aclimatação; tempo de exposição.
+
+**Granularidade.** Medição por ponto, tarefa e intervalo; média ponderada da exposição na jornada.
+
+**Periodicidade de atualização.** Conforme programa de higiene ocupacional e mudanças de tarefa, processo, ambiente ou clima.
+
+**Responsabilidade gerencial.** Serviço meteorológico ou equipe de saúde ambiental ou do trabalhador responsável pela medição, com autoridade de saúde responsável pelo protocolo de uso.
+
+**Notas.** O valor é uma temperatura ou índice equivalente, não a temperatura corporal nem uma medição direta de risco individual. Categorias operacionais de outro país não constituem automaticamente limiares de alerta no Brasil.
+
+**Análise descritiva do indicador.** Mostrar WBGT por tarefa e horário, duração, esforço, vestimenta, aclimatação, controles existentes e incerteza; não publicar apenas a máxima ambiental.
+
+:::
+
+### Campos complementares para clima, ambiente e saúde
+
+::: {.indicator-card}
+**Unidade territorial.** Ponto de observação, célula de grade ou território obtido por agregação explícita.
+
+**Resolução espacial original.** Microambiente ocupacional no ponto representativo da exposição.
+
+**Resolução temporal.** Leituras simultâneas durante períodos representativos; média ponderada na jornada.
+
+**Período de referência.** Condição atual de trabalho; séries históricas são secundárias à caracterização representativa da exposição.
+
+**Limiar ou valor de referência.** Valores de ação e limites dependem de esforço, vestimenta, aclimatação e norma aplicável; não há um único limiar WBGT para toda população e atividade.
+
+:::
+
+### Disponibilidade e acesso
+
+**Cobertura geográfica.** A da fonte meteorológica ou do levantamento microambiental selecionado.
+
+**Período disponível.** Períodos efetivamente medidos; estimativas meteorológicas dependem da fonte.
+
+**Periodicidade de atualização.** Conforme programa de higiene ocupacional e mudanças de tarefa, processo, ambiente ou clima.
+
+**Forma de acesso.** Medição instrumental no local; estimativa meteorológica apenas para triagem complementar com método validado.
+
+**URL ou identificador persistente.** https://www.iso.org/standard/67188.html
+
+**Formato dos arquivos.** Planilha ou sistema de higiene ocupacional com leituras, metadados de tarefa e calibração.
+
+**Necessidade de processamento.** Verificar calibração e posicionamento, sincronizar sensores, aplicar fórmula adequada, ponderar tempo e atividade e confrontar com critérios aplicáveis.
+
+### Qualidade, comparação e saúde
+
+**Qualidade e incerteza.** Verificar unidades, altura e abrigo dos sensores, sincronização das variáveis, dados ausentes, domínio de validade da fórmula, representatividade espacial e diferença entre valor medido e modelado.
+
+**Possibilidade de comparação.** Manter fórmula, versão, entradas, unidades, altura do vento, tratamento da radiação, resolução temporal e regra de agregação; índices diferentes não são conversíveis por uma escala comum.
+
+**Relação com desfechos de saúde.** O índice é consolidado para triagem de estresse térmico ocupacional, condição capaz de causar exaustão, golpe de calor, lesão renal e morte.
+
+**Defasagens temporais relevantes.** Preservar valores horários e diários para relacionar exposições agudas a desfechos no mesmo dia e em dias subsequentes; a agregação anual não serve para estimar efeitos de curto prazo.
+
+**Aplicação na gestão.** Orientar controles de engenharia e administrativos, pausas, hidratação, aclimatação, vigilância de sintomas e resposta de emergência segundo protocolo ocupacional vigente.
+
+### Referências metodológicas
+
+- [@iso2017wbgt]
+- [@niosh2016heat]
+- [@who2025workplaceheat]

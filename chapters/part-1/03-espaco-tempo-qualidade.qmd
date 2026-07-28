@@ -1,57 +1,303 @@
 # Espaço, tempo e qualidade dos dados {#sec-espaco-tempo}
 
-Este capítulo reunirá critérios transversais para compatibilizar escalas, períodos e níveis de qualidade antes do cálculo de qualquer indicador.
+Indicadores climáticos, ambientais e de saúde só podem ser relacionados depois que suas escalas espaciais, temporais e populacionais foram compreendidas. Uma estação meteorológica, um pixel de satélite, um município e uma pessoa não são unidades equivalentes. Uma concentração horária, uma média diária, um total mensal e uma taxa anual também respondem a perguntas diferentes. A compatibilização exige escolhas substantivas, não apenas operações de software.
 
-Seu limite editorial é o tratamento da informação. A descrição específica de sensores, bases e métodos permanece nas fichas e nos capítulos temáticos; a inferência sobre efeitos na saúde pertence ao @sec-efeitos-saude.
+Este capítulo reúne critérios transversais para preparar e avaliar dados antes do cálculo. Métodos específicos permanecem nas fichas; inferência sobre efeitos em saúde aparece no @sec-efeitos-saude. O princípio central é simples: toda transformação muda o que o dado representa e deve ser registrada.
 
-**Indicadores previstos:** não se aplica como conjunto autônomo. Serão apresentados exemplos de completude, oportunidade, cobertura espacial, incerteza e comparabilidade como atributos de qualidade.
+## Suporte, escala e resolução espacial
 
-## Escala e resolução espacial
+**Localização** informa onde um registro foi obtido ou estimado. **Suporte espacial** é a porção do espaço à qual o valor se refere. Uma coordenada de estação identifica um ponto de medição; uma célula de reanálise representa uma estimativa média ou modelada sobre uma área e um volume atmosférico; uma taxa municipal resume eventos e população dentro de um limite administrativo.
+
+**Resolução espacial** descreve o nível de detalhe ou o tamanho nominal da unidade. Resolução mais fina não garante maior exatidão. Um produto de 1 km derivado de modelo pode ter pixel pequeno e incerteza considerável. Uma estação pontual pode medir com alta precisão no local e representar mal a heterogeneidade do território.
+
+**Escala** também se refere ao nível em que processos são observados. Sombra, ventilação e material construtivo atuam em escala local; circulação atmosférica e seca podem abranger regiões; políticas e sistemas de informação operam em territórios administrativos. A escala do dado deve ser compatível com o mecanismo e a decisão.
+
+| Unidade | O que o valor representa | Vantagem | Risco de interpretação |
+|---|---|---|---|
+| Ponto de estação | Condição medida no local e nas condições instrumentais | Observação direta e série frequente | Atribuir o ponto a todo o território |
+| Pixel ou célula | Estimativa associada à área/volume e ao modelo do produto | Cobertura contínua | Tratar centroide como medição pontual |
+| Polígono territorial | Estatística agregada segundo limite e método | Compatibilidade com gestão | Ocultar heterogeneidade interna |
+| Endereço ou trajetória individual | Local de residência ou mobilidade registrada | Aproxima exposição ao sujeito | Confundir residência com toda a exposição |
+
+: Suportes espaciais comuns em clima, ambiente e saúde {#tbl-suportes-espaciais}
 
 ### Estações de monitoramento
 
+Estações meteorológicas e ambientais têm coordenadas, altitude, entorno, instrumento, altura de medição, frequência, calendário de manutenção e histórico operacional. Esses metadados integram o dado. Mudança de sítio, abrigo, sensor ou horário pode criar quebra na série mesmo que o fenômeno não tenha mudado.
+
+A representatividade depende da variável. Precipitação convectiva pode variar muito em pequena distância. Temperatura responde a relevo, urbanização e cobertura. Poluentes variam conforme fontes, vento e configuração urbana. A estação mais próxima nem sempre é a mais semelhante ao território de interesse.
+
+Procedimentos mínimos incluem:
+
+- verificar identificador estável e coordenadas por período;
+- examinar altitude, entorno e classificação da estação;
+- documentar instrumento, unidade e frequência;
+- conservar códigos de qualidade e valores originais;
+- analisar falhas, duplicidades e mudanças;
+- justificar interpolação ou associação a territórios.
+
 ### Dados em grade
+
+Grades regulares dividem o espaço em células. Produtos podem ser observacionais interpolados, reanálises, estimativas de satélite, previsões ou projeções. A aparência cartográfica semelhante não torna esses produtos equivalentes.
+
+Em uma reanálise, um modelo físico combina observações e dinâmica atmosférica para estimar um estado coerente. Em sensoriamento remoto, o valor deriva da energia registrada pelo sensor e de um algoritmo de recuperação. Em interpolação, valores em locais amostrados informam locais sem medida segundo hipóteses espaciais. Cada processo produz uma incerteza diferente.
+
+Ao usar grade, registre:
+
+- nome, instituição, versão e data de acesso;
+- variável exata, nível vertical e unidade;
+- sistema de coordenadas, extensão e resolução nominal;
+- calendário, fuso e frequência;
+- natureza do produto e método de geração;
+- qualidade, viés conhecido e latência;
+- transformação espacial e temporal aplicada.
 
 ### Sensoriamento remoto
 
-::: {.todo}
-TODO: distinguir ponto, pixel, célula, área e território de gestão; discutir problema de mudança de suporte.
-:::
+Sensores orbitais medem radiação em bandas e condições de observação específicas. Temperatura de superfície, índice de vegetação, área queimada e coluna atmosférica são produtos derivados, não fotografias diretas do fenômeno. Nuvens, aerossóis, ângulo, emissividade, mistura de classes e algoritmo influenciam resultados.
+
+O pixel é uma área de resposta do sensor e pode conter múltiplos materiais. A resolução nominal não elimina mistura. Composições mensais reduzem falhas, mas modificam o tempo representado: máximo mensal de NDVI, por exemplo, não equivale à vegetação observada em um dia específico.
+
+## Mudança de suporte espacial
+
+Mudar de ponto ou pixel para território é uma operação analítica. Média simples, máximo, percentil, proporção de área e média ponderada pela população produzem indicadores distintos.
+
+Considere uma grade de PM2,5 e um município. A média simples das células descreve a concentração espacial média. A média ponderada pela população aproxima a concentração média onde as pessoas residem. O máximo identifica a maior estimativa. Nenhuma é universalmente correta; a pergunta determina a estatística.
+
+Para uma variável \(x_g\) nas células \(g=1,\ldots,G\), a média ponderada por população é:
+
+$$
+\bar{x}_{pop} = \frac{\sum_g x_g\,p_g}{\sum_g p_g},
+$$
+
+em que \(p_g\) é a população da célula. O cálculo exige referência temporal compatível entre população e exposição, tratamento de células de borda e decisão sobre população flutuante.
+
+### Interseção e células de borda
+
+Uma célula raramente coincide com o limite territorial. Três estratégias comuns são atribuição pelo centroide, ponderação pela fração de área e interpolação dasimétrica com informação auxiliar. Centroide é simples, mas pode excluir células que cobrem parte relevante do território. Ponderação por área supõe distribuição uniforme. Métodos dasimétricos usam população ou uso da terra, mas adicionam dados e hipóteses.
+
+O método deve ser estável em toda a série. Alterá-lo pode produzir ruptura. Códigos e parâmetros de processamento precisam ser preservados para reprodução.
 
 ## Agregação territorial
 
+Territórios administrativos mudam. Municípios são criados, limites são ajustados, regiões de saúde são recompostas e códigos podem ser substituídos. Uma série territorial sem versão de malha é ambígua. O IBGE publica malhas, códigos e referências espaciais que devem acompanhar a análise [@ibge2024malhas].
+
 ### Municípios
+
+Município é unidade político-administrativa e de gestão, não unidade ambiental homogênea. Municípios extensos podem incluir zonas urbanas, rurais, floresta, rios e grandes gradientes altitudinais. Um único valor municipal é uma síntese que pode esconder contrastes relevantes.
+
+Ao agregar por município:
+
+1. registrar código oficial e ano da malha;
+2. identificar mudanças entre datas da série;
+3. decidir como compatibilizar limites;
+4. declarar ponderador;
+5. avaliar cobertura da fonte dentro do território;
+6. evitar comparar unidades com qualidade muito distinta.
 
 ### Regiões de saúde
 
-::: {.todo}
-TODO: documentar limites, versões territoriais, ponderação e comparabilidade.
+Regiões de saúde são úteis para planejamento assistencial, fluxos e capacidade instalada. Elas não devem ser reconstruídas apenas dissolvendo municípios sem registrar a composição e a vigência. Uma mudança de composição altera denominador, área e serviços incluídos.
+
+Indicadores ambientais podem ser agregados à região para uma decisão regional, mas a média pode ocultar municípios muito expostos. Recomenda-se apresentar resumo regional acompanhado de distribuição ou mapa intrarregional.
+
+### Problema da unidade de área modificável
+
+Resultados de dados agregados podem mudar quando o mesmo território é dividido em unidades diferentes. Esse é o problema da unidade de área modificável: valores de correlação, classes e rankings dependem da escala e do zoneamento. Relações observadas entre áreas também não podem ser automaticamente atribuídas a indivíduos, erro conhecido como falácia ecológica [@openshaw1984].
+
+Um município com maior calor e maior mortalidade não demonstra que as pessoas mais expostas ao calor foram as que morreram. A análise ecológica pode ser apropriada para políticas territoriais, desde que suas inferências permaneçam no nível agregado e as limitações sejam explícitas.
+
+::: {.callout-warning title="Falácia ecológica"}
+Associação entre taxas municipais não autoriza conclusão individual. O desenho, a população sob risco, as defasagens e fatores de confusão precisam ser tratados no nível correspondente à pergunta.
 :::
 
 ## Resolução temporal e séries
 
-### Períodos de referência
+O tempo do fenômeno, da medição, do registro e da decisão pode ser diferente. Uma estação registra a cada hora; o sistema de saúde consolida eventos mensais; a base de mortalidade é revisada por anos; a gestão precisa decidir hoje. Compatibilizar significa preservar o mecanismo e reconhecer latências.
 
-### Normais climatológicas
+### Janela e fuso
+
+“Dia” precisa de início, fim e fuso. Um produto em UTC e uma base de saúde em horário local podem deslocar exposições próximas da meia-noite. Horário de verão, quando aplicável, acrescenta descontinuidade. O procedimento recomendado é:
+
+- conservar a data/hora original e o fuso;
+- converter para referência comum de forma explícita;
+- definir a janela diária segundo a aplicação;
+- testar sensibilidade quando o deslocamento for relevante;
+- documentar calendários não gregorianos em modelos climáticos.
+
+### Agregações temporais
+
+Média, soma, mínimo e máximo têm significados diferentes. Precipitação mensal é total; temperatura mensal costuma ser média de valores; máxima mensal de temperatura é o maior máximo diário; PM2,5 anual pode ser média ponderada por completude.
+
+Uma média diária calculada de 24 observações e outra de três horários não são necessariamente comparáveis. Critérios de completude evitam que dias com poucos registros recebam o mesmo peso de dias completos.
+
+| Transformação | Pergunta respondida | Exemplo | Cuidado |
+|---|---|---|---|
+| Média | Qual o nível típico no período? | PM2,5 médio diário | Sensível à cobertura horária |
+| Soma | Qual o acumulado? | Precipitação mensal | Falhas subestimam total |
+| Máximo | Qual o maior valor? | TXx mensal | Muito sensível a erro isolado |
+| Contagem | Quantos dias atendem à condição? | TX90p | Limiar e dias válidos |
+| Sequência | Por quanto tempo a condição persistiu? | WSDI ou CDD | Falhas podem quebrar episódios |
+
+: Transformações temporais e seus significados {#tbl-transformacoes-temporais}
+
+## Períodos de referência
+
+Um período de referência dá contexto à observação. A OMM define normais climatológicas padrão em janelas consecutivas de 30 anos, atualmente incluindo 1991–2020, para caracterizar condições recentes [@wmo2017normals]. Entretanto, monitoramento de mudança e índices de extremos podem usar bases fixas para evitar que o referencial se mova com o clima.
+
+Não existe conflito: a base depende da finalidade.
+
+- para descrever o clima recente esperado, usa-se normal atualizada;
+- para acompanhar mudança em relação a uma referência histórica, mantém-se base fixa;
+- para calcular índice padronizado, segue-se a especificação do indicador;
+- para alerta sanitário, o limiar deve ser validado em relação ao desfecho e ao sistema local.
+
+Trocar 1961–1990 por 1991–2020 em TX90p altera o indicador. A nova série pode ser útil, mas não é diretamente comparável sem recálculo integral e identificação.
 
 ### Percentis
 
+Percentil é o valor abaixo do qual se encontra uma proporção da distribuição. O percentil 90 de temperatura máxima não significa 90% de risco nem probabilidade de 90% de ocorrer calor. Significa que, na amostra e método de referência, aproximadamente 90% dos valores ficaram abaixo desse limiar.
+
+Percentis podem ser:
+
+- globais para todo o período;
+- sazonais;
+- específicos do dia do calendário;
+- calculados em janela móvel;
+- estratificados por local.
+
+Métodos diferentes geram limiares diferentes. Empates, dados faltantes, amostra pequena e algoritmo de quantil precisam ser tratados.
+
 ### Anomalias
 
-::: {.todo}
-TODO: explicar janelas, fusos, calendários, sazonalidade e mudanças de frequência.
-:::
+Anomalia é a diferença entre valor observado e referência:
+
+$$
+A_t = x_t - \bar{x}_{ref}.
+$$
+
+Anomalia positiva de temperatura indica valor acima da média de referência; não significa automaticamente extremo ou dano. Anomalias padronizadas dividem a diferença por medida de dispersão e permitem comparação relativa, mas dependem da distribuição.
+
+### Sazonalidade e tendência
+
+Clima e muitos agravos de saúde têm sazonalidade. Comparar janeiro com julho pode confundir estação com tendência. Decomposição, termos sazonais ou comparações com o mesmo período do calendário ajudam a separar componentes.
+
+Tendência não deve ser estimada sem examinar quebras, autocorrelação, mudanças de cobertura e incerteza. Uma série mais longa nem sempre é mais homogênea. As práticas climatológicas da OMM destacam controle de qualidade, homogeneização, arquivamento e metadados como partes da gestão do dado [@wmo2023climatological].
 
 ## Qualidade dos dados
 
-### Completude e atualização
+Qualidade é adequação à finalidade. Um dado pode ser tecnicamente correto e inadequado para uma decisão por falta de cobertura, oportunidade ou granularidade. Avaliar qualidade exige critérios múltiplos.
 
-### Incerteza
+### Exatidão e precisão
+
+Exatidão é proximidade do valor de referência; precisão é repetibilidade ou dispersão. Um sensor pode ser preciso e enviesado. Um modelo pode reproduzir padrão regional e errar extremos locais. Quando não existe padrão-ouro, validação usa comparações, coerência física e incerteza conhecida.
+
+### Completude
+
+Completude é a proporção de registros esperados disponíveis e válidos:
+
+$$
+C = 100 \times \frac{n_{válidos}}{n_{esperados}}.
+$$
+
+O denominador depende do calendário de operação. Estação instalada no meio do ano não deveria ser avaliada como se tivesse obrigação anterior. Completude alta também não garante representatividade espacial.
+
+Relate completude por período e unidade, não apenas média global. Uma série com 95% pode perder justamente os dias de evento extremo.
+
+### Oportunidade
+
+Oportunidade é o intervalo entre ocorrência e disponibilidade para uso. Dados preliminares podem ser oportunos e sujeitos a revisão; dados consolidados podem ser mais completos e tardios. Vigilância operacional e avaliação retrospectiva podem exigir versões diferentes.
+
+### Consistência
+
+Consistência verifica regras internas: intervalos fisicamente plausíveis, ordem entre mínima e máxima, precipitação não negativa, coerência de unidades, códigos válidos e relações temporais. Regras devem sinalizar, não apagar automaticamente. Valores extremos verdadeiros são justamente importantes para o livro.
+
+### Homogeneidade
+
+Série homogênea varia principalmente por causas do fenômeno, não por alterações na observação. Mudanças instrumentais, localização, entorno e horário podem criar quebras. Homogeneização identifica e ajusta inhomogeneidades usando metadados e séries de referência. O original deve ser preservado, e o ajustado precisa de método e versão.
 
 ### Comparabilidade
 
-### Revisão das séries
+Comparabilidade requer compatibilidade de conceito, fonte, suporte, população, período, método e revisão. Dois indicadores com o mesmo nome podem não ser comparáveis. Uma lista mínima inclui:
 
-::: {.todo}
-TODO: incluir checklist e exemplos validados de controle de qualidade.
+- mesma definição e fórmula;
+- unidades e conversões coerentes;
+- janela temporal e fuso harmonizados;
+- limites e códigos territoriais compatíveis;
+- denominadores da mesma referência;
+- critérios de completude equivalentes;
+- versões e revisões registradas;
+- incerteza suficiente para a comparação.
+
+## Incerteza
+
+Incerteza não é sinônimo de erro evitável. Ela expressa limites de conhecimento e pode vir de medição, amostragem, modelo, parâmetros, imputação, agregação e cenário. O objetivo não é ocultá-la, mas torná-la utilizável.
+
+### Fontes de incerteza
+
+| Etapa | Exemplo de incerteza | Forma de avaliação |
+|---|---|---|
+| Observação | calibração, falha, representatividade | código de qualidade, comparação e metadados |
+| Modelo | estrutura, parametrização e viés | validação, ensemble e análise residual |
+| Integração espacial | ponderador e célula de borda | métodos alternativos e sensibilidade |
+| Indicador | limiar, período-base e completude | recalcular sob especificações plausíveis |
+| Saúde | sub-registro, classificação e denominador | estudos de cobertura, revisão e intervalos |
+| Decisão | relação entre valor e ação | validação prospectiva e avaliação de resultados |
+
+: Fontes de incerteza ao longo da produção do indicador {#tbl-fontes-incerteza}
+
+Intervalos de confiança representam incerteza amostral sob um modelo; não abrangem automaticamente viés de seleção, erro de exposição ou mudança de definição. Para mapas, uma superfície de estimativa sem mapa de incerteza pode criar falsa precisão.
+
+### Propagação e análise de sensibilidade
+
+Quando várias transformações são encadeadas, incertezas se propagam. Amostragem de parâmetros, simulação, *bootstrap* e conjuntos de modelos podem quantificar parte dessa propagação. Em aplicações mais simples, análise de sensibilidade já é valiosa: comparar ponderação por área e população, períodos-base, limiares e critérios de completude.
+
+Se uma prioridade territorial muda completamente com pequena alteração razoável do método, a decisão é instável e isso deve ser comunicado.
+
+## Revisões e versionamento
+
+Bases oficiais são revisadas. Registros tardios entram, duplicidades são removidas, modelos são recalibrados, estimativas populacionais mudam. Reprodutibilidade exige congelar ou identificar a versão usada.
+
+Registre:
+
+- URL e identificador persistente;
+- versão ou edição;
+- data e hora de acesso;
+- período extraído;
+- hash do arquivo quando permitido;
+- código de processamento;
+- ambiente computacional;
+- tabela final e dicionário.
+
+Os princípios FAIR — encontrável, acessível, interoperável e reutilizável — oferecem orientação útil para gestão responsável dos dados [@wilkinson2016fair]. FAIR não significa necessariamente aberto: restrições éticas e legais podem permanecer, desde que metadados, condições e responsabilidades sejam claros.
+
+## Dados de saúde e proteção
+
+Granularidade geográfica e temporal pode aumentar risco de reidentificação, especialmente em doenças raras, pequenas populações e eventos extremos. Publicação deve observar finalidade, base legal, minimização e proteção.
+
+Técnicas como supressão de células pequenas, agregação, arredondamento e controle de acesso reduzem risco, mas alteram análise. Não se deve reconstruir valores suprimidos por diferença de totais. A proteção precisa ser incorporada desde o desenho.
+
+## Checklist antes do cálculo
+
+O @qua-checklist-dados resume a avaliação mínima.
+
+::: {#qua-checklist-dados}
+1. **Conceito:** variável e indicador estão definidos sem ambiguidade?
+2. **Proveniência:** instituição, produto, versão e transformação estão registrados?
+3. **Espaço:** suporte, resolução, projeção e território são compatíveis?
+4. **Tempo:** fuso, calendário, janela, período-base e latência estão claros?
+5. **População:** numerador e denominador referem-se à mesma população e data?
+6. **Qualidade:** completude, consistência, homogeneidade e revisão foram avaliadas?
+7. **Incerteza:** fontes principais e sensibilidade foram comunicadas?
+8. **Comparabilidade:** diferenças de método e cobertura foram controladas?
+9. **Proteção:** divulgação respeita privacidade e uso responsável?
+10. **Decisão:** a qualidade é suficiente para a consequência prevista?
+
+: Checklist de espaço, tempo e qualidade
 :::
+
+## Síntese
+
+Espaço e tempo não são simples colunas para unir bases. Eles definem o que cada valor representa. A mudança de suporte, a agregação, o período de referência e o controle de qualidade alteram o indicador e sua interpretação.
+
+Uma análise defensável preserva a proveniência, explicita transformações, avalia incerteza e mantém a inferência no nível dos dados. Esses critérios serão retomados em cada ficha, pois um indicador consolidado pode ser mal utilizado quando calculado sobre fontes inadequadas ou escalas incompatíveis.

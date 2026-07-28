@@ -1,53 +1,57 @@
 codigo: AMB-AR-01
-titulo_completo: Concentração média diária de material particulado fino (PM2,5)
-titulo_resumido: Concentração diária de PM2,5
+titulo_completo: Concentração média anual de PM2,5 nas cidades, ponderada pela população (ODS 11.6.2)
+titulo_resumido: PM2,5 anual ponderado — ODS 11.6.2
 tema: Qualidade do ar, queimadas e fumaça
-conceito: Média das concentrações de partículas com diâmetro aerodinâmico igual ou inferior a 2,5 micrômetros em uma janela diária declarada.
-objetivo: Descrever a exposição ambiental diária a material particulado fino e apoiar o monitoramento da qualidade do ar.
-interpretacao: Valores maiores indicam maior concentração ambiental estimada ou observada. A interpretação depende da cobertura do monitoramento, do método de medição e do valor de referência adotado.
+capitulo: chapters/part-2/07-qualidade-ar-queimadas-fumaca.qmd
+referencia_metodologica: Indicador 11.6.2 dos Objetivos de Desenvolvimento Sustentável, sob custódia da Organização Mundial da Saúde.
+conceito: Média anual da concentração de partículas finas com diâmetro aerodinâmico igual ou inferior a 2,5 micrômetros em áreas urbanas, ponderada pela população exposta.
+objetivo: Monitorar a exposição populacional de longo prazo à poluição atmosférica por PM2,5 e o progresso na redução do impacto ambiental das cidades.
+interpretacao: Valores maiores indicam maior concentração média anual ponderada pela distribuição populacional. O indicador representa exposição ambiental populacional e não dose individual.
 usos:
-  - Monitorar episódios de poluição e fumaça.
-  - Construir séries para análises epidemiológicas.
-  - Apoiar comunicação de risco e avaliação de ações.
+  - Monitorar o ODS 11.6.2.
+  - Comparar exposição populacional de longo prazo entre períodos e territórios quando o método é harmonizado.
+  - Apoiar avaliação de políticas de qualidade do ar.
+  - Subsidiar estimativas de carga de doença atribuível à poluição atmosférica.
 limitacoes:
-  - Uma estação pode não representar a exposição de todo o município.
-  - Produtos modelados e observações de superfície têm incertezas diferentes.
-  - A média diária não descreve picos intradiários.
+  - Cobertura de monitores é desigual e estimativas modeladas dependem de múltiplas fontes e pressupostos.
+  - A média anual não descreve picos diários nem episódios de fumaça.
+  - A ponderação populacional não representa mobilidade, microambientes ou desigualdades intraterritoriais.
+  - Definições de urbano e superfícies populacionais podem variar.
 dimensoes:
-  - perigo
   - exposição
-metodo_calculo: Calcular a média aritmética das concentrações válidas na janela diária, aplicando o critério mínimo de completude definido pelo protocolo ou pela rede de monitoramento.
-formula_calculo: '\overline{PM}_{2,5,d} = \frac{1}{n_d}\sum_{i=1}^{n_d} PM_{2,5,d,i}'
-numerador: Soma das concentrações válidas de PM2,5 na janela diária.
-denominador: Número de observações válidas na janela diária.
-unidade_medida: Micrograma por metro cúbico (µg/m³), quando adotada pela fonte.
-variaveis_categorias_analise: Faixa de concentração; estação; território; origem do dado; episódio de fumaça.
-granularidade: Ponto de monitoramento ou célula de grade; agregações territoriais exigem método explícito.
-unidade_territorial: Ponto de monitoramento, célula de grade ou território agregado.
-resolucao_espacial_original: Depende da rede ou do produto atmosférico.
-resolucao_temporal: Diária, derivada de valores intradiários.
-periodo_referencia: Declarar fuso, janela diária e critério de completude.
-limiar_referencia: "TODO: selecionar e citar a norma ou diretriz vigente aplicável."
+  - perigo
+metodo_calculo: Produzir ou obter uma superfície anual harmonizada de concentração de PM2,5, combinar com a distribuição populacional da mesma referência espacial e temporal e calcular a média ponderada. Na estimativa oficial global, a OMS integra medições, sensoriamento remoto, transporte químico, topografia e população em modelo próprio; reproduções locais não devem ser rotuladas como estimativa oficial sem seguir o metadado.
+formula_calculo: '\overline{PM}_{2,5}^{pop} = \frac{\sum_{g=1}^{G} PM_{2,5,g}\,Pop_g}{\sum_{g=1}^{G} Pop_g}'
+numerador: Soma, nas células ou áreas g, do produto entre concentração média anual de PM2,5 e população.
+denominador: População total nas células ou áreas incluídas.
+unidade_medida: Microgramas por metro cúbico (µg/m³).
+variaveis_categorias_analise: Concentração média anual; população; cidade ou área urbana; tipo de estimativa; ano.
+granularidade: Cidade ou território urbano na divulgação; cálculo em grade compatível com as superfícies de concentração e população.
+unidade_territorial: Área urbana, cidade, país ou agregação regional.
+resolucao_espacial_original: A da superfície oficial ou do modelo documentado; medições em estação são entradas e não representam diretamente toda a cidade.
+resolucao_temporal: Anual.
+periodo_referencia: Ano civil e versão da população e do modelo correspondentes.
+limiar_referencia: A diretriz mundial de qualidade do ar da OMS de 2021 recomenda média anual de 5 µg/m³ para PM2,5; diretriz de saúde não deve ser confundida com padrão jurídico nacional.
 fontes_dados:
-  - id: redes-qualidade-ar
-    papel: observação primária
-  - id: cams
-    papel: fonte secundária modelada
-responsabilidade_gerencial: A definir pela instituição que adotar o indicador e pelo arranjo de monitoramento aplicável ao território.
-cobertura_geografica: Heterogênea para estações; depende do domínio para produtos modelados.
-periodo_disponivel: "TODO: verificar para cada fonte."
-periodicidade_atualizacao: "TODO: verificar para cada fonte."
-forma_acesso: Consulta, download ou serviço de dados, conforme a fonte.
-url_persistente: "TODO: registrar o identificador do conjunto e da versão utilizados."
-formatos: Depende da fonte.
+  - id: who-air
+    papel: estimativas e metadados oficiais do indicador ODS 11.6.2
+responsabilidade_gerencial: A OMS é agência custodiante no monitoramento global; autoridades ambientais produzem monitoramento e políticas, e o setor saúde interpreta riscos e impactos.
+cobertura_geografica: Estimativas globais por país e cidade conforme a edição; análises subnacionais dependem das fontes disponíveis.
+periodo_disponivel: Conforme edição do banco e série de estimativas da OMS.
+periodicidade_atualizacao: Periódica, segundo calendário da OMS e do sistema ODS.
+forma_acesso: Portal do Observatório Global de Saúde e banco mundial de qualidade do ar da OMS.
+url_persistente: https://www.who.int/data/gho/data/themes/air-pollution/who-air-quality-database
+formatos: Tabelas e arquivos de dados disponibilizados pela OMS; registrar edição e data de acesso.
 disponibilidade:
-  - cálculo simples
-necessidade_processamento: Requer controle de qualidade, critério de completude e agregação diária; grades exigem método territorial explícito.
-qualidade_incerteza: Documentar calibração, método de medição, completude, representatividade espacial e incerteza de modelos.
-comparabilidade: Harmonizar método, unidade, critério de completude, localização, versão e suporte espacial.
-relacao_saude: Pode representar exposição ambiental em estudos de desfechos respiratórios, cardiovasculares e outros; não substitui avaliação de exposição individual.
-defasagens_temporais: Definir a priori segundo desfecho e desenho, avaliando defasagens e médias móveis quando justificadas.
-aplicacao_gestao: Apoiar boletins, alertas, orientação a grupos sensíveis e avaliação de episódios de fumaça.
-notas: A fonte “redes de qualidade do ar” permanece como cadastro editorial pendente de escolha da rede aplicável ao território.
-analise_descritiva: "Não incluída nesta ficha demonstrativa. TODO: produzir somente após selecionar rede ou produto, critério de completude, território, período, série validada e visualização correspondente."
-referencias: []
+  - disponível em estimativa oficial
+necessidade_processamento: Para uso do valor oficial, selecionar edição, território e ano. Para cálculo próprio, exige integração espacial de concentração e população e não deve ser confundido com o indicador oficial.
+qualidade_incerteza: Relatar cobertura de monitores, componentes modelados, intervalo de incerteza quando disponível, superfície populacional, definição urbana e revisão entre edições.
+comparabilidade: Preferir a mesma edição e método. Revisões do modelo podem alterar retrospectivamente a série; não misturar observação pontual com estimativa populacional.
+relacao_saude: PM2,5 penetra profundamente no trato respiratório e está relacionado a doenças cardiovasculares, respiratórias, câncer de pulmão e mortalidade. O indicador é usado pela OMS como medida de exposição para avaliação de riscos à saúde.
+defasagens_temporais: A média anual é apropriada a exposição crônica. Estudos de efeitos agudos e fumaça devem empregar concentrações diárias ou subdiárias com defasagens específicas.
+aplicacao_gestao: Monitorar exposição crônica, desigualdades territoriais e resultados de políticas de emissão; combinar com indicadores diários consolidados para comunicação durante episódios.
+notas: Esta ficha substitui a média diária genérica pelo indicador oficial ODS 11.6.2. Valores de estações e produtos modelados permanecem dados de entrada ou indicadores distintos.
+analise_descritiva: Apresentar nível, tendência e incerteza por edição, comparando com a diretriz de saúde sem tratá-la como limite legal. Desagregar quando a qualidade do modelo permitir.
+referencias:
+  - "[@who2026pm25]"
+  - "[@who2021air]"

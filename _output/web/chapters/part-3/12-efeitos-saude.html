@@ -23,10 +23,30 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 1em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -79,7 +99,39 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Procurar"
   }
 }</script>
+<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles/web/styles.css">
 </head>
@@ -256,7 +308,7 @@ ul.task-list li input[type="checkbox"] {
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/part-3/11-exposicao-vulnerabilidade.html">Parte III — Indicadores integrados de clima, ambiente e saúde</a></li><li class="breadcrumb-item"><a href="../../chapters/part-3/12-efeitos-saude.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Efeitos do clima e do ambiente sobre a saúde</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Procurar" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
@@ -270,7 +322,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../../">Dados e Indicadores de Clima e Ambiente para a Saúde</a> 
+      <a href="../../">Dados e Indicadores de Clima e Ambiente para a Saúde</a>
         <div class="sidebar-tools-main">
     <a href="https://github.com/rfsaldanha/dicas" title="Código fonte" class="quarto-navigation-tool px-1" aria-label="Código fonte"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo escuro"><i class="bi"></i></a>
@@ -282,85 +334,85 @@ ul.task-list li input[type="checkbox"] {
         <div id="quarto-search" class="" title="Procurar"></div>
         </div>
         </div>
-    <div class="sidebar-menu-container"> 
+    <div class="sidebar-menu-container">
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Bem-vindo</span></a>
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../frontmatter/ficha-tecnica.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Ficha técnica</span></a>
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../frontmatter/apresentacao.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Apresentação</span></a>
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../frontmatter/prefacio.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Prefácio</span></a>
+ <span class="menu-text">Prefácio do autor</span></a>
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../frontmatter/agradecimentos.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Agradecimentos</span></a>
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../frontmatter/siglas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lista de siglas</span></a>
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../frontmatter/sumario.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sumário</span></a>
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../frontmatter/como-usar.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Como utilizar este livro</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
+      <div class="sidebar-item-container">
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Parte I — Fundamentos e métodos</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+          </a>
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-1/01-clima-ambiente-saude.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Clima, ambiente e saúde pública</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-1/02-dados-variaveis-indices-indicadores.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Dados, variáveis, índices e indicadores</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-1/03-espaco-tempo-qualidade.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Espaço, tempo e qualidade dos dados</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-1/04-fontes-fichas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Fontes de dados e fichas de indicadores</span></span></a>
   </div>
@@ -368,46 +420,46 @@ ul.task-list li input[type="checkbox"] {
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
+      <div class="sidebar-item-container">
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
  <span class="menu-text">Parte II — Dados e indicadores temáticos</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+          </a>
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-2/05-temperatura-condicoes-termicas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Temperatura e condições térmicas</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-2/06-precipitacao-secas-eventos-hidrologicos.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Precipitação, secas e eventos hidrológicos</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-2/07-qualidade-ar-queimadas-fumaca.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Qualidade do ar, queimadas e fumaça</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-2/08-agua-saneamento-qualidade-ambiental.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Água, saneamento e qualidade ambiental</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-2/09-uso-cobertura-terra-ambiente-urbano.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Uso e cobertura da terra, vegetação e ambiente urbano</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-2/10-eventos-severos-desastres.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Eventos meteorológicos severos e desastres</span></span></a>
   </div>
@@ -415,28 +467,28 @@ ul.task-list li input[type="checkbox"] {
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
+      <div class="sidebar-item-container">
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
  <span class="menu-text">Parte III — Indicadores integrados de clima, ambiente e saúde</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+          </a>
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-3/11-exposicao-vulnerabilidade.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Exposição e vulnerabilidade socioambiental</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-3/12-efeitos-saude.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Efeitos do clima e do ambiente sobre a saúde</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-3/13-resposta-adaptacao-resiliencia.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Capacidade de resposta, adaptação e resiliência</span></span></a>
   </div>
@@ -444,16 +496,16 @@ ul.task-list li input[type="checkbox"] {
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
+      <div class="sidebar-item-container">
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
  <span class="menu-text">Parte IV — Aplicação na vigilância e na gestão pública</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+          </a>
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-4/14-indicador-decisao.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Do indicador à decisão pública</span></span></a>
   </div>
@@ -461,93 +513,64 @@ ul.task-list li input[type="checkbox"] {
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
+      <div class="sidebar-item-container">
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
- <span class="menu-text">Fichas demonstrativas</span></a>
+ <span class="menu-text">Elementos pós-textuais</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+          </a>
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../indicators/pages/cli-tem-01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Temperatura máxima diária</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../indicators/pages/cli-cal-01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Ocorrência de onda de calor</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../indicators/pages/amb-ar-01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Concentração média diária de material particulado fino (PM2,5)</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
- <span class="menu-text">Elementos pós-textuais</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Alternar seção">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/glossario.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Glossário</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/referencias.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Referências</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/indice-indicadores.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Índice alfabético de indicadores</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/indice-fontes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Índice de fontes de dados</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/indice-instituicoes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Índice de instituições</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/apendice-metodologico.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Apêndice metodológico</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/lista-fichas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lista de fichas</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/lista-tabelas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lista de tabelas</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/lista-figuras.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lista de figuras</span></a>
   </div>
@@ -562,26 +585,138 @@ ul.task-list li input[type="checkbox"] {
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Índice</h2>
-   
+
   <ul>
-  <li><a href="#mortalidade-internações-e-atendimentos" id="toc-mortalidade-internações-e-atendimentos" class="nav-link active" data-scroll-target="#mortalidade-internações-e-atendimentos"><span class="header-section-number">12.1</span> Mortalidade, internações e atendimentos</a></li>
-  <li><a href="#desfechos-selecionados" id="toc-desfechos-selecionados" class="nav-link" data-scroll-target="#desfechos-selecionados"><span class="header-section-number">12.2</span> Desfechos selecionados</a>
+  <li><a href="#o-que-cada-medida-responde" id="toc-o-que-cada-medida-responde" class="nav-link active" data-scroll-target="#o-que-cada-medida-responde"><span class="header-section-number">12.1</span> O que cada medida responde</a></li>
+  <li><a href="#mortalidade" id="toc-mortalidade" class="nav-link" data-scroll-target="#mortalidade"><span class="header-section-number">12.2</span> Mortalidade</a>
   <ul class="collapse">
-  <li><a href="#doenças-respiratórias-e-cardiovasculares" id="toc-doenças-respiratórias-e-cardiovasculares" class="nav-link" data-scroll-target="#doenças-respiratórias-e-cardiovasculares"><span class="header-section-number">12.2.1</span> Doenças respiratórias e cardiovasculares</a></li>
-  <li><a href="#doenças-transmitidas-por-vetores" id="toc-doenças-transmitidas-por-vetores" class="nav-link" data-scroll-target="#doenças-transmitidas-por-vetores"><span class="header-section-number">12.2.2</span> Doenças transmitidas por vetores</a></li>
-  <li><a href="#doenças-de-veiculação-hídrica" id="toc-doenças-de-veiculação-hídrica" class="nav-link" data-scroll-target="#doenças-de-veiculação-hídrica"><span class="header-section-number">12.2.3</span> Doenças de veiculação hídrica</a></li>
-  <li><a href="#acidentes" id="toc-acidentes" class="nav-link" data-scroll-target="#acidentes"><span class="header-section-number">12.2.4</span> Acidentes</a></li>
-  <li><a href="#saúde-mental" id="toc-saúde-mental" class="nav-link" data-scroll-target="#saúde-mental"><span class="header-section-number">12.2.5</span> Saúde mental</a></li>
-  <li><a href="#saúde-materno-infantil" id="toc-saúde-materno-infantil" class="nav-link" data-scroll-target="#saúde-materno-infantil"><span class="header-section-number">12.2.6</span> Saúde materno-infantil</a></li>
+  <li><a href="#taxa-bruta-e-taxa-padronizada" id="toc-taxa-bruta-e-taxa-padronizada" class="nav-link" data-scroll-target="#taxa-bruta-e-taxa-padronizada"><span class="header-section-number">12.2.1</span> Taxa bruta e taxa padronizada</a></li>
   </ul></li>
-  <li><a href="#tempo-e-inferência" id="toc-tempo-e-inferência" class="nav-link" data-scroll-target="#tempo-e-inferência"><span class="header-section-number">12.3</span> Tempo e inferência</a>
+  <li><a href="#sec-efe-mor-01" id="toc-sec-efe-mor-01" class="nav-link" data-scroll-target="#sec-efe-mor-01"><span class="header-section-number">12.3</span> Ficha do indicador: Taxa de mortalidade específica por causa</a>
   <ul class="collapse">
-  <li><a href="#defasagens-temporais" id="toc-defasagens-temporais" class="nav-link" data-scroll-target="#defasagens-temporais"><span class="header-section-number">12.3.1</span> Defasagens temporais</a></li>
-  <li><a href="#sazonalidade" id="toc-sazonalidade" class="nav-link" data-scroll-target="#sazonalidade"><span class="header-section-number">12.3.2</span> Sazonalidade</a></li>
-  <li><a href="#excesso-de-eventos" id="toc-excesso-de-eventos" class="nav-link" data-scroll-target="#excesso-de-eventos"><span class="header-section-number">12.3.3</span> Excesso de eventos</a></li>
+  <li><a href="#identificação-e-fundamento" id="toc-identificação-e-fundamento" class="nav-link" data-scroll-target="#identificação-e-fundamento"><span class="header-section-number">12.3.1</span> Identificação e fundamento</a></li>
+  <li><a href="#conceito" id="toc-conceito" class="nav-link" data-scroll-target="#conceito"><span class="header-section-number">12.3.2</span> Conceito</a></li>
+  <li><a href="#objetivo" id="toc-objetivo" class="nav-link" data-scroll-target="#objetivo"><span class="header-section-number">12.3.3</span> Objetivo</a></li>
+  <li><a href="#interpretação" id="toc-interpretação" class="nav-link" data-scroll-target="#interpretação"><span class="header-section-number">12.3.4</span> Interpretação</a></li>
+  <li><a href="#usos" id="toc-usos" class="nav-link" data-scroll-target="#usos"><span class="header-section-number">12.3.5</span> Usos</a></li>
+  <li><a href="#limitações" id="toc-limitações" class="nav-link" data-scroll-target="#limitações"><span class="header-section-number">12.3.6</span> Limitações</a></li>
+  <li><a href="#fontes-de-dados" id="toc-fontes-de-dados" class="nav-link" data-scroll-target="#fontes-de-dados"><span class="header-section-number">12.3.7</span> Fontes de dados</a></li>
+  <li><a href="#método-de-cálculo" id="toc-método-de-cálculo" class="nav-link" data-scroll-target="#método-de-cálculo"><span class="header-section-number">12.3.8</span> Método de cálculo</a></li>
+  <li><a href="#campos-complementares-para-clima-ambiente-e-saúde" id="toc-campos-complementares-para-clima-ambiente-e-saúde" class="nav-link" data-scroll-target="#campos-complementares-para-clima-ambiente-e-saúde"><span class="header-section-number">12.3.9</span> Campos complementares para clima, ambiente e saúde</a></li>
+  <li><a href="#disponibilidade-e-acesso" id="toc-disponibilidade-e-acesso" class="nav-link" data-scroll-target="#disponibilidade-e-acesso"><span class="header-section-number">12.3.10</span> Disponibilidade e acesso</a></li>
+  <li><a href="#qualidade-comparação-e-saúde" id="toc-qualidade-comparação-e-saúde" class="nav-link" data-scroll-target="#qualidade-comparação-e-saúde"><span class="header-section-number">12.3.11</span> Qualidade, comparação e saúde</a></li>
+  <li><a href="#referências-metodológicas" id="toc-referências-metodológicas" class="nav-link" data-scroll-target="#referências-metodológicas"><span class="header-section-number">12.3.12</span> Referências metodológicas</a></li>
   </ul></li>
-  <li><a href="#fração-atribuível-e-carga-de-doença" id="toc-fração-atribuível-e-carga-de-doença" class="nav-link" data-scroll-target="#fração-atribuível-e-carga-de-doença"><span class="header-section-number">12.4</span> Fração atribuível e carga de doença</a></li>
-  <li><a href="#limites-para-interpretação-causal" id="toc-limites-para-interpretação-causal" class="nav-link" data-scroll-target="#limites-para-interpretação-causal"><span class="header-section-number">12.5</span> Limites para interpretação causal</a></li>
+  <li><a href="#sec-efe-mor-02" id="toc-sec-efe-mor-02" class="nav-link" data-scroll-target="#sec-efe-mor-02"><span class="header-section-number">12.4</span> Ficha do indicador: Taxa de mortalidade específica por causa padronizada por idade pelo método direto</a>
+  <ul class="collapse">
+  <li><a href="#identificação-e-fundamento-1" id="toc-identificação-e-fundamento-1" class="nav-link" data-scroll-target="#identificação-e-fundamento-1"><span class="header-section-number">12.4.1</span> Identificação e fundamento</a></li>
+  <li><a href="#conceito-1" id="toc-conceito-1" class="nav-link" data-scroll-target="#conceito-1"><span class="header-section-number">12.4.2</span> Conceito</a></li>
+  <li><a href="#objetivo-1" id="toc-objetivo-1" class="nav-link" data-scroll-target="#objetivo-1"><span class="header-section-number">12.4.3</span> Objetivo</a></li>
+  <li><a href="#interpretação-1" id="toc-interpretação-1" class="nav-link" data-scroll-target="#interpretação-1"><span class="header-section-number">12.4.4</span> Interpretação</a></li>
+  <li><a href="#usos-1" id="toc-usos-1" class="nav-link" data-scroll-target="#usos-1"><span class="header-section-number">12.4.5</span> Usos</a></li>
+  <li><a href="#limitações-1" id="toc-limitações-1" class="nav-link" data-scroll-target="#limitações-1"><span class="header-section-number">12.4.6</span> Limitações</a></li>
+  <li><a href="#fontes-de-dados-1" id="toc-fontes-de-dados-1" class="nav-link" data-scroll-target="#fontes-de-dados-1"><span class="header-section-number">12.4.7</span> Fontes de dados</a></li>
+  <li><a href="#método-de-cálculo-1" id="toc-método-de-cálculo-1" class="nav-link" data-scroll-target="#método-de-cálculo-1"><span class="header-section-number">12.4.8</span> Método de cálculo</a></li>
+  <li><a href="#campos-complementares-para-clima-ambiente-e-saúde-1" id="toc-campos-complementares-para-clima-ambiente-e-saúde-1" class="nav-link" data-scroll-target="#campos-complementares-para-clima-ambiente-e-saúde-1"><span class="header-section-number">12.4.9</span> Campos complementares para clima, ambiente e saúde</a></li>
+  <li><a href="#disponibilidade-e-acesso-1" id="toc-disponibilidade-e-acesso-1" class="nav-link" data-scroll-target="#disponibilidade-e-acesso-1"><span class="header-section-number">12.4.10</span> Disponibilidade e acesso</a></li>
+  <li><a href="#qualidade-comparação-e-saúde-1" id="toc-qualidade-comparação-e-saúde-1" class="nav-link" data-scroll-target="#qualidade-comparação-e-saúde-1"><span class="header-section-number">12.4.11</span> Qualidade, comparação e saúde</a></li>
+  <li><a href="#referências-metodológicas-1" id="toc-referências-metodológicas-1" class="nav-link" data-scroll-target="#referências-metodológicas-1"><span class="header-section-number">12.4.12</span> Referências metodológicas</a></li>
+  </ul></li>
+  <li><a href="#morbidade-e-utilização-dos-serviços" id="toc-morbidade-e-utilização-dos-serviços" class="nav-link" data-scroll-target="#morbidade-e-utilização-dos-serviços"><span class="header-section-number">12.5</span> Morbidade e utilização dos serviços</a></li>
+  <li><a href="#sec-efe-mob-01" id="toc-sec-efe-mob-01" class="nav-link" data-scroll-target="#sec-efe-mob-01"><span class="header-section-number">12.6</span> Ficha do indicador: Taxa de internação hospitalar do SUS por causas selecionadas</a>
+  <ul class="collapse">
+  <li><a href="#identificação-e-fundamento-2" id="toc-identificação-e-fundamento-2" class="nav-link" data-scroll-target="#identificação-e-fundamento-2"><span class="header-section-number">12.6.1</span> Identificação e fundamento</a></li>
+  <li><a href="#conceito-2" id="toc-conceito-2" class="nav-link" data-scroll-target="#conceito-2"><span class="header-section-number">12.6.2</span> Conceito</a></li>
+  <li><a href="#objetivo-2" id="toc-objetivo-2" class="nav-link" data-scroll-target="#objetivo-2"><span class="header-section-number">12.6.3</span> Objetivo</a></li>
+  <li><a href="#interpretação-2" id="toc-interpretação-2" class="nav-link" data-scroll-target="#interpretação-2"><span class="header-section-number">12.6.4</span> Interpretação</a></li>
+  <li><a href="#usos-2" id="toc-usos-2" class="nav-link" data-scroll-target="#usos-2"><span class="header-section-number">12.6.5</span> Usos</a></li>
+  <li><a href="#limitações-2" id="toc-limitações-2" class="nav-link" data-scroll-target="#limitações-2"><span class="header-section-number">12.6.6</span> Limitações</a></li>
+  <li><a href="#fontes-de-dados-2" id="toc-fontes-de-dados-2" class="nav-link" data-scroll-target="#fontes-de-dados-2"><span class="header-section-number">12.6.7</span> Fontes de dados</a></li>
+  <li><a href="#método-de-cálculo-2" id="toc-método-de-cálculo-2" class="nav-link" data-scroll-target="#método-de-cálculo-2"><span class="header-section-number">12.6.8</span> Método de cálculo</a></li>
+  <li><a href="#campos-complementares-para-clima-ambiente-e-saúde-2" id="toc-campos-complementares-para-clima-ambiente-e-saúde-2" class="nav-link" data-scroll-target="#campos-complementares-para-clima-ambiente-e-saúde-2"><span class="header-section-number">12.6.9</span> Campos complementares para clima, ambiente e saúde</a></li>
+  <li><a href="#disponibilidade-e-acesso-2" id="toc-disponibilidade-e-acesso-2" class="nav-link" data-scroll-target="#disponibilidade-e-acesso-2"><span class="header-section-number">12.6.10</span> Disponibilidade e acesso</a></li>
+  <li><a href="#qualidade-comparação-e-saúde-2" id="toc-qualidade-comparação-e-saúde-2" class="nav-link" data-scroll-target="#qualidade-comparação-e-saúde-2"><span class="header-section-number">12.6.11</span> Qualidade, comparação e saúde</a></li>
+  <li><a href="#referências-metodológicas-2" id="toc-referências-metodológicas-2" class="nav-link" data-scroll-target="#referências-metodológicas-2"><span class="header-section-number">12.6.12</span> Referências metodológicas</a></li>
+  </ul></li>
+  <li><a href="#famílias-de-desfechos" id="toc-famílias-de-desfechos" class="nav-link" data-scroll-target="#famílias-de-desfechos"><span class="header-section-number">12.7</span> Famílias de desfechos</a>
+  <ul class="collapse">
+  <li><a href="#doenças-respiratórias-e-cardiovasculares" id="toc-doenças-respiratórias-e-cardiovasculares" class="nav-link" data-scroll-target="#doenças-respiratórias-e-cardiovasculares"><span class="header-section-number">12.7.1</span> Doenças respiratórias e cardiovasculares</a></li>
+  <li><a href="#doenças-transmitidas-por-vetores" id="toc-doenças-transmitidas-por-vetores" class="nav-link" data-scroll-target="#doenças-transmitidas-por-vetores"><span class="header-section-number">12.7.2</span> Doenças transmitidas por vetores</a></li>
+  <li><a href="#doenças-relacionadas-à-água-e-ao-saneamento" id="toc-doenças-relacionadas-à-água-e-ao-saneamento" class="nav-link" data-scroll-target="#doenças-relacionadas-à-água-e-ao-saneamento"><span class="header-section-number">12.7.3</span> Doenças relacionadas à água e ao saneamento</a></li>
+  <li><a href="#lesões-acidentes-e-efeitos-diretos" id="toc-lesões-acidentes-e-efeitos-diretos" class="nav-link" data-scroll-target="#lesões-acidentes-e-efeitos-diretos"><span class="header-section-number">12.7.4</span> Lesões, acidentes e efeitos diretos</a></li>
+  <li><a href="#saúde-mental" id="toc-saúde-mental" class="nav-link" data-scroll-target="#saúde-mental"><span class="header-section-number">12.7.5</span> Saúde mental</a></li>
+  <li><a href="#saúde-materna-fetal-e-infantil" id="toc-saúde-materna-fetal-e-infantil" class="nav-link" data-scroll-target="#saúde-materna-fetal-e-infantil"><span class="header-section-number">12.7.6</span> Saúde materna, fetal e infantil</a></li>
+  </ul></li>
+  <li><a href="#tempo-referência-e-inferência" id="toc-tempo-referência-e-inferência" class="nav-link" data-scroll-target="#tempo-referência-e-inferência"><span class="header-section-number">12.8</span> Tempo, referência e inferência</a>
+  <ul class="collapse">
+  <li><a href="#defasagens" id="toc-defasagens" class="nav-link" data-scroll-target="#defasagens"><span class="header-section-number">12.8.1</span> Defasagens</a></li>
+  <li><a href="#sazonalidade-tendência-e-calendário" id="toc-sazonalidade-tendência-e-calendário" class="nav-link" data-scroll-target="#sazonalidade-tendência-e-calendário"><span class="header-section-number">12.8.2</span> Sazonalidade, tendência e calendário</a></li>
+  <li><a href="#excesso-de-eventos" id="toc-excesso-de-eventos" class="nav-link" data-scroll-target="#excesso-de-eventos"><span class="header-section-number">12.8.3</span> Excesso de eventos</a></li>
+  </ul></li>
+  <li><a href="#sec-efe-exc-01" id="toc-sec-efe-exc-01" class="nav-link" data-scroll-target="#sec-efe-exc-01"><span class="header-section-number">12.9</span> Ficha do indicador: Número de óbitos em excesso</a>
+  <ul class="collapse">
+  <li><a href="#identificação-e-fundamento-3" id="toc-identificação-e-fundamento-3" class="nav-link" data-scroll-target="#identificação-e-fundamento-3"><span class="header-section-number">12.9.1</span> Identificação e fundamento</a></li>
+  <li><a href="#conceito-3" id="toc-conceito-3" class="nav-link" data-scroll-target="#conceito-3"><span class="header-section-number">12.9.2</span> Conceito</a></li>
+  <li><a href="#objetivo-3" id="toc-objetivo-3" class="nav-link" data-scroll-target="#objetivo-3"><span class="header-section-number">12.9.3</span> Objetivo</a></li>
+  <li><a href="#interpretação-3" id="toc-interpretação-3" class="nav-link" data-scroll-target="#interpretação-3"><span class="header-section-number">12.9.4</span> Interpretação</a></li>
+  <li><a href="#usos-3" id="toc-usos-3" class="nav-link" data-scroll-target="#usos-3"><span class="header-section-number">12.9.5</span> Usos</a></li>
+  <li><a href="#limitações-3" id="toc-limitações-3" class="nav-link" data-scroll-target="#limitações-3"><span class="header-section-number">12.9.6</span> Limitações</a></li>
+  <li><a href="#fontes-de-dados-3" id="toc-fontes-de-dados-3" class="nav-link" data-scroll-target="#fontes-de-dados-3"><span class="header-section-number">12.9.7</span> Fontes de dados</a></li>
+  <li><a href="#método-de-cálculo-3" id="toc-método-de-cálculo-3" class="nav-link" data-scroll-target="#método-de-cálculo-3"><span class="header-section-number">12.9.8</span> Método de cálculo</a></li>
+  <li><a href="#campos-complementares-para-clima-ambiente-e-saúde-3" id="toc-campos-complementares-para-clima-ambiente-e-saúde-3" class="nav-link" data-scroll-target="#campos-complementares-para-clima-ambiente-e-saúde-3"><span class="header-section-number">12.9.9</span> Campos complementares para clima, ambiente e saúde</a></li>
+  <li><a href="#disponibilidade-e-acesso-3" id="toc-disponibilidade-e-acesso-3" class="nav-link" data-scroll-target="#disponibilidade-e-acesso-3"><span class="header-section-number">12.9.10</span> Disponibilidade e acesso</a></li>
+  <li><a href="#qualidade-comparação-e-saúde-3" id="toc-qualidade-comparação-e-saúde-3" class="nav-link" data-scroll-target="#qualidade-comparação-e-saúde-3"><span class="header-section-number">12.9.11</span> Qualidade, comparação e saúde</a></li>
+  <li><a href="#referências-metodológicas-3" id="toc-referências-metodológicas-3" class="nav-link" data-scroll-target="#referências-metodológicas-3"><span class="header-section-number">12.9.12</span> Referências metodológicas</a></li>
+  </ul></li>
+  <li><a href="#sec-efe-exc-02" id="toc-sec-efe-exc-02" class="nav-link" data-scroll-target="#sec-efe-exc-02"><span class="header-section-number">12.10</span> Ficha do indicador: P-score de mortalidade em excesso</a>
+  <ul class="collapse">
+  <li><a href="#identificação-e-fundamento-4" id="toc-identificação-e-fundamento-4" class="nav-link" data-scroll-target="#identificação-e-fundamento-4"><span class="header-section-number">12.10.1</span> Identificação e fundamento</a></li>
+  <li><a href="#conceito-4" id="toc-conceito-4" class="nav-link" data-scroll-target="#conceito-4"><span class="header-section-number">12.10.2</span> Conceito</a></li>
+  <li><a href="#objetivo-4" id="toc-objetivo-4" class="nav-link" data-scroll-target="#objetivo-4"><span class="header-section-number">12.10.3</span> Objetivo</a></li>
+  <li><a href="#interpretação-4" id="toc-interpretação-4" class="nav-link" data-scroll-target="#interpretação-4"><span class="header-section-number">12.10.4</span> Interpretação</a></li>
+  <li><a href="#usos-4" id="toc-usos-4" class="nav-link" data-scroll-target="#usos-4"><span class="header-section-number">12.10.5</span> Usos</a></li>
+  <li><a href="#limitações-4" id="toc-limitações-4" class="nav-link" data-scroll-target="#limitações-4"><span class="header-section-number">12.10.6</span> Limitações</a></li>
+  <li><a href="#fontes-de-dados-4" id="toc-fontes-de-dados-4" class="nav-link" data-scroll-target="#fontes-de-dados-4"><span class="header-section-number">12.10.7</span> Fontes de dados</a></li>
+  <li><a href="#método-de-cálculo-4" id="toc-método-de-cálculo-4" class="nav-link" data-scroll-target="#método-de-cálculo-4"><span class="header-section-number">12.10.8</span> Método de cálculo</a></li>
+  <li><a href="#campos-complementares-para-clima-ambiente-e-saúde-4" id="toc-campos-complementares-para-clima-ambiente-e-saúde-4" class="nav-link" data-scroll-target="#campos-complementares-para-clima-ambiente-e-saúde-4"><span class="header-section-number">12.10.9</span> Campos complementares para clima, ambiente e saúde</a></li>
+  <li><a href="#disponibilidade-e-acesso-4" id="toc-disponibilidade-e-acesso-4" class="nav-link" data-scroll-target="#disponibilidade-e-acesso-4"><span class="header-section-number">12.10.10</span> Disponibilidade e acesso</a></li>
+  <li><a href="#qualidade-comparação-e-saúde-4" id="toc-qualidade-comparação-e-saúde-4" class="nav-link" data-scroll-target="#qualidade-comparação-e-saúde-4"><span class="header-section-number">12.10.11</span> Qualidade, comparação e saúde</a></li>
+  <li><a href="#referências-metodológicas-4" id="toc-referências-metodológicas-4" class="nav-link" data-scroll-target="#referências-metodológicas-4"><span class="header-section-number">12.10.12</span> Referências metodológicas</a></li>
+  </ul></li>
+  <li><a href="#eventos-e-carga-atribuíveis" id="toc-eventos-e-carga-atribuíveis" class="nav-link" data-scroll-target="#eventos-e-carga-atribuíveis"><span class="header-section-number">12.11</span> Eventos e carga atribuíveis</a></li>
+  <li><a href="#sec-efe-atr-01" id="toc-sec-efe-atr-01" class="nav-link" data-scroll-target="#sec-efe-atr-01"><span class="header-section-number">12.12</span> Ficha do indicador: Número e fração de eventos atribuíveis à temperatura em modelos de defasagem distribuída</a>
+  <ul class="collapse">
+  <li><a href="#identificação-e-fundamento-5" id="toc-identificação-e-fundamento-5" class="nav-link" data-scroll-target="#identificação-e-fundamento-5"><span class="header-section-number">12.12.1</span> Identificação e fundamento</a></li>
+  <li><a href="#conceito-5" id="toc-conceito-5" class="nav-link" data-scroll-target="#conceito-5"><span class="header-section-number">12.12.2</span> Conceito</a></li>
+  <li><a href="#objetivo-5" id="toc-objetivo-5" class="nav-link" data-scroll-target="#objetivo-5"><span class="header-section-number">12.12.3</span> Objetivo</a></li>
+  <li><a href="#interpretação-5" id="toc-interpretação-5" class="nav-link" data-scroll-target="#interpretação-5"><span class="header-section-number">12.12.4</span> Interpretação</a></li>
+  <li><a href="#usos-5" id="toc-usos-5" class="nav-link" data-scroll-target="#usos-5"><span class="header-section-number">12.12.5</span> Usos</a></li>
+  <li><a href="#limitações-5" id="toc-limitações-5" class="nav-link" data-scroll-target="#limitações-5"><span class="header-section-number">12.12.6</span> Limitações</a></li>
+  <li><a href="#fontes-de-dados-5" id="toc-fontes-de-dados-5" class="nav-link" data-scroll-target="#fontes-de-dados-5"><span class="header-section-number">12.12.7</span> Fontes de dados</a></li>
+  <li><a href="#método-de-cálculo-5" id="toc-método-de-cálculo-5" class="nav-link" data-scroll-target="#método-de-cálculo-5"><span class="header-section-number">12.12.8</span> Método de cálculo</a></li>
+  <li><a href="#campos-complementares-para-clima-ambiente-e-saúde-5" id="toc-campos-complementares-para-clima-ambiente-e-saúde-5" class="nav-link" data-scroll-target="#campos-complementares-para-clima-ambiente-e-saúde-5"><span class="header-section-number">12.12.9</span> Campos complementares para clima, ambiente e saúde</a></li>
+  <li><a href="#disponibilidade-e-acesso-5" id="toc-disponibilidade-e-acesso-5" class="nav-link" data-scroll-target="#disponibilidade-e-acesso-5"><span class="header-section-number">12.12.10</span> Disponibilidade e acesso</a></li>
+  <li><a href="#qualidade-comparação-e-saúde-5" id="toc-qualidade-comparação-e-saúde-5" class="nav-link" data-scroll-target="#qualidade-comparação-e-saúde-5"><span class="header-section-number">12.12.11</span> Qualidade, comparação e saúde</a></li>
+  <li><a href="#referências-metodológicas-5" id="toc-referências-metodológicas-5" class="nav-link" data-scroll-target="#referências-metodológicas-5"><span class="header-section-number">12.12.12</span> Referências metodológicas</a></li>
+  </ul></li>
+  <li><a href="#sec-efe-car-01" id="toc-sec-efe-car-01" class="nav-link" data-scroll-target="#sec-efe-car-01"><span class="header-section-number">12.13</span> Ficha do indicador: Anos de vida ajustados por incapacidade atribuíveis a risco ambiental (DALY atribuível)</a>
+  <ul class="collapse">
+  <li><a href="#identificação-e-fundamento-6" id="toc-identificação-e-fundamento-6" class="nav-link" data-scroll-target="#identificação-e-fundamento-6"><span class="header-section-number">12.13.1</span> Identificação e fundamento</a></li>
+  <li><a href="#conceito-6" id="toc-conceito-6" class="nav-link" data-scroll-target="#conceito-6"><span class="header-section-number">12.13.2</span> Conceito</a></li>
+  <li><a href="#objetivo-6" id="toc-objetivo-6" class="nav-link" data-scroll-target="#objetivo-6"><span class="header-section-number">12.13.3</span> Objetivo</a></li>
+  <li><a href="#interpretação-6" id="toc-interpretação-6" class="nav-link" data-scroll-target="#interpretação-6"><span class="header-section-number">12.13.4</span> Interpretação</a></li>
+  <li><a href="#usos-6" id="toc-usos-6" class="nav-link" data-scroll-target="#usos-6"><span class="header-section-number">12.13.5</span> Usos</a></li>
+  <li><a href="#limitações-6" id="toc-limitações-6" class="nav-link" data-scroll-target="#limitações-6"><span class="header-section-number">12.13.6</span> Limitações</a></li>
+  <li><a href="#fontes-de-dados-6" id="toc-fontes-de-dados-6" class="nav-link" data-scroll-target="#fontes-de-dados-6"><span class="header-section-number">12.13.7</span> Fontes de dados</a></li>
+  <li><a href="#método-de-cálculo-6" id="toc-método-de-cálculo-6" class="nav-link" data-scroll-target="#método-de-cálculo-6"><span class="header-section-number">12.13.8</span> Método de cálculo</a></li>
+  <li><a href="#campos-complementares-para-clima-ambiente-e-saúde-6" id="toc-campos-complementares-para-clima-ambiente-e-saúde-6" class="nav-link" data-scroll-target="#campos-complementares-para-clima-ambiente-e-saúde-6"><span class="header-section-number">12.13.9</span> Campos complementares para clima, ambiente e saúde</a></li>
+  <li><a href="#disponibilidade-e-acesso-6" id="toc-disponibilidade-e-acesso-6" class="nav-link" data-scroll-target="#disponibilidade-e-acesso-6"><span class="header-section-number">12.13.10</span> Disponibilidade e acesso</a></li>
+  <li><a href="#qualidade-comparação-e-saúde-6" id="toc-qualidade-comparação-e-saúde-6" class="nav-link" data-scroll-target="#qualidade-comparação-e-saúde-6"><span class="header-section-number">12.13.11</span> Qualidade, comparação e saúde</a></li>
+  <li><a href="#referências-metodológicas-6" id="toc-referências-metodológicas-6" class="nav-link" data-scroll-target="#referências-metodológicas-6"><span class="header-section-number">12.13.12</span> Referências metodológicas</a></li>
+  </ul></li>
+  <li><a href="#principais-indicadores-usados-em-saúde-pública" id="toc-principais-indicadores-usados-em-saúde-pública" class="nav-link" data-scroll-target="#principais-indicadores-usados-em-saúde-pública"><span class="header-section-number">12.14</span> Principais indicadores usados em saúde pública</a></li>
+  <li><a href="#limites-para-interpretação-causal" id="toc-limites-para-interpretação-causal" class="nav-link" data-scroll-target="#limites-para-interpretação-causal"><span class="header-section-number">12.15</span> Limites para interpretação causal</a></li>
+  <li><a href="#conjunto-mínimo-para-publicação" id="toc-conjunto-mínimo-para-publicação" class="nav-link" data-scroll-target="#conjunto-mínimo-para-publicação"><span class="header-section-number">12.16</span> Conjunto mínimo para publicação</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/rfsaldanha/dicas/blob/main/chapters/part-3/12-efeitos-saude.qmd" class="toc-action"><i class="bi bi-github"></i>Ver o código fonte</a></li><li><a href="https://github.com/rfsaldanha/dicas/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></nav>
     </div>
@@ -598,65 +733,1086 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="quarto-title-meta">
 
-    
-  
-    
+
+
+
   </div>
-  
+
 
 
 </header>
 
 
-<p>Este capítulo apresentará medidas de ocorrência e efeito em saúde e os requisitos para relacioná-las, com diferentes graus de inferência, a exposições climáticas e ambientais.</p>
-<p>O capítulo não redefine as exposições dos capítulos temáticos nem as condições de vulnerabilidade do <a href="11-exposicao-vulnerabilidade.html" class="quarto-xref"><span>Capítulo 11</span></a>. Seu foco é o desfecho, o desenho analítico e os limites de interpretação.</p>
-<section id="mortalidade-internações-e-atendimentos" class="level2" data-number="12.1">
-<h2 data-number="12.1" class="anchored" data-anchor-id="mortalidade-internações-e-atendimentos"><span class="header-section-number">12.1</span> Mortalidade, internações e atendimentos</h2>
-</section>
-<section id="desfechos-selecionados" class="level2" data-number="12.2">
-<h2 data-number="12.2" class="anchored" data-anchor-id="desfechos-selecionados"><span class="header-section-number">12.2</span> Desfechos selecionados</h2>
-<section id="doenças-respiratórias-e-cardiovasculares" class="level3" data-number="12.2.1">
-<h3 data-number="12.2.1" class="anchored" data-anchor-id="doenças-respiratórias-e-cardiovasculares"><span class="header-section-number">12.2.1</span> Doenças respiratórias e cardiovasculares</h3>
-</section>
-<section id="doenças-transmitidas-por-vetores" class="level3" data-number="12.2.2">
-<h3 data-number="12.2.2" class="anchored" data-anchor-id="doenças-transmitidas-por-vetores"><span class="header-section-number">12.2.2</span> Doenças transmitidas por vetores</h3>
-</section>
-<section id="doenças-de-veiculação-hídrica" class="level3" data-number="12.2.3">
-<h3 data-number="12.2.3" class="anchored" data-anchor-id="doenças-de-veiculação-hídrica"><span class="header-section-number">12.2.3</span> Doenças de veiculação hídrica</h3>
-</section>
-<section id="acidentes" class="level3" data-number="12.2.4">
-<h3 data-number="12.2.4" class="anchored" data-anchor-id="acidentes"><span class="header-section-number">12.2.4</span> Acidentes</h3>
-</section>
-<section id="saúde-mental" class="level3" data-number="12.2.5">
-<h3 data-number="12.2.5" class="anchored" data-anchor-id="saúde-mental"><span class="header-section-number">12.2.5</span> Saúde mental</h3>
-</section>
-<section id="saúde-materno-infantil" class="level3" data-number="12.2.6">
-<h3 data-number="12.2.6" class="anchored" data-anchor-id="saúde-materno-infantil"><span class="header-section-number">12.2.6</span> Saúde materno-infantil</h3>
-</section>
-</section>
-<section id="tempo-e-inferência" class="level2" data-number="12.3">
-<h2 data-number="12.3" class="anchored" data-anchor-id="tempo-e-inferência"><span class="header-section-number">12.3</span> Tempo e inferência</h2>
-<section id="defasagens-temporais" class="level3" data-number="12.3.1">
-<h3 data-number="12.3.1" class="anchored" data-anchor-id="defasagens-temporais"><span class="header-section-number">12.3.1</span> Defasagens temporais</h3>
-</section>
-<section id="sazonalidade" class="level3" data-number="12.3.2">
-<h3 data-number="12.3.2" class="anchored" data-anchor-id="sazonalidade"><span class="header-section-number">12.3.2</span> Sazonalidade</h3>
-</section>
-<section id="excesso-de-eventos" class="level3" data-number="12.3.3">
-<h3 data-number="12.3.3" class="anchored" data-anchor-id="excesso-de-eventos"><span class="header-section-number">12.3.3</span> Excesso de eventos</h3>
-</section>
-</section>
-<section id="fração-atribuível-e-carga-de-doença" class="level2" data-number="12.4">
-<h2 data-number="12.4" class="anchored" data-anchor-id="fração-atribuível-e-carga-de-doença"><span class="header-section-number">12.4</span> Fração atribuível e carga de doença</h2>
-</section>
-<section id="limites-para-interpretação-causal" class="level2" data-number="12.5">
-<h2 data-number="12.5" class="anchored" data-anchor-id="limites-para-interpretação-causal"><span class="header-section-number">12.5</span> Limites para interpretação causal</h2>
-<p><strong>Indicadores previstos:</strong> mortalidade, internações e atendimentos selecionados; excesso de eventos; razões e taxas por população; associações com defasagem; fração atribuível e carga de doença, somente quando o desenho permitir.</p>
-<div class="todo">
-<p>TODO: desenvolver com revisão epidemiológica e metodológica; separar associação, previsão e atribuição causal.</p>
+<p>Os efeitos do clima e do ambiente sobre a saúde podem aparecer como sintomas, atendimentos, internações, incapacidades ou mortes. Também podem ser percebidos como interrupção do cuidado, piora de uma doença preexistente, deslocamento forçado e perda de bem-estar. A escolha do indicador depende da pergunta: contar eventos, comparar riscos entre populações, detectar uma alteração acima do esperado ou estimar a parcela atribuível a uma exposição são operações diferentes.</p>
+<p>Este capítulo trata dos desfechos e da ligação analítica entre exposição e saúde. Os perigos foram definidos nos capítulos temáticos e as condições de exposição e vulnerabilidade, no <a href="11-exposicao-vulnerabilidade.html" class="quarto-xref"><span>Capítulo 11</span></a>. Uma temperatura extrema, uma concentração de poluente ou uma inundação não constitui, por si, efeito em saúde. De modo inverso, uma internação respiratória ocorrida durante um episódio de fumaça não pode ser automaticamente atribuída a ele.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div id="fig-cadeia-efeitos-saude" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-cadeia-efeitos-saude-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-cadeia-efeitos-saude">flowchart LR
+  P["Perigo ambiental&lt;br/&gt;intensidade e duração"] --&gt; X["Exposição&lt;br/&gt;lugar, tempo e população"]
+  X --&gt; M["Mecanismos&lt;br/&gt;fisiológicos e sociais"]
+  V["Vulnerabilidade&lt;br/&gt;suscetibilidade e proteção"] --&gt; M
+  M --&gt; D["Desfechos&lt;br/&gt;sintomas, atendimento,&lt;br/&gt;internação, incapacidade, óbito"]
+  D --&gt; O["Indicadores observados&lt;br/&gt;contagem e taxa"]
+  D --&gt; E["Comparação temporal&lt;br/&gt;excesso"]
+  X --&gt; A["Modelo exposição–resposta"]
+  D --&gt; A
+  A --&gt; B["Carga atribuível&lt;br/&gt;eventos, fração e DALY"]
+</pre>
 </div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cadeia-efeitos-saude-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;12.1: Do perigo ambiental aos diferentes tipos de medida de efeito em saúde
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<section id="o-que-cada-medida-responde" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="o-que-cada-medida-responde"><span class="header-section-number">12.1</span> O que cada medida responde</h2>
+<p>Contagens informam volume assistencial ou número de eventos. Taxas relacionam eventos à população sob risco. Taxas padronizadas reduzem o efeito de estruturas etárias diferentes. Excesso compara o observado com uma referência temporal estimada. Associação quantifica a variação relativa de um desfecho conforme a exposição, sob um modelo. Fração e número atribuíveis estimam a carga que não ocorreria em um cenário contrafactual, desde que a interpretação causal e as demais hipóteses sejam defensáveis.</p>
+<div id="tbl-medidas-efeito" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-medidas-efeito-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;12.1: Perguntas respondidas por diferentes medidas de efeito em saúde
+</figcaption>
+<div aria-describedby="tbl-medidas-efeito-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Medida</th>
+<th>Pergunta principal</th>
+<th>Denominador ou referência</th>
+<th>Interpretação permitida</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Contagem</td>
+<td>Quantos eventos ocorreram?</td>
+<td>Não há</td>
+<td>Volume observado</td>
+</tr>
+<tr class="even">
+<td>Taxa bruta</td>
+<td>Com que frequência ocorreu na população?</td>
+<td>População do território e período</td>
+<td>Intensidade na população observada</td>
+</tr>
+<tr class="odd">
+<td>Taxa padronizada</td>
+<td>Como comparar populações com idades diferentes?</td>
+<td>População padrão</td>
+<td>Comparação ajustada, não risco observado diretamente</td>
+</tr>
+<tr class="even">
+<td>Excesso absoluto</td>
+<td>Quantos eventos ocorreram além do esperado?</td>
+<td>Série contrafactual esperada</td>
+<td>Diferença temporal</td>
+</tr>
+<tr class="odd">
+<td>Excesso relativo ou P-score</td>
+<td>Qual foi a diferença proporcional em relação ao esperado?</td>
+<td>Eventos esperados</td>
+<td>Comparação relativa no tempo</td>
+</tr>
+<tr class="even">
+<td>Associação</td>
+<td>Como o desfecho varia com a exposição?</td>
+<td>Categoria ou valor de referência no modelo</td>
+<td>Relação condicionada ao desenho e aos ajustes</td>
+</tr>
+<tr class="odd">
+<td>Número ou fração atribuível</td>
+<td>Quanto seria evitado no contrafactual?</td>
+<td>Eventos observados e curva de risco</td>
+<td>Carga atribuível sob hipóteses causais</td>
+</tr>
+<tr class="even">
+<td>DALY atribuível</td>
+<td>Quantos anos de vida saudável foram perdidos?</td>
+<td>Carga total e fração atribuível</td>
+<td>Carga fatal e não fatal comparável</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Uma análise pode apresentar várias dessas medidas, mas deve conservar seus nomes. “Aumento de 20%” pode significar taxa 20% maior, risco relativo de 1,20 ou P-score de 20%; os números não são intercambiáveis. Também é necessário informar se o resultado é observado, estimado ou modelado.</p>
+</section>
+<section id="mortalidade" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="mortalidade"><span class="header-section-number">12.2</span> Mortalidade</h2>
+<p>O Sistema de Informações sobre Mortalidade permite analisar causa básica, causas associadas, residência, ocorrência, data e características da pessoa. Para indicadores populacionais, a residência costuma definir o território do numerador e do denominador. O local de ocorrência responde a outra pergunta, importante para organizar serviços, mas inadequada para estimar o risco da população residente quando hospitais recebem pacientes de outros municípios <span class="citation" data-cites="brasil2026sim ripsa2026">(<a href="../../backmatter/referencias.html#ref-brasil2026sim" role="doc-biblioref">Brasil. Ministério da Saúde, 2026a</a>; <a href="../../backmatter/referencias.html#ref-ripsa2026" role="doc-biblioref">Organização Pan-Americana da Saúde, 2026</a>)</span>.</p>
+<p>A causa básica inicia a cadeia que levou ao óbito. Causas associadas registram condições contribuintes. Códigos diretamente ambientais — exposição ao calor natural excessivo, efeitos da fumaça ou circunstâncias de um desastre — identificam parte dos eventos, porém não medem todo o efeito. Calor pode precipitar infarto, acidente vascular cerebral ou descompensação renal sem aparecer como causa básica. Poluição do ar pode agravar doença respiratória ou cardiovascular sem constar na declaração. Por isso, códigos diretos, taxas por causas selecionadas, excesso de mortalidade e modelos atribuíveis têm funções complementares.</p>
+<section id="taxa-bruta-e-taxa-padronizada" class="level3" data-number="12.2.1">
+<h3 data-number="12.2.1" class="anchored" data-anchor-id="taxa-bruta-e-taxa-padronizada"><span class="header-section-number">12.2.1</span> Taxa bruta e taxa padronizada</h3>
+<p>A taxa de mortalidade específica por causa descreve óbitos de residentes por população residente. Ela é adequada para acompanhar a mesma população e dimensionar o problema. Comparações entre lugares ou grupos com estruturas etárias distintas exigem taxas específicas por idade ou padronização. Uma população mais envelhecida pode ter taxa bruta maior mesmo que cada faixa etária tenha risco igual ou menor.</p>
+<p>Na padronização direta, as taxas específicas por idade de cada população são aplicadas aos mesmos pesos de uma população padrão <span class="citation" data-cites="who2001standard">(<a href="../../backmatter/referencias.html#ref-who2001standard" role="doc-biblioref">Ahmad et al., 2001</a>)</span>. O resultado é uma construção comparativa: não representa a taxa que foi literalmente observada. Devem ser publicados a população padrão, as faixas etárias, a cobertura, a regra para idades desconhecidas e intervalos de incerteza. Mudar o padrão ou os grupos etários rompe a comparabilidade.</p>
+</section>
+</section>
+<section id="sec-efe-mor-01" class="level2" data-number="12.3">
+<h2 data-number="12.3" class="anchored" data-anchor-id="sec-efe-mor-01"><span class="header-section-number">12.3</span> Ficha do indicador: Taxa de mortalidade específica por causa</h2>
+<div class="indicator-card">
+<p><strong>Código:</strong> EFE-MOR-01<br>
+<strong>Título resumido:</strong> Mortalidade específica por causa<br>
+<strong>Tema:</strong> Efeitos do clima e do ambiente sobre a saúde<br>
+<strong>Dimensão:</strong> efeito<br>
+<strong>Disponibilidade:</strong> <span class="availability">dados secundários de saúde</span> <span class="availability">requer qualificação</span></p>
+</div>
+<section id="identificação-e-fundamento" class="level3" data-number="12.3.1">
+<h3 data-number="12.3.1" class="anchored" data-anchor-id="identificação-e-fundamento"><span class="header-section-number">12.3.1</span> Identificação e fundamento</h3>
+<p><strong>Indicador consolidado em.</strong> Indicador de mortalidade específica por causas da RIPSA, calculado com óbitos de residentes e população residente.</p>
+</section>
+<section id="conceito" class="level3" data-number="12.3.2">
+<h3 data-number="12.3.2" class="anchored" data-anchor-id="conceito"><span class="header-section-number">12.3.2</span> Conceito</h3>
+<p>Número de óbitos cuja causa básica pertence ao conjunto definido, por 100 mil habitantes da população residente no mesmo território e período.</p>
+</section>
+<section id="objetivo" class="level3" data-number="12.3.3">
+<h3 data-number="12.3.3" class="anchored" data-anchor-id="objetivo"><span class="header-section-number">12.3.3</span> Objetivo</h3>
+<p>Medir a intensidade da mortalidade por causa ou grupo de causas em uma população.</p>
+</section>
+<section id="interpretação" class="level3" data-number="12.3.4">
+<h3 data-number="12.3.4" class="anchored" data-anchor-id="interpretação"><span class="header-section-number">12.3.4</span> Interpretação</h3>
+<p>Valor de 25 por 100 mil significa 25 óbitos registrados pela causa para cada 100 mil residentes no período. A taxa bruta reflete risco e estrutura etária; não deve ser usada isoladamente para comparar populações com idades distintas.</p>
+</section>
+<section id="usos" class="level3" data-number="12.3.5">
+<h3 data-number="12.3.5" class="anchored" data-anchor-id="usos"><span class="header-section-number">12.3.5</span> Usos</h3>
+<ul>
+<li>Descrever mortalidade por causas sensíveis ao clima e ambiente.</li>
+<li>Comparar períodos dentro de população estável.</li>
+<li>Monitorar desigualdades com estratificação.</li>
+<li>Compor análises epidemiológicas de eventos.</li>
+</ul>
+</section>
+<section id="limitações" class="level3" data-number="12.3.6">
+<h3 data-number="12.3.6" class="anchored" data-anchor-id="limitações"><span class="header-section-number">12.3.6</span> Limitações</h3>
+<ul>
+<li>Depende da qualidade da causa básica e da cobertura do SIM.</li>
+<li>Códigos diretos de calor ou desastre podem subestimar efeitos indiretos.</li>
+<li>Pequenas populações produzem taxas instáveis.</li>
+<li>Comparações territoriais exigem padronização por idade quando as estruturas diferem.</li>
+</ul>
+</section>
+<section id="fontes-de-dados" class="level3" data-number="12.3.7">
+<h3 data-number="12.3.7" class="anchored" data-anchor-id="fontes-de-dados"><span class="header-section-number">12.3.7</span> Fontes de dados</h3>
+<ul>
+<li>Sistema de Informações sobre Mortalidade — óbitos de residentes por causa básica, data e características (<a href="../../backmatter/indice-fontes.html#sim">cadastro</a>)</li>
+<li>Instituto Brasileiro de Geografia e Estatística — população residente no denominador (<a href="../../backmatter/indice-fontes.html#ibge">cadastro</a>)</li>
+</ul>
+</section>
+<section id="método-de-cálculo" class="level3" data-number="12.3.8">
+<h3 data-number="12.3.8" class="anchored" data-anchor-id="método-de-cálculo"><span class="header-section-number">12.3.8</span> Método de cálculo</h3>
+<p>Definir previamente códigos da CID-10, idade, território de residência e período. Contar óbitos de residentes com causa básica no conjunto e dividir pela população residente estimada no meio do período; multiplicar por 100 mil. Calcular intervalos e, em pequenas áreas, considerar agregação ou suavização claramente identificada.</p>
+<p><span class="math display">\[
+TM_c=100\,000\times\frac{D_{c,res}}{Pop_{res}}
+\]</span></p>
+<div class="indicator-card">
+<p><strong>Numerador.</strong> Óbitos de residentes cuja causa básica pertence ao conjunto c no período.</p>
+<p><strong>Denominador.</strong> População residente no território e período.</p>
+<p><strong>Unidade de medida.</strong> Óbitos por 100 mil habitantes.</p>
+<p><strong>Variáveis e categorias de análise.</strong> Causa básica CID-10; idade; sexo; raça ou cor; escolaridade; ocupação; residência; ocorrência; período; circunstância quando disponível.</p>
+<p><strong>Granularidade.</strong> Óbito individual na origem e taxa agregada.</p>
+<p><strong>Periodicidade de atualização.</strong> Conforme bases preliminares e consolidadas do SIM.</p>
+<p><strong>Responsabilidade gerencial.</strong> Área de vigilância epidemiológica e informação em saúde, com apoio de epidemiologia e estatística para modelagem e interpretação.</p>
+<p><strong>Notas.</strong> Contagens, taxas, excesso, associação e atribuição respondem a perguntas diferentes. Resultados estimados devem informar modelo, referência contrafactual e incerteza.</p>
+<p><strong>Análise descritiva do indicador.</strong> Mostrar contagem e taxa, distribuição etária, sexo, raça ou cor, local, sazonalidade, causas mal definidas, cobertura e intervalo; usar padronização para comparações.</p>
+</div>
+</section>
+<section id="campos-complementares-para-clima-ambiente-e-saúde" class="level3" data-number="12.3.9">
+<h3 data-number="12.3.9" class="anchored" data-anchor-id="campos-complementares-para-clima-ambiente-e-saúde"><span class="header-section-number">12.3.9</span> Campos complementares para clima, ambiente e saúde</h3>
+<div class="indicator-card">
+<p><strong>Unidade territorial.</strong> Município de residência e agregações superiores; pequenas áreas sob regras de confidencialidade e estabilidade.</p>
+<p><strong>Resolução espacial original.</strong> Município de residência nos dados públicos usuais.</p>
+<p><strong>Resolução temporal.</strong> Data do óbito; resumo diário, semanal, mensal ou anual conforme contagem.</p>
+<p><strong>Período de referência.</strong> Período analisado e versão da CID; no Brasil, série CID-10 desde 1996.</p>
+<p><strong>Limiar ou valor de referência.</strong> Não há limiar universal; comparar com série histórica, território adequado e intervalo de incerteza.</p>
+</div>
+</section>
+<section id="disponibilidade-e-acesso" class="level3" data-number="12.3.10">
+<h3 data-number="12.3.10" class="anchored" data-anchor-id="disponibilidade-e-acesso"><span class="header-section-number">12.3.10</span> Disponibilidade e acesso</h3>
+<p><strong>Cobertura geográfica.</strong> Brasil, condicionada à cobertura e qualidade local do SIM.</p>
+<p><strong>Período disponível.</strong> Desde 1996 em CID-10 no portal nacional consultado.</p>
+<p><strong>Periodicidade de atualização.</strong> Conforme bases preliminares e consolidadas do SIM.</p>
+<p><strong>Forma de acesso.</strong> TABNET e transferência de arquivos do DATASUS.</p>
+<p><strong>URL ou identificador persistente.</strong> https://datasus.saude.gov.br/mortalidade-desde-1996-pela-cid-10</p>
+<p><strong>Formato dos arquivos.</strong> DBC, DBF após conversão e tabelas exportadas.</p>
+<p><strong>Necessidade de processamento.</strong> Selecionar causas, deduplicar se necessário, qualificar residência e data, vincular população e estimar estabilidade.</p>
+</section>
+<section id="qualidade-comparação-e-saúde" class="level3" data-number="12.3.11">
+<h3 data-number="12.3.11" class="anchored" data-anchor-id="qualidade-comparação-e-saúde"><span class="header-section-number">12.3.11</span> Qualidade, comparação e saúde</h3>
+<p><strong>Qualidade e incerteza.</strong> Avaliar cobertura, completude, oportunidade, duplicidade, definição de caso, codificação CID, causa básica e associadas, revisões, estabilidade do denominador, pequenas contagens e intervalos de incerteza.</p>
+<p><strong>Possibilidade de comparação.</strong> Manter desfecho, definição, códigos, população, fonte, território, calendário, padronização e versão; mudanças assistenciais e de registro podem alterar o indicador sem mudança igual na ocorrência.</p>
+<p><strong>Relação com desfechos de saúde.</strong> Mede ocorrência observada ou carga estimada de desfechos; a relação com clima ou ambiente exige exposição definida e desenho analítico compatível.</p>
+<p><strong>Defasagens temporais relevantes.</strong> Registrar data do evento de saúde e considerar o intervalo biologicamente plausível entre exposição e desfecho; data de processamento ou competência não deve substituir automaticamente a data clínica.</p>
+<p><strong>Aplicação na gestão.</strong> Monitorar impacto, desigualdades e pressão sobre serviços, avaliar alertas e intervenções e apoiar priorização, sem atribuir causalidade além do desenho.</p>
+</section>
+<section id="referências-metodológicas" class="level3" data-number="12.3.12">
+<h3 data-number="12.3.12" class="anchored" data-anchor-id="referências-metodológicas"><span class="header-section-number">12.3.12</span> Referências metodológicas</h3>
+<ul>
+<li><span class="citation" data-cites="ripsa2026">(<a href="../../backmatter/referencias.html#ref-ripsa2026" role="doc-biblioref">Organização Pan-Americana da Saúde, 2026</a>)</span></li>
+<li><span class="citation" data-cites="brasil2026sim">(<a href="../../backmatter/referencias.html#ref-brasil2026sim" role="doc-biblioref">Brasil. Ministério da Saúde, 2026a</a>)</span></li>
+</ul>
+</section>
+</section>
+<section id="sec-efe-mor-02" class="level2" data-number="12.4">
+<h2 data-number="12.4" class="anchored" data-anchor-id="sec-efe-mor-02"><span class="header-section-number">12.4</span> Ficha do indicador: Taxa de mortalidade específica por causa padronizada por idade pelo método direto</h2>
+<div class="indicator-card">
+<p><strong>Código:</strong> EFE-MOR-02<br>
+<strong>Título resumido:</strong> Mortalidade padronizada por idade<br>
+<strong>Tema:</strong> Efeitos do clima e do ambiente sobre a saúde<br>
+<strong>Dimensão:</strong> efeito<br>
+<strong>Disponibilidade:</strong> <span class="availability">dados secundários de saúde</span> <span class="availability">requer qualificação</span></p>
+</div>
+<section id="identificação-e-fundamento-1" class="level3" data-number="12.4.1">
+<h3 data-number="12.4.1" class="anchored" data-anchor-id="identificação-e-fundamento-1"><span class="header-section-number">12.4.1</span> Identificação e fundamento</h3>
+<p><strong>Indicador consolidado em.</strong> Padronização direta com população padrão da Organização Mundial da Saúde.</p>
+</section>
+<section id="conceito-1" class="level3" data-number="12.4.2">
+<h3 data-number="12.4.2" class="anchored" data-anchor-id="conceito-1"><span class="header-section-number">12.4.2</span> Conceito</h3>
+<p>Média ponderada das taxas de mortalidade específicas por idade de uma população, usando como pesos uma distribuição etária padrão comum.</p>
+</section>
+<section id="objetivo-1" class="level3" data-number="12.4.3">
+<h3 data-number="12.4.3" class="anchored" data-anchor-id="objetivo-1"><span class="header-section-number">12.4.3</span> Objetivo</h3>
+<p>Comparar mortalidade por causa entre populações ou períodos removendo a influência de diferenças na composição etária.</p>
+</section>
+<section id="interpretação-1" class="level3" data-number="12.4.4">
+<h3 data-number="12.4.4" class="anchored" data-anchor-id="interpretação-1"><span class="header-section-number">12.4.4</span> Interpretação</h3>
+<p>A taxa representa quantos óbitos por 100 mil ocorreriam na população padrão se ela experimentasse as taxas etárias observadas. É uma medida comparativa hipotética, não a taxa efetivamente observada.</p>
+</section>
+<section id="usos-1" class="level3" data-number="12.4.5">
+<h3 data-number="12.4.5" class="anchored" data-anchor-id="usos-1"><span class="header-section-number">12.4.5</span> Usos</h3>
+<ul>
+<li>Comparar territórios com estruturas etárias diferentes.</li>
+<li>Monitorar tendências longas.</li>
+<li>Comparar grupos populacionais.</li>
+<li>Produzir indicadores internacionais de mortalidade ambiental.</li>
+</ul>
+</section>
+<section id="limitações-1" class="level3" data-number="12.4.6">
+<h3 data-number="12.4.6" class="anchored" data-anchor-id="limitações-1"><span class="header-section-number">12.4.6</span> Limitações</h3>
+<ul>
+<li>O resultado depende da população padrão e das faixas etárias.</li>
+<li>Exige números e denominadores por idade confiáveis.</li>
+<li>Taxas etárias instáveis contaminam a soma.</li>
+<li>Não substitui a apresentação de contagens e taxas específicas por idade.</li>
+</ul>
+</section>
+<section id="fontes-de-dados-1" class="level3" data-number="12.4.7">
+<h3 data-number="12.4.7" class="anchored" data-anchor-id="fontes-de-dados-1"><span class="header-section-number">12.4.7</span> Fontes de dados</h3>
+<ul>
+<li>Sistema de Informações sobre Mortalidade — óbitos por causa e faixa etária (<a href="../../backmatter/indice-fontes.html#sim">cadastro</a>)</li>
+<li>Instituto Brasileiro de Geografia e Estatística — população por faixa etária (<a href="../../backmatter/indice-fontes.html#ibge">cadastro</a>)</li>
+<li>Estimativas Globais de Saúde da OMS — referência internacional e população padrão para comparações (<a href="../../backmatter/indice-fontes.html#who-ghe">cadastro</a>)</li>
+</ul>
+</section>
+<section id="método-de-cálculo-1" class="level3" data-number="12.4.8">
+<h3 data-number="12.4.8" class="anchored" data-anchor-id="método-de-cálculo-1"><span class="header-section-number">12.4.8</span> Método de cálculo</h3>
+<p>Para cada faixa etária, dividir óbitos pela população correspondente. Multiplicar cada taxa específica pela proporção da mesma faixa na população padrão. Somar os produtos e multiplicar pela constante quando as taxas não estiverem previamente escaladas. Declarar padrão, faixas, tratamento da idade ignorada e intervalo.</p>
+<p><span class="math display">\[
+TMP_c=100\,000\times\sum_a\left(\frac{D_{c,a}}{Pop_a}\right)w_a,\qquad \sum_a w_a=1
+\]</span></p>
+<div class="indicator-card">
+<p><strong>Numerador.</strong> Soma ponderada das taxas específicas por idade; não há numerador observado único.</p>
+<p><strong>Denominador.</strong> Populações específicas por idade; pesos da população padrão somam um.</p>
+<p><strong>Unidade de medida.</strong> Óbitos por 100 mil habitantes da população padrão.</p>
+<p><strong>Variáveis e categorias de análise.</strong> Causa; idade; sexo; raça ou cor quando denominadores permitirem; território; ano; população padrão.</p>
+<p><strong>Granularidade.</strong> Faixa etária antes da padronização; território-período na saída.</p>
+<p><strong>Periodicidade de atualização.</strong> Anual ou por edição da base.</p>
+<p><strong>Responsabilidade gerencial.</strong> Área de vigilância epidemiológica e informação em saúde, com apoio de epidemiologia e estatística para modelagem e interpretação.</p>
+<p><strong>Notas.</strong> Contagens, taxas, excesso, associação e atribuição respondem a perguntas diferentes. Resultados estimados devem informar modelo, referência contrafactual e incerteza.</p>
+<p><strong>Análise descritiva do indicador.</strong> Apresentar taxa bruta, padronizada e específicas por idade, contagens, padrão empregado e intervalos; investigar se a diferença comparativa é concentrada em alguma idade.</p>
+</div>
+</section>
+<section id="campos-complementares-para-clima-ambiente-e-saúde-1" class="level3" data-number="12.4.9">
+<h3 data-number="12.4.9" class="anchored" data-anchor-id="campos-complementares-para-clima-ambiente-e-saúde-1"><span class="header-section-number">12.4.9</span> Campos complementares para clima, ambiente e saúde</h3>
+<div class="indicator-card">
+<p><strong>Unidade territorial.</strong> Território com óbitos e população por idade compatíveis.</p>
+<p><strong>Resolução espacial original.</strong> A menor unidade com contagens etárias estáveis e denominadores qualificados.</p>
+<p><strong>Resolução temporal.</strong> Geralmente anual ou plurianual.</p>
+<p><strong>Período de referência.</strong> Período dos óbitos e população; população padrão OMS 2000–2025 quando adotada.</p>
+<p><strong>Limiar ou valor de referência.</strong> Não há corte universal; comparações exigem a mesma população padrão.</p>
+</div>
+</section>
+<section id="disponibilidade-e-acesso-1" class="level3" data-number="12.4.10">
+<h3 data-number="12.4.10" class="anchored" data-anchor-id="disponibilidade-e-acesso-1"><span class="header-section-number">12.4.10</span> Disponibilidade e acesso</h3>
+<p><strong>Cobertura geográfica.</strong> Brasil com SIM e IBGE; global nas estimativas comparáveis da OMS.</p>
+<p><strong>Período disponível.</strong> Conforme séries de mortalidade e população por idade.</p>
+<p><strong>Periodicidade de atualização.</strong> Anual ou por edição da base.</p>
+<p><strong>Forma de acesso.</strong> Cálculo com tabelas etárias; estimativas internacionais no Observatório Global de Saúde.</p>
+<p><strong>URL ou identificador persistente.</strong> https://cdn.who.int/media/docs/default-source/gho-documents/global-health-estimates/gpe_discussion_paper_series_paper31_2001_age_standardization_rates.pdf</p>
+<p><strong>Formato dos arquivos.</strong> Tabelas por idade e arquivo de pesos padrão.</p>
+<p><strong>Necessidade de processamento.</strong> Harmonizar faixas, calcular taxas específicas, aplicar pesos, estimar variância e documentar padrão.</p>
+</section>
+<section id="qualidade-comparação-e-saúde-1" class="level3" data-number="12.4.11">
+<h3 data-number="12.4.11" class="anchored" data-anchor-id="qualidade-comparação-e-saúde-1"><span class="header-section-number">12.4.11</span> Qualidade, comparação e saúde</h3>
+<p><strong>Qualidade e incerteza.</strong> Avaliar cobertura, completude, oportunidade, duplicidade, definição de caso, codificação CID, causa básica e associadas, revisões, estabilidade do denominador, pequenas contagens e intervalos de incerteza.</p>
+<p><strong>Possibilidade de comparação.</strong> Manter desfecho, definição, códigos, população, fonte, território, calendário, padronização e versão; mudanças assistenciais e de registro podem alterar o indicador sem mudança igual na ocorrência.</p>
+<p><strong>Relação com desfechos de saúde.</strong> Mede ocorrência observada ou carga estimada de desfechos; a relação com clima ou ambiente exige exposição definida e desenho analítico compatível.</p>
+<p><strong>Defasagens temporais relevantes.</strong> Registrar data do evento de saúde e considerar o intervalo biologicamente plausível entre exposição e desfecho; data de processamento ou competência não deve substituir automaticamente a data clínica.</p>
+<p><strong>Aplicação na gestão.</strong> Monitorar impacto, desigualdades e pressão sobre serviços, avaliar alertas e intervenções e apoiar priorização, sem atribuir causalidade além do desenho.</p>
+</section>
+<section id="referências-metodológicas-1" class="level3" data-number="12.4.12">
+<h3 data-number="12.4.12" class="anchored" data-anchor-id="referências-metodológicas-1"><span class="header-section-number">12.4.12</span> Referências metodológicas</h3>
+<ul>
+<li><span class="citation" data-cites="ripsa2026">(<a href="../../backmatter/referencias.html#ref-ripsa2026" role="doc-biblioref">Organização Pan-Americana da Saúde, 2026</a>)</span></li>
+<li><span class="citation" data-cites="who2001standard">(<a href="../../backmatter/referencias.html#ref-who2001standard" role="doc-biblioref">Ahmad et al., 2001</a>)</span></li>
+</ul>
+</section>
+</section>
+<section id="morbidade-e-utilização-dos-serviços" class="level2" data-number="12.5">
+<h2 data-number="12.5" class="anchored" data-anchor-id="morbidade-e-utilização-dos-serviços"><span class="header-section-number">12.5</span> Morbidade e utilização dos serviços</h2>
+<p>Morbidade inclui doença percebida, diagnosticada ou registrada. Inquéritos domiciliares captam sintomas e limitações que não chegam aos serviços; atenção primária registra problemas e acompanhamento; urgência responde a quadros agudos; internações representam uma parcela mais grave e selecionada. Nenhuma base isolada mede todos os adoecimentos.</p>
+<p>O SIH/SUS é uma fonte consolidada para internações financiadas pelo SUS. A unidade registrada é a autorização de internação hospitalar, e não necessariamente uma pessoa única. Transferências, reinternações, regras de pagamento, oferta de leitos e mudanças de codificação influenciam as séries <span class="citation" data-cites="brasil2026sih ripsa2026">(<a href="../../backmatter/referencias.html#ref-brasil2026sih" role="doc-biblioref">Brasil. Ministério da Saúde, 2026b</a>; <a href="../../backmatter/referencias.html#ref-ripsa2026" role="doc-biblioref">Organização Pan-Americana da Saúde, 2026</a>)</span>. A taxa de internação por causas selecionadas é útil para vigilância e planejamento, desde que seja chamada de <strong>taxa de internação no SUS</strong>, e não de incidência da doença na população.</p>
+<p>Atendimentos ambulatoriais ou de urgência podem reagir mais rapidamente a calor, fumaça, alergias, acidentes e sofrimento psíquico, mas a organização local dos sistemas frequentemente dificulta séries nacionais comparáveis. Quando utilizados, devem documentar unidade de registro, duplicidades, cobertura pública e privada, mudança de prontuário e interrupções operacionais. Um desastre pode reduzir atendimentos registrados porque unidades ficaram inacessíveis; queda na produção não significa melhora da saúde.</p>
+</section>
+<section id="sec-efe-mob-01" class="level2" data-number="12.6">
+<h2 data-number="12.6" class="anchored" data-anchor-id="sec-efe-mob-01"><span class="header-section-number">12.6</span> Ficha do indicador: Taxa de internação hospitalar do SUS por causas selecionadas</h2>
+<div class="indicator-card">
+<p><strong>Código:</strong> EFE-MOB-01<br>
+<strong>Título resumido:</strong> Internações SUS por causa — D.29<br>
+<strong>Tema:</strong> Efeitos do clima e do ambiente sobre a saúde<br>
+<strong>Dimensão:</strong> efeito<br>
+<strong>Disponibilidade:</strong> <span class="availability">dados secundários de saúde</span> <span class="availability">requer qualificação</span></p>
+</div>
+<section id="identificação-e-fundamento-2" class="level3" data-number="12.6.1">
+<h3 data-number="12.6.1" class="anchored" data-anchor-id="identificação-e-fundamento-2"><span class="header-section-number">12.6.1</span> Identificação e fundamento</h3>
+<p><strong>Indicador consolidado em.</strong> Indicador D.29 da RIPSA para internações hospitalares financiadas pelo SUS por causas selecionadas.</p>
+</section>
+<section id="conceito-2" class="level3" data-number="12.6.2">
+<h3 data-number="12.6.2" class="anchored" data-anchor-id="conceito-2"><span class="header-section-number">12.6.2</span> Conceito</h3>
+<p>Número de internações de residentes financiadas pelo SUS por uma causa ou grupo definido, por 10 mil habitantes da população residente.</p>
+</section>
+<section id="objetivo-2" class="level3" data-number="12.6.3">
+<h3 data-number="12.6.3" class="anchored" data-anchor-id="objetivo-2"><span class="header-section-number">12.6.3</span> Objetivo</h3>
+<p>Medir a frequência de utilização hospitalar do SUS associada a causas selecionadas em relação à população.</p>
+</section>
+<section id="interpretação-2" class="level3" data-number="12.6.4">
+<h3 data-number="12.6.4" class="anchored" data-anchor-id="interpretação-2"><span class="header-section-number">12.6.4</span> Interpretação</h3>
+<p>Valor de 12 por 10 mil representa 12 AIH de internação pela causa para cada 10 mil residentes. Mede episódios administrativos de internação, não pessoas únicas nem incidência integral da doença.</p>
+</section>
+<section id="usos-2" class="level3" data-number="12.6.5">
+<h3 data-number="12.6.5" class="anchored" data-anchor-id="usos-2"><span class="header-section-number">12.6.5</span> Usos</h3>
+<ul>
+<li>Monitorar pressão hospitalar durante calor</li>
+<li>fumaça</li>
+<li>enchentes ou surtos.</li>
+<li>Comparar sazonalidade e períodos.</li>
+<li>Estratificar por idade e território.</li>
+<li>Planejar capacidade assistencial.</li>
+</ul>
+</section>
+<section id="limitações-2" class="level3" data-number="12.6.6">
+<h3 data-number="12.6.6" class="anchored" data-anchor-id="limitações-2"><span class="header-section-number">12.6.6</span> Limitações</h3>
+<ul>
+<li>Cobre internações financiadas pelo SUS</li>
+<li>não toda assistência hospitalar.</li>
+<li>Uma pessoa pode gerar mais de uma AIH ou internação.</li>
+<li>Oferta</li>
+<li>acesso e regras de faturamento modificam a taxa.</li>
+<li>Diagnóstico principal pode não registrar a exposição ambiental.</li>
+</ul>
+</section>
+<section id="fontes-de-dados-2" class="level3" data-number="12.6.7">
+<h3 data-number="12.6.7" class="anchored" data-anchor-id="fontes-de-dados-2"><span class="header-section-number">12.6.7</span> Fontes de dados</h3>
+<ul>
+<li>Sistema de Informações Hospitalares do SUS — AIH de residentes por diagnóstico, data e características (<a href="../../backmatter/indice-fontes.html#sih-sus">cadastro</a>)</li>
+<li>Instituto Brasileiro de Geografia e Estatística — população residente no denominador (<a href="../../backmatter/indice-fontes.html#ibge">cadastro</a>)</li>
+</ul>
+</section>
+<section id="método-de-cálculo-2" class="level3" data-number="12.6.8">
+<h3 data-number="12.6.8" class="anchored" data-anchor-id="método-de-cálculo-2"><span class="header-section-number">12.6.8</span> Método de cálculo</h3>
+<p>Definir códigos CID-10, população, território de residência e período. Contar AIH de residentes com diagnóstico principal no conjunto selecionado, observando longa permanência e duplicidades previstas no método. Dividir pela população residente e multiplicar por 10 mil. Para efeitos agudos, usar data de internação quando disponível e não apenas competência.</p>
+<p><span class="math display">\[
+TI_c=10\,000\times\frac{AIH_{c,res}}{Pop_{res}}
+\]</span></p>
+<div class="indicator-card">
+<p><strong>Numerador.</strong> Internações ou AIH de residentes financiadas pelo SUS pela causa selecionada.</p>
+<p><strong>Denominador.</strong> População residente no território e período.</p>
+<p><strong>Unidade de medida.</strong> Internações por 10 mil habitantes.</p>
+<p><strong>Variáveis e categorias de análise.</strong> Diagnóstico principal e secundário; idade; sexo; raça ou cor; residência; estabelecimento; data; permanência; desfecho.</p>
+<p><strong>Granularidade.</strong> AIH na origem e taxa territorial no resultado.</p>
+<p><strong>Periodicidade de atualização.</strong> Mensal, sujeita a revisões administrativas.</p>
+<p><strong>Responsabilidade gerencial.</strong> Área de vigilância epidemiológica e informação em saúde, com apoio de epidemiologia e estatística para modelagem e interpretação.</p>
+<p><strong>Notas.</strong> Contagens, taxas, excesso, associação e atribuição respondem a perguntas diferentes. Resultados estimados devem informar modelo, referência contrafactual e incerteza.</p>
+<p><strong>Análise descritiva do indicador.</strong> Mostrar contagens e taxas, permanência, óbito hospitalar, idade, raça ou cor, residência e local de atendimento, sazonalidade, cobertura SUS e mudanças de oferta.</p>
+</div>
+</section>
+<section id="campos-complementares-para-clima-ambiente-e-saúde-2" class="level3" data-number="12.6.9">
+<h3 data-number="12.6.9" class="anchored" data-anchor-id="campos-complementares-para-clima-ambiente-e-saúde-2"><span class="header-section-number">12.6.9</span> Campos complementares para clima, ambiente e saúde</h3>
+<div class="indicator-card">
+<p><strong>Unidade territorial.</strong> Município de residência e agregações, com opção de analisar fluxo por local de internação separadamente.</p>
+<p><strong>Resolução espacial original.</strong> Município de residência e estabelecimento conforme arquivo público.</p>
+<p><strong>Resolução temporal.</strong> Episódio ou competência mensal; resumo diário quando datas forem qualificadas.</p>
+<p><strong>Período de referência.</strong> Período analisado e versão do processamento SIH/SUS.</p>
+<p><strong>Limiar ou valor de referência.</strong> Não há corte universal; usar série histórica e capacidade local.</p>
+</div>
+</section>
+<section id="disponibilidade-e-acesso-2" class="level3" data-number="12.6.10">
+<h3 data-number="12.6.10" class="anchored" data-anchor-id="disponibilidade-e-acesso-2"><span class="header-section-number">12.6.10</span> Disponibilidade e acesso</h3>
+<p><strong>Cobertura geográfica.</strong> Brasil para internações financiadas pelo SUS.</p>
+<p><strong>Período disponível.</strong> Conforme o SIH/SUS; considerar mudanças da CID e do processamento.</p>
+<p><strong>Periodicidade de atualização.</strong> Mensal, sujeita a revisões administrativas.</p>
+<p><strong>Forma de acesso.</strong> TABNET, TABWIN e transferência de arquivos.</p>
+<p><strong>URL ou identificador persistente.</strong> https://datasus.saude.gov.br/acesso-a-informacao/morbidade-hospitalar-do-sus-sih-sus/</p>
+<p><strong>Formato dos arquivos.</strong> DBC, DBF após conversão e tabelas exportadas.</p>
+<p><strong>Necessidade de processamento.</strong> Selecionar diagnósticos, data e residência, tratar AIH de continuidade, vincular denominador e verificar cobertura.</p>
+</section>
+<section id="qualidade-comparação-e-saúde-2" class="level3" data-number="12.6.11">
+<h3 data-number="12.6.11" class="anchored" data-anchor-id="qualidade-comparação-e-saúde-2"><span class="header-section-number">12.6.11</span> Qualidade, comparação e saúde</h3>
+<p><strong>Qualidade e incerteza.</strong> Avaliar cobertura, completude, oportunidade, duplicidade, definição de caso, codificação CID, causa básica e associadas, revisões, estabilidade do denominador, pequenas contagens e intervalos de incerteza.</p>
+<p><strong>Possibilidade de comparação.</strong> Manter desfecho, definição, códigos, população, fonte, território, calendário, padronização e versão; mudanças assistenciais e de registro podem alterar o indicador sem mudança igual na ocorrência.</p>
+<p><strong>Relação com desfechos de saúde.</strong> Mede ocorrência observada ou carga estimada de desfechos; a relação com clima ou ambiente exige exposição definida e desenho analítico compatível.</p>
+<p><strong>Defasagens temporais relevantes.</strong> Registrar data do evento de saúde e considerar o intervalo biologicamente plausível entre exposição e desfecho; data de processamento ou competência não deve substituir automaticamente a data clínica.</p>
+<p><strong>Aplicação na gestão.</strong> Monitorar impacto, desigualdades e pressão sobre serviços, avaliar alertas e intervenções e apoiar priorização, sem atribuir causalidade além do desenho.</p>
+</section>
+<section id="referências-metodológicas-2" class="level3" data-number="12.6.12">
+<h3 data-number="12.6.12" class="anchored" data-anchor-id="referências-metodológicas-2"><span class="header-section-number">12.6.12</span> Referências metodológicas</h3>
+<ul>
+<li><span class="citation" data-cites="ripsa2026">(<a href="../../backmatter/referencias.html#ref-ripsa2026" role="doc-biblioref">Organização Pan-Americana da Saúde, 2026</a>)</span></li>
+<li><span class="citation" data-cites="brasil2026sih">(<a href="../../backmatter/referencias.html#ref-brasil2026sih" role="doc-biblioref">Brasil. Ministério da Saúde, 2026b</a>)</span></li>
+</ul>
+</section>
+</section>
+<section id="famílias-de-desfechos" class="level2" data-number="12.7">
+<h2 data-number="12.7" class="anchored" data-anchor-id="famílias-de-desfechos"><span class="header-section-number">12.7</span> Famílias de desfechos</h2>
+<p>A definição do desfecho deve preceder a extração. Não é suficiente solicitar “doenças relacionadas ao clima”. O protocolo precisa declarar códigos, posição diagnóstica, faixa etária, fonte, território, período e mecanismo plausível.</p>
+<section id="doenças-respiratórias-e-cardiovasculares" class="level3" data-number="12.7.1">
+<h3 data-number="12.7.1" class="anchored" data-anchor-id="doenças-respiratórias-e-cardiovasculares"><span class="header-section-number">12.7.1</span> Doenças respiratórias e cardiovasculares</h3>
+<p>Temperatura, fumaça e poluentes atmosféricos podem desencadear ou agravar desfechos respiratórios e cardiovasculares. As análises frequentemente examinam mortalidade ou internações por todas as causas naturais, doenças do aparelho respiratório, asma, doença pulmonar obstrutiva crônica, pneumonia, doenças cardiovasculares, doença isquêmica e acidente vascular cerebral. A composição exata deve ser publicada e mantida ao longo da série.</p>
+<p>Desfechos amplos oferecem maior número de eventos e menor sensibilidade a erros entre diagnósticos próximos. Desfechos específicos aproximam mecanismos clínicos, mas podem ser instáveis e mais dependentes da qualidade diagnóstica. Resultados para “todas as causas” não autorizam afirmar qual doença respondeu pela associação.</p>
+</section>
+<section id="doenças-transmitidas-por-vetores" class="level3" data-number="12.7.2">
+<h3 data-number="12.7.2" class="anchored" data-anchor-id="doenças-transmitidas-por-vetores"><span class="header-section-number">12.7.2</span> Doenças transmitidas por vetores</h3>
+<p>Temperatura, chuva, umidade, armazenamento de água, saneamento, mobilidade, imunidade, circulação do agente e controle vetorial participam da transmissão. O efeito não é instantâneo: desenvolvimento do vetor, incubação extrínseca e intrínseca, procura por cuidado, diagnóstico e notificação produzem defasagens. Casos prováveis, confirmados, data de início dos sintomas e data de notificação não são equivalentes.</p>
+<p>Uma associação entre chuva e dengue pode mudar de sinal conforme a defasagem e o contexto. Chuva pode formar criadouros; precipitação extrema pode removê-los; seca pode estimular armazenamento doméstico de água. Modelos precisam representar relações não lineares e mecanismos locais. A variável climática não substitui indicadores de vigilância entomológica nem a confirmação epidemiológica.</p>
+</section>
+<section id="doenças-relacionadas-à-água-e-ao-saneamento" class="level3" data-number="12.7.3">
+<h3 data-number="12.7.3" class="anchored" data-anchor-id="doenças-relacionadas-à-água-e-ao-saneamento"><span class="header-section-number">12.7.3</span> Doenças relacionadas à água e ao saneamento</h3>
+<p>Diarreias, hepatite A, leptospirose e outras doenças podem se relacionar a contaminação, inundação, interrupção de abastecimento, contato com água contaminada e falhas de esgotamento. Os indicadores de água e saneamento do <a href="../part-2/08-agua-saneamento-qualidade-ambiental.html" class="quarto-xref"><span>Capítulo 8</span></a> medem condições de exposição ou proteção, não casos de doença.</p>
+<p>Para leptospirose após inundação, por exemplo, devem ser alinhadas a data e a área do evento, a provável exposição, o início dos sintomas, a residência e o local provável de infecção. Para doenças diarreicas, a interpretação deve considerar idade, sazonalidade, circulação de patógenos, qualidade da vigilância e acesso aos serviços. A ausência de confirmação laboratorial pode justificar uma definição sindrômica, desde que isso seja explicitado.</p>
+</section>
+<section id="lesões-acidentes-e-efeitos-diretos" class="level3" data-number="12.7.4">
+<h3 data-number="12.7.4" class="anchored" data-anchor-id="lesões-acidentes-e-efeitos-diretos"><span class="header-section-number">12.7.4</span> Lesões, acidentes e efeitos diretos</h3>
+<p>Tempestades, ventos, raios, movimentos de massa, inundações, incêndios e calor podem causar lesões e mortes diretamente. Causas externas exigem examinar natureza da lesão e circunstância. O local de ocorrência ganha importância operacional, enquanto a residência permanece relevante para estimar risco e organizar continuidade do cuidado.</p>
+<p>Registros de desastre e registros de saúde não devem ser somados sem vinculação. Uma pessoa ferida pode aparecer no atendimento, na internação e no cadastro de afetados. Cada sistema possui unidade de observação própria. A reconciliação deve usar identificadores protegidos ou regras probabilísticas documentadas, mantendo versões e estimando duplicidade.</p>
+</section>
+<section id="saúde-mental" class="level3" data-number="12.7.5">
+<h3 data-number="12.7.5" class="anchored" data-anchor-id="saúde-mental"><span class="header-section-number">12.7.5</span> Saúde mental</h3>
+<p>Eventos extremos podem produzir sofrimento agudo, ansiedade, depressão, transtorno de estresse pós-traumático, uso problemático de substâncias, violência, luto e agravamento de condições anteriores. Deslocamento, perda de moradia e renda, ruptura de redes e incerteza prolongam efeitos muito além do dia do evento.</p>
+<p>Internações psiquiátricas e mortalidade por suicídio captam apenas extremos de uma distribuição ampla. Inquéritos com instrumentos validados, atendimentos de atenção psicossocial, uso de serviços e acompanhamento longitudinal acrescentam dimensões, mas dependem do acesso. Uma elevação na procura pode refletir piora, redução de estigma ou ampliação da oferta. O indicador deve ser interpretado com a organização da rede e nunca usado para estigmatizar comunidades atingidas.</p>
+</section>
+<section id="saúde-materna-fetal-e-infantil" class="level3" data-number="12.7.6">
+<h3 data-number="12.7.6" class="anchored" data-anchor-id="saúde-materna-fetal-e-infantil"><span class="header-section-number">12.7.6</span> Saúde materna, fetal e infantil</h3>
+<p>Exposições térmicas, poluição, fumaça, contaminação da água, insegurança alimentar e interrupção do cuidado podem alcançar gestação, parto e infância. Desfechos incluem parto prematuro, baixo peso ao nascer, natimortalidade, mortalidade neonatal e adoecimento infantil. A janela de exposição deve corresponder ao mecanismo: trimestre gestacional, semanas anteriores ao parto ou primeiros meses de vida.</p>
+<p>Idade gestacional e data provável da concepção têm incerteza. Endereço no parto pode não representar residência durante toda a gestação. Comparações precisam ajustar tendências temporais, sazonalidade, idade materna, paridade e determinantes sociais definidos previamente. Associações ecológicas em municípios não devem ser convertidas em risco individual.</p>
+</section>
+</section>
+<section id="tempo-referência-e-inferência" class="level2" data-number="12.8">
+<h2 data-number="12.8" class="anchored" data-anchor-id="tempo-referência-e-inferência"><span class="header-section-number">12.8</span> Tempo, referência e inferência</h2>
+<section id="defasagens" class="level3" data-number="12.8.1">
+<h3 data-number="12.8.1" class="anchored" data-anchor-id="defasagens"><span class="header-section-number">12.8.1</span> Defasagens</h3>
+<p>Uma exposição pode ter efeito no mesmo dia ou semanas depois. Calor costuma produzir respostas agudas e deslocamento temporal de eventos; frio pode ter defasagem mais longa. Fumaça pode afetar sintomas rapidamente, enquanto vetores e doenças hídricas envolvem ciclos biológicos e atrasos de notificação. Escolher apenas o dia do evento tende a perder carga ou atribuí-la ao período errado.</p>
+<p>Modelos não lineares de defasagem distribuída representam simultaneamente a forma da relação exposição–resposta e sua distribuição no tempo <span class="citation" data-cites="gasparrini2010dlnm">(<a href="../../backmatter/referencias.html#ref-gasparrini2010dlnm" role="doc-biblioref">Gasparrini; Armstrong; Kenward, 2010</a>)</span>. A janela máxima não deve ser escolhida pelo resultado mais significativo. Ela precisa de justificativa biológica, inspeção de sensibilidade e comprimento suficiente para distinguir efeito acumulado e antecipação de eventos.</p>
+</section>
+<section id="sazonalidade-tendência-e-calendário" class="level3" data-number="12.8.2">
+<h3 data-number="12.8.2" class="anchored" data-anchor-id="sazonalidade-tendência-e-calendário"><span class="header-section-number">12.8.2</span> Sazonalidade, tendência e calendário</h3>
+<p>Exposição e desfecho podem subir na mesma estação sem relação causal direta. Tendência de longo prazo, dia da semana, feriados, epidemias, poluentes correlacionados e mudanças de população ou serviço podem confundir a associação. Séries temporais precisam controlar esses padrões sem remover o sinal de interesse.</p>
+<p>Autocorrelação e sobredispersão afetam incerteza. Interrupções, atrasos de digitação e mudança de definição criam quebras. A análise deve apresentar diagnóstico dos resíduos, especificação dos termos temporais, controle de calendário, dados ausentes e testes de sensibilidade. Explorar muitas causas, lags e limiares e publicar apenas associações positivas produz evidência frágil.</p>
+</section>
+<section id="excesso-de-eventos" class="level3" data-number="12.8.3">
+<h3 data-number="12.8.3" class="anchored" data-anchor-id="excesso-de-eventos"><span class="header-section-number">12.8.3</span> Excesso de eventos</h3>
+<p>Excesso é a diferença entre observado e esperado na ausência do período excepcional. O esperado pode vir de anos anteriores comparáveis ou de um modelo com tendência, sazonalidade, calendário e mudanças populacionais. A referência deve ser estimada antes de interpretar o sinal; uma média simples de poucos anos pode ser inadequada.</p>
+<p>O número absoluto dimensiona o evento para resposta. O P-score divide o excesso pelo esperado e favorece comparação relativa. Um município pequeno pode ter P-score alto com poucos óbitos, enquanto uma metrópole tem P-score menor e excesso absoluto muito maior. Ambos devem vir acompanhados do observado, esperado, intervalo e qualidade do registro <span class="citation" data-cites="who2023excess">(<a href="../../backmatter/referencias.html#ref-who2023excess" role="doc-biblioref">World Health Organization, 2023</a>)</span>.</p>
+<p>Excesso não identifica a exposição responsável. Durante uma onda de calor com fumaça, interrupção elétrica e epidemia, ele resume o desvio conjunto. Para atribuição a um fator específico são necessários desenho, exposições e controle dos fatores concorrentes.</p>
+</section>
+</section>
+<section id="sec-efe-exc-01" class="level2" data-number="12.9">
+<h2 data-number="12.9" class="anchored" data-anchor-id="sec-efe-exc-01"><span class="header-section-number">12.9</span> Ficha do indicador: Número de óbitos em excesso</h2>
+<div class="indicator-card">
+<p><strong>Código:</strong> EFE-EXC-01<br>
+<strong>Título resumido:</strong> Óbitos em excesso<br>
+<strong>Tema:</strong> Efeitos do clima e do ambiente sobre a saúde<br>
+<strong>Dimensão:</strong> efeito<br>
+<strong>Disponibilidade:</strong> <span class="availability">dados secundários de saúde</span> <span class="availability">requer qualificação</span></p>
+</div>
+<section id="identificação-e-fundamento-3" class="level3" data-number="12.9.1">
+<h3 data-number="12.9.1" class="anchored" data-anchor-id="identificação-e-fundamento-3"><span class="header-section-number">12.9.1</span> Identificação e fundamento</h3>
+<p><strong>Indicador consolidado em.</strong> Definição epidemiológica e métodos de mortalidade em excesso da Organização Mundial da Saúde.</p>
+</section>
+<section id="conceito-3" class="level3" data-number="12.9.2">
+<h3 data-number="12.9.2" class="anchored" data-anchor-id="conceito-3"><span class="header-section-number">12.9.2</span> Conceito</h3>
+<p>Diferença entre o número de óbitos observados e o número que seria esperado na ausência do período ou evento de interesse, segundo um modelo contrafactual.</p>
+</section>
+<section id="objetivo-3" class="level3" data-number="12.9.3">
+<h3 data-number="12.9.3" class="anchored" data-anchor-id="objetivo-3"><span class="header-section-number">12.9.3</span> Objetivo</h3>
+<p>Detectar e quantificar mortalidade acima ou abaixo do padrão esperado por todas as causas ou causas definidas.</p>
+</section>
+<section id="interpretação-3" class="level3" data-number="12.9.4">
+<h3 data-number="12.9.4" class="anchored" data-anchor-id="interpretação-3"><span class="header-section-number">12.9.4</span> Interpretação</h3>
+<p>Excesso positivo indica mais óbitos que o esperado; valor negativo indica déficit. O total inclui efeitos diretos e indiretos e não identifica sozinho qual parcela foi causada pelo evento.</p>
+</section>
+<section id="usos-3" class="level3" data-number="12.9.5">
+<h3 data-number="12.9.5" class="anchored" data-anchor-id="usos-3"><span class="header-section-number">12.9.5</span> Usos</h3>
+<ul>
+<li>Monitorar ondas de calor</li>
+<li>desastres e emergências.</li>
+<li>Captar efeitos não registrados em códigos específicos.</li>
+<li>Comparar impacto temporal.</li>
+<li>Avaliar pressão e interrupção do sistema.</li>
+</ul>
+</section>
+<section id="limitações-3" class="level3" data-number="12.9.6">
+<h3 data-number="12.9.6" class="anchored" data-anchor-id="limitações-3"><span class="header-section-number">12.9.6</span> Limitações</h3>
+<ul>
+<li>O resultado depende criticamente do modelo esperado.</li>
+<li>Tendência</li>
+<li>sazonalidade</li>
+<li>envelhecimento e feriados devem ser tratados.</li>
+<li>Atraso de registro pode criar excesso ou déficit artificial.</li>
+<li>Excesso temporal não prova atribuição causal ao perigo.</li>
+</ul>
+</section>
+<section id="fontes-de-dados-3" class="level3" data-number="12.9.7">
+<h3 data-number="12.9.7" class="anchored" data-anchor-id="fontes-de-dados-3"><span class="header-section-number">12.9.7</span> Fontes de dados</h3>
+<ul>
+<li>Sistema de Informações sobre Mortalidade — óbitos observados por data, idade, sexo, causa e território (<a href="../../backmatter/indice-fontes.html#sim">cadastro</a>)</li>
+<li>Instituto Brasileiro de Geografia e Estatística — população e mudanças demográficas para taxas ou compensação do modelo (<a href="../../backmatter/indice-fontes.html#ibge">cadastro</a>)</li>
+</ul>
+</section>
+<section id="método-de-cálculo-3" class="level3" data-number="12.9.8">
+<h3 data-number="12.9.8" class="anchored" data-anchor-id="método-de-cálculo-3"><span class="header-section-number">12.9.8</span> Método de cálculo</h3>
+<p>Modelar óbitos esperados com período anterior não afetado, controlando tendência, sazonalidade e calendário e incorporando estrutura demográfica quando necessário. Prever cada unidade temporal com intervalo. Subtrair o esperado do observado e somar no período. Informar resultados usando tanto a média esperada quanto, quando pertinente, o limite superior preditivo.</p>
+<p><span class="math display">\[
+Excesso_t=O_t-E_t;\qquad Excesso_P=\sum_{t\in P}(O_t-E_t)
+\]</span></p>
+<div class="indicator-card">
+<p><strong>Numerador.</strong> Não se aplica; diferença entre contagem observada e esperada.</p>
+<p><strong>Denominador.</strong> Não se aplica; pode-se dividir pela população para obter taxa de excesso.</p>
+<p><strong>Unidade de medida.</strong> Óbitos; adicionalmente óbitos por população.</p>
+<p><strong>Variáveis e categorias de análise.</strong> Óbitos por todas as causas ou causa; data; idade; sexo; raça ou cor; território; observado; esperado; intervalo preditivo.</p>
+<p><strong>Granularidade.</strong> Dia ou semana antes da agregação; território-período no resumo.</p>
+<p><strong>Periodicidade de atualização.</strong> Semanal ou mensal em monitoramento com dados preliminares; revisão após consolidação.</p>
+<p><strong>Responsabilidade gerencial.</strong> Área de vigilância epidemiológica e informação em saúde, com apoio de epidemiologia e estatística para modelagem e interpretação.</p>
+<p><strong>Notas.</strong> Contagens, taxas, excesso, associação e atribuição respondem a perguntas diferentes. Resultados estimados devem informar modelo, referência contrafactual e incerteza.</p>
+<p><strong>Análise descritiva do indicador.</strong> Plotar observado e esperado com intervalo, excesso diário e acumulado, estratos e revisões; testar baselines alternativos e mortalidade deslocada.</p>
+</div>
+</section>
+<section id="campos-complementares-para-clima-ambiente-e-saúde-3" class="level3" data-number="12.9.9">
+<h3 data-number="12.9.9" class="anchored" data-anchor-id="campos-complementares-para-clima-ambiente-e-saúde-3"><span class="header-section-number">12.9.9</span> Campos complementares para clima, ambiente e saúde</h3>
+<div class="indicator-card">
+<p><strong>Unidade territorial.</strong> Território com série suficientemente estável e registro oportuno.</p>
+<p><strong>Resolução espacial original.</strong> A dos óbitos; modelagem em pequenas áreas requer pooling ou estrutura hierárquica.</p>
+<p><strong>Resolução temporal.</strong> Diário ou semanal para eventos agudos; mensal para séries menos densas.</p>
+<p><strong>Período de referência.</strong> Anos anteriores selecionados antes do evento, excluindo períodos anômalos conforme protocolo.</p>
+<p><strong>Limiar ou valor de referência.</strong> Esperado e intervalo preditivo do modelo; exceder o limite superior é sinal estatístico, não prova causal.</p>
+</div>
+</section>
+<section id="disponibilidade-e-acesso-3" class="level3" data-number="12.9.10">
+<h3 data-number="12.9.10" class="anchored" data-anchor-id="disponibilidade-e-acesso-3"><span class="header-section-number">12.9.10</span> Disponibilidade e acesso</h3>
+<p><strong>Cobertura geográfica.</strong> Brasil conforme o SIM e a oportunidade dos registros.</p>
+<p><strong>Período disponível.</strong> Conforme a série histórica qualificada.</p>
+<p><strong>Periodicidade de atualização.</strong> Semanal ou mensal em monitoramento com dados preliminares; revisão após consolidação.</p>
+<p><strong>Forma de acesso.</strong> Modelagem sobre série de óbitos do SIM e denominadores do IBGE.</p>
+<p><strong>URL ou identificador persistente.</strong> https://www.who.int/publications/m/item/methods-for-estimating-the-excess-mortality-associatedwith-the-covid-19-pandemic</p>
+<p><strong>Formato dos arquivos.</strong> Série temporal de contagens, previsões e intervalos.</p>
+<p><strong>Necessidade de processamento.</strong> Corrigir atraso, definir baseline, modelar tendência e sazonalidade, prever esperado, calcular diferenças e intervalos.</p>
+</section>
+<section id="qualidade-comparação-e-saúde-3" class="level3" data-number="12.9.11">
+<h3 data-number="12.9.11" class="anchored" data-anchor-id="qualidade-comparação-e-saúde-3"><span class="header-section-number">12.9.11</span> Qualidade, comparação e saúde</h3>
+<p><strong>Qualidade e incerteza.</strong> Avaliar cobertura, completude, oportunidade, duplicidade, definição de caso, codificação CID, causa básica e associadas, revisões, estabilidade do denominador, pequenas contagens e intervalos de incerteza.</p>
+<p><strong>Possibilidade de comparação.</strong> Manter desfecho, definição, códigos, população, fonte, território, calendário, padronização e versão; mudanças assistenciais e de registro podem alterar o indicador sem mudança igual na ocorrência.</p>
+<p><strong>Relação com desfechos de saúde.</strong> Mede ocorrência observada ou carga estimada de desfechos; a relação com clima ou ambiente exige exposição definida e desenho analítico compatível.</p>
+<p><strong>Defasagens temporais relevantes.</strong> Registrar data do evento de saúde e considerar o intervalo biologicamente plausível entre exposição e desfecho; data de processamento ou competência não deve substituir automaticamente a data clínica.</p>
+<p><strong>Aplicação na gestão.</strong> Monitorar impacto, desigualdades e pressão sobre serviços, avaliar alertas e intervenções e apoiar priorização, sem atribuir causalidade além do desenho.</p>
+</section>
+<section id="referências-metodológicas-3" class="level3" data-number="12.9.12">
+<h3 data-number="12.9.12" class="anchored" data-anchor-id="referências-metodológicas-3"><span class="header-section-number">12.9.12</span> Referências metodológicas</h3>
+<ul>
+<li><span class="citation" data-cites="who2023excess">(<a href="../../backmatter/referencias.html#ref-who2023excess" role="doc-biblioref">World Health Organization, 2023</a>)</span></li>
+</ul>
+</section>
+</section>
+<section id="sec-efe-exc-02" class="level2" data-number="12.10">
+<h2 data-number="12.10" class="anchored" data-anchor-id="sec-efe-exc-02"><span class="header-section-number">12.10</span> Ficha do indicador: P-score de mortalidade em excesso</h2>
+<div class="indicator-card">
+<p><strong>Código:</strong> EFE-EXC-02<br>
+<strong>Título resumido:</strong> P-score de excesso de mortalidade<br>
+<strong>Tema:</strong> Efeitos do clima e do ambiente sobre a saúde<br>
+<strong>Dimensão:</strong> efeito<br>
+<strong>Disponibilidade:</strong> <span class="availability">dados secundários de saúde</span> <span class="availability">requer qualificação</span></p>
+</div>
+<section id="identificação-e-fundamento-4" class="level3" data-number="12.10.1">
+<h3 data-number="12.10.1" class="anchored" data-anchor-id="identificação-e-fundamento-4"><span class="header-section-number">12.10.1</span> Identificação e fundamento</h3>
+<p><strong>Indicador consolidado em.</strong> Medida percentual usada pela Organização Mundial da Saúde para comparar mortalidade observada e esperada.</p>
+</section>
+<section id="conceito-4" class="level3" data-number="12.10.2">
+<h3 data-number="12.10.2" class="anchored" data-anchor-id="conceito-4"><span class="header-section-number">12.10.2</span> Conceito</h3>
+<p>Excesso de óbitos expresso como percentual do número esperado no mesmo território e período.</p>
+</section>
+<section id="objetivo-4" class="level3" data-number="12.10.3">
+<h3 data-number="12.10.3" class="anchored" data-anchor-id="objetivo-4"><span class="header-section-number">12.10.3</span> Objetivo</h3>
+<p>Tornar o excesso comparável entre populações e períodos com diferentes níveis basais de mortalidade.</p>
+</section>
+<section id="interpretação-4" class="level3" data-number="12.10.4">
+<h3 data-number="12.10.4" class="anchored" data-anchor-id="interpretação-4"><span class="header-section-number">12.10.4</span> Interpretação</h3>
+<p>P-score de 20% indica que os óbitos observados ficaram 20% acima do esperado; −10% indica 10% abaixo. Um mesmo percentual pode representar números absolutos muito diferentes.</p>
+</section>
+<section id="usos-4" class="level3" data-number="12.10.5">
+<h3 data-number="12.10.5" class="anchored" data-anchor-id="usos-4"><span class="header-section-number">12.10.5</span> Usos</h3>
+<ul>
+<li>Comparar intensidade relativa de excesso.</li>
+<li>Monitorar estratos etários e sexuais.</li>
+<li>Comunicar desvio proporcional do baseline.</li>
+<li>Complementar contagem absoluta.</li>
+</ul>
+</section>
+<section id="limitações-4" class="level3" data-number="12.10.6">
+<h3 data-number="12.10.6" class="anchored" data-anchor-id="limitações-4"><span class="header-section-number">12.10.6</span> Limitações</h3>
+<ul>
+<li>Herda toda incerteza do esperado.</li>
+<li>Pode ser instável quando o esperado é pequeno.</li>
+<li>Percentual alto em pequena população pode corresponder a poucos óbitos.</li>
+<li>Não substitui contagens nem taxa populacional.</li>
+</ul>
+</section>
+<section id="fontes-de-dados-4" class="level3" data-number="12.10.7">
+<h3 data-number="12.10.7" class="anchored" data-anchor-id="fontes-de-dados-4"><span class="header-section-number">12.10.7</span> Fontes de dados</h3>
+<ul>
+<li>Sistema de Informações sobre Mortalidade — óbitos observados e série histórica para o esperado (<a href="../../backmatter/indice-fontes.html#sim">cadastro</a>)</li>
+</ul>
+</section>
+<section id="método-de-cálculo-4" class="level3" data-number="12.10.8">
+<h3 data-number="12.10.8" class="anchored" data-anchor-id="método-de-cálculo-4"><span class="header-section-number">12.10.8</span> Método de cálculo</h3>
+<p>Obter observado e esperado com o mesmo método da ficha de óbitos em excesso. Subtrair o esperado do observado, dividir pelo esperado e multiplicar por 100. Calcular por unidade temporal ou sobre somas do período; não fazer média simples de P-scores diários com esperados diferentes.</p>
+<p><span class="math display">\[
+Pscore_P=100\times\frac{\sum_{t\in P}O_t-\sum_{t\in P}E_t}{\sum_{t\in P}E_t}
+\]</span></p>
+<div class="indicator-card">
+<p><strong>Numerador.</strong> Óbitos observados menos óbitos esperados no período.</p>
+<p><strong>Denominador.</strong> Óbitos esperados no período.</p>
+<p><strong>Unidade de medida.</strong> Percentual (%).</p>
+<p><strong>Variáveis e categorias de análise.</strong> Observado; esperado; idade; sexo; raça ou cor; causa; território; período.</p>
+<p><strong>Granularidade.</strong> Dia ou semana na origem; período agregado no P-score.</p>
+<p><strong>Periodicidade de atualização.</strong> A mesma da estimativa de excesso.</p>
+<p><strong>Responsabilidade gerencial.</strong> Área de vigilância epidemiológica e informação em saúde, com apoio de epidemiologia e estatística para modelagem e interpretação.</p>
+<p><strong>Notas.</strong> Contagens, taxas, excesso, associação e atribuição respondem a perguntas diferentes. Resultados estimados devem informar modelo, referência contrafactual e incerteza.</p>
+<p><strong>Análise descritiva do indicador.</strong> Apresentar P-score com excesso absoluto, esperado, intervalo e tamanho populacional; evitar ranking sem estabilidade.</p>
+</div>
+</section>
+<section id="campos-complementares-para-clima-ambiente-e-saúde-4" class="level3" data-number="12.10.9">
+<h3 data-number="12.10.9" class="anchored" data-anchor-id="campos-complementares-para-clima-ambiente-e-saúde-4"><span class="header-section-number">12.10.9</span> Campos complementares para clima, ambiente e saúde</h3>
+<div class="indicator-card">
+<p><strong>Unidade territorial.</strong> Território com esperado suficientemente grande e estável.</p>
+<p><strong>Resolução espacial original.</strong> A da modelagem de excesso.</p>
+<p><strong>Resolução temporal.</strong> Diário, semanal, mensal ou por episódio.</p>
+<p><strong>Período de referência.</strong> O mesmo baseline do modelo de esperado.</p>
+<p><strong>Limiar ou valor de referência.</strong> Zero indica observado igual ao esperado; intervalos devem ser obtidos da incerteza do modelo.</p>
+</div>
+</section>
+<section id="disponibilidade-e-acesso-4" class="level3" data-number="12.10.10">
+<h3 data-number="12.10.10" class="anchored" data-anchor-id="disponibilidade-e-acesso-4"><span class="header-section-number">12.10.10</span> Disponibilidade e acesso</h3>
+<p><strong>Cobertura geográfica.</strong> A do sistema de mortalidade usado.</p>
+<p><strong>Período disponível.</strong> Conforme observado e baseline.</p>
+<p><strong>Periodicidade de atualização.</strong> A mesma da estimativa de excesso.</p>
+<p><strong>Forma de acesso.</strong> Derivação das séries observada e esperada.</p>
+<p><strong>URL ou identificador persistente.</strong> https://www.who.int/publications/m/item/methods-for-estimating-the-excess-mortality-associatedwith-the-covid-19-pandemic</p>
+<p><strong>Formato dos arquivos.</strong> Tabela e série temporal com observado, esperado, excesso e P-score.</p>
+<p><strong>Necessidade de processamento.</strong> Agregar observado e esperado de forma consistente e propagar incerteza.</p>
+</section>
+<section id="qualidade-comparação-e-saúde-4" class="level3" data-number="12.10.11">
+<h3 data-number="12.10.11" class="anchored" data-anchor-id="qualidade-comparação-e-saúde-4"><span class="header-section-number">12.10.11</span> Qualidade, comparação e saúde</h3>
+<p><strong>Qualidade e incerteza.</strong> Avaliar cobertura, completude, oportunidade, duplicidade, definição de caso, codificação CID, causa básica e associadas, revisões, estabilidade do denominador, pequenas contagens e intervalos de incerteza.</p>
+<p><strong>Possibilidade de comparação.</strong> Manter desfecho, definição, códigos, população, fonte, território, calendário, padronização e versão; mudanças assistenciais e de registro podem alterar o indicador sem mudança igual na ocorrência.</p>
+<p><strong>Relação com desfechos de saúde.</strong> Mede ocorrência observada ou carga estimada de desfechos; a relação com clima ou ambiente exige exposição definida e desenho analítico compatível.</p>
+<p><strong>Defasagens temporais relevantes.</strong> Registrar data do evento de saúde e considerar o intervalo biologicamente plausível entre exposição e desfecho; data de processamento ou competência não deve substituir automaticamente a data clínica.</p>
+<p><strong>Aplicação na gestão.</strong> Monitorar impacto, desigualdades e pressão sobre serviços, avaliar alertas e intervenções e apoiar priorização, sem atribuir causalidade além do desenho.</p>
+</section>
+<section id="referências-metodológicas-4" class="level3" data-number="12.10.12">
+<h3 data-number="12.10.12" class="anchored" data-anchor-id="referências-metodológicas-4"><span class="header-section-number">12.10.12</span> Referências metodológicas</h3>
+<ul>
+<li><span class="citation" data-cites="who2023excess">(<a href="../../backmatter/referencias.html#ref-who2023excess" role="doc-biblioref">World Health Organization, 2023</a>)</span></li>
+</ul>
+</section>
+</section>
+<section id="eventos-e-carga-atribuíveis" class="level2" data-number="12.11">
+<h2 data-number="12.11" class="anchored" data-anchor-id="eventos-e-carga-atribuíveis"><span class="header-section-number">12.11</span> Eventos e carga atribuíveis</h2>
+<p>Um risco relativo descreve a relação entre exposição e desfecho; não informa sozinho quantos eventos ocorreram por causa da exposição. A carga atribuível combina a curva de risco, a distribuição de exposição, o número de desfechos e um contrafactual.</p>
+<p>Para temperatura, modelos de defasagem distribuída permitem estimar, para cada dia, a contribuição acumulada das exposições atuais e anteriores. Os números atribuíveis podem ser somados e divididos pelo total para obter a fração atribuível <span class="citation" data-cites="gasparrini2014attributable">(<a href="../../backmatter/referencias.html#ref-gasparrini2014attributable" role="doc-biblioref">Gasparrini; Leone, 2014</a>)</span>. A referência costuma ser a temperatura de risco mínimo, mas sua estimativa tem incerteza. Componentes de frio e calor, moderado e extremo, devem usar partições explícitas.</p>
+<p>O DALY integra anos de vida perdidos por morte prematura (YLL) e anos vividos com incapacidade (YLD). Para estimar DALY atribuível a um risco ambiental, aplica-se uma fração atribuível à carga do desfecho, segundo uma exposição contrafactual, riscos relativos, tabela de vida e pesos de incapacidade <span class="citation" data-cites="who2020ghe who2024attributable">(<a href="../../backmatter/referencias.html#ref-who2020ghe" role="doc-biblioref">World Health Organization, 2020</a>, <a href="../../backmatter/referencias.html#ref-who2024attributable" role="doc-biblioref">2024</a>)</span>. Essa unidade apoia comparação entre riscos e desfechos, mas contém mais modelagem do que uma contagem observada.</p>
+</section>
+<section id="sec-efe-atr-01" class="level2" data-number="12.12">
+<h2 data-number="12.12" class="anchored" data-anchor-id="sec-efe-atr-01"><span class="header-section-number">12.12</span> Ficha do indicador: Número e fração de eventos atribuíveis à temperatura em modelos de defasagem distribuída</h2>
+<div class="indicator-card">
+<p><strong>Código:</strong> EFE-ATR-01<br>
+<strong>Título resumido:</strong> Eventos atribuíveis à temperatura<br>
+<strong>Tema:</strong> Efeitos do clima e do ambiente sobre a saúde<br>
+<strong>Dimensão:</strong> efeito<br>
+<strong>Disponibilidade:</strong> <span class="availability">dados secundários de saúde</span> <span class="availability">requer qualificação</span></p>
+</div>
+<section id="identificação-e-fundamento-5" class="level3" data-number="12.12.1">
+<h3 data-number="12.12.1" class="anchored" data-anchor-id="identificação-e-fundamento-5"><span class="header-section-number">12.12.1</span> Identificação e fundamento</h3>
+<p><strong>Indicador consolidado em.</strong> Método de risco atribuível de Gasparrini e Leone para modelos de defasagem distribuída, aplicado a temperatura e mortalidade ou morbidade.</p>
+</section>
+<section id="conceito-5" class="level3" data-number="12.12.2">
+<h3 data-number="12.12.2" class="anchored" data-anchor-id="conceito-5"><span class="header-section-number">12.12.2</span> Conceito</h3>
+<p>Número e proporção de eventos estimados que não ocorreriam no período se a exposição observada fosse substituída pela temperatura de referência, dadas a curva exposição–resposta e as defasagens modeladas.</p>
+</section>
+<section id="objetivo-5" class="level3" data-number="12.12.3">
+<h3 data-number="12.12.3" class="anchored" data-anchor-id="objetivo-5"><span class="header-section-number">12.12.3</span> Objetivo</h3>
+<p>Quantificar carga atribuível a temperaturas acima, abaixo ou diferentes do ponto de risco mínimo.</p>
+</section>
+<section id="interpretação-5" class="level3" data-number="12.12.4">
+<h3 data-number="12.12.4" class="anchored" data-anchor-id="interpretação-5"><span class="header-section-number">12.12.4</span> Interpretação</h3>
+<p>Fração atribuível de 5% estima que 5% dos eventos no período são atribuíveis à distribuição de temperatura em relação ao contrafactual, sob o modelo e suas hipóteses. Não é a proporção de declarações com código de calor.</p>
+</section>
+<section id="usos-5" class="level3" data-number="12.12.5">
+<h3 data-number="12.12.5" class="anchored" data-anchor-id="usos-5"><span class="header-section-number">12.12.5</span> Usos</h3>
+<ul>
+<li>Estimar mortes ou internações atribuíveis ao calor e ao frio.</li>
+<li>Separar componentes moderados e extremos.</li>
+<li>Comparar cenários e populações.</li>
+<li>Avaliar impacto potencial de adaptação.</li>
+</ul>
+</section>
+<section id="limitações-5" class="level3" data-number="12.12.6">
+<h3 data-number="12.12.6" class="anchored" data-anchor-id="limitações-5"><span class="header-section-number">12.12.6</span> Limitações</h3>
+<ul>
+<li>Exige hipótese causal</li>
+<li>controle adequado de sazonalidade e confundimento.</li>
+<li>Curva e lag podem ser instáveis nas extremidades.</li>
+<li>O ponto de risco mínimo é estimado com incerteza.</li>
+<li>Somar frações de exposições correlacionadas pode gerar dupla contagem.</li>
+</ul>
+</section>
+<section id="fontes-de-dados-5" class="level3" data-number="12.12.7">
+<h3 data-number="12.12.7" class="anchored" data-anchor-id="fontes-de-dados-5"><span class="header-section-number">12.12.7</span> Fontes de dados</h3>
+<ul>
+<li>Sistema de Informações sobre Mortalidade — série diária de óbitos por desfecho (<a href="../../backmatter/indice-fontes.html#sim">cadastro</a>)</li>
+<li>Instituto Nacional de Meteorologia — série diária de temperatura ou índice térmico (<a href="../../backmatter/indice-fontes.html#inmet">cadastro</a>)</li>
+<li>ERA5-Land — exposição em grade quando validada para o território (<a href="../../backmatter/indice-fontes.html#era5-land">cadastro</a>)</li>
+</ul>
+</section>
+<section id="método-de-cálculo-5" class="level3" data-number="12.12.8">
+<h3 data-number="12.12.8" class="anchored" data-anchor-id="método-de-cálculo-5"><span class="header-section-number">12.12.8</span> Método de cálculo</h3>
+<p>Ajustar um modelo de série temporal com função não linear de exposição e defasagem distribuída, controlando sazonalidade, tendência, calendário e confundidores definidos. Escolher a temperatura de referência, usualmente o ponto de risco mínimo. Para cada dia, obter o risco relativo acumulado das exposições presentes e defasadas, calcular a fração atribuível e multiplicar pelo número de eventos. Somar números atribuíveis e dividir pelo total para a fração do período. Estimar intervalos por simulação dos coeficientes.</p>
+<p><span class="math display">\[
+AF_t=1-\exp\left(-\sum_{\ell=0}^{L}\beta_{x_{t-\ell},\ell}\right);\quad AN_t=AF_tY_t;\quad AF_P=\frac{\sum_t AN_t}{\sum_tY_t}
+\]</span></p>
+<div class="indicator-card">
+<p><strong>Numerador.</strong> Soma dos eventos atribuíveis estimados no período.</p>
+<p><strong>Denominador.</strong> Total de eventos observados para a fração atribuível.</p>
+<p><strong>Unidade de medida.</strong> Eventos atribuíveis e percentual atribuível (%).</p>
+<p><strong>Variáveis e categorias de análise.</strong> Exposição diária; lag; desfecho diário; temperatura de referência; calor e frio; moderado e extremo; idade; sexo; território.</p>
+<p><strong>Granularidade.</strong> Dia na modelagem; período e território no resultado.</p>
+<p><strong>Periodicidade de atualização.</strong> Por estudo ou ciclo analítico; não é simples indicador de atualização automática.</p>
+<p><strong>Responsabilidade gerencial.</strong> Área de vigilância epidemiológica e informação em saúde, com apoio de epidemiologia e estatística para modelagem e interpretação.</p>
+<p><strong>Notas.</strong> Contagens, taxas, excesso, associação e atribuição respondem a perguntas diferentes. Resultados estimados devem informar modelo, referência contrafactual e incerteza.</p>
+<p><strong>Análise descritiva do indicador.</strong> Mostrar curva exposição–resposta, lag, referência, eventos atribuíveis por dia e acumulados, componentes de calor e frio, intervalos e sensibilidade a graus de liberdade.</p>
+</div>
+</section>
+<section id="campos-complementares-para-clima-ambiente-e-saúde-5" class="level3" data-number="12.12.9">
+<h3 data-number="12.12.9" class="anchored" data-anchor-id="campos-complementares-para-clima-ambiente-e-saúde-5"><span class="header-section-number">12.12.9</span> Campos complementares para clima, ambiente e saúde</h3>
+<div class="indicator-card">
+<p><strong>Unidade territorial.</strong> Cidade ou território com exposição e desfecho temporalmente alinhados.</p>
+<p><strong>Resolução espacial original.</strong> A da exposição e do desfecho; a atribuição territorial deve ser validada.</p>
+<p><strong>Resolução temporal.</strong> Diária ou subdiária agregada conforme o modelo; lags em dias.</p>
+<p><strong>Período de referência.</strong> Série suficientemente longa para estimar sazonalidade e curva; contrafactual no ponto de risco mínimo ou valor definido.</p>
+<p><strong>Limiar ou valor de referência.</strong> Temperatura de risco mínimo e percentis que separam exposições moderadas e extremas, todos estimados ou definidos no protocolo.</p>
+</div>
+</section>
+<section id="disponibilidade-e-acesso-5" class="level3" data-number="12.12.10">
+<h3 data-number="12.12.10" class="anchored" data-anchor-id="disponibilidade-e-acesso-5"><span class="header-section-number">12.12.10</span> Disponibilidade e acesso</h3>
+<p><strong>Cobertura geográfica.</strong> Territórios com séries de saúde e temperatura compatíveis.</p>
+<p><strong>Período disponível.</strong> Interseção das séries qualificadas.</p>
+<p><strong>Periodicidade de atualização.</strong> Por estudo ou ciclo analítico; não é simples indicador de atualização automática.</p>
+<p><strong>Forma de acesso.</strong> Modelagem epidemiológica reproduzível com dados diários e código versionado.</p>
+<p><strong>URL ou identificador persistente.</strong> https://doi.org/10.1186/1471-2288-14-55</p>
+<p><strong>Formato dos arquivos.</strong> Séries diárias, objetos do modelo e tabelas de número e fração atribuíveis.</p>
+<p><strong>Necessidade de processamento.</strong> Harmonizar séries, ajustar DLNM, escolher referência, calcular contribuições backward ou forward, simular incerteza e realizar sensibilidade.</p>
+</section>
+<section id="qualidade-comparação-e-saúde-5" class="level3" data-number="12.12.11">
+<h3 data-number="12.12.11" class="anchored" data-anchor-id="qualidade-comparação-e-saúde-5"><span class="header-section-number">12.12.11</span> Qualidade, comparação e saúde</h3>
+<p><strong>Qualidade e incerteza.</strong> Avaliar cobertura, completude, oportunidade, duplicidade, definição de caso, codificação CID, causa básica e associadas, revisões, estabilidade do denominador, pequenas contagens e intervalos de incerteza.</p>
+<p><strong>Possibilidade de comparação.</strong> Manter desfecho, definição, códigos, população, fonte, território, calendário, padronização e versão; mudanças assistenciais e de registro podem alterar o indicador sem mudança igual na ocorrência.</p>
+<p><strong>Relação com desfechos de saúde.</strong> Mede ocorrência observada ou carga estimada de desfechos; a relação com clima ou ambiente exige exposição definida e desenho analítico compatível.</p>
+<p><strong>Defasagens temporais relevantes.</strong> Registrar data do evento de saúde e considerar o intervalo biologicamente plausível entre exposição e desfecho; data de processamento ou competência não deve substituir automaticamente a data clínica.</p>
+<p><strong>Aplicação na gestão.</strong> Monitorar impacto, desigualdades e pressão sobre serviços, avaliar alertas e intervenções e apoiar priorização, sem atribuir causalidade além do desenho.</p>
+</section>
+<section id="referências-metodológicas-5" class="level3" data-number="12.12.12">
+<h3 data-number="12.12.12" class="anchored" data-anchor-id="referências-metodológicas-5"><span class="header-section-number">12.12.12</span> Referências metodológicas</h3>
+<ul>
+<li><span class="citation" data-cites="gasparrini2010dlnm">(<a href="../../backmatter/referencias.html#ref-gasparrini2010dlnm" role="doc-biblioref">Gasparrini; Armstrong; Kenward, 2010</a>)</span></li>
+<li><span class="citation" data-cites="gasparrini2014attributable">(<a href="../../backmatter/referencias.html#ref-gasparrini2014attributable" role="doc-biblioref">Gasparrini; Leone, 2014</a>)</span></li>
+</ul>
+</section>
+</section>
+<section id="sec-efe-car-01" class="level2" data-number="12.13">
+<h2 data-number="12.13" class="anchored" data-anchor-id="sec-efe-car-01"><span class="header-section-number">12.13</span> Ficha do indicador: Anos de vida ajustados por incapacidade atribuíveis a risco ambiental (DALY atribuível)</h2>
+<div class="indicator-card">
+<p><strong>Código:</strong> EFE-CAR-01<br>
+<strong>Título resumido:</strong> DALY atribuível a risco ambiental<br>
+<strong>Tema:</strong> Efeitos do clima e do ambiente sobre a saúde<br>
+<strong>Dimensão:</strong> efeito<br>
+<strong>Disponibilidade:</strong> <span class="availability">dados secundários de saúde</span> <span class="availability">requer qualificação</span></p>
+</div>
+<section id="identificação-e-fundamento-6" class="level3" data-number="12.13.1">
+<h3 data-number="12.13.1" class="anchored" data-anchor-id="identificação-e-fundamento-6"><span class="header-section-number">12.13.1</span> Identificação e fundamento</h3>
+<p><strong>Indicador consolidado em.</strong> Métodos das Estimativas Globais de Saúde da OMS e estrutura de fração atribuível populacional para riscos ambientais.</p>
+</section>
+<section id="conceito-6" class="level3" data-number="12.13.2">
+<h3 data-number="12.13.2" class="anchored" data-anchor-id="conceito-6"><span class="header-section-number">12.13.2</span> Conceito</h3>
+<p>Anos de vida saudável perdidos por morte prematura e por incapacidade estimados como atribuíveis a uma exposição ambiental em relação a uma distribuição contrafactual.</p>
+</section>
+<section id="objetivo-6" class="level3" data-number="12.13.3">
+<h3 data-number="12.13.3" class="anchored" data-anchor-id="objetivo-6"><span class="header-section-number">12.13.3</span> Objetivo</h3>
+<p>Integrar efeitos fatais e não fatais e comparar a carga de diferentes riscos e desfechos em uma unidade comum.</p>
+</section>
+<section id="interpretação-6" class="level3" data-number="12.13.4">
+<h3 data-number="12.13.4" class="anchored" data-anchor-id="interpretação-6"><span class="header-section-number">12.13.4</span> Interpretação</h3>
+<p>Um DALY representa um ano equivalente de vida saudável perdido. O DALY atribuível depende da carga total, distribuição de exposição, risco relativo, contrafactual, tabela de vida e pesos de incapacidade.</p>
+</section>
+<section id="usos-6" class="level3" data-number="12.13.5">
+<h3 data-number="12.13.5" class="anchored" data-anchor-id="usos-6"><span class="header-section-number">12.13.5</span> Usos</h3>
+<ul>
+<li>Comparar carga de poluição</li>
+<li>temperatura</li>
+<li>água insegura e outros riscos.</li>
+<li>Priorizar prevenção.</li>
+<li>Avaliar cenários contrafactuais.</li>
+<li>Integrar mortalidade e morbidade.</li>
+</ul>
+</section>
+<section id="limitações-6" class="level3" data-number="12.13.6">
+<h3 data-number="12.13.6" class="anchored" data-anchor-id="limitações-6"><span class="header-section-number">12.13.6</span> Limitações</h3>
+<ul>
+<li>Resultado modelado com múltiplas fontes de incerteza.</li>
+<li>Pesos de incapacidade e contrafactual incorporam escolhas normativas e técnicas.</li>
+<li>Riscos correlacionados podem produzir dupla contagem.</li>
+<li>Estimativa global não substitui dados nacionais nem identifica indivíduos.</li>
+</ul>
+</section>
+<section id="fontes-de-dados-6" class="level3" data-number="12.13.7">
+<h3 data-number="12.13.7" class="anchored" data-anchor-id="fontes-de-dados-6"><span class="header-section-number">12.13.7</span> Fontes de dados</h3>
+<ul>
+<li>Estimativas Globais de Saúde da OMS — DALY, YLL, YLD, tabelas e métodos comparáveis (<a href="../../backmatter/indice-fontes.html#who-ghe">cadastro</a>)</li>
+<li>Sistema de Informações sobre Mortalidade — mortalidade nacional para componentes locais de YLL (<a href="../../backmatter/indice-fontes.html#sim">cadastro</a>)</li>
+</ul>
+</section>
+<section id="método-de-cálculo-6" class="level3" data-number="12.13.8">
+<h3 data-number="12.13.8" class="anchored" data-anchor-id="método-de-cálculo-6"><span class="header-section-number">12.13.8</span> Método de cálculo</h3>
+<p>Estimar YLL multiplicando óbitos por expectativa de vida padrão restante; estimar YLD pela prevalência do estado de saúde multiplicada pelo peso de incapacidade; somar para obter DALY. Calcular a fração atribuível populacional a partir da distribuição observada de exposição, distribuição contrafactual e riscos relativos. Multiplicar a carga do desfecho pela fração, mantendo idade, sexo, causa e ano. Propagar incerteza de todos os componentes.</p>
+<p><span class="math display">\[
+DALY=YLL+YLD;\quad YLL=\sum_aD_aL_a;\quad YLD=\sum_sPrev_sDW_s;\quad DALY_{atr}=PAF\times DALY
+\]</span></p>
+<div class="indicator-card">
+<p><strong>Numerador.</strong> DALY atribuível estimado; a PAF tem numerador igual à diferença de carga ponderada entre exposição observada e contrafactual.</p>
+<p><strong>Denominador.</strong> DALY total do desfecho para a fração atribuível.</p>
+<p><strong>Unidade de medida.</strong> Anos de vida saudável perdidos; número e taxa por população.</p>
+<p><strong>Variáveis e categorias de análise.</strong> Risco; exposição; contrafactual; causa; idade; sexo; YLL; YLD; DALY; peso de incapacidade; território; ano.</p>
+<p><strong>Granularidade.</strong> Estratos de causa, idade, sexo, território e ano.</p>
+<p><strong>Periodicidade de atualização.</strong> Por edição das estimativas.</p>
+<p><strong>Responsabilidade gerencial.</strong> Área de vigilância epidemiológica e informação em saúde, com apoio de epidemiologia e estatística para modelagem e interpretação.</p>
+<p><strong>Notas.</strong> Contagens, taxas, excesso, associação e atribuição respondem a perguntas diferentes. Resultados estimados devem informar modelo, referência contrafactual e incerteza.</p>
+<p><strong>Análise descritiva do indicador.</strong> Apresentar DALY atribuível, taxa, YLL, YLD, PAF, contrafactual, causa, idade e sexo, com intervalos e comparação de edições.</p>
+</div>
+</section>
+<section id="campos-complementares-para-clima-ambiente-e-saúde-6" class="level3" data-number="12.13.9">
+<h3 data-number="12.13.9" class="anchored" data-anchor-id="campos-complementares-para-clima-ambiente-e-saúde-6"><span class="header-section-number">12.13.9</span> Campos complementares para clima, ambiente e saúde</h3>
+<div class="indicator-card">
+<p><strong>Unidade territorial.</strong> País ou território com dados e modelos suficientes; estimativas locais exigem validação própria.</p>
+<p><strong>Resolução espacial original.</strong> Nacional nas Estimativas Globais de Saúde; pode ser modelada em outros níveis.</p>
+<p><strong>Resolução temporal.</strong> Anual.</p>
+<p><strong>Período de referência.</strong> Ano da carga, edição das estimativas, tabela de vida e distribuição contrafactual.</p>
+<p><strong>Limiar ou valor de referência.</strong> Distribuição teórica ou alternativa de exposição de risco mínimo definida no método de carga.</p>
+</div>
+</section>
+<section id="disponibilidade-e-acesso-6" class="level3" data-number="12.13.10">
+<h3 data-number="12.13.10" class="anchored" data-anchor-id="disponibilidade-e-acesso-6"><span class="header-section-number">12.13.10</span> Disponibilidade e acesso</h3>
+<p><strong>Cobertura geográfica.</strong> Global, regional e nacional na OMS; aplicações subnacionais dependem de dados.</p>
+<p><strong>Período disponível.</strong> Conforme a edição do WHO Global Health Estimates.</p>
+<p><strong>Periodicidade de atualização.</strong> Por edição das estimativas.</p>
+<p><strong>Forma de acesso.</strong> Downloads da OMS ou cálculo local com exposição, risco relativo e carga de doença.</p>
+<p><strong>URL ou identificador persistente.</strong> https://www.who.int/data/gho/data/themes/mortality-and-global-health-estimates/global-health-estimates-leading-causes-of-dalys/</p>
+<p><strong>Formato dos arquivos.</strong> Planilhas, CSV e documentação metodológica.</p>
+<p><strong>Necessidade de processamento.</strong> Harmonizar causas e estratos, estimar YLL/YLD, PAF e contrafactual, multiplicar carga e propagar incerteza.</p>
+</section>
+<section id="qualidade-comparação-e-saúde-6" class="level3" data-number="12.13.11">
+<h3 data-number="12.13.11" class="anchored" data-anchor-id="qualidade-comparação-e-saúde-6"><span class="header-section-number">12.13.11</span> Qualidade, comparação e saúde</h3>
+<p><strong>Qualidade e incerteza.</strong> Avaliar cobertura, completude, oportunidade, duplicidade, definição de caso, codificação CID, causa básica e associadas, revisões, estabilidade do denominador, pequenas contagens e intervalos de incerteza.</p>
+<p><strong>Possibilidade de comparação.</strong> Manter desfecho, definição, códigos, população, fonte, território, calendário, padronização e versão; mudanças assistenciais e de registro podem alterar o indicador sem mudança igual na ocorrência.</p>
+<p><strong>Relação com desfechos de saúde.</strong> Mede ocorrência observada ou carga estimada de desfechos; a relação com clima ou ambiente exige exposição definida e desenho analítico compatível.</p>
+<p><strong>Defasagens temporais relevantes.</strong> Registrar data do evento de saúde e considerar o intervalo biologicamente plausível entre exposição e desfecho; data de processamento ou competência não deve substituir automaticamente a data clínica.</p>
+<p><strong>Aplicação na gestão.</strong> Monitorar impacto, desigualdades e pressão sobre serviços, avaliar alertas e intervenções e apoiar priorização, sem atribuir causalidade além do desenho.</p>
+</section>
+<section id="referências-metodológicas-6" class="level3" data-number="12.13.12">
+<h3 data-number="12.13.12" class="anchored" data-anchor-id="referências-metodológicas-6"><span class="header-section-number">12.13.12</span> Referências metodológicas</h3>
+<ul>
+<li><span class="citation" data-cites="who2020ghe">(<a href="../../backmatter/referencias.html#ref-who2020ghe" role="doc-biblioref">World Health Organization, 2020</a>)</span></li>
+<li><span class="citation" data-cites="who2024attributable">(<a href="../../backmatter/referencias.html#ref-who2024attributable" role="doc-biblioref">World Health Organization, 2024</a>)</span></li>
+</ul>
+</section>
+</section>
+<section id="principais-indicadores-usados-em-saúde-pública" class="level2" data-number="12.14">
+<h2 data-number="12.14" class="anchored" data-anchor-id="principais-indicadores-usados-em-saúde-pública"><span class="header-section-number">12.14</span> Principais indicadores usados em saúde pública</h2>
+<p>As fichas deste capítulo documentam sete indicadores consolidados e complementares:</p>
+<div id="tbl-indicadores-efeito-saude" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-indicadores-efeito-saude-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;12.2: Indicadores de efeito em saúde apresentados no capítulo
+</figcaption>
+<div aria-describedby="tbl-indicadores-efeito-saude-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Código</th>
+<th>Indicador</th>
+<th>Uso principal</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>EFE-MOR-01</td>
+<td>Taxa de mortalidade específica por causa</td>
+<td>Descrever mortalidade na população residente</td>
+</tr>
+<tr class="even">
+<td>EFE-MOR-02</td>
+<td>Taxa de mortalidade específica padronizada por idade</td>
+<td>Comparar populações com estruturas etárias diferentes</td>
+</tr>
+<tr class="odd">
+<td>EFE-MOB-01</td>
+<td>Taxa de internações hospitalares no SUS por causas selecionadas</td>
+<td>Monitorar morbidade grave e utilização hospitalar</td>
+</tr>
+<tr class="even">
+<td>EFE-EXC-01</td>
+<td>Excesso absoluto de óbitos</td>
+<td>Dimensionar eventos acima do esperado</td>
+</tr>
+<tr class="odd">
+<td>EFE-EXC-02</td>
+<td>Excesso relativo de mortalidade ou P-score</td>
+<td>Comparar a diferença proporcional com o esperado</td>
+</tr>
+<tr class="even">
+<td>EFE-ATR-01</td>
+<td>Número e fração de eventos atribuíveis à temperatura</td>
+<td>Estimar carga evitável em relação a um contrafactual térmico</td>
+</tr>
+<tr class="odd">
+<td>EFE-CAR-01</td>
+<td>DALY atribuível a risco ambiental</td>
+<td>Integrar carga fatal e não fatal</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Eles não formam uma escala crescente de qualidade. Uma taxa observada pode ser a melhor medida para vigilância rotineira; excesso pode ser mais útil durante uma emergência; uma estimativa atribuível pode responder à avaliação de políticas. A medida deve corresponder à decisão.</p>
+</section>
+<section id="limites-para-interpretação-causal" class="level2" data-number="12.15">
+<h2 data-number="12.15" class="anchored" data-anchor-id="limites-para-interpretação-causal"><span class="header-section-number">12.15</span> Limites para interpretação causal</h2>
+<p>Uma relação temporal, espacial ou estatística não basta para atribuição causal. A interpretação deve considerar:</p>
+<ul>
+<li>antecedência da exposição em relação ao desfecho;</li>
+<li>mecanismo plausível e janela temporal;</li>
+<li>controle de tendência, sazonalidade e confundidores;</li>
+<li>qualidade e representatividade da exposição;</li>
+<li>cobertura e estabilidade da definição do desfecho;</li>
+<li>mobilidade e erro de localização;</li>
+<li>forma não linear e defasagens;</li>
+<li>seleção de modelo e multiplicidade;</li>
+<li>consistência com outros desenhos e populações;</li>
+<li>possibilidade de vieses por acesso aos serviços.</li>
+</ul>
+<p>Erro de exposição costuma ocorrer quando uma estação ou célula de grade é atribuída a toda a população. O erro pode ser maior para calor interno, poluição em microambientes, pessoas que se deslocam e territórios extensos. A resolução mais fina não garante maior validade: um produto modelado de alta resolução ainda precisa de calibração e correspondência com o lugar onde as pessoas estavam.</p>
+<p>Modificação de efeito também não deve ser confundida com confundimento. Se a associação é maior entre pessoas idosas, trabalhadores expostos ou territórios com privação, isso pode indicar suscetibilidade ou menor proteção. A análise precisa definir interações antes de estratificar excessivamente; pequenas contagens produzem estimativas instáveis. Resultados por raça ou cor, gênero e condição social devem discutir mecanismos de desigualdade, não naturalizar diferenças.</p>
+<div class="callout callout-style-default callout-warning callout-titled" title="Três afirmações que exigem evidências diferentes">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Aviso</span>Três afirmações que exigem evidências diferentes
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>“Ocorreram 40 óbitos durante a onda de calor” é uma contagem coincidente no tempo.</li>
+<li>“Houve 12 óbitos acima do esperado” é uma estimativa de excesso.</li>
+<li>“Oito óbitos foram atribuíveis ao calor” é um resultado contrafactual dependente de modelo causal.</li>
+</ul>
+<p>Nenhuma dessas frases substitui as outras.</p>
+</div>
+</div>
+</section>
+<section id="conjunto-mínimo-para-publicação" class="level2" data-number="12.16">
+<h2 data-number="12.16" class="anchored" data-anchor-id="conjunto-mínimo-para-publicação"><span class="header-section-number">12.16</span> Conjunto mínimo para publicação</h2>
+<p>Todo resultado de efeito em saúde deve informar:</p>
+<ol type="1">
+<li>definição completa do desfecho e códigos;</li>
+<li>unidade de registro e cobertura da fonte;</li>
+<li>residência, ocorrência ou local provável de exposição;</li>
+<li>população e período do denominador;</li>
+<li>exposição, resolução e método de atribuição;</li>
+<li>lags e forma da relação;</li>
+<li>referência ou contrafactual;</li>
+<li>ajustes, dados ausentes e mudanças de série;</li>
+<li>estimativa absoluta e relativa, quando pertinentes;</li>
+<li>intervalo de incerteza e análises de sensibilidade;</li>
+<li>limitações de causalidade;</li>
+<li>ação de saúde pública à qual o resultado se destina.</li>
+</ol>
+<p>O vínculo com a ação precisa ser explícito. Contagens apoiam dimensionamento de equipes e leitos; taxas identificam padrões e desigualdades; excesso sustenta detecção e avaliação de emergências; modelos atribuíveis estimam benefícios potenciais de reduzir a exposição; DALYs ajudam a comparar prioridades. O indicador é útil quando preserva a diferença entre o que foi observado, o que foi estimado e o que se pretende evitar.</p>
 
 
+<div id="refs" class="references csl-bib-body" data-entry-spacing="1" role="list" style="display: none">
+<div id="ref-who2001standard" class="csl-entry" role="listitem">
+AHMAD, Omar B. <em>et al.</em> <strong><a href="https://cdn.who.int/media/docs/default-source/gho-documents/global-health-estimates/gpe_discussion_paper_series_paper31_2001_age_standardization_rates.pdf">Age standardization of rates: a new WHO standard</a></strong>. Geneva: World Health Organization, 2001.
+</div>
+<div id="ref-brasil2026sim" class="csl-entry" role="listitem">
+BRASIL. MINISTÉRIO DA SAÚDE. <strong>Mortalidade — desde 1996 pela CID-10</strong>. Disponível em: &lt;<a href="https://datasus.saude.gov.br/mortalidade-desde-1996-pela-cid-10">https://datasus.saude.gov.br/mortalidade-desde-1996-pela-cid-10</a>&gt;. Acesso em: 28 jul. 2026a.
+</div>
+<div id="ref-brasil2026sih" class="csl-entry" role="listitem">
+BRASIL. MINISTÉRIO DA SAÚDE. <strong>Morbidade Hospitalar do SUS (SIH/SUS)</strong>. Disponível em: &lt;<a href="https://datasus.saude.gov.br/acesso-a-informacao/morbidade-hospitalar-do-sus-sih-sus/">https://datasus.saude.gov.br/acesso-a-informacao/morbidade-hospitalar-do-sus-sih-sus/</a>&gt;. Acesso em: 28 jul. 2026b.
+</div>
+<div id="ref-gasparrini2010dlnm" class="csl-entry" role="listitem">
+GASPARRINI, Antonio; ARMSTRONG, Ben; KENWARD, Michael G. <a href="https://doi.org/10.1002/sim.3940">Distributed lag non-linear models</a>. <strong>Statistics in Medicine</strong>, v. 29, n. 21, p. 2224–2234, 2010.
+</div>
+<div id="ref-gasparrini2014attributable" class="csl-entry" role="listitem">
+GASPARRINI, Antonio; LEONE, Michela. <a href="https://doi.org/10.1186/1471-2288-14-55">Attributable risk from distributed lag models</a>. <strong>BMC Medical Research Methodology</strong>, v. 14, p. 55, 2014.
+</div>
+<div id="ref-ripsa2026" class="csl-entry" role="listitem">
+ORGANIZAÇÃO PAN-AMERICANA DA SAÚDE. <strong><a href="https://doi.org/10.37774/9789275731659">Indicadores Básicos para a Saúde no Brasil: conceitos e aplicações</a></strong>. 3. ed. Brasília, DF: Organização Pan-Americana da Saúde, 2026.
+</div>
+<div id="ref-who2020ghe" class="csl-entry" role="listitem">
+WORLD HEALTH ORGANIZATION. <strong>WHO methods and data sources for global burden of disease estimates 2000–2019</strong>. Geneva: World Health Organization, 2020. Disponível em: &lt;<a href="https://www.who.int/docs/default-source/gho-documents/global-health-estimates/ghe2019_daly-methods.pdf">https://www.who.int/docs/default-source/gho-documents/global-health-estimates/ghe2019_daly-methods.pdf</a>&gt;. Acesso em: 28 jul. 2026.
+</div>
+<div id="ref-who2023excess" class="csl-entry" role="listitem">
+WORLD HEALTH ORGANIZATION. <strong>Methods for estimating the excess mortality associated with the COVID-19 pandemic</strong>. Geneva: World Health Organization, 2023. Disponível em: &lt;<a href="https://www.who.int/publications/m/item/methods-for-estimating-the-excess-mortality-associatedwith-the-covid-19-pandemic">https://www.who.int/publications/m/item/methods-for-estimating-the-excess-mortality-associatedwith-the-covid-19-pandemic</a>&gt;. Acesso em: 28 jul. 2026.
+</div>
+<div id="ref-who2024attributable" class="csl-entry" role="listitem">
+WORLD HEALTH ORGANIZATION. <strong>Environmental health: estimations of attributable burden of disease due to a risk factor</strong>. Disponível em: &lt;<a href="https://www.who.int/news-room/questions-and-answers/item/environmental-health-estimations-of-attributable-burden-of-disease-due-to-a-risk-factor">https://www.who.int/news-room/questions-and-answers/item/environmental-health-estimations-of-attributable-burden-of-disease-due-to-a-risk-factor</a>&gt;. Acesso em: 28 jul. 2026.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -684,7 +1840,7 @@ ul.task-list li input[type="checkbox"] {
     anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
-        if (clz.startsWith('code-annotation-')) {                     
+        if (clz.startsWith('code-annotation-')) {
           return true;
         }
       }
@@ -704,11 +1860,11 @@ ul.task-list li input[type="checkbox"] {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
         button.setAttribute("data-bs-title", "Copiada");
-        tooltip = new bootstrap.Tooltip(button, 
-          { trigger: "manual", 
+        tooltip = new bootstrap.Tooltip(button,
+          { trigger: "manual",
             customClass: "code-copy-button-tooltip",
             offset: [0, -8]});
-        tooltip.show();    
+        tooltip.show();
       }
       setTimeout(function() {
         if (tooltip) {
@@ -790,7 +1946,7 @@ ul.task-list li input[type="checkbox"] {
       if (onUntriggerFn) {
         config.onUntrigger = onUntriggerFn;
       }
-      window.tippy(el, config); 
+      window.tippy(el, config);
     }
     const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
     for (var i=0; i<noterefs.length; i++) {
@@ -865,7 +2021,7 @@ ul.task-list li input[type="checkbox"] {
       tippyHover(xref, undefined, function(instance) {
         instance.disable();
         let url = xref.getAttribute('href');
-        let hash = undefined; 
+        let hash = undefined;
         if (url.startsWith('#')) {
           hash = url;
         } else {
@@ -893,7 +2049,7 @@ ul.task-list li input[type="checkbox"] {
               if (note !== null) {
                 const html = processXRef(id, note);
                 instance.setContent(html);
-              } 
+              }
             }).finally(() => {
               instance.enable();
               instance.show();
@@ -917,7 +2073,7 @@ ul.task-list li input[type="checkbox"] {
               }
               const html = processXRef(null, note);
               instance.setContent(html);
-            } 
+            }
           }).finally(() => {
             instance.enable();
             instance.show();
@@ -957,7 +2113,7 @@ ul.task-list li input[type="checkbox"] {
               height = bottom - top;
             }
             if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
+              // cook up a div (if necessary) and position it
               let div = window.document.getElementById("code-annotation-line-highlight");
               if (div === null) {
                 div = window.document.createElement("div");
@@ -1082,7 +2238,7 @@ ul.task-list li input[type="checkbox"] {
   <div class="nav-page nav-page-previous">
       <a href="../../chapters/part-3/11-exposicao-vulnerabilidade.html" class="pagination-link" aria-label="Exposição e vulnerabilidade socioambiental">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Exposição e vulnerabilidade socioambiental</span></span>
-      </a>          
+      </a>
   </div>
   <div class="nav-page nav-page-next">
       <a href="../../chapters/part-3/13-resposta-adaptacao-resiliencia.html" class="pagination-link" aria-label="Capacidade de resposta, adaptação e resiliência">

@@ -1,55 +1,376 @@
 # Do indicador à decisão pública {#sec-indicador-decisao}
 
-Este capítulo integrará os conceitos, fontes e indicadores dos capítulos anteriores em rotinas de análise, priorização, comunicação, planejamento e avaliação.
+Indicadores tornam-se instrumentos públicos quando estão ligados a uma decisão, uma responsabilidade e uma ação verificável. Um painel com dezenas de séries pode descrever o território e ainda não responder quem deve fazer o quê, quando e com quais recursos.
 
-Não criará uma nova taxonomia temática. Seu produto será um fluxo decisório rastreável, com exemplos que explicitem pergunta, território, indicadores, responsabilidades, limiares de ação e revisão.
+Este capítulo não cria novos indicadores. Ele combina medidas consolidadas dos capítulos anteriores em rotinas de análise, preparação, resposta, planejamento e avaliação. O ponto de partida não é “quais dados temos?”, mas “qual decisão precisa ser tomada?”.
 
-**Indicadores previstos:** não há conjunto próprio. Cada estudo de caso deverá selecionar um painel mínimo entre perigo, exposição, vulnerabilidade, efeito e resposta, justificando inclusões e exclusões.
+```{mermaid}
+%%| label: fig-fluxo-indicador-decisao
+%%| fig-cap: "Fluxo rastreável do indicador à decisão"
+flowchart LR
+  Q["Pergunta e decisão"] --> T["Território, população<br/>e período"]
+  T --> P["Perigo"]
+  P --> E["Exposição"]
+  E --> V["Vulnerabilidade"]
+  V --> F["Efeito em saúde"]
+  F --> R["Capacidade de resposta"]
+  R --> G["Regra de ação"]
+  G --> A["Ação, responsável,<br/>recurso e prazo"]
+  A --> M["Monitoramento e avaliação"]
+  M --> Q
+```
 
-## Seleção de indicadores prioritários
+## Começar pela pergunta
+
+Uma pergunta operacional contém verbo, objeto, população, lugar e tempo. “Monitorar calor” é amplo demais. “Decidir até 12h se o município ativará visitas domiciliares e ampliará pontos de água para pessoas idosas que vivem sozinhas nos bairros sob alerta nas próximas 72 horas” orienta fontes, atualização e responsabilidades.
+
+Perguntas comuns pertencem a funções diferentes:
+
+| Função | Pergunta | Produto |
+|---|---|---|
+| Descrição | Onde e quando o perigo e os efeitos são maiores? | Perfil, mapa ou série |
+| Detecção | O valor atual se afastou da referência? | Sinal ou alerta |
+| Preparação | Há capacidade suficiente antes da estação de risco? | Lacunas e plano de correção |
+| Resposta | Que ação deve ser ativada agora? | Nível operacional e ordem de ação |
+| Priorização | Onde investir primeiro? | Carteira com critérios e custos |
+| Avaliação | A intervenção foi entregue e reduziu o problema? | Comparação com linha de base e contrafactual |
+
+: Funções decisórias e produtos de informação {#tbl-funcoes-decisorias}
+
+Misturar funções leva a erros. Um mapa anual de vulnerabilidade apoia preparação, mas não substitui previsão de curto prazo. Uma taxa de mortalidade consolidada avalia tendências, mas chega tarde para ativar resposta. Um alerta meteorológico informa perigo e antecedência, mas não dimensiona sozinho pessoas expostas nem capacidade assistencial.
+
+## Seleção de um painel mínimo
+
+O painel mínimo deve cobrir as dimensões necessárias sem duplicar medidas que respondem à mesma pergunta. Uma estrutura útil contém:
+
+1. **perigo** — intensidade, duração, frequência ou extensão;
+2. **exposição** — pessoas, serviços ou ativos no lugar e tempo do perigo;
+3. **vulnerabilidade** — condições que aumentam suscetibilidade ou reduzem proteção;
+4. **efeito** — desfecho observado ou estimado;
+5. **resposta** — capacidade, ação e continuidade dos serviços.
+
+Nem toda decisão precisa de um indicador de cada dimensão. Um alerta imediato pode usar perigo, exposição e capacidade. Uma avaliação de impacto pode exigir efeito, exposição e contrafactual. A omissão deve ser justificada pela pergunta, não pela conveniência dos dados.
+
+### Critérios de escolha
+
+Para cada candidato, registre:
+
+- definição e referência metodológica;
+- decisão apoiada;
+- fonte e responsável;
+- cobertura e atualização;
+- resolução espacial e temporal;
+- população representada e invisível;
+- regra de qualidade;
+- antecedência ou defasagem;
+- possibilidade de ação;
+- custo de produção e manutenção.
+
+Indicadores consolidados não dispensam adequação local. O WSDI usa referência climatológica e é valioso para comparação; um protocolo de alerta pode usar EHF ou outro índice validado e uma previsão. O indicador escolhido para caracterizar clima não precisa ser o mesmo usado para ativar uma equipe, mas a diferença deve ser explícita.
+
+::: {.callout-note title="Regra prática"}
+Se retirar um indicador não muda nenhuma decisão, prioridade, mensagem ou avaliação, ele provavelmente não pertence ao painel operacional.
+:::
+
+## Território, população e tempo
+
+Município, área de abrangência de unidade, bacia, setor censitário e célula de grade não são divisões equivalentes. O território da decisão deve corresponder à autoridade e à rede capaz de agir. O território da exposição deve corresponder ao fenômeno. Ambos podem exigir uma tabela de correspondência.
+
+Antes da análise, fixe:
+
+- unidade de perigo;
+- unidade de população;
+- residência, presença ou local de ocorrência;
+- unidade gestora;
+- período e fuso horário;
+- regra para fronteiras e áreas sem dados;
+- versão das malhas e populações.
+
+A agregação pode esconder extremos. Uma média municipal de temperatura não identifica bairros quentes; um setor pequeno com poucos óbitos produz taxa instável. O suporte final deve equilibrar validade, estabilidade, confidencialidade e possibilidade de ação, conforme os princípios do @sec-espaco-tempo.
+
+### O calendário da decisão
+
+Cada uso tem um relógio:
+
+| Horizonte | Exemplo de decisão | Dados compatíveis |
+|---|---|---|
+| Horas a dias | emitir alerta, ampliar equipe, distribuir insumo | observação e previsão quase em tempo real |
+| Semanas a meses | preparar estação seca ou chuvosa | climatologia, vigilância recente, estoque e infraestrutura |
+| Ano orçamentário | incluir obra, contrato ou equipe | séries consolidadas, risco, custo e capacidade |
+| Anos | adaptação urbana e da rede | cenários, tendências, expansão urbana e avaliação de políticas |
+
+: Horizontes temporais da decisão {#tbl-horizontes-decisao}
+
+Um indicador anual não deve receber aparência de tempo real. Dados preliminares podem orientar resposta se forem marcados e posteriormente revistos. O painel precisa manter a data de competência, a data do evento e a data de atualização.
+
+## Linha de base, comparação e regra de ação
+
+Uma regra de ação declara em que condição uma resposta começa, aumenta, diminui ou termina. Pode combinar limite absoluto, percentil, previsão, duração e capacidade. Não deve ser escolhida retrospectivamente para maximizar uma associação.
+
+Existem quatro referências frequentes:
+
+- **normativa**, como padrão de qualidade da água ou do ar;
+- **climatológica**, como percentis em um período de referência;
+- **histórica**, como eventos esperados em uma série;
+- **operacional**, como estoque, ocupação ou autonomia mínima.
+
+Os limiares podem ter efeitos diferentes por população. Isso não exige inventar um índice. Um mesmo alerta pode acionar ações adicionais em territórios com maior exposição residencial, moradia inadequada ou concentração de pessoas clinicamente suscetíveis.
+
+Toda regra deve informar:
+
+1. dados necessários;
+2. frequência de cálculo;
+3. responsável pela validação;
+4. nível e cor, se houver;
+5. ação obrigatória;
+6. autoridade de ativação;
+7. destinatários;
+8. validade e critério de encerramento;
+9. registro das decisões excepcionais.
+
+Sem uma ação associada, cor é decoração. Sem autoridade, o limiar é apenas uma observação.
 
 ## Análise de situação de saúde, clima e ambiente
 
-## Definição do território
+Uma análise de situação integra tendências e desigualdades, mas preserva a cadeia causal. Um roteiro compacto é:
 
-## Perfis municipais e estaduais
+1. descrever população, território e organização do SUS;
+2. identificar perigos prioritários e sazonalidade;
+3. quantificar exposição;
+4. caracterizar condições de vulnerabilidade e proteção;
+5. examinar desfechos e acesso aos serviços;
+6. avaliar capacidade e interrupções;
+7. selecionar problemas sobre os quais há ação pública;
+8. pactuar metas, recursos e monitoramento.
 
-## Mapas, séries temporais e painéis
+Mapas devem ser acompanhados por contagens, denominadores e séries. Valores absolutos dimensionam recursos; taxas e proporções favorecem comparação; percentis mostram posição relativa; limites normativos indicam conformidade. Um único mapa não cumpre todas essas funções.
 
-## Monitoramento sazonal
+### Perfis municipais e estaduais
 
-## Sistemas de alerta precoce
+Um perfil deve ser curto o suficiente para ser atualizado e detalhado o suficiente para sustentar ação. Uma arquitetura possível contém:
 
-## Planos de contingência e adaptação
+| Seção | Conteúdo mínimo |
+|---|---|
+| Território e população | população, urbanização, mobilidade, rede e mudanças de limites |
+| Perigos | indicadores prioritários, sazonalidade, extremos e área |
+| Exposição e vulnerabilidade | pessoas expostas, IVS ou componentes locais, moradia e serviços |
+| Efeitos | contagens, taxas, excesso quando aplicável e qualidade |
+| Capacidade | alertas, planos, água, energia, infraestrutura e continuidade |
+| Decisões | prioridades, ações, responsáveis, custos, prazos e indicadores de avaliação |
 
-## Instrumentos de planejamento do SUS
+: Estrutura recomendada de perfil territorial {#tbl-perfil-territorial}
 
-### Metas, monitoramento e avaliação
+Perfis estaduais devem mostrar desigualdade municipal e organização regional. Perfis municipais devem mostrar desigualdade intraurbana quando os dados permitirem. A escala nacional é referência, não substituta das necessidades locais.
 
-## Comunicação de risco e de resultados
+## Painéis e séries
+
+Um painel operacional deve responder rapidamente:
+
+- qual é a situação;
+- onde está;
+- quem é afetado;
+- como se compara;
+- quão confiável é;
+- que ação está ativa;
+- quando será atualizado.
+
+Para isso, cada gráfico precisa de título informativo, unidade, período, fonte, data de atualização e observação sobre dados preliminares. Mapas precisam de legenda, escala, ausência de dados e denominador. Séries precisam mostrar quebra metodológica e intervalo de referência.
+
+Filtros não devem permitir combinações estatisticamente inválidas. Se pequenas contagens ameaçam confidencialidade ou estabilidade, o sistema deve agregar ou suprimir segundo regra pública. Exportações precisam levar metadados; uma planilha sem definição reproduz números, não conhecimento.
+
+### Monitoramento sazonal
+
+O calendário anual antecipa tarefas:
+
+```{mermaid}
+%%| label: fig-calendario-sazonal
+%%| fig-cap: "Exemplo de calendário adaptável de gestão sazonal"
+gantt
+  title Ciclo anual de preparação, resposta e avaliação
+  dateFormat  YYYY-MM-DD
+  axisFormat  %b
+  section Preparação
+  Atualizar riscos e contatos      :a1, 2026-01-01, 90d
+  Corrigir infraestrutura crítica :a2, 2026-02-01, 150d
+  Exercitar planos                :a3, 2026-03-01, 90d
+  section Vigilância
+  Monitorar perigos sazonais      :b1, 2026-01-01, 365d
+  Qualificar saúde e capacidade   :b2, 2026-01-01, 365d
+  section Resposta
+  Ativar níveis conforme alerta   :c1, 2026-01-01, 365d
+  section Avaliação
+  Revisar eventos e correções     :d1, 2026-01-01, 365d
+```
+
+As datas são ilustrativas; o ciclo deve seguir o clima, os vetores, os incêndios e a rede de cada território. Preparação realizada depois do início da estação é resposta tardia.
+
+## Planejamento e orçamento
+
+Indicadores devem entrar nos instrumentos de planejamento com diagnóstico, meta, iniciativa, custo e responsabilidade. Metas sem orçamento tendem a permanecer documentais; orçamento sem indicador de entrega não permite avaliação.
+
+Uma ficha de ação pode conter:
+
+| Campo | Pergunta |
+|---|---|
+| Problema | Que risco ou falha foi demonstrado? |
+| População | Quem deve se beneficiar? |
+| Intervenção | O que será entregue? |
+| Responsável | Quem executa e quem decide? |
+| Recursos | Quanto custa e qual fonte financia? |
+| Prazo | Quando começa e termina? |
+| Produto | Como verificar a entrega? |
+| Resultado | Que mudança é esperada? |
+| Equidade | Quem pode ficar sem acesso? |
+| Risco residual | O que permanece depois da ação? |
+
+: Campos para vincular indicador, ação e orçamento {#tbl-ficha-acao}
+
+Metas devem especificar numerador e denominador. “Ampliar planos para 90%” é incompleto se não definir estabelecimento elegível, critérios do plano e data. Para obras, convém acompanhar marcos físicos e conformidade final. Para capacitação, presença não basta; competências e desempenho em exercício são mais informativos.
+
+## Avaliação
+
+Monitoramento verifica se atividades e produtos ocorreram. Avaliação examina se contribuíram para o resultado. Uma intervenção pode ser entregue conforme planejado e não reduzir o risco; pode falhar na entrega e ainda assim coincidir com melhora por outras causas.
+
+O desenho depende da intervenção:
+
+- comparação antes e depois para mudança claramente datada;
+- série temporal interrompida quando há observações suficientes;
+- comparação com territórios ou unidades semelhantes;
+- implantação escalonada;
+- avaliação de processo e mecanismos;
+- análise de equidade e efeitos não desejados.
+
+Linha de base, grupo de comparação e desfechos devem ser definidos antes da implementação sempre que possível. Eventos extremos variam entre anos; comparar apenas o número de mortes de dois verões pode confundir intensidade do perigo e efeito da intervenção. Ajustar ou estratificar por exposição é essencial.
+
+## Comunicação de risco e resultados
+
+Comunicação pública precisa separar:
+
+- fato observado;
+- previsão;
+- cenário;
+- associação;
+- atribuição;
+- incerteza;
+- recomendação.
+
+Uma mensagem de alerta deve começar pelo perigo, local, período e ação. Detalhes metodológicos ficam acessíveis em camada complementar. Uma publicação analítica precisa fornecer métodos suficientes para reprodução.
+
+Não se deve comunicar “risco alto” sem explicar alto em relação a quê. Tampouco divulgar bairros como “vulneráveis” sem mostrar condições específicas, recursos existentes e responsabilidades públicas. Linguagem centrada em condições evita estigma e favorece ação.
+
+Durante uma emergência, registre versões e horários. Quando a previsão mudar, atualize a orientação e explique a mudança. Incerteza não é motivo para silêncio; é parte da decisão e pode ser convertida em ações proporcionais e reversíveis.
 
 ## Estudos de caso
 
-### Preparação para ondas de calor
+Os casos seguintes ilustram painéis mínimos. Os limiares operacionais precisam ser validados e pactuados localmente; não são produzidos pela simples soma dos indicadores.
 
-::: {.todo}
-TODO: desenvolver estudo de caso com protocolo, indicadores, responsabilidades e avaliação.
-:::
+### Preparação e resposta a ondas de calor
 
-### Resposta à fumaça de queimadas
+**Decisão.** Ativar, escalonar e encerrar medidas de proteção durante calor perigoso, com antecedência suficiente para alcançar pessoas e serviços.
 
-::: {.todo}
-TODO: desenvolver estudo de caso.
-:::
+**Painel mínimo.**
+
+| Dimensão | Indicador ou informação | Função |
+|---|---|---|
+| Perigo | ocorrência de onda de calor (CLI-CAL-02), EHF (CLI-CAL-09) ou índice validado | Detectar e classificar |
+| Duração | HWF (CLI-CAL-04) e HWD (CLI-CAL-05) | Preparar persistência |
+| Noite | TN90p (CLI-CAL-11) ou onda composta (CLI-CAL-12) | Identificar ausência de recuperação noturna |
+| Exposição | pessoas-dia de grupos definidos (CLI-EXP-02) | Dimensionar alcance |
+| Vulnerabilidade | IVS e componentes, moradia, idade, saúde e ocupação | Direcionar proteção |
+| Efeito | internações, mortalidade e excesso | Monitorar e avaliar |
+| Resposta | alerta, ponto focal, água, energia e continuidade | Verificar capacidade |
+
+: Painel mínimo para ondas de calor {#tbl-caso-calor}
+
+**Protocolo.** A vigilância recebe previsão e observação, valida o nível e territorializa a exposição. A coordenação ativa comunicação, atenção primária, urgência, assistência social, saúde do trabalhador, água e defesa civil. Ações incluem contato e busca ativa conforme critérios, água segura, ajuste de horários, pontos de resfriamento acessíveis, orientação medicamentosa por profissionais, proteção ocupacional, equipes e insumos.
+
+**Avaliação.** Comparar alcance das mensagens e ações, tempo de ativação, pessoas contatadas, interrupções de energia e água, demanda assistencial, excesso e eventos atribuíveis quando o desenho permitir. Um verão menos quente não prova sucesso; a exposição precisa entrar na comparação.
+
+### Resposta à fumaça de incêndios
+
+**Decisão.** Definir quando e onde intensificar vigilância, proteção de ambientes, orientação pública e capacidade assistencial durante episódios de fumaça.
+
+| Dimensão | Indicador ou informação | Função |
+|---|---|---|
+| Perigo | P99 de PM2,5 em 24 horas (AMB-AR-02) e IQAr (AMB-AR-03) | Qualificar concentração de curto prazo |
+| Atribuição da fonte | PM2,5 atribuível à fumaça ponderado pela população (AMB-FUM-01) | Separar contribuição de incêndios quando disponível |
+| Exposição | população e estabelecimentos na pluma, tempo de permanência | Dimensionar |
+| Vulnerabilidade | doença respiratória ou cardiovascular, infância, idosos, gestação, trabalho externo e moradia | Direcionar proteção |
+| Efeito | atendimentos, internações e mortalidade por causas definidas | Monitorar impacto |
+| Resposta | alerta, ambientes com ar mais limpo, filtros, insumos, equipes e comunicação | Verificar entrega |
+
+: Painel mínimo para episódios de fumaça {#tbl-caso-fumaca}
+
+Rede de monitoramento, produto modelado e observação de satélite cumprem funções diferentes. Focos de calor não medem concentração respirada. O protocolo deve declarar qual medida aciona resposta e como lidar com locais sem monitor.
+
+Ações podem incluir mensagens sobre redução de exposição, proteção ocupacional, avaliação de ambientes internos, disponibilidade de locais com ar mais limpo, manutenção de filtros e ampliação da capacidade clínica. Recomendações precisam considerar custo, acesso e condição individual; máscaras e purificadores não podem ser a única resposta pública.
+
+Depois do episódio, revisar oportunidade do alerta, cobertura, falhas de monitoramento, concentração e duração, utilização dos serviços e desigualdades de acesso às medidas. Atribuição de internações à fumaça requer desenho analítico, não coincidência com mapas de fogo.
 
 ### Análise de risco de inundações
 
-::: {.todo}
-TODO: desenvolver estudo de caso.
-:::
+**Decisão.** Priorizar preparação territorial e ativar resposta quando chuva, nível hidrológico e condições locais indicarem ameaça a pessoas, serviços e infraestrutura.
 
-### Perfil municipal de clima, ambiente e saúde
+| Dimensão | Indicador ou informação | Função |
+|---|---|---|
+| Perigo meteorológico | Rx1day, Rx5day e R95pTOT | Caracterizar chuva extrema |
+| Perigo hidrológico | nível, vazão, saturação, previsão e mancha | Aproximar inundação real |
+| Exposição | população, estabelecimentos, rotas, água e saneamento na mancha | Dimensionar ativos |
+| Vulnerabilidade | moradia inadequada, mobilidade, dependência de cuidado e proteção social | Planejar evacuação e apoio |
+| Efeito | afetados, mortes, danos e interrupção de serviços | Responder e avaliar |
+| Resposta | perfil de riscos, plano, água, energia, infraestrutura e referência assistencial | Verificar continuidade |
 
-::: {.todo}
-TODO: desenvolver estudo de caso integrador.
-:::
+: Painel mínimo para risco de inundação {#tbl-caso-inundacao}
+
+Chuva extrema não equivale a inundação. Drenagem, solo, ocupação, maré, reservatórios e bacia modificam o resultado. O território de análise deve seguir a dinâmica hidrológica; a ação deve ser traduzida para áreas administrativas e redes de serviço.
+
+Antes da estação, atualizar rotas, abrigos acessíveis, unidades na mancha, transporte, estoques, cadeia de frio, geradores e fontes de água. Durante o evento, monitorar isolamento, contaminação, feridos, continuidade e pessoas deslocadas. Depois, manter vigilância de doenças, saúde mental e cuidados crônicos, qualificar registros de afetados e acompanhar recuperação.
+
+### Perfil municipal integrado
+
+**Decisão.** Selecionar de três a cinco prioridades para o ciclo municipal de planejamento e preparar um conjunto anual e sazonal de ações.
+
+O perfil não deve colocar um indicador por tema apenas para parecer completo. A seleção parte da magnitude, tendência, desigualdade, possibilidade de prevenção, capacidade local e obrigações legais.
+
+```{mermaid}
+%%| label: fig-priorizacao-municipal
+%%| fig-cap: "Processo de priorização no perfil municipal"
+flowchart TD
+  D["Diagnóstico com indicadores consolidados"] --> P["Problemas candidatos"]
+  P --> C["Critérios públicos:<br/>magnitude, desigualdade,<br/>tendência, ação e custo"]
+  C --> S["Prioridades pactuadas"]
+  S --> A["Ações e orçamento"]
+  A --> I["Indicadores de produto e resultado"]
+  I --> R["Revisão anual e após eventos"]
+  R --> D
+```
+
+Um quadro final pode ter uma linha por prioridade:
+
+| Prioridade | Evidência | População e lugar | Ação | Responsável | Prazo | Produto | Resultado |
+|---|---|---|---|---|---|---|---|
+| Calor em bairros densos | perigo, pessoas-dia, moradia, excesso | áreas e grupos definidos | plano local de proteção | coordenação definida | antes do verão | cobertura das ações | menor interrupção e carga |
+| Fumaça sazonal | PM2,5, exposição e internações | território sob pluma | ambientes protegidos e protocolo | vigilância e atenção | antes da seca | unidades preparadas | menor exposição e pressão |
+| Unidade inundável | perfil de risco e eventos anteriores | rede dependente | obra, redundância e referência | infraestrutura e gestão | ciclo orçamentário | conformidade | continuidade segura |
+
+: Exemplo de síntese decisória para perfil municipal {#tbl-sintese-municipal}
+
+Cada célula deve apontar para definição, fonte e documentação completas. O perfil é a porta de entrada; as fichas integradas aos capítulos preservam os detalhes necessários para calcular e interpretar.
+
+## Governança do processo
+
+Um fluxo sustentável requer:
+
+- comissão ou espaço de coordenação com mandato;
+- responsáveis técnicos pelas fontes;
+- calendário de atualização;
+- repositório versionado de dados, códigos e metadados;
+- critérios de qualidade e liberação;
+- proteção de dados pessoais;
+- participação de trabalhadores e comunidades;
+- mecanismo de correção pública;
+- avaliação depois de exercícios e eventos.
+
+Decisões extraordinárias podem contrariar o limiar por informação não captada. Isso deve ser permitido e registrado com justificativa. Governança não é automatizar a decisão, mas tornar visíveis evidência, autoridade e responsabilidade.
+
+O percurso termina onde começou: uma pergunta concreta. Um indicador bem definido reduz ambiguidade; um painel mínimo organiza dimensões; uma regra de ação converte sinal em resposta; avaliação mostra o que funcionou. A qualidade do sistema não é medida pelo número de gráficos, mas pela capacidade de proteger pessoas, sustentar serviços e aprender.

@@ -6,11 +6,11 @@
 - Mantenha um título de nível 1 por capítulo.
 - Preserve identificadores de seções publicados.
 - Escreva em português brasileiro e defina siglas na primeira ocorrência.
-- Não substitua `TODO: verificar` por informação sem conferir fonte oficial ou referência adequada.
+- Não publique marcadores `TODO`; verifique a informação em fonte oficial ou referência adequada e, quando ela não for documentada, registre claramente “não informado” e a limitação.
 
 ## Fichas e fontes
 
-Fichas são editadas em `indicators/data/`, nunca diretamente em `indicators/pages/`, que é gerado. Códigos devem ser únicos. Toda fonte citada por ID precisa existir em `sources/data/sources.yml`.
+Fichas são editadas em `indicators/data/`, nunca diretamente em `indicators/includes/`, que é gerado e incorporado ao capítulo temático indicado em cada registro. Códigos devem ser únicos. Toda fonte citada por ID precisa existir em `sources/data/sources.yml`.
 
 Registros de fonte devem distinguir instituição, sistema, produto e versão. Não transforme previsão, projeção, reanálise ou estimativa em observação por simplificação textual.
 
@@ -43,4 +43,3 @@ Faça commits pequenos, com mensagem no imperativo e escopo reconhecível. Antes
 - [ ] confirme que arquivos gerados correspondem aos metadados;
 - [ ] descreva decisões editoriais e tarefas pendentes;
 - [ ] não inclua credenciais, dados sensíveis ou arquivos sem licença.
-

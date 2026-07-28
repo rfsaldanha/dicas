@@ -1,0 +1,122 @@
+## Ficha do indicador: Percentual de dias quentes (TX90p) {#sec-cli-tem-01}
+
+::: {.indicator-card}
+**Código:** CLI-TEM-01 \
+**Título resumido:** Dias quentes — TX90p \
+**Tema:** Temperatura e condições térmicas \
+**Dimensão:** perigo; exposição \
+**Disponibilidade:** [requer processamento climatológico]{.availability}
+:::
+
+### Identificação e fundamento
+
+**Indicador consolidado em.** Índice de extremos climáticos TX90p, coordenado pelo ETCCDI e documentado pelo Climdex.
+
+### Conceito
+
+Percentual de dias de um período em que a temperatura máxima diária (TX) excede o percentil 90 específico do dia do calendário, calculado em janela móvel de cinco dias durante um período-base.
+
+### Objetivo
+
+Monitorar a frequência relativa de dias anomalamente quentes em relação à climatologia local e produzir séries comparáveis de extremos térmicos.
+
+### Interpretação
+
+Valores maiores indicam maior proporção de dias com máximas acima do limiar climatológico. O índice descreve extremos relativos; não equivale a uma medida clínica de estresse térmico nem a um limiar de alerta em saúde.
+
+### Usos
+
+- Monitorar mudanças na frequência de extremos de temperatura máxima.
+- Comparar períodos e áreas quando fonte, período-base e método são harmonizados.
+- Caracterizar exposição ambiental em estudos de calor e saúde.
+- Apoiar avaliações de risco e o desenho de sistemas de alerta validados com desfechos locais.
+
+### Limitações
+
+- O resultado depende do período-base, da homogeneidade e da completude da série.
+- Percentis relativos podem classificar como extremos valores absolutos diferentes entre localidades.
+- O índice não incorpora umidade, radiação, vento, temperatura noturna ou exposição individual.
+- Grades e estações representam suportes espaciais distintos.
+
+### Fontes de dados
+
+- Instituto Nacional de Meteorologia — observação de temperatura máxima em estação, sujeita a controle de qualidade e homogeneização ([cadastro](../../backmatter/indice-fontes.qmd#inmet))
+- ERA5-Land — reanálise em grade quando a finalidade e a validação admitirem produto modelado ([cadastro](../../backmatter/indice-fontes.qmd#era5-land))
+
+### Método de cálculo
+
+Calcular, para cada dia do calendário, o percentil 90 de TX em uma janela centrada de cinco dias no período-base. No período de análise, contar os dias em que TX excede o limiar correspondente e dividir pelo número de dias válidos. Para o período-base, aplicar bootstrap conforme Zhang et al. para evitar descontinuidade artificial entre valores dentro e fora da base.
+
+$$
+TX90p_j = 100 \times \frac{\sum_{i \in j} I(TX_{ij} > TX^{90}_{in})}{N_j}
+$$
+
+::: {.indicator-card}
+**Numerador.** Número de dias válidos do período j em que TX excede o percentil 90 correspondente ao dia do calendário.
+
+**Denominador.** Número de dias com temperatura máxima válida no período j.
+
+**Unidade de medida.** Percentual de dias (%).
+
+**Variáveis e categorias de análise.** Temperatura máxima diária; dia do calendário; período-base; estação; célula de grade; mês, estação climatológica ou ano.
+
+**Granularidade.** Ponto de estação ou célula de grade; sínteses territoriais requerem regra explícita e, para exposição, ponderação populacional justificável.
+
+**Periodicidade de atualização.** Mensal, sazonal ou anual, conforme a finalidade e a latência da fonte.
+
+**Responsabilidade gerencial.** Instituição responsável pelo serviço climático ou pela vigilância que adotar o protocolo, com governança compartilhada entre meteorologia e saúde quando usado operacionalmente.
+
+**Notas.** TX90p foi escolhido por ser um índice internacionalmente coordenado. Temperatura máxima diária permanece variável de entrada e não recebe ficha própria neste catálogo.
+
+**Análise descritiva do indicador.** Apresentar série do percentual, mediana e amplitude por período, tendência com incerteza e mapa somente após avaliar cobertura e homogeneidade. Evitar rankings territoriais quando as fontes não forem comparáveis.
+
+:::
+
+### Campos complementares para clima, ambiente e saúde
+
+::: {.indicator-card}
+**Unidade territorial.** Estação meteorológica, célula de grade ou território derivado.
+
+**Resolução espacial original.** A da estação ou do produto em grade selecionado.
+
+**Resolução temporal.** Entrada diária; saída mensal, sazonal ou anual.
+
+**Período de referência.** O padrão clássico ETCCDI usa 1961–1990; outro período-base somente deve ser usado se declarado e mantido em toda a comparação.
+
+**Limiar ou valor de referência.** Percentil 90 específico do dia do calendário, em janela móvel de cinco dias no período-base.
+
+:::
+
+### Disponibilidade e acesso
+
+**Cobertura geográfica.** Definida pela rede de estações ou pelo domínio do produto em grade.
+
+**Período disponível.** Definido pela estação ou produto; o cálculo requer série diária suficientemente longa para estimar percentis estáveis.
+
+**Periodicidade de atualização.** Mensal, sazonal ou anual, conforme a finalidade e a latência da fonte.
+
+**Forma de acesso.** Calculado a partir de série diária de temperatura máxima obtida na fonte documentada.
+
+**URL ou identificador persistente.** https://www.climdex.org/learn/indices/
+
+**Formato dos arquivos.** Tabela temporal ou matriz/arquivo multidimensional, preservando identificador, unidade e controle de qualidade.
+
+**Necessidade de processamento.** Controle de qualidade, homogeneização quando aplicável, cálculo de percentis em janela móvel, bootstrap do período-base e agregação temporal.
+
+### Qualidade, comparação e saúde
+
+**Qualidade e incerteza.** Relatar completude, falhas, mudanças de estação, método de homogeneização, período-base, bootstrap, viés do produto em grade e efeito da agregação espacial.
+
+**Possibilidade de comparação.** Comparável somente com a mesma definição de TX90p, período-base, calendário, critério de completude, fonte ou fonte harmonizada e procedimento de bootstrap.
+
+**Relação com desfechos de saúde.** TX90p é um indicador climático consolidado que pode caracterizar frequência de calor relativo em análises de morbimortalidade. Sua utilização em alerta exige validação com desfechos locais, pois limiares meteorológicos não são automaticamente limiares sanitários.
+
+**Defasagens temporais relevantes.** Em estudos de saúde, definir a priori defasagens e médias móveis conforme desfecho e literatura; o índice anual não deve substituir a série diária em análises de efeitos agudos.
+
+**Aplicação na gestão.** Monitorar tendência de extremos, apoiar avaliação sazonal e selecionar períodos para análise de pressão assistencial; para alertas, combinar com previsão e protocolo calor–saúde validado.
+
+### Referências metodológicas
+
+- [@climdex2024]
+- [@zhang2005]
+- [@wmoWho2015heat]

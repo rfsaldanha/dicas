@@ -23,10 +23,30 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 1em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -79,7 +99,39 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Procurar"
   }
 }</script>
+<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles/web/styles.css">
 </head>
@@ -256,7 +308,7 @@ ul.task-list li input[type="checkbox"] {
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/part-2/05-temperatura-condicoes-termicas.html">Parte II — Dados e indicadores temáticos</a></li><li class="breadcrumb-item"><a href="../../chapters/part-2/06-precipitacao-secas-eventos-hidrologicos.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Precipitação, secas e eventos hidrológicos</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Procurar" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
@@ -270,7 +322,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../../">Dados e Indicadores de Clima e Ambiente para a Saúde</a> 
+      <a href="../../">Dados e Indicadores de Clima e Ambiente para a Saúde</a>
         <div class="sidebar-tools-main">
     <a href="https://github.com/rfsaldanha/dicas" title="Código fonte" class="quarto-navigation-tool px-1" aria-label="Código fonte"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo escuro"><i class="bi"></i></a>
@@ -282,85 +334,85 @@ ul.task-list li input[type="checkbox"] {
         <div id="quarto-search" class="" title="Procurar"></div>
         </div>
         </div>
-    <div class="sidebar-menu-container"> 
+    <div class="sidebar-menu-container">
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Bem-vindo</span></a>
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../frontmatter/ficha-tecnica.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Ficha técnica</span></a>
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../frontmatter/apresentacao.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Apresentação</span></a>
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../frontmatter/prefacio.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Prefácio</span></a>
+ <span class="menu-text">Prefácio do autor</span></a>
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../frontmatter/agradecimentos.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Agradecimentos</span></a>
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../frontmatter/siglas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lista de siglas</span></a>
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../frontmatter/sumario.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sumário</span></a>
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../frontmatter/como-usar.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Como utilizar este livro</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
+      <div class="sidebar-item-container">
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Parte I — Fundamentos e métodos</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+          </a>
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-1/01-clima-ambiente-saude.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Clima, ambiente e saúde pública</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-1/02-dados-variaveis-indices-indicadores.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Dados, variáveis, índices e indicadores</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-1/03-espaco-tempo-qualidade.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Espaço, tempo e qualidade dos dados</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-1/04-fontes-fichas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Fontes de dados e fichas de indicadores</span></span></a>
   </div>
@@ -368,46 +420,46 @@ ul.task-list li input[type="checkbox"] {
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
+      <div class="sidebar-item-container">
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
  <span class="menu-text">Parte II — Dados e indicadores temáticos</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+          </a>
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-2/05-temperatura-condicoes-termicas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Temperatura e condições térmicas</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-2/06-precipitacao-secas-eventos-hidrologicos.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Precipitação, secas e eventos hidrológicos</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-2/07-qualidade-ar-queimadas-fumaca.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Qualidade do ar, queimadas e fumaça</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-2/08-agua-saneamento-qualidade-ambiental.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Água, saneamento e qualidade ambiental</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-2/09-uso-cobertura-terra-ambiente-urbano.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Uso e cobertura da terra, vegetação e ambiente urbano</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-2/10-eventos-severos-desastres.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Eventos meteorológicos severos e desastres</span></span></a>
   </div>
@@ -415,28 +467,28 @@ ul.task-list li input[type="checkbox"] {
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
+      <div class="sidebar-item-container">
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
  <span class="menu-text">Parte III — Indicadores integrados de clima, ambiente e saúde</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+          </a>
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-3/11-exposicao-vulnerabilidade.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Exposição e vulnerabilidade socioambiental</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-3/12-efeitos-saude.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Efeitos do clima e do ambiente sobre a saúde</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-3/13-resposta-adaptacao-resiliencia.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Capacidade de resposta, adaptação e resiliência</span></span></a>
   </div>
@@ -444,16 +496,16 @@ ul.task-list li input[type="checkbox"] {
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
+      <div class="sidebar-item-container">
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
  <span class="menu-text">Parte IV — Aplicação na vigilância e na gestão pública</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+          </a>
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-4/14-indicador-decisao.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Do indicador à decisão pública</span></span></a>
   </div>
@@ -461,93 +513,64 @@ ul.task-list li input[type="checkbox"] {
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
+      <div class="sidebar-item-container">
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
- <span class="menu-text">Fichas demonstrativas</span></a>
+ <span class="menu-text">Elementos pós-textuais</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+          </a>
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../indicators/pages/cli-tem-01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Temperatura máxima diária</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../indicators/pages/cli-cal-01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Ocorrência de onda de calor</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../indicators/pages/amb-ar-01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Concentração média diária de material particulado fino (PM2,5)</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
- <span class="menu-text">Elementos pós-textuais</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Alternar seção">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/glossario.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Glossário</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/referencias.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Referências</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/indice-indicadores.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Índice alfabético de indicadores</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/indice-fontes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Índice de fontes de dados</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/indice-instituicoes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Índice de instituições</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/apendice-metodologico.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Apêndice metodológico</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/lista-fichas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lista de fichas</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/lista-tabelas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lista de tabelas</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/lista-figuras.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lista de figuras</span></a>
   </div>
@@ -562,7 +585,7 @@ ul.task-list li input[type="checkbox"] {
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Índice</h2>
-   
+
   <ul>
   <li><a href="#precipitação-e-variabilidade-das-chuvas" id="toc-precipitação-e-variabilidade-das-chuvas" class="nav-link active" data-scroll-target="#precipitação-e-variabilidade-das-chuvas"><span class="header-section-number">6.1</span> Precipitação e variabilidade das chuvas</a>
   <ul class="collapse">
@@ -573,10 +596,107 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#secas-e-estiagens" id="toc-secas-e-estiagens" class="nav-link" data-scroll-target="#secas-e-estiagens"><span class="header-section-number">6.2</span> Secas e estiagens</a></li>
   <li><a href="#inundações-alagamentos-e-enxurradas" id="toc-inundações-alagamentos-e-enxurradas" class="nav-link" data-scroll-target="#inundações-alagamentos-e-enxurradas"><span class="header-section-number">6.3</span> Inundações, alagamentos e enxurradas</a></li>
   <li><a href="#deslizamentos" id="toc-deslizamentos" class="nav-link" data-scroll-target="#deslizamentos"><span class="header-section-number">6.4</span> Deslizamentos</a></li>
-  <li><a href="#impactos-sobre-a-saúde-e-os-serviços" id="toc-impactos-sobre-a-saúde-e-os-serviços" class="nav-link" data-scroll-target="#impactos-sobre-a-saúde-e-os-serviços"><span class="header-section-number">6.5</span> Impactos sobre a saúde e os serviços</a></li>
-  <li><a href="#fontes-de-dados" id="toc-fontes-de-dados" class="nav-link" data-scroll-target="#fontes-de-dados"><span class="header-section-number">6.6</span> Fontes de dados</a></li>
-  <li><a href="#indicadores" id="toc-indicadores" class="nav-link" data-scroll-target="#indicadores"><span class="header-section-number">6.7</span> Indicadores</a></li>
-  <li><a href="#aplicação-na-gestão" id="toc-aplicação-na-gestão" class="nav-link" data-scroll-target="#aplicação-na-gestão"><span class="header-section-number">6.8</span> Aplicação na gestão</a></li>
+  <li><a href="#impactos-sobre-a-saúde-humana" id="toc-impactos-sobre-a-saúde-humana" class="nav-link" data-scroll-target="#impactos-sobre-a-saúde-humana"><span class="header-section-number">6.5</span> Impactos sobre a saúde humana</a>
+  <ul class="collapse">
+  <li><a href="#traumas-afogamento-e-contato-elétrico" id="toc-traumas-afogamento-e-contato-elétrico" class="nav-link" data-scroll-target="#traumas-afogamento-e-contato-elétrico"><span class="header-section-number">6.5.1</span> Traumas, afogamento e contato elétrico</a></li>
+  <li><a href="#água-alimentos-e-doenças-infecciosas" id="toc-água-alimentos-e-doenças-infecciosas" class="nav-link" data-scroll-target="#água-alimentos-e-doenças-infecciosas"><span class="header-section-number">6.5.2</span> Água, alimentos e doenças infecciosas</a></li>
+  <li><a href="#nutrição-ar-e-saúde-mental" id="toc-nutrição-ar-e-saúde-mental" class="nav-link" data-scroll-target="#nutrição-ar-e-saúde-mental"><span class="header-section-number">6.5.3</span> Nutrição, ar e saúde mental</a></li>
+  </ul></li>
+  <li><a href="#impactos-sobre-a-saúde-pública-e-os-serviços" id="toc-impactos-sobre-a-saúde-pública-e-os-serviços" class="nav-link" data-scroll-target="#impactos-sobre-a-saúde-pública-e-os-serviços"><span class="header-section-number">6.6</span> Impactos sobre a saúde pública e os serviços</a></li>
+  <li><a href="#fontes-de-dados" id="toc-fontes-de-dados" class="nav-link" data-scroll-target="#fontes-de-dados"><span class="header-section-number">6.7</span> Fontes de dados</a></li>
+  <li><a href="#principais-indicadores-usados-em-saúde-pública" id="toc-principais-indicadores-usados-em-saúde-pública" class="nav-link" data-scroll-target="#principais-indicadores-usados-em-saúde-pública"><span class="header-section-number">6.8</span> Principais indicadores usados em saúde pública</a></li>
+  <li><a href="#sec-cli-prc-01" id="toc-sec-cli-prc-01" class="nav-link" data-scroll-target="#sec-cli-prc-01"><span class="header-section-number">6.9</span> Ficha do indicador: Maior precipitação em um dia (Rx1day)</a>
+  <ul class="collapse">
+  <li><a href="#identificação-e-fundamento" id="toc-identificação-e-fundamento" class="nav-link" data-scroll-target="#identificação-e-fundamento"><span class="header-section-number">6.9.1</span> Identificação e fundamento</a></li>
+  <li><a href="#conceito" id="toc-conceito" class="nav-link" data-scroll-target="#conceito"><span class="header-section-number">6.9.2</span> Conceito</a></li>
+  <li><a href="#objetivo" id="toc-objetivo" class="nav-link" data-scroll-target="#objetivo"><span class="header-section-number">6.9.3</span> Objetivo</a></li>
+  <li><a href="#interpretação" id="toc-interpretação" class="nav-link" data-scroll-target="#interpretação"><span class="header-section-number">6.9.4</span> Interpretação</a></li>
+  <li><a href="#usos" id="toc-usos" class="nav-link" data-scroll-target="#usos"><span class="header-section-number">6.9.5</span> Usos</a></li>
+  <li><a href="#limitações" id="toc-limitações" class="nav-link" data-scroll-target="#limitações"><span class="header-section-number">6.9.6</span> Limitações</a></li>
+  <li><a href="#fontes-de-dados-1" id="toc-fontes-de-dados-1" class="nav-link" data-scroll-target="#fontes-de-dados-1"><span class="header-section-number">6.9.7</span> Fontes de dados</a></li>
+  <li><a href="#método-de-cálculo" id="toc-método-de-cálculo" class="nav-link" data-scroll-target="#método-de-cálculo"><span class="header-section-number">6.9.8</span> Método de cálculo</a></li>
+  <li><a href="#campos-complementares-para-clima-ambiente-e-saúde" id="toc-campos-complementares-para-clima-ambiente-e-saúde" class="nav-link" data-scroll-target="#campos-complementares-para-clima-ambiente-e-saúde"><span class="header-section-number">6.9.9</span> Campos complementares para clima, ambiente e saúde</a></li>
+  <li><a href="#disponibilidade-e-acesso" id="toc-disponibilidade-e-acesso" class="nav-link" data-scroll-target="#disponibilidade-e-acesso"><span class="header-section-number">6.9.10</span> Disponibilidade e acesso</a></li>
+  <li><a href="#qualidade-comparação-e-saúde" id="toc-qualidade-comparação-e-saúde" class="nav-link" data-scroll-target="#qualidade-comparação-e-saúde"><span class="header-section-number">6.9.11</span> Qualidade, comparação e saúde</a></li>
+  <li><a href="#referências-metodológicas" id="toc-referências-metodológicas" class="nav-link" data-scroll-target="#referências-metodológicas"><span class="header-section-number">6.9.12</span> Referências metodológicas</a></li>
+  </ul></li>
+  <li><a href="#sec-cli-prc-02" id="toc-sec-cli-prc-02" class="nav-link" data-scroll-target="#sec-cli-prc-02"><span class="header-section-number">6.10</span> Ficha do indicador: Maior precipitação acumulada em cinco dias consecutivos (Rx5day)</a>
+  <ul class="collapse">
+  <li><a href="#identificação-e-fundamento-1" id="toc-identificação-e-fundamento-1" class="nav-link" data-scroll-target="#identificação-e-fundamento-1"><span class="header-section-number">6.10.1</span> Identificação e fundamento</a></li>
+  <li><a href="#conceito-1" id="toc-conceito-1" class="nav-link" data-scroll-target="#conceito-1"><span class="header-section-number">6.10.2</span> Conceito</a></li>
+  <li><a href="#objetivo-1" id="toc-objetivo-1" class="nav-link" data-scroll-target="#objetivo-1"><span class="header-section-number">6.10.3</span> Objetivo</a></li>
+  <li><a href="#interpretação-1" id="toc-interpretação-1" class="nav-link" data-scroll-target="#interpretação-1"><span class="header-section-number">6.10.4</span> Interpretação</a></li>
+  <li><a href="#usos-1" id="toc-usos-1" class="nav-link" data-scroll-target="#usos-1"><span class="header-section-number">6.10.5</span> Usos</a></li>
+  <li><a href="#limitações-1" id="toc-limitações-1" class="nav-link" data-scroll-target="#limitações-1"><span class="header-section-number">6.10.6</span> Limitações</a></li>
+  <li><a href="#fontes-de-dados-2" id="toc-fontes-de-dados-2" class="nav-link" data-scroll-target="#fontes-de-dados-2"><span class="header-section-number">6.10.7</span> Fontes de dados</a></li>
+  <li><a href="#método-de-cálculo-1" id="toc-método-de-cálculo-1" class="nav-link" data-scroll-target="#método-de-cálculo-1"><span class="header-section-number">6.10.8</span> Método de cálculo</a></li>
+  <li><a href="#campos-complementares-para-clima-ambiente-e-saúde-1" id="toc-campos-complementares-para-clima-ambiente-e-saúde-1" class="nav-link" data-scroll-target="#campos-complementares-para-clima-ambiente-e-saúde-1"><span class="header-section-number">6.10.9</span> Campos complementares para clima, ambiente e saúde</a></li>
+  <li><a href="#disponibilidade-e-acesso-1" id="toc-disponibilidade-e-acesso-1" class="nav-link" data-scroll-target="#disponibilidade-e-acesso-1"><span class="header-section-number">6.10.10</span> Disponibilidade e acesso</a></li>
+  <li><a href="#qualidade-comparação-e-saúde-1" id="toc-qualidade-comparação-e-saúde-1" class="nav-link" data-scroll-target="#qualidade-comparação-e-saúde-1"><span class="header-section-number">6.10.11</span> Qualidade, comparação e saúde</a></li>
+  <li><a href="#referências-metodológicas-1" id="toc-referências-metodológicas-1" class="nav-link" data-scroll-target="#referências-metodológicas-1"><span class="header-section-number">6.10.12</span> Referências metodológicas</a></li>
+  </ul></li>
+  <li><a href="#sec-cli-prc-03" id="toc-sec-cli-prc-03" class="nav-link" data-scroll-target="#sec-cli-prc-03"><span class="header-section-number">6.11</span> Ficha do indicador: Precipitação total em dias muito úmidos (R95pTOT)</a>
+  <ul class="collapse">
+  <li><a href="#identificação-e-fundamento-2" id="toc-identificação-e-fundamento-2" class="nav-link" data-scroll-target="#identificação-e-fundamento-2"><span class="header-section-number">6.11.1</span> Identificação e fundamento</a></li>
+  <li><a href="#conceito-2" id="toc-conceito-2" class="nav-link" data-scroll-target="#conceito-2"><span class="header-section-number">6.11.2</span> Conceito</a></li>
+  <li><a href="#objetivo-2" id="toc-objetivo-2" class="nav-link" data-scroll-target="#objetivo-2"><span class="header-section-number">6.11.3</span> Objetivo</a></li>
+  <li><a href="#interpretação-2" id="toc-interpretação-2" class="nav-link" data-scroll-target="#interpretação-2"><span class="header-section-number">6.11.4</span> Interpretação</a></li>
+  <li><a href="#usos-2" id="toc-usos-2" class="nav-link" data-scroll-target="#usos-2"><span class="header-section-number">6.11.5</span> Usos</a></li>
+  <li><a href="#limitações-2" id="toc-limitações-2" class="nav-link" data-scroll-target="#limitações-2"><span class="header-section-number">6.11.6</span> Limitações</a></li>
+  <li><a href="#fontes-de-dados-3" id="toc-fontes-de-dados-3" class="nav-link" data-scroll-target="#fontes-de-dados-3"><span class="header-section-number">6.11.7</span> Fontes de dados</a></li>
+  <li><a href="#método-de-cálculo-2" id="toc-método-de-cálculo-2" class="nav-link" data-scroll-target="#método-de-cálculo-2"><span class="header-section-number">6.11.8</span> Método de cálculo</a></li>
+  <li><a href="#campos-complementares-para-clima-ambiente-e-saúde-2" id="toc-campos-complementares-para-clima-ambiente-e-saúde-2" class="nav-link" data-scroll-target="#campos-complementares-para-clima-ambiente-e-saúde-2"><span class="header-section-number">6.11.9</span> Campos complementares para clima, ambiente e saúde</a></li>
+  <li><a href="#disponibilidade-e-acesso-2" id="toc-disponibilidade-e-acesso-2" class="nav-link" data-scroll-target="#disponibilidade-e-acesso-2"><span class="header-section-number">6.11.10</span> Disponibilidade e acesso</a></li>
+  <li><a href="#qualidade-comparação-e-saúde-2" id="toc-qualidade-comparação-e-saúde-2" class="nav-link" data-scroll-target="#qualidade-comparação-e-saúde-2"><span class="header-section-number">6.11.11</span> Qualidade, comparação e saúde</a></li>
+  <li><a href="#referências-metodológicas-2" id="toc-referências-metodológicas-2" class="nav-link" data-scroll-target="#referências-metodológicas-2"><span class="header-section-number">6.11.12</span> Referências metodológicas</a></li>
+  </ul></li>
+  <li><a href="#sec-cli-prc-04" id="toc-sec-cli-prc-04" class="nav-link" data-scroll-target="#sec-cli-prc-04"><span class="header-section-number">6.12</span> Ficha do indicador: Maior número de dias consecutivos secos (CDD)</a>
+  <ul class="collapse">
+  <li><a href="#identificação-e-fundamento-3" id="toc-identificação-e-fundamento-3" class="nav-link" data-scroll-target="#identificação-e-fundamento-3"><span class="header-section-number">6.12.1</span> Identificação e fundamento</a></li>
+  <li><a href="#conceito-3" id="toc-conceito-3" class="nav-link" data-scroll-target="#conceito-3"><span class="header-section-number">6.12.2</span> Conceito</a></li>
+  <li><a href="#objetivo-3" id="toc-objetivo-3" class="nav-link" data-scroll-target="#objetivo-3"><span class="header-section-number">6.12.3</span> Objetivo</a></li>
+  <li><a href="#interpretação-3" id="toc-interpretação-3" class="nav-link" data-scroll-target="#interpretação-3"><span class="header-section-number">6.12.4</span> Interpretação</a></li>
+  <li><a href="#usos-3" id="toc-usos-3" class="nav-link" data-scroll-target="#usos-3"><span class="header-section-number">6.12.5</span> Usos</a></li>
+  <li><a href="#limitações-3" id="toc-limitações-3" class="nav-link" data-scroll-target="#limitações-3"><span class="header-section-number">6.12.6</span> Limitações</a></li>
+  <li><a href="#fontes-de-dados-4" id="toc-fontes-de-dados-4" class="nav-link" data-scroll-target="#fontes-de-dados-4"><span class="header-section-number">6.12.7</span> Fontes de dados</a></li>
+  <li><a href="#método-de-cálculo-3" id="toc-método-de-cálculo-3" class="nav-link" data-scroll-target="#método-de-cálculo-3"><span class="header-section-number">6.12.8</span> Método de cálculo</a></li>
+  <li><a href="#campos-complementares-para-clima-ambiente-e-saúde-3" id="toc-campos-complementares-para-clima-ambiente-e-saúde-3" class="nav-link" data-scroll-target="#campos-complementares-para-clima-ambiente-e-saúde-3"><span class="header-section-number">6.12.9</span> Campos complementares para clima, ambiente e saúde</a></li>
+  <li><a href="#disponibilidade-e-acesso-3" id="toc-disponibilidade-e-acesso-3" class="nav-link" data-scroll-target="#disponibilidade-e-acesso-3"><span class="header-section-number">6.12.10</span> Disponibilidade e acesso</a></li>
+  <li><a href="#qualidade-comparação-e-saúde-3" id="toc-qualidade-comparação-e-saúde-3" class="nav-link" data-scroll-target="#qualidade-comparação-e-saúde-3"><span class="header-section-number">6.12.11</span> Qualidade, comparação e saúde</a></li>
+  <li><a href="#referências-metodológicas-3" id="toc-referências-metodológicas-3" class="nav-link" data-scroll-target="#referências-metodológicas-3"><span class="header-section-number">6.12.12</span> Referências metodológicas</a></li>
+  </ul></li>
+  <li><a href="#sec-cli-prc-05" id="toc-sec-cli-prc-05" class="nav-link" data-scroll-target="#sec-cli-prc-05"><span class="header-section-number">6.13</span> Ficha do indicador: Maior número de dias consecutivos úmidos (CWD)</a>
+  <ul class="collapse">
+  <li><a href="#identificação-e-fundamento-4" id="toc-identificação-e-fundamento-4" class="nav-link" data-scroll-target="#identificação-e-fundamento-4"><span class="header-section-number">6.13.1</span> Identificação e fundamento</a></li>
+  <li><a href="#conceito-4" id="toc-conceito-4" class="nav-link" data-scroll-target="#conceito-4"><span class="header-section-number">6.13.2</span> Conceito</a></li>
+  <li><a href="#objetivo-4" id="toc-objetivo-4" class="nav-link" data-scroll-target="#objetivo-4"><span class="header-section-number">6.13.3</span> Objetivo</a></li>
+  <li><a href="#interpretação-4" id="toc-interpretação-4" class="nav-link" data-scroll-target="#interpretação-4"><span class="header-section-number">6.13.4</span> Interpretação</a></li>
+  <li><a href="#usos-4" id="toc-usos-4" class="nav-link" data-scroll-target="#usos-4"><span class="header-section-number">6.13.5</span> Usos</a></li>
+  <li><a href="#limitações-4" id="toc-limitações-4" class="nav-link" data-scroll-target="#limitações-4"><span class="header-section-number">6.13.6</span> Limitações</a></li>
+  <li><a href="#fontes-de-dados-5" id="toc-fontes-de-dados-5" class="nav-link" data-scroll-target="#fontes-de-dados-5"><span class="header-section-number">6.13.7</span> Fontes de dados</a></li>
+  <li><a href="#método-de-cálculo-4" id="toc-método-de-cálculo-4" class="nav-link" data-scroll-target="#método-de-cálculo-4"><span class="header-section-number">6.13.8</span> Método de cálculo</a></li>
+  <li><a href="#campos-complementares-para-clima-ambiente-e-saúde-4" id="toc-campos-complementares-para-clima-ambiente-e-saúde-4" class="nav-link" data-scroll-target="#campos-complementares-para-clima-ambiente-e-saúde-4"><span class="header-section-number">6.13.9</span> Campos complementares para clima, ambiente e saúde</a></li>
+  <li><a href="#disponibilidade-e-acesso-4" id="toc-disponibilidade-e-acesso-4" class="nav-link" data-scroll-target="#disponibilidade-e-acesso-4"><span class="header-section-number">6.13.10</span> Disponibilidade e acesso</a></li>
+  <li><a href="#qualidade-comparação-e-saúde-4" id="toc-qualidade-comparação-e-saúde-4" class="nav-link" data-scroll-target="#qualidade-comparação-e-saúde-4"><span class="header-section-number">6.13.11</span> Qualidade, comparação e saúde</a></li>
+  <li><a href="#referências-metodológicas-4" id="toc-referências-metodológicas-4" class="nav-link" data-scroll-target="#referências-metodológicas-4"><span class="header-section-number">6.13.12</span> Referências metodológicas</a></li>
+  </ul></li>
+  <li><a href="#sec-cli-sec-01" id="toc-sec-cli-sec-01" class="nav-link" data-scroll-target="#sec-cli-sec-01"><span class="header-section-number">6.14</span> Ficha do indicador: Índice Padronizado de Precipitação (SPI)</a>
+  <ul class="collapse">
+  <li><a href="#identificação-e-fundamento-5" id="toc-identificação-e-fundamento-5" class="nav-link" data-scroll-target="#identificação-e-fundamento-5"><span class="header-section-number">6.14.1</span> Identificação e fundamento</a></li>
+  <li><a href="#conceito-5" id="toc-conceito-5" class="nav-link" data-scroll-target="#conceito-5"><span class="header-section-number">6.14.2</span> Conceito</a></li>
+  <li><a href="#objetivo-5" id="toc-objetivo-5" class="nav-link" data-scroll-target="#objetivo-5"><span class="header-section-number">6.14.3</span> Objetivo</a></li>
+  <li><a href="#interpretação-5" id="toc-interpretação-5" class="nav-link" data-scroll-target="#interpretação-5"><span class="header-section-number">6.14.4</span> Interpretação</a></li>
+  <li><a href="#usos-5" id="toc-usos-5" class="nav-link" data-scroll-target="#usos-5"><span class="header-section-number">6.14.5</span> Usos</a></li>
+  <li><a href="#limitações-5" id="toc-limitações-5" class="nav-link" data-scroll-target="#limitações-5"><span class="header-section-number">6.14.6</span> Limitações</a></li>
+  <li><a href="#fontes-de-dados-6" id="toc-fontes-de-dados-6" class="nav-link" data-scroll-target="#fontes-de-dados-6"><span class="header-section-number">6.14.7</span> Fontes de dados</a></li>
+  <li><a href="#método-de-cálculo-5" id="toc-método-de-cálculo-5" class="nav-link" data-scroll-target="#método-de-cálculo-5"><span class="header-section-number">6.14.8</span> Método de cálculo</a></li>
+  <li><a href="#campos-complementares-para-clima-ambiente-e-saúde-5" id="toc-campos-complementares-para-clima-ambiente-e-saúde-5" class="nav-link" data-scroll-target="#campos-complementares-para-clima-ambiente-e-saúde-5"><span class="header-section-number">6.14.9</span> Campos complementares para clima, ambiente e saúde</a></li>
+  <li><a href="#disponibilidade-e-acesso-5" id="toc-disponibilidade-e-acesso-5" class="nav-link" data-scroll-target="#disponibilidade-e-acesso-5"><span class="header-section-number">6.14.10</span> Disponibilidade e acesso</a></li>
+  <li><a href="#qualidade-comparação-e-saúde-5" id="toc-qualidade-comparação-e-saúde-5" class="nav-link" data-scroll-target="#qualidade-comparação-e-saúde-5"><span class="header-section-number">6.14.11</span> Qualidade, comparação e saúde</a></li>
+  <li><a href="#referências-metodológicas-5" id="toc-referências-metodológicas-5" class="nav-link" data-scroll-target="#referências-metodológicas-5"><span class="header-section-number">6.14.12</span> Referências metodológicas</a></li>
+  </ul></li>
+  <li><a href="#aplicação-na-gestão" id="toc-aplicação-na-gestão" class="nav-link" data-scroll-target="#aplicação-na-gestão"><span class="header-section-number">6.15</span> Aplicação na gestão</a></li>
+  <li><a href="#síntese" id="toc-síntese" class="nav-link" data-scroll-target="#síntese"><span class="header-section-number">6.16</span> Síntese</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/rfsaldanha/dicas/blob/main/chapters/part-2/06-precipitacao-secas-eventos-hidrologicos.qmd" class="toc-action"><i class="bi bi-github"></i>Ver o código fonte</a></li><li><a href="https://github.com/rfsaldanha/dicas/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></nav>
     </div>
@@ -593,56 +713,926 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="quarto-title-meta">
 
-    
-  
-    
+
+
+
   </div>
-  
+
 
 
 </header>
 
 
-<p>Este capítulo organizará a cadeia que vai da precipitação aos processos hidrológicos e geomorfológicos, às exposições e aos efeitos sobre serviços e populações.</p>
-<p>Seu foco é a caracterização física e territorial dos fenômenos. Registros administrativos de desastre, danos, resposta e recuperação pertencem ao <a href="10-eventos-severos-desastres.html" class="quarto-xref"><span>Capítulo 10</span></a>.</p>
+<p>Chuva insuficiente, chuva excessiva e sua distribuição no tempo alteram disponibilidade de água, produção de alimentos, qualidade ambiental, mobilidade, moradia e funcionamento dos serviços de saúde. A precipitação, porém, é apenas uma entrada da cadeia. Inundação, alagamento, enxurrada e movimento de massa resultam também de relevo, solo, cobertura da terra, drenagem, nível antecedente dos rios e ocupação do território. Quando pessoas, bens e serviços expostos sofrem efeitos, entra-se no domínio do desastre.</p>
+<p>Este capítulo distingue essas etapas para evitar três atalhos: chamar qualquer chuva forte de inundação; usar um registro de desastre como se fosse medida física da chuva; e atribuir um efeito sanitário ao volume precipitado sem representar a exposição intermediária.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div id="fig-cadeia-hidrometeorologica" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-cadeia-hidrometeorologica-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-cadeia-hidrometeorologica">flowchart LR
+  P[Precipitação] --&gt; A[Acumulação e&lt;br/&gt;condição antecedente]
+  A --&gt; H[Processo hidrológico ou&lt;br/&gt;movimento de massa]
+  T[Relevo, solo, cobertura&lt;br/&gt;e drenagem] --&gt; H
+  H --&gt; E[Pessoas, moradias e&lt;br/&gt;serviços expostos]
+  E --&gt; S[Efeitos sobre saúde&lt;br/&gt;e funcionamento do SUS]
+  V[Condições sociais,&lt;br/&gt;proteção e resposta] --&gt; S
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cadeia-hidrometeorologica-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;6.1: Da precipitação aos efeitos sanitários
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
 <section id="precipitação-e-variabilidade-das-chuvas" class="level2" data-number="6.1">
 <h2 data-number="6.1" class="anchored" data-anchor-id="precipitação-e-variabilidade-das-chuvas"><span class="header-section-number">6.1</span> Precipitação e variabilidade das chuvas</h2>
+<p>Precipitação é a água que alcança a superfície em forma líquida ou sólida. No Brasil, a chuva domina a maior parte das aplicações em saúde. Pluviômetros registram uma lâmina acumulada sobre um ponto; radares e satélites estimam campos espaciais; reanálises combinam modelo e observações. Os produtos não são equivalentes e apresentam erros distintos.</p>
+<p>Um total diário depende do horário em que o dia é fechado. A soma das 9h às 9h não é necessariamente comparável à soma de meia-noite a meia-noite. Diferenças de fuso, horário de verão, unidade e convenção de traço de chuva também podem deslocar extremos entre datas. Estudos com internações ou óbitos devem compatibilizar o “dia da exposição” com o dia do desfecho e explorar defasagens coerentes.</p>
+<p>O acumulado mensal descreve volume, mas oculta distribuição. Cem milímetros podem ocorrer em vinte dias de chuva leve ou em duas tempestades. Para saúde pública, volume, intensidade, persistência e ausência de chuva precisam ser distinguidos.</p>
 <section id="chuvas-intensas" class="level3" data-number="6.1.1">
 <h3 data-number="6.1.1" class="anchored" data-anchor-id="chuvas-intensas"><span class="header-section-number">6.1.1</span> Chuvas intensas</h3>
+<p>Chuva intensa pode ser definida por um limiar absoluto, por percentil local ou por máximo no período. Rx1day registra a maior acumulação diária; Rx5day, a maior soma em cinco dias; R95pTOT soma a chuva ocorrida em dias acima do percentil 95 dos dias úmidos. Esses indicadores descrevem aspectos diferentes.</p>
+<p>Extremos subdiários são decisivos em pequenas bacias e áreas urbanas. Um máximo diário pode esconder 50 mm concentrados em trinta minutos. Quando a pergunta envolve enxurrada, alagamento rápido ou capacidade de drenagem, dados de dez minutos, horários ou curvas intensidade–duração–frequência são mais adequados que um total diário isolado.</p>
+<p>Limiar meteorológico não é limiar de impacto universal. A mesma chuva produz respostas distintas conforme declividade, impermeabilização, manutenção da drenagem, saturação do solo, maré e ocupação. Para alertas, a previsão de chuva deve ser combinada com condições antecedentes, suscetibilidade e exposição.</p>
 </section>
 <section id="chuvas-persistentes" class="level3" data-number="6.1.2">
 <h3 data-number="6.1.2" class="anchored" data-anchor-id="chuvas-persistentes"><span class="header-section-number">6.1.2</span> Chuvas persistentes</h3>
+<p>Persistência pode ocorrer com intensidade moderada e ainda assim saturar o solo, elevar rios, contaminar captações e dificultar transporte. Rx5day representa acumulação em janela fixa; CWD representa a maior sequência de dias com ao menos 1 mm. CWD não mede intensidade: dez dias com 1 mm e dez dias com 40 mm produzem a mesma duração.</p>
+<p>Janelas fixas facilitam comparação, mas não coincidem necessariamente com o tempo de resposta do sistema. Uma bacia pequena pode responder em horas; um grande rio, após vários dias ou semanas. A seleção do indicador deve acompanhar o mecanismo.</p>
 </section>
 <section id="ausência-de-chuva" class="level3" data-number="6.1.3">
 <h3 data-number="6.1.3" class="anchored" data-anchor-id="ausência-de-chuva"><span class="header-section-number">6.1.3</span> Ausência de chuva</h3>
+<p>CDD mede a maior sequência de dias com menos de 1 mm. É um índice consolidado de extremos climáticos, não uma definição completa de seca. Uma sequência sem chuva pode ter pouco efeito onde há armazenamento e baixa demanda; déficit menos prolongado pode ser crítico sob calor, evapotranspiração elevada e reservatórios baixos.</p>
+<p>Anomalias percentuais de precipitação são intuitivas, mas instáveis em meses normalmente secos: uma pequena diferença absoluta pode gerar uma grande porcentagem. O SPI transforma a precipitação acumulada em uma escala padronizada e permite analisar diferentes janelas temporais.</p>
 </section>
 </section>
 <section id="secas-e-estiagens" class="level2" data-number="6.2">
 <h2 data-number="6.2" class="anchored" data-anchor-id="secas-e-estiagens"><span class="header-section-number">6.2</span> Secas e estiagens</h2>
+<p>A OMS define seca como período seco prolongado do ciclo climático, capaz de produzir escassez de água e afetar saúde, agricultura, economia, energia e ambiente <span class="citation" data-cites="who2026drought">(<a href="../../backmatter/referencias.html#ref-who2026drought" role="doc-biblioref">World Health Organization, 2026a</a>)</span>. A distinção entre tipos é importante:</p>
+<div id="tbl-tipos-seca" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-tipos-seca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;6.1: Tipos de seca e sua relação com saúde
+</figcaption>
+<div aria-describedby="tbl-tipos-seca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Tipo</th>
+<th>Processo dominante</th>
+<th>Exemplos de medidas</th>
+<th>Relação com saúde</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Meteorológica</td>
+<td>precipitação abaixo do esperado</td>
+<td>SPI, anomalia, CDD</td>
+<td>sinal inicial e contexto climático</td>
+</tr>
+<tr class="even">
+<td>Agrícola ou ecológica</td>
+<td>água insuficiente no solo e estresse da vegetação</td>
+<td>umidade do solo, balanço hídrico, índices de vegetação</td>
+<td>alimento, renda, poeira e fogo</td>
+</tr>
+<tr class="odd">
+<td>Hidrológica</td>
+<td>redução de vazão, nível, reservatório ou aquífero</td>
+<td>vazão padronizada, nível, volume útil</td>
+<td>abastecimento, energia e operação de serviços</td>
+</tr>
+<tr class="even">
+<td>Socioeconômica</td>
+<td>demanda supera oferta e produz impactos</td>
+<td>interrupção, preço, produção, população afetada</td>
+<td>higiene, nutrição, deslocamento e saúde mental</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>O SPI é recomendado pela OMM para caracterizar seca meteorológica <span class="citation" data-cites="wmo2012spi wmo2016drought">(<a href="../../backmatter/referencias.html#ref-wmo2016drought" role="doc-biblioref">Svoboda; Fuchs, 2016</a>; <a href="../../backmatter/referencias.html#ref-wmo2012spi" role="doc-biblioref">Svoboda; Hayes; Wood, 2012</a>)</span>. Sua escala temporal altera o processo representado. SPI-1 responde rapidamente ao mês recente; SPI-3 pode acompanhar uma estação chuvosa; SPI-6 e SPI-12 refletem déficits acumulados mais longos. Não se deve selecionar a escala depois de observar qual produz a associação mais forte sem justificativa e correção analítica.</p>
+<p>Seca é evento de início lento. Sua data inicial depende da definição e pode ser revista quando a série avança. Duração, intensidade acumulada, pico e área afetada são componentes úteis, desde que derivados do mesmo índice e limiar.</p>
 </section>
 <section id="inundações-alagamentos-e-enxurradas" class="level2" data-number="6.3">
 <h2 data-number="6.3" class="anchored" data-anchor-id="inundações-alagamentos-e-enxurradas"><span class="header-section-number">6.3</span> Inundações, alagamentos e enxurradas</h2>
+<p>Cheia é a elevação do nível no canal sem necessariamente transbordar. Inundação ocorre quando a água ultrapassa o leito habitual e ocupa áreas adjacentes. Alagamento é acúmulo temporário, frequentemente urbano, associado à insuficiência da drenagem. Enxurrada é escoamento concentrado, rápido e de alta energia, muitas vezes provocado por chuva intensa em pequenas bacias ou superfícies impermeabilizadas <span class="citation" data-cites="cemaden2016enxurrada">(<a href="../../backmatter/referencias.html#ref-cemaden2016enxurrada" role="doc-biblioref">Centro Nacional de Monitoramento e Alertas de Desastres Naturais, 2016</a>)</span>.</p>
+<p>Esses processos exigem medidas próprias:</p>
+<ul>
+<li>nível e vazão do curso d’água;</li>
+<li>cota de transbordamento;</li>
+<li>velocidade de subida e tempo até o pico;</li>
+<li>profundidade, velocidade e duração da água;</li>
+<li>extensão inundada;</li>
+<li>edificações, população e serviços na mancha;</li>
+<li>interrupção de acesso, água, energia e comunicação.</li>
+</ul>
+<p>Uma área inundada obtida por satélite registra a superfície detectável no horário de passagem e sob as limitações do sensor. Nuvem, vegetação, água permanente, resolução e tempo do imageamento afetam a classificação. A população exposta resulta da interseção entre a mancha, uma superfície populacional e uma referência temporal. Não corresponde automaticamente à população diretamente afetada.</p>
 </section>
 <section id="deslizamentos" class="level2" data-number="6.4">
 <h2 data-number="6.4" class="anchored" data-anchor-id="deslizamentos"><span class="header-section-number">6.4</span> Deslizamentos</h2>
+<p>Deslizamentos e outros movimentos de massa podem ser deflagrados por chuva, mas dependem de geometria da encosta, material, drenagem, cobertura, cortes, aterros e ocupação. Acumulados antecedentes e intensidade recente costumam ser combinados em sistemas de alerta. Um limiar calibrado para uma encosta não deve ser transferido mecanicamente para outra.</p>
+<p>Os efeitos diretos incluem trauma, soterramento e asfixia. Também podem ocorrer ruptura de redes de água, esgoto, energia e gás, isolamento territorial, perda de moradia, interrupção de serviços e efeitos prolongados sobre saúde mental <span class="citation" data-cites="who2026landslides">(<a href="../../backmatter/referencias.html#ref-who2026landslides" role="doc-biblioref">World Health Organization, 2026b</a>)</span>.</p>
 </section>
-<section id="impactos-sobre-a-saúde-e-os-serviços" class="level2" data-number="6.5">
-<h2 data-number="6.5" class="anchored" data-anchor-id="impactos-sobre-a-saúde-e-os-serviços"><span class="header-section-number">6.5</span> Impactos sobre a saúde e os serviços</h2>
+<section id="impactos-sobre-a-saúde-humana" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="impactos-sobre-a-saúde-humana"><span class="header-section-number">6.5</span> Impactos sobre a saúde humana</h2>
+<p>Os efeitos variam com o fenômeno, a via de exposição e o intervalo após o evento.</p>
+<section id="traumas-afogamento-e-contato-elétrico" class="level3" data-number="6.5.1">
+<h3 data-number="6.5.1" class="anchored" data-anchor-id="traumas-afogamento-e-contato-elétrico"><span class="header-section-number">6.5.1</span> Traumas, afogamento e contato elétrico</h3>
+<p>Enxurradas e inundações rápidas podem causar afogamento, trauma, quedas, colisões, ferimentos por detritos e eletrocussão. O risco se concentra durante deslocamentos, resgates, retorno precoce e limpeza. Contar apenas óbitos no dia do evento subestima desfechos posteriores.</p>
 </section>
-<section id="fontes-de-dados" class="level2" data-number="6.6">
-<h2 data-number="6.6" class="anchored" data-anchor-id="fontes-de-dados"><span class="header-section-number">6.6</span> Fontes de dados</h2>
+<section id="água-alimentos-e-doenças-infecciosas" class="level3" data-number="6.5.2">
+<h3 data-number="6.5.2" class="anchored" data-anchor-id="água-alimentos-e-doenças-infecciosas"><span class="header-section-number">6.5.2</span> Água, alimentos e doenças infecciosas</h3>
+<p>Chuva intensa e inundação podem transportar fezes, resíduos e agentes químicos, comprometer mananciais e interromper tratamento e distribuição. Seca pode reduzir a quantidade de água disponível para higiene, concentrar contaminantes e induzir uso de fontes inseguras. A relação entre chuva, inundação, seca e doença diarreica depende de saneamento, patógeno, estação e defasagem <span class="citation" data-cites="levy2016waterborne">(<a href="../../backmatter/referencias.html#ref-levy2016waterborne" role="doc-biblioref">Levy et al., 2016</a>)</span>.</p>
+<p>Água parada, armazenamento doméstico e alteração de habitats podem modificar criadouros de vetores. A direção da associação não é universal: chuva pode criar criadouros, enxurradas podem removê-los temporariamente, e seca pode aumentar armazenamento domiciliar.</p>
 </section>
-<section id="indicadores" class="level2" data-number="6.7">
-<h2 data-number="6.7" class="anchored" data-anchor-id="indicadores"><span class="header-section-number">6.7</span> Indicadores</h2>
-<p><strong>Indicadores previstos:</strong> precipitação acumulada; dias com chuva; máxima diária; dias consecutivos com ou sem chuva; anomalia de precipitação; índice padronizado de seca; ocorrência, duração e intensidade de seca; área inundada; pessoas e serviços expostos.</p>
+<section id="nutrição-ar-e-saúde-mental" class="level3" data-number="6.5.3">
+<h3 data-number="6.5.3" class="anchored" data-anchor-id="nutrição-ar-e-saúde-mental"><span class="header-section-number">6.5.3</span> Nutrição, ar e saúde mental</h3>
+<p>Secas podem reduzir produção e renda, elevar preços, piorar diversidade alimentar e aumentar risco de desnutrição. Também favorecem poeira, fumaça e incêndios. Perda de meios de vida, endividamento, deslocamento e incerteza podem afetar sofrimento psíquico. Esses caminhos são mediados por proteção social, mercado, infraestrutura e acesso a serviços; o SPI não é medida de desnutrição nem de saúde mental.</p>
 </section>
-<section id="aplicação-na-gestão" class="level2" data-number="6.8">
-<h2 data-number="6.8" class="anchored" data-anchor-id="aplicação-na-gestão"><span class="header-section-number">6.8</span> Aplicação na gestão</h2>
-<div class="todo">
-<p>TODO: desenvolver conceitos e fichas sem confundir fenômeno meteorológico, processo hidrológico, desastre e dano registrado.</p>
+</section>
+<section id="impactos-sobre-a-saúde-pública-e-os-serviços" class="level2" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="impactos-sobre-a-saúde-pública-e-os-serviços"><span class="header-section-number">6.6</span> Impactos sobre a saúde pública e os serviços</h2>
+<p>Eventos hidrometeorológicos podem aumentar demanda e simultaneamente reduzir capacidade de resposta. Unidades podem ser inundadas, ficar sem água ou energia, perder insumos, ter trabalhadores impedidos de chegar e receber pacientes deslocados de outras áreas.</p>
+<p>Para vigilância e preparação, convém monitorar:</p>
+<ul>
+<li>perigo observado e previsto;</li>
+<li>população e estabelecimentos na área potencialmente atingida;</li>
+<li>rotas de acesso e alternativas;</li>
+<li>continuidade de água, energia, oxigênio, cadeia fria e comunicação;</li>
+<li>capacidade de urgência, internação, laboratório e vigilância;</li>
+<li>abrigos, deslocamentos e necessidades de continuidade do cuidado;</li>
+<li>agravos imediatos e sindrômicos nas semanas seguintes.</li>
+</ul>
+<p>O indicador meteorológico informa uma parte da situação. A decisão sanitária depende da combinação com exposição, vulnerabilidade, capacidade e protocolo intersetorial.</p>
+</section>
+<section id="fontes-de-dados" class="level2" data-number="6.7">
+<h2 data-number="6.7" class="anchored" data-anchor-id="fontes-de-dados"><span class="header-section-number">6.7</span> Fontes de dados</h2>
+<p>O <a href="../../backmatter/indice-fontes.html#inmet">INMET</a> fornece observações meteorológicas por estações. O <a href="../../backmatter/indice-fontes.html#cemaden">CEMADEN</a> opera redes pluviométricas e hidrológicas voltadas ao monitoramento de risco; a documentação consultada informa dados pluviométricos brutos e registro em UTC, o que exige controle antes do uso. <a href="../../backmatter/indice-fontes.html#era5-land">ERA5-Land</a> oferece campo em grade de reanálise e não substitui uma observação local.</p>
+<p>Registros de ocorrência, pessoas afetadas, danos e resposta são discutidos no <a href="10-eventos-severos-desastres.html" class="quarto-xref"><span>Capítulo 10</span></a>. Para cada análise, mantenha separados:</p>
+<ol type="1">
+<li>dado de precipitação;</li>
+<li>medida hidrológica ou geomorfológica;</li>
+<li>superfície de exposição;</li>
+<li>registro administrativo de impacto;</li>
+<li>desfecho de saúde.</li>
+</ol>
+</section>
+<section id="principais-indicadores-usados-em-saúde-pública" class="level2" data-number="6.8">
+<h2 data-number="6.8" class="anchored" data-anchor-id="principais-indicadores-usados-em-saúde-pública"><span class="header-section-number">6.8</span> Principais indicadores usados em saúde pública</h2>
+<p>Estudos de saúde empregam tanto medidas contínuas de chuva quanto classificações de extremos. Para doença diarreica, por exemplo, são usados acumulados, chuva intensa, inundação e seca, com resultados condicionados ao contexto de água e saneamento <span class="citation" data-cites="levy2016waterborne">(<a href="../../backmatter/referencias.html#ref-levy2016waterborne" role="doc-biblioref">Levy et al., 2016</a>)</span>. Em preparação e resposta, precipitação extrema é combinada com processo hidrológico, população exposta e continuidade de serviços <span class="citation" data-cites="who2014floods">(<a href="../../backmatter/referencias.html#ref-who2014floods" role="doc-biblioref">World Health Organization Regional Office for Europe, 2014</a>)</span>.</p>
+<p>Os indicadores consolidados apresentados neste capítulo cobrem pico diário, acumulação persistente, volume em dias muito úmidos, persistência seca, persistência úmida e seca meteorológica padronizada. Medidas de área inundada, profundidade, população exposta e serviços atingidos são indispensáveis, mas sua ficha deve seguir o produto ou protocolo hidrológico efetivamente adotado; não se cria aqui uma fórmula genérica que misture sensores, modelos e cadastros.</p>
+<div id="tbl-indicadores-precipitacao" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-indicadores-precipitacao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;6.2: Indicadores de precipitação e seca usados em saúde pública
+</figcaption>
+<div aria-describedby="tbl-indicadores-precipitacao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Indicador</th>
+<th>Aspecto representado</th>
+<th>Uso em saúde pública</th>
+<th>Cuidado de interpretação</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Rx1day</td>
+<td>pico diário</td>
+<td>episódios agudos, séries temporais e contexto de alertas</td>
+<td>pode ocultar intensidade subdiária</td>
+</tr>
+<tr class="even">
+<td>Rx5day</td>
+<td>acumulação em cinco dias</td>
+<td>persistência, saturação e processos de resposta mais lenta</td>
+<td>janela pode não coincidir com a bacia</td>
+</tr>
+<tr class="odd">
+<td>R95pTOT</td>
+<td>volume em dias muito úmidos</td>
+<td>concentração da chuva em extremos</td>
+<td>depende do período-base</td>
+</tr>
+<tr class="even">
+<td>CDD</td>
+<td>maior sequência sem dia úmido</td>
+<td>persistência seca e contexto de água, alimento, poeira e fogo</td>
+<td>não é seca completa</td>
+</tr>
+<tr class="odd">
+<td>CWD</td>
+<td>maior sequência de dias úmidos</td>
+<td>umidade persistente, vetores e interrupções</td>
+<td>não informa intensidade</td>
+</tr>
+<tr class="even">
+<td>SPI</td>
+<td>déficit ou excesso padronizado em várias escalas</td>
+<td>seca meteorológica, vigilância e estudos de efeitos</td>
+<td>não inclui evapotranspiração nem impacto social</td>
+</tr>
+</tbody>
+</table>
 </div>
+</figure>
+</div>
+</section>
+<section id="sec-cli-prc-01" class="level2" data-number="6.9">
+<h2 data-number="6.9" class="anchored" data-anchor-id="sec-cli-prc-01"><span class="header-section-number">6.9</span> Ficha do indicador: Maior precipitação em um dia (Rx1day)</h2>
+<div class="indicator-card">
+<p><strong>Código:</strong> CLI-PRC-01<br>
+<strong>Título resumido:</strong> Máxima em um dia — Rx1day<br>
+<strong>Tema:</strong> Precipitação, secas e eventos hidrológicos<br>
+<strong>Dimensão:</strong> perigo; exposição<br>
+<strong>Disponibilidade:</strong> <span class="availability">requer processamento climatológico</span></p>
+</div>
+<section id="identificação-e-fundamento" class="level3" data-number="6.9.1">
+<h3 data-number="6.9.1" class="anchored" data-anchor-id="identificação-e-fundamento"><span class="header-section-number">6.9.1</span> Identificação e fundamento</h3>
+<p><strong>Indicador consolidado em.</strong> Índice Rx1day do conjunto ETCCDI, documentado pelo Climdex.</p>
+</section>
+<section id="conceito" class="level3" data-number="6.9.2">
+<h3 data-number="6.9.2" class="anchored" data-anchor-id="conceito"><span class="header-section-number">6.9.2</span> Conceito</h3>
+<p>Maior total de precipitação acumulada em um dia dentro do mês, estação ou ano.</p>
+</section>
+<section id="objetivo" class="level3" data-number="6.9.3">
+<h3 data-number="6.9.3" class="anchored" data-anchor-id="objetivo"><span class="header-section-number">6.9.3</span> Objetivo</h3>
+<p>Representar o maior acumulado diário do período de maneira comparável.</p>
+</section>
+<section id="interpretação" class="level3" data-number="6.9.4">
+<h3 data-number="6.9.4" class="anchored" data-anchor-id="interpretação"><span class="header-section-number">6.9.4</span> Interpretação</h3>
+<p>Valor maior indica um pico diário mais elevado, mas não determina sozinho inundação, enxurrada ou deslizamento.</p>
+</section>
+<section id="usos" class="level3" data-number="6.9.5">
+<h3 data-number="6.9.5" class="anchored" data-anchor-id="usos"><span class="header-section-number">6.9.5</span> Usos</h3>
+<ul>
+<li>Monitorar extremos de chuva.</li>
+<li>Relacionar picos de precipitação a agravos e interrupções.</li>
+<li>Contextualizar episódios hidrológicos.</li>
+</ul>
+</section>
+<section id="limitações" class="level3" data-number="6.9.6">
+<h3 data-number="6.9.6" class="anchored" data-anchor-id="limitações"><span class="header-section-number">6.9.6</span> Limitações</h3>
+<ul>
+<li>Ignora os demais dias do período.</li>
+<li>Pode diluir extremos subdiários.</li>
+<li>Depende do horário de fechamento do dia.</li>
+<li>A resposta hidrológica depende de solo</li>
+<li>bacia</li>
+<li>drenagem e chuva antecedente.</li>
+</ul>
+</section>
+<section id="fontes-de-dados-1" class="level3" data-number="6.9.7">
+<h3 data-number="6.9.7" class="anchored" data-anchor-id="fontes-de-dados-1"><span class="header-section-number">6.9.7</span> Fontes de dados</h3>
+<ul>
+<li>Instituto Nacional de Meteorologia — observações pluviométricas diárias (<a href="../../backmatter/indice-fontes.html#inmet">cadastro</a>)</li>
+<li>Centro Nacional de Monitoramento e Alertas de Desastres Naturais — observações pluviométricas subdiárias ou diárias para monitoramento (<a href="../../backmatter/indice-fontes.html#cemaden">cadastro</a>)</li>
+<li>ERA5-Land — precipitação em reanálise condicionada à validação (<a href="../../backmatter/indice-fontes.html#era5-land">cadastro</a>)</li>
+</ul>
+</section>
+<section id="método-de-cálculo" class="level3" data-number="6.9.8">
+<h3 data-number="6.9.8" class="anchored" data-anchor-id="método-de-cálculo"><span class="header-section-number">6.9.8</span> Método de cálculo</h3>
+<p>Para cada período, selecionar o maior total diário de precipitação entre os dias válidos.</p>
+<p><span class="math display">\[
+Rx1day_p=\max_{d\in p}(PR_d)
+\]</span></p>
+<div class="indicator-card">
+<p><strong>Numerador.</strong> Não se aplica.</p>
+<p><strong>Denominador.</strong> Não se aplica.</p>
+<p><strong>Unidade de medida.</strong> Milímetros (mm).</p>
+<p><strong>Variáveis e categorias de análise.</strong> Precipitação diária; dia do calendário; mês; estação; ano; estação ou célula de grade.</p>
+<p><strong>Granularidade.</strong> Entrada diária por estação ou célula; resumo mensal, sazonal ou anual.</p>
+<p><strong>Periodicidade de atualização.</strong> Anual para monitoramento climático; diária ou subdiária em protocolo operacional próprio.</p>
+<p><strong>Responsabilidade gerencial.</strong> Serviço meteorológico ou hidrológico responsável pelo dado e órgão de saúde que qualifique o uso sanitário.</p>
+<p><strong>Notas.</strong> Índices ETCCDI descrevem a precipitação observada. Não substituem modelagem hidrológica, mapeamento de inundação ou registro de desastre.</p>
+<p><strong>Análise descritiva do indicador.</strong> Apresentar valor, data, completude, localização e comparação com distribuição histórica e condições antecedentes.</p>
+</div>
+</section>
+<section id="campos-complementares-para-clima-ambiente-e-saúde" class="level3" data-number="6.9.9">
+<h3 data-number="6.9.9" class="anchored" data-anchor-id="campos-complementares-para-clima-ambiente-e-saúde"><span class="header-section-number">6.9.9</span> Campos complementares para clima, ambiente e saúde</h3>
+<div class="indicator-card">
+<p><strong>Unidade territorial.</strong> Estação meteorológica, célula de grade, bacia ou território derivado.</p>
+<p><strong>Resolução espacial original.</strong> A da fonte de precipitação; agregações territoriais exigem ponderação declarada.</p>
+<p><strong>Resolução temporal.</strong> Entrada diária; saída por período.</p>
+<p><strong>Período de referência.</strong> Não se aplica ao valor; declarar o período de análise.</p>
+<p><strong>Limiar ou valor de referência.</strong> Não se aplica; é um máximo.</p>
+</div>
+</section>
+<section id="disponibilidade-e-acesso" class="level3" data-number="6.9.10">
+<h3 data-number="6.9.10" class="anchored" data-anchor-id="disponibilidade-e-acesso"><span class="header-section-number">6.9.10</span> Disponibilidade e acesso</h3>
+<p><strong>Cobertura geográfica.</strong> A da fonte selecionada, condicionada à densidade observacional e qualidade.</p>
+<p><strong>Período disponível.</strong> O da fonte, incluindo série suficiente para o período-base quando houver percentis.</p>
+<p><strong>Periodicidade de atualização.</strong> Anual para monitoramento climático; diária ou subdiária em protocolo operacional próprio.</p>
+<p><strong>Forma de acesso.</strong> Cálculo sobre série de precipitação controlada, com algoritmo, unidades e calendário versionados.</p>
+<p><strong>URL ou identificador persistente.</strong> https://www.climdex.org/learn/indices/</p>
+<p><strong>Formato dos arquivos.</strong> Tabela por estação ou arquivo multidimensional por célula.</p>
+<p><strong>Necessidade de processamento.</strong> Somar registros subdiários no dia climatológico, aplicar controle de qualidade e selecionar o máximo.</p>
+</section>
+<section id="qualidade-comparação-e-saúde" class="level3" data-number="6.9.11">
+<h3 data-number="6.9.11" class="anchored" data-anchor-id="qualidade-comparação-e-saúde"><span class="header-section-number">6.9.11</span> Qualidade, comparação e saúde</h3>
+<p><strong>Qualidade e incerteza.</strong> Relatar falhas, horário de acumulação, vento e subcaptura do pluviômetro, mudança de instrumento, homogeneidade, viés de grade e cobertura espacial.</p>
+<p><strong>Possibilidade de comparação.</strong> Manter limiar de dia úmido, período-base, calendário, fonte, unidade, regra de falhas e método de agregação.</p>
+<p><strong>Relação com desfechos de saúde.</strong> Extremos e persistência de chuva ou ausência de chuva ajudam a caracterizar perigos relacionados a água, saneamento, vetores, segurança alimentar e acesso a serviços; não equivalem ao efeito sanitário.</p>
+<p><strong>Defasagens temporais relevantes.</strong> Preservar série diária e datas para testar janelas compatíveis com o mecanismo e o desfecho.</p>
+<p><strong>Aplicação na gestão.</strong> Caracterizar sazonalidade e extremos, apoiar vigilância de agravos sensíveis ao clima e contextualizar alertas hidrometeorológicos.</p>
+</section>
+<section id="referências-metodológicas" class="level3" data-number="6.9.12">
+<h3 data-number="6.9.12" class="anchored" data-anchor-id="referências-metodológicas"><span class="header-section-number">6.9.12</span> Referências metodológicas</h3>
+<ul>
+<li><span class="citation" data-cites="climdex2024">(<a href="../../backmatter/referencias.html#ref-climdex2024" role="doc-biblioref">Climdex, 2024</a>)</span></li>
+<li><span class="citation" data-cites="levy2016waterborne">(<a href="../../backmatter/referencias.html#ref-levy2016waterborne" role="doc-biblioref">Levy et al., 2016</a>)</span></li>
+</ul>
+</section>
+</section>
+<section id="sec-cli-prc-02" class="level2" data-number="6.10">
+<h2 data-number="6.10" class="anchored" data-anchor-id="sec-cli-prc-02"><span class="header-section-number">6.10</span> Ficha do indicador: Maior precipitação acumulada em cinco dias consecutivos (Rx5day)</h2>
+<div class="indicator-card">
+<p><strong>Código:</strong> CLI-PRC-02<br>
+<strong>Título resumido:</strong> Máxima em cinco dias — Rx5day<br>
+<strong>Tema:</strong> Precipitação, secas e eventos hidrológicos<br>
+<strong>Dimensão:</strong> perigo; exposição<br>
+<strong>Disponibilidade:</strong> <span class="availability">requer processamento climatológico</span></p>
+</div>
+<section id="identificação-e-fundamento-1" class="level3" data-number="6.10.1">
+<h3 data-number="6.10.1" class="anchored" data-anchor-id="identificação-e-fundamento-1"><span class="header-section-number">6.10.1</span> Identificação e fundamento</h3>
+<p><strong>Indicador consolidado em.</strong> Índice Rx5day do conjunto ETCCDI, documentado pelo Climdex.</p>
+</section>
+<section id="conceito-1" class="level3" data-number="6.10.2">
+<h3 data-number="6.10.2" class="anchored" data-anchor-id="conceito-1"><span class="header-section-number">6.10.2</span> Conceito</h3>
+<p>Maior soma de precipitação em qualquer janela móvel de cinco dias consecutivos do período.</p>
+</section>
+<section id="objetivo-1" class="level3" data-number="6.10.3">
+<h3 data-number="6.10.3" class="anchored" data-anchor-id="objetivo-1"><span class="header-section-number">6.10.3</span> Objetivo</h3>
+<p>Representar acumulação persistente de chuva em janela curta.</p>
+</section>
+<section id="interpretação-1" class="level3" data-number="6.10.4">
+<h3 data-number="6.10.4" class="anchored" data-anchor-id="interpretação-1"><span class="header-section-number">6.10.4</span> Interpretação</h3>
+<p>Valor maior indica maior acumulação máxima em cinco dias. Não revela a distribuição interna da chuva nem a saturação real do solo.</p>
+</section>
+<section id="usos-1" class="level3" data-number="6.10.5">
+<h3 data-number="6.10.5" class="anchored" data-anchor-id="usos-1"><span class="header-section-number">6.10.5</span> Usos</h3>
+<ul>
+<li>Monitorar extremos persistentes.</li>
+<li>Contextualizar inundações e movimentos de massa.</li>
+<li>Avaliar exposição em estudos de saúde.</li>
+</ul>
+</section>
+<section id="limitações-1" class="level3" data-number="6.10.6">
+<h3 data-number="6.10.6" class="anchored" data-anchor-id="limitações-1"><span class="header-section-number">6.10.6</span> Limitações</h3>
+<ul>
+<li>Janela fixa pode não coincidir com o tempo de resposta da bacia.</li>
+<li>Falhas dentro da janela afetam o máximo.</li>
+<li>Não substitui umidade do solo</li>
+<li>vazão ou nível do rio.</li>
+</ul>
+</section>
+<section id="fontes-de-dados-2" class="level3" data-number="6.10.7">
+<h3 data-number="6.10.7" class="anchored" data-anchor-id="fontes-de-dados-2"><span class="header-section-number">6.10.7</span> Fontes de dados</h3>
+<ul>
+<li>Instituto Nacional de Meteorologia — observações pluviométricas diárias (<a href="../../backmatter/indice-fontes.html#inmet">cadastro</a>)</li>
+<li>Centro Nacional de Monitoramento e Alertas de Desastres Naturais — observações pluviométricas subdiárias ou diárias para monitoramento (<a href="../../backmatter/indice-fontes.html#cemaden">cadastro</a>)</li>
+<li>ERA5-Land — precipitação em reanálise condicionada à validação (<a href="../../backmatter/indice-fontes.html#era5-land">cadastro</a>)</li>
+</ul>
+</section>
+<section id="método-de-cálculo-1" class="level3" data-number="6.10.8">
+<h3 data-number="6.10.8" class="anchored" data-anchor-id="método-de-cálculo-1"><span class="header-section-number">6.10.8</span> Método de cálculo</h3>
+<p>Calcular todas as somas móveis de cinco dias consecutivos no período, segundo a regra de completude, e selecionar a maior.</p>
+<p><span class="math display">\[
+Rx5day_p=\max_{d\in p}\left(\sum_{k=0}^{4}PR_{d-k}\right)
+\]</span></p>
+<div class="indicator-card">
+<p><strong>Numerador.</strong> Não se aplica.</p>
+<p><strong>Denominador.</strong> Não se aplica.</p>
+<p><strong>Unidade de medida.</strong> Milímetros (mm).</p>
+<p><strong>Variáveis e categorias de análise.</strong> Precipitação diária; dia do calendário; mês; estação; ano; estação ou célula de grade.</p>
+<p><strong>Granularidade.</strong> Entrada diária por estação ou célula; resumo mensal, sazonal ou anual.</p>
+<p><strong>Periodicidade de atualização.</strong> Anual para monitoramento climático; diária ou subdiária em protocolo operacional próprio.</p>
+<p><strong>Responsabilidade gerencial.</strong> Serviço meteorológico ou hidrológico responsável pelo dado e órgão de saúde que qualifique o uso sanitário.</p>
+<p><strong>Notas.</strong> Índices ETCCDI descrevem a precipitação observada. Não substituem modelagem hidrológica, mapeamento de inundação ou registro de desastre.</p>
+<p><strong>Análise descritiva do indicador.</strong> Mostrar Rx5day, datas inicial e final, contribuição de cada dia e condições antecedentes.</p>
+</div>
+</section>
+<section id="campos-complementares-para-clima-ambiente-e-saúde-1" class="level3" data-number="6.10.9">
+<h3 data-number="6.10.9" class="anchored" data-anchor-id="campos-complementares-para-clima-ambiente-e-saúde-1"><span class="header-section-number">6.10.9</span> Campos complementares para clima, ambiente e saúde</h3>
+<div class="indicator-card">
+<p><strong>Unidade territorial.</strong> Estação meteorológica, célula de grade, bacia ou território derivado.</p>
+<p><strong>Resolução espacial original.</strong> A da fonte de precipitação; agregações territoriais exigem ponderação declarada.</p>
+<p><strong>Resolução temporal.</strong> Entrada diária; saída por período.</p>
+<p><strong>Período de referência.</strong> Não se aplica ao valor; declarar o período de análise.</p>
+<p><strong>Limiar ou valor de referência.</strong> Não se aplica; é um máximo móvel.</p>
+</div>
+</section>
+<section id="disponibilidade-e-acesso-1" class="level3" data-number="6.10.10">
+<h3 data-number="6.10.10" class="anchored" data-anchor-id="disponibilidade-e-acesso-1"><span class="header-section-number">6.10.10</span> Disponibilidade e acesso</h3>
+<p><strong>Cobertura geográfica.</strong> A da fonte selecionada, condicionada à densidade observacional e qualidade.</p>
+<p><strong>Período disponível.</strong> O da fonte, incluindo série suficiente para o período-base quando houver percentis.</p>
+<p><strong>Periodicidade de atualização.</strong> Anual para monitoramento climático; diária ou subdiária em protocolo operacional próprio.</p>
+<p><strong>Forma de acesso.</strong> Cálculo sobre série de precipitação controlada, com algoritmo, unidades e calendário versionados.</p>
+<p><strong>URL ou identificador persistente.</strong> https://www.climdex.org/learn/indices/</p>
+<p><strong>Formato dos arquivos.</strong> Tabela por estação ou arquivo multidimensional por célula.</p>
+<p><strong>Necessidade de processamento.</strong> Controle de qualidade, somas móveis completas, regra para janelas que cruzam meses e seleção do máximo.</p>
+</section>
+<section id="qualidade-comparação-e-saúde-1" class="level3" data-number="6.10.11">
+<h3 data-number="6.10.11" class="anchored" data-anchor-id="qualidade-comparação-e-saúde-1"><span class="header-section-number">6.10.11</span> Qualidade, comparação e saúde</h3>
+<p><strong>Qualidade e incerteza.</strong> Relatar falhas, horário de acumulação, vento e subcaptura do pluviômetro, mudança de instrumento, homogeneidade, viés de grade e cobertura espacial.</p>
+<p><strong>Possibilidade de comparação.</strong> Manter limiar de dia úmido, período-base, calendário, fonte, unidade, regra de falhas e método de agregação.</p>
+<p><strong>Relação com desfechos de saúde.</strong> Extremos e persistência de chuva ou ausência de chuva ajudam a caracterizar perigos relacionados a água, saneamento, vetores, segurança alimentar e acesso a serviços; não equivalem ao efeito sanitário.</p>
+<p><strong>Defasagens temporais relevantes.</strong> Preservar série diária e datas para testar janelas compatíveis com o mecanismo e o desfecho.</p>
+<p><strong>Aplicação na gestão.</strong> Caracterizar sazonalidade e extremos, apoiar vigilância de agravos sensíveis ao clima e contextualizar alertas hidrometeorológicos.</p>
+</section>
+<section id="referências-metodológicas-1" class="level3" data-number="6.10.12">
+<h3 data-number="6.10.12" class="anchored" data-anchor-id="referências-metodológicas-1"><span class="header-section-number">6.10.12</span> Referências metodológicas</h3>
+<ul>
+<li><span class="citation" data-cites="climdex2024">(<a href="../../backmatter/referencias.html#ref-climdex2024" role="doc-biblioref">Climdex, 2024</a>)</span></li>
+<li><span class="citation" data-cites="who2014floods">(<a href="../../backmatter/referencias.html#ref-who2014floods" role="doc-biblioref">World Health Organization Regional Office for Europe, 2014</a>)</span></li>
+</ul>
+</section>
+</section>
+<section id="sec-cli-prc-03" class="level2" data-number="6.11">
+<h2 data-number="6.11" class="anchored" data-anchor-id="sec-cli-prc-03"><span class="header-section-number">6.11</span> Ficha do indicador: Precipitação total em dias muito úmidos (R95pTOT)</h2>
+<div class="indicator-card">
+<p><strong>Código:</strong> CLI-PRC-03<br>
+<strong>Título resumido:</strong> Chuva em dias muito úmidos — R95pTOT<br>
+<strong>Tema:</strong> Precipitação, secas e eventos hidrológicos<br>
+<strong>Dimensão:</strong> perigo; exposição<br>
+<strong>Disponibilidade:</strong> <span class="availability">requer processamento climatológico</span></p>
+</div>
+<section id="identificação-e-fundamento-2" class="level3" data-number="6.11.1">
+<h3 data-number="6.11.1" class="anchored" data-anchor-id="identificação-e-fundamento-2"><span class="header-section-number">6.11.1</span> Identificação e fundamento</h3>
+<p><strong>Indicador consolidado em.</strong> Índice R95pTOT do conjunto ETCCDI, documentado pelo Climdex.</p>
+</section>
+<section id="conceito-2" class="level3" data-number="6.11.2">
+<h3 data-number="6.11.2" class="anchored" data-anchor-id="conceito-2"><span class="header-section-number">6.11.2</span> Conceito</h3>
+<p>Soma da precipitação nos dias úmidos do período em que o total diário excede o percentil 95 dos dias úmidos do período-base.</p>
+</section>
+<section id="objetivo-2" class="level3" data-number="6.11.3">
+<h3 data-number="6.11.3" class="anchored" data-anchor-id="objetivo-2"><span class="header-section-number">6.11.3</span> Objetivo</h3>
+<p>Quantificar o volume de chuva concentrado nos dias climatologicamente muito úmidos.</p>
+</section>
+<section id="interpretação-2" class="level3" data-number="6.11.4">
+<h3 data-number="6.11.4" class="anchored" data-anchor-id="interpretação-2"><span class="header-section-number">6.11.4</span> Interpretação</h3>
+<p>Valor maior pode resultar de mais dias acima do percentil, de dias mais intensos ou de ambos; deve ser acompanhado por frequência e contribuição percentual.</p>
+</section>
+<section id="usos-2" class="level3" data-number="6.11.5">
+<h3 data-number="6.11.5" class="anchored" data-anchor-id="usos-2"><span class="header-section-number">6.11.5</span> Usos</h3>
+<ul>
+<li>Monitorar concentração da chuva em extremos.</li>
+<li>Avaliar mudanças no regime de precipitação.</li>
+<li>Caracterizar exposições relacionadas a chuva intensa.</li>
+</ul>
+</section>
+<section id="limitações-2" class="level3" data-number="6.11.6">
+<h3 data-number="6.11.6" class="anchored" data-anchor-id="limitações-2"><span class="header-section-number">6.11.6</span> Limitações</h3>
+<ul>
+<li>Depende do período-base e do limiar de dia úmido.</li>
+<li>Soma não separa frequência e intensidade.</li>
+<li>Comparação exige implementação percentílica harmonizada.</li>
+</ul>
+</section>
+<section id="fontes-de-dados-3" class="level3" data-number="6.11.7">
+<h3 data-number="6.11.7" class="anchored" data-anchor-id="fontes-de-dados-3"><span class="header-section-number">6.11.7</span> Fontes de dados</h3>
+<ul>
+<li>Instituto Nacional de Meteorologia — observações pluviométricas diárias (<a href="../../backmatter/indice-fontes.html#inmet">cadastro</a>)</li>
+<li>Centro Nacional de Monitoramento e Alertas de Desastres Naturais — observações pluviométricas subdiárias ou diárias para monitoramento (<a href="../../backmatter/indice-fontes.html#cemaden">cadastro</a>)</li>
+<li>ERA5-Land — precipitação em reanálise condicionada à validação (<a href="../../backmatter/indice-fontes.html#era5-land">cadastro</a>)</li>
+</ul>
+</section>
+<section id="método-de-cálculo-2" class="level3" data-number="6.11.8">
+<h3 data-number="6.11.8" class="anchored" data-anchor-id="método-de-cálculo-2"><span class="header-section-number">6.11.8</span> Método de cálculo</h3>
+<p>No período-base, calcular o percentil 95 entre dias com PR igual ou superior a 1 mm. No período analisado, somar PR dos dias úmidos que excedem esse limiar.</p>
+<p><span class="math display">\[
+R95pTOT_p=\sum_{d\in p}PR_d I(PR_d&gt;PR95_{wet})
+\]</span></p>
+<div class="indicator-card">
+<p><strong>Numerador.</strong> Não se aplica; soma de precipitação qualificada.</p>
+<p><strong>Denominador.</strong> Não se aplica.</p>
+<p><strong>Unidade de medida.</strong> Milímetros (mm) por período.</p>
+<p><strong>Variáveis e categorias de análise.</strong> Precipitação diária; dia do calendário; mês; estação; ano; estação ou célula de grade.</p>
+<p><strong>Granularidade.</strong> Entrada diária por estação ou célula; resumo mensal, sazonal ou anual.</p>
+<p><strong>Periodicidade de atualização.</strong> Anual para monitoramento climático; diária ou subdiária em protocolo operacional próprio.</p>
+<p><strong>Responsabilidade gerencial.</strong> Serviço meteorológico ou hidrológico responsável pelo dado e órgão de saúde que qualifique o uso sanitário.</p>
+<p><strong>Notas.</strong> Índices ETCCDI descrevem a precipitação observada. Não substituem modelagem hidrológica, mapeamento de inundação ou registro de desastre.</p>
+<p><strong>Análise descritiva do indicador.</strong> Apresentar R95pTOT, número de dias contribuintes, proporção de PRCPTOT, tendência e distribuição territorial.</p>
+</div>
+</section>
+<section id="campos-complementares-para-clima-ambiente-e-saúde-2" class="level3" data-number="6.11.9">
+<h3 data-number="6.11.9" class="anchored" data-anchor-id="campos-complementares-para-clima-ambiente-e-saúde-2"><span class="header-section-number">6.11.9</span> Campos complementares para clima, ambiente e saúde</h3>
+<div class="indicator-card">
+<p><strong>Unidade territorial.</strong> Estação meteorológica, célula de grade, bacia ou território derivado.</p>
+<p><strong>Resolução espacial original.</strong> A da fonte de precipitação; agregações territoriais exigem ponderação declarada.</p>
+<p><strong>Resolução temporal.</strong> Entrada diária; saída por período.</p>
+<p><strong>Período de referência.</strong> Período climatológico declarado para o percentil 95.</p>
+<p><strong>Limiar ou valor de referência.</strong> Percentil 95 da precipitação em dias úmidos, definidos por PR ≥ 1 mm.</p>
+</div>
+</section>
+<section id="disponibilidade-e-acesso-2" class="level3" data-number="6.11.10">
+<h3 data-number="6.11.10" class="anchored" data-anchor-id="disponibilidade-e-acesso-2"><span class="header-section-number">6.11.10</span> Disponibilidade e acesso</h3>
+<p><strong>Cobertura geográfica.</strong> A da fonte selecionada, condicionada à densidade observacional e qualidade.</p>
+<p><strong>Período disponível.</strong> O da fonte, incluindo série suficiente para o período-base quando houver percentis.</p>
+<p><strong>Periodicidade de atualização.</strong> Anual para monitoramento climático; diária ou subdiária em protocolo operacional próprio.</p>
+<p><strong>Forma de acesso.</strong> Cálculo sobre série de precipitação controlada, com algoritmo, unidades e calendário versionados.</p>
+<p><strong>URL ou identificador persistente.</strong> https://www.climdex.org/learn/indices/</p>
+<p><strong>Formato dos arquivos.</strong> Tabela por estação ou arquivo multidimensional por célula.</p>
+<p><strong>Necessidade de processamento.</strong> Selecionar dias úmidos no período-base, calcular percentil, testar dias e somar precipitação excedente.</p>
+</section>
+<section id="qualidade-comparação-e-saúde-2" class="level3" data-number="6.11.11">
+<h3 data-number="6.11.11" class="anchored" data-anchor-id="qualidade-comparação-e-saúde-2"><span class="header-section-number">6.11.11</span> Qualidade, comparação e saúde</h3>
+<p><strong>Qualidade e incerteza.</strong> Relatar falhas, horário de acumulação, vento e subcaptura do pluviômetro, mudança de instrumento, homogeneidade, viés de grade e cobertura espacial.</p>
+<p><strong>Possibilidade de comparação.</strong> Manter limiar de dia úmido, período-base, calendário, fonte, unidade, regra de falhas e método de agregação.</p>
+<p><strong>Relação com desfechos de saúde.</strong> Extremos e persistência de chuva ou ausência de chuva ajudam a caracterizar perigos relacionados a água, saneamento, vetores, segurança alimentar e acesso a serviços; não equivalem ao efeito sanitário.</p>
+<p><strong>Defasagens temporais relevantes.</strong> Preservar série diária e datas para testar janelas compatíveis com o mecanismo e o desfecho.</p>
+<p><strong>Aplicação na gestão.</strong> Caracterizar sazonalidade e extremos, apoiar vigilância de agravos sensíveis ao clima e contextualizar alertas hidrometeorológicos.</p>
+</section>
+<section id="referências-metodológicas-2" class="level3" data-number="6.11.12">
+<h3 data-number="6.11.12" class="anchored" data-anchor-id="referências-metodológicas-2"><span class="header-section-number">6.11.12</span> Referências metodológicas</h3>
+<ul>
+<li><span class="citation" data-cites="climdex2024">(<a href="../../backmatter/referencias.html#ref-climdex2024" role="doc-biblioref">Climdex, 2024</a>)</span></li>
+</ul>
+</section>
+</section>
+<section id="sec-cli-prc-04" class="level2" data-number="6.12">
+<h2 data-number="6.12" class="anchored" data-anchor-id="sec-cli-prc-04"><span class="header-section-number">6.12</span> Ficha do indicador: Maior número de dias consecutivos secos (CDD)</h2>
+<div class="indicator-card">
+<p><strong>Código:</strong> CLI-PRC-04<br>
+<strong>Título resumido:</strong> Dias consecutivos secos — CDD<br>
+<strong>Tema:</strong> Precipitação, secas e eventos hidrológicos<br>
+<strong>Dimensão:</strong> perigo; exposição<br>
+<strong>Disponibilidade:</strong> <span class="availability">requer processamento climatológico</span></p>
+</div>
+<section id="identificação-e-fundamento-3" class="level3" data-number="6.12.1">
+<h3 data-number="6.12.1" class="anchored" data-anchor-id="identificação-e-fundamento-3"><span class="header-section-number">6.12.1</span> Identificação e fundamento</h3>
+<p><strong>Indicador consolidado em.</strong> Índice Consecutive Dry Days do conjunto ETCCDI, documentado pelo Climdex.</p>
+</section>
+<section id="conceito-3" class="level3" data-number="6.12.2">
+<h3 data-number="6.12.2" class="anchored" data-anchor-id="conceito-3"><span class="header-section-number">6.12.2</span> Conceito</h3>
+<p>Maior sequência de dias consecutivos com precipitação diária inferior a 1 mm no período.</p>
+</section>
+<section id="objetivo-3" class="level3" data-number="6.12.3">
+<h3 data-number="6.12.3" class="anchored" data-anchor-id="objetivo-3"><span class="header-section-number">6.12.3</span> Objetivo</h3>
+<p>Medir a duração máxima de um período sem dia úmido segundo o limiar ETCCDI.</p>
+</section>
+<section id="interpretação-3" class="level3" data-number="6.12.4">
+<h3 data-number="6.12.4" class="anchored" data-anchor-id="interpretação-3"><span class="header-section-number">6.12.4</span> Interpretação</h3>
+<p>Valor maior indica intervalo seco contínuo mais longo, não necessariamente seca agrícola, hidrológica ou socioeconômica.</p>
+</section>
+<section id="usos-3" class="level3" data-number="6.12.5">
+<h3 data-number="6.12.5" class="anchored" data-anchor-id="usos-3"><span class="header-section-number">6.12.5</span> Usos</h3>
+<ul>
+<li>Caracterizar persistência da ausência de chuva.</li>
+<li>Monitorar mudança em extremos secos.</li>
+<li>Contextualizar disponibilidade de água</li>
+<li>poeira</li>
+<li>fogo e vetores.</li>
+</ul>
+</section>
+<section id="limitações-3" class="level3" data-number="6.12.6">
+<h3 data-number="6.12.6" class="anchored" data-anchor-id="limitações-3"><span class="header-section-number">6.12.6</span> Limitações</h3>
+<ul>
+<li>Limiar de 1 mm é climatológico</li>
+<li>não uma necessidade hídrica.</li>
+<li>Falhas quebram sequências.</li>
+<li>Uma sequência pode cruzar anos.</li>
+<li>Não incorpora evapotranspiração</li>
+<li>armazenamento ou demanda.</li>
+</ul>
+</section>
+<section id="fontes-de-dados-4" class="level3" data-number="6.12.7">
+<h3 data-number="6.12.7" class="anchored" data-anchor-id="fontes-de-dados-4"><span class="header-section-number">6.12.7</span> Fontes de dados</h3>
+<ul>
+<li>Instituto Nacional de Meteorologia — observações pluviométricas diárias (<a href="../../backmatter/indice-fontes.html#inmet">cadastro</a>)</li>
+<li>Centro Nacional de Monitoramento e Alertas de Desastres Naturais — observações pluviométricas subdiárias ou diárias para monitoramento (<a href="../../backmatter/indice-fontes.html#cemaden">cadastro</a>)</li>
+<li>ERA5-Land — precipitação em reanálise condicionada à validação (<a href="../../backmatter/indice-fontes.html#era5-land">cadastro</a>)</li>
+</ul>
+</section>
+<section id="método-de-cálculo-3" class="level3" data-number="6.12.8">
+<h3 data-number="6.12.8" class="anchored" data-anchor-id="método-de-cálculo-3"><span class="header-section-number">6.12.8</span> Método de cálculo</h3>
+<p>Classificar cada dia válido como seco quando PR for inferior a 1 mm, identificar sequências consecutivas e selecionar a maior, aplicando regra explícita para sequências que cruzam períodos.</p>
+<p><span class="math display">\[
+CDD_p=\max_{e\subset p}\{|e|:\ PR_d&lt;1\ mm\ \forall d\in e\}
+\]</span></p>
+<div class="indicator-card">
+<p><strong>Numerador.</strong> Não se aplica.</p>
+<p><strong>Denominador.</strong> Não se aplica.</p>
+<p><strong>Unidade de medida.</strong> Dias.</p>
+<p><strong>Variáveis e categorias de análise.</strong> Precipitação diária; dia do calendário; mês; estação; ano; estação ou célula de grade.</p>
+<p><strong>Granularidade.</strong> Entrada diária por estação ou célula; resumo mensal, sazonal ou anual.</p>
+<p><strong>Periodicidade de atualização.</strong> Anual para monitoramento climático; diária ou subdiária em protocolo operacional próprio.</p>
+<p><strong>Responsabilidade gerencial.</strong> Serviço meteorológico ou hidrológico responsável pelo dado e órgão de saúde que qualifique o uso sanitário.</p>
+<p><strong>Notas.</strong> Índices ETCCDI descrevem a precipitação observada. Não substituem modelagem hidrológica, mapeamento de inundação ou registro de desastre.</p>
+<p><strong>Análise descritiva do indicador.</strong> Mostrar CDD, datas, recorrência, tendência e relação com SPI e indicadores setoriais sem tratá-los como equivalentes.</p>
+</div>
+</section>
+<section id="campos-complementares-para-clima-ambiente-e-saúde-3" class="level3" data-number="6.12.9">
+<h3 data-number="6.12.9" class="anchored" data-anchor-id="campos-complementares-para-clima-ambiente-e-saúde-3"><span class="header-section-number">6.12.9</span> Campos complementares para clima, ambiente e saúde</h3>
+<div class="indicator-card">
+<p><strong>Unidade territorial.</strong> Estação meteorológica, célula de grade, bacia ou território derivado.</p>
+<p><strong>Resolução espacial original.</strong> A da fonte de precipitação; agregações territoriais exigem ponderação declarada.</p>
+<p><strong>Resolução temporal.</strong> Entrada diária; saída por período.</p>
+<p><strong>Período de referência.</strong> Não se aplica ao limiar fixo; declarar período de análise.</p>
+<p><strong>Limiar ou valor de referência.</strong> PR &lt; 1 mm.</p>
+</div>
+</section>
+<section id="disponibilidade-e-acesso-3" class="level3" data-number="6.12.10">
+<h3 data-number="6.12.10" class="anchored" data-anchor-id="disponibilidade-e-acesso-3"><span class="header-section-number">6.12.10</span> Disponibilidade e acesso</h3>
+<p><strong>Cobertura geográfica.</strong> A da fonte selecionada, condicionada à densidade observacional e qualidade.</p>
+<p><strong>Período disponível.</strong> O da fonte, incluindo série suficiente para o período-base quando houver percentis.</p>
+<p><strong>Periodicidade de atualização.</strong> Anual para monitoramento climático; diária ou subdiária em protocolo operacional próprio.</p>
+<p><strong>Forma de acesso.</strong> Cálculo sobre série de precipitação controlada, com algoritmo, unidades e calendário versionados.</p>
+<p><strong>URL ou identificador persistente.</strong> https://www.climdex.org/learn/indices/</p>
+<p><strong>Formato dos arquivos.</strong> Tabela por estação ou arquivo multidimensional por célula.</p>
+<p><strong>Necessidade de processamento.</strong> Controle de qualidade, classificação diária, detecção de sequências e regra de fronteira do período.</p>
+</section>
+<section id="qualidade-comparação-e-saúde-3" class="level3" data-number="6.12.11">
+<h3 data-number="6.12.11" class="anchored" data-anchor-id="qualidade-comparação-e-saúde-3"><span class="header-section-number">6.12.11</span> Qualidade, comparação e saúde</h3>
+<p><strong>Qualidade e incerteza.</strong> Relatar falhas, horário de acumulação, vento e subcaptura do pluviômetro, mudança de instrumento, homogeneidade, viés de grade e cobertura espacial.</p>
+<p><strong>Possibilidade de comparação.</strong> Manter limiar de dia úmido, período-base, calendário, fonte, unidade, regra de falhas e método de agregação.</p>
+<p><strong>Relação com desfechos de saúde.</strong> Extremos e persistência de chuva ou ausência de chuva ajudam a caracterizar perigos relacionados a água, saneamento, vetores, segurança alimentar e acesso a serviços; não equivalem ao efeito sanitário.</p>
+<p><strong>Defasagens temporais relevantes.</strong> Preservar série diária e datas para testar janelas compatíveis com o mecanismo e o desfecho.</p>
+<p><strong>Aplicação na gestão.</strong> Caracterizar sazonalidade e extremos, apoiar vigilância de agravos sensíveis ao clima e contextualizar alertas hidrometeorológicos.</p>
+</section>
+<section id="referências-metodológicas-3" class="level3" data-number="6.12.12">
+<h3 data-number="6.12.12" class="anchored" data-anchor-id="referências-metodológicas-3"><span class="header-section-number">6.12.12</span> Referências metodológicas</h3>
+<ul>
+<li><span class="citation" data-cites="climdex2024">(<a href="../../backmatter/referencias.html#ref-climdex2024" role="doc-biblioref">Climdex, 2024</a>)</span></li>
+<li><span class="citation" data-cites="who2026drought">(<a href="../../backmatter/referencias.html#ref-who2026drought" role="doc-biblioref">World Health Organization, 2026a</a>)</span></li>
+</ul>
+</section>
+</section>
+<section id="sec-cli-prc-05" class="level2" data-number="6.13">
+<h2 data-number="6.13" class="anchored" data-anchor-id="sec-cli-prc-05"><span class="header-section-number">6.13</span> Ficha do indicador: Maior número de dias consecutivos úmidos (CWD)</h2>
+<div class="indicator-card">
+<p><strong>Código:</strong> CLI-PRC-05<br>
+<strong>Título resumido:</strong> Dias consecutivos úmidos — CWD<br>
+<strong>Tema:</strong> Precipitação, secas e eventos hidrológicos<br>
+<strong>Dimensão:</strong> perigo; exposição<br>
+<strong>Disponibilidade:</strong> <span class="availability">requer processamento climatológico</span></p>
+</div>
+<section id="identificação-e-fundamento-4" class="level3" data-number="6.13.1">
+<h3 data-number="6.13.1" class="anchored" data-anchor-id="identificação-e-fundamento-4"><span class="header-section-number">6.13.1</span> Identificação e fundamento</h3>
+<p><strong>Indicador consolidado em.</strong> Índice Consecutive Wet Days do conjunto ETCCDI, documentado pelo Climdex.</p>
+</section>
+<section id="conceito-4" class="level3" data-number="6.13.2">
+<h3 data-number="6.13.2" class="anchored" data-anchor-id="conceito-4"><span class="header-section-number">6.13.2</span> Conceito</h3>
+<p>Maior sequência de dias consecutivos com precipitação diária igual ou superior a 1 mm no período.</p>
+</section>
+<section id="objetivo-4" class="level3" data-number="6.13.3">
+<h3 data-number="6.13.3" class="anchored" data-anchor-id="objetivo-4"><span class="header-section-number">6.13.3</span> Objetivo</h3>
+<p>Medir a maior persistência de dias com precipitação mensurável.</p>
+</section>
+<section id="interpretação-4" class="level3" data-number="6.13.4">
+<h3 data-number="6.13.4" class="anchored" data-anchor-id="interpretação-4"><span class="header-section-number">6.13.4</span> Interpretação</h3>
+<p>Valor maior indica mais dias úmidos consecutivos, mas não implica chuva intensa nem inundação.</p>
+</section>
+<section id="usos-4" class="level3" data-number="6.13.5">
+<h3 data-number="6.13.5" class="anchored" data-anchor-id="usos-4"><span class="header-section-number">6.13.5</span> Usos</h3>
+<ul>
+<li>Caracterizar persistência de chuva.</li>
+<li>Contextualizar condições favoráveis a umidade</li>
+<li>vetores e interrupções.</li>
+<li>Complementar Rx1day e Rx5day.</li>
+</ul>
+</section>
+<section id="limitações-4" class="level3" data-number="6.13.6">
+<h3 data-number="6.13.6" class="anchored" data-anchor-id="limitações-4"><span class="header-section-number">6.13.6</span> Limitações</h3>
+<ul>
+<li>Dias pouco chuvosos contam como úmidos.</li>
+<li>Não representa volume total.</li>
+<li>Falhas quebram sequências.</li>
+<li>Relevância sanitária depende do mecanismo e da defasagem.</li>
+</ul>
+</section>
+<section id="fontes-de-dados-5" class="level3" data-number="6.13.7">
+<h3 data-number="6.13.7" class="anchored" data-anchor-id="fontes-de-dados-5"><span class="header-section-number">6.13.7</span> Fontes de dados</h3>
+<ul>
+<li>Instituto Nacional de Meteorologia — observações pluviométricas diárias (<a href="../../backmatter/indice-fontes.html#inmet">cadastro</a>)</li>
+<li>Centro Nacional de Monitoramento e Alertas de Desastres Naturais — observações pluviométricas subdiárias ou diárias para monitoramento (<a href="../../backmatter/indice-fontes.html#cemaden">cadastro</a>)</li>
+<li>ERA5-Land — precipitação em reanálise condicionada à validação (<a href="../../backmatter/indice-fontes.html#era5-land">cadastro</a>)</li>
+</ul>
+</section>
+<section id="método-de-cálculo-4" class="level3" data-number="6.13.8">
+<h3 data-number="6.13.8" class="anchored" data-anchor-id="método-de-cálculo-4"><span class="header-section-number">6.13.8</span> Método de cálculo</h3>
+<p>Classificar dias válidos como úmidos quando PR for igual ou superior a 1 mm, identificar sequências consecutivas e selecionar a maior.</p>
+<p><span class="math display">\[
+CWD_p=\max_{e\subset p}\{|e|:\ PR_d\geq1\ mm\ \forall d\in e\}
+\]</span></p>
+<div class="indicator-card">
+<p><strong>Numerador.</strong> Não se aplica.</p>
+<p><strong>Denominador.</strong> Não se aplica.</p>
+<p><strong>Unidade de medida.</strong> Dias.</p>
+<p><strong>Variáveis e categorias de análise.</strong> Precipitação diária; dia do calendário; mês; estação; ano; estação ou célula de grade.</p>
+<p><strong>Granularidade.</strong> Entrada diária por estação ou célula; resumo mensal, sazonal ou anual.</p>
+<p><strong>Periodicidade de atualização.</strong> Anual para monitoramento climático; diária ou subdiária em protocolo operacional próprio.</p>
+<p><strong>Responsabilidade gerencial.</strong> Serviço meteorológico ou hidrológico responsável pelo dado e órgão de saúde que qualifique o uso sanitário.</p>
+<p><strong>Notas.</strong> Índices ETCCDI descrevem a precipitação observada. Não substituem modelagem hidrológica, mapeamento de inundação ou registro de desastre.</p>
+<p><strong>Análise descritiva do indicador.</strong> Apresentar CWD com chuva total da sequência, Rx1day, datas e distribuição espacial.</p>
+</div>
+</section>
+<section id="campos-complementares-para-clima-ambiente-e-saúde-4" class="level3" data-number="6.13.9">
+<h3 data-number="6.13.9" class="anchored" data-anchor-id="campos-complementares-para-clima-ambiente-e-saúde-4"><span class="header-section-number">6.13.9</span> Campos complementares para clima, ambiente e saúde</h3>
+<div class="indicator-card">
+<p><strong>Unidade territorial.</strong> Estação meteorológica, célula de grade, bacia ou território derivado.</p>
+<p><strong>Resolução espacial original.</strong> A da fonte de precipitação; agregações territoriais exigem ponderação declarada.</p>
+<p><strong>Resolução temporal.</strong> Entrada diária; saída por período.</p>
+<p><strong>Período de referência.</strong> Não se aplica ao limiar fixo; declarar período de análise.</p>
+<p><strong>Limiar ou valor de referência.</strong> PR ≥ 1 mm.</p>
+</div>
+</section>
+<section id="disponibilidade-e-acesso-4" class="level3" data-number="6.13.10">
+<h3 data-number="6.13.10" class="anchored" data-anchor-id="disponibilidade-e-acesso-4"><span class="header-section-number">6.13.10</span> Disponibilidade e acesso</h3>
+<p><strong>Cobertura geográfica.</strong> A da fonte selecionada, condicionada à densidade observacional e qualidade.</p>
+<p><strong>Período disponível.</strong> O da fonte, incluindo série suficiente para o período-base quando houver percentis.</p>
+<p><strong>Periodicidade de atualização.</strong> Anual para monitoramento climático; diária ou subdiária em protocolo operacional próprio.</p>
+<p><strong>Forma de acesso.</strong> Cálculo sobre série de precipitação controlada, com algoritmo, unidades e calendário versionados.</p>
+<p><strong>URL ou identificador persistente.</strong> https://www.climdex.org/learn/indices/</p>
+<p><strong>Formato dos arquivos.</strong> Tabela por estação ou arquivo multidimensional por célula.</p>
+<p><strong>Necessidade de processamento.</strong> Controle de qualidade, classificação diária, detecção de sequências e regra de fronteira.</p>
+</section>
+<section id="qualidade-comparação-e-saúde-4" class="level3" data-number="6.13.11">
+<h3 data-number="6.13.11" class="anchored" data-anchor-id="qualidade-comparação-e-saúde-4"><span class="header-section-number">6.13.11</span> Qualidade, comparação e saúde</h3>
+<p><strong>Qualidade e incerteza.</strong> Relatar falhas, horário de acumulação, vento e subcaptura do pluviômetro, mudança de instrumento, homogeneidade, viés de grade e cobertura espacial.</p>
+<p><strong>Possibilidade de comparação.</strong> Manter limiar de dia úmido, período-base, calendário, fonte, unidade, regra de falhas e método de agregação.</p>
+<p><strong>Relação com desfechos de saúde.</strong> Extremos e persistência de chuva ou ausência de chuva ajudam a caracterizar perigos relacionados a água, saneamento, vetores, segurança alimentar e acesso a serviços; não equivalem ao efeito sanitário.</p>
+<p><strong>Defasagens temporais relevantes.</strong> Preservar série diária e datas para testar janelas compatíveis com o mecanismo e o desfecho.</p>
+<p><strong>Aplicação na gestão.</strong> Caracterizar sazonalidade e extremos, apoiar vigilância de agravos sensíveis ao clima e contextualizar alertas hidrometeorológicos.</p>
+</section>
+<section id="referências-metodológicas-4" class="level3" data-number="6.13.12">
+<h3 data-number="6.13.12" class="anchored" data-anchor-id="referências-metodológicas-4"><span class="header-section-number">6.13.12</span> Referências metodológicas</h3>
+<ul>
+<li><span class="citation" data-cites="climdex2024">(<a href="../../backmatter/referencias.html#ref-climdex2024" role="doc-biblioref">Climdex, 2024</a>)</span></li>
+<li><span class="citation" data-cites="levy2016waterborne">(<a href="../../backmatter/referencias.html#ref-levy2016waterborne" role="doc-biblioref">Levy et al., 2016</a>)</span></li>
+</ul>
+</section>
+</section>
+<section id="sec-cli-sec-01" class="level2" data-number="6.14">
+<h2 data-number="6.14" class="anchored" data-anchor-id="sec-cli-sec-01"><span class="header-section-number">6.14</span> Ficha do indicador: Índice Padronizado de Precipitação (SPI)</h2>
+<div class="indicator-card">
+<p><strong>Código:</strong> CLI-SEC-01<br>
+<strong>Título resumido:</strong> Seca meteorológica — SPI<br>
+<strong>Tema:</strong> Precipitação, secas e eventos hidrológicos<br>
+<strong>Dimensão:</strong> perigo; exposição<br>
+<strong>Disponibilidade:</strong> <span class="availability">requer processamento climatológico</span></p>
+</div>
+<section id="identificação-e-fundamento-5" class="level3" data-number="6.14.1">
+<h3 data-number="6.14.1" class="anchored" data-anchor-id="identificação-e-fundamento-5"><span class="header-section-number">6.14.1</span> Identificação e fundamento</h3>
+<p><strong>Indicador consolidado em.</strong> Standardized Precipitation Index recomendado pela Organização Meteorológica Mundial para caracterizar seca meteorológica.</p>
+</section>
+<section id="conceito-5" class="level3" data-number="6.14.2">
+<h3 data-number="6.14.2" class="anchored" data-anchor-id="conceito-5"><span class="header-section-number">6.14.2</span> Conceito</h3>
+<p>Transformação probabilística do total de precipitação acumulado em uma escala temporal para uma distribuição normal padronizada.</p>
+</section>
+<section id="objetivo-5" class="level3" data-number="6.14.3">
+<h3 data-number="6.14.3" class="anchored" data-anchor-id="objetivo-5"><span class="header-section-number">6.14.3</span> Objetivo</h3>
+<p>Comparar déficit ou excesso de precipitação entre períodos, escalas temporais e climas distintos.</p>
+</section>
+<section id="interpretação-5" class="level3" data-number="6.14.4">
+<h3 data-number="6.14.4" class="anchored" data-anchor-id="interpretação-5"><span class="header-section-number">6.14.4</span> Interpretação</h3>
+<p>SPI igual a zero representa condição próxima da mediana ajustada; valores negativos indicam déficit e positivos, excesso. Na classificação usual, SPI ≤ −1 inicia uma condição de seca que persiste até retornar a valor positivo.</p>
+</section>
+<section id="usos-5" class="level3" data-number="6.14.5">
+<h3 data-number="6.14.5" class="anchored" data-anchor-id="usos-5"><span class="header-section-number">6.14.5</span> Usos</h3>
+<ul>
+<li>Monitorar início</li>
+<li>duração e intensidade de seca meteorológica.</li>
+<li>Comparar territórios em escala padronizada.</li>
+<li>Contextualizar impactos sobre água</li>
+<li>alimento</li>
+<li>saúde mental e serviços.</li>
+</ul>
+</section>
+<section id="limitações-5" class="level3" data-number="6.14.6">
+<h3 data-number="6.14.6" class="anchored" data-anchor-id="limitações-5"><span class="header-section-number">6.14.6</span> Limitações</h3>
+<ul>
+<li>Usa apenas precipitação.</li>
+<li>Requer série longa e relativamente consistente.</li>
+<li>Distribuição ajustada e tratamento de zeros influenciam o resultado.</li>
+<li>Escalas distintas representam processos distintos.</li>
+<li>Não mede diretamente seca hidrológica</li>
+<li>agrícola ou impacto social.</li>
+</ul>
+</section>
+<section id="fontes-de-dados-6" class="level3" data-number="6.14.7">
+<h3 data-number="6.14.7" class="anchored" data-anchor-id="fontes-de-dados-6"><span class="header-section-number">6.14.7</span> Fontes de dados</h3>
+<ul>
+<li>Instituto Nacional de Meteorologia — observações pluviométricas diárias (<a href="../../backmatter/indice-fontes.html#inmet">cadastro</a>)</li>
+<li>Centro Nacional de Monitoramento e Alertas de Desastres Naturais — observações pluviométricas subdiárias ou diárias para monitoramento (<a href="../../backmatter/indice-fontes.html#cemaden">cadastro</a>)</li>
+<li>ERA5-Land — precipitação em reanálise condicionada à validação (<a href="../../backmatter/indice-fontes.html#era5-land">cadastro</a>)</li>
+</ul>
+</section>
+<section id="método-de-cálculo-5" class="level3" data-number="6.14.8">
+<h3 data-number="6.14.8" class="anchored" data-anchor-id="método-de-cálculo-5"><span class="header-section-number">6.14.8</span> Método de cálculo</h3>
+<p>Acumular precipitação na escala escolhida, ajustar distribuição probabilística adequada à série e ao mês, converter a probabilidade acumulada para a normal padrão e identificar episódios conforme a classificação declarada.</p>
+<p><span class="math display">\[
+SPI_{k,t}=\Phi^{-1}\{F_{k,m}(P_{k,t})\}
+\]</span></p>
+<div class="indicator-card">
+<p><strong>Numerador.</strong> Não se aplica.</p>
+<p><strong>Denominador.</strong> Não se aplica.</p>
+<p><strong>Unidade de medida.</strong> Adimensional, em desvios-padrão da distribuição normal transformada.</p>
+<p><strong>Variáveis e categorias de análise.</strong> Precipitação diária; dia do calendário; mês; estação; ano; estação ou célula de grade.</p>
+<p><strong>Granularidade.</strong> Entrada diária por estação ou célula; resumo mensal, sazonal ou anual.</p>
+<p><strong>Periodicidade de atualização.</strong> Anual para monitoramento climático; diária ou subdiária em protocolo operacional próprio.</p>
+<p><strong>Responsabilidade gerencial.</strong> Serviço meteorológico ou hidrológico responsável pelo dado e órgão de saúde que qualifique o uso sanitário.</p>
+<p><strong>Notas.</strong> Índices ETCCDI descrevem a precipitação observada. Não substituem modelagem hidrológica, mapeamento de inundação ou registro de desastre.</p>
+<p><strong>Análise descritiva do indicador.</strong> Apresentar séries de SPI-1, SPI-3, SPI-6 ou SPI-12 conforme mecanismo, duração e intensidade dos episódios, área afetada e associação com indicadores sanitários.</p>
+</div>
+</section>
+<section id="campos-complementares-para-clima-ambiente-e-saúde-5" class="level3" data-number="6.14.9">
+<h3 data-number="6.14.9" class="anchored" data-anchor-id="campos-complementares-para-clima-ambiente-e-saúde-5"><span class="header-section-number">6.14.9</span> Campos complementares para clima, ambiente e saúde</h3>
+<div class="indicator-card">
+<p><strong>Unidade territorial.</strong> Estação meteorológica, célula de grade, bacia ou território derivado.</p>
+<p><strong>Resolução espacial original.</strong> A da fonte de precipitação; agregações territoriais exigem ponderação declarada.</p>
+<p><strong>Resolução temporal.</strong> Entrada diária; saída por período.</p>
+<p><strong>Período de referência.</strong> Série de pelo menos 30 anos recomendada; séries mais longas melhoram estabilidade.</p>
+<p><strong>Limiar ou valor de referência.</strong> Classes usuais incluem −1,0 a −1,49 moderadamente seco; −1,5 a −1,99 severamente seco; ≤ −2,0 extremamente seco.</p>
+</div>
+</section>
+<section id="disponibilidade-e-acesso-5" class="level3" data-number="6.14.10">
+<h3 data-number="6.14.10" class="anchored" data-anchor-id="disponibilidade-e-acesso-5"><span class="header-section-number">6.14.10</span> Disponibilidade e acesso</h3>
+<p><strong>Cobertura geográfica.</strong> A da fonte selecionada, condicionada à densidade observacional e qualidade.</p>
+<p><strong>Período disponível.</strong> O da fonte, incluindo série suficiente para o período-base quando houver percentis.</p>
+<p><strong>Periodicidade de atualização.</strong> Anual para monitoramento climático; diária ou subdiária em protocolo operacional próprio.</p>
+<p><strong>Forma de acesso.</strong> Cálculo sobre série de precipitação controlada, com algoritmo, unidades e calendário versionados.</p>
+<p><strong>URL ou identificador persistente.</strong> https://library.wmo.int/idurl/4/39629</p>
+<p><strong>Formato dos arquivos.</strong> Tabela por estação ou arquivo multidimensional por célula.</p>
+<p><strong>Necessidade de processamento.</strong> Verificar completude, acumular por escala, ajustar distribuição por mês, tratar zeros, transformar probabilidade e detectar episódios.</p>
+</section>
+<section id="qualidade-comparação-e-saúde-5" class="level3" data-number="6.14.11">
+<h3 data-number="6.14.11" class="anchored" data-anchor-id="qualidade-comparação-e-saúde-5"><span class="header-section-number">6.14.11</span> Qualidade, comparação e saúde</h3>
+<p><strong>Qualidade e incerteza.</strong> Relatar falhas, horário de acumulação, vento e subcaptura do pluviômetro, mudança de instrumento, homogeneidade, viés de grade e cobertura espacial.</p>
+<p><strong>Possibilidade de comparação.</strong> Manter limiar de dia úmido, período-base, calendário, fonte, unidade, regra de falhas e método de agregação.</p>
+<p><strong>Relação com desfechos de saúde.</strong> Extremos e persistência de chuva ou ausência de chuva ajudam a caracterizar perigos relacionados a água, saneamento, vetores, segurança alimentar e acesso a serviços; não equivalem ao efeito sanitário.</p>
+<p><strong>Defasagens temporais relevantes.</strong> Preservar série diária e datas para testar janelas compatíveis com o mecanismo e o desfecho.</p>
+<p><strong>Aplicação na gestão.</strong> Caracterizar sazonalidade e extremos, apoiar vigilância de agravos sensíveis ao clima e contextualizar alertas hidrometeorológicos.</p>
+</section>
+<section id="referências-metodológicas-5" class="level3" data-number="6.14.12">
+<h3 data-number="6.14.12" class="anchored" data-anchor-id="referências-metodológicas-5"><span class="header-section-number">6.14.12</span> Referências metodológicas</h3>
+<ul>
+<li><span class="citation" data-cites="wmo2012spi">(<a href="../../backmatter/referencias.html#ref-wmo2012spi" role="doc-biblioref">Svoboda; Hayes; Wood, 2012</a>)</span></li>
+<li><span class="citation" data-cites="wmo2016drought">(<a href="../../backmatter/referencias.html#ref-wmo2016drought" role="doc-biblioref">Svoboda; Fuchs, 2016</a>)</span></li>
+<li><span class="citation" data-cites="who2026drought">(<a href="../../backmatter/referencias.html#ref-who2026drought" role="doc-biblioref">World Health Organization, 2026a</a>)</span></li>
+</ul>
+</section>
+</section>
+<section id="aplicação-na-gestão" class="level2" data-number="6.15">
+<h2 data-number="6.15" class="anchored" data-anchor-id="aplicação-na-gestão"><span class="header-section-number">6.15</span> Aplicação na gestão</h2>
+<p>Um painel útil não reúne todos os índices possíveis. Para chuva intensa, pode mostrar previsão e observação subdiária, Rx1day ou acumulados móveis, nível de rios, alertas, população e serviços em áreas suscetíveis. Para seca, pode combinar SPI em escalas justificadas, reservatórios e vazões, regularidade do abastecimento, segurança alimentar, agravos e capacidade dos serviços.</p>
+<p>Os limiares de ação devem ser definidos antes do evento, com responsabilidades e mensagens associadas. O fluxo inclui verificação do dado, avaliação do impacto potencial, comunicação intersetorial, registro da decisão e revisão pós-evento.</p>
+<div class="visual-needed" title="Ilustração editorial necessária">
+<p>Produzir uma ilustração em corte de uma bacia urbana que diferencie cheia, inundação, alagamento e enxurrada e mostre moradias, unidade de saúde, drenagem e rotas de acesso. A figura deve ser conceitual, sem sugerir escala ou limiar universal.</p>
+</div>
+</section>
+<section id="síntese" class="level2" data-number="6.16">
+<h2 data-number="6.16" class="anchored" data-anchor-id="síntese"><span class="header-section-number">6.16</span> Síntese</h2>
+<p>Precipitação é um perigo meteorológico; inundação e movimento de massa são processos; exposição descreve quem e o que se encontra na área atingida; desastre e efeito sanitário dependem das consequências. Rx1day, Rx5day, R95pTOT, CDD, CWD e SPI oferecem medidas consolidadas para aspectos específicos. Seu uso em saúde pública requer ligá-los ao mecanismo, ao território, às defasagens e à capacidade de resposta.</p>
 
 
+<div id="refs" class="references csl-bib-body" data-entry-spacing="1" role="list" style="display: none">
+<div id="ref-cemaden2016enxurrada" class="csl-entry" role="listitem">
+CENTRO NACIONAL DE MONITORAMENTO E ALERTAS DE DESASTRES NATURAIS. <strong>Enxurrada</strong>. Disponível em: &lt;<a href="https://www2.cemaden.gov.br/enxurrada/">https://www2.cemaden.gov.br/enxurrada/</a>&gt;. Acesso em: 28 jul. 2026.
+</div>
+<div id="ref-climdex2024" class="csl-entry" role="listitem">
+CLIMDEX. <strong>Indices</strong>. Disponível em: &lt;<a href="https://www.climdex.org/learn/indices/">https://www.climdex.org/learn/indices/</a>&gt;. Acesso em: 28 jul. 2026.
+</div>
+<div id="ref-levy2016waterborne" class="csl-entry" role="listitem">
+LEVY, Karen <em>et al.</em> <a href="https://doi.org/10.1021/acs.est.5b06186">Untangling the impacts of climate change on waterborne diseases: a systematic review of relationships between diarrheal diseases and temperature, rainfall, flooding, and drought</a>. <strong>Environmental Science &amp; Technology</strong>, v. 50, n. 10, p. 4905–4922, 2016.
+</div>
+<div id="ref-wmo2016drought" class="csl-entry" role="listitem">
+SVOBODA, Mark; FUCHS, Brian A. <strong><a href="https://library.wmo.int/idurl/4/55184">Handbook of drought indicators and indices</a></strong>. Geneva: World Meteorological Organization; Global Water Partnership, 2016.
+</div>
+<div id="ref-wmo2012spi" class="csl-entry" role="listitem">
+SVOBODA, Mark; HAYES, Michael; WOOD, David. <strong><a href="https://library.wmo.int/idurl/4/39629">Standardized Precipitation Index user guide</a></strong>. Geneva: World Meteorological Organization, 2012.
+</div>
+<div id="ref-who2026drought" class="csl-entry" role="listitem">
+WORLD HEALTH ORGANIZATION. <strong>Drought</strong>. Disponível em: &lt;<a href="https://www.who.int/health-topics/drought/famine-and-health">https://www.who.int/health-topics/drought/famine-and-health</a>&gt;. Acesso em: 28 jul. 2026a.
+</div>
+<div id="ref-who2026landslides" class="csl-entry" role="listitem">
+WORLD HEALTH ORGANIZATION. <strong>Landslides</strong>. Disponível em: &lt;<a href="https://www.who.int/health-topics/landslides">https://www.who.int/health-topics/landslides</a>&gt;. Acesso em: 28 jul. 2026b.
+</div>
+<div id="ref-who2014floods" class="csl-entry" role="listitem">
+WORLD HEALTH ORGANIZATION REGIONAL OFFICE FOR EUROPE. <strong>Floods and health: fact sheets for health professionals</strong>. Disponível em: &lt;<a href="https://www.who.int/europe/publications/i/item/WHO-EURO--2014-8519-48291-71705">https://www.who.int/europe/publications/i/item/WHO-EURO--2014-8519-48291-71705</a>&gt;. Acesso em: 28 jul. 2026.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -670,7 +1660,7 @@ ul.task-list li input[type="checkbox"] {
     anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
-        if (clz.startsWith('code-annotation-')) {                     
+        if (clz.startsWith('code-annotation-')) {
           return true;
         }
       }
@@ -690,11 +1680,11 @@ ul.task-list li input[type="checkbox"] {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
         button.setAttribute("data-bs-title", "Copiada");
-        tooltip = new bootstrap.Tooltip(button, 
-          { trigger: "manual", 
+        tooltip = new bootstrap.Tooltip(button,
+          { trigger: "manual",
             customClass: "code-copy-button-tooltip",
             offset: [0, -8]});
-        tooltip.show();    
+        tooltip.show();
       }
       setTimeout(function() {
         if (tooltip) {
@@ -776,7 +1766,7 @@ ul.task-list li input[type="checkbox"] {
       if (onUntriggerFn) {
         config.onUntrigger = onUntriggerFn;
       }
-      window.tippy(el, config); 
+      window.tippy(el, config);
     }
     const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
     for (var i=0; i<noterefs.length; i++) {
@@ -851,7 +1841,7 @@ ul.task-list li input[type="checkbox"] {
       tippyHover(xref, undefined, function(instance) {
         instance.disable();
         let url = xref.getAttribute('href');
-        let hash = undefined; 
+        let hash = undefined;
         if (url.startsWith('#')) {
           hash = url;
         } else {
@@ -879,7 +1869,7 @@ ul.task-list li input[type="checkbox"] {
               if (note !== null) {
                 const html = processXRef(id, note);
                 instance.setContent(html);
-              } 
+              }
             }).finally(() => {
               instance.enable();
               instance.show();
@@ -903,7 +1893,7 @@ ul.task-list li input[type="checkbox"] {
               }
               const html = processXRef(null, note);
               instance.setContent(html);
-            } 
+            }
           }).finally(() => {
             instance.enable();
             instance.show();
@@ -943,7 +1933,7 @@ ul.task-list li input[type="checkbox"] {
               height = bottom - top;
             }
             if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
+              // cook up a div (if necessary) and position it
               let div = window.document.getElementById("code-annotation-line-highlight");
               if (div === null) {
                 div = window.document.createElement("div");
@@ -1068,7 +2058,7 @@ ul.task-list li input[type="checkbox"] {
   <div class="nav-page nav-page-previous">
       <a href="../../chapters/part-2/05-temperatura-condicoes-termicas.html" class="pagination-link" aria-label="Temperatura e condições térmicas">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Temperatura e condições térmicas</span></span>
-      </a>          
+      </a>
   </div>
   <div class="nav-page nav-page-next">
       <a href="../../chapters/part-2/07-qualidade-ar-queimadas-fumaca.html" class="pagination-link" aria-label="Qualidade do ar, queimadas e fumaça">

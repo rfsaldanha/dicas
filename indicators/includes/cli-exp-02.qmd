@@ -1,0 +1,122 @@
+## Ficha do indicador: Pessoas-dia de exposição de populações vulneráveis a ondas de calor {#sec-cli-exp-02}
+
+::: {.indicator-card}
+**Código:** CLI-EXP-02 \
+**Título resumido:** Pessoas-dia expostas a ondas de calor \
+**Tema:** Temperatura e condições térmicas \
+**Dimensão:** perigo; exposição \
+**Disponibilidade:** [requer processamento geoespacial]{.availability}
+:::
+
+### Identificação e fundamento
+
+**Indicador consolidado em.** Indicador 1.1.1 do Lancet Countdown para exposição de menores de um ano e pessoas com 65 anos ou mais a dias de onda de calor.
+
+### Conceito
+
+Soma, em todas as células e dias, do número de pessoas do grupo etário residente em célula classificada como exposta a uma onda de calor.
+
+### Objetivo
+
+Integrar alcance populacional e duração da exposição de grupos etários com maior suscetibilidade ao calor.
+
+### Interpretação
+
+Uma pessoa-dia equivale a uma pessoa exposta durante um dia. Cem pessoas expostas por dez dias produzem mil pessoas-dia, assim como mil pessoas expostas por um dia; por isso, o total deve ser acompanhado de pessoas expostas, dias por pessoa e distribuição temporal.
+
+### Usos
+
+- Monitorar exposição de lactentes e pessoas idosas.
+- Comparar períodos e territórios com metodologia harmonizada.
+- Dimensionar comunicação
+- busca ativa e capacidade assistencial.
+
+### Limitações
+
+- População residencial em grade não representa mobilidade
+- ocupação ou tempo em ambientes internos.
+- A definição do Lancet Countdown considera pelo menos dois dias com TX e TN acima do percentil 95 local.
+- Mudanças demográficas e mudanças no perigo contribuem conjuntamente para o total.
+- Fontes populacionais distintas antes e depois de 2000 podem introduzir inconsistência.
+
+### Fontes de dados
+
+- ERA5-Land — temperaturas máxima e mínima diárias em grade para classificar dias de onda ([cadastro](../../backmatter/indice-fontes.qmd#era5-land))
+- Instituto Brasileiro de Geografia e Estatística — população por idade e base territorial para aplicação brasileira ([cadastro](../../backmatter/indice-fontes.qmd#ibge))
+
+### Método de cálculo
+
+Em cada célula, identificar sequências de pelo menos dois dias nas quais TX e TN superam os respectivos percentis 95 locais do período 1986–2005. Para cada dia participante, multiplicar o indicador binário pelo número de residentes menores de um ano ou com 65 anos ou mais na célula e somar em dias e células. Calcular também dias médios por pessoa e, quando se pretende separar mudança climática de mudança demográfica, cenário contrafactual com incidência de ondas mantida no nível-base.
+
+$$
+PD_{a,t}=\sum_d\sum_g I(HW_{g,d}=1)\times Pop_{a,g,t}
+$$
+
+::: {.indicator-card}
+**Numerador.** Não se aplica; soma de produtos célula-dia.
+
+**Denominador.** População do grupo etário quando expresso adicionalmente como dias de onda por pessoa.
+
+**Unidade de medida.** Pessoas-dia; adicionalmente, dias por pessoa exposta ou por pessoa do grupo.
+
+**Variáveis e categorias de análise.** TX; TN; percentis locais; dia; célula; idade menor de um ano; idade de 65 anos ou mais; sexo e território quando disponíveis.
+
+**Granularidade.** Célula-dia antes da agregação; território-ano na publicação sintética.
+
+**Periodicidade de atualização.** Anual no Lancet Countdown; conforme ciclo de atualização populacional na aplicação local.
+
+**Responsabilidade gerencial.** Serviço meteorológico ou climático responsável pelo perigo, instituição estatística responsável pela população e autoridade de saúde responsável pelo uso.
+
+**Notas.** Extensão e exposição populacional não medem vulnerabilidade nem dano. O mesmo valor pode envolver populações, duração, intensidade e capacidades de proteção muito diferentes.
+
+**Análise descritiva do indicador.** Apresentar total de pessoas-dia, dias por pessoa, número de pessoas residentes em áreas expostas, grupos etários, tendência, decomposição entre demografia e frequência térmica e distribuição territorial.
+
+:::
+
+### Campos complementares para clima, ambiente e saúde
+
+::: {.indicator-card}
+**Unidade territorial.** Célula populacional e território de agregação.
+
+**Resolução espacial original.** A grade comum entre exposição térmica e população; registrar reamostragem e alocação.
+
+**Resolução temporal.** Entrada diária de temperatura e população anual; saída anual ou por episódio.
+
+**Período de referência.** 1986–2005 para os percentis e a comparação de exposição no indicador do Lancet Countdown.
+
+**Limiar ou valor de referência.** Pelo menos dois dias consecutivos com TX e TN acima do percentil 95 da climatologia local.
+
+:::
+
+### Disponibilidade e acesso
+
+**Cobertura geográfica.** Território de análise coberto simultaneamente pelas superfícies de calor e pelos dados populacionais, quando aplicável.
+
+**Período disponível.** Desde 1980 no indicador internacional; aplicação brasileira depende das séries térmicas e populacionais harmonizadas.
+
+**Periodicidade de atualização.** Anual no Lancet Countdown; conforme ciclo de atualização populacional na aplicação local.
+
+**Forma de acesso.** Dados e descrição no portal do Lancet Countdown; cálculo brasileiro requer grade térmica e população por idade harmonizadas.
+
+**URL ou identificador persistente.** https://lancetcountdown.org/explore-our-data/
+
+**Formato dos arquivos.** Grade diária de exposição, superfície populacional e tabela anual por território e idade.
+
+**Necessidade de processamento.** Construir percentis, detectar ondas, harmonizar grades e anos, multiplicar população por dias expostos, agregar e avaliar incerteza demográfica.
+
+### Qualidade, comparação e saúde
+
+**Qualidade e incerteza.** Documentar definição da onda, período-base, grade, conectividade, área real das células, máscara de terra, fonte e ano da população, imputações, mobilidade não observada e propagação de incerteza.
+
+**Possibilidade de comparação.** Manter definição térmica, período-base, resolução, projeção, vizinhança espacial, população de referência e agregação temporal; mudanças metodológicas interrompem comparabilidade direta.
+
+**Relação com desfechos de saúde.** Lactentes e pessoas idosas apresentam maior suscetibilidade a agravos e mortalidade pelo calor; o indicador mede exposição populacional, não casos nem risco individual.
+
+**Defasagens temporais relevantes.** Preservar a data de cada dia de onda e do desfecho para análises agudas; pessoas-dia acumuladas não informam sozinhas a sequência nem as defasagens.
+
+**Aplicação na gestão.** Dimensionar coordenação regional, comunicação, insumos, capacidade assistencial e avaliação de alcance, sempre combinado com intensidade, duração e vulnerabilidade.
+
+### Referências metodológicas
+
+- [@romanello2024lancet]
+- [@lancetcountdown2026data]

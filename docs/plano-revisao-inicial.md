@@ -1,5 +1,7 @@
 # Plano de conferência da versão inicial consolidada
 
+> Documento histórico da fase 0.1.0. O plano foi concluído e é mantido apenas para rastreabilidade; o estado atual está descrito em `docs/relatorio-versao-para-revisao.md`.
+
 ## Objetivo
 
 Preparar o protótipo existente para uma revisão editorial confiável, preservando a arquitetura de uma única árvore de conteúdo para HTML e PDF. Esta etapa não amplia o livro nem substitui os marcadores editoriais por texto genérico.

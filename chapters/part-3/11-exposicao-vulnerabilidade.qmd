@@ -1,35 +1,166 @@
 # Exposição e vulnerabilidade socioambiental {#sec-exposicao-vulnerabilidade}
 
-Este capítulo integrará informações ambientais, demográficas, sociais e institucionais para descrever quem ou o que está exposto e quais processos produzem maior suscetibilidade ou menor capacidade de proteção.
+Exposição e vulnerabilidade explicam por que um mesmo perigo climático ou ambiental não alcança todas as pessoas do mesmo modo e não produz consequências iguais. A exposição descreve a presença de pessoas, serviços, infraestrutura ou atividades no tempo e no espaço do perigo. Vulnerabilidade reúne condições que aumentam a suscetibilidade ao dano ou reduzem a capacidade de antecipar, proteger-se, responder e se recuperar. Nenhuma das duas é sinônimo de desfecho.
 
-Seu objeto são condições anteriores ou concomitantes ao efeito. Desfechos observados e inferência epidemiológica pertencem ao @sec-efeitos-saude; capacidade institucional de resposta pertence ao @sec-resposta.
+Essa distinção é operacional. Um bairro pode ter temperatura elevada, mas pouca população presente durante o dia; outro pode registrar temperatura moderadamente menor e concentrar moradias sem ventilação, trabalho ao ar livre, pessoas clinicamente suscetíveis e acesso precário a água e atenção à saúde. Um indicador de perigo isolado favoreceria o primeiro. Um indicador de exposição e uma análise de vulnerabilidade podem mostrar por que o segundo exige maior proteção.
+
+A avaliação recomendada pela OMS parte de riscos de saúde definidos, descreve populações e regiões afetadas, examina programas existentes e identifica opções de adaptação [@who2021vulnerability]. O processo não deve fabricar um índice único para toda decisão. Deve preservar a cadeia entre perigo, exposição, condições sociais, capacidade de resposta e efeito.
+
+```{mermaid}
+%%| label: fig-cadeia-exposicao-vulnerabilidade
+%%| fig-cap: "Relação analítica entre perigo, exposição, vulnerabilidade, capacidade e efeito"
+flowchart LR
+  P["Perigo<br/>intensidade, duração, área"] --> E["Exposição<br/>quem, onde, quando"]
+  V["Vulnerabilidade<br/>suscetibilidade e proteção"] --> R["Risco de efeito"]
+  E --> R
+  C["Capacidade de resposta"] -->|reduz ou modifica| R
+  R --> D["Desfechos observados"]
+  D --> A["Aprendizado e adaptação"]
+  A --> C
+```
 
 ## Exposição individual, populacional e territorial
 
-## Vulnerabilidade social e demográfica
+Exposição individual requer trajetória, duração e intensidade no microambiente. Pode envolver endereço residencial, local de trabalho, deslocamentos, tempo em ambiente interno e medidas pessoais. É a forma mais próxima da experiência real, mas raramente está disponível para toda a população.
 
-## Vulnerabilidade sanitária e institucional
+Exposição populacional combina uma superfície de perigo com uma distribuição de pessoas. O resultado pode ser uma contagem de residentes em área atingida, pessoas-dia, média ponderada pela população ou distribuição por grupos. Cada construção responde a uma pergunta:
 
-## Populações e situações relevantes
+- **pessoas expostas** estima quantas pessoas residem ou estavam presentes em unidades classificadas;
+- **pessoas-dia** integra número de pessoas e duração;
+- **dias por pessoa** permite comparar grupos de tamanhos diferentes;
+- **exposição média ponderada pela população** resume a intensidade média experimentada pela distribuição residencial;
+- **proporção exposta** relaciona o número exposto à população elegível.
+
+As fichas temáticas anteriores documentam aplicações consolidadas dessas construções. Pessoas-dia de ondas de calor estão na @sec-cli-exp-02; PM2,5 anual ponderado pela população, na @sec-amb-ar-01; PM2,5 atribuível à fumaça de incêndios ponderado pela população, na @sec-amb-fum-01; acesso residencial a área verde, na @sec-amb-urb-02; e pessoas diretamente afetadas por desastres, na @sec-des-hum-02. Esses indicadores não são substituídos por uma ficha genérica de “população exposta”: a definição do perigo, a população, o tempo e o suporte espacial pertencem ao próprio indicador.
+
+### O denominador muda a pergunta
+
+Uma contagem de pessoas expostas é indispensável para dimensionar recursos. Uma proporção é necessária para comparar territórios de tamanhos diferentes. Dias por pessoa separam parcialmente o tamanho populacional da persistência do evento. Nenhuma medida deve ser escolhida apenas por produzir um mapa visualmente mais contrastado.
+
+Se \(I_{g,t}\) indica exposição na célula \(g\) e no tempo \(t\), e \(Pop_{g,t}\) representa a população, uma estrutura frequente é:
+
+$$
+Pessoas\text{-}tempo=\sum_t\sum_g I_{g,t}\times Pop_{g,t}
+$$
+
+A expressão só é válida depois de definir o que torna \(I_{g,t}=1\). Para calor, pode ser a participação em uma onda com percentis de máxima e mínima; para inundação, presença na mancha com profundidade mínima; para fumaça, concentração atribuível acima de um critério. Sem a definição do perigo, a fórmula é vazia.
+
+### Residência não é presença
+
+Grades populacionais e Censos localizam residência habitual. Pessoas trabalham, estudam, cuidam, circulam e podem estar temporariamente deslocadas. A mobilidade é particularmente importante em centros comerciais, áreas turísticas, zonas industriais e rotas de evacuação. Quando não houver dados de presença, o produto deve ser chamado de **população residente em área exposta**, e não população efetivamente exposta.
+
+O ambiente interno também modifica a exposição. Temperatura de estação não mede o interior da moradia; concentração externa de PM2,5 não equivale à dose inalada; água disponível no setor censitário não assegura continuidade no domicílio. Materiais, ventilação, ar-condicionado, filtros, ocupação, comportamento e interrupções de serviços formam pontes entre a condição ambiental e a experiência humana.
+
+## Vulnerabilidade como processo social
+
+Vulnerabilidade não é essência de uma pessoa, idade, povo ou lugar. Ela é produzida por relações sociais, decisões públicas, discriminação, ocupação do território, condições de trabalho, moradia, renda, redes de cuidado, acesso a informação e disponibilidade de serviços. Dizer que “pessoas idosas são vulneráveis” é insuficiente. É necessário distinguir suscetibilidade fisiológica, doença preexistente, dependência para atividades, isolamento, conforto térmico da moradia, renda, acesso a energia e presença de uma rede de apoio.
+
+O mesmo cuidado vale para raça, cor, etnia, gênero, deficiência, situação migratória e pertencimento a povos e comunidades tradicionais. Essas categorias podem revelar desigualdades persistentes, mas não as causam biologicamente. Racismo ambiental, remoção territorial, barreiras linguísticas, invisibilidade estatística, informalidade do trabalho e menor acesso a políticas são mecanismos que devem aparecer na interpretação.
 
 ### Crianças e pessoas idosas
 
-### Pessoas com doenças crônicas
+Lactentes dependem de cuidadores, têm termorregulação distinta e podem ser afetados por interrupções de água, energia, alimentação e atenção. Pessoas idosas formam um grupo heterogêneo; risco pode aumentar com doença cardiovascular ou renal, uso de medicamentos, mobilidade reduzida, isolamento e residência sem resfriamento. Idade deve ser desagregada em faixas pertinentes e combinada com condições de proteção, sem converter um ponto de corte administrativo em diagnóstico individual.
+
+### Pessoas com doenças crônicas e deficiência
+
+Doenças cardiovasculares, respiratórias, renais, metabólicas e neurológicas podem modificar a resposta ao calor, à poluição e a interrupções de cuidado. A continuidade de medicamentos, oxigênio, diálise, refrigeração de insumos e transporte é parte da exposição funcional durante emergências. Deficiência não equivale automaticamente a dependência, mas barreiras físicas, comunicacionais e atitudinais podem impedir acesso a alertas, abrigos, evacuação e serviços.
+
+Dados de saúde individual exigem proteção de confidencialidade. Mapas de pequenos números ou condições raras podem identificar pessoas. Quando a finalidade for planejamento local, controles de acesso e divulgação agregada devem ser definidos antes da vinculação das bases.
 
 ### Trabalhadores
 
-### Povos indígenas e comunidades tradicionais
+Ocupação determina local, horário, esforço, vestimenta, proteção e capacidade de interromper a atividade. Trabalhadores rurais, da construção, limpeza urbana, transporte, cozinha, indústria e resposta a emergências podem enfrentar calor, fumaça, radiação e contaminantes em condições que a residência não revela. Informalidade e remuneração por produção reduzem a autonomia para fazer pausas. O WBGT da @sec-cli-est-05 ilustra por que a avaliação ocupacional deve combinar ambiente, carga metabólica, vestimenta, aclimatação e organização do trabalho.
 
-### Desigualdades raciais e territoriais
+### Povos indígenas, quilombolas e comunidades tradicionais
+
+Território, água, alimento, mobilidade, práticas culturais e autonomia são dimensões inseparáveis da saúde. Indicadores baseados apenas em renda domiciliar podem omitir perdas territoriais, contaminação, restrição de acesso a recursos e impactos sobre modos de vida. A análise deve respeitar direitos coletivos, consulta, governança dos dados e conhecimento local. A ausência de registros em sistemas nacionais não autoriza concluir ausência de exposição ou efeito.
+
+## Moradia e infraestrutura cotidiana
+
+Moradia liga perigos externos à exposição real. Cobertura e paredes, densidade de ocupação, ventilação, umidade, acesso a água e saneamento, estabilidade da posse, custo e localização influenciam calor interno, contaminação, possibilidade de permanecer em casa e capacidade de recuperar perdas.
+
+O indicador ODS 11.1.1 é uma medida consolidada de privação habitacional urbana. Ele reúne população em assentamentos precários ou informais e moradia inadequada, segundo componentes publicados [@un2024sdg111; @unhabitat2020sdg111]. Sua utilidade aumenta quando cada privação é apresentada separadamente. Um total de 30% não informa se predomina adensamento, falta de saneamento, insegurança de posse ou custo excessivo — problemas que exigem intervenções diferentes.
 
 ## Índices compostos
 
+Índices compostos são úteis para triagem territorial quando sua arquitetura é pública. Também comprimem decisões: escolha de variáveis, transformação, peso, direção e universo de comparação. Dois índices com o mesmo nome podem medir realidades diferentes.
+
+O IVS do Ipea foi construído para o Brasil e combina 16 indicadores em infraestrutura urbana, capital humano e renda e trabalho [@ipea2015ivs; @marguti2018ivs]. O CDC/ATSDR SVI usa 16 variáveis e classificações percentílicas em quatro temas para planejamento de saúde pública e emergências nos Estados Unidos [@cdc2024svi; @flanagan2011svi]. O primeiro produz uma escala normalizada ancorada em parâmetros metodológicos; o segundo classifica posições relativas no universo da edição. Eles não são intercambiáveis.
+
+::: {.callout-warning title="O que não fazer"}
+Não somar perigo, exposição, vulnerabilidade e capacidade em um escore único apenas porque todas as camadas foram normalizadas entre zero e um. A operação pode compensar uma exposição extrema por um valor social baixo e ocultar justamente o território que exige ação.
+:::
+
+Quando um índice composto for usado, o painel deve permitir abrir:
+
+1. o escore total;
+2. dimensões;
+3. componentes originais;
+4. ano e fonte;
+5. erro ou qualidade;
+6. mudanças de limites territoriais;
+7. critério de prioridade.
+
+## Principais indicadores usados em saúde pública e gestão de riscos
+
+Os indicadores consolidados de exposição e vulnerabilidade podem ser organizados por função, sem transformá-los em uma lista genérica:
+
+| Função | Indicadores consolidados | Aplicação | Limite principal |
+|---|---|---|---|
+| Quantificar alcance do perigo | pessoas expostas, pessoas-dia, dias por pessoa e médias ponderadas, definidos dentro de cada fenômeno | Dimensionar população e duração | Dependem da definição do perigo e da população |
+| Caracterizar privação social no Brasil | IVS e suas três dimensões | Planejamento e estratificação territorial | Não contém perigo climático |
+| Apoiar emergências nos Estados Unidos | CDC/ATSDR SVI, temas e variáveis | Saúde pública e resposta a desastres | Não é transferível diretamente ao Brasil |
+| Descrever moradia urbana inadequada | ODS 11.1.1 e componentes | Habitação, saneamento, saúde e resiliência | A união composta oculta privações específicas |
+| Identificar grupos com maior suscetibilidade | distribuição por idade, condição de saúde, deficiência, ocupação e demais categorias pertinentes | Busca ativa e desenho de proteção | Categorias não explicam os processos sociais |
+| Medir proteção e resposta | indicadores do @sec-resposta | Capacidade de antecipar, manter e recuperar serviços | Existência documental não garante funcionamento |
+
+: Indicadores de exposição e vulnerabilidade e suas funções {#tbl-indicadores-exposicao-vulnerabilidade}
+
+As três fichas a seguir documentam medidas publicadas que podem apoiar análise territorial. Os indicadores de exposição específicos permanecem nos capítulos dos respectivos fenômenos.
+
+{{< include ../../indicators/includes/exp-vul-01.qmd >}}
+
+{{< include ../../indicators/includes/exp-vul-02.qmd >}}
+
+{{< include ../../indicators/includes/exp-hab-01.qmd >}}
+
 ## Múltiplas exposições
 
-## Mapas de risco
+Pessoas podem enfrentar calor, fumaça, interrupção de energia e falta de água no mesmo período. A coincidência pode ser:
 
-**Indicadores previstos:** população e serviços expostos; exposição ocupacional; condições de moradia; concentração de grupos populacionais relevantes; acesso a proteção e atenção à saúde; índices de vulnerabilidade com componentes publicados separadamente; múltiplas exposições.
+- **temporal**, quando perigos ocorrem simultaneamente;
+- **sequencial**, quando um evento reduz a capacidade de enfrentar o seguinte;
+- **espacial**, quando diferentes fontes afetam o mesmo território;
+- **social**, quando as mesmas condições restringem proteção diante de vários perigos.
 
-::: {.todo}
-TODO: evitar naturalizar a vulnerabilidade nos grupos; explicitar processos, direitos, recursos e condições territoriais que a produzem.
-:::
+Contar camadas sobrepostas é um começo, não uma estimativa de efeito conjunto. Interações biológicas, trajetórias temporais e correlação entre medidas precisam de desenho analítico. Um mapa de “quatro exposições” não informa se os efeitos se somam, multiplicam ou se uma camada é apenas proxy da outra.
+
+Uma matriz de coocorrência é mais transparente do que um escore arbitrário. Linhas podem representar territórios; colunas, exposições definidas; células, intensidade, duração ou presença. A gestão pode então priorizar combinações relevantes — por exemplo, calor forte, interrupção de energia e alta concentração de pessoas que dependem de equipamentos elétricos — sem perder o significado de cada variável.
+
+## Mapas de risco e incerteza
+
+Mapas são instrumentos de análise e decisão, não fotografias neutras. Unidade territorial, classificação, paleta, escala e ausência de dados alteram a mensagem. Percentis destacam posição relativa; limites absolutos mostram cumprimento de referência; números absolutos dimensionam recursos; taxas e proporções apoiam comparação.
+
+O problema da unidade de área modificável e a falácia ecológica, discutidos no @sec-espaco-tempo, são centrais. Um setor censitário de alta vulnerabilidade contém diversidade interna. Uma associação territorial não prova que toda pessoa ali tenha a condição média. Para evitar estigmatização:
+
+- nomeie a condição, não o território como essência;
+- mostre recursos, organizações e capacidades locais;
+- inclua incerteza e ausência de dados;
+- use mapas de componentes junto ao índice;
+- valide interpretações com equipes e comunidades;
+- registre quem pode acessar camadas sensíveis.
+
+## Da descrição à proteção
+
+O produto mínimo de uma análise de exposição e vulnerabilidade deve responder:
+
+1. qual perigo, intensidade, duração e período foram usados;
+2. qual população ou ativo foi considerado presente;
+3. quais condições modificam suscetibilidade e proteção;
+4. qual data e resolução têm as fontes;
+5. quem está invisível ou mal representado;
+6. que ação concreta cada achado pode acionar;
+7. quem tem responsabilidade e recurso para agir;
+8. como a ação será acompanhada.
+
+Priorizar não significa apenas ordenar territórios. Pode significar ampliar antecedência do alerta, oferecer mensagem em formatos acessíveis, garantir água e energia, ajustar jornada de trabalho, organizar transporte, proteger medicamentos, abrir pontos de apoio ou intensificar vigilância. O valor do indicador está na ligação explícita entre uma condição mensurada, um direito e uma resposta possível.

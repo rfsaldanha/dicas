@@ -1,0 +1,122 @@
+## Ficha do indicador: Humidex do Environment and Climate Change Canada {#sec-cli-est-03}
+
+::: {.indicator-card}
+**Código:** CLI-EST-03 \
+**Título resumido:** Humidex \
+**Tema:** Temperatura e condições térmicas \
+**Dimensão:** perigo; exposição \
+**Disponibilidade:** [requer processamento meteorológico]{.availability}
+:::
+
+### Identificação e fundamento
+
+**Indicador consolidado em.** Fórmula padronizada pelo Environment and Climate Change Canada e método original de Masterton e Richardson.
+
+### Conceito
+
+Índice adimensional que combina temperatura do ar e pressão de vapor, expressando quão quente e úmida a condição parece para uma pessoa média.
+
+### Objetivo
+
+Comunicar desconforto e perigo potencial associados à combinação de temperatura elevada e umidade.
+
+### Interpretação
+
+Na escala operacional canadense, 20–29 indica pouco desconforto; 30–39, algum desconforto; 40–45, grande desconforto e recomendação de evitar esforço; 46 ou mais, condição perigosa com possibilidade de golpe de calor.
+
+### Usos
+
+- Comunicação de calor úmido.
+- Orientação de atividades ao ar livre no sistema canadense.
+- Estudos de exposição que adotem explicitamente o Humidex.
+
+### Limitações
+
+- Não incorpora vento nem radiação solar.
+- Categorias refletem orientação canadense e não equivalem a limiares brasileiros.
+- Não representa atividade
+- vestimenta ou suscetibilidade individual.
+- O uso de umidade relativa exige sua conversão consistente para pressão de vapor ou ponto de orvalho.
+
+### Fontes de dados
+
+- Instituto Nacional de Meteorologia — temperatura do ar e ponto de orvalho ou umidade relativa ([cadastro](../../backmatter/indice-fontes.qmd#inmet))
+- ERA5-Land — temperatura e umidade em grade para análise retrospectiva, após validação ([cadastro](../../backmatter/indice-fontes.qmd#era5-land))
+
+### Método de cálculo
+
+Converter o ponto de orvalho para kelvin. Calcular a pressão de vapor e, em seguida, o incremento h; somá-lo à temperatura do ar em graus Celsius. Se a entrada disponível for umidade relativa, derivar primeiro o ponto de orvalho ou a pressão de vapor com método documentado.
+
+$$
+Humidex=T_a+0.5555(e-10),\quad e=6.11\exp\left[5417.7530\left(\frac{1}{273.15}-\frac{1}{T_d}\right)\right]
+$$
+
+::: {.indicator-card}
+**Numerador.** Não se aplica.
+
+**Denominador.** Não se aplica.
+
+**Unidade de medida.** Índice adimensional informado em escala semelhante a graus Celsius.
+
+**Variáveis e categorias de análise.** Temperatura do ar (°C); ponto de orvalho (K) ou pressão de vapor (hPa); hora; local; faixa canadense de impacto.
+
+**Granularidade.** Valor horário ou por observação; resumo diário, por episódio ou território.
+
+**Periodicidade de atualização.** Horária ou conforme a fonte.
+
+**Responsabilidade gerencial.** Serviço meteorológico ou equipe de saúde ambiental ou do trabalhador responsável pela medição, com autoridade de saúde responsável pelo protocolo de uso.
+
+**Notas.** O valor é uma temperatura ou índice equivalente, não a temperatura corporal nem uma medição direta de risco individual. Categorias operacionais de outro país não constituem automaticamente limiares de alerta no Brasil.
+
+**Análise descritiva do indicador.** Apresentar distribuição, máximo diário, horas em cada faixa, completude e comparação com temperatura do ar; separar a descrição das decisões de alerta.
+
+:::
+
+### Campos complementares para clima, ambiente e saúde
+
+::: {.indicator-card}
+**Unidade territorial.** Ponto de observação, célula de grade ou território obtido por agregação explícita.
+
+**Resolução espacial original.** Ponto de estação ou célula do produto meteorológico.
+
+**Resolução temporal.** Horária ou subdiária.
+
+**Período de referência.** Não exige climatologia; tendências requerem série homogênea.
+
+**Limiar ou valor de referência.** Faixas canadenses 20–29, 30–39, 40–45 e ≥46; seu emprego como gatilho fora do Canadá requer validação local.
+
+:::
+
+### Disponibilidade e acesso
+
+**Cobertura geográfica.** A da fonte meteorológica ou do levantamento microambiental selecionado.
+
+**Período disponível.** O período comum às variáveis de temperatura e umidade.
+
+**Periodicidade de atualização.** Horária ou conforme a fonte.
+
+**Forma de acesso.** Cálculo sobre observações sincronizadas de temperatura e umidade.
+
+**URL ou identificador persistente.** https://www.canada.ca/en/environment-climate-change/services/climate-change/canadian-centre-climate-services/display-download/technical-documentation-climate-normals.html
+
+**Formato dos arquivos.** Tabela horária por estação ou grade.
+
+**Necessidade de processamento.** Controle de qualidade, conversão do ponto de orvalho para kelvin, cálculo de pressão de vapor e aplicação da fórmula.
+
+### Qualidade, comparação e saúde
+
+**Qualidade e incerteza.** Verificar unidades, altura e abrigo dos sensores, sincronização das variáveis, dados ausentes, domínio de validade da fórmula, representatividade espacial e diferença entre valor medido e modelado.
+
+**Possibilidade de comparação.** Manter fórmula, versão, entradas, unidades, altura do vento, tratamento da radiação, resolução temporal e regra de agregação; índices diferentes não são conversíveis por uma escala comum.
+
+**Relação com desfechos de saúde.** A umidade elevada dificulta a perda de calor por evaporação; o Humidex apoia comunicação de desconforto e risco, mas não modela diretamente a termorregulação individual.
+
+**Defasagens temporais relevantes.** Preservar valores horários e diários para relacionar exposições agudas a desfechos no mesmo dia e em dias subsequentes; a agregação anual não serve para estimar efeitos de curto prazo.
+
+**Aplicação na gestão.** Apoiar comunicação e orientação de atividades quando a autoridade adotar e validar explicitamente a escala; não converter suas faixas para Heat Index.
+
+### Referências metodológicas
+
+- [@canada2026humidex]
+- [@canada2021humidexformula]
+- [@masterton1979]

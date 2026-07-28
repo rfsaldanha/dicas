@@ -1,53 +1,61 @@
 codigo: CLI-CAL-01
-titulo_completo: Ocorrência de onda de calor
-titulo_resumido: Onda de calor
+titulo_completo: Índice de duração de períodos quentes (WSDI)
+titulo_resumido: Duração de períodos quentes — WSDI
 tema: Temperatura e condições térmicas
-conceito: Episódio com temperatura persistentemente elevada em relação a um limiar e durante uma duração mínima previamente definidos.
-objetivo: Identificar períodos de calor persistente relevantes para vigilância, preparação dos serviços e comunicação de risco.
-interpretacao: A ocorrência indica que o limiar térmico adotado foi superado pelo número mínimo de dias consecutivos. Resultados dependem integralmente da definição operacional.
+capitulo: chapters/part-2/05-temperatura-condicoes-termicas.qmd
+referencia_metodologica: Warm Spell Duration Index (WSDI), índice ETCCDI documentado pelo Climdex.
+conceito: Número anual de dias que pertencem a sequências de pelo menos seis dias consecutivos nas quais a temperatura máxima diária excede o percentil 90 específico do dia do calendário no período-base.
+objetivo: Quantificar a persistência anual de períodos de calor relativo por uma definição internacionalmente coordenada de extremos climáticos.
+interpretacao: O valor é a soma de todos os dias pertencentes a sequências qualificadas no ano. WSDI igual a 12 pode representar uma sequência de 12 dias ou duas sequências de 6; por isso, número e duração dos episódios podem ser apresentados como medidas auxiliares, sem alterar o indicador.
 usos:
-  - Ativar rotinas de monitoramento e preparação.
-  - Comparar frequência, duração e intensidade de episódios ao longo do tempo.
-  - Delimitar janelas de exposição em análises de saúde.
+  - Monitorar mudanças na persistência de períodos quentes.
+  - Comparar séries climáticas produzidas com o mesmo protocolo.
+  - Caracterizar janelas prolongadas de exposição em estudos de saúde.
+  - Apoiar planejamento sazonal e avaliação retrospectiva de episódios.
 limitacoes:
-  - Não existe uma única definição universal de onda de calor.
-  - Limiares absolutos e relativos respondem a perguntas diferentes.
-  - A exposição real também depende de moradia, trabalho, mobilidade, umidade e acesso a proteção.
+  - WSDI não é uma definição universal de onda de calor para alertas sanitários.
+  - O mínimo fixo de seis dias pode não representar a janela de efeito mais relevante para todos os desfechos.
+  - O índice usa temperatura máxima e não captura ausência de resfriamento noturno.
+  - O resultado depende do período-base e da qualidade da série.
 dimensoes:
   - perigo
   - exposição
-metodo_calculo: Aplicar um limiar térmico previamente documentado a uma série diária e identificar sequências que atendam à duração mínima. Relatar separadamente ocorrência, duração e intensidade.
-formula_calculo: 'I_d = 1(T_d > L); \quad OC = 1\left(\sum_{j=d}^{d+k-1} I_j = k\right)'
-numerador: Número de episódios, dias em episódio ou população exposta, conforme a medida derivada.
-denominador: Não se aplica à ocorrência; pode ser população residente nas medidas de exposição.
-unidade_medida: Episódio, dia, grau-dia ou pessoa, conforme a medida apresentada.
-variaveis_categorias_analise: Tipo de limiar; duração; intensidade; estação; território; grupos populacionais.
-granularidade: Ponto de estação ou célula de grade; agregações territoriais dependem da regra de exposição.
-unidade_territorial: Ponto, célula de grade ou território agregado.
-resolucao_espacial_original: Depende da fonte térmica utilizada.
-resolucao_temporal: Diária para detecção; síntese por evento, mês, estação ou ano.
-periodo_referencia: Declarar o período climatológico quando o limiar for percentílico.
-limiar_referencia: Deve ser escolhido e justificado para o contexto; não usar um valor universal sem validação.
+metodo_calculo: Calcular o percentil 90 de TX por dia do calendário em janela móvel de cinco dias no período-base. Identificar todas as sequências anuais de seis ou mais dias consecutivos com TX acima do limiar e somar os dias pertencentes a essas sequências.
+formula_calculo: 'WSDI_j = \sum_{i \in j} I\{i \text{ pertence a sequência } \geq 6 \text{ dias com } TX_{ij} > TX^{90}_{in}\}'
+numerador: Não se aplica; trata-se de contagem de dias qualificados.
+denominador: Não se aplica.
+unidade_medida: Dias por ano.
+variaveis_categorias_analise: Temperatura máxima diária; percentil 90; período-base; ano; estação ou célula de grade.
+granularidade: Ponto de estação ou célula de grade; agregação territorial deve preservar a regra de sequência e documentar suporte.
+unidade_territorial: Estação meteorológica, célula de grade ou território derivado.
+resolucao_espacial_original: A da estação ou produto em grade utilizado.
+resolucao_temporal: Entrada diária; saída anual.
+periodo_referencia: O padrão clássico ETCCDI usa 1961–1990; qualquer alteração deve ser declarada.
+limiar_referencia: TX acima do percentil 90 do dia do calendário por pelo menos seis dias consecutivos.
 fontes_dados:
   - id: inmet
-    papel: observação primária
+    papel: observação diária em estação
   - id: era5-land
-    papel: fonte secundária modelada
-responsabilidade_gerencial: A definir no protocolo operacional pela instituição que adotar o indicador.
-cobertura_geografica: Depende da fonte e da rede de monitoramento.
-periodo_disponivel: "TODO: verificar para cada conjunto de dados."
-periodicidade_atualizacao: "TODO: verificar para cada conjunto de dados."
-forma_acesso: Indicador geralmente calculado a partir de séries de temperatura.
-url_persistente: "TODO: registrar o protocolo metodológico e a versão da fonte."
-formatos: Depende da fonte.
+    papel: reanálise em grade, condicionada à validação
+responsabilidade_gerencial: Serviço climático produtor e instituição de saúde usuária devem pactuar versão, atualização, interpretação e eventual emprego operacional.
+cobertura_geografica: A da rede ou produto escolhido.
+periodo_disponivel: Condicionado à existência de série diária longa e homogênea.
+periodicidade_atualizacao: Anual; cálculos provisórios sazonais devem ser identificados como tais.
+forma_acesso: Cálculo sobre série diária de temperatura máxima.
+url_persistente: https://www.climdex.org/learn/indices/
+formatos: Tabela anual por estação ou arquivo multidimensional por célula de grade.
 disponibilidade:
-  - requer modelagem
-necessidade_processamento: Requer controle de qualidade, definição de limiar, detecção de sequências e, em análises territoriais, regras de agregação espacial.
-qualidade_incerteza: A incerteza provém da fonte térmica, da escolha do limiar, do período de referência, da cobertura espacial e da classificação da exposição.
-comparabilidade: Só comparar estimativas produzidas com a mesma definição ou apresentar análise de sensibilidade entre definições.
-relacao_saude: Ondas de calor podem ser usadas como janelas de exposição; a atribuição de efeitos exige desenho epidemiológico e controle de confundimento.
-defasagens_temporais: Avaliar efeitos no mesmo dia e defasagens curtas conforme o desfecho e a literatura específica.
-aplicacao_gestao: Apoiar níveis de alerta, planos de contingência, comunicação direcionada e preparação assistencial.
-notas: A ficha qualifica a definição operacional; intensidade, duração e população exposta devem ser registradas como medidas relacionadas, não confundidas.
-analise_descritiva: "Não incluída nesta ficha demonstrativa. TODO: produzir somente após definir limiar, duração, fonte, território, período, série validada e visualização correspondente."
-referencias: []
+  - requer processamento climatológico
+necessidade_processamento: Controle de qualidade, percentis, bootstrap na base, detecção de sequências e soma anual.
+qualidade_incerteza: Documentar falhas que interrompam artificialmente sequências, homogeneidade da série, período-base, bootstrap, viés de reanálise e agregação.
+comparabilidade: Exige a mesma definição ETCCDI, período-base, calendário, completude e fonte harmonizada.
+relacao_saude: Períodos persistentes de calor podem elevar morbidade, mortalidade e pressão sobre serviços. Para vigilância operacional, a OMS e a OMM recomendam que gatilhos de alerta sejam relacionados a efeitos locais sobre a saúde, não apenas importados de um índice climático.
+defasagens_temporais: WSDI anual serve a monitoramento climático. Avaliações de efeitos agudos devem conservar início, fim e série diária, examinando defasagens compatíveis com cada desfecho.
+aplicacao_gestao: Avaliar evolução da persistência do calor e subsidiar planos calor–saúde. Não utilizar WSDI isoladamente como gatilho sem validação epidemiológica e previsão tempestiva.
+notas: A ficha distingue o WSDI consolidado de definições locais de onda de calor. Medidas auxiliares de número, duração máxima e intensidade dos episódios devem ser rotuladas separadamente.
+analise_descritiva: Mostrar distribuição anual, anos sem períodos qualificados, duração total e, como medidas auxiliares, número de sequências e duração máxima. Relatar alterações de cobertura.
+referencias:
+  - "[@climdex2024]"
+  - "[@zhang2005]"
+  - "[@wmoWho2015heat]"
+  - "[@who2026heat]"

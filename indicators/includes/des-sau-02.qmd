@@ -1,0 +1,120 @@
+## Ficha do indicador: Número de interrupções de serviços de saúde atribuídas a desastres (componente ODS 11.5.3b) {#sec-des-sau-02}
+
+::: {.indicator-card}
+**Código:** DES-SAU-02 \
+**Título resumido:** Interrupções de serviços de saúde \
+**Tema:** Eventos meteorológicos severos e desastres \
+**Dimensão:** efeito; resposta; exposição \
+**Disponibilidade:** [requer integração intersetorial]{.availability}
+:::
+
+### Identificação e fundamento
+
+**Indicador consolidado em.** Componente de interrupção de serviços de saúde do indicador ODS 11.5.3b e meta D do Marco de Sendai.
+
+### Conceito
+
+Contagem de ocorrências em que serviço de saúde foi interrompido, reduzido ou teve qualidade comprometida por desastre, conforme protocolo de registro.
+
+### Objetivo
+
+Monitorar continuidade assistencial e efeitos funcionais, inclusive quando não há dano estrutural.
+
+### Interpretação
+
+Valor maior indica mais ocorrências de disrupção. Deve ser acompanhado por duração, população, serviço e gravidade.
+
+### Usos
+
+- Gestão de continuidade.
+- Avaliação de resiliência.
+- Priorização de redundância e recuperação.
+
+### Limitações
+
+- Uma unidade pode ter múltiplos serviços interrompidos.
+- Definições de ocorrência variam.
+- Contagem não expressa duração ou população.
+- Quedas de qualidade são difíceis de documentar.
+
+### Fontes de dados
+
+- Sistema Integrado de Informações sobre Desastres — evento e registro de interrupções básicas ([cadastro](../../backmatter/indice-fontes.qmd#s2id))
+- Departamento de Informática do Sistema Único de Saúde — cadastro e produção assistencial para verificação complementar ([cadastro](../../backmatter/indice-fontes.qmd#datasus))
+
+### Método de cálculo
+
+Definir unidade de ocorrência — estabelecimento-serviço-evento —, registrar início, término, nível de funcionamento e causa, verificar atribuição e contar ocorrências únicas.
+
+$$
+N_{interrupções}=\sum_{f,s,e}I(serviço\ s\ de\ f\ interrompido\ pelo\ evento\ e)
+$$
+
+::: {.indicator-card}
+**Numerador.** Não se aplica; contagem de ocorrências únicas.
+
+**Denominador.** Não se aplica; horas-serviço e proporção de estabelecimentos são complementares.
+
+**Unidade de medida.** Ocorrências de interrupção.
+
+**Variáveis e categorias de análise.** Estabelecimento; serviço; interrupção total/parcial; início; duração; barreira; evento; população.
+
+**Granularidade.** Estabelecimento-serviço-evento.
+
+**Periodicidade de atualização.** Durante resposta e até restauração.
+
+**Responsabilidade gerencial.** Proteção e defesa civil consolida perdas e danos; saúde verifica óbitos, agravos e serviços; estatística fornece denominadores.
+
+**Notas.** As fichas seguem indicadores Sendai/ODS. Contagens nacionais devem observar os procedimentos oficiais de validação e evitar dupla contagem.
+
+**Análise descritiva do indicador.** Mostrar número, duração, serviços essenciais, população sem acesso, causas operacionais, substituição e tempo de recuperação.
+
+:::
+
+### Campos complementares para clima, ambiente e saúde
+
+::: {.indicator-card}
+**Unidade territorial.** Estabelecimento e território.
+
+**Resolução espacial original.** Local do serviço.
+
+**Resolução temporal.** Horas/dias por evento e consolidação anual.
+
+**Período de referência.** Evento e período de recuperação.
+
+**Limiar ou valor de referência.** Interrupção, redução ou perda de qualidade conforme definição ODS/Sendai adotada.
+
+:::
+
+### Disponibilidade e acesso
+
+**Cobertura geográfica.** Brasil, condicionada a registro específico e integração setorial.
+
+**Período disponível.** Conforme sistemas envolvidos.
+
+**Periodicidade de atualização.** Durante resposta e até restauração.
+
+**Forma de acesso.** Formulários de desastre, sistemas de situação e informação assistencial.
+
+**URL ou identificador persistente.** https://unstats.un.org/sdgs/metadata/files/Metadata-11-05-03.pdf
+
+**Formato dos arquivos.** Registro de incidente, tabela e série assistencial.
+
+**Necessidade de processamento.** Definir ocorrência, vincular serviços, deduplicar, calcular duração e verificar retorno.
+
+### Qualidade, comparação e saúde
+
+**Qualidade e incerteza.** Relatar definição, desastre, local, período, fonte, verificação, revisões, duplicidades, sub-registro e denominador.
+
+**Possibilidade de comparação.** Manter taxonomia, componente, regra de atribuição, período, população e versão do registro; totais preliminares e consolidados devem ser distinguidos.
+
+**Relação com desfechos de saúde.** Mortes, pessoas afetadas e interrupção de serviços expressam efeitos diretos e condições que ampliam riscos sanitários durante e após desastres.
+
+**Defasagens temporais relevantes.** Registrar data do evento e do efeito; mortes, doenças e interrupções podem ocorrer durante ou depois e exigir janela de atribuição.
+
+**Aplicação na gestão.** Quantificar impactos, organizar resposta, direcionar recursos, monitorar redução de risco e avaliar recuperação.
+
+### Referências metodológicas
+
+- [@un2024infrastructure]
+- [@who2024resilienceindicators]

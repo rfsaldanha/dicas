@@ -1,0 +1,123 @@
+## Ficha do indicador: Frequência de dias em ondas de calor compostas diurnas e noturnas (CHW) {#sec-cli-cal-12}
+
+::: {.indicator-card}
+**Código:** CLI-CAL-12 \
+**Título resumido:** Dias em ondas compostas — CHW \
+**Tema:** Temperatura e condições térmicas \
+**Dimensão:** perigo; exposição \
+**Disponibilidade:** [requer processamento climatológico]{.availability}
+:::
+
+### Identificação e fundamento
+
+**Indicador consolidado em.** Definição epidemiológica multicêntrica de Liu et al. para ondas diurnas, noturnas e compostas no leste da Ásia.
+
+### Conceito
+
+Número de dias pertencentes a sequências de pelo menos dois dias consecutivos em que tanto a temperatura máxima quanto a mínima atingem ou excedem seus respectivos percentis 90 específicos do calendário.
+
+### Objetivo
+
+Quantificar dias sem alívio térmico entre o período diurno e o noturno segundo uma definição aplicada à mortalidade.
+
+### Interpretação
+
+Valor maior indica mais dias em episódios compostos. Deve ser lido junto com número, duração e intensidade das ondas, pois a mesma frequência pode resultar de poucos episódios longos ou vários curtos.
+
+### Usos
+
+- Caracterizar exposição composta dia–noite.
+- Avaliar mortalidade e utilização de serviços durante episódios.
+- Apoiar sistemas de alerta que considerem recuperação noturna.
+
+### Limitações
+
+- A duração de dois dias e o percentil 90 refletem a especificação publicada
+- não um limiar universal.
+- Depende da qualidade conjunta de TX e TN.
+- Não mede condições internas
+- proteção individual ou acesso a resfriamento.
+- Classificações de onda diurna
+- noturna e composta são mutuamente condicionadas.
+
+### Fontes de dados
+
+- Instituto Nacional de Meteorologia — temperaturas máxima, mínima e, quando necessário, horária ([cadastro](../../backmatter/indice-fontes.qmd#inmet))
+- ERA5-Land — temperatura horária em grade, condicionada à validação ([cadastro](../../backmatter/indice-fontes.qmd#era5-land))
+
+### Método de cálculo
+
+Para cada dia, comparar TX e TN aos respectivos percentis 90 específicos do calendário, obtidos em janela móvel centrada de 15 dias no período 1981–2010. Identificar sequências de pelo menos dois dias em que ambas atingem ou excedem o limiar e somar todos os dias participantes.
+
+$$
+CHWF_p=\sum_{d\in p}I\{d\ pertence\ a\ sequência\geq2:\ TX_d\geq TX90_{cal(d)}\ \land\ TN_d\geq TN90_{cal(d)}\}
+$$
+
+::: {.indicator-card}
+**Numerador.** Não se aplica; soma de dias participantes.
+
+**Denominador.** Não se aplica.
+
+**Unidade de medida.** Dias por período.
+
+**Variáveis e categorias de análise.** Temperatura máxima e mínima diárias; percentis do calendário; episódio; local; temporada.
+
+**Granularidade.** Detecção diária e resumo por episódio, estação quente ou ano.
+
+**Periodicidade de atualização.** Diária em vigilância operacional ou sazonal em avaliação.
+
+**Responsabilidade gerencial.** Serviço meteorológico ou climático responsável pela exposição e autoridade de saúde responsável por validar o uso.
+
+**Notas.** As definições publicadas abaixo são reproduzidas para comparabilidade. Seu uso como gatilho operacional depende de validação com desfechos locais.
+
+**Análise descritiva do indicador.** Apresentar dias CHW, número e duração dos episódios, datas, TX e TN excedentes e comparação com ondas somente diurnas e somente noturnas.
+
+:::
+
+### Campos complementares para clima, ambiente e saúde
+
+::: {.indicator-card}
+**Unidade territorial.** Estação meteorológica, célula de grade ou território derivado.
+
+**Resolução espacial original.** A da série meteorológica; a atribuição territorial exige método explícito.
+
+**Resolução temporal.** Entrada diária; saída diária, por episódio e sazonal.
+
+**Período de referência.** 1981–2010 na especificação publicada; outra base caracteriza adaptação e deve ser identificada como tal.
+
+**Limiar ou valor de referência.** TX e TN iguais ou superiores aos respectivos percentis 90 do calendário por pelo menos dois dias consecutivos.
+
+:::
+
+### Disponibilidade e acesso
+
+**Cobertura geográfica.** A da fonte meteorológica selecionada.
+
+**Período disponível.** O da fonte, incluindo o período-base e o período de análise.
+
+**Periodicidade de atualização.** Diária em vigilância operacional ou sazonal em avaliação.
+
+**Forma de acesso.** Cálculo sobre séries diárias harmonizadas de TX e TN.
+
+**URL ou identificador persistente.** https://doi.org/10.1038/s41467-025-56067-7
+
+**Formato dos arquivos.** Tabela diária e tabela de episódios; grade multidimensional quando espacializado.
+
+**Necessidade de processamento.** Controle de qualidade, percentis em janela de 15 dias, classificação conjunta e detecção de sequências.
+
+### Qualidade, comparação e saúde
+
+**Qualidade e incerteza.** Relatar falhas, homogeneidade, período-base, algoritmo de percentil, definição temporal de dia e noite, viés de produtos em grade e sensibilidade aos parâmetros.
+
+**Possibilidade de comparação.** Manter variável, período-base, janela do calendário, duração mínima, fonte, resolução e regra de agregação; classificações distintas não são intercambiáveis.
+
+**Relação com desfechos de saúde.** A mínima elevada indica ausência de resfriamento noturno. Episódios compostos combinam calor diurno e noturno, condição associada a maior risco de mortalidade em estudos multicêntricos.
+
+**Defasagens temporais relevantes.** Preservar datas e valores diários ou horários para estimar efeitos no mesmo dia e defasados; não reduzir a exposição a uma contagem anual em análises de efeitos agudos.
+
+**Aplicação na gestão.** Incorporar persistência noturna e episódios compostos em vigilância calor–saúde, planejamento de comunicação e avaliação retrospectiva.
+
+### Referências metodológicas
+
+- [@liu2025cehwi]
+- [@yang2024compound]

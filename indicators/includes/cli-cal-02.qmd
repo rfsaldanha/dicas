@@ -1,0 +1,120 @@
+## Ficha do indicador: Ocorrência de onda de calor {#sec-cli-cal-02}
+
+::: {.indicator-card}
+**Código:** CLI-CAL-02 \
+**Título resumido:** Ocorrência de onda de calor \
+**Tema:** Temperatura e condições térmicas \
+**Dimensão:** perigo; exposição \
+**Disponibilidade:** [requer processamento climatológico]{.availability}
+:::
+
+### Identificação e fundamento
+
+**Indicador consolidado em.** Estrutura multiaspecto de ondas de calor proposta por Perkins e Alexander (2013), aplicada a episódios definidos por temperatura máxima, temperatura mínima ou EHF.
+
+### Conceito
+
+Indicador binário de presença de pelo menos um episódio de onda de calor no local e período, segundo uma definição térmica publicada e integralmente declarada.
+
+### Objetivo
+
+Identificar temporadas, meses ou territórios com ao menos um episódio qualificado.
+
+### Interpretação
+
+Valor 1 indica uma ou mais ondas; valor 0 indica que nenhuma sequência atendeu à definição. O indicador não informa quantas ondas ocorreram nem sua duração ou intensidade.
+
+### Usos
+
+- Delimitar períodos expostos em estudos de saúde.
+- Comparar proporção de territórios com ocorrência.
+- Apoiar avaliação de temporadas e cobertura de alertas.
+
+### Limitações
+
+- Reduz múltiplos aspectos a presença/ausência.
+- É sensível à definição e à falha de dados.
+- Não expressa carga populacional.
+
+### Fontes de dados
+
+- Instituto Nacional de Meteorologia — observações diárias de temperatura em estação ([cadastro](../../backmatter/indice-fontes.qmd#inmet))
+- ERA5-Land — reanálise em grade quando validada para a finalidade ([cadastro](../../backmatter/indice-fontes.qmd#era5-land))
+
+### Método de cálculo
+
+Detectar episódios conforme variável, limiar e duração definidos. Atribuir 1 quando o número de episódios no período for maior ou igual a um e 0 nos demais casos.
+
+$$
+O_j = I(HWN_j \geq 1)
+$$
+
+::: {.indicator-card}
+**Numerador.** Não se aplica.
+
+**Denominador.** Não se aplica.
+
+**Unidade de medida.** Indicador binário (0 ou 1); em agregações, percentual de unidades com ocorrência.
+
+**Variáveis e categorias de análise.** Definição térmica; estação quente; local; estação meteorológica ou célula; faixa etária e outros estratos apenas quando combinados com dados populacionais ou de saúde.
+
+**Granularidade.** Estação ou célula de grade; sínteses territoriais exigem regra explícita de agregação.
+
+**Periodicidade de atualização.** Sazonal ou anual para monitoramento; versões operacionais podem ser atualizadas diariamente com previsão, sob protocolo distinto.
+
+**Responsabilidade gerencial.** Serviço meteorológico ou climático produtor e instituição de saúde usuária devem pactuar definição, calendário, atualização e interpretação.
+
+**Notas.** A estrutura multiaspecto separa propriedades que não devem ser usadas como sinônimos. A definição do episódio precede o cálculo de qualquer aspecto.
+
+**Análise descritiva do indicador.** Apresentar ocorrência com HWN, HWF e intensidade para evitar que temporadas muito diferentes pareçam iguais.
+
+:::
+
+### Campos complementares para clima, ambiente e saúde
+
+::: {.indicator-card}
+**Unidade territorial.** Estação meteorológica, célula de grade ou território derivado.
+
+**Resolução espacial original.** A da fonte meteorológica; não atribuir automaticamente um ponto a todo o município.
+
+**Resolução temporal.** Entrada diária; saída por estação quente ou ano, preservando o calendário do hemisfério e a regra para episódios que cruzam limites.
+
+**Período de referência.** Período-base usado para estimar percentis e normalizar magnitudes; deve ser fixo e comum às comparações.
+
+**Limiar ou valor de referência.** Pelo menos três dias consecutivos acima do percentil 90 de TX, acima do percentil 90 de TN ou com EHF positivo, conforme a definição escolhida; não misturar definições numa mesma série.
+
+:::
+
+### Disponibilidade e acesso
+
+**Cobertura geográfica.** Determinada pela rede ou produto; a cobertura analítica depende também da completude da série.
+
+**Período disponível.** O da fonte selecionada, com extensão suficiente para período-base e análise.
+
+**Periodicidade de atualização.** Sazonal ou anual para monitoramento; versões operacionais podem ser atualizadas diariamente com previsão, sob protocolo distinto.
+
+**Forma de acesso.** Cálculo reprodutível sobre séries diárias de temperatura máxima, mínima ou média.
+
+**URL ou identificador persistente.** https://doi.org/10.1175/JCLI-D-12-00383.1
+
+**Formato dos arquivos.** Tabela diária por estação ou arquivo multidimensional por célula, com códigos de qualidade e metadados.
+
+**Necessidade de processamento.** Controle de qualidade, cálculo do limiar, detecção de sequências, identificação de eventos e síntese do aspecto específico.
+
+### Qualidade, comparação e saúde
+
+**Qualidade e incerteza.** Relatar fonte, falhas que criem ou interrompam sequências, período-base, algoritmo de percentil, definição da estação, viés de grades e sensibilidade à definição.
+
+**Possibilidade de comparação.** Exige a mesma variável térmica, limiar, período-base, duração mínima, estação, calendário, completude e tratamento de eventos de fronteira.
+
+**Relação com desfechos de saúde.** Ondas de calor estão associadas a aumento de morbidade, mortalidade e demanda de serviços. A magnitude da associação varia com definição, clima, população, desfecho e adaptação.
+
+**Defasagens temporais relevantes.** Para efeitos agudos, conservar datas dos eventos e analisar defasagens segundo o desfecho; a síntese sazonal não substitui a exposição diária.
+
+**Aplicação na gestão.** Caracterizar episódios, comparar temporadas, apoiar planejamento calor–saúde e avaliar retrospectivamente alertas e pressão assistencial.
+
+### Referências metodológicas
+
+- [@perkins2013heatwaves]
+- [@nawaro2023]
+- [@wmoWho2015heat]

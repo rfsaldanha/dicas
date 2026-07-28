@@ -6,7 +6,7 @@ O público principal inclui profissionais de secretarias de saúde, vigilância 
 
 ## Estado do projeto
 
-Esta é a versão editorial 0.1.0. A arquitetura e os 14 capítulos estão criados. Dois capítulos-modelo, três fichas e 14 registros de fontes demonstram o fluxo completo. Os demais capítulos preservam marcadores `TODO` para que conteúdo não verificado não seja confundido com texto final.
+Esta é a versão editorial 0.9.0, preparada para revisão completa. Os 14 capítulos estão escritos; 62 fichas de indicadores consolidados estão integradas aos capítulos; 25 fontes possuem cadastro detalhado; e as referências citadas estão configuradas no estilo ABNT. As indicações de arte original permanecem marcadas no próprio texto.
 
 Comece pelo [guia de revisão](docs/guia-de-revisao.md) e consulte o [relatório da versão](docs/relatorio-versao-para-revisao.md).
 
@@ -64,10 +64,10 @@ make
 
 1. Copie `indicators/templates/ficha.yml` para `indicators/data/`.
 2. Adote um código único no padrão `AAA-BBB-00`.
-3. Preencha todos os campos, usando `TODO: verificar` em vez de estimar informação.
+3. Preencha todos os campos com informação verificada; quando um recurso não documentar uma característica, registre explicitamente “não informado” e a limitação correspondente.
 4. Cadastre todas as fontes referenciadas.
 5. Execute `make catalogs`; a página e os índices serão regenerados.
-6. Se a ficha fizer parte desta edição, inclua sua página gerada na seção correspondente de `_quarto.yml`.
+6. Integre o arquivo gerado ao capítulo temático correspondente.
 
 ## Adicionar uma fonte
 
@@ -89,4 +89,4 @@ Detalhes estão em `docs/guia-de-compilacao.md`. As contribuições seguem `CONT
 
 ## Licença
 
-O repositório contém a GNU General Public License, versão 3. A definição de licença específica para o conteúdo editorial e para futuros recursos de terceiros permanece uma decisão editorial.
+O repositório e os arquivos autorais usam a GNU General Public License, versão 3. Recursos e dados de terceiros mantêm suas licenças e termos próprios, registrados quando aplicável.

@@ -1,0 +1,120 @@
+## Ficha do indicador: Parcela média da área construída da cidade que corresponde a espaço aberto para uso público (ODS 11.7.1) {#sec-amb-urb-01}
+
+::: {.indicator-card}
+**Código:** AMB-URB-01 \
+**Título resumido:** Espaço público aberto — ODS 11.7.1 \
+**Tema:** Uso e cobertura da terra, vegetação e ambiente urbano \
+**Dimensão:** exposição; vulnerabilidade; resposta \
+**Disponibilidade:** [requer cadastro e processamento geoespacial]{.availability}
+:::
+
+### Identificação e fundamento
+
+**Indicador consolidado em.** Indicador ODS 11.7.1 sob custódia do Programa das Nações Unidas para os Assentamentos Humanos.
+
+### Conceito
+
+Percentual da área construída urbana destinado a espaços abertos de uso público, complementado pela avaliação do acesso populacional e desagregações.
+
+### Objetivo
+
+Monitorar oferta e acesso universal a espaços públicos abertos, seguros, inclusivos e acessíveis.
+
+### Interpretação
+
+Valor maior indica maior parcela territorial classificada como espaço aberto público. Não informa automaticamente qualidade, vegetação, segurança, acessibilidade ou uso.
+
+### Usos
+
+- Monitorar ODS 11.7.1.
+- Comparar cidades com método harmonizado.
+- Planejar oferta e distribuição de espaços públicos.
+
+### Limitações
+
+- Delimitação da área construída afeta denominador.
+- Propriedade pública não garante acesso.
+- Espaço aberto pode não ser verde.
+- Cadastro incompleto e imagem defasada geram erro.
+
+### Fontes de dados
+
+- MapBiomas Brasil — apoio à delimitação de cobertura e área urbana, com validação cadastral ([cadastro](../../backmatter/indice-fontes.qmd#mapbiomas))
+- Instituto Brasileiro de Geografia e Estatística — limites, população e desagregações ([cadastro](../../backmatter/indice-fontes.qmd#ibge))
+
+### Método de cálculo
+
+Delimitar área construída urbana segundo o metadado, mapear espaços abertos de uso público e calcular a razão de áreas; calcular separadamente a população com acesso em distância caminhável conforme o protocolo ODS.
+
+$$
+ODS11.7.1_{área}=100\times\frac{A_{espaço\ aberto\ público}}{A_{área\ construída\ urbana}}
+$$
+
+::: {.indicator-card}
+**Numerador.** Área de espaços abertos qualificados para uso público.
+
+**Denominador.** Área construída urbana segundo a delimitação ODS.
+
+**Unidade de medida.** Percentual (%).
+
+**Variáveis e categorias de análise.** Área construída; espaço público; tipo; acessibilidade; população; sexo; idade; deficiência.
+
+**Granularidade.** Polígono de espaço e zona urbana.
+
+**Periodicidade de atualização.** Por ciclo de monitoramento ODS ou planejamento urbano.
+
+**Responsabilidade gerencial.** Planejamento urbano e ambiental produz intervenções e cadastros; saúde interpreta exposições e desigualdades; geoinformação mantém métodos.
+
+**Notas.** Verdor espectral, cobertura vegetal, espaço público acessível e uso efetivo são dimensões diferentes.
+
+**Análise descritiva do indicador.** Mostrar parcela total, tipos de espaço, acesso por grupo e distribuição intraurbana.
+
+:::
+
+### Campos complementares para clima, ambiente e saúde
+
+::: {.indicator-card}
+**Unidade territorial.** Domicílio ou ponto, zona urbana, bairro, setor censitário ou cidade.
+
+**Resolução espacial original.** A dos cadastros e imagens usados na delimitação.
+
+**Resolução temporal.** Atualização periódica por edição.
+
+**Período de referência.** Ano dos cadastros, imagens e população.
+
+**Limiar ou valor de referência.** Não há limiar sanitário universal; monitorar nível, distribuição e acesso.
+
+:::
+
+### Disponibilidade e acesso
+
+**Cobertura geográfica.** Cidades com dados suficientes; estimativa oficial deve seguir o metadado ODS.
+
+**Período disponível.** Conforme cadastros e imagens.
+
+**Periodicidade de atualização.** Por ciclo de monitoramento ODS ou planejamento urbano.
+
+**Forma de acesso.** Dados municipais, IBGE, sensoriamento e plataforma ODS.
+
+**URL ou identificador persistente.** https://unstats.un.org/sdgs/metadata/files/Metadata-11-07-01.pdf
+
+**Formato dos arquivos.** Vetores geoespaciais, tabelas e relatórios.
+
+**Necessidade de processamento.** Delimitar área urbana, validar espaços públicos, calcular áreas e acesso e documentar omissões.
+
+### Qualidade, comparação e saúde
+
+**Qualidade e incerteza.** Relatar sensor, produto, data, nuvens, resolução, classificação, delimitação urbana, população, buffer, erros posicionais e análise de sensibilidade.
+
+**Possibilidade de comparação.** Manter produto, estação, composição temporal, resolução, definição de verde, limite urbano, população e parâmetros espaciais.
+
+**Relação com desfechos de saúde.** Vegetação e espaços verdes podem influenciar atividade física, contato social, restauração, calor, ruído e poluição, mas efeitos dependem de acesso, qualidade, segurança e contexto.
+
+**Defasagens temporais relevantes.** Distinguir exposição contemporânea, histórica e intervenção; atualizar endereço, vegetação e população de maneira compatível.
+
+**Aplicação na gestão.** Identificar desigualdades, priorizar arborização e espaços públicos, avaliar intervenções e integrar planejamento calor–saúde.
+
+### Referências metodológicas
+
+- [@un2026sdg1171]
+- [@who2016greenspace]

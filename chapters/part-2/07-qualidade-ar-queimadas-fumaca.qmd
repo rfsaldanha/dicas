@@ -1,41 +1,185 @@
 # Qualidade do ar, queimadas e fumaça {#sec-qualidade-ar}
 
-Este capítulo tratará das emissões, do transporte atmosférico, da concentração ambiental e das formas de exposição relacionadas à poluição do ar, às queimadas e à fumaça.
+Poluição atmosférica resulta da presença de partículas e gases em concentração, duração e combinação capazes de afetar saúde e ambiente. Emissões locais, formação química, transporte, deposição e meteorologia determinam o que é medido em cada lugar e momento. Queimadas e incêndios são fontes importantes, mas não únicas; focos detectados por satélite não equivalem a fumaça respirada.
 
-O capítulo não fará inventário geral de uso da terra, tema do @sec-uso-terra, nem estimará efeitos epidemiológicos, tema do @sec-efeitos-saude.
+```{mermaid}
+%%| label: fig-cadeia-ar-saude
+%%| fig-cap: "Da emissão ao efeito sobre a saúde"
+flowchart LR
+  E[Emissões: fogo, tráfego,<br/>indústria, poeira] --> T[Transporte e<br/>transformação]
+  M[Vento, estabilidade,<br/>chuva e radiação] --> T
+  T --> C[Concentração ambiente]
+  C --> X[Exposição pessoal]
+  B[Moradia, trabalho,<br/>mobilidade e proteção] --> X
+  X --> H[Efeitos sobre a saúde]
+```
 
 ## Poluição atmosférica e fontes de emissão
 
-### Partículas
+Fontes podem ser fixas, móveis, difusas ou naturais. Combustão veicular e industrial, geração de energia, processos produtivos, queima de resíduos, incêndios florestais, poeira ressuspensa e aerossol marinho contribuem de modo variável. Alguns poluentes são emitidos diretamente; outros se formam na atmosfera.
+
+Inventário de emissões estima massa lançada por fonte. Concentração mede ou estima a quantidade no ar. Exposição descreve o contato de pessoas com essa concentração ao longo do tempo. Dose depende ainda de ventilação pulmonar, deposição e absorção. Essas quantidades não são intercambiáveis.
+
+### Material particulado
+
+Material particulado é uma mistura de sólidos e líquidos suspensos. MP10 inclui partículas com diâmetro aerodinâmico de corte de 10 µm; MP2,5, de 2,5 µm. O tamanho influencia penetração no sistema respiratório, mas composição, forma, solubilidade e origem também importam.
+
+PM2,5 é a medida de exposição mais usada em saúde pública. A OMS relaciona essa exposição a doença cardiovascular e respiratória, câncer de pulmão, infecção respiratória e mortalidade [@who2021air]. Não há uma fronteira conhecida abaixo da qual toda possibilidade de efeito desapareça; os níveis-guia orientam redução de risco, não certificam “ar sem risco”.
 
 ### Gases poluentes
 
-### Padrões de qualidade do ar
+Ozônio troposférico é poluente secundário formado por reações fotoquímicas envolvendo precursores. Dióxido de nitrogênio relaciona-se a combustão e também participa da formação de ozônio e partículas. Dióxido de enxofre deriva principalmente da queima de combustíveis contendo enxofre e de processos industriais. Monóxido de carbono resulta de combustão incompleta.
 
-## Queimadas e incêndios florestais
+A OMS estabelece recomendações para PM2,5, PM10, O3, NO2, SO2 e CO, com tempos de média específicos [@who2021air]. A comparação exige manter poluente, unidade e tempo de exposição:
+
+| Poluente | Tempo de média da diretriz OMS 2021 | Nível-guia |
+|---|---:|---:|
+| PM2,5 | anual | 5 µg/m³ |
+| PM2,5 | 24 horas, percentil 99 | 15 µg/m³ |
+| PM10 | anual | 15 µg/m³ |
+| PM10 | 24 horas, percentil 99 | 45 µg/m³ |
+| O3 | estação de pico | 60 µg/m³ |
+| O3 | máxima média diária de 8 horas, percentil 99 | 100 µg/m³ |
+| NO2 | anual | 10 µg/m³ |
+| NO2 | 24 horas, percentil 99 | 25 µg/m³ |
+| SO2 | 24 horas, percentil 99 | 40 µg/m³ |
+| CO | 24 horas, percentil 99 | 4 mg/m³ |
+
+: Níveis-guia de qualidade do ar da OMS de 2021 {#tbl-guias-oms-ar}
+
+Os valores são recomendações baseadas em saúde e não substituem a legislação. No Brasil, a Resolução CONAMA nº 506/2024 estabelece padrões intermediários e finais, tempos de média, métodos e transição regulatória [@brasil2024conama506].
+
+## Medição, modelagem e representatividade
+
+Estações de referência produzem séries de alta qualidade, mas sua cobertura é desigual. A localização determina o tipo de ambiente representado: tráfego, fundo urbano, industrial ou regional. A média de uma estação não deve ser atribuída automaticamente a todo o município.
+
+Sensores de baixo custo podem ampliar cobertura, porém exigem avaliação, co-localização, calibração e controle de deriva. Satélites observam propriedades da coluna atmosférica em horários específicos e sob limitações de nuvem e superfície. Modelos de transporte químico representam emissão, meteorologia e química; reanálises e fusões incorporam observações. A combinação de fontes pode melhorar cobertura, mas não elimina incerteza.
+
+Para análise sanitária, documente:
+
+- método e instrumento;
+- localização, altura e tipologia da estação;
+- unidade e condição de referência;
+- intervalo de integração;
+- regra de completude;
+- calibração e controle de qualidade;
+- versão do modelo ou algoritmo;
+- representatividade espacial;
+- incerteza e dados ausentes.
+
+## Queimadas e incêndios
+
+Fogo pode ser usado no manejo agropecuário, ocorrer em vegetação ou atingir áreas urbanas e interfaces. “Queimada”, “incêndio florestal”, “foco ativo”, “evento de fogo” e “área queimada” designam objetos diferentes.
+
+O Programa Queimadas do INPE disponibiliza focos ativos, eventos e produtos de área queimada [@inpe2026queimadas]. Um foco é uma detecção por sensor e algoritmo. Seu número varia com satélite, passagem, nuvens, duração, energia, resolução e filtros. Um incêndio pode gerar vários focos; incêndio pequeno ou encoberto pode não gerar nenhum. A área queimada delimita cicatriz ou superfície afetada conforme produto e não é calculada multiplicando focos por tamanho de pixel.
+
+Focos e área queimada ajudam a caracterizar o fenômeno e apoiar resposta ambiental. Não são medidas de exposição humana à fumaça. Distância ao fogo também é insuficiente, porque plumas podem viajar centenas ou milhares de quilômetros.
 
 ## Fumaça e transporte atmosférico
 
+Fumaça contém PM2,5, carbono negro, CO, compostos orgânicos, gases irritantes e precursores de ozônio. Sua composição depende de combustível, umidade, fase de combustão, temperatura e envelhecimento da pluma. Vento, altura de injeção, estabilidade e chuva controlam transporte e remoção.
+
+PM2,5 atribuível ao fogo é o indicador de exposição mais consolidado em epidemiologia de fumaça. A atribuição pode usar modelos executados com e sem emissões de fogo, inventários, sensoriamento, traçadores, aprendizado de máquina ou combinação de métodos. A concentração total medida durante um episódio não se torna automaticamente “PM2,5 de fumaça”.
+
+Monitoramentos internacionais integram concentração de PM2,5 atribuível a incêndios e população para estimar exposição populacional e mortalidade [@vandaalen2024lancet]. O resultado depende do produto de fumaça, da população, da resolução e da capacidade do modelo de representar concentrações junto à superfície.
+
 ## Exposição aguda e crônica
 
-## Impactos sobre a saúde
+Exposição aguda é representada por concentrações horárias, médias móveis ou médias de 24 horas. É adequada a episódios de fumaça, inversões e associações com atendimentos e óbitos. Exposição crônica usa médias anuais ou plurianuais e serve à avaliação de risco de longo prazo.
 
-### Respiratórios
+Uma média anual pode ser idêntica em dois territórios com perfis muito diferentes: um com poluição persistente e outro com poucos episódios extremos. Por isso, recomenda-se combinar:
 
-### Cardiovasculares
+- média anual ponderada pela população;
+- percentis de médias diárias;
+- número e duração de episódios;
+- concentração máxima e acumulada;
+- poluente e fonte predominantes;
+- desigualdades de exposição.
+
+Exposição pessoal difere da concentração externa. Infiltração em edifícios, ventilação, ar-condicionado, filtros, ocupação, trabalho ao ar livre, deslocamento e atividade física modificam contato. A desigualdade aparece tanto na localização das fontes quanto na possibilidade de reduzir a exposição.
+
+## Impactos sobre a saúde humana
+
+### Efeitos respiratórios
+
+PM2,5 e gases irritantes podem exacerbar asma e doença pulmonar obstrutiva crônica, aumentar sintomas, atendimentos e internações e afetar infecções respiratórias. Crianças têm pulmões em desenvolvimento e maior ventilação relativa; trabalhadores ao ar livre e pessoas sem ambientes protegidos podem acumular maior exposição.
+
+### Efeitos cardiovasculares
+
+Inflamação sistêmica, estresse oxidativo, disfunção endotelial e alterações autonômicas ajudam a explicar associações com infarto, acidente vascular cerebral, arritmias, insuficiência cardíaca e mortalidade. Os efeitos podem ocorrer no dia e nos dias subsequentes.
 
 ### Outros desfechos
 
+Evidências sustentam efeitos sobre câncer de pulmão e desfechos materno-infantis para poluição ambiente de longo prazo. Episódios de fogo também envolvem queimaduras, trauma, deslocamento, perda de moradia e trabalho, estresse e interrupção de cuidados.
+
+Estudos de fumaça usam principalmente PM2,5 porque ele é componente importante, tem cobertura crescente e forte base sanitária. Isso não significa que represente toda a mistura ou que a toxicidade seja idêntica entre fontes.
+
+## Impactos sobre a saúde pública e os serviços
+
+Episódios podem elevar procura por urgência, exacerbações de doenças crônicas e necessidade de medicamentos, ao mesmo tempo que afetam transporte, eletricidade, trabalho e unidades localizadas perto do fogo. A resposta exige coordenação entre ambiente, meteorologia, incêndios, defesa civil, atenção primária, vigilância e assistência.
+
+Serviços de saúde precisam antecipar:
+
+- duração e trajetória prevista da pluma;
+- população sob maiores concentrações;
+- escolas, instituições de longa permanência, abrigos e unidades expostas;
+- disponibilidade de ambientes com ar mais limpo;
+- estoque de medicamentos e capacidade de atendimento;
+- comunicação acessível e atualizada;
+- proteção de trabalhadores e continuidade dos cuidados.
+
+Mensagens devem indicar dado, local, horário, poluente determinante, incerteza e ações proporcionais. “Evitar sair” pode ser inviável para trabalhadores e pessoas em moradias inadequadas; políticas públicas precisam oferecer meios de proteção.
+
 ## Fontes de dados
 
-## Indicadores
+As [redes de qualidade do ar](../../backmatter/indice-fontes.qmd#redes-qualidade-ar) oferecem medições regulatórias onde há estações. O [CAMS](../../backmatter/indice-fontes.qmd#cams) disponibiliza produtos modelados, cuja variável, nível, resolução e versão devem ser especificados. O [Programa Queimadas do INPE](../../backmatter/indice-fontes.qmd#queimadas-inpe) fornece dados de fogo e área queimada. A [base mundial da OMS](../../backmatter/indice-fontes.qmd#who-air) reúne medições e estimativas para exposição de longo prazo.
 
-A [ficha de concentração média diária de PM2,5](../../indicators/pages/amb-ar-01.qmd) é o protótipo deste capítulo.
+Cada uso deve selecionar um produto concreto. “Dados do CAMS” ou “dados do INPE” não identifica variável, algoritmo, resolução nem edição.
 
-**Indicadores previstos:** concentração diária de PM2,5 e PM10; excedência de valor de referência; índice de qualidade do ar; focos de fogo ativo; área queimada; população e serviços expostos à fumaça; duração de episódios.
+## Principais indicadores usados em saúde pública
+
+Os principais indicadores de qualidade do ar são concentrações de poluentes com tempos de média definidos, percentis de curto prazo, médias anuais, índices de comunicação e medidas de exposição ponderadas pela população. Para fumaça, PM2,5 total é usado em vigilância de episódios, e PM2,5 atribuível ao fogo em estudos que separam fontes. Focos ativos e área queimada caracterizam o fogo, mas não substituem a concentração respirada.
+
+| Indicador | Base metodológica | Uso em saúde pública | Cuidado de interpretação |
+|---|---|---|---|
+| PM2,5 anual ponderado pela população | ODS 11.6.2, custódia OMS | exposição crônica, desigualdade e carga de doença | média não descreve episódios |
+| P99 das médias de 24 h de PM2,5 | diretriz OMS 2021 | exposição de curto prazo e avaliação anual | não é máximo diário |
+| PM10, O3, NO2, SO2 e CO em seus tempos de média | diretriz OMS e padrões nacionais | vigilância por poluente e avaliação regulatória | unidades e tempos não são intercambiáveis |
+| IQAr brasileiro | CONAMA nº 506/2024 e orientação de 2025 | comunicação diária ou horária | depende dos poluentes monitorados e informa o pior subíndice |
+| PM2,5 atribuível ao fogo ponderado pela população | Lancet Countdown e estudos de fonte específica | fumaça, desigualdade e carga atribuível | depende de modelagem de fonte |
+| Focos ativos | Programa Queimadas/INPE | situação operacional do fogo | não mede incêndios individuais, fumaça ou saúde |
+| Área queimada | produtos orbitais documentados | magnitude territorial e efeitos ambientais | não representa emissão nem exposição |
+
+: Indicadores de qualidade do ar, fogo e fumaça usados em saúde pública {#tbl-indicadores-ar}
+
+As fichas a seguir documentam os indicadores consolidados com aplicação sanitária direta. Focos e área queimada permanecem como variáveis contextuais até que se adote um produto específico com metadado completo.
+
+{{< include ../../indicators/includes/amb-ar-01.qmd >}}
+
+{{< include ../../indicators/includes/amb-ar-02.qmd >}}
+
+{{< include ../../indicators/includes/amb-ar-03.qmd >}}
+
+{{< include ../../indicators/includes/amb-fum-01.qmd >}}
 
 ## Alertas e aplicação na gestão
 
-::: {.todo}
-TODO: desenvolver o capítulo e verificar normas de qualidade do ar vigentes antes de incluir limiares.
+O IQAr organiza comunicação, enquanto concentrações preservam informação para análise técnica. Durante fumaça, o painel deve mostrar PM2,5 observado e previsto, estações, poluente determinante, trajetória da pluma, duração, população e serviços expostos. O nível de ação deve estar ligado a medidas factíveis, responsáveis e avaliação posterior.
+
+Uma rotina pode incluir:
+
+1. validar dado e horário;
+2. identificar poluente e fonte provável sem atribuição indevida;
+3. avaliar previsão, duração e território;
+4. localizar populações e serviços expostos;
+5. comunicar classe, concentração, incerteza e ação;
+6. acompanhar atendimentos e continuidade assistencial;
+7. registrar decisões e revisar desempenho.
+
+::: {.visual-needed title="Ilustração editorial necessária"}
+Produzir uma ilustração de pluma de fumaça atravessando áreas rurais e urbanas, com focos de fogo, estação de monitoramento, célula de modelo e diferentes microambientes. A arte deve deixar claro que foco, concentração ambiente, exposição e dose são objetos distintos.
 :::
+
+## Síntese
+
+Qualidade do ar é representada por poluentes e tempos de média específicos. PM2,5 anual ponderado, P99 de 24 horas, IQAr e PM2,5 de fogo ponderado pela população respondem a perguntas distintas de saúde pública. Focos e área queimada descrevem o fogo; apenas medições ou modelos atmosféricos qualificados aproximam a fumaça no ar respirável.

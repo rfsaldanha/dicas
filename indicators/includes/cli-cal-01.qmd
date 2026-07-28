@@ -1,0 +1,123 @@
+## Ficha do indicador: Índice de duração de períodos quentes (WSDI) {#sec-cli-cal-01}
+
+::: {.indicator-card}
+**Código:** CLI-CAL-01 \
+**Título resumido:** Duração de períodos quentes — WSDI \
+**Tema:** Temperatura e condições térmicas \
+**Dimensão:** perigo; exposição \
+**Disponibilidade:** [requer processamento climatológico]{.availability}
+:::
+
+### Identificação e fundamento
+
+**Indicador consolidado em.** Warm Spell Duration Index (WSDI), índice ETCCDI documentado pelo Climdex.
+
+### Conceito
+
+Número anual de dias que pertencem a sequências de pelo menos seis dias consecutivos nas quais a temperatura máxima diária excede o percentil 90 específico do dia do calendário no período-base.
+
+### Objetivo
+
+Quantificar a persistência anual de períodos de calor relativo por uma definição internacionalmente coordenada de extremos climáticos.
+
+### Interpretação
+
+O valor é a soma de todos os dias pertencentes a sequências qualificadas no ano. WSDI igual a 12 pode representar uma sequência de 12 dias ou duas sequências de 6; por isso, número e duração dos episódios podem ser apresentados como medidas auxiliares, sem alterar o indicador.
+
+### Usos
+
+- Monitorar mudanças na persistência de períodos quentes.
+- Comparar séries climáticas produzidas com o mesmo protocolo.
+- Caracterizar janelas prolongadas de exposição em estudos de saúde.
+- Apoiar planejamento sazonal e avaliação retrospectiva de episódios.
+
+### Limitações
+
+- WSDI não é uma definição universal de onda de calor para alertas sanitários.
+- O mínimo fixo de seis dias pode não representar a janela de efeito mais relevante para todos os desfechos.
+- O índice usa temperatura máxima e não captura ausência de resfriamento noturno.
+- O resultado depende do período-base e da qualidade da série.
+
+### Fontes de dados
+
+- Instituto Nacional de Meteorologia — observação diária em estação ([cadastro](../../backmatter/indice-fontes.qmd#inmet))
+- ERA5-Land — reanálise em grade, condicionada à validação ([cadastro](../../backmatter/indice-fontes.qmd#era5-land))
+
+### Método de cálculo
+
+Calcular o percentil 90 de TX por dia do calendário em janela móvel de cinco dias no período-base. Identificar todas as sequências anuais de seis ou mais dias consecutivos com TX acima do limiar e somar os dias pertencentes a essas sequências.
+
+$$
+WSDI_j = \sum_{i \in j} I\{i \text{ pertence a sequência } \geq 6 \text{ dias com } TX_{ij} > TX^{90}_{in}\}
+$$
+
+::: {.indicator-card}
+**Numerador.** Não se aplica; trata-se de contagem de dias qualificados.
+
+**Denominador.** Não se aplica.
+
+**Unidade de medida.** Dias por ano.
+
+**Variáveis e categorias de análise.** Temperatura máxima diária; percentil 90; período-base; ano; estação ou célula de grade.
+
+**Granularidade.** Ponto de estação ou célula de grade; agregação territorial deve preservar a regra de sequência e documentar suporte.
+
+**Periodicidade de atualização.** Anual; cálculos provisórios sazonais devem ser identificados como tais.
+
+**Responsabilidade gerencial.** Serviço climático produtor e instituição de saúde usuária devem pactuar versão, atualização, interpretação e eventual emprego operacional.
+
+**Notas.** A ficha distingue o WSDI consolidado de definições locais de onda de calor. Medidas auxiliares de número, duração máxima e intensidade dos episódios devem ser rotuladas separadamente.
+
+**Análise descritiva do indicador.** Mostrar distribuição anual, anos sem períodos qualificados, duração total e, como medidas auxiliares, número de sequências e duração máxima. Relatar alterações de cobertura.
+
+:::
+
+### Campos complementares para clima, ambiente e saúde
+
+::: {.indicator-card}
+**Unidade territorial.** Estação meteorológica, célula de grade ou território derivado.
+
+**Resolução espacial original.** A da estação ou produto em grade utilizado.
+
+**Resolução temporal.** Entrada diária; saída anual.
+
+**Período de referência.** O padrão clássico ETCCDI usa 1961–1990; qualquer alteração deve ser declarada.
+
+**Limiar ou valor de referência.** TX acima do percentil 90 do dia do calendário por pelo menos seis dias consecutivos.
+
+:::
+
+### Disponibilidade e acesso
+
+**Cobertura geográfica.** A da rede ou produto escolhido.
+
+**Período disponível.** Condicionado à existência de série diária longa e homogênea.
+
+**Periodicidade de atualização.** Anual; cálculos provisórios sazonais devem ser identificados como tais.
+
+**Forma de acesso.** Cálculo sobre série diária de temperatura máxima.
+
+**URL ou identificador persistente.** https://www.climdex.org/learn/indices/
+
+**Formato dos arquivos.** Tabela anual por estação ou arquivo multidimensional por célula de grade.
+
+**Necessidade de processamento.** Controle de qualidade, percentis, bootstrap na base, detecção de sequências e soma anual.
+
+### Qualidade, comparação e saúde
+
+**Qualidade e incerteza.** Documentar falhas que interrompam artificialmente sequências, homogeneidade da série, período-base, bootstrap, viés de reanálise e agregação.
+
+**Possibilidade de comparação.** Exige a mesma definição ETCCDI, período-base, calendário, completude e fonte harmonizada.
+
+**Relação com desfechos de saúde.** Períodos persistentes de calor podem elevar morbidade, mortalidade e pressão sobre serviços. Para vigilância operacional, a OMS e a OMM recomendam que gatilhos de alerta sejam relacionados a efeitos locais sobre a saúde, não apenas importados de um índice climático.
+
+**Defasagens temporais relevantes.** WSDI anual serve a monitoramento climático. Avaliações de efeitos agudos devem conservar início, fim e série diária, examinando defasagens compatíveis com cada desfecho.
+
+**Aplicação na gestão.** Avaliar evolução da persistência do calor e subsidiar planos calor–saúde. Não utilizar WSDI isoladamente como gatilho sem validação epidemiológica e previsão tempestiva.
+
+### Referências metodológicas
+
+- [@climdex2024]
+- [@zhang2005]
+- [@wmoWho2015heat]
+- [@who2026heat]

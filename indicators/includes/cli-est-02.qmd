@@ -1,0 +1,123 @@
+## Ficha do indicador: Temperatura aparente externa de Steadman adotada pelo Bureau of Meteorology {#sec-cli-est-02}
+
+::: {.indicator-card}
+**Código:** CLI-EST-02 \
+**Título resumido:** Temperatura aparente — AT \
+**Tema:** Temperatura e condições térmicas \
+**Dimensão:** perigo; exposição \
+**Disponibilidade:** [requer processamento meteorológico]{.availability}
+:::
+
+### Identificação e fundamento
+
+**Indicador consolidado em.** Equação de temperatura aparente de Steadman usada pelo Bureau of Meteorology da Austrália para representar a ação conjunta de temperatura, pressão de vapor e vento.
+
+### Conceito
+
+Temperatura equivalente estimada para um adulto apropriadamente vestido, caminhando ao ar livre e à sombra, dadas a temperatura, a umidade atmosférica e a velocidade do vento.
+
+### Objetivo
+
+Resumir em uma escala térmica o efeito combinado de calor ou frio, umidade e vento nas condições de referência.
+
+### Interpretação
+
+A diferença entre AT e a temperatura do ar mostra quanto umidade e vento alteram a condição equivalente no modelo. AT maior que a temperatura indica condição aparente mais quente; AT menor, resfriamento aparente.
+
+### Usos
+
+- Comunicação meteorológica de sensação térmica.
+- Caracterização de exposição térmica externa.
+- Estudos de saúde que especifiquem a equação de AT empregada.
+
+### Limitações
+
+- A equação operacional não incorpora radiação solar direta.
+- Representa uma pessoa de referência
+- não indivíduos com diferentes atividades
+- roupas ou condições clínicas.
+- Pressão de vapor
+- vento e temperatura precisam ser simultâneos.
+- Existem outras equações chamadas temperatura aparente; o nome sem a fórmula é insuficiente.
+
+### Fontes de dados
+
+- Instituto Nacional de Meteorologia — temperatura do ar, umidade ou ponto de orvalho e vento a 10 m ([cadastro](../../backmatter/indice-fontes.qmd#inmet))
+- ERA5-Land — variáveis meteorológicas em grade para análise retrospectiva, após validação ([cadastro](../../backmatter/indice-fontes.qmd#era5-land))
+
+### Método de cálculo
+
+Obter temperatura do ar em graus Celsius, pressão de vapor em hPa e velocidade do vento a 10 m em m/s para o mesmo instante. Aplicar a equação externa sem radiação do Bureau of Meteorology. Quando a pressão de vapor for derivada de temperatura e umidade relativa, registrar a equação de saturação empregada.
+
+$$
+AT=T_a+0.33e-0.70v_{10}-4.00
+$$
+
+::: {.indicator-card}
+**Numerador.** Não se aplica; combinação linear de temperatura, pressão de vapor e vento.
+
+**Denominador.** Não se aplica.
+
+**Unidade de medida.** Grau Celsius (°C).
+
+**Variáveis e categorias de análise.** Temperatura do ar (°C); pressão de vapor (hPa); vento a 10 m (m/s); hora; local.
+
+**Granularidade.** Valor horário ou por observação; resumo diário ou por episódio.
+
+**Periodicidade de atualização.** Horária ou conforme a fonte.
+
+**Responsabilidade gerencial.** Serviço meteorológico ou equipe de saúde ambiental ou do trabalhador responsável pela medição, com autoridade de saúde responsável pelo protocolo de uso.
+
+**Notas.** O valor é uma temperatura ou índice equivalente, não a temperatura corporal nem uma medição direta de risco individual. Categorias operacionais de outro país não constituem automaticamente limiares de alerta no Brasil.
+
+**Análise descritiva do indicador.** Mostrar AT e temperatura do ar lado a lado, máximos e mínimos, horas críticas, distribuição territorial e disponibilidade conjunta das entradas.
+
+:::
+
+### Campos complementares para clima, ambiente e saúde
+
+::: {.indicator-card}
+**Unidade territorial.** Ponto de observação, célula de grade ou território obtido por agregação explícita.
+
+**Resolução espacial original.** Ponto de estação ou célula do produto meteorológico.
+
+**Resolução temporal.** Horária ou subdiária.
+
+**Período de referência.** Não exige período-base; análises de anomalia devem declarar a climatologia.
+
+**Limiar ou valor de referência.** Não há categoria sanitária universal própria da equação; limiares de ação precisam ser relacionados a efeitos e capacidades locais.
+
+:::
+
+### Disponibilidade e acesso
+
+**Cobertura geográfica.** A da fonte meteorológica ou do levantamento microambiental selecionado.
+
+**Período disponível.** O período de interseção entre temperatura, umidade e vento.
+
+**Periodicidade de atualização.** Horária ou conforme a fonte.
+
+**Forma de acesso.** Cálculo sobre observações ou campos meteorológicos sincronizados.
+
+**URL ou identificador persistente.** https://media.bom.gov.au/social/blog/1153/apparent-/
+
+**Formato dos arquivos.** Tabela de observações ou grade horária.
+
+**Necessidade de processamento.** Harmonizar unidades e horários, calcular ou obter pressão de vapor, aplicar a equação e documentar a ausência de radiação solar.
+
+### Qualidade, comparação e saúde
+
+**Qualidade e incerteza.** Verificar unidades, altura e abrigo dos sensores, sincronização das variáveis, dados ausentes, domínio de validade da fórmula, representatividade espacial e diferença entre valor medido e modelado.
+
+**Possibilidade de comparação.** Manter fórmula, versão, entradas, unidades, altura do vento, tratamento da radiação, resolução temporal e regra de agregação; índices diferentes não são conversíveis por uma escala comum.
+
+**Relação com desfechos de saúde.** A medida representa condições externas percebidas em um corpo de referência e pode reduzir erro de exposição quando umidade e vento são relevantes, mas não substitui um índice fisiológico validado.
+
+**Defasagens temporais relevantes.** Preservar valores horários e diários para relacionar exposições agudas a desfechos no mesmo dia e em dias subsequentes; a agregação anual não serve para estimar efeitos de curto prazo.
+
+**Aplicação na gestão.** Apoiar comunicação e análise de exposição, mantendo explícito que a versão à sombra não representa trabalho ao sol nem ambientes com fontes radiantes.
+
+### Referências metodológicas
+
+- [@steadman1994]
+- [@bom2026apparent]

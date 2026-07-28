@@ -2,7 +2,7 @@
 
 ## Solução escolhida
 
-Cada ficha é um YAML em `indicators/data/`. O script `scripts/build_catalogs.R` valida os registros, resolve IDs de fontes, produz páginas Quarto em `indicators/pages/` e atualiza índices.
+Cada conjunto de fichas é mantido em YAML em `indicators/data/`. O script `scripts/build_catalogs.R` valida os registros, resolve IDs de fontes, produz trechos Quarto em `indicators/includes/` e atualiza os índices. Os trechos são incorporados ao capítulo do fenômeno, e não publicados como capítulos autônomos.
 
 Essa abordagem foi escolhida porque:
 
@@ -44,9 +44,9 @@ O selo indica esforço de obtenção, não qualidade.
 4. Adicionar referências verificadas a `references.bib`.
 5. Executar `make catalogs`.
 6. Revisar a página gerada em HTML e PDF.
-7. Incluir a ficha na ordem do livro quando aprovada.
+7. Incluir o trecho gerado no capítulo temático correspondente.
 
-Arquivos em `indicators/pages/` são gerados e não devem ser editados manualmente.
+Arquivos em `indicators/includes/` são gerados e não devem ser editados manualmente.
 
 ## Núcleo RIPSA 2026
 
@@ -71,7 +71,7 @@ A estrutura obrigatória acompanha os 16 campos da Ficha de Qualificação do In
 
 Os códigos deste livro têm taxonomia própria e não devem ser confundidos com códigos oficiais da RIPSA. “Código da RIPSA” é, aqui, implementado como o identificador editorial do indicador, mantendo a mesma função de identificação sem alegar inclusão no portfólio da Rede.
 
-Nas fichas demonstrativas, a análise descritiva permanece marcada como pendente. Ela só pode ser redigida depois da definição de fonte, território, período, série validada e visualização; um texto genérico não satisfaria a função analítica desse campo.
+O campo de análise descritiva informa quais distribuições, estratos, verificações de cobertura, qualidade e incerteza devem acompanhar o indicador. Resultados empíricos dependentes de um território e período não são inventados.
 
 ## Extensões para clima, ambiente e saúde
 
@@ -87,10 +87,6 @@ Cada registro de fonte declara um único `tipo_registro`: instituição, unidade
 
 Essa separação evita atribuir a uma instituição características que pertencem a um produto específico, ou tratar uma interface de consulta como se fosse a base de origem.
 
-## Fichas demonstrativas
+## Catálogo da edição
 
-- `CLI-TEM-01`: temperatura máxima diária;
-- `CLI-CAL-01`: onda de calor;
-- `AMB-AR-01`: concentração média diária de PM2,5.
-
-Os campos metodológicos estão completos no nível de protótipo. Limiares, licenças, períodos e formatos não verificados permanecem como tarefas explícitas.
+A versão 0.9.0 contém 62 fichas integradas. O catálogo cobre temperatura e ondas de calor, precipitação e seca, qualidade do ar e fumaça, água e saneamento, vegetação e ambiente urbano, desastres, vulnerabilidade, efeitos em saúde e resiliência do sistema de saúde. Cada ficha declara a referência metodológica que sustenta sua definição.

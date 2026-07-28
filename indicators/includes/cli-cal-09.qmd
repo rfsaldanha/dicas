@@ -1,0 +1,120 @@
+## Ficha do indicador: Fator de Excesso de Calor (EHF) {#sec-cli-cal-09}
+
+::: {.indicator-card}
+**Código:** CLI-CAL-09 \
+**Título resumido:** Fator de Excesso de Calor — EHF \
+**Tema:** Temperatura e condições térmicas \
+**Dimensão:** perigo; exposição \
+**Disponibilidade:** [requer processamento climatológico]{.availability}
+:::
+
+### Identificação e fundamento
+
+**Indicador consolidado em.** Excess Heat Factor de Nairn e Fawcett, usado para intensidade e classificação de severidade de ondas de calor.
+
+### Conceito
+
+Produto entre a significância do calor em uma média de três dias, em relação ao percentil 95 climatológico, e um fator de aclimatação que compara esses três dias aos 30 dias anteriores.
+
+### Objetivo
+
+Identificar calor excepcional e recente, incorporando intensidade climatológica e aclimatação de curto prazo.
+
+### Interpretação
+
+EHF positivo identifica condições de onda de calor na especificação original; valores positivos maiores indicam maior intensidade. A classificação de severidade requer distribuição local do EHF positivo.
+
+### Usos
+
+- Monitoramento e previsão de ondas de calor.
+- Classificação relativa de intensidade e severidade.
+- Avaliação de utilização de serviços e gatilhos validados.
+
+### Limitações
+
+- Depende de 33 dias consecutivos de dados.
+- Percentil e aclimatação são locais.
+- Valores em °C² não têm interpretação clínica direta.
+- Desempenho sanitário deve ser validado.
+
+### Fontes de dados
+
+- Instituto Nacional de Meteorologia — observações diárias de temperatura ([cadastro](../../backmatter/indice-fontes.qmd#inmet))
+- ERA5-Land — reanálise em grade condicionada à validação ([cadastro](../../backmatter/indice-fontes.qmd#era5-land))
+
+### Método de cálculo
+
+Calcular a média de temperatura média diária dos dias d a d+2. Subtrair o percentil 95 para obter EHIsig e a média dos 30 dias anteriores para obter EHIaccl. Multiplicar EHIsig pelo máximo entre 1 e EHIaccl.
+
+$$
+EHF_d = EHI_{sig,d}\max(1,EHI_{accl,d});\quad EHI_{sig,d}=\overline{T}_{d:d+2}-T_{95};\quad EHI_{accl,d}=\overline{T}_{d:d+2}-\overline{T}_{d-30:d-1}
+$$
+
+::: {.indicator-card}
+**Numerador.** Não se aplica.
+
+**Denominador.** Não se aplica.
+
+**Unidade de medida.** Grau Celsius ao quadrado (°C²), segundo a formulação operacional.
+
+**Variáveis e categorias de análise.** Temperatura máxima e mínima diárias ou temperatura média; local; período-base; episódio; temporada.
+
+**Granularidade.** Estação ou célula de grade; extensão regional é uma derivação posterior.
+
+**Periodicidade de atualização.** Diária em aplicação operacional ou anual em monitoramento climático.
+
+**Responsabilidade gerencial.** Serviço meteorológico ou climático que produza o índice e instituição de saúde que valide seu uso.
+
+**Notas.** Estes índices combinam mais de um aspecto do calor. Seus valores não são equivalentes a temperatura do ar nem a risco relativo.
+
+**Análise descritiva do indicador.** Mostrar EHF diário, início e fim, pico, soma por episódio e classe de severidade com referência local.
+
+:::
+
+### Campos complementares para clima, ambiente e saúde
+
+::: {.indicator-card}
+**Unidade territorial.** Estação meteorológica, célula de grade ou território derivado.
+
+**Resolução espacial original.** A da série meteorológica selecionada.
+
+**Resolução temporal.** Entrada diária; saída diária, por episódio e anual.
+
+**Período de referência.** Período climatológico usado para o percentil 95 e histórico local de EHF positivo para severidade.
+
+**Limiar ou valor de referência.** EHF maior que zero para condição de onda de calor; categorias de severidade derivam da distribuição local conforme o método.
+
+:::
+
+### Disponibilidade e acesso
+
+**Cobertura geográfica.** A da fonte, condicionada à qualidade e à extensão da série.
+
+**Período disponível.** O da fonte, incluindo período-base suficiente.
+
+**Periodicidade de atualização.** Diária em aplicação operacional ou anual em monitoramento climático.
+
+**Forma de acesso.** Cálculo sobre série diária com implementação e parâmetros versionados.
+
+**URL ou identificador persistente.** https://doi.org/10.3390/ijerph120100227
+
+**Formato dos arquivos.** Tabela por estação ou arquivo multidimensional por célula.
+
+**Necessidade de processamento.** Calcular temperatura média diária, percentil 95, médias móveis de 3 e 30 dias, EHI e EHF; preservar resultados diários.
+
+### Qualidade, comparação e saúde
+
+**Qualidade e incerteza.** Relatar falhas, homogeneidade, período-base, algoritmo de percentil, viés da fonte e sensibilidade aos parâmetros.
+
+**Possibilidade de comparação.** Manter fórmula, período-base, calendário, fonte harmonizada e tratamento de falhas; variantes não são intercambiáveis.
+
+**Relação com desfechos de saúde.** Índices de magnitude e severidade podem ordenar episódios e apoiar a avaliação de impactos, mas seu gradiente deve ser validado com desfechos e capacidade de resposta locais.
+
+**Defasagens temporais relevantes.** Preservar os valores diários e datas para estudar efeitos no mesmo dia e defasados.
+
+**Aplicação na gestão.** Classificar episódios, contextualizar alertas e avaliar retrospectivamente pressão sobre serviços.
+
+### Referências metodológicas
+
+- [@nairn2015ehf]
+- [@wmoWho2015heat]

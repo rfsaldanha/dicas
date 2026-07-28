@@ -1,0 +1,123 @@
+## Ficha do indicador: Percentil 99 das concentrações médias de 24 horas de PM2,5 {#sec-amb-ar-02}
+
+::: {.indicator-card}
+**Código:** AMB-AR-02 \
+**Título resumido:** PM2,5 de curto prazo — P99 24h \
+**Tema:** Qualidade do ar, queimadas e fumaça \
+**Dimensão:** perigo; exposição \
+**Disponibilidade:** [disponível onde há monitoramento]{.availability} [requer processamento]{.availability}
+:::
+
+### Identificação e fundamento
+
+**Indicador consolidado em.** Diretriz mundial de qualidade do ar da OMS de 2021 para exposição de curto prazo a PM2,5.
+
+### Conceito
+
+Percentil 99 das médias válidas de 24 horas de concentração de material particulado fino no ano.
+
+### Objetivo
+
+Representar a exposição de curto prazo elevada sem exigir que absolutamente todos os dias permaneçam abaixo do valor-guia.
+
+### Interpretação
+
+O valor anual é comparado ao nível-guia de 15 µg/m³. Como o nível se refere ao percentil 99, corresponde a aproximadamente três ou quatro dias de excedência por ano, e não a um teto diário sem exceções.
+
+### Usos
+
+- Monitorar exposição aguda a PM2
+- 5
+- Avaliar episódios e políticas de redução.
+- Relacionar séries diárias a mortalidade
+- internações e atendimentos.
+
+### Limitações
+
+- A estação representa seu entorno
+- não toda a cidade.
+- Requer regra de completude horária e anual.
+- O valor-guia da OMS não é automaticamente padrão jurídico.
+- O percentil anual não descreve duração contínua dos episódios.
+
+### Fontes de dados
+
+- Sistema Nacional de Gestão da Qualidade do Ar — concentrações horárias ou diárias de estações de monitoramento ([cadastro](../../backmatter/indice-fontes.qmd#redes-qualidade-ar))
+- Copernicus Atmosphere Monitoring Service — campo modelado condicionado à validação e identificação do produto ([cadastro](../../backmatter/indice-fontes.qmd#cams))
+
+### Método de cálculo
+
+Calcular médias de 24 horas a partir de dados horários válidos segundo protocolo de completude, ordenar as médias diárias válidas do ano e estimar o percentil 99 pelo algoritmo declarado.
+
+$$
+PM_{2,5}^{P99,24h}=Q_{0,99}\{\overline{PM}_{2,5,d}^{24h}:d\ válido\}
+$$
+
+::: {.indicator-card}
+**Numerador.** Não se aplica.
+
+**Denominador.** Não se aplica.
+
+**Unidade de medida.** Microgramas por metro cúbico (µg/m³).
+
+**Variáveis e categorias de análise.** PM2,5 horário; média de 24 horas; estação; dia; ano; método de medição.
+
+**Granularidade.** Média diária por estação e percentil anual por estação ou território qualificado.
+
+**Periodicidade de atualização.** Diária para vigilância e anual para avaliação do percentil.
+
+**Responsabilidade gerencial.** Órgão ambiental responsável pelo monitoramento e setor saúde responsável pela vigilância dos efeitos e comunicação sanitária.
+
+**Notas.** Concentração, índice de comunicação e estimativa de fonte específica são indicadores distintos e não devem ser convertidos sem a especificação correspondente.
+
+**Análise descritiva do indicador.** Mostrar série diária, P99, dias acima do nível-guia, episódios consecutivos, sazonalidade e distribuição por estação.
+
+:::
+
+### Campos complementares para clima, ambiente e saúde
+
+::: {.indicator-card}
+**Unidade territorial.** Estação de monitoramento, célula de grade ou território derivado.
+
+**Resolução espacial original.** Ponto de monitoramento ou célula do produto modelado.
+
+**Resolução temporal.** Entrada horária; média diária; resumo anual.
+
+**Período de referência.** Ano civil, com regra de completude declarada.
+
+**Limiar ou valor de referência.** Nível-guia OMS 2021 de 15 µg/m³ para o percentil 99 das médias de 24 horas.
+
+:::
+
+### Disponibilidade e acesso
+
+**Cobertura geográfica.** A das redes e produtos selecionados; cobertura observacional é heterogênea.
+
+**Período disponível.** Conforme estação ou produto.
+
+**Periodicidade de atualização.** Diária para vigilância e anual para avaliação do percentil.
+
+**Forma de acesso.** Redes ambientais e produtos modelados documentados.
+
+**URL ou identificador persistente.** https://www.who.int/publications/i/item/9789240034228
+
+**Formato dos arquivos.** Tabela horária ou diária e arquivo multidimensional.
+
+**Necessidade de processamento.** Validar horas, calcular médias de 24 horas, verificar completude anual e estimar percentil 99.
+
+### Qualidade, comparação e saúde
+
+**Qualidade e incerteza.** Relatar método, calibração, completude, representatividade da estação, componente modelado, resolução, incerteza, versão e condições meteorológicas.
+
+**Possibilidade de comparação.** Manter poluente, tempo de média, unidade, método, regra de completude, versão do produto e suporte espacial.
+
+**Relação com desfechos de saúde.** A poluição do ar aumenta morbidade e mortalidade cardiovascular e respiratória e está associada a câncer de pulmão, infecções respiratórias e desfechos materno-infantis.
+
+**Defasagens temporais relevantes.** Preservar concentrações horárias ou diárias para avaliar efeitos agudos e médias de longo prazo para efeitos crônicos.
+
+**Aplicação na gestão.** Apoiar comunicação de risco, vigilância de agravos, avaliação de políticas de emissão e preparação dos serviços.
+
+### Referências metodológicas
+
+- [@who2021air]
+- [@brasil2024conama506]

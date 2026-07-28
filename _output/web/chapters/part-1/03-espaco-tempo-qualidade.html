@@ -23,10 +23,30 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 1em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -80,6 +100,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles/web/styles.css">
 </head>
@@ -256,7 +305,7 @@ ul.task-list li input[type="checkbox"] {
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/part-1/01-clima-ambiente-saude.html">Parte I — Fundamentos e métodos</a></li><li class="breadcrumb-item"><a href="../../chapters/part-1/03-espaco-tempo-qualidade.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Espaço, tempo e qualidade dos dados</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Procurar" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
@@ -270,7 +319,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../../">Dados e Indicadores de Clima e Ambiente para a Saúde</a> 
+      <a href="../../">Dados e Indicadores de Clima e Ambiente para a Saúde</a>
         <div class="sidebar-tools-main">
     <a href="https://github.com/rfsaldanha/dicas" title="Código fonte" class="quarto-navigation-tool px-1" aria-label="Código fonte"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo escuro"><i class="bi"></i></a>
@@ -282,85 +331,85 @@ ul.task-list li input[type="checkbox"] {
         <div id="quarto-search" class="" title="Procurar"></div>
         </div>
         </div>
-    <div class="sidebar-menu-container"> 
+    <div class="sidebar-menu-container">
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Bem-vindo</span></a>
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../frontmatter/ficha-tecnica.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Ficha técnica</span></a>
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../frontmatter/apresentacao.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Apresentação</span></a>
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../frontmatter/prefacio.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Prefácio</span></a>
+ <span class="menu-text">Prefácio do autor</span></a>
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../frontmatter/agradecimentos.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Agradecimentos</span></a>
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../frontmatter/siglas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lista de siglas</span></a>
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../frontmatter/sumario.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sumário</span></a>
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../frontmatter/como-usar.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Como utilizar este livro</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
+      <div class="sidebar-item-container">
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Parte I — Fundamentos e métodos</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+          </a>
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-1/01-clima-ambiente-saude.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Clima, ambiente e saúde pública</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-1/02-dados-variaveis-indices-indicadores.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Dados, variáveis, índices e indicadores</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-1/03-espaco-tempo-qualidade.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Espaço, tempo e qualidade dos dados</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-1/04-fontes-fichas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Fontes de dados e fichas de indicadores</span></span></a>
   </div>
@@ -368,46 +417,46 @@ ul.task-list li input[type="checkbox"] {
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
+      <div class="sidebar-item-container">
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
  <span class="menu-text">Parte II — Dados e indicadores temáticos</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+          </a>
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-2/05-temperatura-condicoes-termicas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Temperatura e condições térmicas</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-2/06-precipitacao-secas-eventos-hidrologicos.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Precipitação, secas e eventos hidrológicos</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-2/07-qualidade-ar-queimadas-fumaca.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Qualidade do ar, queimadas e fumaça</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-2/08-agua-saneamento-qualidade-ambiental.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Água, saneamento e qualidade ambiental</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-2/09-uso-cobertura-terra-ambiente-urbano.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Uso e cobertura da terra, vegetação e ambiente urbano</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-2/10-eventos-severos-desastres.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Eventos meteorológicos severos e desastres</span></span></a>
   </div>
@@ -415,28 +464,28 @@ ul.task-list li input[type="checkbox"] {
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
+      <div class="sidebar-item-container">
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
  <span class="menu-text">Parte III — Indicadores integrados de clima, ambiente e saúde</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+          </a>
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-3/11-exposicao-vulnerabilidade.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Exposição e vulnerabilidade socioambiental</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-3/12-efeitos-saude.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Efeitos do clima e do ambiente sobre a saúde</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-3/13-resposta-adaptacao-resiliencia.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Capacidade de resposta, adaptação e resiliência</span></span></a>
   </div>
@@ -444,16 +493,16 @@ ul.task-list li input[type="checkbox"] {
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
+      <div class="sidebar-item-container">
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
  <span class="menu-text">Parte IV — Aplicação na vigilância e na gestão pública</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+          </a>
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-4/14-indicador-decisao.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Do indicador à decisão pública</span></span></a>
   </div>
@@ -461,93 +510,64 @@ ul.task-list li input[type="checkbox"] {
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
+      <div class="sidebar-item-container">
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
- <span class="menu-text">Fichas demonstrativas</span></a>
+ <span class="menu-text">Elementos pós-textuais</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+          </a>
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../indicators/pages/cli-tem-01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Temperatura máxima diária</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../indicators/pages/cli-cal-01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Ocorrência de onda de calor</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../indicators/pages/amb-ar-01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Concentração média diária de material particulado fino (PM2,5)</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
- <span class="menu-text">Elementos pós-textuais</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Alternar seção">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/glossario.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Glossário</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/referencias.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Referências</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/indice-indicadores.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Índice alfabético de indicadores</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/indice-fontes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Índice de fontes de dados</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/indice-instituicoes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Índice de instituições</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/apendice-metodologico.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Apêndice metodológico</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/lista-fichas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lista de fichas</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/lista-tabelas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lista de tabelas</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/lista-figuras.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lista de figuras</span></a>
   </div>
@@ -562,33 +582,53 @@ ul.task-list li input[type="checkbox"] {
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Índice</h2>
-   
+
   <ul>
-  <li><a href="#escala-e-resolução-espacial" id="toc-escala-e-resolução-espacial" class="nav-link active" data-scroll-target="#escala-e-resolução-espacial"><span class="header-section-number">3.1</span> Escala e resolução espacial</a>
+  <li><a href="#suporte-escala-e-resolução-espacial" id="toc-suporte-escala-e-resolução-espacial" class="nav-link active" data-scroll-target="#suporte-escala-e-resolução-espacial"><span class="header-section-number">3.1</span> Suporte, escala e resolução espacial</a>
   <ul class="collapse">
   <li><a href="#estações-de-monitoramento" id="toc-estações-de-monitoramento" class="nav-link" data-scroll-target="#estações-de-monitoramento"><span class="header-section-number">3.1.1</span> Estações de monitoramento</a></li>
   <li><a href="#dados-em-grade" id="toc-dados-em-grade" class="nav-link" data-scroll-target="#dados-em-grade"><span class="header-section-number">3.1.2</span> Dados em grade</a></li>
   <li><a href="#sensoriamento-remoto" id="toc-sensoriamento-remoto" class="nav-link" data-scroll-target="#sensoriamento-remoto"><span class="header-section-number">3.1.3</span> Sensoriamento remoto</a></li>
   </ul></li>
-  <li><a href="#agregação-territorial" id="toc-agregação-territorial" class="nav-link" data-scroll-target="#agregação-territorial"><span class="header-section-number">3.2</span> Agregação territorial</a>
+  <li><a href="#mudança-de-suporte-espacial" id="toc-mudança-de-suporte-espacial" class="nav-link" data-scroll-target="#mudança-de-suporte-espacial"><span class="header-section-number">3.2</span> Mudança de suporte espacial</a>
   <ul class="collapse">
-  <li><a href="#municípios" id="toc-municípios" class="nav-link" data-scroll-target="#municípios"><span class="header-section-number">3.2.1</span> Municípios</a></li>
-  <li><a href="#regiões-de-saúde" id="toc-regiões-de-saúde" class="nav-link" data-scroll-target="#regiões-de-saúde"><span class="header-section-number">3.2.2</span> Regiões de saúde</a></li>
+  <li><a href="#interseção-e-células-de-borda" id="toc-interseção-e-células-de-borda" class="nav-link" data-scroll-target="#interseção-e-células-de-borda"><span class="header-section-number">3.2.1</span> Interseção e células de borda</a></li>
   </ul></li>
-  <li><a href="#resolução-temporal-e-séries" id="toc-resolução-temporal-e-séries" class="nav-link" data-scroll-target="#resolução-temporal-e-séries"><span class="header-section-number">3.3</span> Resolução temporal e séries</a>
+  <li><a href="#agregação-territorial" id="toc-agregação-territorial" class="nav-link" data-scroll-target="#agregação-territorial"><span class="header-section-number">3.3</span> Agregação territorial</a>
   <ul class="collapse">
-  <li><a href="#períodos-de-referência" id="toc-períodos-de-referência" class="nav-link" data-scroll-target="#períodos-de-referência"><span class="header-section-number">3.3.1</span> Períodos de referência</a></li>
-  <li><a href="#normais-climatológicas" id="toc-normais-climatológicas" class="nav-link" data-scroll-target="#normais-climatológicas"><span class="header-section-number">3.3.2</span> Normais climatológicas</a></li>
-  <li><a href="#percentis" id="toc-percentis" class="nav-link" data-scroll-target="#percentis"><span class="header-section-number">3.3.3</span> Percentis</a></li>
-  <li><a href="#anomalias" id="toc-anomalias" class="nav-link" data-scroll-target="#anomalias"><span class="header-section-number">3.3.4</span> Anomalias</a></li>
+  <li><a href="#municípios" id="toc-municípios" class="nav-link" data-scroll-target="#municípios"><span class="header-section-number">3.3.1</span> Municípios</a></li>
+  <li><a href="#regiões-de-saúde" id="toc-regiões-de-saúde" class="nav-link" data-scroll-target="#regiões-de-saúde"><span class="header-section-number">3.3.2</span> Regiões de saúde</a></li>
+  <li><a href="#problema-da-unidade-de-área-modificável" id="toc-problema-da-unidade-de-área-modificável" class="nav-link" data-scroll-target="#problema-da-unidade-de-área-modificável"><span class="header-section-number">3.3.3</span> Problema da unidade de área modificável</a></li>
   </ul></li>
-  <li><a href="#qualidade-dos-dados" id="toc-qualidade-dos-dados" class="nav-link" data-scroll-target="#qualidade-dos-dados"><span class="header-section-number">3.4</span> Qualidade dos dados</a>
+  <li><a href="#resolução-temporal-e-séries" id="toc-resolução-temporal-e-séries" class="nav-link" data-scroll-target="#resolução-temporal-e-séries"><span class="header-section-number">3.4</span> Resolução temporal e séries</a>
   <ul class="collapse">
-  <li><a href="#completude-e-atualização" id="toc-completude-e-atualização" class="nav-link" data-scroll-target="#completude-e-atualização"><span class="header-section-number">3.4.1</span> Completude e atualização</a></li>
-  <li><a href="#incerteza" id="toc-incerteza" class="nav-link" data-scroll-target="#incerteza"><span class="header-section-number">3.4.2</span> Incerteza</a></li>
-  <li><a href="#comparabilidade" id="toc-comparabilidade" class="nav-link" data-scroll-target="#comparabilidade"><span class="header-section-number">3.4.3</span> Comparabilidade</a></li>
-  <li><a href="#revisão-das-séries" id="toc-revisão-das-séries" class="nav-link" data-scroll-target="#revisão-das-séries"><span class="header-section-number">3.4.4</span> Revisão das séries</a></li>
+  <li><a href="#janela-e-fuso" id="toc-janela-e-fuso" class="nav-link" data-scroll-target="#janela-e-fuso"><span class="header-section-number">3.4.1</span> Janela e fuso</a></li>
+  <li><a href="#agregações-temporais" id="toc-agregações-temporais" class="nav-link" data-scroll-target="#agregações-temporais"><span class="header-section-number">3.4.2</span> Agregações temporais</a></li>
   </ul></li>
+  <li><a href="#períodos-de-referência" id="toc-períodos-de-referência" class="nav-link" data-scroll-target="#períodos-de-referência"><span class="header-section-number">3.5</span> Períodos de referência</a>
+  <ul class="collapse">
+  <li><a href="#percentis" id="toc-percentis" class="nav-link" data-scroll-target="#percentis"><span class="header-section-number">3.5.1</span> Percentis</a></li>
+  <li><a href="#anomalias" id="toc-anomalias" class="nav-link" data-scroll-target="#anomalias"><span class="header-section-number">3.5.2</span> Anomalias</a></li>
+  <li><a href="#sazonalidade-e-tendência" id="toc-sazonalidade-e-tendência" class="nav-link" data-scroll-target="#sazonalidade-e-tendência"><span class="header-section-number">3.5.3</span> Sazonalidade e tendência</a></li>
+  </ul></li>
+  <li><a href="#qualidade-dos-dados" id="toc-qualidade-dos-dados" class="nav-link" data-scroll-target="#qualidade-dos-dados"><span class="header-section-number">3.6</span> Qualidade dos dados</a>
+  <ul class="collapse">
+  <li><a href="#exatidão-e-precisão" id="toc-exatidão-e-precisão" class="nav-link" data-scroll-target="#exatidão-e-precisão"><span class="header-section-number">3.6.1</span> Exatidão e precisão</a></li>
+  <li><a href="#completude" id="toc-completude" class="nav-link" data-scroll-target="#completude"><span class="header-section-number">3.6.2</span> Completude</a></li>
+  <li><a href="#oportunidade" id="toc-oportunidade" class="nav-link" data-scroll-target="#oportunidade"><span class="header-section-number">3.6.3</span> Oportunidade</a></li>
+  <li><a href="#consistência" id="toc-consistência" class="nav-link" data-scroll-target="#consistência"><span class="header-section-number">3.6.4</span> Consistência</a></li>
+  <li><a href="#homogeneidade" id="toc-homogeneidade" class="nav-link" data-scroll-target="#homogeneidade"><span class="header-section-number">3.6.5</span> Homogeneidade</a></li>
+  <li><a href="#comparabilidade" id="toc-comparabilidade" class="nav-link" data-scroll-target="#comparabilidade"><span class="header-section-number">3.6.6</span> Comparabilidade</a></li>
+  </ul></li>
+  <li><a href="#incerteza" id="toc-incerteza" class="nav-link" data-scroll-target="#incerteza"><span class="header-section-number">3.7</span> Incerteza</a>
+  <ul class="collapse">
+  <li><a href="#fontes-de-incerteza" id="toc-fontes-de-incerteza" class="nav-link" data-scroll-target="#fontes-de-incerteza"><span class="header-section-number">3.7.1</span> Fontes de incerteza</a></li>
+  <li><a href="#propagação-e-análise-de-sensibilidade" id="toc-propagação-e-análise-de-sensibilidade" class="nav-link" data-scroll-target="#propagação-e-análise-de-sensibilidade"><span class="header-section-number">3.7.2</span> Propagação e análise de sensibilidade</a></li>
+  </ul></li>
+  <li><a href="#revisões-e-versionamento" id="toc-revisões-e-versionamento" class="nav-link" data-scroll-target="#revisões-e-versionamento"><span class="header-section-number">3.8</span> Revisões e versionamento</a></li>
+  <li><a href="#dados-de-saúde-e-proteção" id="toc-dados-de-saúde-e-proteção" class="nav-link" data-scroll-target="#dados-de-saúde-e-proteção"><span class="header-section-number">3.9</span> Dados de saúde e proteção</a></li>
+  <li><a href="#checklist-antes-do-cálculo" id="toc-checklist-antes-do-cálculo" class="nav-link" data-scroll-target="#checklist-antes-do-cálculo"><span class="header-section-number">3.10</span> Checklist antes do cálculo</a></li>
+  <li><a href="#síntese" id="toc-síntese" class="nav-link" data-scroll-target="#síntese"><span class="header-section-number">3.11</span> Síntese</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/rfsaldanha/dicas/blob/main/chapters/part-1/03-espaco-tempo-qualidade.qmd" class="toc-action"><i class="bi bi-github"></i>Ver o código fonte</a></li><li><a href="https://github.com/rfsaldanha/dicas/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></nav>
     </div>
@@ -605,83 +645,459 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="quarto-title-meta">
 
-    
-  
-    
+
+
+
   </div>
-  
+
 
 
 </header>
 
 
-<p>Este capítulo reunirá critérios transversais para compatibilizar escalas, períodos e níveis de qualidade antes do cálculo de qualquer indicador.</p>
-<p>Seu limite editorial é o tratamento da informação. A descrição específica de sensores, bases e métodos permanece nas fichas e nos capítulos temáticos; a inferência sobre efeitos na saúde pertence ao <a href="../part-3/12-efeitos-saude.html" class="quarto-xref"><span>Capítulo 12</span></a>.</p>
-<p><strong>Indicadores previstos:</strong> não se aplica como conjunto autônomo. Serão apresentados exemplos de completude, oportunidade, cobertura espacial, incerteza e comparabilidade como atributos de qualidade.</p>
-<section id="escala-e-resolução-espacial" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="escala-e-resolução-espacial"><span class="header-section-number">3.1</span> Escala e resolução espacial</h2>
+<p>Indicadores climáticos, ambientais e de saúde só podem ser relacionados depois que suas escalas espaciais, temporais e populacionais foram compreendidas. Uma estação meteorológica, um pixel de satélite, um município e uma pessoa não são unidades equivalentes. Uma concentração horária, uma média diária, um total mensal e uma taxa anual também respondem a perguntas diferentes. A compatibilização exige escolhas substantivas, não apenas operações de software.</p>
+<p>Este capítulo reúne critérios transversais para preparar e avaliar dados antes do cálculo. Métodos específicos permanecem nas fichas; inferência sobre efeitos em saúde aparece no <a href="../part-3/12-efeitos-saude.html" class="quarto-xref"><span>Capítulo 12</span></a>. O princípio central é simples: toda transformação muda o que o dado representa e deve ser registrada.</p>
+<section id="suporte-escala-e-resolução-espacial" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="suporte-escala-e-resolução-espacial"><span class="header-section-number">3.1</span> Suporte, escala e resolução espacial</h2>
+<p><strong>Localização</strong> informa onde um registro foi obtido ou estimado. <strong>Suporte espacial</strong> é a porção do espaço à qual o valor se refere. Uma coordenada de estação identifica um ponto de medição; uma célula de reanálise representa uma estimativa média ou modelada sobre uma área e um volume atmosférico; uma taxa municipal resume eventos e população dentro de um limite administrativo.</p>
+<p><strong>Resolução espacial</strong> descreve o nível de detalhe ou o tamanho nominal da unidade. Resolução mais fina não garante maior exatidão. Um produto de 1 km derivado de modelo pode ter pixel pequeno e incerteza considerável. Uma estação pontual pode medir com alta precisão no local e representar mal a heterogeneidade do território.</p>
+<p><strong>Escala</strong> também se refere ao nível em que processos são observados. Sombra, ventilação e material construtivo atuam em escala local; circulação atmosférica e seca podem abranger regiões; políticas e sistemas de informação operam em territórios administrativos. A escala do dado deve ser compatível com o mecanismo e a decisão.</p>
+<div id="tbl-suportes-espaciais" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-suportes-espaciais-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;3.1: Suportes espaciais comuns em clima, ambiente e saúde
+</figcaption>
+<div aria-describedby="tbl-suportes-espaciais-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Unidade</th>
+<th>O que o valor representa</th>
+<th>Vantagem</th>
+<th>Risco de interpretação</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Ponto de estação</td>
+<td>Condição medida no local e nas condições instrumentais</td>
+<td>Observação direta e série frequente</td>
+<td>Atribuir o ponto a todo o território</td>
+</tr>
+<tr class="even">
+<td>Pixel ou célula</td>
+<td>Estimativa associada à área/volume e ao modelo do produto</td>
+<td>Cobertura contínua</td>
+<td>Tratar centroide como medição pontual</td>
+</tr>
+<tr class="odd">
+<td>Polígono territorial</td>
+<td>Estatística agregada segundo limite e método</td>
+<td>Compatibilidade com gestão</td>
+<td>Ocultar heterogeneidade interna</td>
+</tr>
+<tr class="even">
+<td>Endereço ou trajetória individual</td>
+<td>Local de residência ou mobilidade registrada</td>
+<td>Aproxima exposição ao sujeito</td>
+<td>Confundir residência com toda a exposição</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
 <section id="estações-de-monitoramento" class="level3" data-number="3.1.1">
 <h3 data-number="3.1.1" class="anchored" data-anchor-id="estações-de-monitoramento"><span class="header-section-number">3.1.1</span> Estações de monitoramento</h3>
+<p>Estações meteorológicas e ambientais têm coordenadas, altitude, entorno, instrumento, altura de medição, frequência, calendário de manutenção e histórico operacional. Esses metadados integram o dado. Mudança de sítio, abrigo, sensor ou horário pode criar quebra na série mesmo que o fenômeno não tenha mudado.</p>
+<p>A representatividade depende da variável. Precipitação convectiva pode variar muito em pequena distância. Temperatura responde a relevo, urbanização e cobertura. Poluentes variam conforme fontes, vento e configuração urbana. A estação mais próxima nem sempre é a mais semelhante ao território de interesse.</p>
+<p>Procedimentos mínimos incluem:</p>
+<ul>
+<li>verificar identificador estável e coordenadas por período;</li>
+<li>examinar altitude, entorno e classificação da estação;</li>
+<li>documentar instrumento, unidade e frequência;</li>
+<li>conservar códigos de qualidade e valores originais;</li>
+<li>analisar falhas, duplicidades e mudanças;</li>
+<li>justificar interpolação ou associação a territórios.</li>
+</ul>
 </section>
 <section id="dados-em-grade" class="level3" data-number="3.1.2">
 <h3 data-number="3.1.2" class="anchored" data-anchor-id="dados-em-grade"><span class="header-section-number">3.1.2</span> Dados em grade</h3>
+<p>Grades regulares dividem o espaço em células. Produtos podem ser observacionais interpolados, reanálises, estimativas de satélite, previsões ou projeções. A aparência cartográfica semelhante não torna esses produtos equivalentes.</p>
+<p>Em uma reanálise, um modelo físico combina observações e dinâmica atmosférica para estimar um estado coerente. Em sensoriamento remoto, o valor deriva da energia registrada pelo sensor e de um algoritmo de recuperação. Em interpolação, valores em locais amostrados informam locais sem medida segundo hipóteses espaciais. Cada processo produz uma incerteza diferente.</p>
+<p>Ao usar grade, registre:</p>
+<ul>
+<li>nome, instituição, versão e data de acesso;</li>
+<li>variável exata, nível vertical e unidade;</li>
+<li>sistema de coordenadas, extensão e resolução nominal;</li>
+<li>calendário, fuso e frequência;</li>
+<li>natureza do produto e método de geração;</li>
+<li>qualidade, viés conhecido e latência;</li>
+<li>transformação espacial e temporal aplicada.</li>
+</ul>
 </section>
 <section id="sensoriamento-remoto" class="level3" data-number="3.1.3">
 <h3 data-number="3.1.3" class="anchored" data-anchor-id="sensoriamento-remoto"><span class="header-section-number">3.1.3</span> Sensoriamento remoto</h3>
-<div class="todo">
-<p>TODO: distinguir ponto, pixel, célula, área e território de gestão; discutir problema de mudança de suporte.</p>
+<p>Sensores orbitais medem radiação em bandas e condições de observação específicas. Temperatura de superfície, índice de vegetação, área queimada e coluna atmosférica são produtos derivados, não fotografias diretas do fenômeno. Nuvens, aerossóis, ângulo, emissividade, mistura de classes e algoritmo influenciam resultados.</p>
+<p>O pixel é uma área de resposta do sensor e pode conter múltiplos materiais. A resolução nominal não elimina mistura. Composições mensais reduzem falhas, mas modificam o tempo representado: máximo mensal de NDVI, por exemplo, não equivale à vegetação observada em um dia específico.</p>
+</section>
+</section>
+<section id="mudança-de-suporte-espacial" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="mudança-de-suporte-espacial"><span class="header-section-number">3.2</span> Mudança de suporte espacial</h2>
+<p>Mudar de ponto ou pixel para território é uma operação analítica. Média simples, máximo, percentil, proporção de área e média ponderada pela população produzem indicadores distintos.</p>
+<p>Considere uma grade de PM2,5 e um município. A média simples das células descreve a concentração espacial média. A média ponderada pela população aproxima a concentração média onde as pessoas residem. O máximo identifica a maior estimativa. Nenhuma é universalmente correta; a pergunta determina a estatística.</p>
+<p>Para uma variável (x_g) nas células (g=1,,G), a média ponderada por população é:</p>
+<p><span class="math display">\[
+\bar{x}_{pop} = \frac{\sum_g x_g\,p_g}{\sum_g p_g},
+\]</span></p>
+<p>em que (p_g) é a população da célula. O cálculo exige referência temporal compatível entre população e exposição, tratamento de células de borda e decisão sobre população flutuante.</p>
+<section id="interseção-e-células-de-borda" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="interseção-e-células-de-borda"><span class="header-section-number">3.2.1</span> Interseção e células de borda</h3>
+<p>Uma célula raramente coincide com o limite territorial. Três estratégias comuns são atribuição pelo centroide, ponderação pela fração de área e interpolação dasimétrica com informação auxiliar. Centroide é simples, mas pode excluir células que cobrem parte relevante do território. Ponderação por área supõe distribuição uniforme. Métodos dasimétricos usam população ou uso da terra, mas adicionam dados e hipóteses.</p>
+<p>O método deve ser estável em toda a série. Alterá-lo pode produzir ruptura. Códigos e parâmetros de processamento precisam ser preservados para reprodução.</p>
+</section>
+</section>
+<section id="agregação-territorial" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="agregação-territorial"><span class="header-section-number">3.3</span> Agregação territorial</h2>
+<p>Territórios administrativos mudam. Municípios são criados, limites são ajustados, regiões de saúde são recompostas e códigos podem ser substituídos. Uma série territorial sem versão de malha é ambígua. O IBGE publica malhas, códigos e referências espaciais que devem acompanhar a análise <span class="citation" data-cites="ibge2024malhas">(<a href="../../backmatter/referencias.html#ref-ibge2024malhas" role="doc-biblioref">Instituto Brasileiro de Geografia e Estatística, 2024</a>)</span>.</p>
+<section id="municípios" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="municípios"><span class="header-section-number">3.3.1</span> Municípios</h3>
+<p>Município é unidade político-administrativa e de gestão, não unidade ambiental homogênea. Municípios extensos podem incluir zonas urbanas, rurais, floresta, rios e grandes gradientes altitudinais. Um único valor municipal é uma síntese que pode esconder contrastes relevantes.</p>
+<p>Ao agregar por município:</p>
+<ol type="1">
+<li>registrar código oficial e ano da malha;</li>
+<li>identificar mudanças entre datas da série;</li>
+<li>decidir como compatibilizar limites;</li>
+<li>declarar ponderador;</li>
+<li>avaliar cobertura da fonte dentro do território;</li>
+<li>evitar comparar unidades com qualidade muito distinta.</li>
+</ol>
+</section>
+<section id="regiões-de-saúde" class="level3" data-number="3.3.2">
+<h3 data-number="3.3.2" class="anchored" data-anchor-id="regiões-de-saúde"><span class="header-section-number">3.3.2</span> Regiões de saúde</h3>
+<p>Regiões de saúde são úteis para planejamento assistencial, fluxos e capacidade instalada. Elas não devem ser reconstruídas apenas dissolvendo municípios sem registrar a composição e a vigência. Uma mudança de composição altera denominador, área e serviços incluídos.</p>
+<p>Indicadores ambientais podem ser agregados à região para uma decisão regional, mas a média pode ocultar municípios muito expostos. Recomenda-se apresentar resumo regional acompanhado de distribuição ou mapa intrarregional.</p>
+</section>
+<section id="problema-da-unidade-de-área-modificável" class="level3" data-number="3.3.3">
+<h3 data-number="3.3.3" class="anchored" data-anchor-id="problema-da-unidade-de-área-modificável"><span class="header-section-number">3.3.3</span> Problema da unidade de área modificável</h3>
+<p>Resultados de dados agregados podem mudar quando o mesmo território é dividido em unidades diferentes. Esse é o problema da unidade de área modificável: valores de correlação, classes e rankings dependem da escala e do zoneamento. Relações observadas entre áreas também não podem ser automaticamente atribuídas a indivíduos, erro conhecido como falácia ecológica <span class="citation" data-cites="openshaw1984">(<a href="../../backmatter/referencias.html#ref-openshaw1984" role="doc-biblioref">Openshaw, 1984</a>)</span>.</p>
+<p>Um município com maior calor e maior mortalidade não demonstra que as pessoas mais expostas ao calor foram as que morreram. A análise ecológica pode ser apropriada para políticas territoriais, desde que suas inferências permaneçam no nível agregado e as limitações sejam explícitas.</p>
+<div class="callout callout-style-default callout-warning callout-titled" title="Falácia ecológica">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Aviso</span>Falácia ecológica
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Associação entre taxas municipais não autoriza conclusão individual. O desenho, a população sob risco, as defasagens e fatores de confusão precisam ser tratados no nível correspondente à pergunta.</p>
+</div>
 </div>
 </section>
 </section>
-<section id="agregação-territorial" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="agregação-territorial"><span class="header-section-number">3.2</span> Agregação territorial</h2>
-<section id="municípios" class="level3" data-number="3.2.1">
-<h3 data-number="3.2.1" class="anchored" data-anchor-id="municípios"><span class="header-section-number">3.2.1</span> Municípios</h3>
+<section id="resolução-temporal-e-séries" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="resolução-temporal-e-séries"><span class="header-section-number">3.4</span> Resolução temporal e séries</h2>
+<p>O tempo do fenômeno, da medição, do registro e da decisão pode ser diferente. Uma estação registra a cada hora; o sistema de saúde consolida eventos mensais; a base de mortalidade é revisada por anos; a gestão precisa decidir hoje. Compatibilizar significa preservar o mecanismo e reconhecer latências.</p>
+<section id="janela-e-fuso" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="janela-e-fuso"><span class="header-section-number">3.4.1</span> Janela e fuso</h3>
+<p>“Dia” precisa de início, fim e fuso. Um produto em UTC e uma base de saúde em horário local podem deslocar exposições próximas da meia-noite. Horário de verão, quando aplicável, acrescenta descontinuidade. O procedimento recomendado é:</p>
+<ul>
+<li>conservar a data/hora original e o fuso;</li>
+<li>converter para referência comum de forma explícita;</li>
+<li>definir a janela diária segundo a aplicação;</li>
+<li>testar sensibilidade quando o deslocamento for relevante;</li>
+<li>documentar calendários não gregorianos em modelos climáticos.</li>
+</ul>
 </section>
-<section id="regiões-de-saúde" class="level3" data-number="3.2.2">
-<h3 data-number="3.2.2" class="anchored" data-anchor-id="regiões-de-saúde"><span class="header-section-number">3.2.2</span> Regiões de saúde</h3>
-<div class="todo">
-<p>TODO: documentar limites, versões territoriais, ponderação e comparabilidade.</p>
+<section id="agregações-temporais" class="level3" data-number="3.4.2">
+<h3 data-number="3.4.2" class="anchored" data-anchor-id="agregações-temporais"><span class="header-section-number">3.4.2</span> Agregações temporais</h3>
+<p>Média, soma, mínimo e máximo têm significados diferentes. Precipitação mensal é total; temperatura mensal costuma ser média de valores; máxima mensal de temperatura é o maior máximo diário; PM2,5 anual pode ser média ponderada por completude.</p>
+<p>Uma média diária calculada de 24 observações e outra de três horários não são necessariamente comparáveis. Critérios de completude evitam que dias com poucos registros recebam o mesmo peso de dias completos.</p>
+<div id="tbl-transformacoes-temporais" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-transformacoes-temporais-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;3.2: Transformações temporais e seus significados
+</figcaption>
+<div aria-describedby="tbl-transformacoes-temporais-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Transformação</th>
+<th>Pergunta respondida</th>
+<th>Exemplo</th>
+<th>Cuidado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Média</td>
+<td>Qual o nível típico no período?</td>
+<td>PM2,5 médio diário</td>
+<td>Sensível à cobertura horária</td>
+</tr>
+<tr class="even">
+<td>Soma</td>
+<td>Qual o acumulado?</td>
+<td>Precipitação mensal</td>
+<td>Falhas subestimam total</td>
+</tr>
+<tr class="odd">
+<td>Máximo</td>
+<td>Qual o maior valor?</td>
+<td>TXx mensal</td>
+<td>Muito sensível a erro isolado</td>
+</tr>
+<tr class="even">
+<td>Contagem</td>
+<td>Quantos dias atendem à condição?</td>
+<td>TX90p</td>
+<td>Limiar e dias válidos</td>
+</tr>
+<tr class="odd">
+<td>Sequência</td>
+<td>Por quanto tempo a condição persistiu?</td>
+<td>WSDI ou CDD</td>
+<td>Falhas podem quebrar episódios</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
 </div>
 </section>
 </section>
-<section id="resolução-temporal-e-séries" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="resolução-temporal-e-séries"><span class="header-section-number">3.3</span> Resolução temporal e séries</h2>
-<section id="períodos-de-referência" class="level3" data-number="3.3.1">
-<h3 data-number="3.3.1" class="anchored" data-anchor-id="períodos-de-referência"><span class="header-section-number">3.3.1</span> Períodos de referência</h3>
+<section id="períodos-de-referência" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="períodos-de-referência"><span class="header-section-number">3.5</span> Períodos de referência</h2>
+<p>Um período de referência dá contexto à observação. A OMM define normais climatológicas padrão em janelas consecutivas de 30 anos, atualmente incluindo 1991–2020, para caracterizar condições recentes <span class="citation" data-cites="wmo2017normals">(<a href="../../backmatter/referencias.html#ref-wmo2017normals" role="doc-biblioref">World Meteorological Organization, 2017</a>)</span>. Entretanto, monitoramento de mudança e índices de extremos podem usar bases fixas para evitar que o referencial se mova com o clima.</p>
+<p>Não existe conflito: a base depende da finalidade.</p>
+<ul>
+<li>para descrever o clima recente esperado, usa-se normal atualizada;</li>
+<li>para acompanhar mudança em relação a uma referência histórica, mantém-se base fixa;</li>
+<li>para calcular índice padronizado, segue-se a especificação do indicador;</li>
+<li>para alerta sanitário, o limiar deve ser validado em relação ao desfecho e ao sistema local.</li>
+</ul>
+<p>Trocar 1961–1990 por 1991–2020 em TX90p altera o indicador. A nova série pode ser útil, mas não é diretamente comparável sem recálculo integral e identificação.</p>
+<section id="percentis" class="level3" data-number="3.5.1">
+<h3 data-number="3.5.1" class="anchored" data-anchor-id="percentis"><span class="header-section-number">3.5.1</span> Percentis</h3>
+<p>Percentil é o valor abaixo do qual se encontra uma proporção da distribuição. O percentil 90 de temperatura máxima não significa 90% de risco nem probabilidade de 90% de ocorrer calor. Significa que, na amostra e método de referência, aproximadamente 90% dos valores ficaram abaixo desse limiar.</p>
+<p>Percentis podem ser:</p>
+<ul>
+<li>globais para todo o período;</li>
+<li>sazonais;</li>
+<li>específicos do dia do calendário;</li>
+<li>calculados em janela móvel;</li>
+<li>estratificados por local.</li>
+</ul>
+<p>Métodos diferentes geram limiares diferentes. Empates, dados faltantes, amostra pequena e algoritmo de quantil precisam ser tratados.</p>
 </section>
-<section id="normais-climatológicas" class="level3" data-number="3.3.2">
-<h3 data-number="3.3.2" class="anchored" data-anchor-id="normais-climatológicas"><span class="header-section-number">3.3.2</span> Normais climatológicas</h3>
+<section id="anomalias" class="level3" data-number="3.5.2">
+<h3 data-number="3.5.2" class="anchored" data-anchor-id="anomalias"><span class="header-section-number">3.5.2</span> Anomalias</h3>
+<p>Anomalia é a diferença entre valor observado e referência:</p>
+<p><span class="math display">\[
+A_t = x_t - \bar{x}_{ref}.
+\]</span></p>
+<p>Anomalia positiva de temperatura indica valor acima da média de referência; não significa automaticamente extremo ou dano. Anomalias padronizadas dividem a diferença por medida de dispersão e permitem comparação relativa, mas dependem da distribuição.</p>
 </section>
-<section id="percentis" class="level3" data-number="3.3.3">
-<h3 data-number="3.3.3" class="anchored" data-anchor-id="percentis"><span class="header-section-number">3.3.3</span> Percentis</h3>
+<section id="sazonalidade-e-tendência" class="level3" data-number="3.5.3">
+<h3 data-number="3.5.3" class="anchored" data-anchor-id="sazonalidade-e-tendência"><span class="header-section-number">3.5.3</span> Sazonalidade e tendência</h3>
+<p>Clima e muitos agravos de saúde têm sazonalidade. Comparar janeiro com julho pode confundir estação com tendência. Decomposição, termos sazonais ou comparações com o mesmo período do calendário ajudam a separar componentes.</p>
+<p>Tendência não deve ser estimada sem examinar quebras, autocorrelação, mudanças de cobertura e incerteza. Uma série mais longa nem sempre é mais homogênea. As práticas climatológicas da OMM destacam controle de qualidade, homogeneização, arquivamento e metadados como partes da gestão do dado <span class="citation" data-cites="wmo2023climatological">(<a href="../../backmatter/referencias.html#ref-wmo2023climatological" role="doc-biblioref">World Meteorological Organization, 2023</a>)</span>.</p>
 </section>
-<section id="anomalias" class="level3" data-number="3.3.4">
-<h3 data-number="3.3.4" class="anchored" data-anchor-id="anomalias"><span class="header-section-number">3.3.4</span> Anomalias</h3>
-<div class="todo">
-<p>TODO: explicar janelas, fusos, calendários, sazonalidade e mudanças de frequência.</p>
+</section>
+<section id="qualidade-dos-dados" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="qualidade-dos-dados"><span class="header-section-number">3.6</span> Qualidade dos dados</h2>
+<p>Qualidade é adequação à finalidade. Um dado pode ser tecnicamente correto e inadequado para uma decisão por falta de cobertura, oportunidade ou granularidade. Avaliar qualidade exige critérios múltiplos.</p>
+<section id="exatidão-e-precisão" class="level3" data-number="3.6.1">
+<h3 data-number="3.6.1" class="anchored" data-anchor-id="exatidão-e-precisão"><span class="header-section-number">3.6.1</span> Exatidão e precisão</h3>
+<p>Exatidão é proximidade do valor de referência; precisão é repetibilidade ou dispersão. Um sensor pode ser preciso e enviesado. Um modelo pode reproduzir padrão regional e errar extremos locais. Quando não existe padrão-ouro, validação usa comparações, coerência física e incerteza conhecida.</p>
+</section>
+<section id="completude" class="level3" data-number="3.6.2">
+<h3 data-number="3.6.2" class="anchored" data-anchor-id="completude"><span class="header-section-number">3.6.2</span> Completude</h3>
+<p>Completude é a proporção de registros esperados disponíveis e válidos:</p>
+<p><span class="math display">\[
+C = 100 \times \frac{n_{válidos}}{n_{esperados}}.
+\]</span></p>
+<p>O denominador depende do calendário de operação. Estação instalada no meio do ano não deveria ser avaliada como se tivesse obrigação anterior. Completude alta também não garante representatividade espacial.</p>
+<p>Relate completude por período e unidade, não apenas média global. Uma série com 95% pode perder justamente os dias de evento extremo.</p>
+</section>
+<section id="oportunidade" class="level3" data-number="3.6.3">
+<h3 data-number="3.6.3" class="anchored" data-anchor-id="oportunidade"><span class="header-section-number">3.6.3</span> Oportunidade</h3>
+<p>Oportunidade é o intervalo entre ocorrência e disponibilidade para uso. Dados preliminares podem ser oportunos e sujeitos a revisão; dados consolidados podem ser mais completos e tardios. Vigilância operacional e avaliação retrospectiva podem exigir versões diferentes.</p>
+</section>
+<section id="consistência" class="level3" data-number="3.6.4">
+<h3 data-number="3.6.4" class="anchored" data-anchor-id="consistência"><span class="header-section-number">3.6.4</span> Consistência</h3>
+<p>Consistência verifica regras internas: intervalos fisicamente plausíveis, ordem entre mínima e máxima, precipitação não negativa, coerência de unidades, códigos válidos e relações temporais. Regras devem sinalizar, não apagar automaticamente. Valores extremos verdadeiros são justamente importantes para o livro.</p>
+</section>
+<section id="homogeneidade" class="level3" data-number="3.6.5">
+<h3 data-number="3.6.5" class="anchored" data-anchor-id="homogeneidade"><span class="header-section-number">3.6.5</span> Homogeneidade</h3>
+<p>Série homogênea varia principalmente por causas do fenômeno, não por alterações na observação. Mudanças instrumentais, localização, entorno e horário podem criar quebras. Homogeneização identifica e ajusta inhomogeneidades usando metadados e séries de referência. O original deve ser preservado, e o ajustado precisa de método e versão.</p>
+</section>
+<section id="comparabilidade" class="level3" data-number="3.6.6">
+<h3 data-number="3.6.6" class="anchored" data-anchor-id="comparabilidade"><span class="header-section-number">3.6.6</span> Comparabilidade</h3>
+<p>Comparabilidade requer compatibilidade de conceito, fonte, suporte, população, período, método e revisão. Dois indicadores com o mesmo nome podem não ser comparáveis. Uma lista mínima inclui:</p>
+<ul>
+<li>mesma definição e fórmula;</li>
+<li>unidades e conversões coerentes;</li>
+<li>janela temporal e fuso harmonizados;</li>
+<li>limites e códigos territoriais compatíveis;</li>
+<li>denominadores da mesma referência;</li>
+<li>critérios de completude equivalentes;</li>
+<li>versões e revisões registradas;</li>
+<li>incerteza suficiente para a comparação.</li>
+</ul>
+</section>
+</section>
+<section id="incerteza" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="incerteza"><span class="header-section-number">3.7</span> Incerteza</h2>
+<p>Incerteza não é sinônimo de erro evitável. Ela expressa limites de conhecimento e pode vir de medição, amostragem, modelo, parâmetros, imputação, agregação e cenário. O objetivo não é ocultá-la, mas torná-la utilizável.</p>
+<section id="fontes-de-incerteza" class="level3" data-number="3.7.1">
+<h3 data-number="3.7.1" class="anchored" data-anchor-id="fontes-de-incerteza"><span class="header-section-number">3.7.1</span> Fontes de incerteza</h3>
+<div id="tbl-fontes-incerteza" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-fontes-incerteza-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;3.3: Fontes de incerteza ao longo da produção do indicador
+</figcaption>
+<div aria-describedby="tbl-fontes-incerteza-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Etapa</th>
+<th>Exemplo de incerteza</th>
+<th>Forma de avaliação</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Observação</td>
+<td>calibração, falha, representatividade</td>
+<td>código de qualidade, comparação e metadados</td>
+</tr>
+<tr class="even">
+<td>Modelo</td>
+<td>estrutura, parametrização e viés</td>
+<td>validação, ensemble e análise residual</td>
+</tr>
+<tr class="odd">
+<td>Integração espacial</td>
+<td>ponderador e célula de borda</td>
+<td>métodos alternativos e sensibilidade</td>
+</tr>
+<tr class="even">
+<td>Indicador</td>
+<td>limiar, período-base e completude</td>
+<td>recalcular sob especificações plausíveis</td>
+</tr>
+<tr class="odd">
+<td>Saúde</td>
+<td>sub-registro, classificação e denominador</td>
+<td>estudos de cobertura, revisão e intervalos</td>
+</tr>
+<tr class="even">
+<td>Decisão</td>
+<td>relação entre valor e ação</td>
+<td>validação prospectiva e avaliação de resultados</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Intervalos de confiança representam incerteza amostral sob um modelo; não abrangem automaticamente viés de seleção, erro de exposição ou mudança de definição. Para mapas, uma superfície de estimativa sem mapa de incerteza pode criar falsa precisão.</p>
+</section>
+<section id="propagação-e-análise-de-sensibilidade" class="level3" data-number="3.7.2">
+<h3 data-number="3.7.2" class="anchored" data-anchor-id="propagação-e-análise-de-sensibilidade"><span class="header-section-number">3.7.2</span> Propagação e análise de sensibilidade</h3>
+<p>Quando várias transformações são encadeadas, incertezas se propagam. Amostragem de parâmetros, simulação, <em>bootstrap</em> e conjuntos de modelos podem quantificar parte dessa propagação. Em aplicações mais simples, análise de sensibilidade já é valiosa: comparar ponderação por área e população, períodos-base, limiares e critérios de completude.</p>
+<p>Se uma prioridade territorial muda completamente com pequena alteração razoável do método, a decisão é instável e isso deve ser comunicado.</p>
+</section>
+</section>
+<section id="revisões-e-versionamento" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="revisões-e-versionamento"><span class="header-section-number">3.8</span> Revisões e versionamento</h2>
+<p>Bases oficiais são revisadas. Registros tardios entram, duplicidades são removidas, modelos são recalibrados, estimativas populacionais mudam. Reprodutibilidade exige congelar ou identificar a versão usada.</p>
+<p>Registre:</p>
+<ul>
+<li>URL e identificador persistente;</li>
+<li>versão ou edição;</li>
+<li>data e hora de acesso;</li>
+<li>período extraído;</li>
+<li>hash do arquivo quando permitido;</li>
+<li>código de processamento;</li>
+<li>ambiente computacional;</li>
+<li>tabela final e dicionário.</li>
+</ul>
+<p>Os princípios FAIR — encontrável, acessível, interoperável e reutilizável — oferecem orientação útil para gestão responsável dos dados <span class="citation" data-cites="wilkinson2016fair">(<a href="../../backmatter/referencias.html#ref-wilkinson2016fair" role="doc-biblioref"><span class="nocase">Wilkinson et al.</span>, 2016</a>)</span>. FAIR não significa necessariamente aberto: restrições éticas e legais podem permanecer, desde que metadados, condições e responsabilidades sejam claros.</p>
+</section>
+<section id="dados-de-saúde-e-proteção" class="level2" data-number="3.9">
+<h2 data-number="3.9" class="anchored" data-anchor-id="dados-de-saúde-e-proteção"><span class="header-section-number">3.9</span> Dados de saúde e proteção</h2>
+<p>Granularidade geográfica e temporal pode aumentar risco de reidentificação, especialmente em doenças raras, pequenas populações e eventos extremos. Publicação deve observar finalidade, base legal, minimização e proteção.</p>
+<p>Técnicas como supressão de células pequenas, agregação, arredondamento e controle de acesso reduzem risco, mas alteram análise. Não se deve reconstruir valores suprimidos por diferença de totais. A proteção precisa ser incorporada desde o desenho.</p>
+</section>
+<section id="checklist-antes-do-cálculo" class="level2" data-number="3.10">
+<h2 data-number="3.10" class="anchored" data-anchor-id="checklist-antes-do-cálculo"><span class="header-section-number">3.10</span> Checklist antes do cálculo</h2>
+<p>O <a href="#qua-checklist-dados" class="quarto-xref">Quadro&nbsp;<span>3.1</span></a> resume a avaliação mínima.</p>
+<div id="qua-checklist-dados" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-qua figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-qua" id="qua-checklist-dados-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Quadro&nbsp;3.1: : Checklist de espaço, tempo e qualidade
+</figcaption>
+<div aria-describedby="qua-checklist-dados-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<ol type="1">
+<li><strong>Conceito:</strong> variável e indicador estão definidos sem ambiguidade?</li>
+<li><strong>Proveniência:</strong> instituição, produto, versão e transformação estão registrados?</li>
+<li><strong>Espaço:</strong> suporte, resolução, projeção e território são compatíveis?</li>
+<li><strong>Tempo:</strong> fuso, calendário, janela, período-base e latência estão claros?</li>
+<li><strong>População:</strong> numerador e denominador referem-se à mesma população e data?</li>
+<li><strong>Qualidade:</strong> completude, consistência, homogeneidade e revisão foram avaliadas?</li>
+<li><strong>Incerteza:</strong> fontes principais e sensibilidade foram comunicadas?</li>
+<li><strong>Comparabilidade:</strong> diferenças de método e cobertura foram controladas?</li>
+<li><strong>Proteção:</strong> divulgação respeita privacidade e uso responsável?</li>
+<li><strong>Decisão:</strong> a qualidade é suficiente para a consequência prevista?</li>
+</ol>
+</div>
+</figure>
 </div>
 </section>
-</section>
-<section id="qualidade-dos-dados" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="qualidade-dos-dados"><span class="header-section-number">3.4</span> Qualidade dos dados</h2>
-<section id="completude-e-atualização" class="level3" data-number="3.4.1">
-<h3 data-number="3.4.1" class="anchored" data-anchor-id="completude-e-atualização"><span class="header-section-number">3.4.1</span> Completude e atualização</h3>
-</section>
-<section id="incerteza" class="level3" data-number="3.4.2">
-<h3 data-number="3.4.2" class="anchored" data-anchor-id="incerteza"><span class="header-section-number">3.4.2</span> Incerteza</h3>
-</section>
-<section id="comparabilidade" class="level3" data-number="3.4.3">
-<h3 data-number="3.4.3" class="anchored" data-anchor-id="comparabilidade"><span class="header-section-number">3.4.3</span> Comparabilidade</h3>
-</section>
-<section id="revisão-das-séries" class="level3" data-number="3.4.4">
-<h3 data-number="3.4.4" class="anchored" data-anchor-id="revisão-das-séries"><span class="header-section-number">3.4.4</span> Revisão das séries</h3>
-<div class="todo">
-<p>TODO: incluir checklist e exemplos validados de controle de qualidade.</p>
-</div>
+<section id="síntese" class="level2" data-number="3.11">
+<h2 data-number="3.11" class="anchored" data-anchor-id="síntese"><span class="header-section-number">3.11</span> Síntese</h2>
+<p>Espaço e tempo não são simples colunas para unir bases. Eles definem o que cada valor representa. A mudança de suporte, a agregação, o período de referência e o controle de qualidade alteram o indicador e sua interpretação.</p>
+<p>Uma análise defensável preserva a proveniência, explicita transformações, avalia incerteza e mantém a inferência no nível dos dados. Esses critérios serão retomados em cada ficha, pois um indicador consolidado pode ser mal utilizado quando calculado sobre fontes inadequadas ou escalas incompatíveis.</p>
 
 
-</section>
+<div id="refs" class="references csl-bib-body" data-entry-spacing="1" role="list" style="display: none">
+<div id="ref-ibge2024malhas" class="csl-entry" role="listitem">
+INSTITUTO BRASILEIRO DE GEOGRAFIA E ESTATÍSTICA. <strong>Malhas territoriais</strong>. Disponível em: &lt;<a href="https://www.ibge.gov.br/geociencias/organizacao-do-territorio/malhas-territoriais/15774-malhas.html">https://www.ibge.gov.br/geociencias/organizacao-do-territorio/malhas-territoriais/15774-malhas.html</a>&gt;. Acesso em: 28 jul. 2026.
+</div>
+<div id="ref-openshaw1984" class="csl-entry" role="listitem">
+OPENSHAW, Stan. <a href="https://doi.org/10.1068/a160017">Ecological fallacies and the analysis of areal census data</a>. <strong>Environment and Planning A</strong>, v. 16, n. 1, p. 17–31, 1984.
+</div>
+<div id="ref-wilkinson2016fair" class="csl-entry" role="listitem">
+<span class="nocase">WILKINSON, Mark D. <em>et al.</em></span> <a href="https://doi.org/10.1038/sdata.2016.18">The FAIR Guiding Principles for scientific data management and stewardship</a>. <strong>Scientific Data</strong>, v. 3, p. 160018, 2016.
+</div>
+<div id="ref-wmo2017normals" class="csl-entry" role="listitem">
+WORLD METEOROLOGICAL ORGANIZATION. <strong><a href="https://wmo.int/wmo-climatological-normals">WMO guidelines on the calculation of climate normals</a></strong>. Geneva: World Meteorological Organization, 2017.
+</div>
+<div id="ref-wmo2023climatological" class="csl-entry" role="listitem">
+WORLD METEOROLOGICAL ORGANIZATION. <strong><a href="https://community.wmo.int/site/knowledge-hub/programmes-and-initiatives/climate-services/climate-data">Guide to climatological practices</a></strong>. Geneva: World Meteorological Organization, 2023.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -709,7 +1125,7 @@ ul.task-list li input[type="checkbox"] {
     anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
-        if (clz.startsWith('code-annotation-')) {                     
+        if (clz.startsWith('code-annotation-')) {
           return true;
         }
       }
@@ -729,11 +1145,11 @@ ul.task-list li input[type="checkbox"] {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
         button.setAttribute("data-bs-title", "Copiada");
-        tooltip = new bootstrap.Tooltip(button, 
-          { trigger: "manual", 
+        tooltip = new bootstrap.Tooltip(button,
+          { trigger: "manual",
             customClass: "code-copy-button-tooltip",
             offset: [0, -8]});
-        tooltip.show();    
+        tooltip.show();
       }
       setTimeout(function() {
         if (tooltip) {
@@ -815,7 +1231,7 @@ ul.task-list li input[type="checkbox"] {
       if (onUntriggerFn) {
         config.onUntrigger = onUntriggerFn;
       }
-      window.tippy(el, config); 
+      window.tippy(el, config);
     }
     const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
     for (var i=0; i<noterefs.length; i++) {
@@ -890,7 +1306,7 @@ ul.task-list li input[type="checkbox"] {
       tippyHover(xref, undefined, function(instance) {
         instance.disable();
         let url = xref.getAttribute('href');
-        let hash = undefined; 
+        let hash = undefined;
         if (url.startsWith('#')) {
           hash = url;
         } else {
@@ -918,7 +1334,7 @@ ul.task-list li input[type="checkbox"] {
               if (note !== null) {
                 const html = processXRef(id, note);
                 instance.setContent(html);
-              } 
+              }
             }).finally(() => {
               instance.enable();
               instance.show();
@@ -942,7 +1358,7 @@ ul.task-list li input[type="checkbox"] {
               }
               const html = processXRef(null, note);
               instance.setContent(html);
-            } 
+            }
           }).finally(() => {
             instance.enable();
             instance.show();
@@ -982,7 +1398,7 @@ ul.task-list li input[type="checkbox"] {
               height = bottom - top;
             }
             if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
+              // cook up a div (if necessary) and position it
               let div = window.document.getElementById("code-annotation-line-highlight");
               if (div === null) {
                 div = window.document.createElement("div");
@@ -1107,7 +1523,7 @@ ul.task-list li input[type="checkbox"] {
   <div class="nav-page nav-page-previous">
       <a href="../../chapters/part-1/02-dados-variaveis-indices-indicadores.html" class="pagination-link" aria-label="Dados, variáveis, índices e indicadores">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Dados, variáveis, índices e indicadores</span></span>
-      </a>          
+      </a>
   </div>
   <div class="nav-page nav-page-next">
       <a href="../../chapters/part-1/04-fontes-fichas.html" class="pagination-link" aria-label="Fontes de dados e fichas de indicadores">

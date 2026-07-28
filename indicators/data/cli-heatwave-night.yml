@@ -1,0 +1,108 @@
+common: &night_common
+  tema: Temperatura e condições térmicas
+  capitulo: chapters/part-2/05-temperatura-condicoes-termicas.qmd
+  dimensoes: [perigo, exposição]
+  unidade_territorial: Estação meteorológica, célula de grade ou território derivado.
+  resolucao_espacial_original: A da série meteorológica; a atribuição territorial exige método explícito.
+  fontes_dados:
+    - id: inmet
+      papel: temperaturas máxima, mínima e, quando necessário, horária
+    - id: era5-land
+      papel: temperatura horária em grade, condicionada à validação
+  responsabilidade_gerencial: Serviço meteorológico ou climático responsável pela exposição e autoridade de saúde responsável por validar o uso.
+  cobertura_geografica: A da fonte meteorológica selecionada.
+  disponibilidade: [requer processamento climatológico]
+  qualidade_incerteza: Relatar falhas, homogeneidade, período-base, algoritmo de percentil, definição temporal de dia e noite, viés de produtos em grade e sensibilidade aos parâmetros.
+  comparabilidade: Manter variável, período-base, janela do calendário, duração mínima, fonte, resolução e regra de agregação; classificações distintas não são intercambiáveis.
+  relacao_saude: A mínima elevada indica ausência de resfriamento noturno. Episódios compostos combinam calor diurno e noturno, condição associada a maior risco de mortalidade em estudos multicêntricos.
+  defasagens_temporais: Preservar datas e valores diários ou horários para estimar efeitos no mesmo dia e defasados; não reduzir a exposição a uma contagem anual em análises de efeitos agudos.
+  aplicacao_gestao: Incorporar persistência noturna e episódios compostos em vigilância calor–saúde, planejamento de comunicação e avaliação retrospectiva.
+  notas: As definições publicadas abaixo são reproduzidas para comparabilidade. Seu uso como gatilho operacional depende de validação com desfechos locais.
+
+indicators:
+  - <<: *night_common
+    codigo: CLI-CAL-11
+    titulo_completo: Percentual de noites quentes (TN90p)
+    titulo_resumido: Noites quentes — TN90p
+    referencia_metodologica: Índice de extremos climáticos TN90p, coordenado pelo ETCCDI e documentado pelo Climdex.
+    conceito: Percentual de dias no período em que a temperatura mínima diária excede o percentil 90 específico do dia do calendário no período-base.
+    objetivo: Medir a frequência relativa de noites excepcionalmente quentes para o clima local.
+    interpretacao: Valor de 20% indica que, entre os dias válidos do período, uma em cada cinco mínimas excedeu o limiar climatológico correspondente. O índice não identifica sozinho ondas nem dose individual.
+    usos: [Monitorar tendência de noites quentes., Caracterizar ausência de resfriamento noturno., Apoiar estudos de morbimortalidade e desigualdade térmica.]
+    limitacoes: [Não exige dias consecutivos., A mínima meteorológica diária pode não coincidir com o período noturno civil., Período-base e algoritmo de percentil condicionam o valor., Estação externa não representa necessariamente o interior da moradia.]
+    metodo_calculo: Calcular o percentil 90 de TN para cada dia do calendário, em janela centrada de cinco dias no período-base. Contar no período analisado os dias válidos em que TN excede o limiar correspondente e dividir pelo total de dias válidos; no período-base, aplicar o procedimento de bootstrap do ETCCDI.
+    formula_calculo: 'TN90p_p=100\times\frac{\sum_{d\in p}I(TN_d>TN90_{cal(d)})}{N_{válidos,p}}'
+    numerador: Número de dias válidos com TN acima do percentil 90 do calendário.
+    denominador: Total de dias com TN válida no período.
+    unidade_medida: Percentual (%).
+    variaveis_categorias_analise: Temperatura mínima diária; dia do calendário; estação do ano; ano; local.
+    granularidade: Valor diário binário e resumo mensal, sazonal ou anual.
+    resolucao_temporal: Entrada diária; saída mensal, sazonal ou anual.
+    periodo_referencia: Período climatológico declarado, com 30 anos quando viável; não misturar bases.
+    limiar_referencia: Percentil 90 de TN específico do dia do calendário.
+    url_persistente: https://www.climdex.org/learn/indices/
+    periodo_disponivel: O da fonte, com extensão suficiente para o período-base.
+    periodicidade_atualizacao: Anual em monitoramento climático; diária apenas em implementação operacional distinta.
+    forma_acesso: Cálculo sobre série diária controlada, preferencialmente com implementação ETCCDI validada.
+    formatos: Tabela por estação ou matriz multidimensional por célula.
+    necessidade_processamento: Controle de qualidade, percentis do calendário, bootstrap do período-base, teste diário e agregação.
+    analise_descritiva: Apresentar TN90p com número de dias válidos, tendência, sazonalidade, distribuição territorial e, quando pertinente, associação com desfechos preservando a série diária.
+    referencias: ["[@climdex2024]", "[@zhang2005]", "[@liu2025cehwi]"]
+
+  - <<: *night_common
+    codigo: CLI-CAL-12
+    titulo_completo: Frequência de dias em ondas de calor compostas diurnas e noturnas (CHW)
+    titulo_resumido: Dias em ondas compostas — CHW
+    referencia_metodologica: Definição epidemiológica multicêntrica de Liu et al. para ondas diurnas, noturnas e compostas no leste da Ásia.
+    conceito: Número de dias pertencentes a sequências de pelo menos dois dias consecutivos em que tanto a temperatura máxima quanto a mínima atingem ou excedem seus respectivos percentis 90 específicos do calendário.
+    objetivo: Quantificar dias sem alívio térmico entre o período diurno e o noturno segundo uma definição aplicada à mortalidade.
+    interpretacao: Valor maior indica mais dias em episódios compostos. Deve ser lido junto com número, duração e intensidade das ondas, pois a mesma frequência pode resultar de poucos episódios longos ou vários curtos.
+    usos: [Caracterizar exposição composta dia–noite., Avaliar mortalidade e utilização de serviços durante episódios., Apoiar sistemas de alerta que considerem recuperação noturna.]
+    limitacoes: [A duração de dois dias e o percentil 90 refletem a especificação publicada, não um limiar universal., Depende da qualidade conjunta de TX e TN., Não mede condições internas, proteção individual ou acesso a resfriamento., Classificações de onda diurna, noturna e composta são mutuamente condicionadas.]
+    metodo_calculo: Para cada dia, comparar TX e TN aos respectivos percentis 90 específicos do calendário, obtidos em janela móvel centrada de 15 dias no período 1981–2010. Identificar sequências de pelo menos dois dias em que ambas atingem ou excedem o limiar e somar todos os dias participantes.
+    formula_calculo: 'CHWF_p=\sum_{d\in p}I\{d\ pertence\ a\ sequência\geq2:\ TX_d\geq TX90_{cal(d)}\ \land\ TN_d\geq TN90_{cal(d)}\}'
+    numerador: Não se aplica; soma de dias participantes.
+    denominador: Não se aplica.
+    unidade_medida: Dias por período.
+    variaveis_categorias_analise: Temperatura máxima e mínima diárias; percentis do calendário; episódio; local; temporada.
+    granularidade: Detecção diária e resumo por episódio, estação quente ou ano.
+    resolucao_temporal: Entrada diária; saída diária, por episódio e sazonal.
+    periodo_referencia: 1981–2010 na especificação publicada; outra base caracteriza adaptação e deve ser identificada como tal.
+    limiar_referencia: TX e TN iguais ou superiores aos respectivos percentis 90 do calendário por pelo menos dois dias consecutivos.
+    url_persistente: https://doi.org/10.1038/s41467-025-56067-7
+    periodo_disponivel: O da fonte, incluindo o período-base e o período de análise.
+    periodicidade_atualizacao: Diária em vigilância operacional ou sazonal em avaliação.
+    forma_acesso: Cálculo sobre séries diárias harmonizadas de TX e TN.
+    formatos: Tabela diária e tabela de episódios; grade multidimensional quando espacializado.
+    necessidade_processamento: Controle de qualidade, percentis em janela de 15 dias, classificação conjunta e detecção de sequências.
+    analise_descritiva: Apresentar dias CHW, número e duração dos episódios, datas, TX e TN excedentes e comparação com ondas somente diurnas e somente noturnas.
+    referencias: ["[@liu2025cehwi]", "[@yang2024compound]"]
+
+  - <<: *night_common
+    codigo: CLI-CAL-13
+    titulo_completo: Índice Cumulativo de Excesso de Calor em Ondas de Calor (CEHWI)
+    titulo_resumido: Excesso acumulado — CEHWI
+    referencia_metodologica: Cumulative Excess Heatwave Index aplicado por Liu et al. às relações não lineares entre ondas diurnas, noturnas e compostas e mortalidade.
+    conceito: Média do excesso positivo da temperatura horária sobre o limiar térmico diário durante as horas pertinentes de cada dia de onda, acumulável ao longo do episódio.
+    objetivo: Representar simultaneamente excesso térmico e persistência durante ondas diurnas, noturnas ou compostas, sem reduzi-las a uma exposição binária.
+    interpretacao: Valor diário maior indica excesso médio mais elevado entre as horas acima do limiar. A soma ao longo da onda representa acumulação; seu gradiente de risco depende do tipo de onda, cidade e desfecho.
+    usos: [Modelar relações exposição–resposta com mortalidade., Comparar intensidade de ondas diurnas, noturnas e compostas., Estimar carga atribuível em estudos epidemiológicos.]
+    limitacoes: [Requer dados horários e horários locais de nascer e pôr do sol., A definição publicada foi avaliada em cidades do leste da Ásia., O limiar varia por calendário e local., Não é índice fisiológico nem protocolo de alerta universal.]
+    metodo_calculo: Classificar ondas como diurnas, noturnas ou compostas. Dividir o dia em noite, dia e entardecer conforme nascer e pôr do sol. Para cada hora do período pertinente, subtrair o limiar diário local — TX90 para onda diurna, TN90 para noturna e Tmean90 para composta —, manter apenas diferenças positivas, somá-las e dividir pelo número de horas com excesso. Somar os valores diários quando a finalidade for representar o episódio.
+    formula_calculo: 'CEHWI_{ig}=\frac{\sum_{j=1}^{N_{ig}}(t_{jg}-Thr_{ig})I(t_{jg}>Thr_{ig})}{n_{ig}}'
+    numerador: Soma dos excessos horários positivos sobre o limiar pertinente no dia e tipo de onda.
+    denominador: Número de horas do período da onda em que a temperatura excede o limiar.
+    unidade_medida: Grau Celsius (°C) por dia; soma de °C-dia quando acumulado no episódio, conforme especificação declarada.
+    variaveis_categorias_analise: Temperatura horária; TX, TN e temperatura média; nascer e pôr do sol; tipo de onda; episódio; cidade.
+    granularidade: Valor diário por tipo de onda e soma por episódio.
+    resolucao_temporal: Entrada horária; saída diária e por episódio.
+    periodo_referencia: 1981–2010 e janela móvel de 15 dias na aplicação publicada.
+    limiar_referencia: Percentil 90 diário local de TX, TN ou temperatura média, conforme o tipo de onda.
+    url_persistente: https://doi.org/10.1038/s41467-025-56067-7
+    periodo_disponivel: O da fonte horária, incluindo período-base adequado.
+    periodicidade_atualizacao: Diária em aplicação operacional ou por estudo epidemiológico.
+    forma_acesso: Cálculo sobre temperatura horária e efemérides locais, com código e parâmetros versionados.
+    formatos: Tabela horária de entrada e tabela diária/por episódio de saída.
+    necessidade_processamento: Reconstruir TX, TN e média, calcular percentis, classificar ondas e períodos do dia, calcular excessos horários e acumular.
+    analise_descritiva: Mostrar distribuição do CEHWI por tipo de onda, trajetória diária, total por episódio, percentis locais e curvas exposição–resposta com intervalos de incerteza.
+    referencias: ["[@liu2025cehwi]"]

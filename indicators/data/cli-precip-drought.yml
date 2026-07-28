@@ -1,0 +1,165 @@
+common: &precip_common
+  tema: Precipitação, secas e eventos hidrológicos
+  capitulo: chapters/part-2/06-precipitacao-secas-eventos-hidrologicos.qmd
+  dimensoes: [perigo, exposição]
+  variaveis_categorias_analise: Precipitação diária; dia do calendário; mês; estação; ano; estação ou célula de grade.
+  granularidade: Entrada diária por estação ou célula; resumo mensal, sazonal ou anual.
+  unidade_territorial: Estação meteorológica, célula de grade, bacia ou território derivado.
+  resolucao_espacial_original: A da fonte de precipitação; agregações territoriais exigem ponderação declarada.
+  resolucao_temporal: Entrada diária; saída por período.
+  fontes_dados:
+    - id: inmet
+      papel: observações pluviométricas diárias
+    - id: cemaden
+      papel: observações pluviométricas subdiárias ou diárias para monitoramento
+    - id: era5-land
+      papel: precipitação em reanálise condicionada à validação
+  responsabilidade_gerencial: Serviço meteorológico ou hidrológico responsável pelo dado e órgão de saúde que qualifique o uso sanitário.
+  cobertura_geografica: A da fonte selecionada, condicionada à densidade observacional e qualidade.
+  periodo_disponivel: O da fonte, incluindo série suficiente para o período-base quando houver percentis.
+  periodicidade_atualizacao: Anual para monitoramento climático; diária ou subdiária em protocolo operacional próprio.
+  forma_acesso: Cálculo sobre série de precipitação controlada, com algoritmo, unidades e calendário versionados.
+  formatos: Tabela por estação ou arquivo multidimensional por célula.
+  disponibilidade: [requer processamento climatológico]
+  qualidade_incerteza: Relatar falhas, horário de acumulação, vento e subcaptura do pluviômetro, mudança de instrumento, homogeneidade, viés de grade e cobertura espacial.
+  comparabilidade: Manter limiar de dia úmido, período-base, calendário, fonte, unidade, regra de falhas e método de agregação.
+  relacao_saude: Extremos e persistência de chuva ou ausência de chuva ajudam a caracterizar perigos relacionados a água, saneamento, vetores, segurança alimentar e acesso a serviços; não equivalem ao efeito sanitário.
+  defasagens_temporais: Preservar série diária e datas para testar janelas compatíveis com o mecanismo e o desfecho.
+  aplicacao_gestao: Caracterizar sazonalidade e extremos, apoiar vigilância de agravos sensíveis ao clima e contextualizar alertas hidrometeorológicos.
+  notas: Índices ETCCDI descrevem a precipitação observada. Não substituem modelagem hidrológica, mapeamento de inundação ou registro de desastre.
+
+indicators:
+  - <<: *precip_common
+    codigo: CLI-PRC-01
+    titulo_completo: Maior precipitação em um dia (Rx1day)
+    titulo_resumido: Máxima em um dia — Rx1day
+    referencia_metodologica: Índice Rx1day do conjunto ETCCDI, documentado pelo Climdex.
+    conceito: Maior total de precipitação acumulada em um dia dentro do mês, estação ou ano.
+    objetivo: Representar o maior acumulado diário do período de maneira comparável.
+    interpretacao: Valor maior indica um pico diário mais elevado, mas não determina sozinho inundação, enxurrada ou deslizamento.
+    usos: [Monitorar extremos de chuva., Relacionar picos de precipitação a agravos e interrupções., Contextualizar episódios hidrológicos.]
+    limitacoes: [Ignora os demais dias do período., Pode diluir extremos subdiários., Depende do horário de fechamento do dia., A resposta hidrológica depende de solo, bacia, drenagem e chuva antecedente.]
+    metodo_calculo: Para cada período, selecionar o maior total diário de precipitação entre os dias válidos.
+    formula_calculo: 'Rx1day_p=\max_{d\in p}(PR_d)'
+    numerador: Não se aplica.
+    denominador: Não se aplica.
+    unidade_medida: Milímetros (mm).
+    periodo_referencia: Não se aplica ao valor; declarar o período de análise.
+    limiar_referencia: Não se aplica; é um máximo.
+    url_persistente: https://www.climdex.org/learn/indices/
+    necessidade_processamento: Somar registros subdiários no dia climatológico, aplicar controle de qualidade e selecionar o máximo.
+    analise_descritiva: Apresentar valor, data, completude, localização e comparação com distribuição histórica e condições antecedentes.
+    referencias: ["[@climdex2024]", "[@levy2016waterborne]"]
+
+  - <<: *precip_common
+    codigo: CLI-PRC-02
+    titulo_completo: Maior precipitação acumulada em cinco dias consecutivos (Rx5day)
+    titulo_resumido: Máxima em cinco dias — Rx5day
+    referencia_metodologica: Índice Rx5day do conjunto ETCCDI, documentado pelo Climdex.
+    conceito: Maior soma de precipitação em qualquer janela móvel de cinco dias consecutivos do período.
+    objetivo: Representar acumulação persistente de chuva em janela curta.
+    interpretacao: Valor maior indica maior acumulação máxima em cinco dias. Não revela a distribuição interna da chuva nem a saturação real do solo.
+    usos: [Monitorar extremos persistentes., Contextualizar inundações e movimentos de massa., Avaliar exposição em estudos de saúde.]
+    limitacoes: [Janela fixa pode não coincidir com o tempo de resposta da bacia., Falhas dentro da janela afetam o máximo., Não substitui umidade do solo, vazão ou nível do rio.]
+    metodo_calculo: Calcular todas as somas móveis de cinco dias consecutivos no período, segundo a regra de completude, e selecionar a maior.
+    formula_calculo: 'Rx5day_p=\max_{d\in p}\left(\sum_{k=0}^{4}PR_{d-k}\right)'
+    numerador: Não se aplica.
+    denominador: Não se aplica.
+    unidade_medida: Milímetros (mm).
+    periodo_referencia: Não se aplica ao valor; declarar o período de análise.
+    limiar_referencia: Não se aplica; é um máximo móvel.
+    url_persistente: https://www.climdex.org/learn/indices/
+    necessidade_processamento: Controle de qualidade, somas móveis completas, regra para janelas que cruzam meses e seleção do máximo.
+    analise_descritiva: Mostrar Rx5day, datas inicial e final, contribuição de cada dia e condições antecedentes.
+    referencias: ["[@climdex2024]", "[@who2014floods]"]
+
+  - <<: *precip_common
+    codigo: CLI-PRC-03
+    titulo_completo: Precipitação total em dias muito úmidos (R95pTOT)
+    titulo_resumido: Chuva em dias muito úmidos — R95pTOT
+    referencia_metodologica: Índice R95pTOT do conjunto ETCCDI, documentado pelo Climdex.
+    conceito: Soma da precipitação nos dias úmidos do período em que o total diário excede o percentil 95 dos dias úmidos do período-base.
+    objetivo: Quantificar o volume de chuva concentrado nos dias climatologicamente muito úmidos.
+    interpretacao: Valor maior pode resultar de mais dias acima do percentil, de dias mais intensos ou de ambos; deve ser acompanhado por frequência e contribuição percentual.
+    usos: [Monitorar concentração da chuva em extremos., Avaliar mudanças no regime de precipitação., Caracterizar exposições relacionadas a chuva intensa.]
+    limitacoes: [Depende do período-base e do limiar de dia úmido., Soma não separa frequência e intensidade., Comparação exige implementação percentílica harmonizada.]
+    metodo_calculo: No período-base, calcular o percentil 95 entre dias com PR igual ou superior a 1 mm. No período analisado, somar PR dos dias úmidos que excedem esse limiar.
+    formula_calculo: 'R95pTOT_p=\sum_{d\in p}PR_d I(PR_d>PR95_{wet})'
+    numerador: Não se aplica; soma de precipitação qualificada.
+    denominador: Não se aplica.
+    unidade_medida: Milímetros (mm) por período.
+    periodo_referencia: Período climatológico declarado para o percentil 95.
+    limiar_referencia: Percentil 95 da precipitação em dias úmidos, definidos por PR ≥ 1 mm.
+    url_persistente: https://www.climdex.org/learn/indices/
+    necessidade_processamento: Selecionar dias úmidos no período-base, calcular percentil, testar dias e somar precipitação excedente.
+    analise_descritiva: Apresentar R95pTOT, número de dias contribuintes, proporção de PRCPTOT, tendência e distribuição territorial.
+    referencias: ["[@climdex2024]"]
+
+  - <<: *precip_common
+    codigo: CLI-PRC-04
+    titulo_completo: Maior número de dias consecutivos secos (CDD)
+    titulo_resumido: Dias consecutivos secos — CDD
+    referencia_metodologica: Índice Consecutive Dry Days do conjunto ETCCDI, documentado pelo Climdex.
+    conceito: Maior sequência de dias consecutivos com precipitação diária inferior a 1 mm no período.
+    objetivo: Medir a duração máxima de um período sem dia úmido segundo o limiar ETCCDI.
+    interpretacao: Valor maior indica intervalo seco contínuo mais longo, não necessariamente seca agrícola, hidrológica ou socioeconômica.
+    usos: [Caracterizar persistência da ausência de chuva., Monitorar mudança em extremos secos., Contextualizar disponibilidade de água, poeira, fogo e vetores.]
+    limitacoes: [Limiar de 1 mm é climatológico, não uma necessidade hídrica., Falhas quebram sequências., Uma sequência pode cruzar anos., Não incorpora evapotranspiração, armazenamento ou demanda.]
+    metodo_calculo: Classificar cada dia válido como seco quando PR for inferior a 1 mm, identificar sequências consecutivas e selecionar a maior, aplicando regra explícita para sequências que cruzam períodos.
+    formula_calculo: 'CDD_p=\max_{e\subset p}\{|e|:\ PR_d<1\ mm\ \forall d\in e\}'
+    numerador: Não se aplica.
+    denominador: Não se aplica.
+    unidade_medida: Dias.
+    periodo_referencia: Não se aplica ao limiar fixo; declarar período de análise.
+    limiar_referencia: PR < 1 mm.
+    url_persistente: https://www.climdex.org/learn/indices/
+    necessidade_processamento: Controle de qualidade, classificação diária, detecção de sequências e regra de fronteira do período.
+    analise_descritiva: Mostrar CDD, datas, recorrência, tendência e relação com SPI e indicadores setoriais sem tratá-los como equivalentes.
+    referencias: ["[@climdex2024]", "[@who2026drought]"]
+
+  - <<: *precip_common
+    codigo: CLI-PRC-05
+    titulo_completo: Maior número de dias consecutivos úmidos (CWD)
+    titulo_resumido: Dias consecutivos úmidos — CWD
+    referencia_metodologica: Índice Consecutive Wet Days do conjunto ETCCDI, documentado pelo Climdex.
+    conceito: Maior sequência de dias consecutivos com precipitação diária igual ou superior a 1 mm no período.
+    objetivo: Medir a maior persistência de dias com precipitação mensurável.
+    interpretacao: Valor maior indica mais dias úmidos consecutivos, mas não implica chuva intensa nem inundação.
+    usos: [Caracterizar persistência de chuva., Contextualizar condições favoráveis a umidade, vetores e interrupções., Complementar Rx1day e Rx5day.]
+    limitacoes: [Dias pouco chuvosos contam como úmidos., Não representa volume total., Falhas quebram sequências., Relevância sanitária depende do mecanismo e da defasagem.]
+    metodo_calculo: Classificar dias válidos como úmidos quando PR for igual ou superior a 1 mm, identificar sequências consecutivas e selecionar a maior.
+    formula_calculo: 'CWD_p=\max_{e\subset p}\{|e|:\ PR_d\geq1\ mm\ \forall d\in e\}'
+    numerador: Não se aplica.
+    denominador: Não se aplica.
+    unidade_medida: Dias.
+    periodo_referencia: Não se aplica ao limiar fixo; declarar período de análise.
+    limiar_referencia: PR ≥ 1 mm.
+    url_persistente: https://www.climdex.org/learn/indices/
+    necessidade_processamento: Controle de qualidade, classificação diária, detecção de sequências e regra de fronteira.
+    analise_descritiva: Apresentar CWD com chuva total da sequência, Rx1day, datas e distribuição espacial.
+    referencias: ["[@climdex2024]", "[@levy2016waterborne]"]
+
+  - <<: *precip_common
+    codigo: CLI-SEC-01
+    titulo_completo: Índice Padronizado de Precipitação (SPI)
+    titulo_resumido: Seca meteorológica — SPI
+    referencia_metodologica: Standardized Precipitation Index recomendado pela Organização Meteorológica Mundial para caracterizar seca meteorológica.
+    conceito: Transformação probabilística do total de precipitação acumulado em uma escala temporal para uma distribuição normal padronizada.
+    objetivo: Comparar déficit ou excesso de precipitação entre períodos, escalas temporais e climas distintos.
+    interpretacao: SPI igual a zero representa condição próxima da mediana ajustada; valores negativos indicam déficit e positivos, excesso. Na classificação usual, SPI ≤ −1 inicia uma condição de seca que persiste até retornar a valor positivo.
+    usos: [Monitorar início, duração e intensidade de seca meteorológica., Comparar territórios em escala padronizada., Contextualizar impactos sobre água, alimento, saúde mental e serviços.]
+    limitacoes: [Usa apenas precipitação., Requer série longa e relativamente consistente., Distribuição ajustada e tratamento de zeros influenciam o resultado., Escalas distintas representam processos distintos., Não mede diretamente seca hidrológica, agrícola ou impacto social.]
+    metodo_calculo: Acumular precipitação na escala escolhida, ajustar distribuição probabilística adequada à série e ao mês, converter a probabilidade acumulada para a normal padrão e identificar episódios conforme a classificação declarada.
+    formula_calculo: 'SPI_{k,t}=\Phi^{-1}\{F_{k,m}(P_{k,t})\}'
+    numerador: Não se aplica.
+    denominador: Não se aplica.
+    unidade_medida: Adimensional, em desvios-padrão da distribuição normal transformada.
+    variaveis_categorias_analise: Precipitação acumulada; escala k; mês; local; classe de seca; episódio.
+    granularidade: Valor mensal por estação ou célula em uma ou mais escalas.
+    resolucao_temporal: Entrada mensal ou diária agregada; saída mensal.
+    periodo_referencia: Série de pelo menos 30 anos recomendada; séries mais longas melhoram estabilidade.
+    limiar_referencia: Classes usuais incluem −1,0 a −1,49 moderadamente seco; −1,5 a −1,99 severamente seco; ≤ −2,0 extremamente seco.
+    url_persistente: https://library.wmo.int/idurl/4/39629
+    necessidade_processamento: Verificar completude, acumular por escala, ajustar distribuição por mês, tratar zeros, transformar probabilidade e detectar episódios.
+    analise_descritiva: Apresentar séries de SPI-1, SPI-3, SPI-6 ou SPI-12 conforme mecanismo, duração e intensidade dos episódios, área afetada e associação com indicadores sanitários.
+    referencias: ["[@wmo2012spi]", "[@wmo2016drought]", "[@who2026drought]"]

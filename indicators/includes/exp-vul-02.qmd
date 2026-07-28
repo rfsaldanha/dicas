@@ -1,0 +1,121 @@
+## Ficha do indicador: Índice de Vulnerabilidade Social do CDC/ATSDR (SVI) {#sec-exp-vul-02}
+
+::: {.indicator-card}
+**Código:** EXP-VUL-02 \
+**Título resumido:** CDC/ATSDR Social Vulnerability Index — SVI \
+**Tema:** Exposição e vulnerabilidade socioambiental \
+**Dimensão:** vulnerabilidade \
+**Disponibilidade:** [dados secundários]{.availability} [requer harmonização territorial]{.availability}
+:::
+
+### Identificação e fundamento
+
+**Indicador consolidado em.** SVI do Centers for Disease Control and Prevention e da Agency for Toxic Substances and Disease Registry para planejamento de saúde pública e emergências nos Estados Unidos.
+
+### Conceito
+
+Classificação percentílica relativa de unidades censitárias segundo 16 variáveis agrupadas em quatro temas, com percentis temáticos e geral.
+
+### Objetivo
+
+Identificar comunidades estadunidenses que provavelmente necessitarão de maior apoio antes, durante e depois de eventos perigosos.
+
+### Interpretação
+
+O percentil varia de 0 a 1; valor próximo de 1 indica posição relativa de maior vulnerabilidade dentro do universo geográfico e da edição. Não expressa probabilidade de dano nem diferença absoluta constante.
+
+### Usos
+
+- Planejamento de emergência em saúde pública.
+- Distribuição territorial de apoio e comunicação.
+- Estratificação de análises de desastres nos Estados Unidos.
+- Referência metodológica para construção transparente de índices relativos.
+
+### Limitações
+
+- Variáveis e categorias são específicas dos Estados Unidos.
+- Percentis dependem do universo comparado.
+- A soma de postos descarta distâncias absolutas entre valores.
+- Transpor o SVI ao Brasil exigiria novo desenvolvimento e validação
+- não simples tradução.
+
+### Fontes de dados
+
+- CDC/ATSDR Social Vulnerability Index — percentis por variável, tema e total e documentação da edição ([cadastro](../../backmatter/indice-fontes.qmd#cdc-svi))
+
+### Método de cálculo
+
+Para cada uma das 16 variáveis, ordenar as unidades e calcular o percentil como posto menos um dividido pelo número de unidades menos um, com sentido orientado para maior vulnerabilidade. Somar os postos das variáveis de cada tema e reclassificar a soma em percentil temático. Somar os postos das 16 variáveis e reclassificar em percentil geral, seguindo o tratamento de estimativas e valores ausentes da edição.
+
+$$
+Percentil_i=\frac{posto_i-1}{N-1};\qquad SVI_i=Percentil\left(\sum_{j=1}^{16}posto_{ij}\right)
+$$
+
+::: {.indicator-card}
+**Numerador.** Posto da unidade menos um no cálculo de cada percentil.
+
+**Denominador.** Número de unidades válidas menos um.
+
+**Unidade de medida.** Percentil relativo de 0 a 1.
+
+**Variáveis e categorias de análise.** 16 variáveis e quatro temas — situação socioeconômica; características do domicílio; condição racial e de minoria étnica; tipo de moradia e transporte — conforme a edição 2022.
+
+**Granularidade.** Setor censitário e condado ou equivalentes da edição.
+
+**Periodicidade de atualização.** Por edição do CDC/ATSDR.
+
+**Responsabilidade gerencial.** Instituição estatística ou responsável pelo índice, com equipes de vigilância, planejamento e participação social responsáveis pela interpretação e uso.
+
+**Notas.** Índices compostos devem ser publicados com todos os componentes. O escore apoia priorização, mas não substitui escuta local, análise de direitos, conhecimento territorial nem avaliação do perigo específico.
+
+**Análise descritiva do indicador.** Exibir percentil geral, quatro temas e 16 variáveis, incerteza censitária e estabilidade entre edições; evitar mapas que só rotulem o quartil mais alto.
+
+:::
+
+### Campos complementares para clima, ambiente e saúde
+
+::: {.indicator-card}
+**Unidade territorial.** Unidades censitárias dos Estados Unidos.
+
+**Resolução espacial original.** Census tract e county ou equivalentes.
+
+**Resolução temporal.** Edição vinculada a Censo ou estimativas quinquenais da American Community Survey.
+
+**Período de referência.** Ano e fonte declarados na edição; SVI 2022 usa documentação própria.
+
+**Limiar ou valor de referência.** Não há ponto de corte universal; quartis ou percentis altos são classificações relativas e devem ser declarados.
+
+:::
+
+### Disponibilidade e acesso
+
+**Cobertura geográfica.** Estados Unidos e áreas incluídas na edição.
+
+**Período disponível.** Edições desde 2000, não necessariamente comparáveis sem harmonização.
+
+**Periodicidade de atualização.** Por edição do CDC/ATSDR.
+
+**Forma de acesso.** Download público de bases e geodatabases.
+
+**URL ou identificador persistente.** https://stacks.cdc.gov/view/cdc/157287
+
+**Formato dos arquivos.** CSV, geodatabase e documentação PDF.
+
+**Necessidade de processamento.** Selecionar edição, tratar campos de qualidade, manter universo e identificar percentis já publicados; não recalcular com subconjunto sem mudar a referência.
+
+### Qualidade, comparação e saúde
+
+**Qualidade e incerteza.** Documentar fonte, ano, universo, erro amostral, imputação, variáveis, sentido, normalização, pesos, edição, limites territoriais e impacto de valores pequenos ou ausentes.
+
+**Possibilidade de comparação.** Comparar somente valores calculados com a mesma edição, universo, componentes, pesos e território; índices relativos podem mudar mesmo sem alteração absoluta de uma localidade.
+
+**Relação com desfechos de saúde.** Privação material, discriminação, barreiras de acesso e menor capacidade de proteção modificam exposição, suscetibilidade e recuperação diante de perigos climáticos e ambientais.
+
+**Defasagens temporais relevantes.** A vulnerabilidade medida em Censo ou pesquisa domiciliar refere-se a uma data ou período anterior; registrar a distância temporal até o evento e mudanças posteriores.
+
+**Aplicação na gestão.** Orientar busca ativa, comunicação acessível, localização de recursos, proteção social e planejamento intersetorial, sem rotular pessoas ou territórios como portadores naturais de vulnerabilidade.
+
+### Referências metodológicas
+
+- [@cdc2024svi]
+- [@flanagan2011svi]

@@ -23,10 +23,30 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 1em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -79,7 +99,39 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Procurar"
   }
 }</script>
+<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles/web/styles.css">
 </head>
@@ -256,7 +308,7 @@ ul.task-list li input[type="checkbox"] {
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/part-3/11-exposicao-vulnerabilidade.html">Parte III — Indicadores integrados de clima, ambiente e saúde</a></li><li class="breadcrumb-item"><a href="../../chapters/part-3/11-exposicao-vulnerabilidade.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Exposição e vulnerabilidade socioambiental</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Procurar" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
@@ -270,7 +322,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../../">Dados e Indicadores de Clima e Ambiente para a Saúde</a> 
+      <a href="../../">Dados e Indicadores de Clima e Ambiente para a Saúde</a>
         <div class="sidebar-tools-main">
     <a href="https://github.com/rfsaldanha/dicas" title="Código fonte" class="quarto-navigation-tool px-1" aria-label="Código fonte"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo escuro"><i class="bi"></i></a>
@@ -282,85 +334,85 @@ ul.task-list li input[type="checkbox"] {
         <div id="quarto-search" class="" title="Procurar"></div>
         </div>
         </div>
-    <div class="sidebar-menu-container"> 
+    <div class="sidebar-menu-container">
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Bem-vindo</span></a>
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../frontmatter/ficha-tecnica.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Ficha técnica</span></a>
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../frontmatter/apresentacao.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Apresentação</span></a>
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../frontmatter/prefacio.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Prefácio</span></a>
+ <span class="menu-text">Prefácio do autor</span></a>
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../frontmatter/agradecimentos.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Agradecimentos</span></a>
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../frontmatter/siglas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lista de siglas</span></a>
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../frontmatter/sumario.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sumário</span></a>
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../frontmatter/como-usar.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Como utilizar este livro</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
+      <div class="sidebar-item-container">
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Parte I — Fundamentos e métodos</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+          </a>
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-1/01-clima-ambiente-saude.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Clima, ambiente e saúde pública</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-1/02-dados-variaveis-indices-indicadores.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Dados, variáveis, índices e indicadores</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-1/03-espaco-tempo-qualidade.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Espaço, tempo e qualidade dos dados</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-1/04-fontes-fichas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Fontes de dados e fichas de indicadores</span></span></a>
   </div>
@@ -368,46 +420,46 @@ ul.task-list li input[type="checkbox"] {
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
+      <div class="sidebar-item-container">
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
  <span class="menu-text">Parte II — Dados e indicadores temáticos</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+          </a>
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-2/05-temperatura-condicoes-termicas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Temperatura e condições térmicas</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-2/06-precipitacao-secas-eventos-hidrologicos.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Precipitação, secas e eventos hidrológicos</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-2/07-qualidade-ar-queimadas-fumaca.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Qualidade do ar, queimadas e fumaça</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-2/08-agua-saneamento-qualidade-ambiental.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Água, saneamento e qualidade ambiental</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-2/09-uso-cobertura-terra-ambiente-urbano.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Uso e cobertura da terra, vegetação e ambiente urbano</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-2/10-eventos-severos-desastres.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Eventos meteorológicos severos e desastres</span></span></a>
   </div>
@@ -415,28 +467,28 @@ ul.task-list li input[type="checkbox"] {
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
+      <div class="sidebar-item-container">
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
  <span class="menu-text">Parte III — Indicadores integrados de clima, ambiente e saúde</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+          </a>
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-3/11-exposicao-vulnerabilidade.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Exposição e vulnerabilidade socioambiental</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-3/12-efeitos-saude.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Efeitos do clima e do ambiente sobre a saúde</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-3/13-resposta-adaptacao-resiliencia.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Capacidade de resposta, adaptação e resiliência</span></span></a>
   </div>
@@ -444,16 +496,16 @@ ul.task-list li input[type="checkbox"] {
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
+      <div class="sidebar-item-container">
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
  <span class="menu-text">Parte IV — Aplicação na vigilância e na gestão pública</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+          </a>
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-4/14-indicador-decisao.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Do indicador à decisão pública</span></span></a>
   </div>
@@ -461,93 +513,64 @@ ul.task-list li input[type="checkbox"] {
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
+      <div class="sidebar-item-container">
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
- <span class="menu-text">Fichas demonstrativas</span></a>
+ <span class="menu-text">Elementos pós-textuais</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+          </a>
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../indicators/pages/cli-tem-01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Temperatura máxima diária</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../indicators/pages/cli-cal-01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Ocorrência de onda de calor</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../indicators/pages/amb-ar-01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Concentração média diária de material particulado fino (PM2,5)</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
- <span class="menu-text">Elementos pós-textuais</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Alternar seção">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/glossario.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Glossário</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/referencias.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Referências</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/indice-indicadores.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Índice alfabético de indicadores</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/indice-fontes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Índice de fontes de dados</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/indice-instituicoes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Índice de instituições</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/apendice-metodologico.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Apêndice metodológico</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/lista-fichas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lista de fichas</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/lista-tabelas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lista de tabelas</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/lista-figuras.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lista de figuras</span></a>
   </div>
@@ -562,22 +585,71 @@ ul.task-list li input[type="checkbox"] {
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Índice</h2>
-   
+
   <ul>
-  <li><a href="#exposição-individual-populacional-e-territorial" id="toc-exposição-individual-populacional-e-territorial" class="nav-link active" data-scroll-target="#exposição-individual-populacional-e-territorial"><span class="header-section-number">11.1</span> Exposição individual, populacional e territorial</a></li>
-  <li><a href="#vulnerabilidade-social-e-demográfica" id="toc-vulnerabilidade-social-e-demográfica" class="nav-link" data-scroll-target="#vulnerabilidade-social-e-demográfica"><span class="header-section-number">11.2</span> Vulnerabilidade social e demográfica</a></li>
-  <li><a href="#vulnerabilidade-sanitária-e-institucional" id="toc-vulnerabilidade-sanitária-e-institucional" class="nav-link" data-scroll-target="#vulnerabilidade-sanitária-e-institucional"><span class="header-section-number">11.3</span> Vulnerabilidade sanitária e institucional</a></li>
-  <li><a href="#populações-e-situações-relevantes" id="toc-populações-e-situações-relevantes" class="nav-link" data-scroll-target="#populações-e-situações-relevantes"><span class="header-section-number">11.4</span> Populações e situações relevantes</a>
+  <li><a href="#exposição-individual-populacional-e-territorial" id="toc-exposição-individual-populacional-e-territorial" class="nav-link active" data-scroll-target="#exposição-individual-populacional-e-territorial"><span class="header-section-number">11.1</span> Exposição individual, populacional e territorial</a>
   <ul class="collapse">
-  <li><a href="#crianças-e-pessoas-idosas" id="toc-crianças-e-pessoas-idosas" class="nav-link" data-scroll-target="#crianças-e-pessoas-idosas"><span class="header-section-number">11.4.1</span> Crianças e pessoas idosas</a></li>
-  <li><a href="#pessoas-com-doenças-crônicas" id="toc-pessoas-com-doenças-crônicas" class="nav-link" data-scroll-target="#pessoas-com-doenças-crônicas"><span class="header-section-number">11.4.2</span> Pessoas com doenças crônicas</a></li>
-  <li><a href="#trabalhadores" id="toc-trabalhadores" class="nav-link" data-scroll-target="#trabalhadores"><span class="header-section-number">11.4.3</span> Trabalhadores</a></li>
-  <li><a href="#povos-indígenas-e-comunidades-tradicionais" id="toc-povos-indígenas-e-comunidades-tradicionais" class="nav-link" data-scroll-target="#povos-indígenas-e-comunidades-tradicionais"><span class="header-section-number">11.4.4</span> Povos indígenas e comunidades tradicionais</a></li>
-  <li><a href="#desigualdades-raciais-e-territoriais" id="toc-desigualdades-raciais-e-territoriais" class="nav-link" data-scroll-target="#desigualdades-raciais-e-territoriais"><span class="header-section-number">11.4.5</span> Desigualdades raciais e territoriais</a></li>
+  <li><a href="#o-denominador-muda-a-pergunta" id="toc-o-denominador-muda-a-pergunta" class="nav-link" data-scroll-target="#o-denominador-muda-a-pergunta"><span class="header-section-number">11.1.1</span> O denominador muda a pergunta</a></li>
+  <li><a href="#residência-não-é-presença" id="toc-residência-não-é-presença" class="nav-link" data-scroll-target="#residência-não-é-presença"><span class="header-section-number">11.1.2</span> Residência não é presença</a></li>
   </ul></li>
-  <li><a href="#índices-compostos" id="toc-índices-compostos" class="nav-link" data-scroll-target="#índices-compostos"><span class="header-section-number">11.5</span> Índices compostos</a></li>
-  <li><a href="#múltiplas-exposições" id="toc-múltiplas-exposições" class="nav-link" data-scroll-target="#múltiplas-exposições"><span class="header-section-number">11.6</span> Múltiplas exposições</a></li>
-  <li><a href="#mapas-de-risco" id="toc-mapas-de-risco" class="nav-link" data-scroll-target="#mapas-de-risco"><span class="header-section-number">11.7</span> Mapas de risco</a></li>
+  <li><a href="#vulnerabilidade-como-processo-social" id="toc-vulnerabilidade-como-processo-social" class="nav-link" data-scroll-target="#vulnerabilidade-como-processo-social"><span class="header-section-number">11.2</span> Vulnerabilidade como processo social</a>
+  <ul class="collapse">
+  <li><a href="#crianças-e-pessoas-idosas" id="toc-crianças-e-pessoas-idosas" class="nav-link" data-scroll-target="#crianças-e-pessoas-idosas"><span class="header-section-number">11.2.1</span> Crianças e pessoas idosas</a></li>
+  <li><a href="#pessoas-com-doenças-crônicas-e-deficiência" id="toc-pessoas-com-doenças-crônicas-e-deficiência" class="nav-link" data-scroll-target="#pessoas-com-doenças-crônicas-e-deficiência"><span class="header-section-number">11.2.2</span> Pessoas com doenças crônicas e deficiência</a></li>
+  <li><a href="#trabalhadores" id="toc-trabalhadores" class="nav-link" data-scroll-target="#trabalhadores"><span class="header-section-number">11.2.3</span> Trabalhadores</a></li>
+  <li><a href="#povos-indígenas-quilombolas-e-comunidades-tradicionais" id="toc-povos-indígenas-quilombolas-e-comunidades-tradicionais" class="nav-link" data-scroll-target="#povos-indígenas-quilombolas-e-comunidades-tradicionais"><span class="header-section-number">11.2.4</span> Povos indígenas, quilombolas e comunidades tradicionais</a></li>
+  </ul></li>
+  <li><a href="#moradia-e-infraestrutura-cotidiana" id="toc-moradia-e-infraestrutura-cotidiana" class="nav-link" data-scroll-target="#moradia-e-infraestrutura-cotidiana"><span class="header-section-number">11.3</span> Moradia e infraestrutura cotidiana</a></li>
+  <li><a href="#índices-compostos" id="toc-índices-compostos" class="nav-link" data-scroll-target="#índices-compostos"><span class="header-section-number">11.4</span> Índices compostos</a></li>
+  <li><a href="#principais-indicadores-usados-em-saúde-pública-e-gestão-de-riscos" id="toc-principais-indicadores-usados-em-saúde-pública-e-gestão-de-riscos" class="nav-link" data-scroll-target="#principais-indicadores-usados-em-saúde-pública-e-gestão-de-riscos"><span class="header-section-number">11.5</span> Principais indicadores usados em saúde pública e gestão de riscos</a></li>
+  <li><a href="#sec-exp-vul-01" id="toc-sec-exp-vul-01" class="nav-link" data-scroll-target="#sec-exp-vul-01"><span class="header-section-number">11.6</span> Ficha do indicador: Índice de Vulnerabilidade Social do Ipea (IVS)</a>
+  <ul class="collapse">
+  <li><a href="#identificação-e-fundamento" id="toc-identificação-e-fundamento" class="nav-link" data-scroll-target="#identificação-e-fundamento"><span class="header-section-number">11.6.1</span> Identificação e fundamento</a></li>
+  <li><a href="#conceito" id="toc-conceito" class="nav-link" data-scroll-target="#conceito"><span class="header-section-number">11.6.2</span> Conceito</a></li>
+  <li><a href="#objetivo" id="toc-objetivo" class="nav-link" data-scroll-target="#objetivo"><span class="header-section-number">11.6.3</span> Objetivo</a></li>
+  <li><a href="#interpretação" id="toc-interpretação" class="nav-link" data-scroll-target="#interpretação"><span class="header-section-number">11.6.4</span> Interpretação</a></li>
+  <li><a href="#usos" id="toc-usos" class="nav-link" data-scroll-target="#usos"><span class="header-section-number">11.6.5</span> Usos</a></li>
+  <li><a href="#limitações" id="toc-limitações" class="nav-link" data-scroll-target="#limitações"><span class="header-section-number">11.6.6</span> Limitações</a></li>
+  <li><a href="#fontes-de-dados" id="toc-fontes-de-dados" class="nav-link" data-scroll-target="#fontes-de-dados"><span class="header-section-number">11.6.7</span> Fontes de dados</a></li>
+  <li><a href="#método-de-cálculo" id="toc-método-de-cálculo" class="nav-link" data-scroll-target="#método-de-cálculo"><span class="header-section-number">11.6.8</span> Método de cálculo</a></li>
+  <li><a href="#campos-complementares-para-clima-ambiente-e-saúde" id="toc-campos-complementares-para-clima-ambiente-e-saúde" class="nav-link" data-scroll-target="#campos-complementares-para-clima-ambiente-e-saúde"><span class="header-section-number">11.6.9</span> Campos complementares para clima, ambiente e saúde</a></li>
+  <li><a href="#disponibilidade-e-acesso" id="toc-disponibilidade-e-acesso" class="nav-link" data-scroll-target="#disponibilidade-e-acesso"><span class="header-section-number">11.6.10</span> Disponibilidade e acesso</a></li>
+  <li><a href="#qualidade-comparação-e-saúde" id="toc-qualidade-comparação-e-saúde" class="nav-link" data-scroll-target="#qualidade-comparação-e-saúde"><span class="header-section-number">11.6.11</span> Qualidade, comparação e saúde</a></li>
+  <li><a href="#referências-metodológicas" id="toc-referências-metodológicas" class="nav-link" data-scroll-target="#referências-metodológicas"><span class="header-section-number">11.6.12</span> Referências metodológicas</a></li>
+  </ul></li>
+  <li><a href="#sec-exp-vul-02" id="toc-sec-exp-vul-02" class="nav-link" data-scroll-target="#sec-exp-vul-02"><span class="header-section-number">11.7</span> Ficha do indicador: Índice de Vulnerabilidade Social do CDC/ATSDR (SVI)</a>
+  <ul class="collapse">
+  <li><a href="#identificação-e-fundamento-1" id="toc-identificação-e-fundamento-1" class="nav-link" data-scroll-target="#identificação-e-fundamento-1"><span class="header-section-number">11.7.1</span> Identificação e fundamento</a></li>
+  <li><a href="#conceito-1" id="toc-conceito-1" class="nav-link" data-scroll-target="#conceito-1"><span class="header-section-number">11.7.2</span> Conceito</a></li>
+  <li><a href="#objetivo-1" id="toc-objetivo-1" class="nav-link" data-scroll-target="#objetivo-1"><span class="header-section-number">11.7.3</span> Objetivo</a></li>
+  <li><a href="#interpretação-1" id="toc-interpretação-1" class="nav-link" data-scroll-target="#interpretação-1"><span class="header-section-number">11.7.4</span> Interpretação</a></li>
+  <li><a href="#usos-1" id="toc-usos-1" class="nav-link" data-scroll-target="#usos-1"><span class="header-section-number">11.7.5</span> Usos</a></li>
+  <li><a href="#limitações-1" id="toc-limitações-1" class="nav-link" data-scroll-target="#limitações-1"><span class="header-section-number">11.7.6</span> Limitações</a></li>
+  <li><a href="#fontes-de-dados-1" id="toc-fontes-de-dados-1" class="nav-link" data-scroll-target="#fontes-de-dados-1"><span class="header-section-number">11.7.7</span> Fontes de dados</a></li>
+  <li><a href="#método-de-cálculo-1" id="toc-método-de-cálculo-1" class="nav-link" data-scroll-target="#método-de-cálculo-1"><span class="header-section-number">11.7.8</span> Método de cálculo</a></li>
+  <li><a href="#campos-complementares-para-clima-ambiente-e-saúde-1" id="toc-campos-complementares-para-clima-ambiente-e-saúde-1" class="nav-link" data-scroll-target="#campos-complementares-para-clima-ambiente-e-saúde-1"><span class="header-section-number">11.7.9</span> Campos complementares para clima, ambiente e saúde</a></li>
+  <li><a href="#disponibilidade-e-acesso-1" id="toc-disponibilidade-e-acesso-1" class="nav-link" data-scroll-target="#disponibilidade-e-acesso-1"><span class="header-section-number">11.7.10</span> Disponibilidade e acesso</a></li>
+  <li><a href="#qualidade-comparação-e-saúde-1" id="toc-qualidade-comparação-e-saúde-1" class="nav-link" data-scroll-target="#qualidade-comparação-e-saúde-1"><span class="header-section-number">11.7.11</span> Qualidade, comparação e saúde</a></li>
+  <li><a href="#referências-metodológicas-1" id="toc-referências-metodológicas-1" class="nav-link" data-scroll-target="#referências-metodológicas-1"><span class="header-section-number">11.7.12</span> Referências metodológicas</a></li>
+  </ul></li>
+  <li><a href="#sec-exp-hab-01" id="toc-sec-exp-hab-01" class="nav-link" data-scroll-target="#sec-exp-hab-01"><span class="header-section-number">11.8</span> Ficha do indicador: Proporção da população urbana em assentamentos precários, informais ou moradia inadequada (ODS 11.1.1)</a>
+  <ul class="collapse">
+  <li><a href="#identificação-e-fundamento-2" id="toc-identificação-e-fundamento-2" class="nav-link" data-scroll-target="#identificação-e-fundamento-2"><span class="header-section-number">11.8.1</span> Identificação e fundamento</a></li>
+  <li><a href="#conceito-2" id="toc-conceito-2" class="nav-link" data-scroll-target="#conceito-2"><span class="header-section-number">11.8.2</span> Conceito</a></li>
+  <li><a href="#objetivo-2" id="toc-objetivo-2" class="nav-link" data-scroll-target="#objetivo-2"><span class="header-section-number">11.8.3</span> Objetivo</a></li>
+  <li><a href="#interpretação-2" id="toc-interpretação-2" class="nav-link" data-scroll-target="#interpretação-2"><span class="header-section-number">11.8.4</span> Interpretação</a></li>
+  <li><a href="#usos-2" id="toc-usos-2" class="nav-link" data-scroll-target="#usos-2"><span class="header-section-number">11.8.5</span> Usos</a></li>
+  <li><a href="#limitações-2" id="toc-limitações-2" class="nav-link" data-scroll-target="#limitações-2"><span class="header-section-number">11.8.6</span> Limitações</a></li>
+  <li><a href="#fontes-de-dados-2" id="toc-fontes-de-dados-2" class="nav-link" data-scroll-target="#fontes-de-dados-2"><span class="header-section-number">11.8.7</span> Fontes de dados</a></li>
+  <li><a href="#método-de-cálculo-2" id="toc-método-de-cálculo-2" class="nav-link" data-scroll-target="#método-de-cálculo-2"><span class="header-section-number">11.8.8</span> Método de cálculo</a></li>
+  <li><a href="#campos-complementares-para-clima-ambiente-e-saúde-2" id="toc-campos-complementares-para-clima-ambiente-e-saúde-2" class="nav-link" data-scroll-target="#campos-complementares-para-clima-ambiente-e-saúde-2"><span class="header-section-number">11.8.9</span> Campos complementares para clima, ambiente e saúde</a></li>
+  <li><a href="#disponibilidade-e-acesso-2" id="toc-disponibilidade-e-acesso-2" class="nav-link" data-scroll-target="#disponibilidade-e-acesso-2"><span class="header-section-number">11.8.10</span> Disponibilidade e acesso</a></li>
+  <li><a href="#qualidade-comparação-e-saúde-2" id="toc-qualidade-comparação-e-saúde-2" class="nav-link" data-scroll-target="#qualidade-comparação-e-saúde-2"><span class="header-section-number">11.8.11</span> Qualidade, comparação e saúde</a></li>
+  <li><a href="#referências-metodológicas-2" id="toc-referências-metodológicas-2" class="nav-link" data-scroll-target="#referências-metodológicas-2"><span class="header-section-number">11.8.12</span> Referências metodológicas</a></li>
+  </ul></li>
+  <li><a href="#múltiplas-exposições" id="toc-múltiplas-exposições" class="nav-link" data-scroll-target="#múltiplas-exposições"><span class="header-section-number">11.9</span> Múltiplas exposições</a></li>
+  <li><a href="#mapas-de-risco-e-incerteza" id="toc-mapas-de-risco-e-incerteza" class="nav-link" data-scroll-target="#mapas-de-risco-e-incerteza"><span class="header-section-number">11.10</span> Mapas de risco e incerteza</a></li>
+  <li><a href="#da-descrição-à-proteção" id="toc-da-descrição-à-proteção" class="nav-link" data-scroll-target="#da-descrição-à-proteção"><span class="header-section-number">11.11</span> Da descrição à proteção</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/rfsaldanha/dicas/blob/main/chapters/part-3/11-exposicao-vulnerabilidade.qmd" class="toc-action"><i class="bi bi-github"></i>Ver o código fonte</a></li><li><a href="https://github.com/rfsaldanha/dicas/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></nav>
     </div>
@@ -594,59 +666,572 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="quarto-title-meta">
 
-    
-  
-    
+
+
+
   </div>
-  
+
 
 
 </header>
 
 
-<p>Este capítulo integrará informações ambientais, demográficas, sociais e institucionais para descrever quem ou o que está exposto e quais processos produzem maior suscetibilidade ou menor capacidade de proteção.</p>
-<p>Seu objeto são condições anteriores ou concomitantes ao efeito. Desfechos observados e inferência epidemiológica pertencem ao <a href="12-efeitos-saude.html" class="quarto-xref"><span>Capítulo 12</span></a>; capacidade institucional de resposta pertence ao <a href="13-resposta-adaptacao-resiliencia.html" class="quarto-xref"><span>Capítulo 13</span></a>.</p>
+<p>Exposição e vulnerabilidade explicam por que um mesmo perigo climático ou ambiental não alcança todas as pessoas do mesmo modo e não produz consequências iguais. A exposição descreve a presença de pessoas, serviços, infraestrutura ou atividades no tempo e no espaço do perigo. Vulnerabilidade reúne condições que aumentam a suscetibilidade ao dano ou reduzem a capacidade de antecipar, proteger-se, responder e se recuperar. Nenhuma das duas é sinônimo de desfecho.</p>
+<p>Essa distinção é operacional. Um bairro pode ter temperatura elevada, mas pouca população presente durante o dia; outro pode registrar temperatura moderadamente menor e concentrar moradias sem ventilação, trabalho ao ar livre, pessoas clinicamente suscetíveis e acesso precário a água e atenção à saúde. Um indicador de perigo isolado favoreceria o primeiro. Um indicador de exposição e uma análise de vulnerabilidade podem mostrar por que o segundo exige maior proteção.</p>
+<p>A avaliação recomendada pela OMS parte de riscos de saúde definidos, descreve populações e regiões afetadas, examina programas existentes e identifica opções de adaptação <span class="citation" data-cites="who2021vulnerability">(<a href="../../backmatter/referencias.html#ref-who2021vulnerability" role="doc-biblioref">World Health Organization, 2021</a>)</span>. O processo não deve fabricar um índice único para toda decisão. Deve preservar a cadeia entre perigo, exposição, condições sociais, capacidade de resposta e efeito.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div id="fig-cadeia-exposicao-vulnerabilidade" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-cadeia-exposicao-vulnerabilidade-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-cadeia-exposicao-vulnerabilidade">flowchart LR
+  P["Perigo&lt;br/&gt;intensidade, duração, área"] --&gt; E["Exposição&lt;br/&gt;quem, onde, quando"]
+  V["Vulnerabilidade&lt;br/&gt;suscetibilidade e proteção"] --&gt; R["Risco de efeito"]
+  E --&gt; R
+  C["Capacidade de resposta"] --&gt;|reduz ou modifica| R
+  R --&gt; D["Desfechos observados"]
+  D --&gt; A["Aprendizado e adaptação"]
+  A --&gt; C
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cadeia-exposicao-vulnerabilidade-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;11.1: Relação analítica entre perigo, exposição, vulnerabilidade, capacidade e efeito
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
 <section id="exposição-individual-populacional-e-territorial" class="level2" data-number="11.1">
 <h2 data-number="11.1" class="anchored" data-anchor-id="exposição-individual-populacional-e-territorial"><span class="header-section-number">11.1</span> Exposição individual, populacional e territorial</h2>
+<p>Exposição individual requer trajetória, duração e intensidade no microambiente. Pode envolver endereço residencial, local de trabalho, deslocamentos, tempo em ambiente interno e medidas pessoais. É a forma mais próxima da experiência real, mas raramente está disponível para toda a população.</p>
+<p>Exposição populacional combina uma superfície de perigo com uma distribuição de pessoas. O resultado pode ser uma contagem de residentes em área atingida, pessoas-dia, média ponderada pela população ou distribuição por grupos. Cada construção responde a uma pergunta:</p>
+<ul>
+<li><strong>pessoas expostas</strong> estima quantas pessoas residem ou estavam presentes em unidades classificadas;</li>
+<li><strong>pessoas-dia</strong> integra número de pessoas e duração;</li>
+<li><strong>dias por pessoa</strong> permite comparar grupos de tamanhos diferentes;</li>
+<li><strong>exposição média ponderada pela população</strong> resume a intensidade média experimentada pela distribuição residencial;</li>
+<li><strong>proporção exposta</strong> relaciona o número exposto à população elegível.</li>
+</ul>
+<p>As fichas temáticas anteriores documentam aplicações consolidadas dessas construções. Pessoas-dia de ondas de calor estão na <a href="../part-2/05-temperatura-condicoes-termicas.html#sec-cli-exp-02" class="quarto-xref"><span>Seção 5.32</span></a>; PM2,5 anual ponderado pela população, na <a href="../part-2/07-qualidade-ar-queimadas-fumaca.html#sec-amb-ar-01" class="quarto-xref"><span>Seção 7.10</span></a>; PM2,5 atribuível à fumaça de incêndios ponderado pela população, na <a href="../part-2/07-qualidade-ar-queimadas-fumaca.html#sec-amb-fum-01" class="quarto-xref"><span>Seção 7.13</span></a>; acesso residencial a área verde, na <a href="../part-2/09-uso-cobertura-terra-ambiente-urbano.html#sec-amb-urb-02" class="quarto-xref"><span>Seção 9.12</span></a>; e pessoas diretamente afetadas por desastres, na <a href="../part-2/10-eventos-severos-desastres.html#sec-des-hum-02" class="quarto-xref"><span>Seção 10.12</span></a>. Esses indicadores não são substituídos por uma ficha genérica de “população exposta”: a definição do perigo, a população, o tempo e o suporte espacial pertencem ao próprio indicador.</p>
+<section id="o-denominador-muda-a-pergunta" class="level3" data-number="11.1.1">
+<h3 data-number="11.1.1" class="anchored" data-anchor-id="o-denominador-muda-a-pergunta"><span class="header-section-number">11.1.1</span> O denominador muda a pergunta</h3>
+<p>Uma contagem de pessoas expostas é indispensável para dimensionar recursos. Uma proporção é necessária para comparar territórios de tamanhos diferentes. Dias por pessoa separam parcialmente o tamanho populacional da persistência do evento. Nenhuma medida deve ser escolhida apenas por produzir um mapa visualmente mais contrastado.</p>
+<p>Se (I_{g,t}) indica exposição na célula (g) e no tempo (t), e (Pop_{g,t}) representa a população, uma estrutura frequente é:</p>
+<p><span class="math display">\[
+Pessoas\text{-}tempo=\sum_t\sum_g I_{g,t}\times Pop_{g,t}
+\]</span></p>
+<p>A expressão só é válida depois de definir o que torna (I_{g,t}=1). Para calor, pode ser a participação em uma onda com percentis de máxima e mínima; para inundação, presença na mancha com profundidade mínima; para fumaça, concentração atribuível acima de um critério. Sem a definição do perigo, a fórmula é vazia.</p>
 </section>
-<section id="vulnerabilidade-social-e-demográfica" class="level2" data-number="11.2">
-<h2 data-number="11.2" class="anchored" data-anchor-id="vulnerabilidade-social-e-demográfica"><span class="header-section-number">11.2</span> Vulnerabilidade social e demográfica</h2>
-</section>
-<section id="vulnerabilidade-sanitária-e-institucional" class="level2" data-number="11.3">
-<h2 data-number="11.3" class="anchored" data-anchor-id="vulnerabilidade-sanitária-e-institucional"><span class="header-section-number">11.3</span> Vulnerabilidade sanitária e institucional</h2>
-</section>
-<section id="populações-e-situações-relevantes" class="level2" data-number="11.4">
-<h2 data-number="11.4" class="anchored" data-anchor-id="populações-e-situações-relevantes"><span class="header-section-number">11.4</span> Populações e situações relevantes</h2>
-<section id="crianças-e-pessoas-idosas" class="level3" data-number="11.4.1">
-<h3 data-number="11.4.1" class="anchored" data-anchor-id="crianças-e-pessoas-idosas"><span class="header-section-number">11.4.1</span> Crianças e pessoas idosas</h3>
-</section>
-<section id="pessoas-com-doenças-crônicas" class="level3" data-number="11.4.2">
-<h3 data-number="11.4.2" class="anchored" data-anchor-id="pessoas-com-doenças-crônicas"><span class="header-section-number">11.4.2</span> Pessoas com doenças crônicas</h3>
-</section>
-<section id="trabalhadores" class="level3" data-number="11.4.3">
-<h3 data-number="11.4.3" class="anchored" data-anchor-id="trabalhadores"><span class="header-section-number">11.4.3</span> Trabalhadores</h3>
-</section>
-<section id="povos-indígenas-e-comunidades-tradicionais" class="level3" data-number="11.4.4">
-<h3 data-number="11.4.4" class="anchored" data-anchor-id="povos-indígenas-e-comunidades-tradicionais"><span class="header-section-number">11.4.4</span> Povos indígenas e comunidades tradicionais</h3>
-</section>
-<section id="desigualdades-raciais-e-territoriais" class="level3" data-number="11.4.5">
-<h3 data-number="11.4.5" class="anchored" data-anchor-id="desigualdades-raciais-e-territoriais"><span class="header-section-number">11.4.5</span> Desigualdades raciais e territoriais</h3>
+<section id="residência-não-é-presença" class="level3" data-number="11.1.2">
+<h3 data-number="11.1.2" class="anchored" data-anchor-id="residência-não-é-presença"><span class="header-section-number">11.1.2</span> Residência não é presença</h3>
+<p>Grades populacionais e Censos localizam residência habitual. Pessoas trabalham, estudam, cuidam, circulam e podem estar temporariamente deslocadas. A mobilidade é particularmente importante em centros comerciais, áreas turísticas, zonas industriais e rotas de evacuação. Quando não houver dados de presença, o produto deve ser chamado de <strong>população residente em área exposta</strong>, e não população efetivamente exposta.</p>
+<p>O ambiente interno também modifica a exposição. Temperatura de estação não mede o interior da moradia; concentração externa de PM2,5 não equivale à dose inalada; água disponível no setor censitário não assegura continuidade no domicílio. Materiais, ventilação, ar-condicionado, filtros, ocupação, comportamento e interrupções de serviços formam pontes entre a condição ambiental e a experiência humana.</p>
 </section>
 </section>
-<section id="índices-compostos" class="level2" data-number="11.5">
-<h2 data-number="11.5" class="anchored" data-anchor-id="índices-compostos"><span class="header-section-number">11.5</span> Índices compostos</h2>
+<section id="vulnerabilidade-como-processo-social" class="level2" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="vulnerabilidade-como-processo-social"><span class="header-section-number">11.2</span> Vulnerabilidade como processo social</h2>
+<p>Vulnerabilidade não é essência de uma pessoa, idade, povo ou lugar. Ela é produzida por relações sociais, decisões públicas, discriminação, ocupação do território, condições de trabalho, moradia, renda, redes de cuidado, acesso a informação e disponibilidade de serviços. Dizer que “pessoas idosas são vulneráveis” é insuficiente. É necessário distinguir suscetibilidade fisiológica, doença preexistente, dependência para atividades, isolamento, conforto térmico da moradia, renda, acesso a energia e presença de uma rede de apoio.</p>
+<p>O mesmo cuidado vale para raça, cor, etnia, gênero, deficiência, situação migratória e pertencimento a povos e comunidades tradicionais. Essas categorias podem revelar desigualdades persistentes, mas não as causam biologicamente. Racismo ambiental, remoção territorial, barreiras linguísticas, invisibilidade estatística, informalidade do trabalho e menor acesso a políticas são mecanismos que devem aparecer na interpretação.</p>
+<section id="crianças-e-pessoas-idosas" class="level3" data-number="11.2.1">
+<h3 data-number="11.2.1" class="anchored" data-anchor-id="crianças-e-pessoas-idosas"><span class="header-section-number">11.2.1</span> Crianças e pessoas idosas</h3>
+<p>Lactentes dependem de cuidadores, têm termorregulação distinta e podem ser afetados por interrupções de água, energia, alimentação e atenção. Pessoas idosas formam um grupo heterogêneo; risco pode aumentar com doença cardiovascular ou renal, uso de medicamentos, mobilidade reduzida, isolamento e residência sem resfriamento. Idade deve ser desagregada em faixas pertinentes e combinada com condições de proteção, sem converter um ponto de corte administrativo em diagnóstico individual.</p>
 </section>
-<section id="múltiplas-exposições" class="level2" data-number="11.6">
-<h2 data-number="11.6" class="anchored" data-anchor-id="múltiplas-exposições"><span class="header-section-number">11.6</span> Múltiplas exposições</h2>
+<section id="pessoas-com-doenças-crônicas-e-deficiência" class="level3" data-number="11.2.2">
+<h3 data-number="11.2.2" class="anchored" data-anchor-id="pessoas-com-doenças-crônicas-e-deficiência"><span class="header-section-number">11.2.2</span> Pessoas com doenças crônicas e deficiência</h3>
+<p>Doenças cardiovasculares, respiratórias, renais, metabólicas e neurológicas podem modificar a resposta ao calor, à poluição e a interrupções de cuidado. A continuidade de medicamentos, oxigênio, diálise, refrigeração de insumos e transporte é parte da exposição funcional durante emergências. Deficiência não equivale automaticamente a dependência, mas barreiras físicas, comunicacionais e atitudinais podem impedir acesso a alertas, abrigos, evacuação e serviços.</p>
+<p>Dados de saúde individual exigem proteção de confidencialidade. Mapas de pequenos números ou condições raras podem identificar pessoas. Quando a finalidade for planejamento local, controles de acesso e divulgação agregada devem ser definidos antes da vinculação das bases.</p>
 </section>
-<section id="mapas-de-risco" class="level2" data-number="11.7">
-<h2 data-number="11.7" class="anchored" data-anchor-id="mapas-de-risco"><span class="header-section-number">11.7</span> Mapas de risco</h2>
-<p><strong>Indicadores previstos:</strong> população e serviços expostos; exposição ocupacional; condições de moradia; concentração de grupos populacionais relevantes; acesso a proteção e atenção à saúde; índices de vulnerabilidade com componentes publicados separadamente; múltiplas exposições.</p>
-<div class="todo">
-<p>TODO: evitar naturalizar a vulnerabilidade nos grupos; explicitar processos, direitos, recursos e condições territoriais que a produzem.</p>
+<section id="trabalhadores" class="level3" data-number="11.2.3">
+<h3 data-number="11.2.3" class="anchored" data-anchor-id="trabalhadores"><span class="header-section-number">11.2.3</span> Trabalhadores</h3>
+<p>Ocupação determina local, horário, esforço, vestimenta, proteção e capacidade de interromper a atividade. Trabalhadores rurais, da construção, limpeza urbana, transporte, cozinha, indústria e resposta a emergências podem enfrentar calor, fumaça, radiação e contaminantes em condições que a residência não revela. Informalidade e remuneração por produção reduzem a autonomia para fazer pausas. O WBGT da <a href="../part-2/05-temperatura-condicoes-termicas.html#sec-cli-est-05" class="quarto-xref"><span>Seção 5.30</span></a> ilustra por que a avaliação ocupacional deve combinar ambiente, carga metabólica, vestimenta, aclimatação e organização do trabalho.</p>
+</section>
+<section id="povos-indígenas-quilombolas-e-comunidades-tradicionais" class="level3" data-number="11.2.4">
+<h3 data-number="11.2.4" class="anchored" data-anchor-id="povos-indígenas-quilombolas-e-comunidades-tradicionais"><span class="header-section-number">11.2.4</span> Povos indígenas, quilombolas e comunidades tradicionais</h3>
+<p>Território, água, alimento, mobilidade, práticas culturais e autonomia são dimensões inseparáveis da saúde. Indicadores baseados apenas em renda domiciliar podem omitir perdas territoriais, contaminação, restrição de acesso a recursos e impactos sobre modos de vida. A análise deve respeitar direitos coletivos, consulta, governança dos dados e conhecimento local. A ausência de registros em sistemas nacionais não autoriza concluir ausência de exposição ou efeito.</p>
+</section>
+</section>
+<section id="moradia-e-infraestrutura-cotidiana" class="level2" data-number="11.3">
+<h2 data-number="11.3" class="anchored" data-anchor-id="moradia-e-infraestrutura-cotidiana"><span class="header-section-number">11.3</span> Moradia e infraestrutura cotidiana</h2>
+<p>Moradia liga perigos externos à exposição real. Cobertura e paredes, densidade de ocupação, ventilação, umidade, acesso a água e saneamento, estabilidade da posse, custo e localização influenciam calor interno, contaminação, possibilidade de permanecer em casa e capacidade de recuperar perdas.</p>
+<p>O indicador ODS 11.1.1 é uma medida consolidada de privação habitacional urbana. Ele reúne população em assentamentos precários ou informais e moradia inadequada, segundo componentes publicados <span class="citation" data-cites="un2024sdg111 unhabitat2020sdg111">(<a href="../../backmatter/referencias.html#ref-unhabitat2020sdg111" role="doc-biblioref">United Nations Human Settlements Programme, 2020</a>; <a href="../../backmatter/referencias.html#ref-un2024sdg111" role="doc-biblioref">United Nations Statistics Division, 2024</a>)</span>. Sua utilidade aumenta quando cada privação é apresentada separadamente. Um total de 30% não informa se predomina adensamento, falta de saneamento, insegurança de posse ou custo excessivo — problemas que exigem intervenções diferentes.</p>
+</section>
+<section id="índices-compostos" class="level2" data-number="11.4">
+<h2 data-number="11.4" class="anchored" data-anchor-id="índices-compostos"><span class="header-section-number">11.4</span> Índices compostos</h2>
+<p>Índices compostos são úteis para triagem territorial quando sua arquitetura é pública. Também comprimem decisões: escolha de variáveis, transformação, peso, direção e universo de comparação. Dois índices com o mesmo nome podem medir realidades diferentes.</p>
+<p>O IVS do Ipea foi construído para o Brasil e combina 16 indicadores em infraestrutura urbana, capital humano e renda e trabalho <span class="citation" data-cites="ipea2015ivs marguti2018ivs">(<a href="../../backmatter/referencias.html#ref-ipea2015ivs" role="doc-biblioref">Costa; Marguti, 2015</a>; <a href="../../backmatter/referencias.html#ref-marguti2018ivs" role="doc-biblioref">Marguti et al., 2018</a>)</span>. O CDC/ATSDR SVI usa 16 variáveis e classificações percentílicas em quatro temas para planejamento de saúde pública e emergências nos Estados Unidos <span class="citation" data-cites="cdc2024svi flanagan2011svi">(<a href="../../backmatter/referencias.html#ref-cdc2024svi" role="doc-biblioref">Agency for Toxic Substances and Disease Registry, 2024</a>; <a href="../../backmatter/referencias.html#ref-flanagan2011svi" role="doc-biblioref">Flanagan et al., 2011</a>)</span>. O primeiro produz uma escala normalizada ancorada em parâmetros metodológicos; o segundo classifica posições relativas no universo da edição. Eles não são intercambiáveis.</p>
+<div class="callout callout-style-default callout-warning callout-titled" title="O que não fazer">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Aviso</span>O que não fazer
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Não somar perigo, exposição, vulnerabilidade e capacidade em um escore único apenas porque todas as camadas foram normalizadas entre zero e um. A operação pode compensar uma exposição extrema por um valor social baixo e ocultar justamente o território que exige ação.</p>
+</div>
+</div>
+<p>Quando um índice composto for usado, o painel deve permitir abrir:</p>
+<ol type="1">
+<li>o escore total;</li>
+<li>dimensões;</li>
+<li>componentes originais;</li>
+<li>ano e fonte;</li>
+<li>erro ou qualidade;</li>
+<li>mudanças de limites territoriais;</li>
+<li>critério de prioridade.</li>
+</ol>
+</section>
+<section id="principais-indicadores-usados-em-saúde-pública-e-gestão-de-riscos" class="level2" data-number="11.5">
+<h2 data-number="11.5" class="anchored" data-anchor-id="principais-indicadores-usados-em-saúde-pública-e-gestão-de-riscos"><span class="header-section-number">11.5</span> Principais indicadores usados em saúde pública e gestão de riscos</h2>
+<p>Os indicadores consolidados de exposição e vulnerabilidade podem ser organizados por função, sem transformá-los em uma lista genérica:</p>
+<div id="tbl-indicadores-exposicao-vulnerabilidade" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-indicadores-exposicao-vulnerabilidade-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;11.1: Indicadores de exposição e vulnerabilidade e suas funções
+</figcaption>
+<div aria-describedby="tbl-indicadores-exposicao-vulnerabilidade-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Função</th>
+<th>Indicadores consolidados</th>
+<th>Aplicação</th>
+<th>Limite principal</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Quantificar alcance do perigo</td>
+<td>pessoas expostas, pessoas-dia, dias por pessoa e médias ponderadas, definidos dentro de cada fenômeno</td>
+<td>Dimensionar população e duração</td>
+<td>Dependem da definição do perigo e da população</td>
+</tr>
+<tr class="even">
+<td>Caracterizar privação social no Brasil</td>
+<td>IVS e suas três dimensões</td>
+<td>Planejamento e estratificação territorial</td>
+<td>Não contém perigo climático</td>
+</tr>
+<tr class="odd">
+<td>Apoiar emergências nos Estados Unidos</td>
+<td>CDC/ATSDR SVI, temas e variáveis</td>
+<td>Saúde pública e resposta a desastres</td>
+<td>Não é transferível diretamente ao Brasil</td>
+</tr>
+<tr class="even">
+<td>Descrever moradia urbana inadequada</td>
+<td>ODS 11.1.1 e componentes</td>
+<td>Habitação, saneamento, saúde e resiliência</td>
+<td>A união composta oculta privações específicas</td>
+</tr>
+<tr class="odd">
+<td>Identificar grupos com maior suscetibilidade</td>
+<td>distribuição por idade, condição de saúde, deficiência, ocupação e demais categorias pertinentes</td>
+<td>Busca ativa e desenho de proteção</td>
+<td>Categorias não explicam os processos sociais</td>
+</tr>
+<tr class="even">
+<td>Medir proteção e resposta</td>
+<td>indicadores do <a href="13-resposta-adaptacao-resiliencia.html" class="quarto-xref"><span>Capítulo 13</span></a></td>
+<td>Capacidade de antecipar, manter e recuperar serviços</td>
+<td>Existência documental não garante funcionamento</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>As três fichas a seguir documentam medidas publicadas que podem apoiar análise territorial. Os indicadores de exposição específicos permanecem nos capítulos dos respectivos fenômenos.</p>
+</section>
+<section id="sec-exp-vul-01" class="level2" data-number="11.6">
+<h2 data-number="11.6" class="anchored" data-anchor-id="sec-exp-vul-01"><span class="header-section-number">11.6</span> Ficha do indicador: Índice de Vulnerabilidade Social do Ipea (IVS)</h2>
+<div class="indicator-card">
+<p><strong>Código:</strong> EXP-VUL-01<br>
+<strong>Título resumido:</strong> Índice de Vulnerabilidade Social — IVS<br>
+<strong>Tema:</strong> Exposição e vulnerabilidade socioambiental<br>
+<strong>Dimensão:</strong> vulnerabilidade<br>
+<strong>Disponibilidade:</strong> <span class="availability">dados secundários</span> <span class="availability">requer harmonização territorial</span></p>
+</div>
+<section id="identificação-e-fundamento" class="level3" data-number="11.6.1">
+<h3 data-number="11.6.1" class="anchored" data-anchor-id="identificação-e-fundamento"><span class="header-section-number">11.6.1</span> Identificação e fundamento</h3>
+<p><strong>Indicador consolidado em.</strong> Atlas da Vulnerabilidade Social e relatórios metodológicos do Instituto de Pesquisa Econômica Aplicada.</p>
+</section>
+<section id="conceito" class="level3" data-number="11.6.2">
+<h3 data-number="11.6.2" class="anchored" data-anchor-id="conceito"><span class="header-section-number">11.6.2</span> Conceito</h3>
+<p>Índice brasileiro de 0 a 1 que sintetiza 16 indicadores normalizados nas dimensões infraestrutura urbana, capital humano e renda e trabalho.</p>
+</section>
+<section id="objetivo" class="level3" data-number="11.6.3">
+<h3 data-number="11.6.3" class="anchored" data-anchor-id="objetivo"><span class="header-section-number">11.6.3</span> Objetivo</h3>
+<p>Evidenciar falhas de oferta de bens e serviços e condições sociais que limitam bem-estar e oportunidades nos territórios brasileiros.</p>
+</section>
+<section id="interpretação" class="level3" data-number="11.6.4">
+<h3 data-number="11.6.4" class="anchored" data-anchor-id="interpretação"><span class="header-section-number">11.6.4</span> Interpretação</h3>
+<p>Quanto mais próximo de 1, maior a vulnerabilidade social segundo o conjunto do IVS. As faixas originais são muito baixa de 0 a &lt;0,200; baixa de 0,200 a &lt;0,300; média de 0,300 a &lt;0,400; alta de 0,400 a &lt;0,500; e muito alta de 0,500 a 1.</p>
+</section>
+<section id="usos" class="level3" data-number="11.6.5">
+<h3 data-number="11.6.5" class="anchored" data-anchor-id="usos"><span class="header-section-number">11.6.5</span> Usos</h3>
+<ul>
+<li>Descrever desigualdades territoriais brasileiras.</li>
+<li>Apoiar priorização de políticas e programas.</li>
+<li>Estratificar análises de efeitos climáticos e ambientais.</li>
+<li>Examinar separadamente infraestrutura</li>
+<li>capital humano e renda e trabalho.</li>
+</ul>
+</section>
+<section id="limitações" class="level3" data-number="11.6.6">
+<h3 data-number="11.6.6" class="anchored" data-anchor-id="limitações"><span class="header-section-number">11.6.6</span> Limitações</h3>
+<ul>
+<li>Não inclui o perigo climático nem a exposição ambiental.</li>
+<li>O valor agregado pode ocultar componentes com sentidos distintos.</li>
+<li>Versões baseadas em Censo e PNAD têm granularidade e erro diferentes.</li>
+<li>Não deve ser interpretado como atributo de indivíduos nem como explicação causal.</li>
+</ul>
+</section>
+<section id="fontes-de-dados" class="level3" data-number="11.6.7">
+<h3 data-number="11.6.7" class="anchored" data-anchor-id="fontes-de-dados"><span class="header-section-number">11.6.7</span> Fontes de dados</h3>
+<ul>
+<li>Atlas da Vulnerabilidade Social — valores, dimensões, componentes e documentação metodológica do IVS (<a href="../../backmatter/indice-fontes.html#ipea-ivs">cadastro</a>)</li>
+<li>Instituto Brasileiro de Geografia e Estatística — Censo Demográfico e PNAD Contínua usados na construção das edições (<a href="../../backmatter/indice-fontes.html#ibge">cadastro</a>)</li>
+</ul>
+</section>
+<section id="método-de-cálculo" class="level3" data-number="11.6.8">
+<h3 data-number="11.6.8" class="anchored" data-anchor-id="método-de-cálculo"><span class="header-section-number">11.6.8</span> Método de cálculo</h3>
+<p>Obter os 16 indicadores da edição escolhida. Transformar cada componente para escala entre 0 e 1 pelos parâmetros metodológicos do Ipea, invertendo o sentido quando necessário para que valor maior represente maior vulnerabilidade. Calcular cada dimensão pela agregação ponderada publicada e o IVS como média aritmética dos três subíndices. Não recalibrar extremos ou pesos sem caracterizar um novo índice.</p>
+<p><span class="math display">\[
+IVS=\frac{IVS_{infraestrutura}+IVS_{capital\ humano}+IVS_{renda\ e\ trabalho}}{3}
+\]</span></p>
+<div class="indicator-card">
+<p><strong>Numerador.</strong> Soma dos três subíndices oficiais.</p>
+<p><strong>Denominador.</strong> Três dimensões.</p>
+<p><strong>Unidade de medida.</strong> Índice adimensional de 0 a 1.</p>
+<p><strong>Variáveis e categorias de análise.</strong> 16 componentes; três dimensões; faixas de IVS; município, unidade da Federação e demais recortes; sexo, cor e situação do domicílio nas edições disponíveis.</p>
+<p><strong>Granularidade.</strong> Recorte territorial e populacional disponibilizado na edição.</p>
+<p><strong>Periodicidade de atualização.</strong> Conforme a publicação de novas edições pelo Ipea.</p>
+<p><strong>Responsabilidade gerencial.</strong> Instituição estatística ou responsável pelo índice, com equipes de vigilância, planejamento e participação social responsáveis pela interpretação e uso.</p>
+<p><strong>Notas.</strong> Índices compostos devem ser publicados com todos os componentes. O escore apoia priorização, mas não substitui escuta local, análise de direitos, conhecimento territorial nem avaliação do perigo específico.</p>
+<p><strong>Análise descritiva do indicador.</strong> Apresentar IVS, três dimensões e componentes; mapear valores e variações; cruzar com perigos sem somá-los ao índice; mostrar populações e recursos presentes no território.</p>
+</div>
+</section>
+<section id="campos-complementares-para-clima-ambiente-e-saúde" class="level3" data-number="11.6.9">
+<h3 data-number="11.6.9" class="anchored" data-anchor-id="campos-complementares-para-clima-ambiente-e-saúde"><span class="header-section-number">11.6.9</span> Campos complementares para clima, ambiente e saúde</h3>
+<div class="indicator-card">
+<p><strong>Unidade territorial.</strong> Brasil, unidade da Federação, município, região metropolitana ou unidade de desenvolvimento humano, conforme a base.</p>
+<p><strong>Resolução espacial original.</strong> A do Censo, Atlas ou levantamento amostral usado; não interpolar valores amostrais para pequenas áreas.</p>
+<p><strong>Resolução temporal.</strong> Ano censitário ou período de referência da pesquisa domiciliar.</p>
+<p><strong>Período de referência.</strong> O ano do Censo ou da PNAD Contínua da edição; registrar ajustes de compatibilização.</p>
+<p><strong>Limiar ou valor de referência.</strong> Muito baixa &lt;0,200; baixa 0,200–&lt;0,300; média 0,300–&lt;0,400; alta 0,400–&lt;0,500; muito alta ≥0,500.</p>
+</div>
+</section>
+<section id="disponibilidade-e-acesso" class="level3" data-number="11.6.10">
+<h3 data-number="11.6.10" class="anchored" data-anchor-id="disponibilidade-e-acesso"><span class="header-section-number">11.6.10</span> Disponibilidade e acesso</h3>
+<p><strong>Cobertura geográfica.</strong> Brasil, conforme os recortes da edição do Atlas.</p>
+<p><strong>Período disponível.</strong> Censos 2000 e 2010 no Atlas original e atualizações conforme PNAD Contínua e Censo 2022.</p>
+<p><strong>Periodicidade de atualização.</strong> Conforme a publicação de novas edições pelo Ipea.</p>
+<p><strong>Forma de acesso.</strong> Consulta e download no Atlas e no repositório do Ipea.</p>
+<p><strong>URL ou identificador persistente.</strong> http://repositorio.ipea.gov.br/handle/11058/9451</p>
+<p><strong>Formato dos arquivos.</strong> Tabelas, planilhas, mapas e relatórios.</p>
+<p><strong>Necessidade de processamento.</strong> Selecionar edição, harmonizar códigos territoriais, preservar componentes e incorporar erro amostral quando aplicável.</p>
+</section>
+<section id="qualidade-comparação-e-saúde" class="level3" data-number="11.6.11">
+<h3 data-number="11.6.11" class="anchored" data-anchor-id="qualidade-comparação-e-saúde"><span class="header-section-number">11.6.11</span> Qualidade, comparação e saúde</h3>
+<p><strong>Qualidade e incerteza.</strong> Documentar fonte, ano, universo, erro amostral, imputação, variáveis, sentido, normalização, pesos, edição, limites territoriais e impacto de valores pequenos ou ausentes.</p>
+<p><strong>Possibilidade de comparação.</strong> Comparar somente valores calculados com a mesma edição, universo, componentes, pesos e território; índices relativos podem mudar mesmo sem alteração absoluta de uma localidade.</p>
+<p><strong>Relação com desfechos de saúde.</strong> Privação material, discriminação, barreiras de acesso e menor capacidade de proteção modificam exposição, suscetibilidade e recuperação diante de perigos climáticos e ambientais.</p>
+<p><strong>Defasagens temporais relevantes.</strong> A vulnerabilidade medida em Censo ou pesquisa domiciliar refere-se a uma data ou período anterior; registrar a distância temporal até o evento e mudanças posteriores.</p>
+<p><strong>Aplicação na gestão.</strong> Orientar busca ativa, comunicação acessível, localização de recursos, proteção social e planejamento intersetorial, sem rotular pessoas ou territórios como portadores naturais de vulnerabilidade.</p>
+</section>
+<section id="referências-metodológicas" class="level3" data-number="11.6.12">
+<h3 data-number="11.6.12" class="anchored" data-anchor-id="referências-metodológicas"><span class="header-section-number">11.6.12</span> Referências metodológicas</h3>
+<ul>
+<li><span class="citation" data-cites="ipea2015ivs">(<a href="../../backmatter/referencias.html#ref-ipea2015ivs" role="doc-biblioref">Costa; Marguti, 2015</a>)</span></li>
+<li><span class="citation" data-cites="marguti2018ivs">(<a href="../../backmatter/referencias.html#ref-marguti2018ivs" role="doc-biblioref">Marguti et al., 2018</a>)</span></li>
+</ul>
+</section>
+</section>
+<section id="sec-exp-vul-02" class="level2" data-number="11.7">
+<h2 data-number="11.7" class="anchored" data-anchor-id="sec-exp-vul-02"><span class="header-section-number">11.7</span> Ficha do indicador: Índice de Vulnerabilidade Social do CDC/ATSDR (SVI)</h2>
+<div class="indicator-card">
+<p><strong>Código:</strong> EXP-VUL-02<br>
+<strong>Título resumido:</strong> CDC/ATSDR Social Vulnerability Index — SVI<br>
+<strong>Tema:</strong> Exposição e vulnerabilidade socioambiental<br>
+<strong>Dimensão:</strong> vulnerabilidade<br>
+<strong>Disponibilidade:</strong> <span class="availability">dados secundários</span> <span class="availability">requer harmonização territorial</span></p>
+</div>
+<section id="identificação-e-fundamento-1" class="level3" data-number="11.7.1">
+<h3 data-number="11.7.1" class="anchored" data-anchor-id="identificação-e-fundamento-1"><span class="header-section-number">11.7.1</span> Identificação e fundamento</h3>
+<p><strong>Indicador consolidado em.</strong> SVI do Centers for Disease Control and Prevention e da Agency for Toxic Substances and Disease Registry para planejamento de saúde pública e emergências nos Estados Unidos.</p>
+</section>
+<section id="conceito-1" class="level3" data-number="11.7.2">
+<h3 data-number="11.7.2" class="anchored" data-anchor-id="conceito-1"><span class="header-section-number">11.7.2</span> Conceito</h3>
+<p>Classificação percentílica relativa de unidades censitárias segundo 16 variáveis agrupadas em quatro temas, com percentis temáticos e geral.</p>
+</section>
+<section id="objetivo-1" class="level3" data-number="11.7.3">
+<h3 data-number="11.7.3" class="anchored" data-anchor-id="objetivo-1"><span class="header-section-number">11.7.3</span> Objetivo</h3>
+<p>Identificar comunidades estadunidenses que provavelmente necessitarão de maior apoio antes, durante e depois de eventos perigosos.</p>
+</section>
+<section id="interpretação-1" class="level3" data-number="11.7.4">
+<h3 data-number="11.7.4" class="anchored" data-anchor-id="interpretação-1"><span class="header-section-number">11.7.4</span> Interpretação</h3>
+<p>O percentil varia de 0 a 1; valor próximo de 1 indica posição relativa de maior vulnerabilidade dentro do universo geográfico e da edição. Não expressa probabilidade de dano nem diferença absoluta constante.</p>
+</section>
+<section id="usos-1" class="level3" data-number="11.7.5">
+<h3 data-number="11.7.5" class="anchored" data-anchor-id="usos-1"><span class="header-section-number">11.7.5</span> Usos</h3>
+<ul>
+<li>Planejamento de emergência em saúde pública.</li>
+<li>Distribuição territorial de apoio e comunicação.</li>
+<li>Estratificação de análises de desastres nos Estados Unidos.</li>
+<li>Referência metodológica para construção transparente de índices relativos.</li>
+</ul>
+</section>
+<section id="limitações-1" class="level3" data-number="11.7.6">
+<h3 data-number="11.7.6" class="anchored" data-anchor-id="limitações-1"><span class="header-section-number">11.7.6</span> Limitações</h3>
+<ul>
+<li>Variáveis e categorias são específicas dos Estados Unidos.</li>
+<li>Percentis dependem do universo comparado.</li>
+<li>A soma de postos descarta distâncias absolutas entre valores.</li>
+<li>Transpor o SVI ao Brasil exigiria novo desenvolvimento e validação</li>
+<li>não simples tradução.</li>
+</ul>
+</section>
+<section id="fontes-de-dados-1" class="level3" data-number="11.7.7">
+<h3 data-number="11.7.7" class="anchored" data-anchor-id="fontes-de-dados-1"><span class="header-section-number">11.7.7</span> Fontes de dados</h3>
+<ul>
+<li>CDC/ATSDR Social Vulnerability Index — percentis por variável, tema e total e documentação da edição (<a href="../../backmatter/indice-fontes.html#cdc-svi">cadastro</a>)</li>
+</ul>
+</section>
+<section id="método-de-cálculo-1" class="level3" data-number="11.7.8">
+<h3 data-number="11.7.8" class="anchored" data-anchor-id="método-de-cálculo-1"><span class="header-section-number">11.7.8</span> Método de cálculo</h3>
+<p>Para cada uma das 16 variáveis, ordenar as unidades e calcular o percentil como posto menos um dividido pelo número de unidades menos um, com sentido orientado para maior vulnerabilidade. Somar os postos das variáveis de cada tema e reclassificar a soma em percentil temático. Somar os postos das 16 variáveis e reclassificar em percentil geral, seguindo o tratamento de estimativas e valores ausentes da edição.</p>
+<p><span class="math display">\[
+Percentil_i=\frac{posto_i-1}{N-1};\qquad SVI_i=Percentil\left(\sum_{j=1}^{16}posto_{ij}\right)
+\]</span></p>
+<div class="indicator-card">
+<p><strong>Numerador.</strong> Posto da unidade menos um no cálculo de cada percentil.</p>
+<p><strong>Denominador.</strong> Número de unidades válidas menos um.</p>
+<p><strong>Unidade de medida.</strong> Percentil relativo de 0 a 1.</p>
+<p><strong>Variáveis e categorias de análise.</strong> 16 variáveis e quatro temas — situação socioeconômica; características do domicílio; condição racial e de minoria étnica; tipo de moradia e transporte — conforme a edição 2022.</p>
+<p><strong>Granularidade.</strong> Setor censitário e condado ou equivalentes da edição.</p>
+<p><strong>Periodicidade de atualização.</strong> Por edição do CDC/ATSDR.</p>
+<p><strong>Responsabilidade gerencial.</strong> Instituição estatística ou responsável pelo índice, com equipes de vigilância, planejamento e participação social responsáveis pela interpretação e uso.</p>
+<p><strong>Notas.</strong> Índices compostos devem ser publicados com todos os componentes. O escore apoia priorização, mas não substitui escuta local, análise de direitos, conhecimento territorial nem avaliação do perigo específico.</p>
+<p><strong>Análise descritiva do indicador.</strong> Exibir percentil geral, quatro temas e 16 variáveis, incerteza censitária e estabilidade entre edições; evitar mapas que só rotulem o quartil mais alto.</p>
+</div>
+</section>
+<section id="campos-complementares-para-clima-ambiente-e-saúde-1" class="level3" data-number="11.7.9">
+<h3 data-number="11.7.9" class="anchored" data-anchor-id="campos-complementares-para-clima-ambiente-e-saúde-1"><span class="header-section-number">11.7.9</span> Campos complementares para clima, ambiente e saúde</h3>
+<div class="indicator-card">
+<p><strong>Unidade territorial.</strong> Unidades censitárias dos Estados Unidos.</p>
+<p><strong>Resolução espacial original.</strong> Census tract e county ou equivalentes.</p>
+<p><strong>Resolução temporal.</strong> Edição vinculada a Censo ou estimativas quinquenais da American Community Survey.</p>
+<p><strong>Período de referência.</strong> Ano e fonte declarados na edição; SVI 2022 usa documentação própria.</p>
+<p><strong>Limiar ou valor de referência.</strong> Não há ponto de corte universal; quartis ou percentis altos são classificações relativas e devem ser declarados.</p>
+</div>
+</section>
+<section id="disponibilidade-e-acesso-1" class="level3" data-number="11.7.10">
+<h3 data-number="11.7.10" class="anchored" data-anchor-id="disponibilidade-e-acesso-1"><span class="header-section-number">11.7.10</span> Disponibilidade e acesso</h3>
+<p><strong>Cobertura geográfica.</strong> Estados Unidos e áreas incluídas na edição.</p>
+<p><strong>Período disponível.</strong> Edições desde 2000, não necessariamente comparáveis sem harmonização.</p>
+<p><strong>Periodicidade de atualização.</strong> Por edição do CDC/ATSDR.</p>
+<p><strong>Forma de acesso.</strong> Download público de bases e geodatabases.</p>
+<p><strong>URL ou identificador persistente.</strong> https://stacks.cdc.gov/view/cdc/157287</p>
+<p><strong>Formato dos arquivos.</strong> CSV, geodatabase e documentação PDF.</p>
+<p><strong>Necessidade de processamento.</strong> Selecionar edição, tratar campos de qualidade, manter universo e identificar percentis já publicados; não recalcular com subconjunto sem mudar a referência.</p>
+</section>
+<section id="qualidade-comparação-e-saúde-1" class="level3" data-number="11.7.11">
+<h3 data-number="11.7.11" class="anchored" data-anchor-id="qualidade-comparação-e-saúde-1"><span class="header-section-number">11.7.11</span> Qualidade, comparação e saúde</h3>
+<p><strong>Qualidade e incerteza.</strong> Documentar fonte, ano, universo, erro amostral, imputação, variáveis, sentido, normalização, pesos, edição, limites territoriais e impacto de valores pequenos ou ausentes.</p>
+<p><strong>Possibilidade de comparação.</strong> Comparar somente valores calculados com a mesma edição, universo, componentes, pesos e território; índices relativos podem mudar mesmo sem alteração absoluta de uma localidade.</p>
+<p><strong>Relação com desfechos de saúde.</strong> Privação material, discriminação, barreiras de acesso e menor capacidade de proteção modificam exposição, suscetibilidade e recuperação diante de perigos climáticos e ambientais.</p>
+<p><strong>Defasagens temporais relevantes.</strong> A vulnerabilidade medida em Censo ou pesquisa domiciliar refere-se a uma data ou período anterior; registrar a distância temporal até o evento e mudanças posteriores.</p>
+<p><strong>Aplicação na gestão.</strong> Orientar busca ativa, comunicação acessível, localização de recursos, proteção social e planejamento intersetorial, sem rotular pessoas ou territórios como portadores naturais de vulnerabilidade.</p>
+</section>
+<section id="referências-metodológicas-1" class="level3" data-number="11.7.12">
+<h3 data-number="11.7.12" class="anchored" data-anchor-id="referências-metodológicas-1"><span class="header-section-number">11.7.12</span> Referências metodológicas</h3>
+<ul>
+<li><span class="citation" data-cites="cdc2024svi">(<a href="../../backmatter/referencias.html#ref-cdc2024svi" role="doc-biblioref">Agency for Toxic Substances and Disease Registry, 2024</a>)</span></li>
+<li><span class="citation" data-cites="flanagan2011svi">(<a href="../../backmatter/referencias.html#ref-flanagan2011svi" role="doc-biblioref">Flanagan et al., 2011</a>)</span></li>
+</ul>
+</section>
+</section>
+<section id="sec-exp-hab-01" class="level2" data-number="11.8">
+<h2 data-number="11.8" class="anchored" data-anchor-id="sec-exp-hab-01"><span class="header-section-number">11.8</span> Ficha do indicador: Proporção da população urbana em assentamentos precários, informais ou moradia inadequada (ODS 11.1.1)</h2>
+<div class="indicator-card">
+<p><strong>Código:</strong> EXP-HAB-01<br>
+<strong>Título resumido:</strong> População urbana em moradia inadequada — ODS 11.1.1<br>
+<strong>Tema:</strong> Exposição e vulnerabilidade socioambiental<br>
+<strong>Dimensão:</strong> vulnerabilidade<br>
+<strong>Disponibilidade:</strong> <span class="availability">dados secundários</span> <span class="availability">requer harmonização territorial</span></p>
+</div>
+<section id="identificação-e-fundamento-2" class="level3" data-number="11.8.1">
+<h3 data-number="11.8.1" class="anchored" data-anchor-id="identificação-e-fundamento-2"><span class="header-section-number">11.8.1</span> Identificação e fundamento</h3>
+<p><strong>Indicador consolidado em.</strong> Metadados do indicador 11.1.1 dos Objetivos de Desenvolvimento Sustentável, sob custódia do UN-Habitat.</p>
+</section>
+<section id="conceito-2" class="level3" data-number="11.8.2">
+<h3 data-number="11.8.2" class="anchored" data-anchor-id="conceito-2"><span class="header-section-number">11.8.2</span> Conceito</h3>
+<p>Percentual da população urbana residente em domicílios classificados como assentamento precário ou informal ou em moradia inadequada segundo as privações e o critério de custo definidos nos metadados.</p>
+</section>
+<section id="objetivo-2" class="level3" data-number="11.8.3">
+<h3 data-number="11.8.3" class="anchored" data-anchor-id="objetivo-2"><span class="header-section-number">11.8.3</span> Objetivo</h3>
+<p>Monitorar privação habitacional urbana relevante para segurança, saúde, exposição ambiental e capacidade de proteção.</p>
+</section>
+<section id="interpretação-2" class="level3" data-number="11.8.4">
+<h3 data-number="11.8.4" class="anchored" data-anchor-id="interpretação-2"><span class="header-section-number">11.8.4</span> Interpretação</h3>
+<p>Valor maior indica maior parcela da população urbana afetada por ao menos uma das condições abrangidas. O total composto deve vir acompanhado das parcelas por água, saneamento, espaço, durabilidade, segurança da posse e custo da moradia.</p>
+</section>
+<section id="usos-2" class="level3" data-number="11.8.5">
+<h3 data-number="11.8.5" class="anchored" data-anchor-id="usos-2"><span class="header-section-number">11.8.5</span> Usos</h3>
+<ul>
+<li>Monitorar a meta ODS 11.1.</li>
+<li>Identificar privações habitacionais que agravam calor</li>
+<li>inundação e contaminação.</li>
+<li>Planejar habitação</li>
+<li>saneamento e saúde de forma intersetorial.</li>
+</ul>
+</section>
+<section id="limitações-2" class="level3" data-number="11.8.6">
+<h3 data-number="11.8.6" class="anchored" data-anchor-id="limitações-2"><span class="header-section-number">11.8.6</span> Limitações</h3>
+<ul>
+<li>A união de componentes não informa quantas privações cada domicílio acumula.</li>
+<li>Segurança da posse e moradia inadequada têm disponibilidade desigual.</li>
+<li>Definições nacionais podem diferir dos metadados globais.</li>
+<li>O indicador não mede temperatura interna</li>
+<li>inundação efetiva ou qualidade construtiva detalhada.</li>
+</ul>
+</section>
+<section id="fontes-de-dados-2" class="level3" data-number="11.8.7">
+<h3 data-number="11.8.7" class="anchored" data-anchor-id="fontes-de-dados-2"><span class="header-section-number">11.8.7</span> Fontes de dados</h3>
+<ul>
+<li>Programa de Indicadores Urbanos do UN-Habitat — metadados internacionais e série do ODS 11.1.1 (<a href="../../backmatter/indice-fontes.html#unhabitat-urban">cadastro</a>)</li>
+<li>Instituto Brasileiro de Geografia e Estatística — Censo e pesquisas domiciliares para operacionalização brasileira dos componentes disponíveis (<a href="../../backmatter/indice-fontes.html#ibge">cadastro</a>)</li>
+</ul>
+</section>
+<section id="método-de-cálculo-2" class="level3" data-number="11.8.8">
+<h3 data-number="11.8.8" class="anchored" data-anchor-id="método-de-cálculo-2"><span class="header-section-number">11.8.8</span> Método de cálculo</h3>
+<p>Classificar cada domicílio urbano segundo os critérios publicados. Considerar a população residente em domicílio com uma ou mais privações de assentamento precário ou informal — água melhorada, saneamento melhorado, área suficiente, durabilidade e segurança da posse — ou com condição de moradia inadequada, incluindo custo excessivo quando disponível. Somar as pessoas classificadas e dividir pela população urbana total. Publicar cada componente e a interseção quando os microdados permitirem.</p>
+<p><span class="math display">\[
+ODS11.1.1=100\times\frac{População\ urbana\ em\ domicílio\ com\ ao\ menos\ uma\ condição}{População\ urbana\ total}
+\]</span></p>
+<div class="indicator-card">
+<p><strong>Numerador.</strong> População urbana residente em assentamento precário, informal ou moradia inadequada.</p>
+<p><strong>Denominador.</strong> População urbana total.</p>
+<p><strong>Unidade de medida.</strong> Percentual (%).</p>
+<p><strong>Variáveis e categorias de análise.</strong> Água; saneamento; adensamento; durabilidade; segurança da posse; custo da moradia; sexo, idade, deficiência, raça ou cor e território quando disponíveis.</p>
+<p><strong>Granularidade.</strong> Pessoa e domicílio nos microdados; território no indicador agregado.</p>
+<p><strong>Periodicidade de atualização.</strong> Segundo Censo, pesquisa e ciclo de reporte dos ODS.</p>
+<p><strong>Responsabilidade gerencial.</strong> Instituição estatística ou responsável pelo índice, com equipes de vigilância, planejamento e participação social responsáveis pela interpretação e uso.</p>
+<p><strong>Notas.</strong> Índices compostos devem ser publicados com todos os componentes. O escore apoia priorização, mas não substitui escuta local, análise de direitos, conhecimento territorial nem avaliação do perigo específico.</p>
+<p><strong>Análise descritiva do indicador.</strong> Mostrar total, cada privação, número de privações acumuladas, população afetada e distribuição territorial; relacionar a perigos específicos sem incorporar o perigo ao indicador habitacional.</p>
+</div>
+</section>
+<section id="campos-complementares-para-clima-ambiente-e-saúde-2" class="level3" data-number="11.8.9">
+<h3 data-number="11.8.9" class="anchored" data-anchor-id="campos-complementares-para-clima-ambiente-e-saúde-2"><span class="header-section-number">11.8.9</span> Campos complementares para clima, ambiente e saúde</h3>
+<div class="indicator-card">
+<p><strong>Unidade territorial.</strong> Área urbana e seus recortes estatísticos.</p>
+<p><strong>Resolução espacial original.</strong> A do Censo ou pesquisa; amostras não devem ser divulgadas abaixo de sua precisão.</p>
+<p><strong>Resolução temporal.</strong> Ano censitário ou da pesquisa domiciliar.</p>
+<p><strong>Período de referência.</strong> Data de referência da fonte domiciliar e edição dos metadados ODS.</p>
+<p><strong>Limiar ou valor de referência.</strong> Ao menos uma privação definida; custo habitacional superior a 30% da renda mensal do domicílio na operacionalização internacional de inadequação por acessibilidade econômica.</p>
+</div>
+</section>
+<section id="disponibilidade-e-acesso-2" class="level3" data-number="11.8.10">
+<h3 data-number="11.8.10" class="anchored" data-anchor-id="disponibilidade-e-acesso-2"><span class="header-section-number">11.8.10</span> Disponibilidade e acesso</h3>
+<p><strong>Cobertura geográfica.</strong> Global no ODS e Brasil nas fontes nacionais compatíveis.</p>
+<p><strong>Período disponível.</strong> Conforme Censos, pesquisas nacionais e série publicada na base ODS.</p>
+<p><strong>Periodicidade de atualização.</strong> Segundo Censo, pesquisa e ciclo de reporte dos ODS.</p>
+<p><strong>Forma de acesso.</strong> Base global ODS e microdados ou tabelas do IBGE.</p>
+<p><strong>URL ou identificador persistente.</strong> https://unstats.un.org/sdgs/metadata/files/Metadata-11-01-01.pdf</p>
+<p><strong>Formato dos arquivos.</strong> Tabela ODS, planilhas, microdados e documentação.</p>
+<p><strong>Necessidade de processamento.</strong> Harmonizar definições, construir condições no domicílio, evitar dupla contagem de pessoas e estimar erro amostral.</p>
+</section>
+<section id="qualidade-comparação-e-saúde-2" class="level3" data-number="11.8.11">
+<h3 data-number="11.8.11" class="anchored" data-anchor-id="qualidade-comparação-e-saúde-2"><span class="header-section-number">11.8.11</span> Qualidade, comparação e saúde</h3>
+<p><strong>Qualidade e incerteza.</strong> Documentar fonte, ano, universo, erro amostral, imputação, variáveis, sentido, normalização, pesos, edição, limites territoriais e impacto de valores pequenos ou ausentes.</p>
+<p><strong>Possibilidade de comparação.</strong> Comparar somente valores calculados com a mesma edição, universo, componentes, pesos e território; índices relativos podem mudar mesmo sem alteração absoluta de uma localidade.</p>
+<p><strong>Relação com desfechos de saúde.</strong> Privação material, discriminação, barreiras de acesso e menor capacidade de proteção modificam exposição, suscetibilidade e recuperação diante de perigos climáticos e ambientais.</p>
+<p><strong>Defasagens temporais relevantes.</strong> A vulnerabilidade medida em Censo ou pesquisa domiciliar refere-se a uma data ou período anterior; registrar a distância temporal até o evento e mudanças posteriores.</p>
+<p><strong>Aplicação na gestão.</strong> Orientar busca ativa, comunicação acessível, localização de recursos, proteção social e planejamento intersetorial, sem rotular pessoas ou territórios como portadores naturais de vulnerabilidade.</p>
+</section>
+<section id="referências-metodológicas-2" class="level3" data-number="11.8.12">
+<h3 data-number="11.8.12" class="anchored" data-anchor-id="referências-metodológicas-2"><span class="header-section-number">11.8.12</span> Referências metodológicas</h3>
+<ul>
+<li><span class="citation" data-cites="un2024sdg111">(<a href="../../backmatter/referencias.html#ref-un2024sdg111" role="doc-biblioref">United Nations Statistics Division, 2024</a>)</span></li>
+<li><span class="citation" data-cites="unhabitat2020sdg111">(<a href="../../backmatter/referencias.html#ref-unhabitat2020sdg111" role="doc-biblioref">United Nations Human Settlements Programme, 2020</a>)</span></li>
+</ul>
+</section>
+</section>
+<section id="múltiplas-exposições" class="level2" data-number="11.9">
+<h2 data-number="11.9" class="anchored" data-anchor-id="múltiplas-exposições"><span class="header-section-number">11.9</span> Múltiplas exposições</h2>
+<p>Pessoas podem enfrentar calor, fumaça, interrupção de energia e falta de água no mesmo período. A coincidência pode ser:</p>
+<ul>
+<li><strong>temporal</strong>, quando perigos ocorrem simultaneamente;</li>
+<li><strong>sequencial</strong>, quando um evento reduz a capacidade de enfrentar o seguinte;</li>
+<li><strong>espacial</strong>, quando diferentes fontes afetam o mesmo território;</li>
+<li><strong>social</strong>, quando as mesmas condições restringem proteção diante de vários perigos.</li>
+</ul>
+<p>Contar camadas sobrepostas é um começo, não uma estimativa de efeito conjunto. Interações biológicas, trajetórias temporais e correlação entre medidas precisam de desenho analítico. Um mapa de “quatro exposições” não informa se os efeitos se somam, multiplicam ou se uma camada é apenas proxy da outra.</p>
+<p>Uma matriz de coocorrência é mais transparente do que um escore arbitrário. Linhas podem representar territórios; colunas, exposições definidas; células, intensidade, duração ou presença. A gestão pode então priorizar combinações relevantes — por exemplo, calor forte, interrupção de energia e alta concentração de pessoas que dependem de equipamentos elétricos — sem perder o significado de cada variável.</p>
+</section>
+<section id="mapas-de-risco-e-incerteza" class="level2" data-number="11.10">
+<h2 data-number="11.10" class="anchored" data-anchor-id="mapas-de-risco-e-incerteza"><span class="header-section-number">11.10</span> Mapas de risco e incerteza</h2>
+<p>Mapas são instrumentos de análise e decisão, não fotografias neutras. Unidade territorial, classificação, paleta, escala e ausência de dados alteram a mensagem. Percentis destacam posição relativa; limites absolutos mostram cumprimento de referência; números absolutos dimensionam recursos; taxas e proporções apoiam comparação.</p>
+<p>O problema da unidade de área modificável e a falácia ecológica, discutidos no <a href="../part-1/03-espaco-tempo-qualidade.html" class="quarto-xref"><span>Capítulo 3</span></a>, são centrais. Um setor censitário de alta vulnerabilidade contém diversidade interna. Uma associação territorial não prova que toda pessoa ali tenha a condição média. Para evitar estigmatização:</p>
+<ul>
+<li>nomeie a condição, não o território como essência;</li>
+<li>mostre recursos, organizações e capacidades locais;</li>
+<li>inclua incerteza e ausência de dados;</li>
+<li>use mapas de componentes junto ao índice;</li>
+<li>valide interpretações com equipes e comunidades;</li>
+<li>registre quem pode acessar camadas sensíveis.</li>
+</ul>
+</section>
+<section id="da-descrição-à-proteção" class="level2" data-number="11.11">
+<h2 data-number="11.11" class="anchored" data-anchor-id="da-descrição-à-proteção"><span class="header-section-number">11.11</span> Da descrição à proteção</h2>
+<p>O produto mínimo de uma análise de exposição e vulnerabilidade deve responder:</p>
+<ol type="1">
+<li>qual perigo, intensidade, duração e período foram usados;</li>
+<li>qual população ou ativo foi considerado presente;</li>
+<li>quais condições modificam suscetibilidade e proteção;</li>
+<li>qual data e resolução têm as fontes;</li>
+<li>quem está invisível ou mal representado;</li>
+<li>que ação concreta cada achado pode acionar;</li>
+<li>quem tem responsabilidade e recurso para agir;</li>
+<li>como a ação será acompanhada.</li>
+</ol>
+<p>Priorizar não significa apenas ordenar territórios. Pode significar ampliar antecedência do alerta, oferecer mensagem em formatos acessíveis, garantir água e energia, ajustar jornada de trabalho, organizar transporte, proteger medicamentos, abrir pontos de apoio ou intensificar vigilância. O valor do indicador está na ligação explícita entre uma condição mensurada, um direito e uma resposta possível.</p>
 
 
+<div id="refs" class="references csl-bib-body" data-entry-spacing="1" role="list" style="display: none">
+<div id="ref-cdc2024svi" class="csl-entry" role="listitem">
+AGENCY FOR TOXIC SUBSTANCES AND DISEASE REGISTRY. <strong>CDC/ATSDR Social Vulnerability Index 2022 documentation</strong>. Atlanta: Centers for Disease Control; Prevention, 2024. Disponível em: &lt;<a href="https://stacks.cdc.gov/view/cdc/157287">https://stacks.cdc.gov/view/cdc/157287</a>&gt;. Acesso em: 28 jul. 2026.
+</div>
+<div id="ref-ipea2015ivs" class="csl-entry" role="listitem">
+COSTA, Marco Aurélio; MARGUTI, Bárbara Oliveira. <strong><a href="https://repositorio.ipea.gov.br/handle/11058/4381">Atlas da vulnerabilidade social nos municípios brasileiros</a></strong>. Brasília, DF: Instituto de Pesquisa Econômica Aplicada, 2015.
+</div>
+<div id="ref-flanagan2011svi" class="csl-entry" role="listitem">
+FLANAGAN, Barry E. <em>et al.</em> <a href="https://doi.org/10.2202/1547-7355.1792">A social vulnerability index for disaster management</a>. <strong>Journal of Homeland Security and Emergency Management</strong>, v. 8, n. 1, 2011.
+</div>
+<div id="ref-marguti2018ivs" class="csl-entry" role="listitem">
+MARGUTI, Bárbara Oliveira <em>et al.</em> <strong>Métodos e conceitos para o cálculo do Índice de Vulnerabilidade Social com base nas PNADs e desagregações</strong>. Brasília, DF: Instituto de Pesquisa Econômica Aplicada, 2018. Disponível em: &lt;<a href="http://repositorio.ipea.gov.br/handle/11058/9451">http://repositorio.ipea.gov.br/handle/11058/9451</a>&gt;. Acesso em: 28 jul. 2026.
+</div>
+<div id="ref-unhabitat2020sdg111" class="csl-entry" role="listitem">
+UNITED NATIONS HUMAN SETTLEMENTS PROGRAMME. <strong>Metadata on SDG indicator 11.1.1</strong>. Nairobi: UN-Habitat, 2020. Disponível em: &lt;<a href="https://unhabitat.org/sites/default/files/2020/10/metadata_on_sdg_indicator_11.1.1.pdf">https://unhabitat.org/sites/default/files/2020/10/metadata_on_sdg_indicator_11.1.1.pdf</a>&gt;. Acesso em: 28 jul. 2026.
+</div>
+<div id="ref-un2024sdg111" class="csl-entry" role="listitem">
+UNITED NATIONS STATISTICS DIVISION. <strong>SDG indicator metadata 11.1.1: proportion of urban population living in slums, informal settlements or inadequate housing</strong>. Disponível em: &lt;<a href="https://unstats.un.org/sdgs/metadata/files/Metadata-11-01-01.pdf">https://unstats.un.org/sdgs/metadata/files/Metadata-11-01-01.pdf</a>&gt;. Acesso em: 28 jul. 2026.
+</div>
+<div id="ref-who2021vulnerability" class="csl-entry" role="listitem">
+WORLD HEALTH ORGANIZATION. <strong><a href="https://www.who.int/publications/i/item/9789240036383">Climate change and health: vulnerability and adaptation assessment</a></strong>. Geneva: World Health Organization, 2021.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -674,7 +1259,7 @@ ul.task-list li input[type="checkbox"] {
     anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
-        if (clz.startsWith('code-annotation-')) {                     
+        if (clz.startsWith('code-annotation-')) {
           return true;
         }
       }
@@ -694,11 +1279,11 @@ ul.task-list li input[type="checkbox"] {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
         button.setAttribute("data-bs-title", "Copiada");
-        tooltip = new bootstrap.Tooltip(button, 
-          { trigger: "manual", 
+        tooltip = new bootstrap.Tooltip(button,
+          { trigger: "manual",
             customClass: "code-copy-button-tooltip",
             offset: [0, -8]});
-        tooltip.show();    
+        tooltip.show();
       }
       setTimeout(function() {
         if (tooltip) {
@@ -780,7 +1365,7 @@ ul.task-list li input[type="checkbox"] {
       if (onUntriggerFn) {
         config.onUntrigger = onUntriggerFn;
       }
-      window.tippy(el, config); 
+      window.tippy(el, config);
     }
     const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
     for (var i=0; i<noterefs.length; i++) {
@@ -855,7 +1440,7 @@ ul.task-list li input[type="checkbox"] {
       tippyHover(xref, undefined, function(instance) {
         instance.disable();
         let url = xref.getAttribute('href');
-        let hash = undefined; 
+        let hash = undefined;
         if (url.startsWith('#')) {
           hash = url;
         } else {
@@ -883,7 +1468,7 @@ ul.task-list li input[type="checkbox"] {
               if (note !== null) {
                 const html = processXRef(id, note);
                 instance.setContent(html);
-              } 
+              }
             }).finally(() => {
               instance.enable();
               instance.show();
@@ -907,7 +1492,7 @@ ul.task-list li input[type="checkbox"] {
               }
               const html = processXRef(null, note);
               instance.setContent(html);
-            } 
+            }
           }).finally(() => {
             instance.enable();
             instance.show();
@@ -947,7 +1532,7 @@ ul.task-list li input[type="checkbox"] {
               height = bottom - top;
             }
             if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
+              // cook up a div (if necessary) and position it
               let div = window.document.getElementById("code-annotation-line-highlight");
               if (div === null) {
                 div = window.document.createElement("div");
@@ -1072,7 +1657,7 @@ ul.task-list li input[type="checkbox"] {
   <div class="nav-page nav-page-previous">
       <a href="../../chapters/part-2/10-eventos-severos-desastres.html" class="pagination-link" aria-label="Eventos meteorológicos severos e desastres">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Eventos meteorológicos severos e desastres</span></span>
-      </a>          
+      </a>
   </div>
   <div class="nav-page nav-page-next">
       <a href="../../chapters/part-3/12-efeitos-saude.html" class="pagination-link" aria-label="Efeitos do clima e do ambiente sobre a saúde">

@@ -1,0 +1,121 @@
+## Ficha do indicador: Proporção de amostras de turbidez em conformidade com o padrão de potabilidade {#sec-san-agu-04}
+
+::: {.indicator-card}
+**Código:** SAN-AGU-04 \
+**Título resumido:** Turbidez conforme \
+**Tema:** Água, saneamento e qualidade ambiental \
+**Dimensão:** exposição; vulnerabilidade; resposta \
+**Disponibilidade:** [disponível em dados administrativos]{.availability}
+:::
+
+### Identificação e fundamento
+
+**Indicador consolidado em.** Indicador sentinela do Vigiagua e grupo de indicador do Sisagua para turbidez.
+
+### Conceito
+
+Percentual de resultados válidos de turbidez que atendem ao valor máximo permitido aplicável à etapa, tecnologia de tratamento e ponto de coleta.
+
+### Objetivo
+
+Acompanhar desempenho do tratamento e integridade do abastecimento por um parâmetro que também interfere na eficácia da desinfecção.
+
+### Interpretação
+
+Valor maior indica maior conformidade entre amostras. A interpretação deve separar saída do tratamento e distribuição e considerar a tecnologia.
+
+### Usos
+
+- Avaliar tratamento e distribuição.
+- Priorizar inspeção e ações corretivas.
+- Acompanhar risco após chuva
+- inundação ou alteração do manancial.
+
+### Limitações
+
+- Não é medida direta de patógenos.
+- Limites variam por tecnologia e ponto.
+- Agregação entre etapas é inadequada.
+- Falta de amostragem pode produzir falsa aparência de conformidade.
+
+### Fontes de dados
+
+- Programa Nacional de Vigilância da Qualidade da Água para Consumo Humano — resultados de turbidez no Sisagua ([cadastro](../../backmatter/indice-fontes.qmd#vigiagua))
+
+### Método de cálculo
+
+Classificar cada resultado válido segundo o valor máximo permitido aplicável à tecnologia e ao ponto na norma vigente; dividir resultados conformes pelo total analisado no universo homogêneo.
+
+$$
+P_{turbidez\ conforme}=100\times\frac{N_{resultados\leq VMP_{aplicável}}}{N_{resultados\ válidos}}
+$$
+
+::: {.indicator-card}
+**Numerador.** Resultados válidos de turbidez iguais ou inferiores ao valor máximo aplicável.
+
+**Denominador.** Total de resultados válidos no mesmo universo tecnológico e operacional.
+
+**Unidade de medida.** Percentual (%); valor original em unidade de turbidez.
+
+**Variáveis e categorias de análise.** Turbidez; etapa; tecnologia; ponto; forma de abastecimento; data; município.
+
+**Granularidade.** Amostra e resumo por etapa, sistema/solução, município e período.
+
+**Periodicidade de atualização.** Contínua e por publicação de arquivos.
+
+**Responsabilidade gerencial.** Titulares e prestadores de saneamento, autoridades reguladoras e setor saúde, conforme a competência de cada indicador.
+
+**Notas.** Indicadores de cobertura, qualidade da água e desempenho da vigilância respondem a perguntas diferentes e devem ser apresentados em conjunto.
+
+**Análise descritiva do indicador.** Apresentar conformidade por etapa e tecnologia, distribuição dos valores, extremos, cobertura amostral e relação temporal com eventos.
+
+:::
+
+### Campos complementares para clima, ambiente e saúde
+
+::: {.indicator-card}
+**Unidade territorial.** Ponto de coleta e forma de abastecimento.
+
+**Resolução espacial original.** Ponto de coleta.
+
+**Resolução temporal.** Momento da coleta; resumo periódico.
+
+**Período de referência.** Período de monitoramento e norma vigente.
+
+**Limiar ou valor de referência.** Valor máximo permitido correspondente à tecnologia, etapa e ponto segundo a Portaria GM/MS nº 888/2021; não aplicar um único limiar a todos os registros.
+
+:::
+
+### Disponibilidade e acesso
+
+**Cobertura geográfica.** Brasil, condicionada ao monitoramento.
+
+**Período disponível.** Conforme Sisagua e arquivos públicos.
+
+**Periodicidade de atualização.** Contínua e por publicação de arquivos.
+
+**Forma de acesso.** Sisagua, painéis e dados abertos.
+
+**URL ou identificador persistente.** https://dadosabertos.saude.gov.br/dataset/sisagua-vigilancia-parametros-basicos
+
+**Formato dos arquivos.** CSV, painel e relatórios.
+
+**Necessidade de processamento.** Harmonizar etapa, tecnologia e unidade, aplicar VMP correspondente e calcular execução do plano e conformidade.
+
+### Qualidade, comparação e saúde
+
+**Qualidade e incerteza.** Relatar fonte, cobertura, população de referência, dados ausentes, plano amostral, qualidade laboratorial, regras de classificação e revisão.
+
+**Possibilidade de comparação.** Manter definição de serviço, população, forma de abastecimento, ponto de coleta, parâmetro, padrão vigente, período e método.
+
+**Relação com desfechos de saúde.** Água segura, saneamento e higiene reduzem exposição a patógenos e substâncias químicas e sustentam alimentação, cuidado, dignidade e funcionamento dos serviços de saúde.
+
+**Defasagens temporais relevantes.** Distinguir condição do serviço, resultado de amostra e desfecho; surtos e agravos podem ocorrer com defasagens e múltiplas vias.
+
+**Aplicação na gestão.** Identificar lacunas de serviço e qualidade, priorizar inspeção e resposta, acompanhar desigualdades e avaliar políticas.
+
+### Referências metodológicas
+
+- [@brasil2021portaria888]
+- [@brasil2024agua]
+- [@oliveira2019sisagua]

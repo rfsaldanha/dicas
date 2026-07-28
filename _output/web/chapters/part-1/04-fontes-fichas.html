@@ -23,13 +23,14 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */
   vertical-align: middle;
 }
 /* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 1em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -98,6 +99,9 @@ div.csl-indent {
     "search-label": "Procurar"
   }
 }</script>
+<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="../../styles/web/styles.css">
@@ -275,7 +279,7 @@ div.csl-indent {
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/part-1/01-clima-ambiente-saude.html">Parte I — Fundamentos e métodos</a></li><li class="breadcrumb-item"><a href="../../chapters/part-1/04-fontes-fichas.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Fontes de dados e fichas de indicadores</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Procurar" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
@@ -289,7 +293,7 @@ div.csl-indent {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../../">Dados e Indicadores de Clima e Ambiente para a Saúde</a> 
+      <a href="../../">Dados e Indicadores de Clima e Ambiente para a Saúde</a>
         <div class="sidebar-tools-main">
     <a href="https://github.com/rfsaldanha/dicas" title="Código fonte" class="quarto-navigation-tool px-1" aria-label="Código fonte"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo escuro"><i class="bi"></i></a>
@@ -301,85 +305,85 @@ div.csl-indent {
         <div id="quarto-search" class="" title="Procurar"></div>
         </div>
         </div>
-    <div class="sidebar-menu-container"> 
+    <div class="sidebar-menu-container">
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Bem-vindo</span></a>
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../frontmatter/ficha-tecnica.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Ficha técnica</span></a>
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../frontmatter/apresentacao.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Apresentação</span></a>
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../frontmatter/prefacio.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Prefácio</span></a>
+ <span class="menu-text">Prefácio do autor</span></a>
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../frontmatter/agradecimentos.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Agradecimentos</span></a>
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../frontmatter/siglas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lista de siglas</span></a>
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../frontmatter/sumario.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sumário</span></a>
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../frontmatter/como-usar.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Como utilizar este livro</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
+      <div class="sidebar-item-container">
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Parte I — Fundamentos e métodos</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+          </a>
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-1/01-clima-ambiente-saude.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Clima, ambiente e saúde pública</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-1/02-dados-variaveis-indices-indicadores.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Dados, variáveis, índices e indicadores</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-1/03-espaco-tempo-qualidade.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Espaço, tempo e qualidade dos dados</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-1/04-fontes-fichas.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Fontes de dados e fichas de indicadores</span></span></a>
   </div>
@@ -387,46 +391,46 @@ div.csl-indent {
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
+      <div class="sidebar-item-container">
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
  <span class="menu-text">Parte II — Dados e indicadores temáticos</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+          </a>
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-2/05-temperatura-condicoes-termicas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Temperatura e condições térmicas</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-2/06-precipitacao-secas-eventos-hidrologicos.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Precipitação, secas e eventos hidrológicos</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-2/07-qualidade-ar-queimadas-fumaca.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Qualidade do ar, queimadas e fumaça</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-2/08-agua-saneamento-qualidade-ambiental.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Água, saneamento e qualidade ambiental</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-2/09-uso-cobertura-terra-ambiente-urbano.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Uso e cobertura da terra, vegetação e ambiente urbano</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-2/10-eventos-severos-desastres.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Eventos meteorológicos severos e desastres</span></span></a>
   </div>
@@ -434,28 +438,28 @@ div.csl-indent {
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
+      <div class="sidebar-item-container">
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
  <span class="menu-text">Parte III — Indicadores integrados de clima, ambiente e saúde</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+          </a>
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-3/11-exposicao-vulnerabilidade.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Exposição e vulnerabilidade socioambiental</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-3/12-efeitos-saude.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Efeitos do clima e do ambiente sobre a saúde</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-3/13-resposta-adaptacao-resiliencia.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Capacidade de resposta, adaptação e resiliência</span></span></a>
   </div>
@@ -463,16 +467,16 @@ div.csl-indent {
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
+      <div class="sidebar-item-container">
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
  <span class="menu-text">Parte IV — Aplicação na vigilância e na gestão pública</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+          </a>
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../chapters/part-4/14-indicador-decisao.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Do indicador à decisão pública</span></span></a>
   </div>
@@ -480,93 +484,64 @@ div.csl-indent {
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
+      <div class="sidebar-item-container">
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
- <span class="menu-text">Fichas demonstrativas</span></a>
+ <span class="menu-text">Elementos pós-textuais</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
+          </a>
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../indicators/pages/cli-tem-01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Temperatura máxima diária</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../indicators/pages/cli-cal-01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Ocorrência de onda de calor</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../indicators/pages/amb-ar-01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Concentração média diária de material particulado fino (PM2,5)</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
- <span class="menu-text">Elementos pós-textuais</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Alternar seção">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/glossario.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Glossário</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/referencias.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Referências</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/indice-indicadores.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Índice alfabético de indicadores</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/indice-fontes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Índice de fontes de dados</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/indice-instituicoes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Índice de instituições</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/apendice-metodologico.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Apêndice metodológico</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/lista-fichas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lista de fichas</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/lista-tabelas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lista de tabelas</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
+  <div class="sidebar-item-container">
   <a href="../../backmatter/lista-figuras.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lista de figuras</span></a>
   </div>
@@ -581,15 +556,37 @@ div.csl-indent {
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Índice</h2>
-   
+
   <ul>
-  <li><a href="#fontes-primárias-e-secundárias" id="toc-fontes-primárias-e-secundárias" class="nav-link active" data-scroll-target="#fontes-primárias-e-secundárias"><span class="header-section-number">4.1</span> Fontes primárias e secundárias</a></li>
-  <li><a href="#observações-reanálises-previsões-e-projeções" id="toc-observações-reanálises-previsões-e-projeções" class="nav-link" data-scroll-target="#observações-reanálises-previsões-e-projeções"><span class="header-section-number">4.2</span> Observações, reanálises, previsões e projeções</a></li>
+  <li><a href="#o-que-é-uma-fonte" id="toc-o-que-é-uma-fonte" class="nav-link active" data-scroll-target="#o-que-é-uma-fonte"><span class="header-section-number">4.1</span> O que é uma fonte</a></li>
+  <li><a href="#fontes-primárias-e-secundárias" id="toc-fontes-primárias-e-secundárias" class="nav-link" data-scroll-target="#fontes-primárias-e-secundárias"><span class="header-section-number">4.2</span> Fontes primárias e secundárias</a>
+  <ul class="collapse">
+  <li><a href="#observações" id="toc-observações" class="nav-link" data-scroll-target="#observações"><span class="header-section-number">4.2.1</span> Observações</a></li>
+  <li><a href="#reanálises" id="toc-reanálises" class="nav-link" data-scroll-target="#reanálises"><span class="header-section-number">4.2.2</span> Reanálises</a></li>
+  <li><a href="#previsões" id="toc-previsões" class="nav-link" data-scroll-target="#previsões"><span class="header-section-number">4.2.3</span> Previsões</a></li>
+  <li><a href="#projeções" id="toc-projeções" class="nav-link" data-scroll-target="#projeções"><span class="header-section-number">4.2.4</span> Projeções</a></li>
+  </ul></li>
   <li><a href="#painéis-apis-repositórios-e-arquivos" id="toc-painéis-apis-repositórios-e-arquivos" class="nav-link" data-scroll-target="#painéis-apis-repositórios-e-arquivos"><span class="header-section-number">4.3</span> Painéis, APIs, repositórios e arquivos</a></li>
   <li><a href="#indicadores-já-calculados" id="toc-indicadores-já-calculados" class="nav-link" data-scroll-target="#indicadores-já-calculados"><span class="header-section-number">4.4</span> Indicadores já calculados</a></li>
-  <li><a href="#critérios-para-seleção-de-fontes" id="toc-critérios-para-seleção-de-fontes" class="nav-link" data-scroll-target="#critérios-para-seleção-de-fontes"><span class="header-section-number">4.5</span> Critérios para seleção de fontes</a></li>
-  <li><a href="#estrutura-das-fichas" id="toc-estrutura-das-fichas" class="nav-link" data-scroll-target="#estrutura-das-fichas"><span class="header-section-number">4.6</span> Estrutura das fichas</a></li>
-  <li><a href="#como-usar-as-fichas" id="toc-como-usar-as-fichas" class="nav-link" data-scroll-target="#como-usar-as-fichas"><span class="header-section-number">4.7</span> Como usar as fichas</a></li>
+  <li><a href="#repertório-de-indicadores-por-fenômeno" id="toc-repertório-de-indicadores-por-fenômeno" class="nav-link" data-scroll-target="#repertório-de-indicadores-por-fenômeno"><span class="header-section-number">4.5</span> Repertório de indicadores por fenômeno</a></li>
+  <li><a href="#requisitos-para-integrar-o-catálogo" id="toc-requisitos-para-integrar-o-catálogo" class="nav-link" data-scroll-target="#requisitos-para-integrar-o-catálogo"><span class="header-section-number">4.6</span> Requisitos para integrar o catálogo</a>
+  <ul class="collapse">
+  <li><a href="#motivos-de-exclusão-ou-adiamento" id="toc-motivos-de-exclusão-ou-adiamento" class="nav-link" data-scroll-target="#motivos-de-exclusão-ou-adiamento"><span class="header-section-number">4.6.1</span> Motivos de exclusão ou adiamento</a></li>
+  </ul></li>
+  <li><a href="#seleção-não-é-ranking-universal" id="toc-seleção-não-é-ranking-universal" class="nav-link" data-scroll-target="#seleção-não-é-ranking-universal"><span class="header-section-number">4.7</span> Seleção não é ranking universal</a></li>
+  <li><a href="#estrutura-das-fichas" id="toc-estrutura-das-fichas" class="nav-link" data-scroll-target="#estrutura-das-fichas"><span class="header-section-number">4.8</span> Estrutura das fichas</a>
+  <ul class="collapse">
+  <li><a href="#campos-ripsa" id="toc-campos-ripsa" class="nav-link" data-scroll-target="#campos-ripsa"><span class="header-section-number">4.8.1</span> Campos RIPSA</a></li>
+  <li><a href="#campos-complementares" id="toc-campos-complementares" class="nav-link" data-scroll-target="#campos-complementares"><span class="header-section-number">4.8.2</span> Campos complementares</a></li>
+  </ul></li>
+  <li><a href="#fichas-integradas-aos-capítulos" id="toc-fichas-integradas-aos-capítulos" class="nav-link" data-scroll-target="#fichas-integradas-aos-capítulos"><span class="header-section-number">4.9</span> Fichas integradas aos capítulos</a></li>
+  <li><a href="#referências-e-abnt" id="toc-referências-e-abnt" class="nav-link" data-scroll-target="#referências-e-abnt"><span class="header-section-number">4.10</span> Referências e ABNT</a></li>
+  <li><a href="#critérios-para-seleção-de-fontes-de-dados" id="toc-critérios-para-seleção-de-fontes-de-dados" class="nav-link" data-scroll-target="#critérios-para-seleção-de-fontes-de-dados"><span class="header-section-number">4.11</span> Critérios para seleção de fontes de dados</a></li>
+  <li><a href="#proveniência-e-processamento" id="toc-proveniência-e-processamento" class="nav-link" data-scroll-target="#proveniência-e-processamento"><span class="header-section-number">4.12</span> Proveniência e processamento</a></li>
+  <li><a href="#validação-de-uma-ficha" id="toc-validação-de-uma-ficha" class="nav-link" data-scroll-target="#validação-de-uma-ficha"><span class="header-section-number">4.13</span> Validação de uma ficha</a></li>
+  <li><a href="#atualização" id="toc-atualização" class="nav-link" data-scroll-target="#atualização"><span class="header-section-number">4.14</span> Atualização</a></li>
+  <li><a href="#como-usar-as-fichas" id="toc-como-usar-as-fichas" class="nav-link" data-scroll-target="#como-usar-as-fichas"><span class="header-section-number">4.15</span> Como usar as fichas</a></li>
+  <li><a href="#síntese" id="toc-síntese" class="nav-link" data-scroll-target="#síntese"><span class="header-section-number">4.16</span> Síntese</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/rfsaldanha/dicas/blob/main/chapters/part-1/04-fontes-fichas.qmd" class="toc-action"><i class="bi bi-github"></i>Ver o código fonte</a></li><li><a href="https://github.com/rfsaldanha/dicas/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></nav>
     </div>
@@ -606,53 +603,483 @@ div.csl-indent {
 
 <div class="quarto-title-meta">
 
-    
-  
-    
+
+
+
   </div>
-  
+
 
 
 </header>
 
 
-<p>Este capítulo explicará como reconhecer, selecionar, citar e combinar fontes, preservando a diferença entre a entidade responsável e o recurso efetivamente usado.</p>
-<p>O escopo termina na documentação e na escolha da fonte. Métodos temáticos de cálculo aparecem nas fichas; avaliação de qualidade transversal aparece no <a href="03-espaco-tempo-qualidade.html" class="quarto-xref"><span>Capítulo 3</span></a>.</p>
-<p><strong>Indicadores previstos:</strong> não se aplica como conjunto autônomo. O capítulo deverá usar as três fichas demonstrativas para mostrar rastreabilidade, atualização e versionamento.</p>
-<section id="fontes-primárias-e-secundárias" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="fontes-primárias-e-secundárias"><span class="header-section-number">4.1</span> Fontes primárias e secundárias</h2>
+<p>Uma ficha confiável começa antes da fórmula. O indicador deve possuir especificação verificável em literatura científica, norma técnica ou sistema de monitoramento reconhecido, e os dados precisam representar o conceito declarado. Este capítulo apresenta os requisitos para documentar e atualizar indicadores e fontes.</p>
+<p>A instituição responsável e o recurso utilizado não são a mesma coisa. “OMS”, “INMET”, “IBGE” ou “DATASUS” identificam organizações; uma análise reprodutível precisa nomear a base, produto, sistema, edição, variável, arquivo ou serviço. A citação institucional não substitui a proveniência do dado.</p>
+<section id="o-que-é-uma-fonte" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="o-que-é-uma-fonte"><span class="header-section-number">4.1</span> O que é uma fonte</h2>
+<p>Fonte é o recurso do qual informação é obtida. Pode ser:</p>
+<ul>
+<li>instrumento ou rede de observação;</li>
+<li>sistema administrativo;</li>
+<li>pesquisa;</li>
+<li>produto de satélite;</li>
+<li>reanálise;</li>
+<li>previsão ou projeção;</li>
+<li>modelo de exposição;</li>
+<li>repositório;</li>
+<li>painel;</li>
+<li>API;</li>
+<li>tabela ou arquivo publicado.</li>
+</ul>
+<p>Uma plataforma pode hospedar muitos produtos. O Climate Data Store, por exemplo, é uma plataforma; ERA5-Land é um produto. O portal do DATASUS dá acesso a sistemas com conceitos e coberturas diferentes. Citar apenas a plataforma impede saber o que foi usado.</p>
+<p>O <a href="#tbl-entidade-recurso" class="quarto-xref">Tabela&nbsp;<span>4.1</span></a> separa níveis de documentação.</p>
+<div id="tbl-entidade-recurso" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-entidade-recurso-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;4.1: Entidade responsável e recurso usado
+</figcaption>
+<div aria-describedby="tbl-entidade-recurso-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Nível</th>
+<th>Exemplo genérico</th>
+<th>O que registrar</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Instituição</td>
+<td>serviço meteorológico ou Ministério da Saúde</td>
+<td>nome oficial e responsabilidade</td>
+</tr>
+<tr class="even">
+<td>Programa/sistema</td>
+<td>vigilância da água ou sistema de mortalidade</td>
+<td>finalidade, governança e cobertura</td>
+</tr>
+<tr class="odd">
+<td>Plataforma</td>
+<td>portal de dados ou catálogo</td>
+<td>forma de acesso e requisitos</td>
+</tr>
+<tr class="even">
+<td>Produto/base</td>
+<td>reanálise, conjunto de amostras, microdados</td>
+<td>título, edição, período e versão</td>
+</tr>
+<tr class="odd">
+<td>Variável/recurso</td>
+<td>temperatura máxima, PM2,5, óbito</td>
+<td>código, unidade, definição e qualidade</td>
+</tr>
+<tr class="even">
+<td>Extração</td>
+<td>consulta ou arquivo efetivamente usado</td>
+<td>URL, data, filtros, hash e script</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
 </section>
-<section id="observações-reanálises-previsões-e-projeções" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="observações-reanálises-previsões-e-projeções"><span class="header-section-number">4.2</span> Observações, reanálises, previsões e projeções</h2>
+<section id="fontes-primárias-e-secundárias" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="fontes-primárias-e-secundárias"><span class="header-section-number">4.2</span> Fontes primárias e secundárias</h2>
+<p>Fonte <strong>primária</strong> registra ou estima diretamente o fenômeno segundo um sistema de observação ou informação: estação, laboratório, notificação, declaração de óbito, censo ou sensor. Fonte <strong>secundária</strong> transforma fontes anteriores por integração, modelagem, agregação ou curadoria.</p>
+<p>Primária não significa automaticamente melhor. Uma estação pode ter falhas e baixa representatividade. Uma reanálise pode oferecer cobertura espacial coerente e, ainda assim, ser inadequada para extremos locais. A escolha considera finalidade, qualidade, escala e transparência.</p>
+<section id="observações" class="level3" data-number="4.2.1">
+<h3 data-number="4.2.1" class="anchored" data-anchor-id="observações"><span class="header-section-number">4.2.1</span> Observações</h3>
+<p>Observações resultam de instrumentos, exames, registros ou coleta estruturada. Devem conservar unidade, método, códigos de qualidade e metadados. “Dado observado” não significa ausência de processamento: calibração, validação e consolidação fazem parte da produção.</p>
+</section>
+<section id="reanálises" class="level3" data-number="4.2.2">
+<h3 data-number="4.2.2" class="anchored" data-anchor-id="reanálises"><span class="header-section-number">4.2.2</span> Reanálises</h3>
+<p>Reanálises combinam modelo e observações em um sistema de assimilação mantido ao longo do tempo. Elas oferecem cobertura espaço-temporal, mas são estimativas modeladas. Mudanças na disponibilidade de observações podem afetar a série, e o desempenho varia por variável e região.</p>
+</section>
+<section id="previsões" class="level3" data-number="4.2.3">
+<h3 data-number="4.2.3" class="anchored" data-anchor-id="previsões"><span class="header-section-number">4.2.3</span> Previsões</h3>
+<p>Previsões partem do estado estimado do sistema e produzem valores futuros com horizonte e rodada. Para vigilância, precisam chegar a tempo e ser verificadas. Arquivar apenas o valor observado depois do evento impede avaliar o desempenho que o gestor realmente recebeu.</p>
+</section>
+<section id="projeções" class="level3" data-number="4.2.4">
+<h3 data-number="4.2.4" class="anchored" data-anchor-id="projeções"><span class="header-section-number">4.2.4</span> Projeções</h3>
+<p>Projeções dependem de cenários, modelos e métodos de regionalização. Seu uso é planejamento de médio e longo prazo, não alerta diário. Devem ser apresentadas como intervalos e futuros condicionais, sem falsa precisão municipal.</p>
+</section>
 </section>
 <section id="painéis-apis-repositórios-e-arquivos" class="level2" data-number="4.3">
 <h2 data-number="4.3" class="anchored" data-anchor-id="painéis-apis-repositórios-e-arquivos"><span class="header-section-number">4.3</span> Painéis, APIs, repositórios e arquivos</h2>
+<p>Um painel facilita consulta, mas pode ocultar transformações e alterar retrospectivamente resultados. Uma API permite extração reprodutível quando possui documentação e versionamento. Um arquivo datado pode ser mais fácil de preservar. Nenhuma forma é superior em todos os casos.</p>
+<p>Para cada acesso, registre:</p>
+<ul>
+<li>endereço oficial;</li>
+<li>conjunto ou endpoint;</li>
+<li>parâmetros e filtros;</li>
+<li>formato;</li>
+<li>fuso e codificação;</li>
+<li>paginação e limites;</li>
+<li>data e hora;</li>
+<li>versão;</li>
+<li>licença e restrições;</li>
+<li>resposta ou arquivo bruto preservado, quando permitido.</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled" title="Regra prática">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Dica</span>Regra prática
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Se outra equipe não consegue identificar a mesma edição e reconstruir a extração a partir da ficha, a fonte ainda não está suficientemente documentada.</p>
+</div>
+</div>
 </section>
 <section id="indicadores-já-calculados" class="level2" data-number="4.4">
 <h2 data-number="4.4" class="anchored" data-anchor-id="indicadores-já-calculados"><span class="header-section-number">4.4</span> Indicadores já calculados</h2>
+<p>Sistemas oficiais e observatórios frequentemente publicam indicadores prontos. Usá-los pode preservar comparabilidade e reduzir processamento, desde que o metadado seja conhecido. Um valor baixado de painel sem fórmula, denominador, revisão ou cobertura não é auditável.</p>
+<p>Antes de recalcular um indicador oficial:</p>
+<ol type="1">
+<li>verifique se a estimativa oficial atende à escala e finalidade;</li>
+<li>compare conceito e método;</li>
+<li>identifique revisão e incerteza;</li>
+<li>avalie se a reprodução local é autorizada e necessária;</li>
+<li>diferencie resultado oficial de cálculo próprio.</li>
+</ol>
+<p>Uma estimativa própria baseada no metadado do ODS 11.6.2 não deve ser rotulada como valor oficial da OMS. Da mesma forma, adaptar um índice internacional a outro período-base cria uma variante que precisa ser identificada.</p>
 </section>
-<section id="critérios-para-seleção-de-fontes" class="level2" data-number="4.5">
-<h2 data-number="4.5" class="anchored" data-anchor-id="critérios-para-seleção-de-fontes"><span class="header-section-number">4.5</span> Critérios para seleção de fontes</h2>
-<div class="todo">
-<p>TODO: desenvolver critérios de autoridade, cobertura, documentação, estabilidade, licença, atualização e interoperabilidade.</p>
+<section id="repertório-de-indicadores-por-fenômeno" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="repertório-de-indicadores-por-fenômeno"><span class="header-section-number">4.5</span> Repertório de indicadores por fenômeno</h2>
+<p>Cada capítulo temático apresenta, antes das fichas, uma síntese direta dos principais indicadores empregados em saúde pública. Ela organiza o repertório técnico necessário para que o leitor reconheça as medidas, suas diferenças e seus contextos de uso.</p>
+<p>O repertório reúne indicadores presentes na literatura científica, na vigilância, em sistemas de alerta, no monitoramento oficial e em marcos internacionais. Cada medida é caracterizada por:</p>
+<ul>
+<li>que aspecto mede — ocorrência, frequência, duração, intensidade, exposição, efeito ou resposta;</li>
+<li>em que população e contexto é usado;</li>
+<li>que variáveis e fontes requer;</li>
+<li>que relação possui com saúde humana ou saúde pública;</li>
+<li>se existe especificação oficial ou artigo metodológico;</li>
+<li>se pode ser comparado entre territórios;</li>
+<li>quais limitações e controvérsias precisam acompanhar a interpretação.</li>
+</ul>
+<p>As fórmulas e regras são sustentadas por fonte metodológica primária ou metadado oficial; páginas de síntese não constituem base única das fichas.</p>
+</section>
+<section id="requisitos-para-integrar-o-catálogo" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="requisitos-para-integrar-o-catálogo"><span class="header-section-number">4.6</span> Requisitos para integrar o catálogo</h2>
+<p>Um indicador integra o catálogo quando atende aos requisitos do <a href="#qua-criterios-indicador" class="quarto-xref">Quadro&nbsp;<span>4.1</span></a>.</p>
+<div id="qua-criterios-indicador" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-qua figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-qua" id="qua-criterios-indicador-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Quadro&nbsp;4.1: : Requisitos de inclusão de um indicador no catálogo
+</figcaption>
+<div aria-describedby="qua-criterios-indicador-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<ol type="1">
+<li><strong>Existência verificável:</strong> aparece em metadado oficial, norma técnica, artigo metodológico ou literatura de saúde pública.</li>
+<li><strong>Definição explícita:</strong> conceito, entradas, fórmula e unidade podem ser descritos.</li>
+<li><strong>Uso substantivo:</strong> responde a uma dimensão relevante do fenômeno, da exposição, do efeito ou da resposta.</li>
+<li><strong>Aplicação sanitária:</strong> tem uso documentado ou interpretação defensável para vigilância, pesquisa ou gestão em saúde.</li>
+<li><strong>Reprodutibilidade:</strong> decisões críticas podem ser registradas e repetidas.</li>
+<li><strong>Qualidade avaliável:</strong> limitações, cobertura e incerteza podem ser examinadas.</li>
+<li><strong>Não redundância:</strong> acrescenta significado, não apenas outro nome para a mesma operação.</li>
+<li><strong>Responsabilidade editorial:</strong> adaptações são rotuladas e não apresentadas como padrão consolidado.</li>
+</ol>
 </div>
-</section>
-<section id="estrutura-das-fichas" class="level2" data-number="4.6">
-<h2 data-number="4.6" class="anchored" data-anchor-id="estrutura-das-fichas"><span class="header-section-number">4.6</span> Estrutura das fichas</h2>
-<p>As fichas deste livro adotam como núcleo os 16 campos da Ficha de Qualificação do Indicador (FQI) revistos pela RIPSA em 2024 e publicados na terceira edição do <em>Livro Verde</em> <span class="citation" data-cites="ripsa2026">(<a href="../../backmatter/referencias.html#ref-ripsa2026" role="doc-biblioref">Organização Pan-Americana da Saúde 2026</a>)</span>. A esse núcleo são acrescentados campos necessários a dados climáticos e ambientais, como resolução original, período de referência, limiar, qualidade e incerteza, necessidade de processamento, relação com a saúde e defasagem temporal.</p>
-<p>Os campos adicionais não alteram o significado dos campos da RIPSA. “Granularidade”, por exemplo, registra a desagregação territorial máxima recomendada; “resolução espacial original” registra o suporte nativo da observação ou do produto.</p>
-</section>
-<section id="como-usar-as-fichas" class="level2" data-number="4.7">
-<h2 data-number="4.7" class="anchored" data-anchor-id="como-usar-as-fichas"><span class="header-section-number">4.7</span> Como usar as fichas</h2>
-<p>Consulte a <a href="../../backmatter/lista-fichas.html">lista de fichas</a> e o <a href="../../backmatter/indice-fontes.html">índice de fontes</a>.</p>
-<div class="todo">
-<p>TODO: submeter a correspondência entre os campos adicionais e o núcleo RIPSA à revisão metodológica e testar a exportação das fichas para sistemas estruturados.</p>
+</figure>
 </div>
+<p>Indicadores genéricos inventados para preencher uma lacuna não são incluídos. Uma medida simples pode entrar se for formalmente consolidada — por exemplo, incidência, mortalidade ou concentração média anual do ODS —, mas não apenas porque é fácil calcular.</p>
+<section id="motivos-de-exclusão-ou-adiamento" class="level3" data-number="4.6.1">
+<h3 data-number="4.6.1" class="anchored" data-anchor-id="motivos-de-exclusão-ou-adiamento"><span class="header-section-number">4.6.1</span> Motivos de exclusão ou adiamento</h3>
+<p>Um candidato é excluído ou adiado quando:</p>
+<ul>
+<li>não há definição localizável;</li>
+<li>o nome reúne fórmulas incompatíveis sem possibilidade de separação;</li>
+<li>a aplicação em saúde é apenas alegada;</li>
+<li>o método exige dado inexistente sem alternativa validada;</li>
+<li>o indicador duplica outro sem ganho;</li>
+<li>a norma aplicável não foi verificada;</li>
+<li>a comparação produziria falsa precisão.</li>
+</ul>
+<p>Adiar não invalida o indicador. Significa que o livro não possui base suficiente para uma ficha completa.</p>
+</section>
+</section>
+<section id="seleção-não-é-ranking-universal" class="level2" data-number="4.7">
+<h2 data-number="4.7" class="anchored" data-anchor-id="seleção-não-é-ranking-universal"><span class="header-section-number">4.7</span> Seleção não é ranking universal</h2>
+<p>“Principal” pode significar mais citado, mais usado operacionalmente, mais comparável ou mais relevante para determinada decisão. O livro não cria uma pontuação universal. A síntese apresenta famílias e contextos.</p>
+<p>O caso das ondas de calor ilustra: HWN mede número de episódios; HWF mede dias participantes; HWD mede duração máxima; HWM e HWA medem aspectos da magnitude; WBGT e UTCI representam estresse térmico por modelos distintos; população exposta combina perigo e demografia. Nenhuma medida substitui todas as outras.</p>
+</section>
+<section id="estrutura-das-fichas" class="level2" data-number="4.8">
+<h2 data-number="4.8" class="anchored" data-anchor-id="estrutura-das-fichas"><span class="header-section-number">4.8</span> Estrutura das fichas</h2>
+<p>As fichas adotam como núcleo os 16 campos da Ficha de Qualificação do Indicador (FQI) revistos pela RIPSA e publicados na terceira edição do <em>Livro Verde</em> <span class="citation" data-cites="ripsa2026">(<a href="../../backmatter/referencias.html#ref-ripsa2026" role="doc-biblioref">Organização Pan-Americana da Saúde, 2026</a>)</span>. O núcleo é complementado por campos necessários a clima e ambiente.</p>
+<div id="tbl-blocos-ficha" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-blocos-ficha-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;4.2: Blocos das fichas de indicadores
+</figcaption>
+<div aria-describedby="tbl-blocos-ficha-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Bloco</th>
+<th>Campos principais</th>
+<th>Finalidade</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Identificação</td>
+<td>código, título, tema, dimensão, referência metodológica</td>
+<td>localizar e provar consolidação</td>
+</tr>
+<tr class="even">
+<td>Significado</td>
+<td>conceito, objetivo, interpretação, usos</td>
+<td>explicar o que mede</td>
+</tr>
+<tr class="odd">
+<td>Cálculo</td>
+<td>método, fórmula, numerador, denominador e unidade</td>
+<td>permitir reprodução</td>
+</tr>
+<tr class="even">
+<td>Recortes</td>
+<td>variáveis, categorias, granularidade e território</td>
+<td>delimitar análise</td>
+</tr>
+<tr class="odd">
+<td>Tempo e espaço</td>
+<td>resolução original, período-base, limiar e defasagem</td>
+<td>evitar incompatibilidades</td>
+</tr>
+<tr class="even">
+<td>Fontes</td>
+<td>recursos, acesso, formatos e processamento</td>
+<td>preservar proveniência</td>
+</tr>
+<tr class="odd">
+<td>Qualidade</td>
+<td>incerteza, comparabilidade, limitações e notas</td>
+<td>orientar uso responsável</td>
+</tr>
+<tr class="even">
+<td>Saúde e gestão</td>
+<td>relação com desfechos e aplicação</td>
+<td>conectar indicador a decisões</td>
+</tr>
+<tr class="odd">
+<td>Referências</td>
+<td>especificação e literatura de aplicação</td>
+<td>sustentar a ficha</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<section id="campos-ripsa" class="level3" data-number="4.8.1">
+<h3 data-number="4.8.1" class="anchored" data-anchor-id="campos-ripsa"><span class="header-section-number">4.8.1</span> Campos RIPSA</h3>
+<p>O núcleo contém título, conceituação, interpretação, usos, limitações, fontes, método, categorias de análise, dados estatísticos e comentários. A forma estruturada facilita revisão e intercâmbio. Campos não aplicáveis são identificados, não preenchidos com conteúdo fictício.</p>
+</section>
+<section id="campos-complementares" class="level3" data-number="4.8.2">
+<h3 data-number="4.8.2" class="anchored" data-anchor-id="campos-complementares"><span class="header-section-number">4.8.2</span> Campos complementares</h3>
+<p>Dados climáticos e ambientais exigem:</p>
+<ul>
+<li>resolução espacial original;</li>
+<li>suporte e método de agregação;</li>
+<li>resolução temporal;</li>
+<li>período de referência;</li>
+<li>limiar e regra de sequência;</li>
+<li>fuso e calendário;</li>
+<li>qualidade e incerteza do produto;</li>
+<li>necessidade de processamento;</li>
+<li>relação com desfechos de saúde;</li>
+<li>defasagens;</li>
+<li>validação para uso operacional.</li>
+</ul>
+<p>“Granularidade” registra a desagregação recomendada da saída. “Resolução espacial original” registra o suporte nativo da entrada. Confundi-las produz interpretações erradas.</p>
+</section>
+</section>
+<section id="fichas-integradas-aos-capítulos" class="level2" data-number="4.9">
+<h2 data-number="4.9" class="anchored" data-anchor-id="fichas-integradas-aos-capítulos"><span class="header-section-number">4.9</span> Fichas integradas aos capítulos</h2>
+<p>As fichas não formam uma parte separada. Elas aparecem no capítulo do fenômeno, depois de:</p>
+<ol type="1">
+<li>definição e mecanismos;</li>
+<li>impactos sobre a saúde humana;</li>
+<li>impactos sobre a saúde pública;</li>
+<li>apresentação dos principais indicadores usados em saúde pública;</li>
+<li>comparação e seleção.</li>
+</ol>
+<p>Essa ordem impede que a fórmula apareça sem contexto. O índice pós-textual permite localizar uma ficha sem removê-la de seu campo substantivo.</p>
+<p>O conteúdo estruturado é mantido em <code>indicators/data/</code> e transformado em trechos incorporados pelo processo de publicação. A fonte única reduz divergência entre capítulo e índice. Alterações devem ocorrer no dado estruturado, nunca no arquivo gerado.</p>
+</section>
+<section id="referências-e-abnt" class="level2" data-number="4.10">
+<h2 data-number="4.10" class="anchored" data-anchor-id="referências-e-abnt"><span class="header-section-number">4.10</span> Referências e ABNT</h2>
+<p>As citações no texto usam chaves ligadas ao arquivo bibliográfico. A lista final é formatada segundo estilo ABNT. Para cada referência, são verificados autoria, título, edição, local, editora ou periódico, ano, DOI/URL e data de acesso quando aplicável.</p>
+<p>Uma URL não substitui referência bibliográfica. DOI é preferido quando existe. Documentos institucionais usam a entidade responsável como autoria, evitando abreviações inconsistentes.</p>
+<p>Na ficha, a seção de referências metodológicas identifica a origem da definição. A bibliografia completa aparece nos elementos pós-textuais, evitando listas duplicadas com formatação divergente.</p>
+</section>
+<section id="critérios-para-seleção-de-fontes-de-dados" class="level2" data-number="4.11">
+<h2 data-number="4.11" class="anchored" data-anchor-id="critérios-para-seleção-de-fontes-de-dados"><span class="header-section-number">4.11</span> Critérios para seleção de fontes de dados</h2>
+<p>Depois de selecionar o indicador, as fontes candidatas são avaliadas no <a href="#tbl-criterios-fonte" class="quarto-xref">Tabela&nbsp;<span>4.3</span></a>.</p>
+<div id="tbl-criterios-fonte" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-criterios-fonte-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;4.3: Critérios para selecionar a fonte de cálculo
+</figcaption>
+<div aria-describedby="tbl-criterios-fonte-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Critério</th>
+<th>Pergunta</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Autoridade</td>
+<td>Quem produz, mantém e responde pelo recurso?</td>
+</tr>
+<tr class="even">
+<td>Adequação conceitual</td>
+<td>A variável corresponde à especificação do indicador?</td>
+</tr>
+<tr class="odd">
+<td>Cobertura</td>
+<td>Espaço, tempo e população atendem à finalidade?</td>
+</tr>
+<tr class="even">
+<td>Qualidade</td>
+<td>Há controle, validação, incerteza e metadados?</td>
+</tr>
+<tr class="odd">
+<td>Atualização</td>
+<td>A latência é compatível com a decisão?</td>
+</tr>
+<tr class="even">
+<td>Estabilidade</td>
+<td>URL, versão e histórico são preserváveis?</td>
+</tr>
+<tr class="odd">
+<td>Interoperabilidade</td>
+<td>Formato, códigos e unidades podem ser integrados?</td>
+</tr>
+<tr class="even">
+<td>Licença e ética</td>
+<td>O uso, armazenamento e compartilhamento são permitidos?</td>
+</tr>
+<tr class="odd">
+<td>Sustentabilidade</td>
+<td>A fonte tem manutenção e governança identificáveis?</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>A pontuação automática pode ocultar compensações indevidas. Autoridade não corrige escala inadequada; cobertura não corrige definição errada. Critérios essenciais funcionam como requisitos, e não como pontos intercambiáveis.</p>
+</section>
+<section id="proveniência-e-processamento" class="level2" data-number="4.12">
+<h2 data-number="4.12" class="anchored" data-anchor-id="proveniência-e-processamento"><span class="header-section-number">4.12</span> Proveniência e processamento</h2>
+<p>O fluxo de um indicador deve ser representável como:</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div id="fig-proveniencia" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-proveniencia-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-proveniencia">flowchart LR
+  F[Fonte e versão] --&gt; E[Extração datada]
+  E --&gt; B[Dados brutos preservados]
+  B --&gt; Q[Qualidade e harmonização]
+  Q --&gt; C[Cálculo especificado]
+  C --&gt; V[Validação]
+  V --&gt; P[Publicação e uso]
+  P --&gt; R[Revisão]
+  R --&gt; F
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-proveniencia-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;4.1: Cadeia mínima de proveniência de um indicador
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Cada seta corresponde a uma transformação ou decisão. Scripts, parâmetros e ambiente computacional integram a proveniência. Os princípios FAIR reforçam que dados devem ser encontráveis, acessíveis sob condições claras, interoperáveis e reutilizáveis <span class="citation" data-cites="wilkinson2016fair">(<a href="../../backmatter/referencias.html#ref-wilkinson2016fair" role="doc-biblioref"><span class="nocase">Wilkinson et al.</span>, 2016</a>)</span>.</p>
+</section>
+<section id="validação-de-uma-ficha" class="level2" data-number="4.13">
+<h2 data-number="4.13" class="anchored" data-anchor-id="validação-de-uma-ficha"><span class="header-section-number">4.13</span> Validação de uma ficha</h2>
+<p>Antes da publicação, cada ficha passa por quatro leituras:</p>
+<ol type="1">
+<li><strong>substantiva</strong> — o conceito corresponde ao fenômeno;</li>
+<li><strong>metodológica</strong> — a fórmula reproduz a especificação;</li>
+<li><strong>sanitária</strong> — usos e efeitos não excedem a evidência;</li>
+<li><strong>operacional</strong> — fonte, atualização e responsabilidade são realistas.</li>
+</ol>
+<p>Também são executadas validações automáticas:</p>
+<ul>
+<li>código único;</li>
+<li>presença de campos obrigatórios;</li>
+<li>fonte cadastrada;</li>
+<li>referência existente;</li>
+<li>links e âncoras;</li>
+<li>fórmula renderizável;</li>
+<li>ausência de pendências não autorizadas.</li>
+</ul>
+</section>
+<section id="atualização" class="level2" data-number="4.14">
+<h2 data-number="4.14" class="anchored" data-anchor-id="atualização"><span class="header-section-number">4.14</span> Atualização</h2>
+<p>Uma ficha muda quando a especificação, fonte, norma ou uso muda. A revisão deve registrar:</p>
+<ul>
+<li>campo alterado;</li>
+<li>motivo;</li>
+<li>referência;</li>
+<li>impacto na série;</li>
+<li>necessidade de recálculo;</li>
+<li>compatibilidade com versões anteriores.</li>
+</ul>
+<p>Mudança silenciosa de fórmula é inaceitável. Se a revisão rompe comparabilidade, cria-se versão identificada e preserva-se a anterior.</p>
+</section>
+<section id="como-usar-as-fichas" class="level2" data-number="4.15">
+<h2 data-number="4.15" class="anchored" data-anchor-id="como-usar-as-fichas"><span class="header-section-number">4.15</span> Como usar as fichas</h2>
+<p>Para uma pergunta de gestão:</p>
+<ol type="1">
+<li>consulte a síntese dos principais indicadores do fenômeno;</li>
+<li>identifique a dimensão necessária;</li>
+<li>escolha a ficha correspondente;</li>
+<li>leia conceito e limitações antes da fórmula;</li>
+<li>confirme fonte e período;</li>
+<li>verifique escala, defasagem e incerteza;</li>
+<li>conecte o resultado a um protocolo de decisão;</li>
+<li>registre a versão utilizada.</li>
+</ol>
+<p>A <a href="../../backmatter/lista-fichas.html">lista de fichas</a> e o <a href="../../backmatter/indice-fontes.html">índice de fontes</a> são instrumentos de navegação. A interpretação completa permanece no capítulo.</p>
+</section>
+<section id="síntese" class="level2" data-number="4.16">
+<h2 data-number="4.16" class="anchored" data-anchor-id="síntese"><span class="header-section-number">4.16</span> Síntese</h2>
+<p>O livro não começa com uma lista arbitrária de métricas. Para cada fenômeno, identifica-se o repertório usado em saúde pública, localizam-se especificações, comparam-se significados e selecionam-se indicadores reprodutíveis. Só então são redigidas as fichas.</p>
+<p>Fonte qualificada é recurso identificado, versionado e adequado ao indicador. Ficha completa conecta definição, cálculo, qualidade, saúde e gestão. Integrada ao capítulo, ela permanece vinculada aos mecanismos e impactos que dão sentido ao número.</p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body" data-entry-spacing="1" role="list" style="display: none">
 <div id="ref-ripsa2026" class="csl-entry" role="listitem">
-Organização Pan-Americana da Saúde. 2026. <em>Indicadores Básicos para a Saúde no Brasil: conceitos e aplicações</em>. 3º ed. Organização Pan-Americana da Saúde. <a href="https://doi.org/10.37774/9789275731659">https://doi.org/10.37774/9789275731659</a>.
+ORGANIZAÇÃO PAN-AMERICANA DA SAÚDE. <strong><a href="https://doi.org/10.37774/9789275731659">Indicadores Básicos para a Saúde no Brasil: conceitos e aplicações</a></strong>. 3. ed. Brasília, DF: Organização Pan-Americana da Saúde, 2026.
+</div>
+<div id="ref-wilkinson2016fair" class="csl-entry" role="listitem">
+<span class="nocase">WILKINSON, Mark D. <em>et al.</em></span> <a href="https://doi.org/10.1038/sdata.2016.18">The FAIR Guiding Principles for scientific data management and stewardship</a>. <strong>Scientific Data</strong>, v. 3, p. 160018, 2016.
 </div>
 </div>
 </section>
@@ -682,7 +1109,7 @@ Organização Pan-Americana da Saúde. 2026. <em>Indicadores Básicos para a Sa�
     anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
-        if (clz.startsWith('code-annotation-')) {                     
+        if (clz.startsWith('code-annotation-')) {
           return true;
         }
       }
@@ -702,11 +1129,11 @@ Organização Pan-Americana da Saúde. 2026. <em>Indicadores Básicos para a Sa�
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
         button.setAttribute("data-bs-title", "Copiada");
-        tooltip = new bootstrap.Tooltip(button, 
-          { trigger: "manual", 
+        tooltip = new bootstrap.Tooltip(button,
+          { trigger: "manual",
             customClass: "code-copy-button-tooltip",
             offset: [0, -8]});
-        tooltip.show();    
+        tooltip.show();
       }
       setTimeout(function() {
         if (tooltip) {
@@ -788,7 +1215,7 @@ Organização Pan-Americana da Saúde. 2026. <em>Indicadores Básicos para a Sa�
       if (onUntriggerFn) {
         config.onUntrigger = onUntriggerFn;
       }
-      window.tippy(el, config); 
+      window.tippy(el, config);
     }
     const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
     for (var i=0; i<noterefs.length; i++) {
@@ -863,7 +1290,7 @@ Organização Pan-Americana da Saúde. 2026. <em>Indicadores Básicos para a Sa�
       tippyHover(xref, undefined, function(instance) {
         instance.disable();
         let url = xref.getAttribute('href');
-        let hash = undefined; 
+        let hash = undefined;
         if (url.startsWith('#')) {
           hash = url;
         } else {
@@ -891,7 +1318,7 @@ Organização Pan-Americana da Saúde. 2026. <em>Indicadores Básicos para a Sa�
               if (note !== null) {
                 const html = processXRef(id, note);
                 instance.setContent(html);
-              } 
+              }
             }).finally(() => {
               instance.enable();
               instance.show();
@@ -915,7 +1342,7 @@ Organização Pan-Americana da Saúde. 2026. <em>Indicadores Básicos para a Sa�
               }
               const html = processXRef(null, note);
               instance.setContent(html);
-            } 
+            }
           }).finally(() => {
             instance.enable();
             instance.show();
@@ -955,7 +1382,7 @@ Organização Pan-Americana da Saúde. 2026. <em>Indicadores Básicos para a Sa�
               height = bottom - top;
             }
             if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
+              // cook up a div (if necessary) and position it
               let div = window.document.getElementById("code-annotation-line-highlight");
               if (div === null) {
                 div = window.document.createElement("div");
@@ -1080,7 +1507,7 @@ Organização Pan-Americana da Saúde. 2026. <em>Indicadores Básicos para a Sa�
   <div class="nav-page nav-page-previous">
       <a href="../../chapters/part-1/03-espaco-tempo-qualidade.html" class="pagination-link" aria-label="Espaço, tempo e qualidade dos dados">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Espaço, tempo e qualidade dos dados</span></span>
-      </a>          
+      </a>
   </div>
   <div class="nav-page nav-page-next">
       <a href="../../chapters/part-2/05-temperatura-condicoes-termicas.html" class="pagination-link" aria-label="Temperatura e condições térmicas">

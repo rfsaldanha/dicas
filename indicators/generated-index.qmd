@@ -3,15 +3,133 @@
 ::: {.content-visible when-format="html"}
 | Código | Indicador | Tema | Dimensão | Disponibilidade |
 |---|---|---|---|---|
-| [AMB-AR-01](../indicators/pages/amb-ar-01.qmd) | Concentração média diária de material particulado fino (PM2,5) | Qualidade do ar, queimadas e fumaça | perigo; exposição | cálculo simples |
-| [CLI-CAL-01](../indicators/pages/cli-cal-01.qmd) | Ocorrência de onda de calor | Temperatura e condições térmicas | perigo; exposição | requer modelagem |
-| [CLI-TEM-01](../indicators/pages/cli-tem-01.qmd) | Temperatura máxima diária | Temperatura e condições térmicas | perigo; exposição | cálculo simples |
+| [AMB-AR-02](../chapters/part-2/07-qualidade-ar-queimadas-fumaca.qmd#sec-amb-ar-02) | Percentil 99 das concentrações médias de 24 horas de PM2,5 | Qualidade do ar, queimadas e fumaça | perigo; exposição | disponível onde há monitoramento; requer processamento |
+| [AMB-AR-03](../chapters/part-2/07-qualidade-ar-queimadas-fumaca.qmd#sec-amb-ar-03) | Índice de Qualidade do Ar brasileiro (IQAr) | Qualidade do ar, queimadas e fumaça | perigo; exposição | disponível nas redes participantes |
+| [AMB-FUM-01](../chapters/part-2/07-qualidade-ar-queimadas-fumaca.qmd#sec-amb-fum-01) | Exposição populacional média a PM2,5 atribuível à fumaça de incêndios | Qualidade do ar, queimadas e fumaça | perigo; exposição | requer produto de atribuição de fonte; requer processamento geoespacial |
+| [AMB-AR-01](../chapters/part-2/07-qualidade-ar-queimadas-fumaca.qmd#sec-amb-ar-01) | Concentração média anual de PM2,5 nas cidades, ponderada pela população (ODS 11.6.2) | Qualidade do ar, queimadas e fumaça | exposição; perigo | disponível em estimativa oficial |
+| [AMB-VEG-01](../chapters/part-2/09-uso-cobertura-terra-ambiente-urbano.qmd#sec-amb-veg-01) | Índice de Vegetação por Diferença Normalizada residencial médio (NDVI) | Uso e cobertura da terra, vegetação e ambiente urbano | exposição; vulnerabilidade; resposta | requer processamento de sensoriamento remoto |
+| [AMB-URB-01](../chapters/part-2/09-uso-cobertura-terra-ambiente-urbano.qmd#sec-amb-urb-01) | Parcela média da área construída da cidade que corresponde a espaço aberto para uso público (ODS 11.7.1) | Uso e cobertura da terra, vegetação e ambiente urbano | exposição; vulnerabilidade; resposta | requer cadastro e processamento geoespacial |
+| [AMB-URB-02](../chapters/part-2/09-uso-cobertura-terra-ambiente-urbano.qmd#sec-amb-urb-02) | Proporção da população urbana residente a até 300 metros de espaço verde acessível com pelo menos 1 hectare | Uso e cobertura da terra, vegetação e ambiente urbano | exposição; vulnerabilidade; resposta | requer processamento de rede e população |
+| [AMB-URB-03](../chapters/part-2/09-uso-cobertura-terra-ambiente-urbano.qmd#sec-amb-urb-03) | Intensidade da ilha de calor urbana de superfície (SUHII) | Uso e cobertura da terra, vegetação e ambiente urbano | exposição; vulnerabilidade; resposta | requer processamento térmico e territorial |
+| [CLI-CAL-01](../chapters/part-2/05-temperatura-condicoes-termicas.qmd#sec-cli-cal-01) | Índice de duração de períodos quentes (WSDI) | Temperatura e condições térmicas | perigo; exposição | requer processamento climatológico |
+| [CLI-EXP-01](../chapters/part-2/05-temperatura-condicoes-termicas.qmd#sec-cli-exp-01) | Extensão espacial diária contígua da onda de calor | Temperatura e condições térmicas | perigo; exposição | requer processamento geoespacial |
+| [CLI-EXP-02](../chapters/part-2/05-temperatura-condicoes-termicas.qmd#sec-cli-exp-02) | Pessoas-dia de exposição de populações vulneráveis a ondas de calor | Temperatura e condições térmicas | perigo; exposição | requer processamento geoespacial |
+| [CLI-EST-01](../chapters/part-2/05-temperatura-condicoes-termicas.qmd#sec-cli-est-01) | Índice de Calor do National Weather Service (Heat Index) | Temperatura e condições térmicas | perigo; exposição | requer processamento meteorológico |
+| [CLI-EST-02](../chapters/part-2/05-temperatura-condicoes-termicas.qmd#sec-cli-est-02) | Temperatura aparente externa de Steadman adotada pelo Bureau of Meteorology | Temperatura e condições térmicas | perigo; exposição | requer processamento meteorológico |
+| [CLI-EST-03](../chapters/part-2/05-temperatura-condicoes-termicas.qmd#sec-cli-est-03) | Humidex do Environment and Climate Change Canada | Temperatura e condições térmicas | perigo; exposição | requer processamento meteorológico |
+| [CLI-EST-04](../chapters/part-2/05-temperatura-condicoes-termicas.qmd#sec-cli-est-04) | Índice Térmico Universal do Clima (UTCI) | Temperatura e condições térmicas | perigo; exposição | requer processamento meteorológico |
+| [CLI-EST-05](../chapters/part-2/05-temperatura-condicoes-termicas.qmd#sec-cli-est-05) | Temperatura de Globo e Bulbo Úmido (WBGT) | Temperatura e condições térmicas | perigo; exposição | requer processamento meteorológico |
+| [CLI-CAL-02](../chapters/part-2/05-temperatura-condicoes-termicas.qmd#sec-cli-cal-02) | Ocorrência de onda de calor | Temperatura e condições térmicas | perigo; exposição | requer processamento climatológico |
+| [CLI-CAL-03](../chapters/part-2/05-temperatura-condicoes-termicas.qmd#sec-cli-cal-03) | Número de ondas de calor (HWN) | Temperatura e condições térmicas | perigo; exposição | requer processamento climatológico |
+| [CLI-CAL-04](../chapters/part-2/05-temperatura-condicoes-termicas.qmd#sec-cli-cal-04) | Número total de dias em ondas de calor ou frequência de ondas de calor (HWF) | Temperatura e condições térmicas | perigo; exposição | requer processamento climatológico |
+| [CLI-CAL-05](../chapters/part-2/05-temperatura-condicoes-termicas.qmd#sec-cli-cal-05) | Duração máxima das ondas de calor (HWD) | Temperatura e condições térmicas | perigo; exposição | requer processamento climatológico |
+| [CLI-CAL-06](../chapters/part-2/05-temperatura-condicoes-termicas.qmd#sec-cli-cal-06) | Duração média das ondas de calor (HWMD) | Temperatura e condições térmicas | perigo; exposição | requer processamento climatológico |
+| [CLI-CAL-07](../chapters/part-2/05-temperatura-condicoes-termicas.qmd#sec-cli-cal-07) | Magnitude ou intensidade média das ondas de calor (HWM/HWI) | Temperatura e condições térmicas | perigo; exposição | requer processamento climatológico |
+| [CLI-CAL-08](../chapters/part-2/05-temperatura-condicoes-termicas.qmd#sec-cli-cal-08) | Amplitude ou intensidade máxima das ondas de calor (HWA) | Temperatura e condições térmicas | perigo; exposição | requer processamento climatológico |
+| [CLI-CAL-11](../chapters/part-2/05-temperatura-condicoes-termicas.qmd#sec-cli-cal-11) | Percentual de noites quentes (TN90p) | Temperatura e condições térmicas | perigo; exposição | requer processamento climatológico |
+| [CLI-CAL-12](../chapters/part-2/05-temperatura-condicoes-termicas.qmd#sec-cli-cal-12) | Frequência de dias em ondas de calor compostas diurnas e noturnas (CHW) | Temperatura e condições térmicas | perigo; exposição | requer processamento climatológico |
+| [CLI-CAL-13](../chapters/part-2/05-temperatura-condicoes-termicas.qmd#sec-cli-cal-13) | Índice Cumulativo de Excesso de Calor em Ondas de Calor (CEHWI) | Temperatura e condições térmicas | perigo; exposição | requer processamento climatológico |
+| [CLI-CAL-09](../chapters/part-2/05-temperatura-condicoes-termicas.qmd#sec-cli-cal-09) | Fator de Excesso de Calor (EHF) | Temperatura e condições térmicas | perigo; exposição | requer processamento climatológico |
+| [CLI-CAL-10](../chapters/part-2/05-temperatura-condicoes-termicas.qmd#sec-cli-cal-10) | Índice Diário de Magnitude de Ondas de Calor (HWMId) | Temperatura e condições térmicas | perigo; exposição | requer processamento climatológico |
+| [CLI-PRC-01](../chapters/part-2/06-precipitacao-secas-eventos-hidrologicos.qmd#sec-cli-prc-01) | Maior precipitação em um dia (Rx1day) | Precipitação, secas e eventos hidrológicos | perigo; exposição | requer processamento climatológico |
+| [CLI-PRC-02](../chapters/part-2/06-precipitacao-secas-eventos-hidrologicos.qmd#sec-cli-prc-02) | Maior precipitação acumulada em cinco dias consecutivos (Rx5day) | Precipitação, secas e eventos hidrológicos | perigo; exposição | requer processamento climatológico |
+| [CLI-PRC-03](../chapters/part-2/06-precipitacao-secas-eventos-hidrologicos.qmd#sec-cli-prc-03) | Precipitação total em dias muito úmidos (R95pTOT) | Precipitação, secas e eventos hidrológicos | perigo; exposição | requer processamento climatológico |
+| [CLI-PRC-04](../chapters/part-2/06-precipitacao-secas-eventos-hidrologicos.qmd#sec-cli-prc-04) | Maior número de dias consecutivos secos (CDD) | Precipitação, secas e eventos hidrológicos | perigo; exposição | requer processamento climatológico |
+| [CLI-PRC-05](../chapters/part-2/06-precipitacao-secas-eventos-hidrologicos.qmd#sec-cli-prc-05) | Maior número de dias consecutivos úmidos (CWD) | Precipitação, secas e eventos hidrológicos | perigo; exposição | requer processamento climatológico |
+| [CLI-SEC-01](../chapters/part-2/06-precipitacao-secas-eventos-hidrologicos.qmd#sec-cli-sec-01) | Índice Padronizado de Precipitação (SPI) | Precipitação, secas e eventos hidrológicos | perigo; exposição | requer processamento climatológico |
+| [CLI-TEM-01](../chapters/part-2/05-temperatura-condicoes-termicas.qmd#sec-cli-tem-01) | Percentual de dias quentes (TX90p) | Temperatura e condições térmicas | perigo; exposição | requer processamento climatológico |
+| [DES-HUM-01](../chapters/part-2/10-eventos-severos-desastres.qmd#sec-des-hum-01) | Número de mortes e pessoas desaparecidas atribuídas a desastres por 100 mil habitantes (ODS 1.5.1/11.5.1/13.1.1) | Eventos meteorológicos severos e desastres | efeito; resposta; exposição | disponível em registros de desastre; sujeito a revisão |
+| [DES-HUM-02](../chapters/part-2/10-eventos-severos-desastres.qmd#sec-des-hum-02) | Número de pessoas diretamente afetadas por desastres por 100 mil habitantes (ODS 1.5.1/11.5.1/13.1.1) | Eventos meteorológicos severos e desastres | efeito; resposta; exposição | disponível em registros de desastre; sujeito a revisão |
+| [DES-SAU-01](../chapters/part-2/10-eventos-severos-desastres.qmd#sec-des-sau-01) | Número de estabelecimentos de saúde danificados ou destruídos por desastres (componente ODS 11.5.3a) | Eventos meteorológicos severos e desastres | efeito; resposta; exposição | requer vinculação e verificação |
+| [DES-SAU-02](../chapters/part-2/10-eventos-severos-desastres.qmd#sec-des-sau-02) | Número de interrupções de serviços de saúde atribuídas a desastres (componente ODS 11.5.3b) | Eventos meteorológicos severos e desastres | efeito; resposta; exposição | requer integração intersetorial |
+| [EFE-MOR-01](../chapters/part-3/12-efeitos-saude.qmd#sec-efe-mor-01) | Taxa de mortalidade específica por causa | Efeitos do clima e do ambiente sobre a saúde | efeito | dados secundários de saúde; requer qualificação |
+| [EFE-MOR-02](../chapters/part-3/12-efeitos-saude.qmd#sec-efe-mor-02) | Taxa de mortalidade específica por causa padronizada por idade pelo método direto | Efeitos do clima e do ambiente sobre a saúde | efeito | dados secundários de saúde; requer qualificação |
+| [EFE-MOB-01](../chapters/part-3/12-efeitos-saude.qmd#sec-efe-mob-01) | Taxa de internação hospitalar do SUS por causas selecionadas | Efeitos do clima e do ambiente sobre a saúde | efeito | dados secundários de saúde; requer qualificação |
+| [EFE-EXC-01](../chapters/part-3/12-efeitos-saude.qmd#sec-efe-exc-01) | Número de óbitos em excesso | Efeitos do clima e do ambiente sobre a saúde | efeito | dados secundários de saúde; requer qualificação |
+| [EFE-EXC-02](../chapters/part-3/12-efeitos-saude.qmd#sec-efe-exc-02) | P-score de mortalidade em excesso | Efeitos do clima e do ambiente sobre a saúde | efeito | dados secundários de saúde; requer qualificação |
+| [EFE-ATR-01](../chapters/part-3/12-efeitos-saude.qmd#sec-efe-atr-01) | Número e fração de eventos atribuíveis à temperatura em modelos de defasagem distribuída | Efeitos do clima e do ambiente sobre a saúde | efeito | dados secundários de saúde; requer qualificação |
+| [EFE-CAR-01](../chapters/part-3/12-efeitos-saude.qmd#sec-efe-car-01) | Anos de vida ajustados por incapacidade atribuíveis a risco ambiental (DALY atribuível) | Efeitos do clima e do ambiente sobre a saúde | efeito | dados secundários de saúde; requer qualificação |
+| [EXP-VUL-01](../chapters/part-3/11-exposicao-vulnerabilidade.qmd#sec-exp-vul-01) | Índice de Vulnerabilidade Social do Ipea (IVS) | Exposição e vulnerabilidade socioambiental | vulnerabilidade | dados secundários; requer harmonização territorial |
+| [EXP-VUL-02](../chapters/part-3/11-exposicao-vulnerabilidade.qmd#sec-exp-vul-02) | Índice de Vulnerabilidade Social do CDC/ATSDR (SVI) | Exposição e vulnerabilidade socioambiental | vulnerabilidade | dados secundários; requer harmonização territorial |
+| [EXP-HAB-01](../chapters/part-3/11-exposicao-vulnerabilidade.qmd#sec-exp-hab-01) | Proporção da população urbana em assentamentos precários, informais ou moradia inadequada (ODS 11.1.1) | Exposição e vulnerabilidade socioambiental | vulnerabilidade | dados secundários; requer harmonização territorial |
+| [RES-GOV-01](../chapters/part-3/13-resposta-adaptacao-resiliencia.qmd#sec-res-gov-01) | Percentual de estabelecimentos com equipe ou pessoa focal designada para gestão de emergências e continuidade dos serviços | Capacidade de resposta, adaptação e resiliência | resposta | requer avaliação de estabelecimentos; requer adaptação nacional |
+| [RES-RIS-01](../chapters/part-3/13-resposta-adaptacao-resiliencia.qmd#sec-res-ris-01) | Percentual de estabelecimentos com perfil de riscos para choques e estressores documentado e atualizado | Capacidade de resposta, adaptação e resiliência | resposta | requer avaliação de estabelecimentos; requer adaptação nacional |
+| [RES-ALR-01](../chapters/part-3/13-resposta-adaptacao-resiliencia.qmd#sec-res-alr-01) | Nível de estabelecimento do sistema de alerta precoce, alerta e resposta | Capacidade de resposta, adaptação e resiliência | resposta | requer avaliação de estabelecimentos; requer adaptação nacional |
+| [RES-WAT-01](../chapters/part-3/13-resposta-adaptacao-resiliencia.qmd#sec-res-wat-01) | Percentual de estabelecimentos de saúde que tiveram interrupção do abastecimento de água na semana anterior | Capacidade de resposta, adaptação e resiliência | resposta | requer avaliação de estabelecimentos; requer adaptação nacional |
+| [RES-ENE-01](../chapters/part-3/13-resposta-adaptacao-resiliencia.qmd#sec-res-ene-01) | Percentual de estabelecimentos de saúde que tiveram interrupção de energia elétrica na semana anterior | Capacidade de resposta, adaptação e resiliência | resposta | requer avaliação de estabelecimentos; requer adaptação nacional |
+| [RES-PLA-01](../chapters/part-3/13-resposta-adaptacao-resiliencia.qmd#sec-res-pla-01) | Percentual de estabelecimentos com plano de gestão de emergências que incorpora continuidade dos serviços | Capacidade de resposta, adaptação e resiliência | resposta | requer avaliação de estabelecimentos; requer adaptação nacional |
+| [RES-INF-01](../chapters/part-3/13-resposta-adaptacao-resiliencia.qmd#sec-res-inf-01) | Percentual de estabelecimentos de saúde que atendem aos padrões de infraestrutura | Capacidade de resposta, adaptação e resiliência | resposta | requer avaliação de estabelecimentos; requer adaptação nacional |
+| [SAN-AGU-01](../chapters/part-2/08-agua-saneamento-qualidade-ambiental.qmd#sec-san-agu-01) | Proporção da população que utiliza serviços de água potável geridos de forma segura (ODS 6.1.1) | Água, saneamento e qualidade ambiental | exposição; vulnerabilidade; resposta | disponível em estimativa oficial |
+| [SAN-ESG-01](../chapters/part-2/08-agua-saneamento-qualidade-ambiental.qmd#sec-san-esg-01) | Proporção da população que utiliza serviços de saneamento geridos de forma segura (ODS 6.2.1a) | Água, saneamento e qualidade ambiental | exposição; vulnerabilidade; resposta | disponível em estimativa oficial |
+| [SAN-HIG-01](../chapters/part-2/08-agua-saneamento-qualidade-ambiental.qmd#sec-san-hig-01) | Proporção da população com instalação básica para lavagem das mãos com água e sabão (ODS 6.2.1b) | Água, saneamento e qualidade ambiental | exposição; vulnerabilidade; resposta | disponível onde há pesquisa compatível |
+| [SAN-AGU-02](../chapters/part-2/08-agua-saneamento-qualidade-ambiental.qmd#sec-san-agu-02) | Proporção de amostras de água para consumo humano com ausência de Escherichia coli | Água, saneamento e qualidade ambiental | exposição; vulnerabilidade; resposta | disponível em dados administrativos |
+| [SAN-AGU-03](../chapters/part-2/08-agua-saneamento-qualidade-ambiental.qmd#sec-san-agu-03) | Proporção de amostras com residual de agente desinfetante em conformidade | Água, saneamento e qualidade ambiental | exposição; vulnerabilidade; resposta | disponível em dados administrativos |
+| [SAN-AGU-04](../chapters/part-2/08-agua-saneamento-qualidade-ambiental.qmd#sec-san-agu-04) | Proporção de amostras de turbidez em conformidade com o padrão de potabilidade | Água, saneamento e qualidade ambiental | exposição; vulnerabilidade; resposta | disponível em dados administrativos |
 :::
 
 ::: {.content-visible when-format="typst"}
 | Código | Indicador | Dimensão |
 |---|---|---|
-| AMB-AR-01 | Concentração diária de PM2,5 | perigo; exposição |
-| CLI-CAL-01 | Onda de calor | perigo; exposição |
-| CLI-TEM-01 | Temperatura máxima | perigo; exposição |
+| AMB-AR-02 | PM2,5 de curto prazo — P99 24h | perigo; exposição |
+| AMB-AR-03 | Índice de Qualidade do Ar — IQAr | perigo; exposição |
+| AMB-FUM-01 | PM2,5 de fumaça ponderado pela população | perigo; exposição |
+| AMB-AR-01 | PM2,5 anual ponderado — ODS 11.6.2 | exposição; perigo |
+| AMB-VEG-01 | Verdor residencial — NDVI | exposição; vulnerabilidade; resposta |
+| AMB-URB-01 | Espaço público aberto — ODS 11.7.1 | exposição; vulnerabilidade; resposta |
+| AMB-URB-02 | Acesso próximo a espaço verde | exposição; vulnerabilidade; resposta |
+| AMB-URB-03 | Ilha de calor de superfície — SUHII | exposição; vulnerabilidade; resposta |
+| CLI-CAL-01 | Duração de períodos quentes — WSDI | perigo; exposição |
+| CLI-EXP-01 | Extensão contígua da onda de calor | perigo; exposição |
+| CLI-EXP-02 | Pessoas-dia expostas a ondas de calor | perigo; exposição |
+| CLI-EST-01 | Índice de Calor — HI | perigo; exposição |
+| CLI-EST-02 | Temperatura aparente — AT | perigo; exposição |
+| CLI-EST-03 | Humidex | perigo; exposição |
+| CLI-EST-04 | UTCI | perigo; exposição |
+| CLI-EST-05 | WBGT | perigo; exposição |
+| CLI-CAL-02 | Ocorrência de onda de calor | perigo; exposição |
+| CLI-CAL-03 | Número de ondas — HWN | perigo; exposição |
+| CLI-CAL-04 | Dias em ondas — HWF | perigo; exposição |
+| CLI-CAL-05 | Duração máxima — HWD | perigo; exposição |
+| CLI-CAL-06 | Duração média — HWMD | perigo; exposição |
+| CLI-CAL-07 | Magnitude média — HWM | perigo; exposição |
+| CLI-CAL-08 | Amplitude máxima — HWA | perigo; exposição |
+| CLI-CAL-11 | Noites quentes — TN90p | perigo; exposição |
+| CLI-CAL-12 | Dias em ondas compostas — CHW | perigo; exposição |
+| CLI-CAL-13 | Excesso acumulado — CEHWI | perigo; exposição |
+| CLI-CAL-09 | Fator de Excesso de Calor — EHF | perigo; exposição |
+| CLI-CAL-10 | Magnitude diária — HWMId | perigo; exposição |
+| CLI-PRC-01 | Máxima em um dia — Rx1day | perigo; exposição |
+| CLI-PRC-02 | Máxima em cinco dias — Rx5day | perigo; exposição |
+| CLI-PRC-03 | Chuva em dias muito úmidos — R95pTOT | perigo; exposição |
+| CLI-PRC-04 | Dias consecutivos secos — CDD | perigo; exposição |
+| CLI-PRC-05 | Dias consecutivos úmidos — CWD | perigo; exposição |
+| CLI-SEC-01 | Seca meteorológica — SPI | perigo; exposição |
+| CLI-TEM-01 | Dias quentes — TX90p | perigo; exposição |
+| DES-HUM-01 | Mortes e desaparecidos por desastres | efeito; resposta; exposição |
+| DES-HUM-02 | Pessoas diretamente afetadas por desastres | efeito; resposta; exposição |
+| DES-SAU-01 | Estabelecimentos de saúde danificados | efeito; resposta; exposição |
+| DES-SAU-02 | Interrupções de serviços de saúde | efeito; resposta; exposição |
+| EFE-MOR-01 | Mortalidade específica por causa | efeito |
+| EFE-MOR-02 | Mortalidade padronizada por idade | efeito |
+| EFE-MOB-01 | Internações SUS por causa — D.29 | efeito |
+| EFE-EXC-01 | Óbitos em excesso | efeito |
+| EFE-EXC-02 | P-score de excesso de mortalidade | efeito |
+| EFE-ATR-01 | Eventos atribuíveis à temperatura | efeito |
+| EFE-CAR-01 | DALY atribuível a risco ambiental | efeito |
+| EXP-VUL-01 | Índice de Vulnerabilidade Social — IVS | vulnerabilidade |
+| EXP-VUL-02 | CDC/ATSDR Social Vulnerability Index — SVI | vulnerabilidade |
+| EXP-HAB-01 | População urbana em moradia inadequada — ODS 11.1.1 | vulnerabilidade |
+| RES-GOV-01 | Ponto focal de emergência e continuidade | resposta |
+| RES-RIS-01 | Perfil de riscos do estabelecimento | resposta |
+| RES-ALR-01 | Sistema de alerta precoce e resposta | resposta |
+| RES-WAT-01 | Interrupção de água em estabelecimentos | resposta |
+| RES-ENE-01 | Interrupção de energia em estabelecimentos | resposta |
+| RES-PLA-01 | Plano de emergência com continuidade | resposta |
+| RES-INF-01 | Infraestrutura conforme aos padrões | resposta |
+| SAN-AGU-01 | Água gerida de forma segura — ODS 6.1.1 | exposição; vulnerabilidade; resposta |
+| SAN-ESG-01 | Saneamento gerido de forma segura — ODS 6.2.1a | exposição; vulnerabilidade; resposta |
+| SAN-HIG-01 | Instalação para higiene — ODS 6.2.1b | exposição; vulnerabilidade; resposta |
+| SAN-AGU-02 | Amostras sem E. coli | exposição; vulnerabilidade; resposta |
+| SAN-AGU-03 | Residual de desinfetante conforme | exposição; vulnerabilidade; resposta |
+| SAN-AGU-04 | Turbidez conforme | exposição; vulnerabilidade; resposta |
 :::

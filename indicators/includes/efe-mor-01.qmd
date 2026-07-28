@@ -1,0 +1,121 @@
+## Ficha do indicador: Taxa de mortalidade específica por causa {#sec-efe-mor-01}
+
+::: {.indicator-card}
+**Código:** EFE-MOR-01 \
+**Título resumido:** Mortalidade específica por causa \
+**Tema:** Efeitos do clima e do ambiente sobre a saúde \
+**Dimensão:** efeito \
+**Disponibilidade:** [dados secundários de saúde]{.availability} [requer qualificação]{.availability}
+:::
+
+### Identificação e fundamento
+
+**Indicador consolidado em.** Indicador de mortalidade específica por causas da RIPSA, calculado com óbitos de residentes e população residente.
+
+### Conceito
+
+Número de óbitos cuja causa básica pertence ao conjunto definido, por 100 mil habitantes da população residente no mesmo território e período.
+
+### Objetivo
+
+Medir a intensidade da mortalidade por causa ou grupo de causas em uma população.
+
+### Interpretação
+
+Valor de 25 por 100 mil significa 25 óbitos registrados pela causa para cada 100 mil residentes no período. A taxa bruta reflete risco e estrutura etária; não deve ser usada isoladamente para comparar populações com idades distintas.
+
+### Usos
+
+- Descrever mortalidade por causas sensíveis ao clima e ambiente.
+- Comparar períodos dentro de população estável.
+- Monitorar desigualdades com estratificação.
+- Compor análises epidemiológicas de eventos.
+
+### Limitações
+
+- Depende da qualidade da causa básica e da cobertura do SIM.
+- Códigos diretos de calor ou desastre podem subestimar efeitos indiretos.
+- Pequenas populações produzem taxas instáveis.
+- Comparações territoriais exigem padronização por idade quando as estruturas diferem.
+
+### Fontes de dados
+
+- Sistema de Informações sobre Mortalidade — óbitos de residentes por causa básica, data e características ([cadastro](../../backmatter/indice-fontes.qmd#sim))
+- Instituto Brasileiro de Geografia e Estatística — população residente no denominador ([cadastro](../../backmatter/indice-fontes.qmd#ibge))
+
+### Método de cálculo
+
+Definir previamente códigos da CID-10, idade, território de residência e período. Contar óbitos de residentes com causa básica no conjunto e dividir pela população residente estimada no meio do período; multiplicar por 100 mil. Calcular intervalos e, em pequenas áreas, considerar agregação ou suavização claramente identificada.
+
+$$
+TM_c=100\,000\times\frac{D_{c,res}}{Pop_{res}}
+$$
+
+::: {.indicator-card}
+**Numerador.** Óbitos de residentes cuja causa básica pertence ao conjunto c no período.
+
+**Denominador.** População residente no território e período.
+
+**Unidade de medida.** Óbitos por 100 mil habitantes.
+
+**Variáveis e categorias de análise.** Causa básica CID-10; idade; sexo; raça ou cor; escolaridade; ocupação; residência; ocorrência; período; circunstância quando disponível.
+
+**Granularidade.** Óbito individual na origem e taxa agregada.
+
+**Periodicidade de atualização.** Conforme bases preliminares e consolidadas do SIM.
+
+**Responsabilidade gerencial.** Área de vigilância epidemiológica e informação em saúde, com apoio de epidemiologia e estatística para modelagem e interpretação.
+
+**Notas.** Contagens, taxas, excesso, associação e atribuição respondem a perguntas diferentes. Resultados estimados devem informar modelo, referência contrafactual e incerteza.
+
+**Análise descritiva do indicador.** Mostrar contagem e taxa, distribuição etária, sexo, raça ou cor, local, sazonalidade, causas mal definidas, cobertura e intervalo; usar padronização para comparações.
+
+:::
+
+### Campos complementares para clima, ambiente e saúde
+
+::: {.indicator-card}
+**Unidade territorial.** Município de residência e agregações superiores; pequenas áreas sob regras de confidencialidade e estabilidade.
+
+**Resolução espacial original.** Município de residência nos dados públicos usuais.
+
+**Resolução temporal.** Data do óbito; resumo diário, semanal, mensal ou anual conforme contagem.
+
+**Período de referência.** Período analisado e versão da CID; no Brasil, série CID-10 desde 1996.
+
+**Limiar ou valor de referência.** Não há limiar universal; comparar com série histórica, território adequado e intervalo de incerteza.
+
+:::
+
+### Disponibilidade e acesso
+
+**Cobertura geográfica.** Brasil, condicionada à cobertura e qualidade local do SIM.
+
+**Período disponível.** Desde 1996 em CID-10 no portal nacional consultado.
+
+**Periodicidade de atualização.** Conforme bases preliminares e consolidadas do SIM.
+
+**Forma de acesso.** TABNET e transferência de arquivos do DATASUS.
+
+**URL ou identificador persistente.** https://datasus.saude.gov.br/mortalidade-desde-1996-pela-cid-10
+
+**Formato dos arquivos.** DBC, DBF após conversão e tabelas exportadas.
+
+**Necessidade de processamento.** Selecionar causas, deduplicar se necessário, qualificar residência e data, vincular população e estimar estabilidade.
+
+### Qualidade, comparação e saúde
+
+**Qualidade e incerteza.** Avaliar cobertura, completude, oportunidade, duplicidade, definição de caso, codificação CID, causa básica e associadas, revisões, estabilidade do denominador, pequenas contagens e intervalos de incerteza.
+
+**Possibilidade de comparação.** Manter desfecho, definição, códigos, população, fonte, território, calendário, padronização e versão; mudanças assistenciais e de registro podem alterar o indicador sem mudança igual na ocorrência.
+
+**Relação com desfechos de saúde.** Mede ocorrência observada ou carga estimada de desfechos; a relação com clima ou ambiente exige exposição definida e desenho analítico compatível.
+
+**Defasagens temporais relevantes.** Registrar data do evento de saúde e considerar o intervalo biologicamente plausível entre exposição e desfecho; data de processamento ou competência não deve substituir automaticamente a data clínica.
+
+**Aplicação na gestão.** Monitorar impacto, desigualdades e pressão sobre serviços, avaliar alertas e intervenções e apoiar priorização, sem atribuir causalidade além do desenho.
+
+### Referências metodológicas
+
+- [@ripsa2026]
+- [@brasil2026sim]
