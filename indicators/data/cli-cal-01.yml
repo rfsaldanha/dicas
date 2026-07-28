@@ -1,7 +1,8 @@
 codigo: CLI-CAL-01
-denominacao: Onda de calor
+titulo_completo: Ocorrência de onda de calor
+titulo_resumido: Onda de calor
 tema: Temperatura e condições térmicas
-definicao: Episódio com temperatura persistentemente elevada em relação a um limiar e durante uma duração mínima previamente definidos.
+conceito: Episódio com temperatura persistentemente elevada em relação a um limiar e durante uma duração mínima previamente definidos.
 objetivo: Identificar períodos de calor persistente relevantes para vigilância, preparação dos serviços e comunicação de risco.
 interpretacao: A ocorrência indica que o limiar térmico adotado foi superado pelo número mínimo de dias consecutivos. Resultados dependem integralmente da definição operacional.
 usos:
@@ -16,21 +17,23 @@ dimensoes:
   - perigo
   - exposição
 metodo_calculo: Aplicar um limiar térmico previamente documentado a uma série diária e identificar sequências que atendam à duração mínima. Relatar separadamente ocorrência, duração e intensidade.
-formula: 'I_d = 1(T_d > L); \quad OC = 1\left(\sum_{j=d}^{d+k-1} I_j = k\right)'
+formula_calculo: 'I_d = 1(T_d > L); \quad OC = 1\left(\sum_{j=d}^{d+k-1} I_j = k\right)'
 numerador: Número de episódios, dias em episódio ou população exposta, conforme a medida derivada.
 denominador: Não se aplica à ocorrência; pode ser população residente nas medidas de exposição.
 unidade_medida: Episódio, dia, grau-dia ou pessoa, conforme a medida apresentada.
-categorias_analise: Tipo de limiar; duração; intensidade; estação; território; grupos populacionais.
+variaveis_categorias_analise: Tipo de limiar; duração; intensidade; estação; território; grupos populacionais.
+granularidade: Ponto de estação ou célula de grade; agregações territoriais dependem da regra de exposição.
 unidade_territorial: Ponto, célula de grade ou território agregado.
 resolucao_espacial_original: Depende da fonte térmica utilizada.
 resolucao_temporal: Diária para detecção; síntese por evento, mês, estação ou ano.
 periodo_referencia: Declarar o período climatológico quando o limiar for percentílico.
 limiar_referencia: Deve ser escolhido e justificado para o contexto; não usar um valor universal sem validação.
-fontes_primarias:
-  - inmet
-fontes_secundarias:
-  - era5-land
-instituicao_responsavel: A definir conforme a fonte e o protocolo operacional.
+fontes_dados:
+  - id: inmet
+    papel: observação primária
+  - id: era5-land
+    papel: fonte secundária modelada
+responsabilidade_gerencial: A definir no protocolo operacional pela instituição que adotar o indicador.
 cobertura_geografica: Depende da fonte e da rede de monitoramento.
 periodo_disponivel: "TODO: verificar para cada conjunto de dados."
 periodicidade_atualizacao: "TODO: verificar para cada conjunto de dados."
@@ -45,6 +48,6 @@ comparabilidade: Só comparar estimativas produzidas com a mesma definição ou 
 relacao_saude: Ondas de calor podem ser usadas como janelas de exposição; a atribuição de efeitos exige desenho epidemiológico e controle de confundimento.
 defasagens_temporais: Avaliar efeitos no mesmo dia e defasagens curtas conforme o desfecho e a literatura específica.
 aplicacao_gestao: Apoiar níveis de alerta, planos de contingência, comunicação direcionada e preparação assistencial.
-observacoes: A ficha qualifica a definição operacional; intensidade, duração e população exposta devem ser registradas como medidas relacionadas, não confundidas.
+notas: A ficha qualifica a definição operacional; intensidade, duração e população exposta devem ser registradas como medidas relacionadas, não confundidas.
+analise_descritiva: "Não incluída nesta ficha demonstrativa. TODO: produzir somente após definir limiar, duração, fonte, território, período, série validada e visualização correspondente."
 referencias: []
-

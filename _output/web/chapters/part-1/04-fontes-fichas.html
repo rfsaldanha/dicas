@@ -26,7 +26,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -478,13 +497,13 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../indicators/pages/cli-cal-01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Onda de calor</span></a>
+ <span class="menu-text">Ocorrência de onda de calor</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../indicators/pages/amb-ar-01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Concentração média diária de PM2,5</span></a>
+ <span class="menu-text">Concentração média diária de material particulado fino (PM2,5)</span></a>
   </div>
 </li>
       </ul>
@@ -597,6 +616,9 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>Este capítulo explicará como reconhecer, selecionar, citar e combinar fontes, preservando a diferença entre a entidade responsável e o recurso efetivamente usado.</p>
+<p>O escopo termina na documentação e na escolha da fonte. Métodos temáticos de cálculo aparecem nas fichas; avaliação de qualidade transversal aparece no <a href="03-espaco-tempo-qualidade.html" class="quarto-xref"><span>Capítulo 3</span></a>.</p>
+<p><strong>Indicadores previstos:</strong> não se aplica como conjunto autônomo. O capítulo deverá usar as três fichas demonstrativas para mostrar rastreabilidade, atualização e versionamento.</p>
 <section id="fontes-primárias-e-secundárias" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="fontes-primárias-e-secundárias"><span class="header-section-number">4.1</span> Fontes primárias e secundárias</h2>
 </section>
@@ -617,16 +639,22 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="estrutura-das-fichas" class="level2" data-number="4.6">
 <h2 data-number="4.6" class="anchored" data-anchor-id="estrutura-das-fichas"><span class="header-section-number">4.6</span> Estrutura das fichas</h2>
-<p>As fichas deste livro se inspiram na função documental das fichas de qualificação da RIPSA e incorporam campos próprios de dados climáticos e ambientais, como resolução original, natureza do produto, incerteza, necessidade de geoprocessamento e defasagem relevante.</p>
+<p>As fichas deste livro adotam como núcleo os 16 campos da Ficha de Qualificação do Indicador (FQI) revistos pela RIPSA em 2024 e publicados na terceira edição do <em>Livro Verde</em> <span class="citation" data-cites="ripsa2026">(<a href="../../backmatter/referencias.html#ref-ripsa2026" role="doc-biblioref">Organização Pan-Americana da Saúde 2026</a>)</span>. A esse núcleo são acrescentados campos necessários a dados climáticos e ambientais, como resolução original, período de referência, limiar, qualidade e incerteza, necessidade de processamento, relação com a saúde e defasagem temporal.</p>
+<p>Os campos adicionais não alteram o significado dos campos da RIPSA. “Granularidade”, por exemplo, registra a desagregação territorial máxima recomendada; “resolução espacial original” registra o suporte nativo da observação ou do produto.</p>
 </section>
 <section id="como-usar-as-fichas" class="level2" data-number="4.7">
 <h2 data-number="4.7" class="anchored" data-anchor-id="como-usar-as-fichas"><span class="header-section-number">4.7</span> Como usar as fichas</h2>
 <p>Consulte a <a href="../../backmatter/lista-fichas.html">lista de fichas</a> e o <a href="../../backmatter/indice-fontes.html">índice de fontes</a>.</p>
 <div class="todo">
-<p>TODO: revisar a correspondência campo a campo com a edição vigente das fichas RIPSA após seleção e citação da documentação oficial.</p>
+<p>TODO: submeter a correspondência entre os campos adicionais e o núcleo RIPSA à revisão metodológica e testar a exportação das fichas para sistemas estruturados.</p>
 </div>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-ripsa2026" class="csl-entry" role="listitem">
+Organização Pan-Americana da Saúde. 2026. <em>Indicadores Básicos para a Saúde no Brasil: conceitos e aplicações</em>. 3º ed. Organização Pan-Americana da Saúde. <a href="https://doi.org/10.37774/9789275731659">https://doi.org/10.37774/9789275731659</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->

@@ -1,13 +1,14 @@
-# Concentração média diária de PM2,5 {#sec-amb-ar-01 .unnumbered}
+# Concentração média diária de material particulado fino (PM2,5) {#sec-amb-ar-01 .unnumbered}
 
 ::: {.indicator-card}
-**Código:** AMB-AR-01  
-**Tema:** Qualidade do ar, queimadas e fumaça  
-**Dimensão:** perigo; exposição  
+**Código:** AMB-AR-01 \
+**Título resumido:** Concentração diária de PM2,5 \
+**Tema:** Qualidade do ar, queimadas e fumaça \
+**Dimensão:** perigo; exposição \
 **Disponibilidade:** [cálculo simples]{.availability}
 :::
 
-## Conceituação {.unnumbered}
+## Conceito {.unnumbered}
 
 Média das concentrações de partículas com diâmetro aerodinâmico igual ou inferior a 2,5 micrômetros em uma janela diária declarada.
 
@@ -31,6 +32,11 @@ Valores maiores indicam maior concentração ambiental estimada ou observada. A 
 - Produtos modelados e observações de superfície têm incertezas diferentes.
 - A média diária não descreve picos intradiários.
 
+## Fontes de dados {.unnumbered}
+
+- Redes de monitoramento da qualidade do ar — observação primária ([cadastro](../../backmatter/indice-fontes.qmd#redes-qualidade-ar))
+- Copernicus Atmosphere Monitoring Service — fonte secundária modelada ([cadastro](../../backmatter/indice-fontes.qmd#cams))
+
 ## Método de cálculo {.unnumbered}
 
 Calcular a média aritmética das concentrações válidas na janela diária, aplicando o critério mínimo de completude definido pelo protocolo ou pela rede de monitoramento.
@@ -40,107 +46,68 @@ $$
 $$
 
 ::: {.indicator-card}
-**Numerador.**
+**Numerador.** Soma das concentrações válidas de PM2,5 na janela diária.
 
-Soma das concentrações válidas de PM2,5 na janela diária.
+**Denominador.** Número de observações válidas na janela diária.
 
-**Denominador.**
+**Unidade de medida.** Micrograma por metro cúbico (µg/m³), quando adotada pela fonte.
 
-Número de observações válidas na janela diária.
+**Variáveis e categorias de análise.** Faixa de concentração; estação; território; origem do dado; episódio de fumaça.
 
-**Unidade de medida.**
+**Granularidade.** Ponto de monitoramento ou célula de grade; agregações territoriais exigem método explícito.
 
-Micrograma por metro cúbico (µg/m³), quando adotada pela fonte.
+**Periodicidade de atualização.** TODO: verificar para cada fonte.
 
-**Categorias para análise.**
+**Responsabilidade gerencial.** A definir pela instituição que adotar o indicador e pelo arranjo de monitoramento aplicável ao território.
 
-Faixa de concentração; estação; território; origem do dado; episódio de fumaça.
+**Notas.** A fonte “redes de qualidade do ar” permanece como cadastro editorial pendente de escolha da rede aplicável ao território.
 
-**Unidade territorial.**
-
-Ponto de monitoramento, célula de grade ou território agregado.
-
-**Resolução espacial original.**
-
-Depende da rede ou do produto atmosférico.
-
-**Resolução temporal.**
-
-Diária, derivada de valores intradiários.
-
-**Período de referência.**
-
-Declarar fuso, janela diária e critério de completude.
-
-**Limiar ou valor de referência.**
-
-TODO: selecionar e citar a norma ou diretriz vigente aplicável.
+**Análise descritiva do indicador.** Não incluída nesta ficha demonstrativa. TODO: produzir somente após selecionar rede ou produto, critério de completude, território, período, série validada e visualização correspondente.
 
 :::
 
-## Fontes e disponibilidade {.unnumbered}
+## Campos complementares para clima, ambiente e saúde {.unnumbered}
 
-**Fonte primária:** Redes de monitoramento da qualidade do ar.
+::: {.indicator-card}
+**Unidade territorial.** Ponto de monitoramento, célula de grade ou território agregado.
 
-**Fonte secundária:** Copernicus Atmosphere Monitoring Service.
+**Resolução espacial original.** Depende da rede ou do produto atmosférico.
 
-**Instituição responsável.**
+**Resolução temporal.** Diária, derivada de valores intradiários.
 
-A definir conforme a rede ou produto utilizado.
+**Período de referência.** Declarar fuso, janela diária e critério de completude.
 
-**Cobertura geográfica.**
+**Limiar ou valor de referência.** TODO: selecionar e citar a norma ou diretriz vigente aplicável.
 
-Heterogênea para estações; depende do domínio para produtos modelados.
+:::
 
-**Período disponível.**
+## Disponibilidade e acesso {.unnumbered}
 
-TODO: verificar para cada fonte.
+**Cobertura geográfica.** Heterogênea para estações; depende do domínio para produtos modelados.
 
-**Periodicidade de atualização.**
+**Período disponível.** TODO: verificar para cada fonte.
 
-TODO: verificar para cada fonte.
+**Periodicidade de atualização.** TODO: verificar para cada fonte.
 
-**Forma de acesso.**
+**Forma de acesso.** Consulta, download ou serviço de dados, conforme a fonte.
 
-Consulta, download ou serviço de dados, conforme a fonte.
+**URL ou identificador persistente.** TODO: registrar o identificador do conjunto e da versão utilizados.
 
-**URL ou identificador persistente.**
+**Formato dos arquivos.** Depende da fonte.
 
-TODO: registrar o identificador do conjunto e da versão utilizados.
-
-**Formato dos arquivos.**
-
-Depende da fonte.
-
-**Necessidade de processamento.**
-
-Requer controle de qualidade, critério de completude e agregação diária; grades exigem método territorial explícito.
+**Necessidade de processamento.** Requer controle de qualidade, critério de completude e agregação diária; grades exigem método territorial explícito.
 
 ## Qualidade, comparação e saúde {.unnumbered}
 
-**Qualidade e incerteza.**
+**Qualidade e incerteza.** Documentar calibração, método de medição, completude, representatividade espacial e incerteza de modelos.
 
-Documentar calibração, método de medição, completude, representatividade espacial e incerteza de modelos.
+**Possibilidade de comparação.** Harmonizar método, unidade, critério de completude, localização, versão e suporte espacial.
 
-**Possibilidade de comparação.**
+**Relação com desfechos de saúde.** Pode representar exposição ambiental em estudos de desfechos respiratórios, cardiovasculares e outros; não substitui avaliação de exposição individual.
 
-Harmonizar método, unidade, critério de completude, localização, versão e suporte espacial.
+**Defasagens temporais relevantes.** Definir a priori segundo desfecho e desenho, avaliando defasagens e médias móveis quando justificadas.
 
-**Relação com desfechos de saúde.**
-
-Pode representar exposição ambiental em estudos de desfechos respiratórios, cardiovasculares e outros; não substitui avaliação de exposição individual.
-
-**Defasagens temporais relevantes.**
-
-Definir a priori segundo desfecho e desenho, avaliando defasagens e médias móveis quando justificadas.
-
-**Aplicação na gestão.**
-
-Apoiar boletins, alertas, orientação a grupos sensíveis e avaliação de episódios de fumaça.
-
-**Observações.**
-
-A fonte “redes de qualidade do ar” permanece como cadastro editorial pendente de escolha da rede aplicável ao território.
+**Aplicação na gestão.** Apoiar boletins, alertas, orientação a grupos sensíveis e avaliação de episódios de fumaça.
 
 ## Referências {.unnumbered}
 

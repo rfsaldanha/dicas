@@ -33,7 +33,8 @@ required <- c(
   "docs/diagnostico-repositorios.md", "docs/arquitetura.md",
   "docs/arquitetura-fichas.md", "docs/guia-editorial.md",
   "docs/guia-de-compilacao.md", "docs/fontes-de-dados.md",
-  "docs/relatorio-implementacao.md"
+  "docs/relatorio-implementacao.md", "docs/guia-de-revisao.md",
+  "docs/relatorio-versao-para-revisao.md"
 )
 invisible(lapply(required, check_file))
 
@@ -75,27 +76,61 @@ pdf <- "_output/print/dados-indicadores-clima-ambiente-saude.pdf"
 check_file(file.path(html_root, "index.html"))
 check_file(file.path(html_root, "search.json"))
 check_file(pdf)
+home_html <- paste(readLines(file.path(html_root, "index.html"), warn = FALSE, encoding = "UTF-8"), collapse = "\n")
+search_index <- paste(readLines(file.path(html_root, "search.json"), warn = FALSE, encoding = "UTF-8"), collapse = "\n")
+if (!grepl("quarto-search", home_html, fixed = TRUE)) {
+  fail("A interface de busca não foi localizada na página inicial.")
+}
+if (!grepl("Temperatura máxima diária", search_index, fixed = TRUE)) {
+  fail("A ficha CLI-TEM-01 não foi localizada no índice de busca.")
+}
 
 html_files <- list.files(html_root, pattern = "\\.html$", recursive = TRUE, full.names = TRUE)
 broken <- character()
+broken_anchors <- character()
+unresolved_html <- character()
 for (path in html_files) {
   html <- paste(readLines(path, warn = FALSE, encoding = "UTF-8"), collapse = "\n")
   hrefs <- regmatches(html, gregexpr('href="[^"]+"', html, perl = TRUE))[[1L]]
   if (!length(hrefs) || identical(hrefs, "-1")) next
   hrefs <- substring(hrefs, 7L, nchar(hrefs) - 1L)
   local <- hrefs[
-    !grepl("^(https?:|mailto:|tel:|javascript:|#|/)", hrefs) &
-      !grepl("^data:", hrefs)
+    !grepl("^(https?:|mailto:|tel:|javascript:|/)", hrefs) &
+      !grepl("^data:", hrefs) &
+      hrefs != "#"
   ]
-  local <- sub("[?#].*$", "", local)
-  local <- local[nzchar(local)]
   for (target in unique(local)) {
-    resolved <- file.path(dirname(path), utils::URLdecode(target))
-    if (!file.exists(resolved)) broken <- c(broken, paste0(path, " -> ", target))
+    target_file <- sub("[?#].*$", "", target)
+    fragment <- if (grepl("#", target, fixed = TRUE)) sub("^[^#]*#", "", target) else ""
+    resolved <- if (nzchar(target_file)) {
+      file.path(dirname(path), utils::URLdecode(target_file))
+    } else {
+      path
+    }
+    if (!file.exists(resolved)) {
+      broken <- c(broken, paste0(path, " -> ", target))
+      next
+    }
+    if (nzchar(fragment) && grepl("\\.html$", resolved, ignore.case = TRUE)) {
+      target_html <- paste(readLines(resolved, warn = FALSE, encoding = "UTF-8"), collapse = "\n")
+      decoded_fragment <- utils::URLdecode(fragment)
+      if (!grepl(paste0('id="', decoded_fragment, '"'), target_html, fixed = TRUE)) {
+        broken_anchors <- c(broken_anchors, paste0(path, " -> ", target))
+      }
+    }
+  }
+  if (grepl("@(sec|fig|tbl|qua)-[[:alnum:]_.:-]+", html, perl = TRUE)) {
+    unresolved_html <- c(unresolved_html, path)
   }
 }
 if (length(broken)) {
   fail("Links internos quebrados no HTML:\n", paste(unique(broken), collapse = "\n"))
+}
+if (length(broken_anchors)) {
+  fail("Âncoras internas quebradas no HTML:\n", paste(unique(broken_anchors), collapse = "\n"))
+}
+if (length(unresolved_html)) {
+  fail("Referências cruzadas não resolvidas no HTML:\n", paste(unique(unresolved_html), collapse = "\n"))
 }
 
 pdf_status <- system2("sh", c("scripts/check_pdf.sh", pdf))
@@ -103,6 +138,5 @@ if (pdf_status != 0L) fail("O pré-voo do PDF falhou.")
 
 message(
   "Projeto validado: 14 capítulos; 3 fichas; HTML com ",
-  length(html_files), " páginas; PDF presente."
+  length(html_files), " páginas; links e âncoras íntegros; PDF presente."
 )
-

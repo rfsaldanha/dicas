@@ -10,6 +10,8 @@ Os registros ficam em `sources/data/sources.yml`. O índice e os quadros são ge
 
 Campos sem confirmação usam `TODO: verificar`. A data de verificação não transforma um cadastro incompleto em fonte validada; ela informa quando a página ou documentação foi consultada.
 
+Cada cadastro identifica primeiro o objeto descrito em `tipo_registro`: instituição, unidade institucional, programa, sistema de informação, plataforma, base de dados, produto, serviço ou cadastro provisório. Recursos associados são classificados separadamente em `recursos_relacionados`; APIs têm campo próprio. Assim, o portal de uma instituição não é tratado como se fosse a base ou o produto usado no cálculo.
+
 ## Registros iniciais
 
 Foram criados registros para INMET, CPTEC/INPE, CEMADEN, Climate Data Store, ERA5-Land, CAMS, MapBiomas, Programa Queimadas, Vigiagua/Sisagua, SINISA, S2iD, IBGE, DATASUS e um registro provisório para redes de qualidade do ar.
@@ -39,4 +41,3 @@ Antes de publicar uma característica:
 - registre data e responsável pela verificação.
 
 O processo de compilação não consulta serviços externos. Isso mantém a construção reproduzível e permite que indisponibilidade temporária de um portal não interrompa o livro.
-

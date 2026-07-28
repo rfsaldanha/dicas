@@ -18,6 +18,17 @@ as_text <- function(value, fallback = "Não se aplica.") {
 as_list <- function(value) {
   if (is.null(value) || !length(value)) character() else as.character(unlist(value, use.names = FALSE))
 }
+source_entries <- function(value, indicator_code = "") {
+  if (is.null(value) || !length(value)) {
+    fail("A ficha ", indicator_code, " não declara fontes_dados.")
+  }
+  lapply(value, function(entry) {
+    if (!is.list(entry) || is.null(entry$id) || is.null(entry$papel)) {
+      fail("Cada item de fontes_dados deve conter id e papel na ficha ", indicator_code, ".")
+    }
+    list(id = as.character(entry$id), papel = as.character(entry$papel))
+  })
+}
 md_list <- function(value) {
   items <- as_list(value)
   if (!length(items)) return("- Não se aplica.")
@@ -35,10 +46,12 @@ if (!requireNamespace("yaml", quietly = TRUE)) {
 if (!length(yaml_files)) fail("Nenhuma ficha encontrada em indicators/data.")
 
 required_indicator <- c(
-  "codigo", "denominacao", "tema", "definicao", "objetivo", "interpretacao",
-  "usos", "limitacoes", "dimensoes", "metodo_calculo", "formula",
-  "unidade_medida", "unidade_territorial", "resolucao_temporal",
-  "fontes_primarias", "disponibilidade", "qualidade_incerteza",
+  "codigo", "titulo_completo", "titulo_resumido", "conceito", "interpretacao",
+  "usos", "limitacoes", "fontes_dados", "formula_calculo", "metodo_calculo",
+  "variaveis_categorias_analise", "granularidade", "periodicidade_atualizacao",
+  "responsabilidade_gerencial", "notas", "analise_descritiva",
+  "tema", "objetivo", "dimensoes", "unidade_medida", "unidade_territorial",
+  "resolucao_temporal", "disponibilidade", "qualidade_incerteza",
   "comparabilidade", "relacao_saude", "aplicacao_gestao"
 )
 
@@ -49,6 +62,7 @@ for (name in names(indicators)) {
   if (length(missing)) {
     fail("Campos obrigatórios ausentes em ", name, ": ", paste(missing, collapse = ", "), ".")
   }
+  source_entries(indicators[[name]]$fontes_dados, indicators[[name]]$codigo)
 }
 codes <- vapply(indicators, function(x) as.character(x$codigo), character(1L))
 if (anyDuplicated(codes)) fail("Códigos duplicados: ", paste(unique(codes[duplicated(codes)]), collapse = ", "), ".")
@@ -59,7 +73,8 @@ if (any(!grepl("^[A-Z]{3}-[A-Z]{2,3}-[0-9]{2}$", codes))) {
 source_path <- file.path(root, "sources", "data", "sources.yml")
 sources <- yaml::read_yaml(source_path)
 required_source <- c(
-  "id", "nome", "instituicao", "descricao", "temas", "variaveis",
+  "id", "tipo_registro", "nome", "instituicao", "descricao", "recursos_relacionados",
+  "temas", "variaveis",
   "cobertura_geografica", "resolucao_espacial", "resolucao_temporal",
   "periodo_disponivel", "atualizacao", "acesso", "url", "limitacoes",
   "ultima_verificacao", "indicadores"
@@ -73,9 +88,24 @@ for (i in seq_along(sources)) {
 source_ids <- vapply(sources, function(x) as.character(x$id), character(1L))
 if (anyDuplicated(source_ids)) fail("IDs de fontes duplicados.")
 source_by_id <- setNames(sources, source_ids)
+source_types <- c(
+  "instituição", "unidade institucional", "programa", "sistema de informação",
+  "plataforma", "base de dados", "produto", "serviço", "cadastro provisório"
+)
+invalid_source_types <- vapply(
+  sources,
+  function(x) !as.character(x$tipo_registro) %in% source_types,
+  logical(1L)
+)
+if (any(invalid_source_types)) {
+  fail(
+    "Tipo de registro inválido em: ",
+    paste(source_ids[invalid_source_types], collapse = ", "), "."
+  )
+}
 
 declared_source_ids <- unique(unlist(lapply(indicators, function(x) {
-  c(as_list(x$fontes_primarias), as_list(x$fontes_secundarias))
+  vapply(source_entries(x$fontes_dados, x$codigo), function(entry) entry$id, character(1L))
 }), use.names = FALSE))
 unknown_sources <- setdiff(declared_source_ids, source_ids)
 if (length(unknown_sources)) {
@@ -83,24 +113,32 @@ if (length(unknown_sources)) {
 }
 
 field <- function(label, value) {
-  c(paste0("**", label, ".**"), "", as_text(value), "")
+  c(paste0("**", label, ".** ", as_text(value)), "")
 }
 
 for (indicator in indicators) {
   slug <- tolower(as.character(indicator$codigo))
+  entries <- source_entries(indicator$fontes_dados, indicator$codigo)
+  source_lines <- vapply(entries, function(entry) {
+    paste0(
+      "- ", source_by_id[[entry$id]]$nome, " — ", entry$papel,
+      " ([cadastro](../../backmatter/indice-fontes.qmd#", entry$id, "))"
+    )
+  }, character(1L))
   page <- c(
-    paste0("# ", indicator$denominacao, " {#sec-", slug, " .unnumbered}"),
+    paste0("# ", indicator$titulo_completo, " {#sec-", slug, " .unnumbered}"),
     "",
     "::: {.indicator-card}",
-    paste0("**Código:** ", indicator$codigo, "  "),
-    paste0("**Tema:** ", indicator$tema, "  "),
-    paste0("**Dimensão:** ", paste(as_list(indicator$dimensoes), collapse = "; "), "  "),
+    paste0("**Código:** ", indicator$codigo, " \\"),
+    paste0("**Título resumido:** ", indicator$titulo_resumido, " \\"),
+    paste0("**Tema:** ", indicator$tema, " \\"),
+    paste0("**Dimensão:** ", paste(as_list(indicator$dimensoes), collapse = "; "), " \\"),
     paste0("**Disponibilidade:** ", paste0("[", as_list(indicator$disponibilidade), "]{.availability}", collapse = " ")),
     ":::",
     "",
-    "## Conceituação {.unnumbered}",
+    "## Conceito {.unnumbered}",
     "",
-    as_text(indicator$definicao),
+    as_text(indicator$conceito),
     "",
     "## Objetivo {.unnumbered}",
     "",
@@ -118,19 +156,33 @@ for (indicator in indicators) {
     "",
     md_list(indicator$limitacoes),
     "",
+    "## Fontes de dados {.unnumbered}",
+    "",
+    source_lines,
+    "",
     "## Método de cálculo {.unnumbered}",
     "",
     as_text(indicator$metodo_calculo),
     "",
     "$$",
-    as_text(indicator$formula),
+    as_text(indicator$formula_calculo),
     "$$",
     "",
     "::: {.indicator-card}",
     field("Numerador", indicator$numerador),
     field("Denominador", indicator$denominador),
     field("Unidade de medida", indicator$unidade_medida),
-    field("Categorias para análise", indicator$categorias_analise),
+    field("Variáveis e categorias de análise", indicator$variaveis_categorias_analise),
+    field("Granularidade", indicator$granularidade),
+    field("Periodicidade de atualização", indicator$periodicidade_atualizacao),
+    field("Responsabilidade gerencial", indicator$responsabilidade_gerencial),
+    field("Notas", indicator$notas),
+    field("Análise descritiva do indicador", indicator$analise_descritiva),
+    ":::",
+    "",
+    "## Campos complementares para clima, ambiente e saúde {.unnumbered}",
+    "",
+    "::: {.indicator-card}",
     field("Unidade territorial", indicator$unidade_territorial),
     field("Resolução espacial original", indicator$resolucao_espacial_original),
     field("Resolução temporal", indicator$resolucao_temporal),
@@ -138,21 +190,8 @@ for (indicator in indicators) {
     field("Limiar ou valor de referência", indicator$limiar_referencia),
     ":::",
     "",
-    "## Fontes e disponibilidade {.unnumbered}",
+    "## Disponibilidade e acesso {.unnumbered}",
     "",
-    paste0(
-      "**Fonte primária:** ",
-      paste(vapply(as_list(indicator$fontes_primarias), function(id) source_by_id[[id]]$nome, character(1L)), collapse = "; "),
-      "."
-    ),
-    "",
-    paste0(
-      "**Fonte secundária:** ",
-      paste(vapply(as_list(indicator$fontes_secundarias), function(id) source_by_id[[id]]$nome, character(1L)), collapse = "; "),
-      "."
-    ),
-    "",
-    field("Instituição responsável", indicator$instituicao_responsavel),
     field("Cobertura geográfica", indicator$cobertura_geografica),
     field("Período disponível", indicator$periodo_disponivel),
     field("Periodicidade de atualização", indicator$periodicidade_atualizacao),
@@ -167,7 +206,6 @@ for (indicator in indicators) {
     field("Relação com desfechos de saúde", indicator$relacao_saude),
     field("Defasagens temporais relevantes", indicator$defasagens_temporais),
     field("Aplicação na gestão", indicator$aplicacao_gestao),
-    field("Observações", indicator$observacoes),
     "## Referências {.unnumbered}",
     "",
     if (length(as_list(indicator$referencias))) md_list(indicator$referencias) else "Nenhuma referência incluída nesta versão demonstrativa. TODO: revisão bibliográfica."
@@ -179,17 +217,31 @@ indicator_rows <- vapply(indicators, function(x) {
   slug <- tolower(as.character(x$codigo))
   paste0(
     "| [", x$codigo, "](../indicators/pages/", slug, ".qmd) | ",
-    x$denominacao, " | ", x$tema, " | ",
+    x$titulo_completo, " | ", x$tema, " | ",
     paste(as_list(x$dimensoes), collapse = "; "), " | ",
     paste(as_list(x$disponibilidade), collapse = "; "), " |"
+  )
+}, character(1L))
+indicator_rows_print <- vapply(indicators, function(x) {
+  paste0(
+    "| ", x$codigo, " | ", x$titulo_resumido, " | ",
+    paste(as_list(x$dimensoes), collapse = "; "), " |"
   )
 }, character(1L))
 indicator_index <- c(
   "<!-- Arquivo gerado por scripts/build_catalogs.R. -->",
   "",
+  "::: {.content-visible when-format=\"html\"}",
   "| Código | Indicador | Tema | Dimensão | Disponibilidade |",
   "|---|---|---|---|---|",
-  indicator_rows
+  indicator_rows,
+  ":::",
+  "",
+  "::: {.content-visible when-format=\"typst\"}",
+  "| Código | Indicador | Dimensão |",
+  "|---|---|---|",
+  indicator_rows_print,
+  ":::"
 )
 write_utf8(indicator_index, file.path(root, "indicators", "generated-index.qmd"))
 
@@ -197,17 +249,30 @@ source_rows <- vapply(sources, function(x) {
   target <- as.character(x$url)
   linked_name <- if (grepl("^https?://", target)) paste0("[", x$nome, "](", target, ")") else x$nome
   paste0(
-    "| ", linked_name, " | ", x$instituicao, " | ",
+    "| ", linked_name, " | ", x$tipo_registro, " | ", x$instituicao, " | ",
     paste(as_list(x$temas), collapse = "; "), " | ",
     as.character(x$ultima_verificacao), " |"
+  )
+}, character(1L))
+source_rows_print <- vapply(sources, function(x) {
+  paste0(
+    "| ", x$nome, " | ", x$tipo_registro, " | ", x$instituicao, " |"
   )
 }, character(1L))
 source_index <- c(
   "<!-- Arquivo gerado por scripts/build_catalogs.R. -->",
   "",
-  "| Fonte | Instituição | Temas | Verificação |",
-  "|---|---|---|---|",
-  source_rows
+  "::: {.content-visible when-format=\"html\"}",
+  "| Fonte | Tipo de registro | Instituição responsável | Temas | Verificação |",
+  "|---|---|---|---|---|",
+  source_rows,
+  ":::",
+  "",
+  "::: {.content-visible when-format=\"typst\"}",
+  "| Fonte | Tipo de registro | Instituição responsável |",
+  "|---|---|---|",
+  source_rows_print,
+  ":::"
 )
 write_utf8(source_index, file.path(root, "sources", "generated", "index.qmd"))
 
@@ -217,21 +282,23 @@ source_cards <- unlist(lapply(sources, function(x) {
     "",
     as_text(x$descricao),
     "",
-    paste0("**Instituição:** ", x$instituicao, "  "),
-    paste0("**Temas:** ", paste(as_list(x$temas), collapse = "; "), "  "),
-    paste0("**Cobertura:** ", x$cobertura_geografica, "  "),
-    paste0("**Resolução espacial:** ", x$resolucao_espacial, "  "),
-    paste0("**Resolução temporal:** ", x$resolucao_temporal, "  "),
-    paste0("**Período:** ", x$periodo_disponivel, "  "),
-    paste0("**Atualização:** ", x$atualizacao, "  "),
-    paste0("**Acesso:** ", x$acesso, "  "),
-    paste0("**URL:** ", if (grepl("^https?://", x$url)) paste0("<", x$url, ">") else x$url, "  "),
-    paste0("**API:** ", as_text(x$api, "TODO: verificar."), "  "),
-    paste0("**Formatos:** ", paste(as_list(x$formatos), collapse = "; "), "  "),
-    paste0("**Licença:** ", as_text(x$licenca, "TODO: verificar."), "  "),
-    paste0("**Cadastro:** ", as_text(x$cadastro, "TODO: verificar."), "  "),
-    paste0("**Custos:** ", as_text(x$custos, "TODO: verificar."), "  "),
-    paste0("**Limitações:** ", x$limitacoes, "  "),
+    paste0("**Tipo de registro:** ", x$tipo_registro, " \\"),
+    paste0("**Instituição:** ", x$instituicao, " \\"),
+    paste0("**Recursos relacionados:** ", paste(as_list(x$recursos_relacionados), collapse = "; "), " \\"),
+    paste0("**Temas:** ", paste(as_list(x$temas), collapse = "; "), " \\"),
+    paste0("**Cobertura:** ", x$cobertura_geografica, " \\"),
+    paste0("**Resolução espacial:** ", x$resolucao_espacial, " \\"),
+    paste0("**Resolução temporal:** ", x$resolucao_temporal, " \\"),
+    paste0("**Período:** ", x$periodo_disponivel, " \\"),
+    paste0("**Atualização:** ", x$atualizacao, " \\"),
+    paste0("**Acesso:** ", x$acesso, " \\"),
+    paste0("**URL:** ", if (grepl("^https?://", x$url)) paste0("<", x$url, ">") else x$url, " \\"),
+    paste0("**API:** ", as_text(x$api, "TODO: verificar."), " \\"),
+    paste0("**Formatos:** ", paste(as_list(x$formatos), collapse = "; "), " \\"),
+    paste0("**Licença:** ", as_text(x$licenca, "TODO: verificar."), " \\"),
+    paste0("**Cadastro:** ", as_text(x$cadastro, "TODO: verificar."), " \\"),
+    paste0("**Custos:** ", as_text(x$custos, "TODO: verificar."), " \\"),
+    paste0("**Limitações:** ", x$limitacoes, " \\"),
     paste0("**Última verificação:** ", x$ultima_verificacao),
     ""
   )

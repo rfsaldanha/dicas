@@ -1,12 +1,14 @@
 # Dados e Indicadores de Clima e Ambiente para a Saúde
 
-Livro técnico em Quarto sobre dados e indicadores aplicáveis à vigilância, ao planejamento e à gestão pública. O projeto produz uma versão digital responsiva e um PDF de 155 × 230 mm preparado como protótipo de impressão.
+Livro técnico em Quarto sobre dados e indicadores aplicáveis à vigilância, ao planejamento e à gestão pública. O projeto produz uma versão digital responsiva e um PDF de 155 × 230 mm preparado para revisão editorial.
 
 O público principal inclui profissionais de secretarias de saúde, vigilância em saúde ambiental, epidemiologia, planejamento, pesquisa e ensino em saúde coletiva.
 
 ## Estado do projeto
 
 Esta é a versão editorial 0.1.0. A arquitetura e os 14 capítulos estão criados. Dois capítulos-modelo, três fichas e 14 registros de fontes demonstram o fluxo completo. Os demais capítulos preservam marcadores `TODO` para que conteúdo não verificado não seja confundido com texto final.
+
+Comece pelo [guia de revisão](docs/guia-de-revisao.md) e consulte o [relatório da versão](docs/relatorio-versao-para-revisao.md).
 
 ## Estrutura
 
@@ -24,8 +26,8 @@ Esta é a versão editorial 0.1.0. A arquitetura e os 14 capítulos estão criad
 
 ## Requisitos
 
-- Quarto 1.8 ou superior; o protótipo foi validado com 1.10.18.
-- R; o protótipo foi validado com R 4.6.1.
+- Quarto 1.8 ou superior; a versão foi validada com 1.10.18.
+- R; a versão foi validada com R 4.6.1.
 - pacote R `yaml`;
 - Poppler (`pdfinfo`, `pdftotext` e `pdffonts`) para o pré-voo do PDF.
 

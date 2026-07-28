@@ -1,8 +1,10 @@
 - id: inmet
+  tipo_registro: instituição
   nome: Instituto Nacional de Meteorologia
   sigla: INMET
   instituicao: Ministério da Agricultura e Pecuária
   descricao: Portal institucional com monitoramento, estações, avisos e produtos meteorológicos.
+  recursos_relacionados: [Portal INMET — plataforma de acesso; estações e produtos meteorológicos — recursos a selecionar]
   temas: [temperatura, precipitação, eventos meteorológicos]
   variaveis: [temperatura do ar, precipitação, umidade, vento, pressão]
   cobertura_geografica: Brasil
@@ -22,10 +24,12 @@
   indicadores: [CLI-TEM-01, CLI-CAL-01]
 
 - id: cptec
+  tipo_registro: unidade institucional
   nome: Centro de Previsão de Tempo e Estudos Climáticos
   sigla: CPTEC/INPE
   instituicao: Instituto Nacional de Pesquisas Espaciais
   descricao: Produtos e serviços de previsão do tempo, clima e modelagem numérica.
+  recursos_relacionados: [Portal CPTEC — plataforma de acesso; serviço XML — API]
   temas: [tempo, clima, previsão]
   variaveis: ["TODO: detalhar por produto."]
   cobertura_geografica: "TODO: verificar por produto."
@@ -45,10 +49,12 @@
   indicadores: []
 
 - id: cemaden
+  tipo_registro: instituição
   nome: Centro Nacional de Monitoramento e Alertas de Desastres Naturais
   sigla: CEMADEN
   instituicao: Ministério da Ciência, Tecnologia e Inovação
   descricao: Rede observacional e produtos voltados ao monitoramento e a alertas de riscos de desastres.
+  recursos_relacionados: [Mapa interativo — painel; rede de pluviômetros — base observacional]
   temas: [precipitação, hidrologia, desastres]
   variaveis: [precipitação, "TODO: detalhar demais redes."]
   cobertura_geografica: Brasil; cobertura efetiva depende da rede.
@@ -68,10 +74,12 @@
   indicadores: []
 
 - id: cds
+  tipo_registro: plataforma
   nome: Copernicus Climate Data Store
   sigla: CDS
   instituicao: Copernicus Climate Change Service
   descricao: Catálogo e serviço de acesso a conjuntos de dados climáticos.
+  recursos_relacionados: [Catálogo CDS — plataforma; conjuntos de dados — bases e produtos selecionados separadamente]
   temas: [clima, reanálise, projeção]
   variaveis: ["TODO: detalhar por conjunto."]
   cobertura_geografica: "TODO: verificar por conjunto."
@@ -91,10 +99,12 @@
   indicadores: []
 
 - id: era5-land
+  tipo_registro: produto
   nome: ERA5-Land
   sigla: ERA5-Land
   instituicao: Copernicus Climate Change Service
   descricao: Reanálise de variáveis terrestres; não corresponde a observação direta de estação.
+  recursos_relacionados: [ERA5-Land — produto de reanálise; Climate Data Store — plataforma de acesso]
   temas: [temperatura, precipitação, reanálise]
   variaveis: ["TODO: selecionar e documentar as variáveis usadas."]
   cobertura_geografica: Global.
@@ -114,10 +124,12 @@
   indicadores: [CLI-TEM-01, CLI-CAL-01]
 
 - id: cams
+  tipo_registro: serviço
   nome: Copernicus Atmosphere Monitoring Service
   sigla: CAMS
   instituicao: Copernicus / ECMWF
   descricao: Serviço de dados e produtos sobre composição atmosférica.
+  recursos_relacionados: [Catálogo CAMS — plataforma de acesso; conjuntos atmosféricos — bases e produtos a selecionar]
   temas: [qualidade do ar, composição atmosférica, fumaça]
   variaveis: ["TODO: detalhar por conjunto e produto."]
   cobertura_geografica: "TODO: verificar por conjunto."
@@ -137,10 +149,12 @@
   indicadores: [AMB-AR-01]
 
 - id: mapbiomas
+  tipo_registro: plataforma
   nome: MapBiomas Brasil
   sigla: MapBiomas
   instituicao: Rede MapBiomas
   descricao: Plataforma de mapas e estatísticas de cobertura e uso da terra e outros temas ambientais.
+  recursos_relacionados: [Coleções MapBiomas — produtos versionados; página de downloads — plataforma de acesso]
   temas: [uso da terra, cobertura da terra, fogo, água]
   variaveis: ["TODO: detalhar por coleção."]
   cobertura_geografica: Brasil para as coleções nacionais.
@@ -160,10 +174,12 @@
   indicadores: []
 
 - id: queimadas-inpe
+  tipo_registro: programa
   nome: Programa Queimadas do INPE
   sigla: Programa Queimadas
   instituicao: Instituto Nacional de Pesquisas Espaciais
   descricao: Monitoramento por satélite de fogo ativo, risco, extensão e severidade do fogo na vegetação.
+  recursos_relacionados: [Portal do Programa Queimadas — plataforma; focos e demais produtos — bases e produtos a selecionar]
   temas: [queimadas, incêndios florestais, fumaça]
   variaveis: [focos de fogo ativo, risco de fogo, "TODO: detalhar por produto."]
   cobertura_geografica: "TODO: verificar por produto."
@@ -183,10 +199,12 @@
   indicadores: []
 
 - id: vigiagua
+  tipo_registro: programa
   nome: Programa Nacional de Vigilância da Qualidade da Água para Consumo Humano
   sigla: Vigiagua / Sisagua
   instituicao: Ministério da Saúde
   descricao: Programa de vigilância da qualidade da água; o Sisagua apoia o gerenciamento de riscos e a disseminação de informações.
+  recursos_relacionados: [Sisagua — sistema de informação; painéis públicos — recursos de consulta; Portal de Dados Abertos do SUS — plataforma]
   temas: [água, qualidade da água, vigilância ambiental]
   variaveis: [parâmetros de qualidade da água, formas de abastecimento]
   cobertura_geografica: Municípios brasileiros, condicionada ao registro.
@@ -206,10 +224,12 @@
   indicadores: []
 
 - id: sinisa
+  tipo_registro: sistema de informação
   nome: Sistema Nacional de Informações em Saneamento Básico
   sigla: SINISA
   instituicao: Ministério das Cidades
   descricao: Sistema instituído para coletar, sistematizar e disponibilizar dados e indicadores de saneamento básico.
+  recursos_relacionados: [Módulos do SINISA — bases e produtos a selecionar; portal institucional — plataforma de acesso]
   temas: [saneamento, água, esgoto, resíduos, drenagem]
   variaveis: ["TODO: detalhar por módulo."]
   cobertura_geografica: Brasil.
@@ -229,10 +249,12 @@
   indicadores: []
 
 - id: s2id
+  tipo_registro: sistema de informação
   nome: Sistema Integrado de Informações sobre Desastres
   sigla: S2iD
   instituicao: Secretaria Nacional de Proteção e Defesa Civil
   descricao: Plataforma para registros, processos e informações sistematizadas sobre riscos e desastres.
+  recursos_relacionados: [S2iD — sistema de informação; relatórios públicos — produtos; área autenticada — interface operacional]
   temas: [desastres, danos, resposta, recuperação]
   variaveis: [ocorrências, danos, prejuízos, reconhecimentos, ações de resposta]
   cobertura_geografica: Brasil.
@@ -252,10 +274,12 @@
   indicadores: []
 
 - id: ibge
+  tipo_registro: instituição
   nome: Instituto Brasileiro de Geografia e Estatística
   sigla: IBGE
   instituicao: Instituto Brasileiro de Geografia e Estatística
   descricao: Provedor oficial de informações estatísticas, geográficas e ambientais do Brasil.
+  recursos_relacionados: [SIDRA — plataforma e API; pesquisas e produtos geocientíficos — bases e produtos a selecionar]
   temas: [população, território, ambiente, vulnerabilidade]
   variaveis: ["TODO: detalhar por pesquisa ou produto."]
   cobertura_geografica: Brasil.
@@ -275,10 +299,12 @@
   indicadores: []
 
 - id: datasus
+  tipo_registro: unidade institucional
   nome: Departamento de Informática do Sistema Único de Saúde
   sigla: DATASUS
   instituicao: Ministério da Saúde
   descricao: Dissemina informações de saúde, demográficas e socioeconômicas, incluindo consultas TABNET.
+  recursos_relacionados: [TABNET — plataforma de consulta; sistemas de informação em saúde — bases a selecionar; painéis — produtos a selecionar]
   temas: [mortalidade, morbidade, assistência, estabelecimentos]
   variaveis: ["TODO: detalhar por sistema de informação."]
   cobertura_geografica: Brasil; detalhamento varia por sistema.
@@ -298,10 +324,12 @@
   indicadores: []
 
 - id: redes-qualidade-ar
+  tipo_registro: cadastro provisório
   nome: Redes de monitoramento da qualidade do ar
   sigla: "—"
   instituicao: Órgãos ambientais responsáveis no território analisado
   descricao: Cadastro editorial provisório para redes de estações de qualidade do ar.
+  recursos_relacionados: [Rede territorial — instituição e base ainda não selecionadas; painel e API — verificar após a seleção]
   temas: [qualidade do ar]
   variaveis: [PM2,5, PM10, ozônio, dióxido de nitrogênio, dióxido de enxofre, monóxido de carbono]
   cobertura_geografica: "TODO: selecionar a rede aplicável."

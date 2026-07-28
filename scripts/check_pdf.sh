@@ -39,7 +39,9 @@ if command -v pdftotext >/dev/null 2>&1; then
   pdftotext -layout "$pdf" "$text_file"
   for title in "Ficha técnica" "Apresentação" "Lista de siglas" "Sumário" \
     "Dados, variáveis, índices e" "Temperatura e condições" \
-    "Temperatura máxima diária" "Referências" "Índice de fontes de dados"; do
+    "Temperatura máxima diária" "Título resumido" "Responsabilidade gerencial" \
+    "Análise descritiva do indicador" "Tipo de registro" \
+    "Referências" "Índice de fontes de dados"; do
     if ! grep -F "$title" "$text_file" >/dev/null; then
       printf 'Elemento esperado ausente no PDF: %s\n' "$title" >&2
       exit 1

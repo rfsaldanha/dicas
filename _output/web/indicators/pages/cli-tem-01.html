@@ -507,13 +507,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../indicators/pages/cli-cal-01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Onda de calor</span></a>
+ <span class="menu-text">Ocorrência de onda de calor</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../indicators/pages/amb-ar-01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Concentração média diária de PM2,5</span></a>
+ <span class="menu-text">Concentração média diária de material particulado fino (PM2,5)</span></a>
   </div>
 </li>
       </ul>
@@ -593,13 +593,15 @@ window.Quarto = {
     <h2 id="toc-title">Índice</h2>
    
   <ul>
-  <li><a href="#conceituação" id="toc-conceituação" class="nav-link active" data-scroll-target="#conceituação">Conceituação</a></li>
+  <li><a href="#conceito" id="toc-conceito" class="nav-link active" data-scroll-target="#conceito">Conceito</a></li>
   <li><a href="#objetivo" id="toc-objetivo" class="nav-link" data-scroll-target="#objetivo">Objetivo</a></li>
   <li><a href="#interpretação" id="toc-interpretação" class="nav-link" data-scroll-target="#interpretação">Interpretação</a></li>
   <li><a href="#usos" id="toc-usos" class="nav-link" data-scroll-target="#usos">Usos</a></li>
   <li><a href="#limitações" id="toc-limitações" class="nav-link" data-scroll-target="#limitações">Limitações</a></li>
+  <li><a href="#fontes-de-dados" id="toc-fontes-de-dados" class="nav-link" data-scroll-target="#fontes-de-dados">Fontes de dados</a></li>
   <li><a href="#método-de-cálculo" id="toc-método-de-cálculo" class="nav-link" data-scroll-target="#método-de-cálculo">Método de cálculo</a></li>
-  <li><a href="#fontes-e-disponibilidade" id="toc-fontes-e-disponibilidade" class="nav-link" data-scroll-target="#fontes-e-disponibilidade">Fontes e disponibilidade</a></li>
+  <li><a href="#campos-complementares-para-clima-ambiente-e-saúde" id="toc-campos-complementares-para-clima-ambiente-e-saúde" class="nav-link" data-scroll-target="#campos-complementares-para-clima-ambiente-e-saúde">Campos complementares para clima, ambiente e saúde</a></li>
+  <li><a href="#disponibilidade-e-acesso" id="toc-disponibilidade-e-acesso" class="nav-link" data-scroll-target="#disponibilidade-e-acesso">Disponibilidade e acesso</a></li>
   <li><a href="#qualidade-comparação-e-saúde" id="toc-qualidade-comparação-e-saúde" class="nav-link" data-scroll-target="#qualidade-comparação-e-saúde">Qualidade, comparação e saúde</a></li>
   <li><a href="#referências" id="toc-referências" class="nav-link" data-scroll-target="#referências">Referências</a></li>
   </ul>
@@ -630,12 +632,13 @@ window.Quarto = {
 
 <div class="indicator-card">
 <p><strong>Código:</strong> CLI-TEM-01<br>
+<strong>Título resumido:</strong> Temperatura máxima<br>
 <strong>Tema:</strong> Temperatura e condições térmicas<br>
 <strong>Dimensão:</strong> perigo; exposição<br>
 <strong>Disponibilidade:</strong> <span class="availability">cálculo simples</span></p>
 </div>
-<section id="conceituação" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="conceituação">Conceituação</h2>
+<section id="conceito" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="conceito">Conceito</h2>
 <p>Maior valor de temperatura do ar observado ou estimado em um dia, segundo a fonte, o método e a janela diária declarados.</p>
 </section>
 <section id="objetivo" class="level2 unnumbered">
@@ -662,6 +665,13 @@ window.Quarto = {
 <li>A temperatura do ar isoladamente não representa conforto térmico nem risco individual.</li>
 </ul>
 </section>
+<section id="fontes-de-dados" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="fontes-de-dados">Fontes de dados</h2>
+<ul>
+<li>Instituto Nacional de Meteorologia — observação primária (<a href="../../backmatter/indice-fontes.html#inmet">cadastro</a>)</li>
+<li>ERA5-Land — fonte secundária modelada (<a href="../../backmatter/indice-fontes.html#era5-land">cadastro</a>)</li>
+</ul>
+</section>
 <section id="método-de-cálculo" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="método-de-cálculo">Método de cálculo</h2>
 <p>Selecionar o maior valor de temperatura do ar dentro da janela diária definida, após aplicar os procedimentos de controle de qualidade compatíveis com a fonte.</p>
@@ -669,61 +679,44 @@ window.Quarto = {
 T_{\max,d} = \max(T_{d,1}, T_{d,2}, \ldots, T_{d,n})
 \]</span></p>
 <div class="indicator-card">
-<p><strong>Numerador.</strong></p>
-<p>Não se aplica.</p>
-<p><strong>Denominador.</strong></p>
-<p>Não se aplica.</p>
-<p><strong>Unidade de medida.</strong></p>
-<p>Grau Celsius (°C), quando a fonte estiver expressa nessa unidade.</p>
-<p><strong>Categorias para análise.</strong></p>
-<p>Estação do ano; mês; território; faixa de percentil; condição urbana ou rural.</p>
-<p><strong>Unidade territorial.</strong></p>
-<p>Ponto de estação, célula de grade ou território agregado.</p>
-<p><strong>Resolução espacial original.</strong></p>
-<p>Depende da fonte selecionada; deve ser preservada nos metadados analíticos.</p>
-<p><strong>Resolução temporal.</strong></p>
-<p>Diária, derivada de observações ou estimativas subdiárias.</p>
-<p><strong>Período de referência.</strong></p>
-<p>Declarar a janela diária, o fuso horário e o período climatológico usado nas comparações.</p>
-<p><strong>Limiar ou valor de referência.</strong></p>
-<p>Não há um limiar universal; definir conforme finalidade, população e climatologia local.</p>
+<p><strong>Numerador.</strong> Não se aplica.</p>
+<p><strong>Denominador.</strong> Não se aplica.</p>
+<p><strong>Unidade de medida.</strong> Grau Celsius (°C), quando a fonte estiver expressa nessa unidade.</p>
+<p><strong>Variáveis e categorias de análise.</strong> Estação do ano; mês; território; faixa de percentil; condição urbana ou rural.</p>
+<p><strong>Granularidade.</strong> Ponto de estação ou célula de grade; agregações territoriais exigem método explícito.</p>
+<p><strong>Periodicidade de atualização.</strong> TODO: verificar para cada conjunto de dados.</p>
+<p><strong>Responsabilidade gerencial.</strong> A definir pela instituição que adotar o indicador; a fonte de dados não determina, por si só, a unidade gestora.</p>
+<p><strong>Notas.</strong> Variável meteorológica transformada em indicador somente quando vinculada a finalidade, método, território e interpretação explícitos.</p>
+<p><strong>Análise descritiva do indicador.</strong> Não incluída nesta ficha demonstrativa. TODO: produzir somente após definir fonte, território, período, série validada e visualização correspondente.</p>
 </div>
 </section>
-<section id="fontes-e-disponibilidade" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="fontes-e-disponibilidade">Fontes e disponibilidade</h2>
-<p><strong>Fonte primária:</strong> Instituto Nacional de Meteorologia.</p>
-<p><strong>Fonte secundária:</strong> ERA5-Land.</p>
-<p><strong>Instituição responsável.</strong></p>
-<p>A definir conforme a fonte escolhida.</p>
-<p><strong>Cobertura geográfica.</strong></p>
-<p>Depende da fonte.</p>
-<p><strong>Período disponível.</strong></p>
-<p>TODO: verificar para cada conjunto de dados.</p>
-<p><strong>Periodicidade de atualização.</strong></p>
-<p>TODO: verificar para cada conjunto de dados.</p>
-<p><strong>Forma de acesso.</strong></p>
-<p>Consulta, download ou API, conforme a fonte.</p>
-<p><strong>URL ou identificador persistente.</strong></p>
-<p>TODO: registrar o identificador da versão efetivamente utilizada.</p>
-<p><strong>Formato dos arquivos.</strong></p>
-<p>TODO: verificar para a fonte selecionada.</p>
-<p><strong>Necessidade de processamento.</strong></p>
-<p>Requer agregação máxima em janela diária quando a fonte é subdiária; dados em grade requerem decisão explícita de agregação territorial.</p>
+<section id="campos-complementares-para-clima-ambiente-e-saúde" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="campos-complementares-para-clima-ambiente-e-saúde">Campos complementares para clima, ambiente e saúde</h2>
+<div class="indicator-card">
+<p><strong>Unidade territorial.</strong> Ponto de estação, célula de grade ou território agregado.</p>
+<p><strong>Resolução espacial original.</strong> Depende da fonte selecionada; deve ser preservada nos metadados analíticos.</p>
+<p><strong>Resolução temporal.</strong> Diária, derivada de observações ou estimativas subdiárias.</p>
+<p><strong>Período de referência.</strong> Declarar a janela diária, o fuso horário e o período climatológico usado nas comparações.</p>
+<p><strong>Limiar ou valor de referência.</strong> Não há um limiar universal; definir conforme finalidade, população e climatologia local.</p>
+</div>
+</section>
+<section id="disponibilidade-e-acesso" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="disponibilidade-e-acesso">Disponibilidade e acesso</h2>
+<p><strong>Cobertura geográfica.</strong> Depende da fonte.</p>
+<p><strong>Período disponível.</strong> TODO: verificar para cada conjunto de dados.</p>
+<p><strong>Periodicidade de atualização.</strong> TODO: verificar para cada conjunto de dados.</p>
+<p><strong>Forma de acesso.</strong> Consulta, download ou API, conforme a fonte.</p>
+<p><strong>URL ou identificador persistente.</strong> TODO: registrar o identificador da versão efetivamente utilizada.</p>
+<p><strong>Formato dos arquivos.</strong> TODO: verificar para a fonte selecionada.</p>
+<p><strong>Necessidade de processamento.</strong> Requer agregação máxima em janela diária quando a fonte é subdiária; dados em grade requerem decisão explícita de agregação territorial.</p>
 </section>
 <section id="qualidade-comparação-e-saúde" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="qualidade-comparação-e-saúde">Qualidade, comparação e saúde</h2>
-<p><strong>Qualidade e incerteza.</strong></p>
-<p>Documentar falhas, mudanças de estação, controle de qualidade, viés do produto e incerteza introduzida pela agregação espacial.</p>
-<p><strong>Possibilidade de comparação.</strong></p>
-<p>Comparar séries apenas após harmonizar fonte, unidade, janela diária, fuso, suporte espacial e versão do produto.</p>
-<p><strong>Relação com desfechos de saúde.</strong></p>
-<p>Pode integrar avaliações de exposição térmica, mas não demonstra, isoladamente, efeito sobre a saúde.</p>
-<p><strong>Defasagens temporais relevantes.</strong></p>
-<p>Devem ser definidas conforme o desfecho, o desenho analítico e a hipótese substantiva.</p>
-<p><strong>Aplicação na gestão.</strong></p>
-<p>Subsidiar boletins, vigilância sazonal, preparação de serviços e avaliação de limiares locais.</p>
-<p><strong>Observações.</strong></p>
-<p>Variável meteorológica transformada em indicador somente quando vinculada a finalidade, método, território e interpretação explícitos.</p>
+<p><strong>Qualidade e incerteza.</strong> Documentar falhas, mudanças de estação, controle de qualidade, viés do produto e incerteza introduzida pela agregação espacial.</p>
+<p><strong>Possibilidade de comparação.</strong> Comparar séries apenas após harmonizar fonte, unidade, janela diária, fuso, suporte espacial e versão do produto.</p>
+<p><strong>Relação com desfechos de saúde.</strong> Pode integrar avaliações de exposição térmica, mas não demonstra, isoladamente, efeito sobre a saúde.</p>
+<p><strong>Defasagens temporais relevantes.</strong> Devem ser definidas conforme o desfecho, o desenho analítico e a hipótese substantiva.</p>
+<p><strong>Aplicação na gestão.</strong> Subsidiar boletins, vigilância sazonal, preparação de serviços e avaliação de limiares locais.</p>
 </section>
 <section id="referências" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="referências">Referências</h2>
@@ -1158,8 +1151,8 @@ T_{\max,d} = \max(T_{d,1}, T_{d,2}, \ldots, T_{d,n})
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../indicators/pages/cli-cal-01.html" class="pagination-link" aria-label="Onda de calor">
-        <span class="nav-page-text">Onda de calor</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../indicators/pages/cli-cal-01.html" class="pagination-link" aria-label="Ocorrência de onda de calor">
+        <span class="nav-page-text">Ocorrência de onda de calor</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
