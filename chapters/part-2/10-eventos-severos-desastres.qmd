@@ -46,7 +46,7 @@ Exposição é a presença de pessoas, moradias, infraestrutura, meios de vida e
 
 ### Vulnerabilidade
 
-Vulnerabilidade abrange condições físicas, sociais, econômicas, ambientais e institucionais que aumentam susceptibilidade. Não é atributo natural de grupos. Moradia insegura, racismo ambiental, exclusão, barreiras de mobilidade e acesso precário a serviços são processos modificáveis [@undrr2017terminology; @who2021vulnerability].
+Vulnerabilidade abrange condições físicas, sociais, econômicas, ambientais e institucionais que aumentam a suscetibilidade. Não é atributo natural de grupos. Moradia insegura, racismo ambiental, exclusão, barreiras de mobilidade e acesso precário a serviços são processos modificáveis [@undrr2017terminology; @who2021vulnerability].
 
 ### Capacidade
 
@@ -135,9 +135,9 @@ Dados preliminares são úteis, mas sujeitos a revisão. Versões precisam ser d
 
 ## Fontes de dados
 
-O [S2ID](../../backmatter/indice-fontes.qmd#s2id) reúne registros brasileiros de desastre, reconhecimento, danos e perdas. O [DATASUS](../../backmatter/indice-fontes.qmd#datasus) permite verificar óbitos, agravos, produção e estabelecimentos, mas o vínculo a evento não deve ser presumido. O [IBGE](../../backmatter/indice-fontes.qmd#ibge) fornece população e cartografia.
+O [S2iD](../../backmatter/indice-fontes.qmd#s2id) reúne registros brasileiros de desastre, reconhecimento, danos e perdas. O [DATASUS](../../backmatter/indice-fontes.qmd#datasus) permite verificar óbitos, agravos, produção e estabelecimentos, mas o vínculo a evento não deve ser presumido. O [IBGE](../../backmatter/indice-fontes.qmd#ibge) fornece população e cartografia.
 
-Dados de alertas, perigos e estações vêm de fontes meteorológicas e do CEMADEN. Um alerta é produto prospectivo; um registro S2ID é administrativo; um óbito SIM é registro de saúde. Integração exige chaves, tempo, espaço e regras de atribuição.
+Dados de alertas, perigos e estações vêm de fontes meteorológicas e do CEMADEN. Um alerta é produto prospectivo; um registro S2iD é administrativo; um óbito SIM é registro de saúde. Integração exige chaves, tempo, espaço e regras de atribuição.
 
 ## Principais indicadores usados em saúde pública
 
@@ -169,9 +169,16 @@ Um quadro de situação deve preservar a cadeia: perigo, alerta, exposição, im
 
 Após a resposta, uma revisão deve comparar previsão, decisões, tempos, cobertura, falhas, desfechos e desigualdades. O objetivo não é apenas contar danos, mas reduzir sua repetição.
 
-::: {.visual-needed title="Ilustração editorial necessária"}
-Produzir uma linha do tempo de desastre com fases de alerta, impacto, resposta e recuperação, mostrando quando são registrados perigo, pessoas afetadas, óbitos, interrupção e restauração de serviços.
-:::
+```{mermaid}
+%%| label: fig-linha-tempo-desastre
+%%| fig-cap: "Registros e decisões ao longo de um desastre"
+%%{init: {"htmlLabels": false, "flowchart": {"htmlLabels": false}}}%%
+flowchart TD
+  A["Alerta:<br/>perigo, previsão,<br/>território e validade"] --> I["Impacto:<br/>exposição, pessoas afetadas,<br/>danos e interrupções"]
+  I --> R["Resposta:<br/>necessidades, ações,<br/>cobertura e desfechos"]
+  R --> C["Recuperação:<br/>restauração de serviços,<br/>risco residual e correções"]
+  C --> V["Revisão:<br/>tempos, decisões,<br/>falhas e desigualdades"]
+```
 
 ## Síntese
 

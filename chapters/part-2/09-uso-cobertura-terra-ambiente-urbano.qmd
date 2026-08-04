@@ -144,9 +144,17 @@ Uma análise municipal pode começar com NDVI, espaços públicos, acesso e SUHI
 
 Avaliar intervenção exige linha de base e comparação: área plantada não é copa formada; parque entregue não é parque usado; redução de LST em uma cena não garante redução de exposição. Registre manutenção, sobrevivência, acesso, percepção e resultados distributivos.
 
-::: {.visual-needed title="Ilustração editorial necessária"}
-Produzir um conjunto de quatro mapas da mesma área urbana: NDVI, espaços verdes públicos e áreas de acesso, temperatura de superfície e população. A legenda deve destacar que as camadas medem dimensões diferentes.
-:::
+```{mermaid}
+%%| label: fig-camadas-urbanas
+%%| fig-cap: "Camadas complementares para analisar ambiente urbano e saúde"
+%%{init: {"htmlLabels": false, "flowchart": {"htmlLabels": false}}}%%
+flowchart TD
+  N["NDVI e cobertura vegetal:<br/>presença e vigor da vegetação"] --> I["Síntese territorial<br/>orientada pela pergunta"]
+  V["Espaços verdes e acesso:<br/>oferta pública e proximidade"] --> I
+  T["Temperatura de superfície:<br/>padrão térmico dos materiais"] --> I
+  P["População e grupos:<br/>distribuição residencial"] --> I
+  I --> A["Prioridades, intervenção<br/>e avaliação distributiva"]
+```
 
 ## Síntese
 

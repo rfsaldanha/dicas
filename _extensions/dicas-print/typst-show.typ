@@ -4,7 +4,7 @@
 // elementos pré-textuais. Suprime apenas o sumário automático do modelo.
 #show outline: it => if it.title == auto { none } else { it }
 
-// Verso sintético para a edição de revisão. A ficha técnica completa segue
+// Verso sintético da edição. A ficha técnica completa segue
 // no corpo pré-textual do livro.
 #let copyright-page = [
   #set text(size: 9pt)
@@ -20,7 +20,7 @@
 
         © 2026 Raphael de Freitas Saldanha
 
-        Primeira edição — versão para revisão editorial
+        Primeira edição
 
         #v(4mm)
 
@@ -86,7 +86,6 @@
       #set text(size: 10.5pt)
       #set par(first-line-indent: 0pt, leading: 0.35em)
       #align(center)[Brasil\
-      Versão para revisão editorial\
       2026]
     ]
   }

@@ -59,17 +59,17 @@ indicators:
     interpretacao: O índice é classificado em N1 boa (0–40), N2 moderada (41–80), N3 ruim (81–120), N4 muito ruim (121–200) e N5 péssima (201–400). O poluente que produz o maior subíndice determina a classificação divulgada.
     usos: [Comunicação diária ou horária de risco., Orientação de atividades e proteção., Acionamento de protocolos ambientais e sanitários.]
     limitacoes: [Depende do conjunto de poluentes efetivamente monitorados., Um mesmo valor pode ser determinado por poluentes diferentes., Não substitui concentrações em análise epidemiológica., Tabelas e mensagens podem ser atualizadas por norma., Valor na estação não representa exposição individual.]
-    metodo_calculo: Para cada poluente, obter a concentração no tempo de média regulamentado, localizar sua faixa e interpolar linearmente entre limites de concentração e índice. Selecionar o maior subíndice válido entre MP10, MP2,5, O3, CO, NO2 e SO2.
+    metodo_calculo: Para cada poluente, obter a concentração no tempo de média regulamentado, localizar sua faixa e interpolar linearmente entre limites de concentração e índice. Selecionar o maior subíndice válido entre MP10, MP2,5, O₃, CO, NO₂ e SO₂.
     formula_calculo: 'I_p=I_{ini}+\frac{I_{fin}-I_{ini}}{C_{fin}-C_{ini}}(C_p-C_{ini});\quad IQAr=\max_p(I_p)'
     numerador: Na interpolação, diferença entre o índice final e inicial multiplicada pelo afastamento da concentração em relação ao limite inicial.
     denominador: Amplitude da faixa de concentração do poluente.
     unidade_medida: Adimensional.
-    variaveis_categorias_analise: MP10 e MP2,5 em 24 h; O3 e CO em 8 h; NO2 em 1 h; SO2 em 24 h; estação; poluente crítico; classe.
+    variaveis_categorias_analise: MP10 e MP2,5 em 24 h; O₃ e CO em 8 h; NO₂ em 1 h; SO₂ em 24 h; estação; poluente crítico; classe.
     granularidade: Por estação e período de divulgação.
     resolucao_espacial_original: Ponto de monitoramento; a representatividade depende da tipologia e implantação da estação.
     resolucao_temporal: Horária ou diária conforme disponibilidade e tempos de média dos poluentes.
     periodo_referencia: Período móvel ou diário definido na orientação técnica vigente.
-    limiar_referencia: Na orientação de 2025, a classe boa termina em 45 µg/m³ para MP10, 15 µg/m³ para MP2,5, 100 µg/m³ para O3, 9 ppm para CO, 200 µg/m³ para NO2 e 40 µg/m³ para SO2; usar sempre a tabela vigente.
+    limiar_referencia: Na orientação de 2025, a classe boa termina em 45 µg/m³ para MP10, 15 µg/m³ para MP2,5, 100 µg/m³ para O₃, 9 ppm para CO, 200 µg/m³ para NO₂ e 40 µg/m³ para SO₂; usar sempre a tabela vigente.
     fontes_dados:
       - id: redes-qualidade-ar
         papel: concentrações monitoradas por métodos de referência ou equivalentes

@@ -122,7 +122,7 @@ O indicador meteorológico informa uma parte da situação. A decisão sanitári
 
 O [INMET](../../backmatter/indice-fontes.qmd#inmet) fornece observações meteorológicas por estações. O [CEMADEN](../../backmatter/indice-fontes.qmd#cemaden) opera redes pluviométricas e hidrológicas voltadas ao monitoramento de risco; a documentação consultada informa dados pluviométricos brutos e registro em UTC, o que exige controle antes do uso. [ERA5-Land](../../backmatter/indice-fontes.qmd#era5-land) oferece campo em grade de reanálise e não substitui uma observação local.
 
-Registros de ocorrência, pessoas afetadas, danos e resposta são discutidos no @sec-desastres Para cada análise, mantenha separados:
+Registros de ocorrência, pessoas afetadas, danos e resposta são discutidos no capítulo 10. Para cada análise, mantenha separados:
 
 1. dado de precipitação;
 2. medida hidrológica ou geomorfológica;
@@ -165,9 +165,17 @@ Um painel útil não reúne todos os índices possíveis. Para chuva intensa, po
 
 Os limiares de ação devem ser definidos antes do evento, com responsabilidades e mensagens associadas. O fluxo inclui verificação do dado, avaliação do impacto potencial, comunicação intersetorial, registro da decisão e revisão pós-evento.
 
-::: {.visual-needed title="Ilustração editorial necessária"}
-Produzir uma ilustração em corte de uma bacia urbana que diferencie cheia, inundação, alagamento e enxurrada e mostre moradias, unidade de saúde, drenagem e rotas de acesso. A figura deve ser conceitual, sem sugerir escala ou limiar universal.
-:::
+```{mermaid}
+%%| label: fig-processos-hidrologicos
+%%| fig-cap: "Distinção conceitual entre cheia, inundação, alagamento e enxurrada"
+%%{init: {"htmlLabels": false, "flowchart": {"htmlLabels": false}}}%%
+flowchart TD
+  C["Chuva e condições<br/>da bacia"] --> N["Elevação do nível<br/>no canal"]
+  N --> CH["Cheia:<br/>nível elevado sem<br/>extravasamento necessário"]
+  N --> IN["Inundação:<br/>água extravasa o canal<br/>e ocupa áreas adjacentes"]
+  C --> AL["Alagamento:<br/>acúmulo temporário por<br/>drenagem insuficiente"]
+  C --> EN["Enxurrada:<br/>escoamento rápido, concentrado<br/>e com grande energia"]
+```
 
 ## Síntese
 

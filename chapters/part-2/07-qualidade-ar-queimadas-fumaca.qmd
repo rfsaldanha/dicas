@@ -31,7 +31,7 @@ PM2,5 é a medida de exposição mais usada em saúde pública. A OMS relaciona 
 
 Ozônio troposférico é poluente secundário formado por reações fotoquímicas envolvendo precursores. Dióxido de nitrogênio relaciona-se a combustão e também participa da formação de ozônio e partículas. Dióxido de enxofre deriva principalmente da queima de combustíveis contendo enxofre e de processos industriais. Monóxido de carbono resulta de combustão incompleta.
 
-A OMS estabelece recomendações para PM2,5, PM10, O3, NO2, SO2 e CO, com tempos de média específicos [@who2021air]. A comparação exige manter poluente, unidade e tempo de exposição:
+A OMS estabelece recomendações para PM2,5, PM10, O₃, NO₂, SO₂ e CO, com tempos de média específicos [@who2021air]. A comparação exige manter poluente, unidade e tempo de exposição:
 
 | Poluente | Tempo de média da diretriz OMS 2021 | Nível-guia |
 |---|---:|---:|
@@ -39,11 +39,11 @@ A OMS estabelece recomendações para PM2,5, PM10, O3, NO2, SO2 e CO, com tempos
 | PM2,5 | 24 horas, percentil 99 | 15 µg/m³ |
 | PM10 | anual | 15 µg/m³ |
 | PM10 | 24 horas, percentil 99 | 45 µg/m³ |
-| O3 | estação de pico | 60 µg/m³ |
-| O3 | máxima média diária de 8 horas, percentil 99 | 100 µg/m³ |
-| NO2 | anual | 10 µg/m³ |
-| NO2 | 24 horas, percentil 99 | 25 µg/m³ |
-| SO2 | 24 horas, percentil 99 | 40 µg/m³ |
+| O₃ | estação de pico | 60 µg/m³ |
+| O₃ | máxima média diária de 8 horas, percentil 99 | 100 µg/m³ |
+| NO₂ | anual | 10 µg/m³ |
+| NO₂ | 24 horas, percentil 99 | 25 µg/m³ |
+| SO₂ | 24 horas, percentil 99 | 40 µg/m³ |
 | CO | 24 horas, percentil 99 | 4 mg/m³ |
 
 : Níveis-guia de qualidade do ar da OMS de 2021 {#tbl-guias-oms-ar}
@@ -145,7 +145,7 @@ Os principais indicadores de qualidade do ar são concentrações de poluentes c
 |---|---|---|---|
 | PM2,5 anual ponderado pela população | ODS 11.6.2, custódia OMS | exposição crônica, desigualdade e carga de doença | média não descreve episódios |
 | P99 das médias de 24 h de PM2,5 | diretriz OMS 2021 | exposição de curto prazo e avaliação anual | não é máximo diário |
-| PM10, O3, NO2, SO2 e CO em seus tempos de média | diretriz OMS e padrões nacionais | vigilância por poluente e avaliação regulatória | unidades e tempos não são intercambiáveis |
+| PM10, O₃, NO₂, SO₂ e CO em seus tempos de média | diretriz OMS e padrões nacionais | vigilância por poluente e avaliação regulatória | unidades e tempos não são intercambiáveis |
 | IQAr brasileiro | CONAMA nº 506/2024 e orientação de 2025 | comunicação diária ou horária | depende dos poluentes monitorados e informa o pior subíndice |
 | PM2,5 atribuível ao fogo ponderado pela população | Lancet Countdown e estudos de fonte específica | fumaça, desigualdade e carga atribuível | depende de modelagem de fonte |
 | Focos ativos | Programa Queimadas/INPE | situação operacional do fogo | não mede incêndios individuais, fumaça ou saúde |
@@ -177,9 +177,19 @@ Uma rotina pode incluir:
 6. acompanhar atendimentos e continuidade assistencial;
 7. registrar decisões e revisar desempenho.
 
-::: {.visual-needed title="Ilustração editorial necessária"}
-Produzir uma ilustração de pluma de fumaça atravessando áreas rurais e urbanas, com focos de fogo, estação de monitoramento, célula de modelo e diferentes microambientes. A arte deve deixar claro que foco, concentração ambiente, exposição e dose são objetos distintos.
-:::
+```{mermaid}
+%%| label: fig-fumaca-exposicao
+%%| fig-cap: "Do foco de fogo à dose: medidas que não devem ser confundidas"
+%%{init: {"htmlLabels": false, "flowchart": {"htmlLabels": false}}}%%
+flowchart TD
+  F["Foco de fogo e<br/>emissões"] --> P["Transporte e transformação<br/>da pluma"]
+  P --> S["Satélite:<br/>fogo, aerossol ou pluma"]
+  P --> M["Modelo:<br/>concentração estimada<br/>em célula e camada"]
+  P --> E["Estação:<br/>concentração medida<br/>em um ponto"]
+  M --> X["Microambientes e<br/>tempo de permanência"]
+  E --> X
+  X --> D["Exposição pessoal<br/>e dose absorvida"]
+```
 
 ## Síntese
 

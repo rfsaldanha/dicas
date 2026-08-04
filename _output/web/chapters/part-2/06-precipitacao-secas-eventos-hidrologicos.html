@@ -884,7 +884,7 @@ Tabela&nbsp;6.1: Tipos de seca e sua relação com saúde
 <section id="fontes-de-dados" class="level2" data-number="6.7">
 <h2 data-number="6.7" class="anchored" data-anchor-id="fontes-de-dados"><span class="header-section-number">6.7</span> Fontes de dados</h2>
 <p>O <a href="../../backmatter/indice-fontes.html#inmet">INMET</a> fornece observações meteorológicas por estações. O <a href="../../backmatter/indice-fontes.html#cemaden">CEMADEN</a> opera redes pluviométricas e hidrológicas voltadas ao monitoramento de risco; a documentação consultada informa dados pluviométricos brutos e registro em UTC, o que exige controle antes do uso. <a href="../../backmatter/indice-fontes.html#era5-land">ERA5-Land</a> oferece campo em grade de reanálise e não substitui uma observação local.</p>
-<p>Registros de ocorrência, pessoas afetadas, danos e resposta são discutidos no <a href="10-eventos-severos-desastres.html" class="quarto-xref"><span>Capítulo 10</span></a> Para cada análise, mantenha separados:</p>
+<p>Registros de ocorrência, pessoas afetadas, danos e resposta são discutidos no capítulo 10. Para cada análise, mantenha separados:</p>
 <ol type="1">
 <li>dado de precipitação;</li>
 <li>medida hidrológica ou geomorfológica;</li>
@@ -1600,8 +1600,28 @@ SPI_{k,t}=\Phi^{-1}\{F_{k,m}(P_{k,t})\}
 <h2 data-number="6.15" class="anchored" data-anchor-id="aplicação-na-gestão"><span class="header-section-number">6.15</span> Aplicação na gestão</h2>
 <p>Um painel útil não reúne todos os índices possíveis. Para chuva intensa, pode mostrar previsão e observação subdiária, Rx1day ou acumulados móveis, nível de rios, alertas, população e serviços em áreas suscetíveis. Para seca, pode combinar SPI em escalas justificadas, reservatórios e vazões, regularidade do abastecimento, segurança alimentar, agravos e capacidade dos serviços.</p>
 <p>Os limiares de ação devem ser definidos antes do evento, com responsabilidades e mensagens associadas. O fluxo inclui verificação do dado, avaliação do impacto potencial, comunicação intersetorial, registro da decisão e revisão pós-evento.</p>
-<div class="visual-needed" title="Ilustração editorial necessária">
-<p>Produzir uma ilustração em corte de uma bacia urbana que diferencie cheia, inundação, alagamento e enxurrada e mostre moradias, unidade de saúde, drenagem e rotas de acesso. A figura deve ser conceitual, sem sugerir escala ou limiar universal.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div id="fig-processos-hidrologicos" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-processos-hidrologicos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-processos-hidrologicos">%%{init: {"htmlLabels": false, "flowchart": {"htmlLabels": false}}}%%
+flowchart TD
+  C["Chuva e condições&lt;br/&gt;da bacia"] --&gt; N["Elevação do nível&lt;br/&gt;no canal"]
+  N --&gt; CH["Cheia:&lt;br/&gt;nível elevado sem&lt;br/&gt;extravasamento necessário"]
+  N --&gt; IN["Inundação:&lt;br/&gt;água extravasa o canal&lt;br/&gt;e ocupa áreas adjacentes"]
+  C --&gt; AL["Alagamento:&lt;br/&gt;acúmulo temporário por&lt;br/&gt;drenagem insuficiente"]
+  C --&gt; EN["Enxurrada:&lt;br/&gt;escoamento rápido, concentrado&lt;br/&gt;e com grande energia"]
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-processos-hidrologicos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;6.2: Distinção conceitual entre cheia, inundação, alagamento e enxurrada
+</figcaption>
+</figure>
+</div>
+</div>
 </div>
 </section>
 <section id="síntese" class="level2" data-number="6.16">

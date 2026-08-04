@@ -18,7 +18,7 @@ O **microclima** é a condição climática de pequena escala produzida pela int
 
 Também é preciso evitar uma separação artificial entre “natural” e “social”. Um rio, uma encosta ou uma massa de ar possuem processos biofísicos; a ocupação do solo, a regulação, a localização da moradia e da infraestrutura definem quem se beneficia e quem suporta riscos. Para a saúde pública, ambiente é simultaneamente meio de vida, via de exposição, recurso de proteção e objeto de política.
 
-A @tbl-tempo-clima-ambiente sintetiza as diferenças operacionais. As categorias se relacionam, mas não são intercambiáveis.
+A tabela a seguir sintetiza as diferenças operacionais. As categorias se relacionam, mas não são intercambiáveis.
 
 | Conceito | Pergunta típica | Escala frequente | Exemplo de informação |
 |---|---|---|---|
@@ -149,7 +149,7 @@ Medidas territoriais são frequentemente necessárias porque trajetórias indivi
 
 Vulnerabilidade é relacional: alguém é vulnerável a determinado perigo, sob certa intensidade, tempo e conjunto de proteções. Não existe uma nota universal que represente igualmente calor, inundação, fumaça e interrupção de serviços. Moradia elevada pode proteger de alagamento e oferecer pouca proteção térmica; ar-condicionado reduz exposição ao calor e aumenta dependência de energia.
 
-Capacidade tampouco é o inverso automático da vulnerabilidade. Recursos podem existir e não estar acessíveis, funcionar apenas em condições normais ou falhar simultaneamente. A literatura recomenda observar governança, pessoal, infraestrutura, redundância, comunicação, cobertura e desempenho [@who2021vulnerability; @who2024resilienceindicators]; a mensuração dessas dimensões é aprofundada no @sec-resposta
+Capacidade tampouco é o inverso automático da vulnerabilidade. Recursos podem existir e não estar acessíveis, funcionar apenas em condições normais ou falhar simultaneamente. A literatura recomenda observar governança, pessoal, infraestrutura, redundância, comunicação, cobertura e desempenho [@who2021vulnerability; @who2024resilienceindicators]; a mensuração dessas dimensões é aprofundada no capítulo 13.
 
 ### Risco é uma relação orientada à decisão
 
@@ -157,9 +157,18 @@ Risco expressa a possibilidade de consequências adversas e depende do que se va
 
 O risco muda quando qualquer componente muda. Uma política pode reduzir exposição sem alterar o perigo, como criar ambientes protegidos contra fumaça; reduzir suscetibilidade, como assegurar continuidade de medicamentos; ou modificar o perigo, como controlar emissões. Essa decomposição ajuda a escolher indicadores capazes de acompanhar o mecanismo da intervenção.
 
-::: {.visual-needed}
-**Necessidade de ilustração — cadeia de impacto em território brasileiro.** Produzir uma ilustração original, em página dupla, mostrando um mesmo episódio de chuva extrema em dois territórios com infraestrutura, exposição e capacidade de resposta contrastantes. A arte deve explicitar que o perigo pode ser semelhante e o dano, diferente.
-:::
+```{mermaid}
+%%| label: fig-territorios-contraste
+%%| fig-cap: "Um mesmo perigo pode produzir consequências diferentes"
+%%{init: {"htmlLabels": false, "flowchart": {"htmlLabels": false}}}%%
+flowchart TD
+  P["Mesmo episódio de<br/>chuva intensa"] --> A["Território A"]
+  P --> B["Território B"]
+  A --> A1["Drenagem mantida,<br/>moradias protegidas e<br/>serviços redundantes"]
+  B --> B1["Drenagem insuficiente,<br/>moradias expostas e<br/>serviços sem redundância"]
+  A1 --> A2["Menor exposição,<br/>interrupção e dano"]
+  B1 --> B2["Maior exposição,<br/>interrupção e dano"]
+```
 
 ## Desigualdades e processos de vulnerabilização
 
