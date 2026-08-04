@@ -7,7 +7,8 @@ O marco operacional da OMS organiza a resiliência climática em componentes com
 ```{mermaid}
 %%| label: fig-ciclo-resiliencia-saude
 %%| fig-cap: "Ciclo de capacidades do sistema de saúde diante de choques e estressores"
-flowchart LR
+%%{init: {"htmlLabels": false, "flowchart": {"htmlLabels": false}}}%%
+flowchart TD
   A["Antecipar<br/>perfil de riscos e alerta"] --> P["Preparar<br/>pessoas, planos e recursos"]
   P --> B["Absorver<br/>manter serviços essenciais"]
   B --> R["Responder<br/>coordenar e ampliar capacidade"]
@@ -18,7 +19,7 @@ flowchart LR
 
 ## O que deve ser medido
 
-Capacidade de resposta não é uma variável única. Recursos, processos, produtos, desempenho e resultados ocupam posições distintas:
+Capacidade de resposta não é uma variável única. Recursos, processos, produtos, desempenho e resultados ocupam posições distintas [@who2024resilienceindicators; @cdc2024evaluation]:
 
 | Nível | Exemplo | O que demonstra | O que não demonstra |
 |---|---|---|---|
@@ -31,11 +32,11 @@ Capacidade de resposta não é uma variável única. Recursos, processos, produt
 
 : Níveis complementares para avaliar capacidade e resiliência {#tbl-niveis-resiliencia}
 
-Uma lista de planos não mede preparação completa. Um gerador instalado não garante partida, combustível, autonomia e ligação às cargas críticas. Um alerta emitido não garante que tenha chegado em formato acessível, sido compreendido ou produzido uma ação possível. A avaliação deve ligar estrutura, implementação e desempenho.
+Uma lista de planos não mede preparação completa. Um gerador instalado não garante partida, combustível, autonomia e ligação às cargas críticas. Um alerta emitido não garante que tenha chegado em formato acessível, sido compreendido ou produzido uma ação possível. A avaliação deve ligar estrutura, implementação e desempenho [@who2024resilienceindicators; @cdc2024evaluation].
 
 ## Governança e responsabilidade
 
-Emergências atravessam vigilância, atenção primária, urgência, hospitais, assistência farmacêutica, laboratório, regulação, infraestrutura, comunicação, saúde do trabalhador e gestão. Sem responsabilidade definida, tarefas críticas podem ficar sem dono ou ser duplicadas.
+Emergências atravessam vigilância, atenção primária, urgência, hospitais, assistência farmacêutica, laboratório, regulação, infraestrutura, comunicação, saúde do trabalhador e gestão. Sem responsabilidade definida, tarefas críticas podem ficar sem dono ou ser duplicadas [@who2023framework; @who2021edrmresearch].
 
 O indicador da OMS sobre equipe ou pessoa focal mede se há designação formal para gestão de emergências e continuidade dos serviços. Os termos de referência são essenciais: uma portaria com nome, mas sem atribuição, autoridade ou substituição, oferece pouca capacidade. Além do percentual, a análise deve verificar treinamento, tempo protegido, acesso à direção, meios de comunicação e suplência.
 
@@ -49,7 +50,7 @@ No SUS, municípios e estados possuem atribuições diferentes e capacidades com
 
 ## Perfis de risco
 
-Um perfil de riscos de estabelecimento liga perigos do território à fragilidade dos edifícios, equipamentos, processos e pessoas. Deve considerar:
+Um perfil de riscos de estabelecimento liga perigos do território à fragilidade dos edifícios, equipamentos, processos e pessoas [@who2023framework; @who2024resilienceindicators]. Deve considerar:
 
 - natureza, intensidade, duração e probabilidade dos perigos;
 - segurança estrutural e não estrutural;
@@ -72,7 +73,7 @@ Priorizar apenas pela probabilidade é insuficiente. Uma interrupção rara pode
 
 ## Alertas, vigilância e comunicação
 
-Sistemas de alerta precoce transformam sinais em decisão antes que o dano se amplie. A vigilância baseada em indicadores usa dados estruturados e regulares; a vigilância baseada em eventos examina informações não estruturadas sobre ameaças emergentes. Ambas exigem triagem, verificação, análise, comunicação e resposta.
+Sistemas de alerta precoce transformam sinais em decisão antes que o dano se amplie. A vigilância baseada em indicadores usa dados estruturados e regulares; a vigilância baseada em eventos examina informações não estruturadas sobre ameaças emergentes. Ambas exigem triagem, verificação, análise, comunicação e resposta [@who2023framework; @who2021edrmresearch].
 
 O indicador 21 da OMS adota a escala da capacidade C5.1 do eSPAR. Os cinco níveis são cumulativos: diretrizes ausentes ou em elaboração; diretrizes existentes, porém incompletamente implementadas; implementação nacional; implementação nacional e intermediária; e implementação até o nível local, exercitada, avaliada e atualizada. O nível não deve ser tratado como nota contínua nem convertido em percentual.
 
@@ -99,7 +100,7 @@ Cobertura nominal de telefone ou internet não representa alcance. Mensagens pre
 
 ## Planos de emergência e continuidade
 
-O plano de emergência coordena resposta ao perigo. O plano de continuidade identifica funções críticas, recursos mínimos e alternativas para mantê-las ou recuperá-las. Eles podem estar integrados, desde que os serviços essenciais não sejam um apêndice genérico.
+O plano de emergência coordena resposta ao perigo. O plano de continuidade identifica funções críticas, recursos mínimos e alternativas para mantê-las ou recuperá-las. Eles podem estar integrados, desde que os serviços essenciais não sejam um apêndice genérico [@who2023framework; @who2024resilienceindicators].
 
 O indicador 44 da OMS mede estabelecimentos com plano de gestão de emergências que incorpora continuidade dos serviços. Uma verificação robusta procura prioridades assistenciais, cadeia de comando, contatos, pessoal mínimo, suprimentos, referência, transporte, informação, comunicação, critérios de suspensão e sequência de recuperação.
 
@@ -107,13 +108,13 @@ O indicador 44 da OMS mede estabelecimentos com plano de gestão de emergências
 
 ### Exercício e evento real
 
-Planos devem ser testados. Exercícios de mesa percorrem decisões e responsabilidades; simulações funcionais testam partes do processo; exercícios em escala ampliada testam coordenação e logística. A modalidade deve corresponder ao risco e não colocar pacientes em perigo.
+Planos devem ser testados. Exercícios de mesa percorrem decisões e responsabilidades; simulações funcionais testam partes do processo; exercícios em escala ampliada testam coordenação e logística. A modalidade deve corresponder ao risco e não colocar pacientes em perigo [@who2021edrmresearch].
 
 Depois de cada exercício ou evento, a equipe deve registrar: o que se esperava, o que ocorreu, decisões, tempos, falhas, improvisações, impactos, responsáveis e prazos de correção. O número de exercícios é um indicador de atividade, não de qualidade. O resultado importante é o fechamento das ações corretivas e a melhoria verificada no ciclo seguinte.
 
 ### Continuidade dos serviços essenciais
 
-“Serviço essencial” não é uma lista fixa e nacional. Deve ser definido segundo necessidades da população, rede disponível, dependência temporal e consequências da interrupção. Vacinação, pré-natal, parto, urgência, saúde mental, dispensação de medicamentos, diálise, oxigenoterapia e vigilância podem ter criticidades diferentes por território.
+“Serviço essencial” não é uma lista fixa e nacional. Deve ser definido segundo necessidades da população, rede disponível, dependência temporal e consequências da interrupção. Vacinação, pré-natal, parto, urgência, saúde mental, dispensação de medicamentos, diálise, oxigenoterapia e vigilância podem ter criticidades diferentes por território [@who2023framework; @who2024resilienceindicators].
 
 Um painel de continuidade pode combinar:
 
@@ -130,7 +131,7 @@ Essas medidas dependem de uma linha de base assistencial. Produção menor pode 
 
 ## Água e energia em estabelecimentos
 
-Água segura e energia contínua sustentam prevenção de infecção, limpeza, esterilização, laboratório, alimentação, refrigeração, iluminação, equipamentos, climatização, tecnologia e comunicação. Interrupções ambientais e falhas de infraestrutura podem ocorrer juntas: enchentes contaminam fontes e desligam energia; secas reduzem abastecimento; calor eleva demanda elétrica.
+Água segura e energia contínua sustentam prevenção de infecção, limpeza, esterilização, laboratório, alimentação, refrigeração, iluminação, equipamentos, climatização, tecnologia e comunicação. Interrupções ambientais e falhas de infraestrutura podem ocorrer juntas: enchentes contaminam fontes e desligam energia; secas reduzem abastecimento; calor eleva demanda elétrica [@who2023framework; @who2024resilienceindicators].
 
 Os indicadores 28 e 29 da OMS usam uma janela simples: percentual de estabelecimentos com interrupção na semana anterior. Essa definição favorece coleta rotineira e detecção rápida. Ela precisa ser complementada por duração, recorrência e impacto, pois uma oscilação breve e uma falha de dois dias entram igualmente no numerador básico.
 
@@ -146,7 +147,7 @@ Um gerador no subsolo de área inundável ou uma cisterna exposta à contaminaç
 
 ## Infraestrutura resiliente
 
-O indicador 47 da OMS reúne cinco componentes: segurança estrutural diante dos riscos prioritários; infraestrutura segura, acessível e capaz de absorver aumento de demanda; água, saneamento, higiene e resíduos; energia sustentável; e tecnologias de informação adequadas. A conformidade deve seguir padrão nacional ou subnacional compatível com a avaliação local de risco.
+O indicador 47 da OMS reúne cinco componentes: segurança estrutural diante dos riscos prioritários; infraestrutura segura, acessível e capaz de absorver aumento de demanda; água, saneamento, higiene e resíduos; energia sustentável; e tecnologias de informação adequadas. A conformidade deve seguir padrão nacional ou subnacional compatível com a avaliação local de risco [@who2024resilienceindicators].
 
 {{< include ../../indicators/includes/res-inf-01.qmd >}}
 
@@ -156,7 +157,7 @@ Infraestrutura resiliente também deve reduzir emissões e consumo de recursos s
 
 ## Força de trabalho e capacidade operacional
 
-Pessoas mantêm o sistema. Preparação deve considerar número, competências, distribuição, saúde ocupacional, transporte, responsabilidades familiares, descanso e apoio psicossocial. Eventos extensos afetam trabalhadores e suas famílias ao mesmo tempo em que aumentam a demanda.
+Pessoas mantêm o sistema. Preparação deve considerar número, competências, distribuição, saúde ocupacional, transporte, responsabilidades familiares, descanso e apoio psicossocial. Eventos extensos afetam trabalhadores e suas famílias ao mesmo tempo em que aumentam a demanda [@who2023framework; @who2021edrmresearch].
 
 Contar profissionais cadastrados mede estoque nominal, não presença em turno nem capacidade de mobilização. Para funções críticas, convém acompanhar:
 
@@ -173,7 +174,7 @@ Essas medidas devem respeitar vínculos e categorias sem supor que todos podem e
 
 ## Laboratórios, produtos e cadeias de suprimento
 
-Capacidade laboratorial inclui coleta, transporte, processamento, biossegurança, energia, água, reagentes, pessoal, informação e devolução do resultado. O “número de laboratórios” pouco informa sem escopo, qualidade, tempo de resposta e funcionamento durante o choque.
+Capacidade laboratorial inclui coleta, transporte, processamento, biossegurança, energia, água, reagentes, pessoal, informação e devolução do resultado. O “número de laboratórios” pouco informa sem escopo, qualidade, tempo de resposta e funcionamento durante o choque [@who2023framework; @who2021edrmresearch].
 
 Para cada exame prioritário, devem ser definidos capacidade diária, tempo entre coleta e resultado, percentual de amostras adequadas, estoque, autonomia e contingência. Na vigilância de água ou surtos após desastre, transporte e comunicação podem ser o elo limitante.
 
@@ -185,11 +186,12 @@ Durante uma emergência, o acompanhamento deve ser frequente e orientado à deci
 
 Recuperação começa durante a resposta. O tempo até restabelecer um serviço é uma medida importante, mas “restabelecido” requer critério: capacidade parcial, plena, segura ou adaptada. Reabrir rapidamente sem água segura, equipe ou documentação pode aumentar o dano.
 
-Adaptação é a mudança deliberada que reduz risco futuro. Instalar sombreamento, elevar equipamentos, redesenhar rotas, descentralizar estoque, ajustar protocolos e ampliar vigilância são medidas diferentes. Seu acompanhamento precisa de linha de base, entrega, cobertura, prazo, manutenção e resultado. O número de ações listadas em um plano não mede implementação.
+Adaptação é a mudança deliberada que reduz risco futuro. Instalar sombreamento, elevar equipamentos, redesenhar rotas, descentralizar estoque, ajustar protocolos e ampliar vigilância são medidas diferentes. Seu acompanhamento precisa de linha de base, entrega, cobertura, prazo, manutenção e resultado. O número de ações listadas em um plano não mede implementação [@who2023framework; @cdc2024evaluation].
 
 ```{mermaid}
 %%| label: fig-ciclo-melhoria-capacidade
 %%| fig-cap: "Ciclo mínimo de melhoria da capacidade institucional"
+%%{init: {"htmlLabels": false, "flowchart": {"htmlLabels": false}}}%%
 flowchart TD
   R["Risco ou falha identificada"] --> A["Ação corretiva definida"]
   A --> G["Responsável, recurso e prazo"]

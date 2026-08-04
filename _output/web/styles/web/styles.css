@@ -1,17 +1,19 @@
 :root {
-  --dicas-green: #276b63;
-  --dicas-green-soft: #e7f0ee;
-  --dicas-sand: #f3f0e8;
-  --dicas-border: #9fb7b2;
+  --dicas-accent: var(--bs-primary, #eb6864);
+  --dicas-soft: color-mix(in srgb, var(--dicas-accent) 12%, var(--bs-body-bg));
+  --dicas-muted: color-mix(in srgb, var(--bs-body-color) 7%, var(--bs-body-bg));
+  --dicas-border: color-mix(in srgb, var(--bs-body-color) 28%, var(--bs-body-bg));
 }
 
-.quarto-title-banner {
-  background: linear-gradient(115deg, #214f49, #397a70);
-}
+/*
+ * Mantém a linguagem visual da edição web de Sistemas de Informação em
+ * Saúde: tema Journal, títulos condensados e superfícies claras. Os
+ * componentes abaixo apenas especializam essa linguagem para as fichas.
+ */
 
 .hero {
-  border-left: .35rem solid var(--dicas-green);
-  background: var(--dicas-green-soft);
+  border-left: .35rem solid var(--dicas-accent);
+  background: var(--dicas-soft);
   padding: 1.1rem 1.3rem;
   margin: 1rem 0 1.5rem;
 }
@@ -32,7 +34,7 @@
 
 .indicator-meta dt {
   font-weight: 650;
-  color: var(--dicas-green);
+  color: var(--dicas-accent);
 }
 
 .indicator-meta dd {
@@ -58,9 +60,20 @@
 }
 
 .todo {
-  background: var(--dicas-sand);
-  border-left: .25rem solid #8a7442;
+  background: var(--dicas-muted);
+  border-left: .25rem solid var(--dicas-border);
   padding: .65rem .8rem;
+}
+
+/* Quadros textuais usam grade fechada, como na edição web de referência. */
+.quarto-float-qua table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.quarto-float-qua table th,
+.quarto-float-qua table td {
+  border: 1px solid var(--bs-border-color, #777) !important;
 }
 
 @media (max-width: 620px) {
@@ -83,4 +96,3 @@
     border-radius: 0;
   }
 }
-

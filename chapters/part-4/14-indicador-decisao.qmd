@@ -1,13 +1,14 @@
 # Do indicador à decisão pública {#sec-indicador-decisao}
 
-Indicadores tornam-se instrumentos públicos quando estão ligados a uma decisão, uma responsabilidade e uma ação verificável. Um painel com dezenas de séries pode descrever o território e ainda não responder quem deve fazer o quê, quando e com quais recursos.
+Indicadores tornam-se instrumentos públicos quando estão ligados a uma decisão, uma responsabilidade e uma ação verificável. Um painel com dezenas de séries pode descrever o território e ainda não responder quem deve fazer o quê, quando e com quais recursos. Essa orientação para o uso é coerente com a formulação clássica de indicadores de saúde e com a avaliação de programas centrada em contexto, propósito e utilização dos achados [@ripsa2026; @cdc2024evaluation].
 
 Este capítulo não cria novos indicadores. Ele combina medidas consolidadas dos capítulos anteriores em rotinas de análise, preparação, resposta, planejamento e avaliação. O ponto de partida não é “quais dados temos?”, mas “qual decisão precisa ser tomada?”.
 
 ```{mermaid}
 %%| label: fig-fluxo-indicador-decisao
 %%| fig-cap: "Fluxo rastreável do indicador à decisão"
-flowchart LR
+%%{init: {"htmlLabels": false, "flowchart": {"htmlLabels": false}}}%%
+flowchart TD
   Q["Pergunta e decisão"] --> T["Território, população<br/>e período"]
   T --> P["Perigo"]
   P --> E["Exposição"]
@@ -22,7 +23,7 @@ flowchart LR
 
 ## Começar pela pergunta
 
-Uma pergunta operacional contém verbo, objeto, população, lugar e tempo. “Monitorar calor” é amplo demais. “Decidir até 12h se o município ativará visitas domiciliares e ampliará pontos de água para pessoas idosas que vivem sozinhas nos bairros sob alerta nas próximas 72 horas” orienta fontes, atualização e responsabilidades.
+Uma pergunta operacional contém verbo, objeto, população, lugar e tempo. “Monitorar calor” é amplo demais. “Decidir até 12h se o município ativará visitas domiciliares e ampliará pontos de água para pessoas idosas que vivem sozinhas nos bairros sob alerta nas próximas 72 horas” orienta fontes, atualização e responsabilidades. O uso pretendido deve ser definido antes da seleção de medidas, porque descrição, detecção, preparação, resposta e avaliação exigem evidências e periodicidades distintas [@cdc2024evaluation].
 
 Perguntas comuns pertencem a funções diferentes:
 
@@ -41,7 +42,7 @@ Misturar funções leva a erros. Um mapa anual de vulnerabilidade apoia prepara�
 
 ## Seleção de um painel mínimo
 
-O painel mínimo deve cobrir as dimensões necessárias sem duplicar medidas que respondem à mesma pergunta. Uma estrutura útil contém:
+O painel mínimo deve cobrir as dimensões necessárias sem duplicar medidas que respondem à mesma pergunta. A estrutura a seguir articula a cadeia perigo--exposição--vulnerabilidade--efeito com a capacidade de resposta e retoma modelos de indicadores ambientais e de sistemas de saúde resilientes [@who2003environmentalindicators; @who2024resilienceindicators]:
 
 1. **perigo** — intensidade, duração, frequência ou extensão;
 2. **exposição** — pessoas, serviços ou ativos no lugar e tempo do perigo;
@@ -66,7 +67,7 @@ Para cada candidato, registre:
 - possibilidade de ação;
 - custo de produção e manutenção.
 
-Indicadores consolidados não dispensam adequação local. O WSDI usa referência climatológica e é valioso para comparação; um protocolo de alerta pode usar EHF ou outro índice validado e uma previsão. O indicador escolhido para caracterizar clima não precisa ser o mesmo usado para ativar uma equipe, mas a diferença deve ser explícita.
+Indicadores consolidados não dispensam adequação local. Relevância, validade, comparabilidade, oportunidade, transparência e custo formam um conjunto de critérios, não uma propriedade única; a seleção deve documentar também limitações e revisões [@ripsa2026; @un2014statistics; @who2023dqa]. O WSDI usa referência climatológica e é valioso para comparação; um protocolo de alerta pode usar EHF ou outro índice validado e uma previsão. O indicador escolhido para caracterizar clima não precisa ser o mesmo usado para ativar uma equipe, mas a diferença deve ser explícita.
 
 ::: {.callout-note title="Regra prática"}
 Se retirar um indicador não muda nenhuma decisão, prioridade, mensagem ou avaliação, ele provavelmente não pertence ao painel operacional.
@@ -86,7 +87,7 @@ Antes da análise, fixe:
 - regra para fronteiras e áreas sem dados;
 - versão das malhas e populações.
 
-A agregação pode esconder extremos. Uma média municipal de temperatura não identifica bairros quentes; um setor pequeno com poucos óbitos produz taxa instável. O suporte final deve equilibrar validade, estabilidade, confidencialidade e possibilidade de ação, conforme os princípios do @sec-espaco-tempo.
+A agregação pode esconder extremos. Uma média municipal de temperatura não identifica bairros quentes; um setor pequeno com poucos óbitos produz taxa instável. Mudanças de escala ou zoneamento podem modificar padrões e associações, mesmo quando os registros originais são os mesmos [@openshaw1984; @piantadosi1988ecological]. O suporte final deve equilibrar validade, estabilidade, confidencialidade e possibilidade de ação, conforme os princípios do @sec-espaco-tempo e os requisitos de qualidade de dados geográficos [@iso2023geoquality].
 
 ### O calendário da decisão
 
@@ -105,12 +106,12 @@ Um indicador anual não deve receber aparência de tempo real. Dados preliminare
 
 ## Linha de base, comparação e regra de ação
 
-Uma regra de ação declara em que condição uma resposta começa, aumenta, diminui ou termina. Pode combinar limite absoluto, percentil, previsão, duração e capacidade. Não deve ser escolhida retrospectivamente para maximizar uma associação.
+Uma regra de ação declara em que condição uma resposta começa, aumenta, diminui ou termina. Pode combinar limite absoluto, percentil, previsão, duração e capacidade. Não deve ser escolhida retrospectivamente para maximizar uma associação. Sistemas de alerta eficazes vinculam informação do perigo a impactos esperados, comunicação, responsabilidades e medidas previamente acordadas [@wmoWho2015heat; @who2023framework].
 
 Existem quatro referências frequentes:
 
 - **normativa**, como padrão de qualidade da água ou do ar;
-- **climatológica**, como percentis em um período de referência;
+- **climatológica**, como percentis em um período de referência calculado segundo convenções explícitas [@wmo2017normals];
 - **histórica**, como eventos esperados em uma série;
 - **operacional**, como estoque, ocupação ou autonomia mínima.
 
@@ -132,7 +133,7 @@ Sem uma ação associada, cor é decoração. Sem autoridade, o limiar é apenas
 
 ## Análise de situação de saúde, clima e ambiente
 
-Uma análise de situação integra tendências e desigualdades, mas preserva a cadeia causal. Um roteiro compacto é:
+Uma análise de situação integra tendências e desigualdades, mas preserva a cadeia causal. Ela deve distinguir determinantes, exposições, resultados e capacidade, evitando tratar proximidade espacial ou temporal como prova de causalidade [@who2010sdhframework; @hernan2020causal]. Um roteiro compacto é:
 
 1. descrever população, território e organização do SUS;
 2. identificar perigos prioritários e sazonalidade;
@@ -174,7 +175,7 @@ Um painel operacional deve responder rapidamente:
 - que ação está ativa;
 - quando será atualizado.
 
-Para isso, cada gráfico precisa de título informativo, unidade, período, fonte, data de atualização e observação sobre dados preliminares. Mapas precisam de legenda, escala, ausência de dados e denominador. Séries precisam mostrar quebra metodológica e intervalo de referência.
+Para isso, cada gráfico precisa de título informativo, unidade, período, fonte, data de atualização e observação sobre dados preliminares. Mapas precisam de legenda, escala, ausência de dados e denominador. Séries precisam mostrar quebra metodológica e intervalo de referência. Metadados, política de revisão e comunicação de limitações são partes da qualidade estatística, não anexos opcionais [@un2014statistics; @who2023dqa].
 
 Filtros não devem permitir combinações estatisticamente inválidas. Se pequenas contagens ameaçam confidencialidade ou estabilidade, o sistema deve agregar ou suprimir segundo regra pública. Exportações precisam levar metadados; uma planilha sem definição reproduz números, não conhecimento.
 
@@ -185,6 +186,7 @@ O calendário anual antecipa tarefas:
 ```{mermaid}
 %%| label: fig-calendario-sazonal
 %%| fig-cap: "Exemplo de calendário adaptável de gestão sazonal"
+%%{init: {"htmlLabels": false, "flowchart": {"htmlLabels": false}}}%%
 gantt
   title Ciclo anual de preparação, resposta e avaliação
   dateFormat  YYYY-MM-DD
@@ -206,7 +208,7 @@ As datas são ilustrativas; o ciclo deve seguir o clima, os vetores, os incêndi
 
 ## Planejamento e orçamento
 
-Indicadores devem entrar nos instrumentos de planejamento com diagnóstico, meta, iniciativa, custo e responsabilidade. Metas sem orçamento tendem a permanecer documentais; orçamento sem indicador de entrega não permite avaliação.
+Indicadores devem entrar nos instrumentos de planejamento com diagnóstico, meta, iniciativa, custo e responsabilidade. Metas sem orçamento tendem a permanecer documentais; orçamento sem indicador de entrega não permite avaliação. Uma cadeia explícita entre insumos, atividades, produtos, resultados e efeitos permite verificar tanto a implantação quanto a contribuição da intervenção [@cdc2024evaluation].
 
 Uma ficha de ação pode conter:
 
@@ -229,7 +231,7 @@ Metas devem especificar numerador e denominador. “Ampliar planos para 90%” �
 
 ## Avaliação
 
-Monitoramento verifica se atividades e produtos ocorreram. Avaliação examina se contribuíram para o resultado. Uma intervenção pode ser entregue conforme planejado e não reduzir o risco; pode falhar na entrega e ainda assim coincidir com melhora por outras causas.
+Monitoramento verifica se atividades e produtos ocorreram. Avaliação examina se contribuíram para o resultado. Uma intervenção pode ser entregue conforme planejado e não reduzir o risco; pode falhar na entrega e ainda assim coincidir com melhora por outras causas. Por isso, avaliação requer explicitar o modelo da intervenção, as perguntas, o contexto e os usos pretendidos, além de escolher um desenho compatível [@cdc2024evaluation].
 
 O desenho depende da intervenção:
 
@@ -240,11 +242,11 @@ O desenho depende da intervenção:
 - avaliação de processo e mecanismos;
 - análise de equidade e efeitos não desejados.
 
-Linha de base, grupo de comparação e desfechos devem ser definidos antes da implementação sempre que possível. Eventos extremos variam entre anos; comparar apenas o número de mortes de dois verões pode confundir intensidade do perigo e efeito da intervenção. Ajustar ou estratificar por exposição é essencial.
+Linha de base, grupo de comparação e desfechos devem ser definidos antes da implementação sempre que possível. Eventos extremos variam entre anos; comparar apenas o número de mortes de dois verões pode confundir intensidade do perigo e efeito da intervenção. Ajustar ou estratificar por exposição é essencial, e a interpretação causal deve considerar confundimento, seleção e erro de mensuração [@hernan2020causal].
 
 ## Comunicação de risco e resultados
 
-Comunicação pública precisa separar:
+Comunicação pública precisa separar os diferentes estatutos da evidência e tornar a incerteza inteligível para a ação [@wmoWho2015heat; @un2014statistics]:
 
 - fato observado;
 - previsão;
@@ -262,7 +264,7 @@ Durante uma emergência, registre versões e horários. Quando a previsão mudar
 
 ## Estudos de caso
 
-Os casos seguintes ilustram painéis mínimos. Os limiares operacionais precisam ser validados e pactuados localmente; não são produzidos pela simples soma dos indicadores.
+Os casos seguintes ilustram painéis mínimos. Os limiares operacionais precisam ser validados e pactuados localmente; não são produzidos pela simples soma dos indicadores. Índices compostos, quando usados, exigem modelo conceitual, normalização, ponderação, agregação e análise de sensibilidade transparentes [@oecd2008composite].
 
 ### Preparação e resposta a ondas de calor
 
@@ -282,7 +284,7 @@ Os casos seguintes ilustram painéis mínimos. Os limiares operacionais precisam
 
 : Painel mínimo para ondas de calor {#tbl-caso-calor}
 
-**Protocolo.** A vigilância recebe previsão e observação, valida o nível e territorializa a exposição. A coordenação ativa comunicação, atenção primária, urgência, assistência social, saúde do trabalhador, água e defesa civil. Ações incluem contato e busca ativa conforme critérios, água segura, ajuste de horários, pontos de resfriamento acessíveis, orientação medicamentosa por profissionais, proteção ocupacional, equipes e insumos.
+**Protocolo.** A vigilância recebe previsão e observação, valida o nível e territorializa a exposição. A coordenação ativa comunicação, atenção primária, urgência, assistência social, saúde do trabalhador, água e defesa civil. Ações incluem contato e busca ativa conforme critérios, água segura, ajuste de horários, pontos de resfriamento acessíveis, orientação medicamentosa por profissionais, proteção ocupacional, equipes e insumos. O protocolo deve ser construído com antecedência, comunicar ações específicas por nível e considerar exposição, grupos suscetíveis e capacidade local [@wmoWho2015heat; @who2026heat].
 
 **Avaliação.** Comparar alcance das mensagens e ações, tempo de ativação, pessoas contatadas, interrupções de energia e água, demanda assistencial, excesso e eventos atribuíveis quando o desenho permitir. Um verão menos quente não prova sucesso; a exposição precisa entrar na comparação.
 
@@ -301,7 +303,7 @@ Os casos seguintes ilustram painéis mínimos. Os limiares operacionais precisam
 
 : Painel mínimo para episódios de fumaça {#tbl-caso-fumaca}
 
-Rede de monitoramento, produto modelado e observação de satélite cumprem funções diferentes. Focos de calor não medem concentração respirada. O protocolo deve declarar qual medida aciona resposta e como lidar com locais sem monitor.
+Rede de monitoramento, produto modelado e observação de satélite cumprem funções diferentes. Focos de calor não medem concentração respirada. O protocolo deve declarar qual medida aciona resposta e como lidar com locais sem monitor; valores de referência de qualidade do ar e categorias comunicacionais também não devem ser confundidos com estimativas individuais de dose [@who2021air; @brasil2024conama506; @brasil2025iqar].
 
 Ações podem incluir mensagens sobre redução de exposição, proteção ocupacional, avaliação de ambientes internos, disponibilidade de locais com ar mais limpo, manutenção de filtros e ampliação da capacidade clínica. Recomendações precisam considerar custo, acesso e condição individual; máscaras e purificadores não podem ser a única resposta pública.
 
@@ -322,7 +324,7 @@ Depois do episódio, revisar oportunidade do alerta, cobertura, falhas de monito
 
 : Painel mínimo para risco de inundação {#tbl-caso-inundacao}
 
-Chuva extrema não equivale a inundação. Drenagem, solo, ocupação, maré, reservatórios e bacia modificam o resultado. O território de análise deve seguir a dinâmica hidrológica; a ação deve ser traduzida para áreas administrativas e redes de serviço.
+Chuva extrema não equivale a inundação. Drenagem, solo, ocupação, maré, reservatórios e bacia modificam o resultado. O território de análise deve seguir a dinâmica hidrológica; a ação deve ser traduzida para áreas administrativas e redes de serviço. A avaliação de risco deve manter separados perigo, exposição, vulnerabilidade e capacidade, conforme a terminologia de redução do risco de desastres [@undrr2017terminology].
 
 Antes da estação, atualizar rotas, abrigos acessíveis, unidades na mancha, transporte, estoques, cadeia de frio, geradores e fontes de água. Durante o evento, monitorar isolamento, contaminação, feridos, continuidade e pessoas deslocadas. Depois, manter vigilância de doenças, saúde mental e cuidados crônicos, qualificar registros de afetados e acompanhar recuperação.
 
@@ -330,11 +332,12 @@ Antes da estação, atualizar rotas, abrigos acessíveis, unidades na mancha, tr
 
 **Decisão.** Selecionar de três a cinco prioridades para o ciclo municipal de planejamento e preparar um conjunto anual e sazonal de ações.
 
-O perfil não deve colocar um indicador por tema apenas para parecer completo. A seleção parte da magnitude, tendência, desigualdade, possibilidade de prevenção, capacidade local e obrigações legais.
+O perfil não deve colocar um indicador por tema apenas para parecer completo. A seleção parte da magnitude, tendência, desigualdade, possibilidade de prevenção, capacidade local e obrigações legais. A desigualdade precisa aparecer tanto nos resultados quanto nos determinantes e na cobertura das respostas [@who2024sdhequity].
 
 ```{mermaid}
 %%| label: fig-priorizacao-municipal
 %%| fig-cap: "Processo de priorização no perfil municipal"
+%%{init: {"htmlLabels": false, "flowchart": {"htmlLabels": false}}}%%
 flowchart TD
   D["Diagnóstico com indicadores consolidados"] --> P["Problemas candidatos"]
   P --> C["Critérios públicos:<br/>magnitude, desigualdade,<br/>tendência, ação e custo"]
@@ -359,7 +362,7 @@ Cada célula deve apontar para definição, fonte e documentação completas. O 
 
 ## Governança do processo
 
-Um fluxo sustentável requer:
+Um fluxo sustentável requer princípios de independência técnica, transparência, documentação e acesso, combinados com responsabilidades definidas pelo uso dos dados [@un2014statistics; @wilkinson2016fair]:
 
 - comissão ou espaço de coordenação com mandato;
 - responsáveis técnicos pelas fontes;
@@ -371,6 +374,6 @@ Um fluxo sustentável requer:
 - mecanismo de correção pública;
 - avaliação depois de exercícios e eventos.
 
-Decisões extraordinárias podem contrariar o limiar por informação não captada. Isso deve ser permitido e registrado com justificativa. Governança não é automatizar a decisão, mas tornar visíveis evidência, autoridade e responsabilidade.
+Decisões extraordinárias podem contrariar o limiar por informação não captada. Isso deve ser permitido e registrado com justificativa. Governança não é automatizar a decisão, mas tornar visíveis evidência, autoridade e responsabilidade. Registros de versões, decisões e exceções também permitem aprendizagem depois de exercícios, emergências e ciclos de avaliação [@cdc2024evaluation; @who2021edrmresearch].
 
 O percurso termina onde começou: uma pergunta concreta. Um indicador bem definido reduz ambiguidade; um painel mínimo organiza dimensões; uma regra de ação converte sinal em resposta; avaliação mostra o que funcionou. A qualidade do sistema não é medida pelo número de gráficos, mas pela capacidade de proteger pessoas, sustentar serviços e aprender.

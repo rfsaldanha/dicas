@@ -1,13 +1,14 @@
 # Efeitos do clima e do ambiente sobre a saúde {#sec-efeitos-saude}
 
-Os efeitos do clima e do ambiente sobre a saúde podem aparecer como sintomas, atendimentos, internações, incapacidades ou mortes. Também podem ser percebidos como interrupção do cuidado, piora de uma doença preexistente, deslocamento forçado e perda de bem-estar. A escolha do indicador depende da pergunta: contar eventos, comparar riscos entre populações, detectar uma alteração acima do esperado ou estimar a parcela atribuível a uma exposição são operações diferentes.
+Os efeitos do clima e do ambiente sobre a saúde podem aparecer como sintomas, atendimentos, internações, incapacidades ou mortes. Também podem ser percebidos como interrupção do cuidado, piora de uma doença preexistente, deslocamento forçado e perda de bem-estar. A escolha do indicador depende da pergunta: contar eventos, comparar riscos entre populações, detectar uma alteração acima do esperado ou estimar a parcela atribuível a uma exposição são operações diferentes [@ipcc2022saude; @who2023climatehealth].
 
-Este capítulo trata dos desfechos e da ligação analítica entre exposição e saúde. Os perigos foram definidos nos capítulos temáticos e as condições de exposição e vulnerabilidade, no @sec-exposicao-vulnerabilidade. Uma temperatura extrema, uma concentração de poluente ou uma inundação não constitui, por si, efeito em saúde. De modo inverso, uma internação respiratória ocorrida durante um episódio de fumaça não pode ser automaticamente atribuída a ele.
+Este capítulo trata dos desfechos e da ligação analítica entre exposição e saúde. Os perigos foram definidos nos capítulos temáticos e as condições de exposição e vulnerabilidade, no @sec-exposicao-vulnerabilidade Uma temperatura extrema, uma concentração de poluente ou uma inundação não constitui, por si, efeito em saúde. De modo inverso, uma internação respiratória ocorrida durante um episódio de fumaça não pode ser automaticamente atribuída a ele.
 
 ```{mermaid}
 %%| label: fig-cadeia-efeitos-saude
 %%| fig-cap: "Do perigo ambiental aos diferentes tipos de medida de efeito em saúde"
-flowchart LR
+%%{init: {"htmlLabels": false, "flowchart": {"htmlLabels": false}}}%%
+flowchart TD
   P["Perigo ambiental<br/>intensidade e duração"] --> X["Exposição<br/>lugar, tempo e população"]
   X --> M["Mecanismos<br/>fisiológicos e sociais"]
   V["Vulnerabilidade<br/>suscetibilidade e proteção"] --> M
@@ -21,7 +22,7 @@ flowchart LR
 
 ## O que cada medida responde
 
-Contagens informam volume assistencial ou número de eventos. Taxas relacionam eventos à população sob risco. Taxas padronizadas reduzem o efeito de estruturas etárias diferentes. Excesso compara o observado com uma referência temporal estimada. Associação quantifica a variação relativa de um desfecho conforme a exposição, sob um modelo. Fração e número atribuíveis estimam a carga que não ocorreria em um cenário contrafactual, desde que a interpretação causal e as demais hipóteses sejam defensáveis.
+Contagens informam volume assistencial ou número de eventos. Taxas relacionam eventos à população sob risco. Taxas padronizadas reduzem o efeito de estruturas etárias diferentes. Excesso compara o observado com uma referência temporal estimada. Associação quantifica a variação relativa de um desfecho conforme a exposição, sob um modelo. Fração e número atribuíveis estimam a carga que não ocorreria em um cenário contrafactual, desde que a interpretação causal e as demais hipóteses sejam defensáveis [@ripsa2026; @who2001standard; @hernan2020causal].
 
 | Medida | Pergunta principal | Denominador ou referência | Interpretação permitida |
 |---|---|---|---|
@@ -56,7 +57,7 @@ Na padronização direta, as taxas específicas por idade de cada população s�
 
 ## Morbidade e utilização dos serviços
 
-Morbidade inclui doença percebida, diagnosticada ou registrada. Inquéritos domiciliares captam sintomas e limitações que não chegam aos serviços; atenção primária registra problemas e acompanhamento; urgência responde a quadros agudos; internações representam uma parcela mais grave e selecionada. Nenhuma base isolada mede todos os adoecimentos.
+Morbidade inclui doença percebida, diagnosticada ou registrada. Inquéritos domiciliares captam sintomas e limitações que não chegam aos serviços; atenção primária registra problemas e acompanhamento; urgência responde a quadros agudos; internações representam uma parcela mais grave e selecionada. Nenhuma base isolada mede todos os adoecimentos [@ripsa2026; @who2023dqa].
 
 O SIH/SUS é uma fonte consolidada para internações financiadas pelo SUS. A unidade registrada é a autorização de internação hospitalar, e não necessariamente uma pessoa única. Transferências, reinternações, regras de pagamento, oferta de leitos e mudanças de codificação influenciam as séries [@brasil2026sih; @ripsa2026]. A taxa de internação por causas selecionadas é útil para vigilância e planejamento, desde que seja chamada de **taxa de internação no SUS**, e não de incidência da doença na população.
 
@@ -114,7 +115,7 @@ Modelos não lineares de defasagem distribuída representam simultaneamente a fo
 
 ### Sazonalidade, tendência e calendário
 
-Exposição e desfecho podem subir na mesma estação sem relação causal direta. Tendência de longo prazo, dia da semana, feriados, epidemias, poluentes correlacionados e mudanças de população ou serviço podem confundir a associação. Séries temporais precisam controlar esses padrões sem remover o sinal de interesse.
+Exposição e desfecho podem subir na mesma estação sem relação causal direta. Tendência de longo prazo, dia da semana, feriados, epidemias, poluentes correlacionados e mudanças de população ou serviço podem confundir a associação. Séries temporais precisam controlar esses padrões sem remover o sinal de interesse [@gasparrini2010dlnm; @hernan2020causal].
 
 Autocorrelação e sobredispersão afetam incerteza. Interrupções, atrasos de digitação e mudança de definição criam quebras. A análise deve apresentar diagnóstico dos resíduos, especificação dos termos temporais, controle de calendário, dados ausentes e testes de sensibilidade. Explorar muitas causas, lags e limiares e publicar apenas associações positivas produz evidência frágil.
 
@@ -132,7 +133,7 @@ Excesso não identifica a exposição responsável. Durante uma onda de calor co
 
 ## Eventos e carga atribuíveis
 
-Um risco relativo descreve a relação entre exposição e desfecho; não informa sozinho quantos eventos ocorreram por causa da exposição. A carga atribuível combina a curva de risco, a distribuição de exposição, o número de desfechos e um contrafactual.
+Um risco relativo descreve a relação entre exposição e desfecho; não informa sozinho quantos eventos ocorreram por causa da exposição. A carga atribuível combina a curva de risco, a distribuição de exposição, o número de desfechos e um contrafactual [@gasparrini2014attributable; @hernan2020causal].
 
 Para temperatura, modelos de defasagem distribuída permitem estimar, para cada dia, a contribuição acumulada das exposições atuais e anteriores. Os números atribuíveis podem ser somados e divididos pelo total para obter a fração atribuível [@gasparrini2014attributable]. A referência costuma ser a temperatura de risco mínimo, mas sua estimativa tem incerteza. Componentes de frio e calor, moderado e extremo, devem usar partições explícitas.
 
@@ -174,6 +175,8 @@ Uma relação temporal, espacial ou estatística não basta para atribuição ca
 - seleção de modelo e multiplicidade;
 - consistência com outros desenhos e populações;
 - possibilidade de vieses por acesso aos serviços.
+
+Esses requisitos correspondem a problemas diferentes de identificação causal. Confundimento, seleção, erro de mensuração e variabilidade aleatória não são corrigidos por uma única variável de ajuste ou por maior complexidade do modelo; precisam ser examinados a partir do processo que gerou exposição, desfecho e inclusão nos dados [@hernan2020causal].
 
 Erro de exposição costuma ocorrer quando uma estação ou célula de grade é atribuída a toda a população. O erro pode ser maior para calor interno, poluição em microambientes, pessoas que se deslocam e territórios extensos. A resolução mais fina não garante maior validade: um produto modelado de alta resolução ainda precisa de calibração e correspondência com o lugar onde as pessoas estavam.
 

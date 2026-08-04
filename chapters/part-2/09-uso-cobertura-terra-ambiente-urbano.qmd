@@ -1,29 +1,24 @@
 # Uso e cobertura da terra, vegetação e ambiente urbano {#sec-uso-terra}
 
-Uso e cobertura da terra organizam a relação entre sociedade, ecossistemas e ambiente construído. Cobertura descreve o que recobre fisicamente a superfície — vegetação, água, solo exposto ou material impermeável. Uso descreve função e atividade — habitação, agricultura, conservação, indústria ou recreação. Uma mesma cobertura pode sustentar usos diferentes; um uso pode reunir várias coberturas.
+Uso e cobertura da terra organizam a relação entre sociedade, ecossistemas e ambiente construído. Cobertura descreve o que recobre fisicamente a superfície — vegetação, água, solo exposto ou material impermeável. Uso descreve função e atividade — habitação, agricultura, conservação, indústria ou recreação. Uma mesma cobertura pode sustentar usos diferentes; um uso pode reunir várias coberturas [@who2016greenspace; @ipcc2022saude].
 
 Para saúde pública, essas características influenciam calor, ar, água, ruído, mobilidade, alimento, vetores, contato com biodiversidade, atividade física, convívio e exposição ocupacional. A relação não é automaticamente benéfica ou prejudicial: depende da configuração, manejo, acesso e contexto.
 
 ```{mermaid}
 %%| label: fig-terra-saude
 %%| fig-cap: "Caminhos entre território e saúde"
+%%{init: {"htmlLabels": false, "flowchart": {"htmlLabels": false}}}%%
 flowchart TD
-  L[Uso e cobertura da terra] --> C[Microclima e calor]
-  L --> A[Ar, água e solo]
-  L --> V[Habitat de vetores e reservatórios]
-  L --> M[Mobilidade, atividade e contato social]
-  L --> O[Trabalho e meios de vida]
-  C --> S[Saúde]
-  A --> S
-  V --> S
-  M --> S
-  O --> S
+  L[Uso e cobertura da terra] --> A["Processos ambientais<br/>microclima, ar, água, solo,<br/>vetores e reservatórios"]
+  L --> T["Processos sociais e territoriais<br/>mobilidade, atividade, contato social,<br/>trabalho e meios de vida"]
+  A --> S[Saúde]
+  T --> S
   I[Desigualdades, regulação e infraestrutura] --> S
 ```
 
 ## Uso e cobertura da terra
 
-Mapas de uso e cobertura são classificações produzidas a partir de imagens, regras, treinamento e validação. A classe não é observação direta infalível. Resolução, legenda, acurácia, nuvens e ano condicionam a análise.
+Mapas de uso e cobertura são classificações produzidas a partir de imagens, regras, treinamento e validação. A classe não é observação direta infalível. Resolução, legenda, acurácia, nuvens e ano condicionam a análise [@iso2023geoquality].
 
 Mudança de classe precisa ser calculada sobre produtos compatíveis. Comparar mapas de anos diferentes com sensores, legendas ou algoritmos distintos pode criar transições artificiais. Matrizes de mudança ajudam a separar perda, ganho e permanência.
 
@@ -43,7 +38,7 @@ Monocultura, pastagem, mosaico, irrigação e produção familiar apresentam con
 
 ### Urbanização e impermeabilização
 
-Urbanização concentra população, serviços e oportunidades, mas também superfícies impermeáveis, emissões, ruído e desigualdades. Percentual de área urbana, densidade construída e população não representam a mesma coisa.
+Urbanização concentra população, serviços e oportunidades, mas também superfícies impermeáveis, emissões, ruído e desigualdades. Percentual de área urbana, densidade construída e população não representam a mesma coisa [@who2016greenspace; @un2026sdg1171].
 
 Impermeabilização reduz infiltração, eleva escoamento e modifica balanço térmico. Sua relação com alagamento depende de drenagem, declividade, chuva e conexão hidrológica; sua relação com calor depende de materiais, sombra, umidade, geometria e ventilação.
 
@@ -69,7 +64,7 @@ O ODS 11.7.1 mede a parcela média da área construída destinada a espaço aber
 
 ## Ilhas de calor urbanas
 
-Ilha de calor é o contraste térmico entre área urbana e referência não urbana. Pode ser atmosférica, medida pela temperatura do ar, ou de superfície, medida por temperatura radiométrica. As duas respondem de maneira distinta ao horário e aos materiais.
+Ilha de calor é o contraste térmico entre área urbana e referência não urbana. Pode ser atmosférica, medida pela temperatura do ar, ou de superfície, medida por temperatura radiométrica. As duas respondem de maneira distinta ao horário e aos materiais [@jin2012uhi].
 
 Intensidade tradicional é diferença entre urbano e rural. A referência determina o resultado: altitude, vegetação, solo, água e distância precisam ser controlados. Um par de estações inadequado pode atribuir ao urbano uma diferença topográfica.
 

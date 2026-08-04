@@ -1,13 +1,14 @@
 # Precipitação, secas e eventos hidrológicos {#sec-precipitacao}
 
-Chuva insuficiente, chuva excessiva e sua distribuição no tempo alteram disponibilidade de água, produção de alimentos, qualidade ambiental, mobilidade, moradia e funcionamento dos serviços de saúde. A precipitação, porém, é apenas uma entrada da cadeia. Inundação, alagamento, enxurrada e movimento de massa resultam também de relevo, solo, cobertura da terra, drenagem, nível antecedente dos rios e ocupação do território. Quando pessoas, bens e serviços expostos sofrem efeitos, entra-se no domínio do desastre.
+Chuva insuficiente, chuva excessiva e sua distribuição no tempo alteram disponibilidade de água, produção de alimentos, qualidade ambiental, mobilidade, moradia e funcionamento dos serviços de saúde. A precipitação, porém, é apenas uma entrada da cadeia. Inundação, alagamento, enxurrada e movimento de massa resultam também de relevo, solo, cobertura da terra, drenagem, nível antecedente dos rios e ocupação do território. Quando pessoas, bens e serviços expostos sofrem efeitos, entra-se no domínio do desastre [@ipcc2022saude; @undrr2017terminology].
 
 Este capítulo distingue essas etapas para evitar três atalhos: chamar qualquer chuva forte de inundação; usar um registro de desastre como se fosse medida física da chuva; e atribuir um efeito sanitário ao volume precipitado sem representar a exposição intermediária.
 
 ```{mermaid}
 %%| label: fig-cadeia-hidrometeorologica
 %%| fig-cap: "Da precipitação aos efeitos sanitários"
-flowchart LR
+%%{init: {"htmlLabels": false, "flowchart": {"htmlLabels": false}}}%%
+flowchart TD
   P[Precipitação] --> A[Acumulação e<br/>condição antecedente]
   A --> H[Processo hidrológico ou<br/>movimento de massa]
   T[Relevo, solo, cobertura<br/>e drenagem] --> H
@@ -18,7 +19,7 @@ flowchart LR
 
 ## Precipitação e variabilidade das chuvas
 
-Precipitação é a água que alcança a superfície em forma líquida ou sólida. No Brasil, a chuva domina a maior parte das aplicações em saúde. Pluviômetros registram uma lâmina acumulada sobre um ponto; radares e satélites estimam campos espaciais; reanálises combinam modelo e observações. Os produtos não são equivalentes e apresentam erros distintos.
+Precipitação é a água que alcança a superfície em forma líquida ou sólida. No Brasil, a chuva domina a maior parte das aplicações em saúde. Pluviômetros registram uma lâmina acumulada sobre um ponto; radares e satélites estimam campos espaciais; reanálises combinam modelo e observações. Os produtos não são equivalentes e apresentam erros distintos [@wmo2023climatological].
 
 Um total diário depende do horário em que o dia é fechado. A soma das 9h às 9h não é necessariamente comparável à soma de meia-noite a meia-noite. Diferenças de fuso, horário de verão, unidade e convenção de traço de chuva também podem deslocar extremos entre datas. Estudos com internações ou óbitos devem compatibilizar o “dia da exposição” com o dia do desfecho e explorar defasagens coerentes.
 
@@ -26,7 +27,7 @@ O acumulado mensal descreve volume, mas oculta distribuição. Cem milímetros p
 
 ### Chuvas intensas
 
-Chuva intensa pode ser definida por um limiar absoluto, por percentil local ou por máximo no período. Rx1day registra a maior acumulação diária; Rx5day, a maior soma em cinco dias; R95pTOT soma a chuva ocorrida em dias acima do percentil 95 dos dias úmidos. Esses indicadores descrevem aspectos diferentes.
+Chuva intensa pode ser definida por um limiar absoluto, por percentil local ou por máximo no período. Rx1day registra a maior acumulação diária; Rx5day, a maior soma em cinco dias; R95pTOT soma a chuva ocorrida em dias acima do percentil 95 dos dias úmidos. Esses indicadores descrevem aspectos diferentes [@climdex2024].
 
 Extremos subdiários são decisivos em pequenas bacias e áreas urbanas. Um máximo diário pode esconder 50 mm concentrados em trinta minutos. Quando a pergunta envolve enxurrada, alagamento rápido ou capacidade de drenagem, dados de dez minutos, horários ou curvas intensidade–duração–frequência são mais adequados que um total diário isolado.
 
@@ -75,7 +76,7 @@ Esses processos exigem medidas próprias:
 - edificações, população e serviços na mancha;
 - interrupção de acesso, água, energia e comunicação.
 
-Uma área inundada obtida por satélite registra a superfície detectável no horário de passagem e sob as limitações do sensor. Nuvem, vegetação, água permanente, resolução e tempo do imageamento afetam a classificação. A população exposta resulta da interseção entre a mancha, uma superfície populacional e uma referência temporal. Não corresponde automaticamente à população diretamente afetada.
+Uma área inundada obtida por satélite registra a superfície detectável no horário de passagem e sob as limitações do sensor. Nuvem, vegetação, água permanente, resolução e tempo do imageamento afetam a classificação. A população exposta resulta da interseção entre a mancha, uma superfície populacional e uma referência temporal. Não corresponde automaticamente à população diretamente afetada [@who2014floods; @undrr2017terminology].
 
 ## Deslizamentos
 
@@ -121,7 +122,7 @@ O indicador meteorológico informa uma parte da situação. A decisão sanitári
 
 O [INMET](../../backmatter/indice-fontes.qmd#inmet) fornece observações meteorológicas por estações. O [CEMADEN](../../backmatter/indice-fontes.qmd#cemaden) opera redes pluviométricas e hidrológicas voltadas ao monitoramento de risco; a documentação consultada informa dados pluviométricos brutos e registro em UTC, o que exige controle antes do uso. [ERA5-Land](../../backmatter/indice-fontes.qmd#era5-land) oferece campo em grade de reanálise e não substitui uma observação local.
 
-Registros de ocorrência, pessoas afetadas, danos e resposta são discutidos no @sec-desastres. Para cada análise, mantenha separados:
+Registros de ocorrência, pessoas afetadas, danos e resposta são discutidos no @sec-desastres Para cada análise, mantenha separados:
 
 1. dado de precipitação;
 2. medida hidrológica ou geomorfológica;

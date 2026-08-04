@@ -8,34 +8,65 @@ if [ ! -s "$pdf" ]; then
   exit 1
 fi
 
+bytes=$(wc -c < "$pdf" | tr -d ' ')
+if [ "$bytes" -gt 150000000 ]; then
+  printf 'PDF excede o limite de 150 MB da UICLAP: %s bytes\n' "$bytes" >&2
+  exit 1
+fi
+
 if command -v pdfinfo >/dev/null 2>&1; then
   pages=$(pdfinfo "$pdf" | sed -n 's/^Pages:[[:space:]]*//p')
   size=$(pdfinfo "$pdf" | sed -n 's/^Page size:[[:space:]]*//p')
   compact=$(printf '%s' "$size" | tr -d ' ')
   case "$compact" in
-    439.37x651.968pts*|439.37x651.969pts*) ;;
+    453.543x651.968pts*|453.543x651.969pts*) ;;
     *)
-      printf 'Formato inesperado: %s (esperado: 155 × 230 mm)\n' "$size" >&2
+      printf 'Formato inesperado: %s (esperado: 160 × 230 mm)\n' "$size" >&2
       exit 1
       ;;
   esac
-  printf 'PDF: %s páginas; %s\n' "$pages" "$size"
-  if [ "$pages" -lt 400 ] || [ "$pages" -gt 500 ]; then
-    printf 'Aviso: a paginação está fora da faixa editorial de 400–500 páginas.\n'
+  if [ "$pages" -lt 4 ] || [ "$pages" -gt 1000 ]; then
+    printf 'Quantidade de páginas fora do intervalo aceito pela UICLAP: %s\n' "$pages" >&2
+    exit 1
   fi
+  remainder=$((pages % 4))
+  if [ "$remainder" -ne 0 ]; then
+    printf 'O miolo não fecha em cadernos de quatro páginas: %s páginas.\n' "$pages" >&2
+    exit 1
+  fi
+  printf 'PDF UICLAP: %s páginas; %s; %s bytes\n' "$pages" "$size" "$bytes"
 fi
 
 if command -v pdffonts >/dev/null 2>&1; then
-  if ! pdffonts "$pdf" | tail -n +3 | awk 'NF && $6 != "yes" { exit 1 }'; then
+  if ! pdffonts "$pdf" | tail -n +3 | awk 'NF && $(NF-4) != "yes" { exit 1 }'; then
     printf 'Há fontes não incorporadas no PDF.\n' >&2
     exit 1
   fi
   printf 'Fontes incorporadas: sim\n'
 fi
 
+if command -v pdfimages >/dev/null 2>&1; then
+  image_list=$(mktemp)
+  trap 'rm -f "$image_list"' EXIT HUP INT TERM
+  pdfimages -list "$pdf" > "$image_list"
+  if ! tail -n +3 "$image_list" | awk '
+    NF && $6 != "gray" && $6 != "mono" { exit 1 }
+  '; then
+    printf 'O PDF contém imagens raster coloridas; o miolo deve permanecer em escala de cinza.\n' >&2
+    exit 1
+  fi
+  if ! tail -n +3 "$image_list" | awk '
+    NF && ($13 < 300 || $14 < 300) { exit 1 }
+  '; then
+    printf 'O PDF contém imagem raster abaixo de 300 ppi.\n' >&2
+    exit 1
+  fi
+  printf 'Imagens raster: escala de cinza e resolução mínima de 300 ppi.\n'
+fi
+
 if command -v pdftotext >/dev/null 2>&1; then
   text_file=$(mktemp)
-  trap 'rm -f "$text_file"' EXIT HUP INT TERM
+  trap 'rm -f "$text_file" ${image_list:-}' EXIT HUP INT TERM
   pdftotext -layout "$pdf" "$text_file"
   for title in "Ficha técnica" "Apresentação" "Lista de siglas" "Sumário" \
     "Dados, variáveis, índices e" "Temperatura e condições" \
@@ -53,4 +84,4 @@ if command -v pdftotext >/dev/null 2>&1; then
   fi
 fi
 
-printf 'Pré-voo do PDF concluído.\n'
+printf 'Pré-voo do miolo para a UICLAP concluído.\n'

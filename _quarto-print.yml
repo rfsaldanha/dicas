@@ -1,13 +1,15 @@
 project:
   output-dir: _output/print
+  post-render:
+    - sh scripts/check_pdf.sh
 
 book:
   output-file: dados-indicadores-clima-ambiente-saude
-  date: "2026-07-28"
+  date: "2026-08-04"
 
 format:
   dicas-print-typst:
-    toc: true
+    toc: false
     toc-depth: 1
     number-sections: true
     section-numbering: "1.1"
@@ -15,6 +17,10 @@ format:
     mainfont: "Libertinus Serif"
     fontsize: 10.5pt
     linestretch: 1.08
+    syntax-highlighting: monochrome
+    mermaid-format: svg
+    mermaid:
+      theme: neutral
     linkcolor: "000000"
     citecolor: "000000"
-    include-before-body: includes/print-before-body.typ
+    include-after-body: includes/uiclap-after-body.typ

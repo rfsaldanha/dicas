@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="Guia técnico sobre conceitos, dados e indicadores de clima e ambiente aplicados à vigilância e à gestão em saúde pública.">
 
 <title>2&nbsp; Dados, variáveis, índices e indicadores – Dados e Indicadores de Clima e Ambiente para a Saúde</title>
 <style>
@@ -23,10 +24,30 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 1em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -49,9 +70,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-adbf6a05f46bd7df2a579e9b4e3bde98.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-314587492528bccd37af516874713f21.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-adbf6a05f46bd7df2a579e9b4e3bde98.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-3d1123404ec97a084d6513b5148bd96c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-a59c595c00dfb3cf3f084b5c8c0c922f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-3d1123404ec97a084d6513b5148bd96c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -256,7 +277,7 @@ ul.task-list li input[type="checkbox"] {
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/part-1/01-clima-ambiente-saude.html">Parte I — Fundamentos e métodos</a></li><li class="breadcrumb-item"><a href="../../chapters/part-1/02-dados-variaveis-indices-indicadores.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Dados, variáveis, índices e indicadores</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Procurar" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
@@ -270,7 +291,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../../">Dados e Indicadores de Clima e Ambiente para a Saúde</a>
+      <a href="../../">Dados e Indicadores de Clima e Ambiente para a Saúde</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/rfsaldanha/dicas" title="Código fonte" class="quarto-navigation-tool px-1" aria-label="Código fonte"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo escuro"><i class="bi"></i></a>
@@ -282,85 +303,85 @@ ul.task-list li input[type="checkbox"] {
         <div id="quarto-search" class="" title="Procurar"></div>
         </div>
         </div>
-    <div class="sidebar-menu-container">
+    <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
-  <div class="sidebar-item-container">
+  <div class="sidebar-item-container"> 
   <a href="../../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Bem-vindo</span></a>
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container">
+  <div class="sidebar-item-container"> 
   <a href="../../frontmatter/ficha-tecnica.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Ficha técnica</span></a>
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container">
+  <div class="sidebar-item-container"> 
   <a href="../../frontmatter/apresentacao.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Apresentação</span></a>
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container">
+  <div class="sidebar-item-container"> 
   <a href="../../frontmatter/prefacio.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Prefácio do autor</span></a>
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container">
+  <div class="sidebar-item-container"> 
   <a href="../../frontmatter/agradecimentos.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Agradecimentos</span></a>
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container">
+  <div class="sidebar-item-container"> 
   <a href="../../frontmatter/siglas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lista de siglas</span></a>
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container">
+  <div class="sidebar-item-container"> 
   <a href="../../frontmatter/sumario.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sumário</span></a>
   </div>
 </li>
         <li class="sidebar-item">
-  <div class="sidebar-item-container">
+  <div class="sidebar-item-container"> 
   <a href="../../frontmatter/como-usar.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Como utilizar este livro</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container">
+      <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Parte I — Fundamentos e métodos</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
-          </a>
+          </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
-  <div class="sidebar-item-container">
+  <div class="sidebar-item-container"> 
   <a href="../../chapters/part-1/01-clima-ambiente-saude.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Clima, ambiente e saúde pública</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container">
+  <div class="sidebar-item-container"> 
   <a href="../../chapters/part-1/02-dados-variaveis-indices-indicadores.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Dados, variáveis, índices e indicadores</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container">
+  <div class="sidebar-item-container"> 
   <a href="../../chapters/part-1/03-espaco-tempo-qualidade.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Espaço, tempo e qualidade dos dados</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container">
+  <div class="sidebar-item-container"> 
   <a href="../../chapters/part-1/04-fontes-fichas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Fontes de dados e fichas de indicadores</span></span></a>
   </div>
@@ -368,46 +389,46 @@ ul.task-list li input[type="checkbox"] {
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container">
+      <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
  <span class="menu-text">Parte II — Dados e indicadores temáticos</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
-          </a>
+          </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
-  <div class="sidebar-item-container">
+  <div class="sidebar-item-container"> 
   <a href="../../chapters/part-2/05-temperatura-condicoes-termicas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Temperatura e condições térmicas</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container">
+  <div class="sidebar-item-container"> 
   <a href="../../chapters/part-2/06-precipitacao-secas-eventos-hidrologicos.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Precipitação, secas e eventos hidrológicos</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container">
+  <div class="sidebar-item-container"> 
   <a href="../../chapters/part-2/07-qualidade-ar-queimadas-fumaca.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Qualidade do ar, queimadas e fumaça</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container">
+  <div class="sidebar-item-container"> 
   <a href="../../chapters/part-2/08-agua-saneamento-qualidade-ambiental.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Água, saneamento e qualidade ambiental</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container">
+  <div class="sidebar-item-container"> 
   <a href="../../chapters/part-2/09-uso-cobertura-terra-ambiente-urbano.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Uso e cobertura da terra, vegetação e ambiente urbano</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container">
+  <div class="sidebar-item-container"> 
   <a href="../../chapters/part-2/10-eventos-severos-desastres.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Eventos meteorológicos severos e desastres</span></span></a>
   </div>
@@ -415,28 +436,28 @@ ul.task-list li input[type="checkbox"] {
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container">
+      <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
  <span class="menu-text">Parte III — Indicadores integrados de clima, ambiente e saúde</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
-          </a>
+          </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
-  <div class="sidebar-item-container">
+  <div class="sidebar-item-container"> 
   <a href="../../chapters/part-3/11-exposicao-vulnerabilidade.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Exposição e vulnerabilidade socioambiental</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container">
+  <div class="sidebar-item-container"> 
   <a href="../../chapters/part-3/12-efeitos-saude.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Efeitos do clima e do ambiente sobre a saúde</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container">
+  <div class="sidebar-item-container"> 
   <a href="../../chapters/part-3/13-resposta-adaptacao-resiliencia.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Capacidade de resposta, adaptação e resiliência</span></span></a>
   </div>
@@ -444,16 +465,16 @@ ul.task-list li input[type="checkbox"] {
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container">
+      <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
  <span class="menu-text">Parte IV — Aplicação na vigilância e na gestão pública</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
-          </a>
+          </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
-  <div class="sidebar-item-container">
+  <div class="sidebar-item-container"> 
   <a href="../../chapters/part-4/14-indicador-decisao.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Do indicador à decisão pública</span></span></a>
   </div>
@@ -461,64 +482,64 @@ ul.task-list li input[type="checkbox"] {
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container">
+      <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
  <span class="menu-text">Elementos pós-textuais</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
-          </a>
+          </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
-  <div class="sidebar-item-container">
+  <div class="sidebar-item-container"> 
   <a href="../../backmatter/glossario.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Glossário</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container">
+  <div class="sidebar-item-container"> 
   <a href="../../backmatter/referencias.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Referências</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container">
+  <div class="sidebar-item-container"> 
   <a href="../../backmatter/indice-indicadores.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Índice alfabético de indicadores</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container">
+  <div class="sidebar-item-container"> 
   <a href="../../backmatter/indice-fontes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Índice de fontes de dados</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container">
+  <div class="sidebar-item-container"> 
   <a href="../../backmatter/indice-instituicoes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Índice de instituições</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container">
+  <div class="sidebar-item-container"> 
   <a href="../../backmatter/apendice-metodologico.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Apêndice metodológico</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container">
+  <div class="sidebar-item-container"> 
   <a href="../../backmatter/lista-fichas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lista de fichas</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container">
+  <div class="sidebar-item-container"> 
   <a href="../../backmatter/lista-tabelas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lista de tabelas</span></a>
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container">
+  <div class="sidebar-item-container"> 
   <a href="../../backmatter/lista-figuras.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lista de figuras</span></a>
   </div>
@@ -533,15 +554,25 @@ ul.task-list li input[type="checkbox"] {
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Índice</h2>
-
+   
   <ul>
   <li><a href="#do-registro-à-decisão" id="toc-do-registro-à-decisão" class="nav-link active" data-scroll-target="#do-registro-à-decisão"><span class="header-section-number">2.1</span> Do registro à decisão</a></li>
-  <li><a href="#variáveis-climáticas-e-ambientais" id="toc-variáveis-climáticas-e-ambientais" class="nav-link" data-scroll-target="#variáveis-climáticas-e-ambientais"><span class="header-section-number">2.2</span> Variáveis climáticas e ambientais</a></li>
-  <li><a href="#índices" id="toc-índices" class="nav-link" data-scroll-target="#índices"><span class="header-section-number">2.3</span> Índices</a></li>
+  <li><a href="#variáveis-climáticas-e-ambientais" id="toc-variáveis-climáticas-e-ambientais" class="nav-link" data-scroll-target="#variáveis-climáticas-e-ambientais"><span class="header-section-number">2.2</span> Variáveis climáticas e ambientais</a>
+  <ul class="collapse">
+  <li><a href="#tipo-unidade-e-escala-de-mensuração" id="toc-tipo-unidade-e-escala-de-mensuração" class="nav-link" data-scroll-target="#tipo-unidade-e-escala-de-mensuração"><span class="header-section-number">2.2.1</span> Tipo, unidade e escala de mensuração</a></li>
+  <li><a href="#variável-latente-e-variável-substituta" id="toc-variável-latente-e-variável-substituta" class="nav-link" data-scroll-target="#variável-latente-e-variável-substituta"><span class="header-section-number">2.2.2</span> Variável latente e variável substituta</a></li>
+  </ul></li>
+  <li><a href="#índices" id="toc-índices" class="nav-link" data-scroll-target="#índices"><span class="header-section-number">2.3</span> Índices</a>
+  <ul class="collapse">
+  <li><a href="#índices-não-são-todos-do-mesmo-tipo" id="toc-índices-não-são-todos-do-mesmo-tipo" class="nav-link" data-scroll-target="#índices-não-são-todos-do-mesmo-tipo"><span class="header-section-number">2.3.1</span> Índices não são todos do mesmo tipo</a></li>
+  <li><a href="#construção-de-índices-compostos" id="toc-construção-de-índices-compostos" class="nav-link" data-scroll-target="#construção-de-índices-compostos"><span class="header-section-number">2.3.2</span> Construção de índices compostos</a></li>
+  </ul></li>
   <li><a href="#indicadores" id="toc-indicadores" class="nav-link" data-scroll-target="#indicadores"><span class="header-section-number">2.4</span> Indicadores</a>
   <ul class="collapse">
-  <li><a href="#indicadores-simples-e-compostos" id="toc-indicadores-simples-e-compostos" class="nav-link" data-scroll-target="#indicadores-simples-e-compostos"><span class="header-section-number">2.4.1</span> Indicadores simples e compostos</a></li>
-  <li><a href="#indicadores-absolutos-e-relativos" id="toc-indicadores-absolutos-e-relativos" class="nav-link" data-scroll-target="#indicadores-absolutos-e-relativos"><span class="header-section-number">2.4.2</span> Indicadores absolutos e relativos</a></li>
+  <li><a href="#propriedades-de-um-indicador" id="toc-propriedades-de-um-indicador" class="nav-link" data-scroll-target="#propriedades-de-um-indicador"><span class="header-section-number">2.4.1</span> Propriedades de um indicador</a></li>
+  <li><a href="#numerador-denominador-e-população-sob-risco" id="toc-numerador-denominador-e-população-sob-risco" class="nav-link" data-scroll-target="#numerador-denominador-e-população-sob-risco"><span class="header-section-number">2.4.2</span> Numerador, denominador e população sob risco</a></li>
+  <li><a href="#indicadores-simples-e-compostos" id="toc-indicadores-simples-e-compostos" class="nav-link" data-scroll-target="#indicadores-simples-e-compostos"><span class="header-section-number">2.4.3</span> Indicadores simples e compostos</a></li>
+  <li><a href="#indicadores-absolutos-e-relativos" id="toc-indicadores-absolutos-e-relativos" class="nav-link" data-scroll-target="#indicadores-absolutos-e-relativos"><span class="header-section-number">2.4.4</span> Indicadores absolutos e relativos</a></li>
   </ul></li>
   <li><a href="#perigo-exposição-vulnerabilidade-efeito-e-resposta" id="toc-perigo-exposição-vulnerabilidade-efeito-e-resposta" class="nav-link" data-scroll-target="#perigo-exposição-vulnerabilidade-efeito-e-resposta"><span class="header-section-number">2.5</span> Perigo, exposição, vulnerabilidade, efeito e resposta</a></li>
   <li><a href="#valores-observados-estimados-e-modelados" id="toc-valores-observados-estimados-e-modelados" class="nav-link" data-scroll-target="#valores-observados-estimados-e-modelados"><span class="header-section-number">2.6</span> Valores observados, estimados e modelados</a></li>
@@ -563,23 +594,96 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="quarto-title-meta">
 
-
-
-
+    
+  
+    
   </div>
-
+  
 
 
 </header>
 
 
 <p>Medir não é apenas atribuir um número. Antes do cálculo, é preciso definir o que será representado, para qual decisão, em que território e período e com quais limites. Essa sequência evita que qualquer coluna de uma planilha seja apresentada como indicador e que produtos de naturezas distintas sejam comparados como se fossem equivalentes.</p>
+<p>Entre o fenômeno e o número existe uma cadeia de representação. Primeiro se formula um <strong>conceito</strong> — por exemplo, exposição ao calor. Em seguida escolhem-se dimensões observáveis — intensidade térmica, duração e presença de pessoas. Essas dimensões são convertidas em variáveis, obtidas por instrumentos ou sistemas, submetidas a regras de qualidade e combinadas por um método. Somente ao final surge uma medida interpretável. Cada elo pode introduzir redução, viés ou incerteza; nenhum software elimina a necessidade de justificar essas escolhas.</p>
+<p>Essa distinção é central em sistemas públicos de informação. Os Princípios Fundamentais das Estatísticas Oficiais associam utilidade pública a métodos profissionais, transparência, metadados, imparcialidade e prevenção do uso incorreto <span class="citation" data-cites="un2014statistics">(<a href="../../backmatter/referencias.html#ref-un2014statistics" role="doc-biblioref">United Nations General Assembly, 2014</a>)</span>. A Ficha de Qualificação do Indicador da RIPSA cumpre função semelhante ao tornar visíveis conceituação, interpretação, método, fontes e limitações <span class="citation" data-cites="ripsa2026">(<a href="../../backmatter/referencias.html#ref-ripsa2026" role="doc-biblioref">Organização Pan-Americana da Saúde, 2026</a>)</span>. Neste livro, a ficha não é um apêndice burocrático: é a especificação que mantém o número ligado ao conceito.</p>
 <section id="do-registro-à-decisão" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="do-registro-à-decisão"><span class="header-section-number">2.1</span> Do registro à decisão</h2>
 <p>Um <strong>dado</strong> é um registro, valor ou representação associado a uma observação, estimativa ou operação. Pode ser a leitura de um termômetro, a classe atribuída a um pixel de imagem, o número de internações registrado em um sistema ou a localização de um estabelecimento.</p>
 <p>Uma <strong>variável</strong> é uma característica que pode assumir diferentes valores ou categorias. Temperatura do ar, concentração de PM2,5, classe de cobertura da terra e situação de funcionamento de um serviço são variáveis. A variável descreve o que muda; o dado é uma realização dessa variável em determinado suporte e momento.</p>
 <p>Um <strong>índice</strong> resulta de uma transformação ou síntese. Pode combinar variáveis, padronizar escalas ou expressar uma condição que não é medida diretamente. O nome “índice”, porém, não garante validade: fórmula, componentes, ponderações e interpretação precisam ser documentados.</p>
 <p>Um <strong>indicador</strong> vincula uma medida a um objetivo representacional e a uma interpretação. A temperatura máxima diária torna-se indicador quando é definida como medida para acompanhar uma condição térmica em um território, com método, unidade, período, fonte, limitações e uso explicitados.</p>
+<p>Também convém distinguir <strong>informação</strong> de dado. Informação é dado interpretado em um contexto e para uma pergunta. “38 °C” é um valor; “máxima observada às 15h na estação X, acima do percentil 99 local e prevista para persistir por três dias” é informação mais próxima de uma decisão. Ainda assim, ela não informa sozinha quem está exposto, que serviços podem ser afetados ou que ação está autorizada.</p>
+<div id="tbl-cadeia-medicao" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-cadeia-medicao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;2.1: Da realidade observada à informação para decisão
+</figcaption>
+<div aria-describedby="tbl-cadeia-medicao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Camada</th>
+<th>Operação principal</th>
+<th>Exemplo com calor</th>
+<th>Pergunta de controle</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Fenômeno</td>
+<td>delimitar o que existe no mundo</td>
+<td>condições térmicas que podem produzir dano</td>
+<td>Que processo se pretende representar?</td>
+</tr>
+<tr class="even">
+<td>Conceito</td>
+<td>selecionar uma dimensão inteligível</td>
+<td>perigo térmico</td>
+<td>O conceito está definido e separado de exposição e efeito?</td>
+</tr>
+<tr class="odd">
+<td>Variável</td>
+<td>tornar a dimensão observável</td>
+<td>temperatura máxima diária</td>
+<td>Que grandeza varia, em qual unidade e suporte?</td>
+</tr>
+<tr class="even">
+<td>Registro</td>
+<td>obter um valor situado</td>
+<td>38 °C na estação X no dia Y</td>
+<td>Como, onde e quando o valor foi produzido?</td>
+</tr>
+<tr class="odd">
+<td>Medida derivada</td>
+<td>aplicar regra de síntese</td>
+<td>três dias consecutivos acima do percentil 95</td>
+<td>Que transformação foi realizada?</td>
+</tr>
+<tr class="even">
+<td>Indicador</td>
+<td>ligar medida, objetivo e interpretação</td>
+<td>ocorrência anual de ondas de calor pela definição Z</td>
+<td>Para que uso a medida é válida e quais são seus limites?</td>
+</tr>
+<tr class="odd">
+<td>Informação para decisão</td>
+<td>combinar indicador e contexto operacional</td>
+<td>alerta, população, capacidade e ações pactuadas</td>
+<td>Quem deve fazer o quê e quando?</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>A cadeia não precisa ser longa, mas precisa ser reconstruível. Um indicador simples pode exigir apenas uma variável e uma contagem; um indicador composto pode exigir dezenas de bases. Em ambos os casos, a validade depende da correspondência entre aquilo que se afirma medir e aquilo que as operações efetivamente produzem.</p>
 <div class="callout callout-style-default callout-important callout-titled" title="Conceito-chave">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -598,6 +702,16 @@ ul.task-list li input[type="checkbox"] {
 <h2 data-number="2.2" class="anchored" data-anchor-id="variáveis-climáticas-e-ambientais"><span class="header-section-number">2.2</span> Variáveis climáticas e ambientais</h2>
 <p>Variáveis ambientais podem vir de instrumentos em pontos específicos, sensores remotos, inventários, levantamentos administrativos ou modelos. Essa origem faz parte do significado do valor.</p>
 <p>Uma temperatura registrada por estação representa a medição naquele ponto e nas condições de instalação. Uma temperatura estimada em célula de grade representa o produto de um procedimento de interpolação, assimilação ou modelagem. A temperatura de superfície obtida por satélite, por sua vez, não é sinônimo de temperatura do ar. As três podem ser úteis, mas respondem a perguntas diferentes.</p>
+<section id="tipo-unidade-e-escala-de-mensuração" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="tipo-unidade-e-escala-de-mensuração"><span class="header-section-number">2.2.1</span> Tipo, unidade e escala de mensuração</h3>
+<p>Variáveis <strong>quantitativas contínuas</strong> podem assumir valores em um intervalo, como temperatura e concentração. <strong>Contagens</strong> registram ocorrências discretas, como óbitos ou estabelecimentos interrompidos. Variáveis <strong>categóricas nominais</strong> distinguem classes sem ordem necessária, como tipo de cobertura da terra. Variáveis <strong>ordinais</strong> possuem ordem, mas a distância entre categorias não é automaticamente mensurável, como níveis “baixo”, “moderado” e “alto”. Tratar uma escala ordinal como se cada passo tivesse a mesma distância cria operações sem sustentação.</p>
+<p>A unidade faz parte do significado. Converter kelvin em graus Celsius preserva diferenças térmicas por uma transformação conhecida; somar classes de risco codificadas como 1, 2 e 3 não transforma categorias em grandeza física. Percentuais exigem denominador explícito; taxas exigem população sob risco e período; concentrações exigem volume ou massa de referência. Unidades aparentemente compatíveis podem representar operações distintas.</p>
+<p>Outra distinção útil separa grandezas <strong>intensivas</strong> e <strong>extensivas</strong>. Temperatura e concentração não crescem apenas porque a área aumentou; população, volume de precipitação sobre uma bacia e número de eventos dependem da extensão considerada. Ao agregar territórios, médias, somas e ponderações precisam respeitar essa natureza. Somar temperaturas de bairros não produz “temperatura municipal”; somar populações, em princípio, produz uma população total, desde que as referências temporais e as categorias não se sobreponham.</p>
+</section>
+<section id="variável-latente-e-variável-substituta" class="level3" data-number="2.2.2">
+<h3 data-number="2.2.2" class="anchored" data-anchor-id="variável-latente-e-variável-substituta"><span class="header-section-number">2.2.2</span> Variável latente e variável substituta</h3>
+<p>Nem todo conceito é diretamente observável. Vulnerabilidade, resiliência, conforto térmico e insegurança hídrica são construções que precisam ser representadas por dimensões e variáveis. Uma <strong>variável substituta</strong> ou <em>proxy</em> é usada quando a grandeza de interesse não está disponível. Renda pode informar capacidade material, mas não mede sozinha proteção; endereço residencial aproxima localização, mas não reproduz mobilidade; cobertura de arborização aproxima uma condição ambiental, mas não garante sombra acessível.</p>
+<p>O uso de <em>proxy</em> é defensável quando a relação conceitual é explícita, a direção do possível viés é discutida e não se atribui ao substituto um significado que ele não possui. Disponibilidade não é validade: a coluna mais fácil de obter não se torna a melhor representação do fenômeno.</p>
 <p>Ao documentar uma variável, registre pelo menos:</p>
 <ul>
 <li>definição e unidade;</li>
@@ -608,6 +722,8 @@ ul.task-list li input[type="checkbox"] {
 <li>natureza observada, estimada, modelada, prevista ou projetada;</li>
 <li>versão e data de acesso.</li>
 </ul>
+<p>Esses elementos permitem avaliar <strong>validade de mensuração</strong>: se a operação representa adequadamente o conceito na população e no contexto de uso. Eles também permitem separar erro aleatório, que produz dispersão, de erro sistemático, que desloca valores ou grupos em determinada direção. O capítulo seguinte desenvolve qualidade, suporte e incerteza; os requisitos da inferência causal <span class="citation" data-cites="hernan2020causal">(<a href="../../backmatter/referencias.html#ref-hernan2020causal" role="doc-biblioref">Hernán; Robins, 2020</a>)</span> são retomados no <a href="../part-3/12-efeitos-saude.html" class="quarto-xref"><span>Capítulo 12</span></a></p>
+</section>
 </section>
 <section id="índices" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="índices"><span class="header-section-number">2.3</span> Índices</h2>
@@ -618,6 +734,26 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>classificação:</strong> como valores contínuos são convertidos em categorias ou níveis de ação.</li>
 </ol>
 <p>Um índice composto facilita comunicação e comparação, mas pode esconder compensações. Um valor favorável em uma dimensão pode neutralizar numericamente uma condição crítica em outra. Por isso, apresente o índice junto de seus componentes sempre que eles forem relevantes à decisão.</p>
+<section id="índices-não-são-todos-do-mesmo-tipo" class="level3" data-number="2.3.1">
+<h3 data-number="2.3.1" class="anchored" data-anchor-id="índices-não-são-todos-do-mesmo-tipo"><span class="header-section-number">2.3.1</span> Índices não são todos do mesmo tipo</h3>
+<p>O termo “índice” é empregado para construções metodologicamente diferentes:</p>
+<ul>
+<li><strong>transformação de uma variável</strong>, como anomalia padronizada;</li>
+<li><strong>regra de evento</strong>, que combina limiar, duração e continuidade;</li>
+<li><strong>modelo físico ou biometeorológico</strong>, como UTCI ou WBGT;</li>
+<li><strong>síntese multivariada</strong>, como índice de vulnerabilidade;</li>
+<li><strong>escala operacional</strong>, que converte valores em categorias de comunicação.</li>
+</ul>
+<p>Esses tipos não podem ser avaliados pelo mesmo critério. Um índice físico é examinado quanto a hipóteses, entradas e domínio de validade. Um índice composto exige, adicionalmente, modelo conceitual, tratamento de correlação, normalização, ponderação, regra de agregação e análise de sensibilidade. Uma categoria operacional exige validação dos limiares e das ações associadas.</p>
+</section>
+<section id="construção-de-índices-compostos" class="level3" data-number="2.3.2">
+<h3 data-number="2.3.2" class="anchored" data-anchor-id="construção-de-índices-compostos"><span class="header-section-number">2.3.2</span> Construção de índices compostos</h3>
+<p>A construção começa por um modelo conceitual, não por uma matriz de correlação. O modelo define dimensões e estabelece por que cada componente pertence ao índice. Depois são avaliadas disponibilidade, direção, distribuição, redundância e qualidade. O manual da OCDE e do Centro Comum de Investigação da Comissão Europeia organiza esse processo em quadro teórico, seleção dos dados, imputação, análise multivariada, normalização, ponderação, agregação, análise de incerteza e retorno aos componentes <span class="citation" data-cites="oecd2008composite">(<a href="../../backmatter/referencias.html#ref-oecd2008composite" role="doc-biblioref">Organisation for Economic Co-operation and Development; European Union; European Commission. Joint Research Centre, 2008</a>)</span>.</p>
+<p><strong>Normalização</strong> coloca variáveis em escala comum. Escore-z, transformação mínimo–máximo, distância a uma meta e classificação por postos produzem resultados diferentes. Mínimos e máximos amostrais tornam o índice sensível à entrada de novos territórios; postos descartam a magnitude das diferenças; escore-z depende da distribuição e da referência. A transformação escolhida precisa corresponder ao uso.</p>
+<p><strong>Ponderação</strong> expressa importância relativa ou uma propriedade do método; não revela automaticamente importância causal. Pesos iguais também são uma escolha. Pesos derivados de componentes principais maximizam uma estrutura estatística de variância, mas não necessariamente a relevância sanitária. Pesos definidos por especialistas ou participação social podem incorporar julgamento legítimo, desde que o processo seja transparente e a sensibilidade seja testada.</p>
+<p><strong>Agregação</strong> determina compensabilidade. Em uma soma ponderada, bom resultado em um componente pode compensar condição crítica em outro. Média geométrica reduz parcialmente essa compensação e exige tratamento de zeros. Regras não compensatórias podem estabelecer requisitos mínimos, mas produzem descontinuidades. Quando água, energia ou acesso são indispensáveis à continuidade de um serviço, permitir compensação irrestrita pode ser conceitualmente errado.</p>
+<p>Um índice composto deve ser recalculado sob escolhas plausíveis de componentes, normalização, pesos e agregação. Se pequenas mudanças reorganizam completamente as prioridades, o ranking é instável. O resultado deve ser apresentado com perfis dos componentes, não apenas como nota final <span class="citation" data-cites="oecd2008composite">(<a href="../../backmatter/referencias.html#ref-oecd2008composite" role="doc-biblioref">Organisation for Economic Co-operation and Development; European Union; European Commission. Joint Research Centre, 2008</a>)</span>.</p>
+</section>
 </section>
 <section id="indicadores" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="indicadores"><span class="header-section-number">2.4</span> Indicadores</h2>
@@ -629,13 +765,37 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Para que será usado?</strong> A finalidade conecta a medida a uma ação ou análise.</li>
 </ul>
 <p>Indicadores também precisam declarar território, período e população ou infraestrutura em escopo. “População exposta ao calor” não é uma medida completa sem definição de calor, fonte térmica, resolução, período, critério de exposição e população de referência.</p>
-<section id="indicadores-simples-e-compostos" class="level3" data-number="2.4.1">
-<h3 data-number="2.4.1" class="anchored" data-anchor-id="indicadores-simples-e-compostos"><span class="header-section-number">2.4.1</span> Indicadores simples e compostos</h3>
+<section id="propriedades-de-um-indicador" class="level3" data-number="2.4.1">
+<h3 data-number="2.4.1" class="anchored" data-anchor-id="propriedades-de-um-indicador"><span class="header-section-number">2.4.1</span> Propriedades de um indicador</h3>
+<p>Um indicador é adequado quando suas propriedades são compatíveis com a finalidade. Entre as principais estão:</p>
+<ul>
+<li><strong>relevância:</strong> representa uma questão que importa à decisão;</li>
+<li><strong>validade:</strong> corresponde ao conceito que afirma representar;</li>
+<li><strong>confiabilidade:</strong> produz resultados consistentes sob o mesmo procedimento;</li>
+<li><strong>sensibilidade:</strong> responde a mudanças relevantes do fenômeno ou da intervenção;</li>
+<li><strong>especificidade interpretativa:</strong> não muda predominantemente por processos alheios ao conceito;</li>
+<li><strong>comparabilidade:</strong> mantém definição e método entre lugares ou períodos;</li>
+<li><strong>oportunidade:</strong> chega antes de perder utilidade;</li>
+<li><strong>desagregação:</strong> permite revelar distribuições importantes sem violar proteção;</li>
+<li><strong>interpretabilidade:</strong> unidade, direção e limites podem ser compreendidos;</li>
+<li><strong>acionabilidade:</strong> o resultado pode ser ligado a responsabilidade ou decisão.</li>
+</ul>
+<p>Nenhuma propriedade domina todas as outras. Um indicador oportuno pode ser preliminar; um indicador preciso pode chegar tarde; uma medida comparável internacionalmente pode ser pouco sensível à realidade local. Qualidade significa adequação ao uso e exige declarar os compromissos feitos, princípio presente tanto nas estatísticas oficiais quanto na avaliação de dados de saúde <span class="citation" data-cites="un2014statistics who2023dqa">(<a href="../../backmatter/referencias.html#ref-un2014statistics" role="doc-biblioref">United Nations General Assembly, 2014</a>; <a href="../../backmatter/referencias.html#ref-who2023dqa" role="doc-biblioref">World Health Organization, 2023</a>)</span>.</p>
+</section>
+<section id="numerador-denominador-e-população-sob-risco" class="level3" data-number="2.4.2">
+<h3 data-number="2.4.2" class="anchored" data-anchor-id="numerador-denominador-e-população-sob-risco"><span class="header-section-number">2.4.2</span> Numerador, denominador e população sob risco</h3>
+<p>Contagens respondem “quantos?”. Proporções respondem “que parte de um conjunto?”. Taxas relacionam eventos a uma população sob risco e, frequentemente, a um intervalo de tempo. O denominador não é acessório: ele define a população à qual a medida se refere.</p>
+<p>Para uma proporção de estabelecimentos com plano de contingência, numerador e denominador precisam usar a mesma lista de estabelecimentos, território e data de referência. Para incidência, pessoas já portadoras da condição podem não integrar a população sob risco de um primeiro evento. Para mortalidade em desastre, a população residente pode ser uma aproximação inadequada onde há grande mobilidade sazonal. A aparente precisão de muitas casas decimais não corrige denominador conceitualmente errado.</p>
+<p>Padronização, médias móveis e suavização podem tornar comparações mais estáveis, mas modificam o objeto. Taxa padronizada não é a taxa efetivamente observada; média móvel desloca e distribui o sinal no tempo; estimativa suavizada combina o valor local com informação externa. Esses produtos devem ser nomeados como tal.</p>
+</section>
+<section id="indicadores-simples-e-compostos" class="level3" data-number="2.4.3">
+<h3 data-number="2.4.3" class="anchored" data-anchor-id="indicadores-simples-e-compostos"><span class="header-section-number">2.4.3</span> Indicadores simples e compostos</h3>
 <p>Um indicador simples pode derivar de uma variável por uma operação direta, como selecionar a máxima diária. Um indicador composto integra diferentes medidas, como um índice de vulnerabilidade que combine dimensões demográficas, sociais, sanitárias e institucionais.</p>
 <p>“Simples” não significa automaticamente confiável, e “composto” não significa automaticamente mais informativo. A escolha depende da pergunta. Para acionar uma rotina operacional, uma medida simples e atualizada pode ser mais útil. Para priorização estrutural, múltiplas dimensões podem ser necessárias.</p>
+<p>Também é possível trabalhar com um <strong>painel de indicadores simples</strong> sem agregá-los. Essa solução preserva as dimensões e torna conflitos visíveis: um território pode apresentar perigo elevado e boa capacidade, ou perigo moderado e exposição muito alta. O custo é exigir leitura conjunta. A agregação só é justificável quando existe interpretação defensável para o valor combinado.</p>
 </section>
-<section id="indicadores-absolutos-e-relativos" class="level3" data-number="2.4.2">
-<h3 data-number="2.4.2" class="anchored" data-anchor-id="indicadores-absolutos-e-relativos"><span class="header-section-number">2.4.2</span> Indicadores absolutos e relativos</h3>
+<section id="indicadores-absolutos-e-relativos" class="level3" data-number="2.4.4">
+<h3 data-number="2.4.4" class="anchored" data-anchor-id="indicadores-absolutos-e-relativos"><span class="header-section-number">2.4.4</span> Indicadores absolutos e relativos</h3>
 <p>Medidas absolutas expressam quantidades, como o número de pessoas afetadas ou de estabelecimentos danificados. São importantes para dimensionar recursos.</p>
 <p>Medidas relativas colocam a quantidade em relação a uma referência, como a proporção da população exposta. Facilitam comparações entre territórios de tamanhos diferentes, mas podem ocultar volumes operacionais. Um município pequeno pode ter grande proporção exposta e poucas pessoas; uma capital pode ter proporção menor e contingente muito maior.</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Boa prática">
@@ -659,7 +819,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="tbl-dimensoes-indicadores" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-dimensoes-indicadores-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;2.1: Dimensões analíticas dos indicadores
+Tabela&nbsp;2.2: Dimensões analíticas dos indicadores
 </figcaption>
 <div aria-describedby="tbl-dimensoes-indicadores-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -717,6 +877,8 @@ Tabela&nbsp;2.1: Dimensões analíticas dos indicadores
 </figure>
 </div>
 <p>Um indicador pode ocupar mais de uma dimensão, mas a classificação múltipla precisa ser justificada. Temperatura extrema descreve principalmente perigo; quando combinada com a distribuição populacional, pode integrar uma medida de exposição. A classificação não deve substituir a descrição do método.</p>
+<p>Essa posição na cadeia causal é importante porque indicadores de etapas diferentes não são substitutos. Reduzir emissão não equivale a demonstrar redução de concentração; reduzir concentração não garante igual redução de exposição; reduzir exposição não prova, sem avaliação, o tamanho do efeito sobre a saúde. O modelo DPSEEA — forças motrizes, pressões, estado, exposição, efeito e ação — foi desenvolvido para organizar indicadores de saúde ambiental e localizar oportunidades de intervenção <span class="citation" data-cites="who2003environmentalindicators">(<a href="../../backmatter/referencias.html#ref-who2003environmentalindicators" role="doc-biblioref">World Health Organization, 2003</a>)</span>. O modelo DPSIR, empregado em relatórios ambientais, distingue forças motrizes, pressões, estado, impactos e respostas <span class="citation" data-cites="eea1999indicators">(<a href="../../backmatter/referencias.html#ref-eea1999indicators" role="doc-biblioref">Smeets; Weterings, 1999</a>)</span>.</p>
+<p>Esses marcos são mapas de raciocínio, não sequências rígidas. Uma política de transporte pode atuar sobre força motriz, emissão, mobilidade, atividade física e desigualdade ao mesmo tempo. O valor do marco é impedir que se chame qualquer medida ambiental de “impacto em saúde” e ajudar a selecionar indicadores em pontos nos quais uma ação pública pode ser observada.</p>
 </section>
 <section id="valores-observados-estimados-e-modelados" class="level2" data-number="2.6">
 <h2 data-number="2.6" class="anchored" data-anchor-id="valores-observados-estimados-e-modelados"><span class="header-section-number">2.6</span> Valores observados, estimados e modelados</h2>
@@ -724,6 +886,8 @@ Tabela&nbsp;2.1: Dimensões analíticas dos indicadores
 <p><strong>Estimado</strong> indica que o valor foi inferido a partir de dados e método. Interpolação entre estações, estimativa populacional e classificação de imagem são exemplos.</p>
 <p><strong>Modelado</strong> indica dependência substantiva de um modelo que representa processos ou relações. Reanálises combinam modelos e observações assimiladas para produzir campos coerentes no espaço e no tempo.</p>
 <p><strong>Previsto</strong> descreve condições futuras em horizonte operacional e depende de uma rodada e de um modelo. <strong>Projetado</strong> explora futuros condicionados a cenários e hipóteses. Nenhum desses termos é intercambiável.</p>
+<p>Essas categorias descrevem o estatuto de produção do valor, não uma hierarquia simples de qualidade. Uma observação isolada pode representar mal um território; uma estimativa modelada e validada pode ser mais adequada a uma análise espacial. O problema começa quando a natureza do valor é ocultada ou quando a validação não corresponde ao uso.</p>
+<p>Produtos híbridos exigem linguagem precisa. Reanálise não é “observação preenchida”: ela resulta de modelo e assimilação de observações. Superfície populacional em grade não é censo no pixel: redistribui totais segundo um método. Excesso de mortalidade não é contagem observada de uma causa: é diferença entre observado e contrafactual estimado. Em todos os casos, a incerteza do processo acompanha o indicador.</p>
 <div class="callout callout-style-default callout-warning callout-titled" title="Atenção">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -743,6 +907,14 @@ Tabela&nbsp;2.1: Dimensões analíticas dos indicadores
 <p>Um <strong>indicador ambiental</strong> caracteriza condição, pressão, estado ou mudança no ambiente. Concentração de poluente, cobertura vegetal e precipitação acumulada são exemplos possíveis quando qualificados.</p>
 <p>Um <strong>indicador de saúde ambiental</strong> articula ambiente e saúde de forma mais direta. Pode representar exposição populacional, efeito sobre a saúde, vulnerabilidade ou resposta institucional. A simples presença de uma variável ambiental não demonstra efeito sanitário.</p>
 <p>Por exemplo, a concentração média diária de PM2,5 é uma medida ambiental e potencial indicador de exposição. Internações por doença respiratória são um indicador de saúde. A associação entre ambas exige desenho analítico, alinhamento temporal e espacial, controle de confundimento e avaliação de incerteza. A justaposição de duas séries não estabelece causalidade.</p>
+<p>Há pelo menos quatro maneiras pelas quais ambiente e saúde podem aparecer em um indicador:</p>
+<ol type="1">
+<li><strong>condição ambiental com relevância sanitária</strong>, como PM2,5 médio anual;</li>
+<li><strong>exposição populacional</strong>, como PM2,5 ponderado pela distribuição residencial;</li>
+<li><strong>efeito observado</strong>, como internações por diagnóstico e período definidos;</li>
+<li><strong>efeito atribuível estimado</strong>, que combina exposição, função exposição–resposta, população e contrafactual.</li>
+</ol>
+<p>Passar de uma categoria à seguinte exige dados e hipóteses adicionais. A evidência de que um poluente causa dano em determinada literatura não transforma automaticamente qualquer mapa desse poluente em estimativa local de casos. Inferência causal requer explicitar intervenção ou contraste, população, tempo zero, desfecho, confundimento, seleção e mensuração <span class="citation" data-cites="hernan2020causal">(<a href="../../backmatter/referencias.html#ref-hernan2020causal" role="doc-biblioref">Hernán; Robins, 2020</a>)</span>.</p>
 </section>
 <section id="informação-para-tomada-de-decisão" class="level2" data-number="2.8">
 <h2 data-number="2.8" class="anchored" data-anchor-id="informação-para-tomada-de-decisão"><span class="header-section-number">2.8</span> Informação para tomada de decisão</h2>
@@ -757,8 +929,36 @@ Tabela&nbsp;2.1: Dimensões analíticas dos indicadores
 <li>registrar decisão, revisão e responsável.</li>
 </ol>
 <p>Indicadores não decidem sozinhos. Eles tornam aspectos do problema visíveis, permitem acompanhar mudanças e ajudam a justificar escolhas. A decisão ainda requer contexto local, conhecimento técnico, participação social, recursos e responsabilidades institucionais.</p>
+<p>Metas e limiares também não devem ser confundidos com indicadores. O indicador mede; a meta declara um resultado desejado em prazo definido; o limiar organiza uma decisão; o padrão normativo estabelece uma exigência. Um mesmo indicador pode ser comparado a referências diferentes, e a escolha da referência tem consequências distributivas e operacionais.</p>
+<p>Por fim, monitoramento não equivale a avaliação. Monitorar acompanha valores e execução; avaliar formula uma pergunta sobre mérito, implementação, resultado ou impacto e reúne evidência apropriada <span class="citation" data-cites="cdc2024evaluation">(<a href="../../backmatter/referencias.html#ref-cdc2024evaluation" role="doc-biblioref">Centers for Disease Control and Prevention, 2024</a>)</span>. Indicadores de estrutura e processo demonstram capacidade instalada ou atividade, não necessariamente benefício final. Essa distinção será retomada no <a href="../part-3/13-resposta-adaptacao-resiliencia.html" class="quarto-xref"><span>Capítulo 13</span></a> e no <a href="../part-4/14-indicador-decisao.html" class="quarto-xref"><span>Capítulo 14</span></a></p>
 
 
+<div id="refs" class="references csl-bib-body" data-entry-spacing="1" role="list" style="display: none">
+<div id="ref-cdc2024evaluation" class="csl-entry" role="listitem">
+CENTERS FOR DISEASE CONTROL AND PREVENTION. <strong>CDC Program Evaluation Framework, 2024</strong>. Disponível em: &lt;<a href="https://www.cdc.gov/mmwr/volumes/73/rr/rr7306a1.htm">https://www.cdc.gov/mmwr/volumes/73/rr/rr7306a1.htm</a>&gt;. Acesso em: 4 ago. 2026.
+</div>
+<div id="ref-hernan2020causal" class="csl-entry" role="listitem">
+HERNÁN, Miguel A.; ROBINS, James M. <strong><a href="https://miguelhernan.org/whatifbook">Causal inference: what if</a></strong>. Boca Raton: Chapman &amp; Hall/CRC, 2020.
+</div>
+<div id="ref-oecd2008composite" class="csl-entry" role="listitem">
+ORGANISATION FOR ECONOMIC CO-OPERATION AND DEVELOPMENT; EUROPEAN UNION; EUROPEAN COMMISSION. JOINT RESEARCH CENTRE. <strong><a href="https://doi.org/10.1787/9789264043466-en">Handbook on constructing composite indicators: methodology and user guide</a></strong>. Paris: OECD Publishing, 2008.
+</div>
+<div id="ref-ripsa2026" class="csl-entry" role="listitem">
+ORGANIZAÇÃO PAN-AMERICANA DA SAÚDE. <strong><a href="https://doi.org/10.37774/9789275731659">Indicadores Básicos para a Saúde no Brasil: conceitos e aplicações</a></strong>. 3. ed. Brasília, DF: Organização Pan-Americana da Saúde, 2026.
+</div>
+<div id="ref-eea1999indicators" class="csl-entry" role="listitem">
+SMEETS, Edith; WETERINGS, Rob. <strong>Environmental indicators: typology and overview</strong>. Copenhagen: European Environment Agency, 1999. Disponível em: &lt;<a href="https://www.eea.europa.eu/en/analysis/publications/tec25">https://www.eea.europa.eu/en/analysis/publications/tec25</a>&gt;. Acesso em: 4 ago. 2026.
+</div>
+<div id="ref-un2014statistics" class="csl-entry" role="listitem">
+UNITED NATIONS GENERAL ASSEMBLY. <strong>Fundamental Principles of Official Statistics: resolution A/RES/68/261</strong>. New YorkUnited Nations, 2014. Disponível em: &lt;<a href="https://unstats.un.org/fpos">https://unstats.un.org/fpos</a>&gt;. Acesso em: 4 ago. 2026
+</div>
+<div id="ref-who2003environmentalindicators" class="csl-entry" role="listitem">
+WORLD HEALTH ORGANIZATION. <strong><a href="https://iris.who.int/handle/10665/42673">Making a difference: indicators to improve children’s environmental health</a></strong>. Geneva: World Health Organization, 2003.
+</div>
+<div id="ref-who2023dqa" class="csl-entry" role="listitem">
+WORLD HEALTH ORGANIZATION. <strong><a href="https://www.who.int/publications/i/item/9789240047365">Data quality assurance: module 1: framework and metrics</a></strong>. Geneva: World Health Organization, 2023.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -786,7 +986,7 @@ Tabela&nbsp;2.1: Dimensões analíticas dos indicadores
     anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
-        if (clz.startsWith('code-annotation-')) {
+        if (clz.startsWith('code-annotation-')) {                     
           return true;
         }
       }
@@ -806,11 +1006,11 @@ Tabela&nbsp;2.1: Dimensões analíticas dos indicadores
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
         button.setAttribute("data-bs-title", "Copiada");
-        tooltip = new bootstrap.Tooltip(button,
-          { trigger: "manual",
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
             customClass: "code-copy-button-tooltip",
             offset: [0, -8]});
-        tooltip.show();
+        tooltip.show();    
       }
       setTimeout(function() {
         if (tooltip) {
@@ -892,7 +1092,7 @@ Tabela&nbsp;2.1: Dimensões analíticas dos indicadores
       if (onUntriggerFn) {
         config.onUntrigger = onUntriggerFn;
       }
-      window.tippy(el, config);
+      window.tippy(el, config); 
     }
     const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
     for (var i=0; i<noterefs.length; i++) {
@@ -967,7 +1167,7 @@ Tabela&nbsp;2.1: Dimensões analíticas dos indicadores
       tippyHover(xref, undefined, function(instance) {
         instance.disable();
         let url = xref.getAttribute('href');
-        let hash = undefined;
+        let hash = undefined; 
         if (url.startsWith('#')) {
           hash = url;
         } else {
@@ -995,7 +1195,7 @@ Tabela&nbsp;2.1: Dimensões analíticas dos indicadores
               if (note !== null) {
                 const html = processXRef(id, note);
                 instance.setContent(html);
-              }
+              } 
             }).finally(() => {
               instance.enable();
               instance.show();
@@ -1019,7 +1219,7 @@ Tabela&nbsp;2.1: Dimensões analíticas dos indicadores
               }
               const html = processXRef(null, note);
               instance.setContent(html);
-            }
+            } 
           }).finally(() => {
             instance.enable();
             instance.show();
@@ -1059,7 +1259,7 @@ Tabela&nbsp;2.1: Dimensões analíticas dos indicadores
               height = bottom - top;
             }
             if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it
+              // cook up a div (if necessary) and position it 
               let div = window.document.getElementById("code-annotation-line-highlight");
               if (div === null) {
                 div = window.document.createElement("div");
@@ -1184,7 +1384,7 @@ Tabela&nbsp;2.1: Dimensões analíticas dos indicadores
   <div class="nav-page nav-page-previous">
       <a href="../../chapters/part-1/01-clima-ambiente-saude.html" class="pagination-link" aria-label="Clima, ambiente e saúde pública">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Clima, ambiente e saúde pública</span></span>
-      </a>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../../chapters/part-1/03-espaco-tempo-qualidade.html" class="pagination-link" aria-label="Espaço, tempo e qualidade dos dados">

@@ -4,7 +4,7 @@ Temperatura organiza um domínio amplo: condições cotidianas, extremos de calo
 
 ## Temperatura do ar
 
-A temperatura do ar é normalmente medida em estações meteorológicas sob condições padronizadas. O valor depende do local, da altura, do abrigo, do instrumento, da frequência de registro e do controle de qualidade. A leitura de uma estação representa seu entorno imediato; não deve ser automaticamente atribuída a todo o município.
+A temperatura do ar é normalmente medida em estações meteorológicas sob condições padronizadas. O valor depende do local, da altura, do abrigo, do instrumento, da frequência de registro e do controle de qualidade. A leitura de uma estação representa seu entorno imediato; não deve ser automaticamente atribuída a todo o município [@wmo2023climatological].
 
 Séries subdiárias permitem calcular médias, máximas e mínimas diárias. Para que esses valores sejam comparáveis, é necessário declarar:
 
@@ -19,7 +19,7 @@ Temperatura máxima diária é uma variável de entrada de vários indicadores c
 
 ## Temperatura da superfície
 
-Temperatura da superfície descreve a emissão térmica da superfície observada ou estimada por sensoriamento remoto. Ela pode revelar contrastes entre materiais urbanos, solo exposto, água e vegetação, sendo útil para estudos de ilhas de calor e heterogeneidade territorial.
+Temperatura da superfície descreve a emissão térmica da superfície observada ou estimada por sensoriamento remoto. Ela pode revelar contrastes entre materiais urbanos, solo exposto, água e vegetação, sendo útil para estudos de ilhas de calor e heterogeneidade territorial [@jin2012uhi].
 
 Ela não equivale à temperatura do ar. Horário de passagem do satélite, cobertura de nuvens, emissividade, tamanho do pixel e método de recuperação afetam o produto. A ausência de valor em dia nublado também não significa ausência de calor.
 
@@ -48,7 +48,7 @@ Cada medida responde a uma pergunta. A máxima diária representa o pico térmic
 
 Uma onda é um episódio persistente. Sua definição exige ao menos uma variável, um limiar, uma duração mínima e uma regra de continuidade. Algumas definições usam valores absolutos; outras, percentis; outras combinam máximas e mínimas.
 
-Não há definição universal adequada a todos os climas, populações e decisões. Para comparações, use a mesma definição ou apresente análise de sensibilidade. Para alertas, a definição precisa ser validada com capacidade operacional e efeitos relevantes no território.
+Não há definição universal adequada a todos os climas, populações e decisões. Para comparações, use a mesma definição ou apresente análise de sensibilidade. Para alertas, a definição precisa ser validada com capacidade operacional e efeitos relevantes no território [@perkins2013heatwaves; @wmoWho2015heat].
 
 Para qualquer definição de onda de calor, recomenda-se registrar:
 
@@ -74,13 +74,13 @@ Ao usar um índice:
 
 ## Conforto térmico
 
-Conforto térmico inclui componentes ambientais, fisiológicos, comportamentais e contextuais. Temperatura do ar, umidade, radiação e vento interagem com vestimenta, atividade, adaptação e características do ambiente construído.
+Conforto térmico inclui componentes ambientais, fisiológicos, comportamentais e contextuais. Temperatura do ar, umidade, radiação e vento interagem com vestimenta, atividade, adaptação e características do ambiente construído [@steadman1994; @brode2012utci].
 
 Por isso, um índice de conforto não representa sozinho risco sanitário. Ele pode apoiar avaliação de ambientes e comunicação, desde que a população e a situação de uso sejam compatíveis com o método.
 
 ## Ilhas de calor
 
-Ilhas de calor descrevem diferenças térmicas entre porções urbanas e áreas de referência. Podem ser analisadas pela temperatura do ar ou da superfície, o que produz medidas distintas.
+Ilhas de calor descrevem diferenças térmicas entre porções urbanas e áreas de referência. Podem ser analisadas pela temperatura do ar ou da superfície, o que produz medidas distintas [@jin2012uhi].
 
 A delimitação da referência é uma decisão substantiva. Comparar o centro urbano com uma estação rural distante pode introduzir diferenças de altitude, relevo ou circulação atmosférica. Em imagens, a classificação do uso da terra, o horário e a cobertura de nuvens influenciam a estimativa.
 
@@ -94,7 +94,7 @@ O WBGT é a medida de triagem consolidada para esse domínio. A ISO 7243:2017 o 
 
 ## Impactos sobre a saúde
 
-Condições térmicas podem se relacionar a agravos por caminhos diretos e indiretos. A análise deve considerar o desfecho específico, a escala temporal, a sazonalidade, a adaptação local e fatores que variam junto com a temperatura.
+Condições térmicas podem se relacionar a agravos por caminhos diretos e indiretos. A análise deve considerar o desfecho específico, a escala temporal, a sazonalidade, a adaptação local e fatores que variam junto com a temperatura [@ipcc2022saude; @who2026heat].
 
 Comparar uma curva de temperatura a uma curva de internações é insuficiente para concluir causalidade. Estudos analíticos precisam tratar tendência, sazonalidade, defasagem, qualidade do desfecho, autocorrelação e possíveis confundidores.
 
@@ -142,17 +142,15 @@ WBGT foi desenvolvido para triagem de estresse térmico de pessoas fisicamente a
 ```{mermaid}
 %%| label: fig-indices-biometeorologicos
 %%| fig-cap: "Entradas e domínios dos principais índices biometeorológicos de calor"
-flowchart LR
-  A["Temperatura + umidade"] --> HI["Índice de Calor"]
-  A --> HX["Humidex"]
-  B["Temperatura + umidade + vento"] --> AT["Temperatura aparente"]
-  C["Temperatura + umidade + vento + radiação"] --> UTCI["UTCI"]
-  D["Bulbo úmido natural + globo + ar"] --> WBGT["WBGT"]
-  HI --> U1["Comunicação de calor úmido"]
-  HX --> U1
-  AT --> U2["Condição externa à sombra"]
-  UTCI --> U3["Estresse térmico externo"]
-  WBGT --> U4["Triagem ocupacional e atividade física"]
+%%{init: {"htmlLabels": false, "flowchart": {"htmlLabels": false}}}%%
+flowchart TD
+  E["Variáveis meteorológicas<br/>e contexto de uso"] --> H["Temperatura + umidade<br/>Índice de Calor ou Humidex<br/>Comunicação de calor úmido"]
+  E --> A["Temperatura + umidade + vento<br/>Temperatura aparente<br/>Condição externa à sombra"]
+  E --> U["Temperatura + umidade + vento + radiação<br/>UTCI<br/>Estresse térmico externo"]
+  E --> W["Bulbo úmido natural + globo + ar<br/>WBGT<br/>Triagem ocupacional e atividade física"]
+  H ~~~ A
+  A ~~~ U
+  U ~~~ W
 ```
 
 O componente noturno merece medida própria. TN90p quantifica a frequência de mínimas acima do percentil local. Ondas compostas exigem simultaneamente máximas e mínimas elevadas por dias consecutivos. Em 28 cidades do leste da Ásia, ondas compostas apresentaram riscos e frações de mortalidade maiores que ondas somente diurnas ou noturnas; o estudo também aplicou o CEHWI para representar o excesso térmico acumulado além da classificação binária [@liu2025cehwi]. Em 161 comunidades chinesas, eventos compostos também apresentaram riscos de mortalidade superiores aos eventos restritos ao dia ou à noite [@yang2024compound].
