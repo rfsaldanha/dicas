@@ -43,7 +43,7 @@ Limites para o novo projeto:
 
 ## `../sis_pdf`
 
-O projeto impresso usa Quarto e Typst com formato local especializado. O miolo mede 155 × 230 mm, tem margens espelhadas, Libertinus Serif, capítulos em páginas ímpares, pré-voo de fontes e imagens e auditoria detalhada de paginação. O conteúdo é sincronizado de `../sis`, mantendo dois repositórios e uma cópia derivada não versionada.
+O projeto impresso usa Quarto e Typst com formato local especializado. O miolo mede 160 × 230 mm, tem margens espelhadas, Libertinus Serif, capítulos em páginas ímpares, pré-voo de fontes e imagens e auditoria detalhada de paginação. O conteúdo é sincronizado de `../sis`, mantendo dois repositórios e uma cópia derivada não versionada.
 
 Padrões aproveitáveis:
 
@@ -73,4 +73,3 @@ Dependências: Quarto, R com `yaml` e Poppler para validação. Não há depend�
 - A lista de 55–65 fichas precisa de priorização e revisão temática.
 - Normas e limiares vigentes exigem verificação por capítulo.
 - A paginação final, listas automáticas e índice remissivo devem ser refinados no fechamento.
-

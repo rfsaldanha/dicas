@@ -28,7 +28,7 @@ indicators:
       - id: era5-land
         papel: temperatura e umidade em grade para análise retrospectiva, após avaliação de viés
     metodo_calculo: Converter a temperatura para graus Fahrenheit. Calcular primeiro a aproximação simples de Steadman e tirar sua média com a temperatura observada. Se essa média for inferior a 80 °F, usar o resultado simples. Se atingir 80 °F, aplicar a regressão de Rothfusz e os ajustes oficiais para umidade muito baixa ou muito alta nas faixas especificadas pelo NWS. Converter para graus Celsius apenas ao final, quando necessário.
-    formula_calculo: 'HI=-42.379+2.04901523T+10.14333127RH-0.22475541TRH-0.00683783T^2-0.05481717RH^2+0.00122874T^2RH+0.00085282TRH^2-0.00000199T^2RH^2'
+    formula_calculo: 'HI=-42{,}379+2{,}04901523T+10{,}14333127RH-0{,}22475541TRH-0{,}00683783T^2-0{,}05481717RH^2+0{,}00122874T^2RH+0{,}00085282TRH^2-0{,}00000199T^2RH^2'
     numerador: Não se aplica; combinação polinomial de temperatura e umidade relativa.
     denominador: Não se aplica.
     unidade_medida: Grau Fahrenheit (°F) na fórmula original; pode ser convertido para grau Celsius (°C) após o cálculo.
@@ -65,7 +65,7 @@ indicators:
       - id: era5-land
         papel: variáveis meteorológicas em grade para análise retrospectiva, após validação
     metodo_calculo: Obter temperatura do ar em graus Celsius, pressão de vapor em hPa e velocidade do vento a 10 m em m/s para o mesmo instante. Aplicar a equação externa sem radiação do Bureau of Meteorology. Quando a pressão de vapor for derivada de temperatura e umidade relativa, registrar a equação de saturação empregada.
-    formula_calculo: 'AT=T_a+0.33e-0.70v_{10}-4.00'
+    formula_calculo: 'AT=T_a+0{,}33e-0{,}70v_{10}-4{,}00'
     numerador: Não se aplica; combinação linear de temperatura, pressão de vapor e vento.
     denominador: Não se aplica.
     unidade_medida: Grau Celsius (°C).
@@ -102,7 +102,7 @@ indicators:
       - id: era5-land
         papel: temperatura e umidade em grade para análise retrospectiva, após validação
     metodo_calculo: Converter o ponto de orvalho para kelvin. Calcular a pressão de vapor e, em seguida, o incremento h; somá-lo à temperatura do ar em graus Celsius. Se a entrada disponível for umidade relativa, derivar primeiro o ponto de orvalho ou a pressão de vapor com método documentado.
-    formula_calculo: 'Humidex=T_a+0.5555(e-10),\quad e=6.11\exp\left[5417.7530\left(\frac{1}{273.15}-\frac{1}{T_d}\right)\right]'
+    formula_calculo: 'Humidex=T_a+0{,}5555(e-10),\quad e=6{,}11\exp\left[5417{,}7530\left(\frac{1}{273{,}15}-\frac{1}{T_d}\right)\right]'
     numerador: Não se aplica.
     denominador: Não se aplica.
     unidade_medida: Índice adimensional informado em escala semelhante a graus Celsius.
@@ -152,7 +152,7 @@ indicators:
     url_persistente: https://doi.org/10.24381/cds.553b7518
     periodo_disponivel: Desde 1940 até próximo do presente no ERA5-HEAT, conforme a versão consultada.
     periodicidade_atualizacao: O conjunto histórico é estendido conforme o ERA5; verificar latência e versão.
-    forma_acesso: Download pelo Copernicus Climate Data Store ou cálculo com a implementação oficial do UTCI.
+    forma_acesso: Obtenção pelo Copernicus Climate Data Store ou cálculo com a implementação oficial do UTCI.
     formatos: NetCDF para grade; NetCDF ou CSV no produto de séries temporais.
     necessidade_processamento: Selecionar versão e fluxo, converter kelvin para Celsius quando necessário, classificar valores, tratar horários e agregar sem ocultar extremos.
     analise_descritiva: Apresentar máximos e mínimos, horas ou dias em cada categoria, mapas, população exposta e incerteza; comparar com temperatura do ar para evidenciar o papel de vento, umidade e radiação.
@@ -176,7 +176,7 @@ indicators:
       - id: era5-land
         papel: campos meteorológicos auxiliares em avaliações retrospectivas, sem substituir medição ocupacional local
     metodo_calculo: Medir simultaneamente temperatura de bulbo úmido natural, temperatura de globo e temperatura do ar no local representativo da exposição. Para ambiente externo com carga solar, aplicar 0,7Tnwb + 0,2Tg + 0,1Ta. Para ambiente interno ou externo sem carga solar, aplicar 0,7Tnwb + 0,3Tg. Calcular média ponderada no tempo e, se necessário, no corpo conforme o protocolo técnico.
-    formula_calculo: 'WBGT_{sol}=0.7T_{nwb}+0.2T_g+0.1T_a;\qquad WBGT_{sem\ sol}=0.7T_{nwb}+0.3T_g'
+    formula_calculo: 'WBGT_{sol}=0{,}7T_{nwb}+0{,}2T_g+0{,}1T_a;\qquad WBGT_{sem\ sol}=0{,}7T_{nwb}+0{,}3T_g'
     numerador: Não se aplica; média ponderada de temperaturas ambientais.
     denominador: Não se aplica.
     unidade_medida: Grau Celsius WBGT (°C).

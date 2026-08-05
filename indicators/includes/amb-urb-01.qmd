@@ -13,53 +13,56 @@
 [Indicador consolidado em.]{.field-label} Indicador ODS 11.7.1 sob custódia do Programa das Nações Unidas para os Assentamentos Humanos.
 
 ::: {.callout-note icon=false title="Conceito-chave"}
-Percentual da área construída urbana destinado a espaços abertos de uso público, complementado pela avaliação do acesso populacional e desagregações.
+O indicador reúne duas séries complementares. A primeira mede a parcela da área construída da cidade destinada a espaços públicos, compreendendo espaços públicos abertos verificados e áreas destinadas a ruas. A segunda mede a parcela da população urbana com acesso conveniente a espaços públicos abertos.
 :::
 
 ### Objetivo {.unnumbered .ficha-section}
 
-Monitorar oferta e acesso universal a espaços públicos abertos, seguros, inclusivos e acessíveis.
+Monitorar a oferta territorial de espaços públicos e o acesso universal a espaços públicos abertos, seguros, inclusivos e acessíveis.
 
 ### Interpretação {.unnumbered .ficha-section}
 
-Valor maior indica maior parcela territorial classificada como espaço aberto público. Não informa automaticamente qualidade, vegetação, segurança, acessibilidade ou uso.
+Na série territorial, valor maior indica maior parcela da cidade destinada a espaços públicos abertos e ruas. Na série de acesso, valor maior indica maior parcela da população situada a até 400 m caminháveis de um espaço público aberto. Nenhuma das séries informa automaticamente qualidade, vegetação, segurança ou uso efetivo.
 
 ### Usos {.unnumbered .ficha-section}
 
-- Monitorar ODS 11.7.1.
+- Monitorar as duas séries do ODS 11.7.1.
 - Comparar cidades com método harmonizado.
 - Planejar oferta e distribuição de espaços públicos.
+- Examinar desigualdades de acesso por sexo, idade e deficiência.
 
 ### Limitações {.unnumbered .ficha-section}
 
-- Delimitação da área construída afeta denominador.
-- Propriedade pública não garante acesso.
-- Espaço aberto pode não ser verde.
-- Cadastro incompleto e imagem defasada geram erro.
+- A delimitação da cidade ou área urbana afeta o denominador.
+- Espaços identificados por imagem exigem verificação de uso público e gratuidade.
+- Espaço público aberto pode não ser verde.
+- Cadastro incompleto, rede caminhável inadequada e imagem defasada geram erro.
+- A série territorial e a série de acesso não devem ser fundidas em uma única medida.
 
 ### Fontes de dados {.unnumbered .ficha-section}
 
-- MapBiomas Brasil — apoio à delimitação de cobertura e área urbana, com validação cadastral ([cadastro](../../backmatter/indice-fontes.qmd#mapbiomas))
+- Programa de Indicadores Urbanos do UN-Habitat — metadados oficiais, delimitação urbana e protocolo de cálculo do ODS 11.7.1 ([cadastro](../../backmatter/indice-fontes.qmd#unhabitat-urban))
+- MapBiomas Brasil — apoio à delimitação de cobertura e área urbana, sem substituir a verificação dos espaços públicos ([cadastro](../../backmatter/indice-fontes.qmd#mapbiomas))
 - Instituto Brasileiro de Geografia e Estatística — limites, população e desagregações ([cadastro](../../backmatter/indice-fontes.qmd#ibge))
 
 ### Método de cálculo {.unnumbered .ficha-section}
 
-Delimitar área construída urbana segundo o metadado, mapear espaços abertos de uso público e calcular a razão de áreas; calcular separadamente a população com acesso em distância caminhável conforme o protocolo ODS.
+Delimitar a cidade ou área urbana pelo protocolo ODS; identificar e verificar os espaços públicos abertos; estimar a área total destinada a ruas; somar as duas áreas e dividi-las pela área total delimitada. Calcular separadamente a população que alcança um espaço público aberto por percurso caminhável de até 400 m, dividindo-a pela população urbana total e desagregando o resultado por sexo, idade e deficiência.
 
 $$
-ODS11.7.1_{área}=100\times\frac{A_{espaço\ aberto\ público}}{A_{área\ construída\ urbana}}
+ODS11.7.1_{área}=100\times\frac{A_{espaços\ públicos\ abertos}+A_{ruas}}{A_{cidade}};\quad ODS11.7.1_{acesso}=100\times\frac{Pop_{\leq 400\,m\ caminháveis}}{Pop_{urbana}}
 $$
 
 ::: {.indicator-card}
-[Numerador.]{.field-label} Área de espaços abertos qualificados para uso público.
+[Numerador.]{.field-label} Na série territorial, soma da área dos espaços públicos abertos verificados com a área destinada a ruas; na série de acesso, população urbana a até 400 m caminháveis de um espaço público aberto.
 
-[Denominador.]{.field-label} Área construída urbana segundo a delimitação ODS.
+[Denominador.]{.field-label} Na série territorial, área total da cidade ou área urbana delimitada; na série de acesso, população urbana total da mesma área.
 
 [Unidade de medida.]{.field-label} Percentual (%).
 
-[Variáveis e categorias de análise.]{.field-label} Área construída; espaço público; tipo; acessibilidade; população; sexo; idade; deficiência.
+[Variáveis e categorias de análise.]{.field-label} Limite da cidade; espaço público aberto verificado; área destinada a ruas; rede caminhável; distância de 400 m; população; sexo; idade; deficiência.
 
-[Granularidade.]{.field-label} Polígono de espaço e zona urbana.
+[Granularidade.]{.field-label} Polígono de espaço, área de ruas, segmento de rede, unidade populacional e cidade.
 
 [Periodicidade de atualização.]{.field-label} Por ciclo de monitoramento ODS ou planejamento urbano.
 
@@ -67,7 +70,7 @@ $$
 
 [Notas.]{.field-label} Verdor espectral, cobertura vegetal, espaço público acessível e uso efetivo são dimensões diferentes.
 
-[Análise descritiva do indicador.]{.field-label} Mostrar parcela total, tipos de espaço, acesso por grupo e distribuição intraurbana.
+[Análise descritiva do indicador.]{.field-label} Apresentar separadamente a parcela territorial de espaços públicos e a parcela populacional com acesso; detalhar os componentes espaço aberto e ruas, desagregar acesso por grupo e mostrar a distribuição intraurbana.
 
 :::
 
@@ -100,11 +103,11 @@ $$
 
 [Formato dos arquivos.]{.field-label} Vetores geoespaciais, tabelas e relatórios.
 
-[Necessidade de processamento.]{.field-label} Delimitar área urbana, validar espaços públicos, calcular áreas e acesso e documentar omissões.
+[Necessidade de processamento.]{.field-label} Delimitar a área urbana, validar espaços públicos, estimar a área de ruas, construir percursos caminháveis de 400 m, interpolar ou agregar a população e documentar omissões.
 
 ### Qualidade, comparação e saúde {.unnumbered .ficha-section}
 
-[Qualidade e incerteza.]{.field-label} Relatar sensor, produto, data, nuvens, resolução, classificação, delimitação urbana, população, buffer, erros posicionais e análise de sensibilidade.
+[Qualidade e incerteza.]{.field-label} Relatar sensor, produto, data, nuvens, resolução, classificação, delimitação urbana, população, área de entorno, erros posicionais e análise de sensibilidade.
 
 [Possibilidade de comparação.]{.field-label} Manter produto, estação, composição temporal, resolução, definição de verde, limite urbano, população e parâmetros espaciais.
 

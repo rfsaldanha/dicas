@@ -10,10 +10,10 @@
 
 ### Identificação e fundamento {.unnumbered .ficha-section}
 
-[Indicador consolidado em.]{.field-label} NDVI em buffers residenciais, medida de exposição a verdor mais usada em estudos epidemiológicos de espaços verdes.
+[Indicador consolidado em.]{.field-label} NDVI em áreas de entorno residencial, medida de exposição a verdor mais usada em estudos epidemiológicos de espaços verdes.
 
 ::: {.callout-note icon=false title="Conceito-chave"}
-Média do NDVI dos pixels válidos dentro de um buffer em torno do endereço, ponto ou unidade residencial durante a janela temporal definida.
+Média do NDVI dos pixels válidos dentro de uma área de entorno do endereço, ponto ou unidade residencial durante a janela temporal definida.
 :::
 
 ### Objetivo {.unnumbered .ficha-section}
@@ -35,9 +35,9 @@ Valores maiores indicam maior verdor espectral no produto e período. NDVI varia
 - Satura em vegetação densa.
 - É afetado por nuvens
 - Solo e fenologia.
-- Buffer residencial ignora mobilidade.
+- A área de entorno residencial ignora mobilidade.
 - Água e superfícies não vegetadas alteram média.
-- Tamanho do buffer muda exposição.
+- O tamanho da área de entorno muda a exposição.
 
 ### Fontes de dados {.unnumbered .ficha-section}
 
@@ -46,20 +46,20 @@ Valores maiores indicam maior verdor espectral no produto e período. NDVI varia
 
 ### Método de cálculo {.unnumbered .ficha-section}
 
-Obter reflectância corrigida no vermelho e infravermelho próximo, mascarar nuvens e pixels inválidos, calcular NDVI, compor a janela temporal e obter média dos pixels em buffer previamente definido.
+Obter reflectância corrigida no vermelho e infravermelho próximo, mascarar nuvens e pixels inválidos, calcular NDVI, compor a janela temporal e obter a média dos pixels na área de entorno previamente definida.
 
 $$
 NDVI=\frac{\rho_{NIR}-\rho_{red}}{\rho_{NIR}+\rho_{red}};\quad \overline{NDVI}_b=\frac{\sum_{g\in b}w_gNDVI_g}{\sum_{g\in b}w_g}
 $$
 
 ::: {.indicator-card}
-[Numerador.]{.field-label} Na fórmula espectral, diferença entre reflectância no infravermelho próximo e vermelho; no buffer, soma ponderada dos NDVI válidos.
+[Numerador.]{.field-label} Na fórmula espectral, diferença entre reflectância no infravermelho próximo e vermelho; na área de entorno, soma ponderada dos NDVI válidos.
 
-[Denominador.]{.field-label} Na fórmula espectral, soma das reflectâncias; no buffer, soma dos pesos ou áreas válidas.
+[Denominador.]{.field-label} Na fórmula espectral, soma das reflectâncias; na área de entorno, soma dos pesos ou áreas válidas.
 
 [Unidade de medida.]{.field-label} Adimensional.
 
-[Variáveis e categorias de análise.]{.field-label} Reflectância; NDVI; buffer; endereço; estação; ano; grupo populacional.
+[Variáveis e categorias de análise.]{.field-label} Reflectância; NDVI; área de entorno; endereço; estação; ano; grupo populacional.
 
 [Granularidade.]{.field-label} Pixel de entrada e valor por ponto ou unidade.
 
@@ -69,7 +69,7 @@ $$
 
 [Notas.]{.field-label} Verdor espectral, cobertura vegetal, espaço público acessível e uso efetivo são dimensões diferentes.
 
-[Análise descritiva do indicador.]{.field-label} Mostrar distribuição por buffers alternativos, grupos sociais, sazonalidade e mapa sem divulgar endereços individuais.
+[Análise descritiva do indicador.]{.field-label} Mostrar distribuição por áreas de entorno alternativas, grupos sociais, sazonalidade e mapa sem divulgar endereços individuais.
 
 :::
 
@@ -102,11 +102,11 @@ $$
 
 [Formato dos arquivos.]{.field-label} GeoTIFF e tabela por unidade.
 
-[Necessidade de processamento.]{.field-label} Correção/seleção do produto, máscara, composição, buffers, ponderação e controle de geocodificação.
+[Necessidade de processamento.]{.field-label} Correção ou seleção do produto, máscara, composição, áreas de entorno, ponderação e controle de geocodificação.
 
 ### Qualidade, comparação e saúde {.unnumbered .ficha-section}
 
-[Qualidade e incerteza.]{.field-label} Relatar sensor, produto, data, nuvens, resolução, classificação, delimitação urbana, população, buffer, erros posicionais e análise de sensibilidade.
+[Qualidade e incerteza.]{.field-label} Relatar sensor, produto, data, nuvens, resolução, classificação, delimitação urbana, população, área de entorno, erros posicionais e análise de sensibilidade.
 
 [Possibilidade de comparação.]{.field-label} Manter produto, estação, composição temporal, resolução, definição de verde, limite urbano, população e parâmetros espaciais.
 

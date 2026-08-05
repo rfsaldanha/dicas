@@ -1,4 +1,4 @@
-.PHONY: all web print validate catalogs clean
+.PHONY: all web print validate links figures-real catalogs clean
 
 all: web print validate
 
@@ -10,6 +10,12 @@ print:
 
 validate:
 	Rscript scripts/validate_project.R
+
+links:
+	Rscript scripts/validate_external_links.R
+
+figures-real:
+	Rscript scripts/build_real_figures.R
 
 catalogs:
 	Rscript scripts/build_catalogs.R

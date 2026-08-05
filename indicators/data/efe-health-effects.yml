@@ -158,7 +158,7 @@ indicators:
     forma_acesso: Modelagem sobre série de óbitos do SIM e denominadores do IBGE.
     url_persistente: https://www.who.int/publications/m/item/methods-for-estimating-the-excess-mortality-associatedwith-the-covid-19-pandemic
     formatos: Série temporal de contagens, previsões e intervalos.
-    necessidade_processamento: Corrigir atraso, definir baseline, modelar tendência e sazonalidade, prever esperado, calcular diferenças e intervalos.
+    necessidade_processamento: Corrigir atraso, definir linha de base, modelar tendência e sazonalidade, prever esperado, calcular diferenças e intervalos.
     analise_descritiva: Plotar observado e esperado com intervalo, excesso diário e acumulado, estratos e revisões; testar baselines alternativos e mortalidade deslocada.
     referencias: ["[@who2023excess]"]
 
@@ -170,7 +170,7 @@ indicators:
     conceito: Excesso de óbitos expresso como percentual do número esperado no mesmo território e período.
     objetivo: Tornar o excesso comparável entre populações e períodos com diferentes níveis basais de mortalidade.
     interpretacao: P-score de 20% indica que os óbitos observados ficaram 20% acima do esperado; −10% indica 10% abaixo. Um mesmo percentual pode representar números absolutos muito diferentes.
-    usos: [Comparar intensidade relativa de excesso., Monitorar estratos etários e sexuais., Comunicar desvio proporcional do baseline., Complementar contagem absoluta.]
+    usos: [Comparar intensidade relativa de excesso., Monitorar estratos etários e sexuais., Comunicar desvio proporcional da linha de base., Complementar contagem absoluta.]
     limitacoes: [Herda toda incerteza do esperado., Pode ser instável quando o esperado é pequeno., Percentual alto em pequena população pode corresponder a poucos óbitos., Não substitui contagens nem taxa populacional.]
     fontes_dados:
       - id: sim
@@ -185,16 +185,16 @@ indicators:
     unidade_territorial: Território com esperado suficientemente grande e estável.
     resolucao_espacial_original: A da modelagem de excesso.
     resolucao_temporal: Diário, semanal, mensal ou por episódio.
-    periodo_referencia: O mesmo baseline do modelo de esperado.
+    periodo_referencia: A mesma linha de base do modelo de esperado.
     limiar_referencia: Zero indica observado igual ao esperado; intervalos devem ser obtidos da incerteza do modelo.
     cobertura_geografica: A do sistema de mortalidade usado.
-    periodo_disponivel: Conforme observado e baseline.
+    periodo_disponivel: Conforme os dados observados e a linha de base.
     periodicidade_atualizacao: A mesma da estimativa de excesso.
     forma_acesso: Derivação das séries observada e esperada.
     url_persistente: https://www.who.int/publications/m/item/methods-for-estimating-the-excess-mortality-associatedwith-the-covid-19-pandemic
     formatos: Tabela e série temporal com observado, esperado, excesso e P-score.
     necessidade_processamento: Agregar observado e esperado de forma consistente e propagar incerteza.
-    analise_descritiva: Apresentar P-score com excesso absoluto, esperado, intervalo e tamanho populacional; evitar ranking sem estabilidade.
+    analise_descritiva: Apresentar P-score com excesso absoluto, esperado, intervalo e tamanho populacional; evitar ordenação sem estabilidade.
     referencias: ["[@who2023excess]"]
 
   - <<: *health_effect_common
@@ -206,7 +206,7 @@ indicators:
     objetivo: Quantificar carga atribuível a temperaturas acima, abaixo ou diferentes do ponto de risco mínimo.
     interpretacao: Fração atribuível de 5% estima que 5% dos eventos no período são atribuíveis à distribuição de temperatura em relação ao contrafactual, sob o modelo e suas hipóteses. Não é a proporção de declarações com código de calor.
     usos: [Estimar mortes ou internações atribuíveis ao calor e ao frio., Separar componentes moderados e extremos., Comparar cenários e populações., Avaliar impacto potencial de adaptação.]
-    limitacoes: [Exige hipótese causal, controle adequado de sazonalidade e confundimento., Curva e lag podem ser instáveis nas extremidades., O ponto de risco mínimo é estimado com incerteza., Somar frações de exposições correlacionadas pode gerar dupla contagem.]
+    limitacoes: [Exige hipótese causal, controle adequado de sazonalidade e confundimento., Curva e defasagem podem ser instáveis nas extremidades., O ponto de risco mínimo é estimado com incerteza., Somar frações de exposições correlacionadas pode gerar dupla contagem.]
     fontes_dados:
       - id: sim
         papel: série diária de óbitos por desfecho
@@ -219,11 +219,11 @@ indicators:
     numerador: Soma dos eventos atribuíveis estimados no período.
     denominador: Total de eventos observados para a fração atribuível.
     unidade_medida: Eventos atribuíveis e percentual atribuível (%).
-    variaveis_categorias_analise: Exposição diária; lag; desfecho diário; temperatura de referência; calor e frio; moderado e extremo; idade; sexo; território.
+    variaveis_categorias_analise: Exposição diária; defasagem; desfecho diário; temperatura de referência; calor e frio; moderado e extremo; idade; sexo; território.
     granularidade: Dia na modelagem; período e território no resultado.
     unidade_territorial: Cidade ou território com exposição e desfecho temporalmente alinhados.
     resolucao_espacial_original: A da exposição e do desfecho; a atribuição territorial deve ser validada.
-    resolucao_temporal: Diária ou subdiária agregada conforme o modelo; lags em dias.
+    resolucao_temporal: Diária ou subdiária agregada conforme o modelo; defasagens em dias.
     periodo_referencia: Série suficientemente longa para estimar sazonalidade e curva; contrafactual no ponto de risco mínimo ou valor definido.
     limiar_referencia: Temperatura de risco mínimo e percentis que separam exposições moderadas e extremas, todos estimados ou definidos no protocolo.
     cobertura_geografica: Territórios com séries de saúde e temperatura compatíveis.
@@ -233,7 +233,7 @@ indicators:
     url_persistente: https://doi.org/10.1186/1471-2288-14-55
     formatos: Séries diárias, objetos do modelo e tabelas de número e fração atribuíveis.
     necessidade_processamento: Harmonizar séries, ajustar DLNM, escolher referência, calcular contribuições backward ou forward, simular incerteza e realizar sensibilidade.
-    analise_descritiva: Mostrar curva exposição–resposta, lag, referência, eventos atribuíveis por dia e acumulados, componentes de calor e frio, intervalos e sensibilidade a graus de liberdade.
+    analise_descritiva: Mostrar curva exposição–resposta, defasagem, referência, eventos atribuíveis por dia e acumulados, componentes de calor e frio, intervalos e sensibilidade a graus de liberdade.
     referencias: ["[@gasparrini2010dlnm]", "[@gasparrini2014attributable]"]
 
   - <<: *health_effect_common

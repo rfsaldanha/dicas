@@ -11,6 +11,7 @@ Este capítulo trata dos desfechos e da ligação analítica entre exposição e
 ```{mermaid}
 %%| label: fig-cadeia-efeitos-saude
 %%| fig-cap: "Do perigo ambiental aos diferentes tipos de medida de efeito em saúde"
+%%| fig-alt: "Fluxo distingue perigo ambiental, exposição, ocorrência de eventos de saúde, registros observados, excesso estimado e carga atribuível modelada."
 %%{init: {"htmlLabels": false, "flowchart": {"htmlLabels": false}}}%%
 flowchart TD
   P["Perigo ambiental<br/>intensidade e duração"] --> X["Exposição<br/>lugar, tempo e população"]
@@ -139,21 +140,15 @@ Modelos não lineares de defasagem distribuída representam simultaneamente a fo
 
 A linha do tempo da @fig-defasagem-exposicao-desfecho separa a latência biológica do atraso assistencial e do atraso de registro, distinção necessária antes de escolher a janela analítica.
 
-::: {#fig-defasagem-exposicao-desfecho}
-::: {.framebox}
-[Ilustração editorial a produzir]{.framebox-title}
+![Temporalidades entre exposição, efeito, atendimento e registro](../../assets/figures/defasagem-exposicao-desfecho.svg){#fig-defasagem-exposicao-desfecho fig-alt="Linha temporal que separa janela de exposição, resposta biológica, procura por cuidado, atendimento e registro. A defasagem biológica é distinguida dos atrasos assistencial e informacional, sem duração universal." width="100%"}
 
-Desenhar uma linha temporal horizontal com evento ambiental e janela de exposição, resposta biológica imediata ou tardia, procura por cuidado, atendimento no serviço e notificação ou digitação. Distinguir visualmente a defasagem biológica dos atrasos assistencial e informacional. Sinalizar a janela analítica sem fixar uma duração universal.
-:::
-
-Temporalidades entre exposição, efeito, atendimento e registro
-:::
+[Fonte e autoria: elaboração própria. Licença: a mesma dos textos autorais da obra.]{.figure-source}
 
 ### Sazonalidade, tendência e calendário
 
 Exposição e desfecho podem subir na mesma estação sem relação causal direta. Tendência de longo prazo, dia da semana, feriados, epidemias, poluentes correlacionados e mudanças de população ou serviço podem confundir a associação. Séries temporais precisam controlar esses padrões sem remover o sinal de interesse [@gasparrini2010dlnm; @hernan2020causal].
 
-Autocorrelação e sobredispersão afetam incerteza. Interrupções, atrasos de digitação e mudança de definição criam quebras. A análise deve apresentar diagnóstico dos resíduos, especificação dos termos temporais, controle de calendário, dados ausentes e testes de sensibilidade. Explorar muitas causas, lags e limiares e publicar apenas associações positivas produz evidência frágil.
+Autocorrelação e sobredispersão afetam incerteza. Interrupções, atrasos de digitação e mudança de definição criam quebras. A análise deve apresentar diagnóstico dos resíduos, especificação dos termos temporais, controle de calendário, dados ausentes e testes de sensibilidade. Explorar muitas causas, defasagens e limiares e publicar apenas associações positivas produz evidência frágil.
 
 ### Excesso de eventos
 
@@ -240,7 +235,7 @@ Todo resultado de efeito em saúde deve informar:
 3. Residência, ocorrência ou local provável de exposição;
 4. População e período do denominador;
 5. Exposição, resolução e método de atribuição;
-6. Lags e forma da relação;
+6. Defasagens e forma da relação;
 7. Referência ou contrafactual;
 8. Ajustes, dados ausentes e mudanças de série;
 9. Estimativa absoluta e relativa, quando pertinentes;
@@ -249,3 +244,7 @@ Todo resultado de efeito em saúde deve informar:
 12. Ação de saúde pública à qual o resultado se destina.
 
 O vínculo com a ação precisa ser explícito. Contagens apoiam dimensionamento de equipes e leitos; taxas identificam padrões e desigualdades; excesso sustenta detecção e avaliação de emergências; modelos atribuíveis estimam benefícios potenciais de reduzir a exposição; DALYs ajudam a comparar prioridades. O indicador é útil quando preserva a diferença entre o que foi observado, o que foi estimado e o que se pretende evitar.
+
+## Síntese
+
+Contagem observada, excesso estimado e efeito atribuível respondem a perguntas diferentes. Resultados confiáveis dependem da definição do desfecho, do alinhamento entre exposição, população e tempo, do tratamento explícito das defasagens e de pressupostos causais compatíveis com a interpretação pretendida.

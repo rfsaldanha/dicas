@@ -1,5 +1,4 @@
 #import "@preview/orange-book:0.7.1": book
-#import "print/pretextuais.typ": pretextuais
 
 // O sumário deste projeto já ocupa uma posição editorial explícita entre os
 // elementos pré-textuais. Suprime apenas o sumário automático do modelo.
@@ -114,6 +113,11 @@
   value.starts-with("Parte ") or value == "Elementos pós-textuais"
 }
 
+#let dicas-is-list-title(body) = {
+  let value = content-to-string(body)
+  value == "Lista de quadros e tabelas" or value == "Lista de figuras"
+}
+
 #let dicas-part-opening(it) = {
   pagebreak(to: "odd")
   dicas-part-counter.step()
@@ -221,9 +225,7 @@ $if(toc-depth)$
 $endif$
 )
 
-// Os pré-textuais próprios da edição impressa entram depois da folha de rosto
-// e antes da lista de siglas, sem duplicar as páginas correspondentes do site.
-#show: body => dicas-book([#pretextuais #body])
+#show: body => dicas-book(body)
 
 // O modelo trata as partes como títulos de nível 1 sem numeração. Esta regra
 // substitui apenas essas cinco aberturas; os demais títulos continuam sendo
@@ -267,7 +269,7 @@ $endif$
             .after(current-chapter.location())
             .before(here())
         )
-        let running-title = if calc.odd(page-number) and sections-before != () {
+        let running-title = if calc.odd(page-number) and sections-before != () and not dicas-is-list-title(current-chapter.body) {
           sections-before.last().body
         } else {
           current-chapter.body
@@ -361,7 +363,8 @@ $endif$
     it
   }
 }
-#show table: set text(size: 9.5pt, hyphenate: true)
+#show table: set text(size: 9pt, hyphenate: false)
 #show table: set par(spacing: 0.5em, justify: false)
 #show bibliography: set par(spacing: 0.8em)
+#set bibliography(title: [Referências])
 #show link: set text(hyphenate: false)

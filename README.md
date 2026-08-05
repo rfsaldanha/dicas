@@ -16,7 +16,7 @@ Comece pelo [guia de revisão](docs/guia-de-revisao.md) e consulte o [relatório
 - Arquivos `_quarto-web.yml` e `_quarto-print.yml`: ordem do livro e configuração de cada saída.
 - Diretório `chapters/`: 14 capítulos organizados em quatro partes.
 - Diretórios `frontmatter/` e `backmatter/`: elementos pré e pós-textuais compartilhados.
-- Arquivo `print/pretextuais.typ`: pré-textuais próprios da edição impressa.
+- Diretório `frontmatter/`: fonte única dos elementos pré-textuais das duas edições.
 - Diretório `indicators/data/`: fichas estruturadas em YAML.
 - Arquivo `sources/data/sources.yml`: catálogo estruturado de fontes.
 - Diretório `scripts/`: geração, compilação e validação.
@@ -27,7 +27,7 @@ Comece pelo [guia de revisão](docs/guia-de-revisao.md) e consulte o [relatório
 
 ## Requisitos
 
-- Quarto 1.8 ou superior; a versão foi validada com 1.10.18.
+- Quarto 1.9.17 ou superior; a versão foi validada com 1.10.18.
 - R; a versão foi validada com R 4.6.1.
 - Pacote R `yaml`;
 - Poppler (`pdfinfo`, `pdftotext` e `pdffonts`) para o pré-voo do PDF.

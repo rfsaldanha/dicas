@@ -71,7 +71,8 @@ Nos callouts, use a rubrica correspondente à taxonomia acima. Conceitos e defin
 
 ## Recursos visuais
 
-Toda figura deve ter função, legenda, fonte, autoria, licença e texto alternativo. Não usar imagem decorativa sem função informacional nem imagem gerada por IA. Tabelas devem permanecer legíveis no celular e no miolo de 155 mm.
+Toda figura deve ter função, legenda, fonte, autoria, licença e texto alternativo. Elementos generativos de IA podem ser usados quando forem adequados à função editorial, desde que recebam direção de arte, revisão humana e tratamento coerente com o padrão técnico da obra, sem aparência genérica ou artificiosamente produzida. Não usar imagem meramente decorativa. Tabelas devem permanecer legíveis no celular e no miolo de 160 × 230 mm.
+
+Gráficos e mapas devem usar dados reais e rastreáveis, nunca valores simulados apresentados como observação. Devem informar fonte, período, unidade, tratamento aplicado e, sempre que possível, ser produzidos por código versionado a partir da fonte original ou de um repositório institucional do autor.
 
 Enquanto a arte final não existir, usar um framebox com identificador `fig-`, orientação objetiva de composição e legenda. A figura deve ser incorporada ao argumento por uma referência cruzada natural; ao substituir o framebox, preservar o identificador e revisar legenda e texto alternativo.
-

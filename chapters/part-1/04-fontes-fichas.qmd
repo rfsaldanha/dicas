@@ -21,7 +21,7 @@ Fonte é o recurso do qual informação é obtida. Pode ser:
 - Modelo de exposição;
 - Repositório;
 - Painel;
-- API;
+- Interface de programação de aplicações (API);
 - Tabela ou arquivo publicado.
 
 Uma plataforma pode hospedar muitos produtos. O Climate Data Store, por exemplo, é uma plataforma; ERA5-Land é um produto. O portal do DATASUS dá acesso a sistemas com conceitos e coberturas diferentes. Citar apenas a plataforma impede saber o que foi usado.
@@ -101,12 +101,12 @@ O painel é uma interface, não necessariamente a fonte de autoridade. Valores p
 
 :::
 
-Formatos também afetam preservação. CSV é simples, mas pode perder tipos, unidades e codificação; planilha pode conter fórmulas e células mescladas; GeoTIFF preserva informação espacial e exige metadados; serviços web podem desaparecer ou mudar. Arquivo, dicionário, licença e documentação precisam ser preservados em conjunto.
+Formatos também afetam preservação. O formato de valores separados por vírgulas (CSV) é simples, mas pode perder tipos, unidades e codificação; planilha pode conter fórmulas e células mescladas; GeoTIFF preserva informação espacial e exige metadados; serviços web podem desaparecer ou mudar. Arquivo, dicionário, licença e documentação precisam ser preservados em conjunto.
 
 Para cada acesso, registre:
 
 - Endereço oficial;
-- Conjunto ou endpoint;
+- Conjunto ou ponto de acesso;
 - Parâmetros e filtros;
 - Formato;
 - Fuso e codificação;
@@ -262,7 +262,7 @@ Essa ordem impede que a fórmula apareça sem contexto. O índice pós-textual p
 O conteúdo estruturado é mantido em `indicators/data/` e transformado em trechos incorporados pelo processo de publicação. A fonte única reduz divergência entre capítulo e índice. Alterações devem ocorrer no dado estruturado, nunca no arquivo gerado.
 
 
-As citações no texto usam chaves ligadas ao arquivo bibliográfico. A lista final é formatada segundo estilo ABNT. Para cada referência, são verificados autoria, título, edição, local, editora ou periódico, ano, DOI/URL e data de acesso quando aplicável.
+As citações no texto usam chaves ligadas ao arquivo bibliográfico. A lista final é formatada segundo estilo ABNT. Para cada referência, são verificados autoria, título, edição, local, editora ou periódico, ano, identificador de objeto digital (DOI), URL e data de acesso quando aplicável.
 
 Uma URL não substitui referência bibliográfica. DOI é preferido quando existe. Documentos institucionais usam a entidade responsável como autoria, evitando abreviações inconsistentes.
 
@@ -315,6 +315,7 @@ O fluxo de um indicador deve ser representável como:
 ```{mermaid}
 %%| label: fig-proveniencia
 %%| fig-cap: "Cadeia mínima de proveniência de um indicador"
+%%| fig-alt: "Fluxo da fonte e do produto original para extração, transformação, cálculo, validação, publicação e decisão, com documentação em todas as etapas."
 %%{init: {"htmlLabels": false, "flowchart": {"htmlLabels": false}}}%%
 flowchart TD
   F[Fonte e versão] --> E[Extração datada]

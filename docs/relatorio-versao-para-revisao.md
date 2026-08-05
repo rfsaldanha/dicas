@@ -3,7 +3,7 @@
 ## Identificação
 
 - Versão editorial: 0.9.0 — revisão completa.
-- Data de consolidação: 28 de julho de 2026.
+- Data de consolidação: 5 de agosto de 2026.
 - Conteúdo: 14 capítulos em quatro partes.
 - Fichas integradas: 62.
 - Fontes cadastradas: 25.
@@ -23,7 +23,7 @@ Cada ficha registra conceito, objetivo, interpretação, usos, limitações, fon
 
 ## Fontes
 
-Os 25 registros distinguem instituição, unidade institucional, programa, sistema de informação, plataforma, base, produto e serviço. Cobertura, resolução, período, atualização, acesso, API, formatos, licença, cadastro, custos e limitações foram qualificados na documentação oficial disponível em 28 de julho de 2026.
+Os 25 registros distinguem instituição, unidade institucional, programa, sistema de informação, plataforma, base, produto e serviço. Cobertura, resolução, período, atualização, acesso, API, formatos, licença, cadastro, custos e limitações foram qualificados na documentação oficial disponível até 5 de agosto de 2026.
 
 ## Bibliografia e referências cruzadas
 
@@ -31,9 +31,9 @@ As obras citadas estão em `references.bib` e são processadas com o estilo `sty
 
 ## Saídas
 
-O site possui 31 páginas, navegação, busca, fichas incorporadas, fórmulas, diagramas e índices. O PDF utiliza miolo de 155 × 230 mm, fontes incorporadas, margens espelhadas e composição em preto e branco.
+O site possui 30 páginas, navegação, busca, fichas incorporadas, fórmulas, diagramas e catálogos. O PDF utiliza miolo de 160 × 230 mm, fontes incorporadas, margens espelhadas e composição em preto e branco.
 
-Na compilação consolidada de 28 de julho de 2026, o PDF possui 436 páginas e permanece dentro da meta editorial de 400–500 páginas.
+Na compilação consolidada de 5 de agosto de 2026, o PDF possui 492 páginas e permanece dentro da meta editorial de 400–500 páginas.
 
 ## Validação
 
@@ -59,4 +59,4 @@ git diff --check
 
 ## Indicações de arte
 
-Há cinco frameboxes numerados para artes ainda não produzidas: cadeia de representação, mudança de suporte espacial, temperatura do ar e da superfície, residência e presença e defasagens entre exposição e registro. Cada espaço contém orientação de composição e legenda e já é referido no texto. A arte final deverá ser produzida, licenciada, descrita com texto alternativo e revisada antes da edição pública.
+As cinco indicações de arte foram substituídas por ilustrações vetoriais originais: cadeia de representação, mudança de suporte espacial, temperatura do ar e da superfície, residência e presença e defasagens entre exposição e registro. Todas seguem o mesmo padrão visual de livro técnico, preservam os identificadores das referências cruzadas e incluem legenda, texto alternativo, fonte, autoria e declaração de licença. Quatro são diagramas conceituais sem valores. A figura de mudança de suporte usa previsão real do CAMS, Grade Estatística 2022 e Malha Estadual 2022 do IBGE, com dados derivados e script de geração preservados no repositório.

@@ -10,7 +10,7 @@ Preparar o protótipo existente para uma revisão editorial confiável, preserva
 
 - Último commit analisado: `ef4b4b5` — protótipo funcional inicial.
 - Estrutura: quatro partes, 14 capítulos, três fichas demonstrativas e catálogo com 14 registros.
-- Saídas existentes: livro web e PDF de 155 × 230 mm.
+- Saídas existentes: livro web e PDF de 160 × 230 mm.
 - Arquivo preexistente fora do escopo: `prompt.txt`, não rastreado e preservado.
 - Repositórios de referência: somente leitura; nenhuma alteração será realizada.
 

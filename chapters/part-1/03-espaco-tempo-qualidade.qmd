@@ -4,7 +4,7 @@ Indicadores climáticos, ambientais e de saúde só podem ser relacionados depoi
 
 Este capítulo reúne critérios transversais para preparar e avaliar dados antes do cálculo. Métodos específicos permanecem nas fichas; a inferência sobre efeitos em saúde aparece no capítulo 12. O princípio central é simples: toda transformação muda o que o dado representa e deve ser registrada.
 
-Qualidade não existe fora do uso. A norma ISO 19157-1 organiza a descrição, avaliação e comunicação da qualidade de dados geográficos, mas não fixa um nível universalmente aceitável: cabe à especificação do produto e à aplicação declarar os requisitos [@iso2023geoquality]. A mesma lógica vale para clima e saúde. Um dado pode sustentar uma descrição regional e ser insuficiente para acionar uma equipe em um bairro; pode ser adequado para planejamento retrospectivo e tardio para vigilância.
+Qualidade não existe fora do uso. A norma 19157-1 da Organização Internacional de Normalização (ISO) organiza a descrição, avaliação e comunicação da qualidade de dados geográficos, mas não fixa um nível universalmente aceitável: cabe à especificação do produto e à aplicação declarar os requisitos [@iso2023geoquality]. A mesma lógica vale para clima e saúde. Um dado pode sustentar uma descrição regional e ser insuficiente para acionar uma equipe em um bairro; pode ser adequado para planejamento retrospectivo e tardio para vigilância.
 
 ## Suporte, escala e resolução espacial
 
@@ -100,17 +100,11 @@ Ponderação populacional aproxima exposição residencial média, não dose ind
 
 Máximo territorial atende a outra finalidade: localizar condição extrema. Ele é sensível a erro isolado e ao número de células — territórios maiores têm mais oportunidades de conter um valor alto. Percentis espaciais podem ser mais estáveis, mas continuam descrevendo área, não pessoas, a menos que sejam ponderados. A estatística deve ser nomeada de modo que o leitor saiba qual dessas perguntas foi respondida.
 
-A comparação proposta na @fig-mudanca-suporte torna visível por que o mesmo conjunto de células pode produzir sínteses territoriais diferentes.
+A comparação proposta na @fig-mudanca-suporte torna visível por que o mesmo conjunto de células pode produzir sínteses territoriais diferentes. O exemplo usa a previsão CAMS de temperatura do ar a 2 m inicializada em 28 de julho de 2026, às 00 UTC, com prazo de 24 horas e grade de 0,4°, combinada à Grade Estatística e à malha estadual de 2022 do Instituto Brasileiro de Geografia e Estatística (IBGE) [@cams2026globalforecast; @ibge2022grade; @ibge2024malhas]. Nesse recorte, a média pela área territorial foi 19,9 °C; a média ponderada pela população, 21,3 °C; e o máximo territorial, 23,9 °C. Os valores pertencem a essa rodada e não expressam uma diferença universal entre os métodos.
 
-::: {#fig-mudanca-suporte}
-::: {.framebox}
-[Ilustração editorial a produzir]{.framebox-title}
+![Como a mudança de suporte altera a síntese territorial: temperatura do ar no estado do Rio de Janeiro](../../assets/figures/mudanca-suporte.svg){#fig-mudanca-suporte fig-alt="Três mapas do estado do Rio de Janeiro usam a mesma previsão CAMS de temperatura do ar. A média pela área territorial é 19,9 graus Celsius; a média ponderada pela população do Censo 2022 é 21,3 graus Celsius; e o máximo territorial é 23,9 graus Celsius." width="100%"}
 
-Mostrar a mesma grade atravessada pelo limite de um município em três painéis: média por área, média ponderada pela população e máximo. Destacar células de borda e núcleos populacionais para evidenciar que as entradas são as mesmas, mas as perguntas e as sínteses mudam. Não atribuir valores, escala ou distribuição reais ao território esquemático.
-:::
-
-Como a mudança de suporte altera a síntese territorial
-:::
+[Fontes: CAMS/ECMWF (temperatura a 2 m; 29 jul. 2026, 00 UTC) e IBGE (Grade Estatística 2022 e Malha 2022), via `geobr`. Elaboração própria; script e proveniência: `data-raw/figures/README.md`. Licenças: termos das fontes e da obra.]{.figure-source}
 
 ### Interseção e células de borda
 
@@ -141,7 +135,7 @@ Indicadores ambientais podem ser agregados à região para uma decisão regional
 
 ### Problema da unidade de área modificável
 
-Resultados de dados agregados podem mudar quando o mesmo território é dividido em unidades diferentes. Esse é o problema da unidade de área modificável: valores de correlação, classes e rankings dependem da escala e do zoneamento. Relações observadas entre áreas também não podem ser automaticamente atribuídas a indivíduos, erro conhecido como falácia ecológica [@openshaw1984].
+Resultados de dados agregados podem mudar quando o mesmo território é dividido em unidades diferentes. Esse é o problema da unidade de área modificável: valores de correlação, classes e ordenações dependem da escala e do zoneamento. Relações observadas entre áreas também não podem ser automaticamente atribuídas a indivíduos, erro conhecido como falácia ecológica [@openshaw1984].
 
 O problema possui componente de escala — resultados mudam ao agrupar unidades menores — e de zoneamento — resultados mudam quando unidades de tamanho semelhante são redesenhadas. Não é resolvido apenas escolhendo o menor território disponível: unidades pequenas podem ampliar instabilidade, confidencialidade e desalinhamento com o processo ambiental. Recomenda-se repetir análises em suportes plausíveis e descrever o que permanece ou muda.
 
@@ -373,7 +367,7 @@ Granularidade geográfica e temporal pode aumentar risco de reidentificação, e
 
 Técnicas como supressão de células pequenas, agregação, arredondamento e controle de acesso reduzem risco, mas alteram análise. Não se deve reconstruir valores suprimidos por diferença de totais. A proteção precisa ser incorporada desde o desenho.
 
-## Checklist antes do cálculo
+## Lista de verificação antes do cálculo
 
 O @qua-checklist-dados resume a avaliação mínima.
 
@@ -389,7 +383,7 @@ O @qua-checklist-dados resume a avaliação mínima.
 9. Proteção: divulgação respeita privacidade e uso responsável?
 10. Decisão: a qualidade é suficiente para a consequência prevista?
 
-: Checklist de espaço, tempo e qualidade
+: Lista de verificação de espaço, tempo e qualidade
 :::
 
 ## Síntese

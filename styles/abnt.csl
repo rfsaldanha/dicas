@@ -47,7 +47,7 @@
     </contributor>
     <category citation-format="author-date"/>
     <category field="generic-base"/>
-    <summary>The Brazilian Standard Style in accordance with ABNT-NBR 10520.2023 and ABNT-NBR 6023.2002</summary>
+    <summary>Adaptação local de estilo autor-data baseada no arquivo ABNT para NBR 10520:2023 e NBR 6023:2002; a saída deve ser validada editorialmente antes de qualquer declaração de conformidade integral.</summary>
     <updated>2023-08-20T17:15:26+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
@@ -72,12 +72,12 @@
         <multiple>orgs</multiple>
       </term>
       <term name="container-author" form="short">
-        <single>ed</single>
-        <multiple>eds</multiple>
+        <single>ed.</single>
+        <multiple>eds.</multiple>
       </term>
       <term name="collection-editor" form="short">
-        <single>ed</single>
-        <multiple>eds</multiple>
+        <single>ed.</single>
+        <multiple>eds.</multiple>
       </term>
       <term name="in">in</term>
     </terms>
@@ -93,7 +93,7 @@ tendo as inicias separadas por ponto.-->
             <name-part name="given"/>
           </name>
           <et-al font-style="italic"/>
-          <label form="short" prefix=" (" suffix=".)" text-case="capitalize-first"/>
+          <label form="short" prefix=" (" suffix=")" text-case="capitalize-first"/>
           <substitute>
             <names variable="editor"/>
             <names variable="collection-editor"/>
@@ -185,6 +185,16 @@ aparecera a expess o 'et. al.'. Na regra da ABNT 2023 essa expressao deve aparec
       <date-part name="year"/>
     </date>
   </macro>
+  <macro name="doi-or-access">
+    <choose>
+      <if variable="DOI">
+        <text variable="DOI" prefix="Disponível em: &lt;https://doi.org/" suffix="&gt;"/>
+      </if>
+      <else-if variable="URL">
+        <text macro="access"/>
+      </else-if>
+    </choose>
+  </macro>
   <!--A macro 'title' e responsavel por mostrar o titulo principal do arquivo. Em todos os tipos ele aparecera em negrito logo apos os nomes dos
 autores, exceto em arquivos do tipo 'artigo de jornal, artigo de revista, artigo de periodico, trabalho em evento', nesses arquivos eles irao aparecer em fonte normal.-->
   <macro name="title">
@@ -228,15 +238,16 @@ autores, exceto em arquivos do tipo 'artigo de jornal, artigo de revista, artigo
         <choose>
           <if variable="publisher">
             <text variable="publisher" suffix=", "/>
-            <text macro="issued"/>
           </if>
           <else>
-            <text value="[S.n.]" font-style="italic"/>
+            <text value="[S.n.]" suffix=", " font-style="italic"/>
           </else>
         </choose>
+        <text macro="issued"/>
       </if>
       <else>
-        <text value="[S.l.: S.n.]" font-style="italic"/>
+        <text value="[S.l.: S.n.]" suffix=", " font-style="italic"/>
+        <text macro="issued"/>
       </else>
     </choose>
   </macro>
@@ -273,19 +284,20 @@ em caixa alta. Utiliza-se antes do nome da conferencia a expressao "In". Segundo
   <macro name="issued">
     <choose>
       <if variable="issued" match="any">
-        <group>
-          <choose>
-            <if type="book chapter" match="none">
-              <date variable="issued">
-                <date-part name="day" suffix=" "/>
-                <date-part name="month" form="short" suffix=" "/>
-              </date>
-            </if>
-          </choose>
+        <choose>
+          <if type="book chapter" match="any">
+            <date variable="issued">
+              <date-part name="year"/>
+            </date>
+          </if>
+          <else>
           <date variable="issued">
+            <date-part name="day" suffix=" "/>
+            <date-part name="month" form="short" suffix=" "/>
             <date-part name="year"/>
           </date>
-        </group>
+          </else>
+        </choose>
       </if>
       <else>
         <text value="[S.d.]" font-style="italic"/>
@@ -505,6 +517,7 @@ em caixa alta. Utiliza-se antes do nome da conferencia a expressao "In". Segundo
             <!--Dados complementares "pagina, volume"-->
             <text macro="issued" suffix=". "/>
             <!--Data-->
+            <text macro="doi-or-access" suffix=". "/>
           </group>
         </else-if>
         <!--Tese-->
@@ -546,6 +559,7 @@ em caixa alta. Utiliza-se antes do nome da conferencia a expressao "In". Segundo
             <text macro="title" suffix=". "/>
             <!--Titulo-->
             <text macro="genre" suffix=". "/>
+            <text macro="issued" suffix=". "/>
             <text macro="access" suffix=". "/>
             <!--URL, data do acesso-->
           </group>
@@ -658,13 +672,15 @@ em caixa alta. Utiliza-se antes do nome da conferencia a expressao "In". Segundo
             <text macro="event"/>
             <!--Nome do evento, conferencia-->
           </group>
-          <text variable="publisher-place"/>
-          <!--Local-->
-          <text variable="publisher" suffix=", "/>
-          <!--Editor-->
-          <text macro="issued" prefix=", " suffix=". "/>
-          <!--Data-->
-          <text macro="access"/>
+          <group delimiter=", ">
+            <text variable="publisher-place"/>
+            <!--Local-->
+            <text variable="publisher"/>
+            <!--Editor-->
+            <text macro="issued"/>
+            <!--Data-->
+          </group>
+          <text macro="doi-or-access" prefix=". " suffix="."/>
           <!--URL, data do acesso-->
         </else>
       </choose>

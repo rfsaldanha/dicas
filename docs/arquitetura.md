@@ -4,7 +4,7 @@
 
 O identificador `dicas` foi mantido: não havia arquivo, pacote ou configuração conflitante no repositório inicial. O título aparece uma única vez em `_quarto.yml` e é consumido pelas duas saídas.
 
-Os 14 capítulos textuais são compartilhados entre as duas saídas. A edição impressa possui composição própria para agradecimentos, apresentação e prefácio em `print/pretextuais.typ`; os arquivos QMD correspondentes permanecem como fonte da edição web.
+Os 14 capítulos e os elementos pré-textuais em QMD são compartilhados entre as duas saídas. A extensão Typst acrescenta apenas folha de rosto, verso editorial, paginação e composição gráfica próprias da edição impressa.
 
 ## Perfis
 
@@ -22,7 +22,7 @@ Diretórios vazios propostos no briefing não foram criados. Figuras, tabelas e 
 
 ## Impressão
 
-O formato local estende o modelo Typst com folha de rosto, verso editorial, pré-textuais próprios, paginação e pré-voo:
+O formato local estende o modelo Typst com folha de rosto, verso editorial, paginação e pré-voo:
 
 - 160 × 230 mm;
 - 25 mm internos e 18 mm externos;
@@ -42,9 +42,10 @@ A composição pré-textual segue a arquitetura de `sis_pdf`, adaptada aos conte
 
 ## Bibliografia
 
-`references.bib` é a bibliografia única. Não foi copiado um CSL dos projetos anteriores. O estilo autor-data padrão do Citeproc permanece até decisão bibliográfica formal; esta escolha evita incorporar uma versão de estilo sem validação.
+`references.bib` é a bibliografia única. O estilo local `styles/abnt.csl` aplica o sistema autor-data e contém correções editoriais para datas de páginas web, DOI e pontuação. A saída é validada como configuração do projeto; não se declara conformidade integral com uma edição normativa sem auditoria específica.
+
+Os elementos pós-textuais seguem uma ordem única nas duas saídas: glossário, catálogos, relação de instituições, lista de fichas, listas de quadros e figuras, apêndice metodológico e referências. O apêndice usa identificação alfabética; a bibliografia automática encerra o volume sob o título “Referências”.
 
 ## Publicação
 
 `_output/web` pode ser publicado por GitHub Pages. Antes disso, confirmar URL canônica, repositório público, política de versões, analytics e domínio.
-

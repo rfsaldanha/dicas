@@ -2,7 +2,7 @@
 
 ## Finalidade
 
-A versão 0.9.0 está preparada para revisão integral. Ela reúne 14 capítulos completos, 62 fichas de indicadores consolidados, 25 registros de fontes, referências em estilo ABNT, quadros, tabelas e 15 diagramas numerados.
+A versão 0.9.0 está preparada para revisão integral. Ela reúne 14 capítulos completos, 62 fichas de indicadores consolidados, 25 registros de fontes, referências em estilo ABNT, quadros, tabelas, 20 diagramas Mermaid numerados e cinco ilustrações vetoriais originais.
 
 Os artefatos são:
 
@@ -44,7 +44,7 @@ Conferir formato, margens, aberturas, cabeçalhos, fólios, tabelas, fórmulas, 
 
 ## Arte
 
-Os frameboxes numerados especificam as peças originais que ainda devem ser produzidas. A revisão deve conferir a função de cada figura, a coerência entre orientação, legenda e referência no texto e, após a substituição pela arte final, acessibilidade, fonte, autoria e licença.
+As ilustrações vetoriais originais devem ser revistas quanto à função, coerência entre desenho, legenda e referência no texto, legibilidade em escala de impressão, contraste, texto alternativo, fonte, autoria e licença. Qualquer gráfico ou mapa futuro deve usar dados reais, identificar período e unidade, citar a fonte e manter um processo de geração reproduzível.
 
 ## Registro de comentários
 

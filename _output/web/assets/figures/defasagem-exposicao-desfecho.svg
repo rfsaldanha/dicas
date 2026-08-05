@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 650" role="img" aria-labelledby="title desc">
+  <title id="title">Temporalidades entre exposição, efeito, atendimento e registro</title>
+  <desc id="desc">Linha temporal sem duração fixa que separa janela de exposição, resposta biológica, procura por cuidado, atendimento e registro. A defasagem biológica é distinguida dos atrasos assistencial e informacional.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#34454d"/></marker>
+    <style>
+      .head{font:600 20px Arial,Helvetica,sans-serif;fill:#223039;text-anchor:middle}
+      .small{font:400 17px Arial,Helvetica,sans-serif;fill:#46555c;text-anchor:middle}
+      .event{stroke:#34454d;stroke-width:2}
+      .bio{stroke:#53757c;stroke-width:5;fill:none}
+      .care{stroke:#9a3e38;stroke-width:5;fill:none;stroke-dasharray:12 7}
+      .info{stroke:#7b6a59;stroke-width:5;fill:none;stroke-dasharray:3 7}
+    </style>
+  </defs>
+  <rect width="1200" height="650" fill="#ffffff"/>
+
+  <g aria-label="Linha temporal principal">
+    <line x1="80" y1="292" x2="1120" y2="292" stroke="#34454d" stroke-width="4" marker-end="url(#arrow)"/>
+    <text class="small" x="1095" y="326">tempo</text>
+    <rect x="95" y="245" width="210" height="94" rx="5" fill="#ead2cf" class="event"/>
+    <text class="head" x="200" y="280">Evento ambiental</text>
+    <text class="small" x="200" y="309">janela de exposição</text>
+
+    <circle cx="420" cy="292" r="18" fill="#53757c"/>
+    <text class="head" x="420" y="244">Resposta</text>
+    <text class="small" x="420" y="342">imediata ou tardia</text>
+
+    <circle cx="655" cy="292" r="18" fill="#9a3e38"/>
+    <text class="head" x="655" y="244">Procura por cuidado</text>
+    <text class="small" x="655" y="342">decisão e acesso</text>
+
+    <circle cx="865" cy="292" r="18" fill="#9a3e38"/>
+    <text class="head" x="865" y="244">Atendimento</text>
+    <text class="small" x="865" y="342">entrada no serviço</text>
+
+    <circle cx="1050" cy="292" r="18" fill="#7b6a59"/>
+    <text class="head" x="1050" y="244">Registro</text>
+    <text class="small" x="1050" y="342">notificação ou digitação</text>
+  </g>
+
+  <g aria-label="Defasagens e atrasos">
+    <path class="bio" d="M305 401 H420"/>
+    <path d="M305 390 V412 M420 390 V412" stroke="#53757c" stroke-width="3"/>
+    <text class="head" x="362" y="442">Defasagem biológica</text>
+
+    <path class="care" d="M420 481 H865"/>
+    <path d="M420 470 V492 M865 470 V492" stroke="#9a3e38" stroke-width="3"/>
+    <text class="head" x="642" y="522" fill="#9a3e38">Atraso assistencial</text>
+
+    <path class="info" d="M865 559 H1050"/>
+    <path d="M865 548 V570 M1050 548 V570" stroke="#7b6a59" stroke-width="3"/>
+    <text class="head" x="958" y="602" fill="#7b6a59">Atraso informacional</text>
+  </g>
+
+  <g aria-label="Janela analítica">
+    <path d="M95 124 V94 H1050 V124" fill="none" stroke="#34454d" stroke-width="3"/>
+    <text class="head" x="572" y="69">Janela analítica definida pela pergunta e pela plausibilidade</text>
+    <text class="small" x="572" y="116">sem duração universal</text>
+  </g>
+
+  <g aria-label="Resposta biológica pode ocupar uma janela">
+    <path d="M330 185 C365 145 460 145 510 185" fill="none" stroke="#53757c" stroke-width="4"/>
+    <path d="M330 185 C365 225 460 225 510 185" fill="#dfe8e7" opacity=".7"/>
+    <text class="small" x="420" y="178">processo biológico</text>
+  </g>
+</svg>

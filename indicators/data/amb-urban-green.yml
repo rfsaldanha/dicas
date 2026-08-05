@@ -4,7 +4,7 @@ common: &urban_common
   dimensoes: [exposição, vulnerabilidade, resposta]
   unidade_territorial: Domicílio ou ponto, zona urbana, bairro, setor censitário ou cidade.
   responsabilidade_gerencial: Planejamento urbano e ambiental produz intervenções e cadastros; saúde interpreta exposições e desigualdades; geoinformação mantém métodos.
-  qualidade_incerteza: Relatar sensor, produto, data, nuvens, resolução, classificação, delimitação urbana, população, buffer, erros posicionais e análise de sensibilidade.
+  qualidade_incerteza: Relatar sensor, produto, data, nuvens, resolução, classificação, delimitação urbana, população, área de entorno, erros posicionais e análise de sensibilidade.
   comparabilidade: Manter produto, estação, composição temporal, resolução, definição de verde, limite urbano, população e parâmetros espaciais.
   relacao_saude: Vegetação e espaços verdes podem influenciar atividade física, contato social, restauração, calor, ruído e poluição, mas efeitos dependem de acesso, qualidade, segurança e contexto.
   defasagens_temporais: Distinguir exposição contemporânea, histórica e intervenção; atualizar endereço, vegetação e população de maneira compatível.
@@ -16,18 +16,18 @@ indicators:
     codigo: AMB-VEG-01
     titulo_completo: Índice de Vegetação por Diferença Normalizada residencial médio (NDVI)
     titulo_resumido: Verdor residencial — NDVI
-    referencia_metodologica: NDVI em buffers residenciais, medida de exposição a verdor mais usada em estudos epidemiológicos de espaços verdes.
-    conceito: Média do NDVI dos pixels válidos dentro de um buffer em torno do endereço, ponto ou unidade residencial durante a janela temporal definida.
+    referencia_metodologica: NDVI em áreas de entorno residencial, medida de exposição a verdor mais usada em estudos epidemiológicos de espaços verdes.
+    conceito: Média do NDVI dos pixels válidos dentro de uma área de entorno do endereço, ponto ou unidade residencial durante a janela temporal definida.
     objetivo: Representar densidade de vegetação fotossinteticamente ativa no entorno residencial de maneira reprodutível.
     interpretacao: Valores maiores indicam maior verdor espectral no produto e período. NDVI varia teoricamente de −1 a 1; não mede acesso, qualidade, espécie, sombra ou uso.
     usos: [Estudos de mortalidade e doenças crônicas., Avaliação de desigualdade de verdor., Análise de modificação de efeitos de calor e poluição.]
-    limitacoes: [Satura em vegetação densa., É afetado por nuvens, solo e fenologia., Buffer residencial ignora mobilidade., Água e superfícies não vegetadas alteram média., Tamanho do buffer muda exposição.]
-    metodo_calculo: Obter reflectância corrigida no vermelho e infravermelho próximo, mascarar nuvens e pixels inválidos, calcular NDVI, compor a janela temporal e obter média dos pixels em buffer previamente definido.
+    limitacoes: [Satura em vegetação densa., É afetado por nuvens, solo e fenologia., A área de entorno residencial ignora mobilidade., Água e superfícies não vegetadas alteram média., O tamanho da área de entorno muda a exposição.]
+    metodo_calculo: Obter reflectância corrigida no vermelho e infravermelho próximo, mascarar nuvens e pixels inválidos, calcular NDVI, compor a janela temporal e obter a média dos pixels na área de entorno previamente definida.
     formula_calculo: 'NDVI=\frac{\rho_{NIR}-\rho_{red}}{\rho_{NIR}+\rho_{red}};\quad \overline{NDVI}_b=\frac{\sum_{g\in b}w_gNDVI_g}{\sum_{g\in b}w_g}'
-    numerador: Na fórmula espectral, diferença entre reflectância no infravermelho próximo e vermelho; no buffer, soma ponderada dos NDVI válidos.
-    denominador: Na fórmula espectral, soma das reflectâncias; no buffer, soma dos pesos ou áreas válidas.
+    numerador: Na fórmula espectral, diferença entre reflectância no infravermelho próximo e vermelho; na área de entorno, soma ponderada dos NDVI válidos.
+    denominador: Na fórmula espectral, soma das reflectâncias; na área de entorno, soma dos pesos ou áreas válidas.
     unidade_medida: Adimensional.
-    variaveis_categorias_analise: Reflectância; NDVI; buffer; endereço; estação; ano; grupo populacional.
+    variaveis_categorias_analise: Reflectância; NDVI; área de entorno; endereço; estação; ano; grupo populacional.
     granularidade: Pixel de entrada e valor por ponto ou unidade.
     resolucao_espacial_original: A do produto; 30 m em produtos multiespectrais Landsat usuais.
     resolucao_temporal: Cena e composição sazonal ou anual.
@@ -45,8 +45,8 @@ indicators:
     url_persistente: https://doi.org/10.1016/S2542-5196(19)30215-3
     formatos: GeoTIFF e tabela por unidade.
     disponibilidade: [requer processamento de sensoriamento remoto]
-    necessidade_processamento: Correção/seleção do produto, máscara, composição, buffers, ponderação e controle de geocodificação.
-    analise_descritiva: Mostrar distribuição por buffers alternativos, grupos sociais, sazonalidade e mapa sem divulgar endereços individuais.
+    necessidade_processamento: Correção ou seleção do produto, máscara, composição, áreas de entorno, ponderação e controle de geocodificação.
+    analise_descritiva: Mostrar distribuição por áreas de entorno alternativas, grupos sociais, sazonalidade e mapa sem divulgar endereços individuais.
     referencias: ["[@rojasrueda2019greenspace]", "[@who2016greenspace]"]
 
   - <<: *urban_common
@@ -54,25 +54,27 @@ indicators:
     titulo_completo: Parcela média da área construída da cidade que corresponde a espaço aberto para uso público (ODS 11.7.1)
     titulo_resumido: Espaço público aberto — ODS 11.7.1
     referencia_metodologica: Indicador ODS 11.7.1 sob custódia do Programa das Nações Unidas para os Assentamentos Humanos.
-    conceito: Percentual da área construída urbana destinado a espaços abertos de uso público, complementado pela avaliação do acesso populacional e desagregações.
-    objetivo: Monitorar oferta e acesso universal a espaços públicos abertos, seguros, inclusivos e acessíveis.
-    interpretacao: Valor maior indica maior parcela territorial classificada como espaço aberto público. Não informa automaticamente qualidade, vegetação, segurança, acessibilidade ou uso.
-    usos: [Monitorar ODS 11.7.1., Comparar cidades com método harmonizado., Planejar oferta e distribuição de espaços públicos.]
-    limitacoes: [Delimitação da área construída afeta denominador., Propriedade pública não garante acesso., Espaço aberto pode não ser verde., Cadastro incompleto e imagem defasada geram erro.]
-    metodo_calculo: Delimitar área construída urbana segundo o metadado, mapear espaços abertos de uso público e calcular a razão de áreas; calcular separadamente a população com acesso em distância caminhável conforme o protocolo ODS.
-    formula_calculo: 'ODS11.7.1_{área}=100\times\frac{A_{espaço\ aberto\ público}}{A_{área\ construída\ urbana}}'
-    numerador: Área de espaços abertos qualificados para uso público.
-    denominador: Área construída urbana segundo a delimitação ODS.
+    conceito: O indicador reúne duas séries complementares. A primeira mede a parcela da área construída da cidade destinada a espaços públicos, compreendendo espaços públicos abertos verificados e áreas destinadas a ruas. A segunda mede a parcela da população urbana com acesso conveniente a espaços públicos abertos.
+    objetivo: Monitorar a oferta territorial de espaços públicos e o acesso universal a espaços públicos abertos, seguros, inclusivos e acessíveis.
+    interpretacao: Na série territorial, valor maior indica maior parcela da cidade destinada a espaços públicos abertos e ruas. Na série de acesso, valor maior indica maior parcela da população situada a até 400 m caminháveis de um espaço público aberto. Nenhuma das séries informa automaticamente qualidade, vegetação, segurança ou uso efetivo.
+    usos: [Monitorar as duas séries do ODS 11.7.1., Comparar cidades com método harmonizado., Planejar oferta e distribuição de espaços públicos., "Examinar desigualdades de acesso por sexo, idade e deficiência."]
+    limitacoes: [A delimitação da cidade ou área urbana afeta o denominador., Espaços identificados por imagem exigem verificação de uso público e gratuidade., Espaço público aberto pode não ser verde., "Cadastro incompleto, rede caminhável inadequada e imagem defasada geram erro.", A série territorial e a série de acesso não devem ser fundidas em uma única medida.]
+    metodo_calculo: Delimitar a cidade ou área urbana pelo protocolo ODS; identificar e verificar os espaços públicos abertos; estimar a área total destinada a ruas; somar as duas áreas e dividi-las pela área total delimitada. Calcular separadamente a população que alcança um espaço público aberto por percurso caminhável de até 400 m, dividindo-a pela população urbana total e desagregando o resultado por sexo, idade e deficiência.
+    formula_calculo: 'ODS11.7.1_{área}=100\times\frac{A_{espaços\ públicos\ abertos}+A_{ruas}}{A_{cidade}};\quad ODS11.7.1_{acesso}=100\times\frac{Pop_{\leq 400\,m\ caminháveis}}{Pop_{urbana}}'
+    numerador: Na série territorial, soma da área dos espaços públicos abertos verificados com a área destinada a ruas; na série de acesso, população urbana a até 400 m caminháveis de um espaço público aberto.
+    denominador: Na série territorial, área total da cidade ou área urbana delimitada; na série de acesso, população urbana total da mesma área.
     unidade_medida: Percentual (%).
-    variaveis_categorias_analise: Área construída; espaço público; tipo; acessibilidade; população; sexo; idade; deficiência.
-    granularidade: Polígono de espaço e zona urbana.
+    variaveis_categorias_analise: Limite da cidade; espaço público aberto verificado; área destinada a ruas; rede caminhável; distância de 400 m; população; sexo; idade; deficiência.
+    granularidade: Polígono de espaço, área de ruas, segmento de rede, unidade populacional e cidade.
     resolucao_espacial_original: A dos cadastros e imagens usados na delimitação.
     resolucao_temporal: Atualização periódica por edição.
     periodo_referencia: Ano dos cadastros, imagens e população.
     limiar_referencia: Não há limiar sanitário universal; monitorar nível, distribuição e acesso.
     fontes_dados:
+      - id: unhabitat-urban
+        papel: metadados oficiais, delimitação urbana e protocolo de cálculo do ODS 11.7.1
       - id: mapbiomas
-        papel: apoio à delimitação de cobertura e área urbana, com validação cadastral
+        papel: apoio à delimitação de cobertura e área urbana, sem substituir a verificação dos espaços públicos
       - id: ibge
         papel: limites, população e desagregações
     cobertura_geografica: Cidades com dados suficientes; estimativa oficial deve seguir o metadado ODS.
@@ -82,8 +84,8 @@ indicators:
     url_persistente: https://unstats.un.org/sdgs/metadata/files/Metadata-11-07-01.pdf
     formatos: Vetores geoespaciais, tabelas e relatórios.
     disponibilidade: [requer cadastro e processamento geoespacial]
-    necessidade_processamento: Delimitar área urbana, validar espaços públicos, calcular áreas e acesso e documentar omissões.
-    analise_descritiva: Mostrar parcela total, tipos de espaço, acesso por grupo e distribuição intraurbana.
+    necessidade_processamento: Delimitar a área urbana, validar espaços públicos, estimar a área de ruas, construir percursos caminháveis de 400 m, interpolar ou agregar a população e documentar omissões.
+    analise_descritiva: Apresentar separadamente a parcela territorial de espaços públicos e a parcela populacional com acesso; detalhar os componentes espaço aberto e ruas, desagregar acesso por grupo e mostrar a distribuição intraurbana.
     referencias: ["[@un2026sdg1171]", "[@who2016greenspace]"]
 
   - <<: *urban_common
@@ -96,7 +98,7 @@ indicators:
     interpretacao: Valor maior indica maior cobertura potencial de proximidade. Não comprova acesso real, qualidade, segurança, gratuidade ou uso.
     usos: [Planejar espaços verdes e rotas., Monitorar desigualdades territoriais., Avaliar intervenções urbanas relacionadas à saúde.]
     limitacoes: [Distância linear pode divergir da rede caminhável., Entradas e barreiras podem estar ausentes., Limiar de 300 m/1 ha é convenção de planejamento., População residencial não inclui mobilidade.]
-    metodo_calculo: Selecionar espaços verdes de pelo menos 1 ha com acesso público, construir área de serviço de 300 m pela rede caminhável — ou buffer linear claramente identificado —, intersectar com população e dividir a população coberta pela urbana total.
+    metodo_calculo: Selecionar espaços verdes de pelo menos 1 ha com acesso público, construir área de serviço de 300 m pela rede caminhável — ou área linear de entorno claramente identificada —, intersectar com população e dividir a população coberta pela urbana total.
     formula_calculo: 'P_{verde300}=100\times\frac{\sum_g Pop_g I(g\ acessa\ verde_{\geq1ha}\ em\leq300m)}{\sum_g Pop_g}'
     numerador: População urbana em unidades cobertas pela área de acesso.
     denominador: População urbana total na área analisada.

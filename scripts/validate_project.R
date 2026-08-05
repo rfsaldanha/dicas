@@ -21,15 +21,24 @@ if (length(chapter_files) != 14L) {
 required <- c(
   "_quarto.yml", "_quarto-web.yml", "_quarto-print.yml", "index.qmd",
   "README.md", "CONTRIBUTING.md", "references.bib",
-  "frontmatter/folha-rosto.qmd", "frontmatter/ficha-tecnica.qmd",
+  "frontmatter/ficha-tecnica.qmd",
   "frontmatter/apresentacao.qmd", "frontmatter/prefacio.qmd",
   "frontmatter/agradecimentos.qmd", "frontmatter/siglas.qmd",
   "frontmatter/sumario.qmd", "frontmatter/como-usar.qmd",
-  "backmatter/glossario.qmd", "backmatter/referencias.qmd",
+  "backmatter/glossario.qmd",
   "backmatter/indice-indicadores.qmd", "backmatter/indice-fontes.qmd",
   "backmatter/indice-instituicoes.qmd", "backmatter/apendice-metodologico.qmd",
   "backmatter/lista-fichas.qmd", "backmatter/lista-tabelas.qmd",
-  "backmatter/lista-figuras.qmd",
+  "backmatter/lista-figuras.qmd", "indicators/generated-index-alphabetical.qmd",
+  "indicators/generated-list.qmd", "scripts/figure_metadata.lua",
+  "assets/figures/cadeia-representacao.svg",
+  "assets/figures/mudanca-suporte.svg",
+  "assets/figures/temperatura-ar-superficie.svg",
+  "assets/figures/residencia-presenca-exposicao.svg",
+  "assets/figures/defasagem-exposicao-desfecho.svg",
+  "scripts/build_real_figures.R", "data-raw/figures/README.md",
+  "data-raw/figures/mudanca-suporte-rj.csv",
+  "data-raw/figures/mudanca-suporte-rj.yml",
   "docs/diagnostico-repositorios.md", "docs/arquitetura.md",
   "docs/arquitetura-fichas.md", "docs/guia-editorial.md",
   "docs/guia-de-compilacao.md", "docs/fontes-de-dados.md",
@@ -37,6 +46,16 @@ required <- c(
   "docs/relatorio-versao-para-revisao.md"
 )
 invisible(lapply(required, check_file))
+
+obsolete <- c(
+  "backmatter/referencias.qmd", "frontmatter/folha-rosto.qmd",
+  "includes/print-before-body.typ", "print/pretextuais.typ",
+  "indicators/generated-index.qmd"
+)
+present_obsolete <- obsolete[file.exists(obsolete)]
+if (length(present_obsolete)) {
+  fail("Arquivos obsoletos ainda presentes: ", paste(present_obsolete, collapse = ", "))
+}
 
 config <- unlist(lapply(
   c("_quarto-web.yml", "_quarto-print.yml"),
@@ -79,6 +98,80 @@ if (length(bad_list_items)) {
 source_text <- paste(vapply(qmd_files, function(path) {
   paste(readLines(path, warn = FALSE, encoding = "UTF-8"), collapse = "\n")
 }, character(1L)), collapse = "\n")
+
+mermaid_blocks <- unlist(lapply(chapter_files, function(path) {
+  lines <- readLines(path, warn = FALSE, encoding = "UTF-8")
+  starts <- which(lines == "```{mermaid}")
+  vapply(starts, function(start) {
+    relative_end <- which(lines[seq.int(start + 1L, length(lines))] == "```")[[1L]]
+    paste(lines[seq.int(start, start + relative_end)], collapse = "\n")
+  }, character(1L))
+}), use.names = FALSE)
+if (length(mermaid_blocks) != 20L) {
+  fail("Esperados 20 diagramas Mermaid; encontrados ", length(mermaid_blocks), ".")
+}
+missing_alt <- mermaid_blocks[!grepl("(?m)^%%\\| fig-alt:", mermaid_blocks, perl = TRUE)]
+if (length(missing_alt)) fail("Há diagrama Mermaid sem texto alternativo.")
+
+framebox_lines <- grep("::: \\{\\.framebox\\}", source_text, value = TRUE)
+if (length(framebox_lines)) {
+  fail("Há placeholders de arte remanescentes nos capítulos.")
+}
+
+illustration_paths <- c(
+  "assets/figures/cadeia-representacao.svg",
+  "assets/figures/mudanca-suporte.svg",
+  "assets/figures/temperatura-ar-superficie.svg",
+  "assets/figures/residencia-presenca-exposicao.svg",
+  "assets/figures/defasagem-exposicao-desfecho.svg"
+)
+illustration_mentions <- vapply(illustration_paths, function(path) {
+  sum(grepl(paste0("../../", path), source_text, fixed = TRUE))
+}, integer(1L))
+if (any(illustration_mentions != 1L)) {
+  fail("Cada ilustração editorial deve ser incorporada exatamente uma vez.")
+}
+for (path in illustration_paths) {
+  svg <- paste(readLines(path, warn = FALSE, encoding = "UTF-8"), collapse = "\n")
+  if (!grepl("<svg[ >]", svg) || !grepl("<title[ >]", svg) || !grepl("<desc[ >]", svg)) {
+    fail("SVG sem estrutura acessível mínima: ", path)
+  }
+}
+
+real_map <- utils::read.csv(
+  "data-raw/figures/mudanca-suporte-rj.csv",
+  stringsAsFactors = FALSE,
+  encoding = "UTF-8"
+)
+real_map_required <- c("cell", "temperature_c", "area_km2", "population")
+if (!all(real_map_required %in% names(real_map)) || nrow(real_map) < 10L) {
+  fail("Dados derivados da figura de mudança de suporte estão incompletos.")
+}
+if (any(!is.finite(real_map$temperature_c)) ||
+    sum(real_map$population, na.rm = TRUE) < 1e6) {
+  fail("A figura de mudança de suporte não contém valores reais plausíveis.")
+}
+if (!grepl("CAMS/ECMWF", source_text, fixed = TRUE) ||
+    !grepl("Grade Estatística 2022", source_text, fixed = TRUE)) {
+  fail("Fontes do mapa real não foram declaradas no capítulo.")
+}
+
+read_table_column <- function(path, column) {
+  lines <- readLines(path, warn = FALSE, encoding = "UTF-8")
+  rows <- grep("^\\| \\[?[A-Z]{3}-[A-Z]{2,3}-[0-9]{2}", lines, value = TRUE)
+  cells <- strsplit(sub("^\\| ", "", rows), " \\| ", fixed = FALSE)
+  vapply(cells, function(x) x[[column]], character(1L))
+}
+alphabetical_all <- read_table_column("indicators/generated-index-alphabetical.qmd", 2L)
+alphabetical_titles <- head(alphabetical_all, length(alphabetical_all) / 2L)
+if (!identical(alphabetical_titles, sort(alphabetical_titles, method = "shell"))) {
+  fail("O catálogo alfabético de indicadores está fora de ordem.")
+}
+listed_all <- read_table_column("indicators/generated-list.qmd", 1L)
+listed_codes <- sub("^\\[([^]]+)\\].*$", "\\1", head(listed_all, length(listed_all) / 2L))
+if (!identical(listed_codes, sort(listed_codes, method = "radix"))) {
+  fail("A lista de fichas está fora da ordem dos códigos.")
+}
 
 citations <- regmatches(
   source_text,

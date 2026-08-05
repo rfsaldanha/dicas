@@ -73,7 +73,7 @@ if command -v pdftotext >/dev/null 2>&1; then
     "Dados, variáveis, índices e" "Temperatura e condições" \
     "Temperatura máxima diária" "Título resumido" "Responsabilidade gerencial" \
     "Análise descritiva do indicador" "Tipo de registro" \
-    "Referências" "Índice de fontes de dados"; do
+    "Referências" "Catálogo de fontes de dados"; do
     if ! grep -F "$title" "$text_file" >/dev/null; then
       printf 'Elemento esperado ausente no PDF: %s\n' "$title" >&2
       exit 1
@@ -81,6 +81,18 @@ if command -v pdftotext >/dev/null 2>&1; then
   done
   if grep -E '@(sec|fig|tbl|qua)-[[:alnum:]_.:-]+|[?][?]' "$text_file" >/dev/null; then
     printf 'Referência cruzada não resolvida localizada no PDF.\n' >&2
+    exit 1
+  fi
+  if grep -E '^[[:space:]]*Bibliografia[[:space:]]*$' "$text_file" >/dev/null; then
+    printf 'Título bibliográfico duplicado ou incorreto localizado no PDF: Bibliografia.\n' >&2
+    exit 1
+  fi
+  if ! grep -F "Quadro A.1" "$text_file" >/dev/null; then
+    printf 'Numeração do quadro do apêndice não foi convertida para A.1.\n' >&2
+    exit 1
+  fi
+  if ! grep -F "WORLD WIDE WEB CONSORTIUM. Data on the Web Best Practices." "$text_file" >/dev/null; then
+    printf 'A seção Referências não contém uma entrada bibliográfica esperada.\n' >&2
     exit 1
   fi
 fi

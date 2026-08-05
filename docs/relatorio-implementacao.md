@@ -28,7 +28,7 @@ O arquivo não rastreado `prompt.txt` pertence ao usuário e permanece fora da e
 - Separação entre perigo, exposição, vulnerabilidade, efeito e resposta;
 - Fontes, produtos e plataformas tipificados separadamente;
 - Citações autor-data e bibliografia em estilo ABNT;
-- Frameboxes numerados para ilustrações ainda pendentes de arte final.
+- Cinco ilustrações vetoriais originais, com padrão técnico comum, texto alternativo e metadados editoriais.
 
 ## Compilação e validação
 
@@ -38,8 +38,8 @@ quarto render --profile print
 Rscript scripts/validate_project.R
 ```
 
-O PDF validado possui formato 155 × 230 mm, paginação dentro da faixa editorial de 400–500 páginas, fontes incorporadas e referências cruzadas resolvidas. O validador também confere 14 capítulos, 62 fichas, arquivos HTML, busca, links e âncoras.
+O PDF validado possui formato 160 × 230 mm, paginação dentro da faixa editorial de 400–500 páginas, fontes incorporadas e referências cruzadas resolvidas. O validador também confere 14 capítulos, 62 fichas, arquivos HTML, busca, links e âncoras.
 
 ## Estado editorial
 
-O conteúdo está preparado para revisão técnica, textual, bibliográfica, visual e de acessibilidade. A produção de ilustrações originais assinaladas nos capítulos é a única lacuna deliberadamente mantida no corpo da obra.
+O conteúdo está preparado para revisão técnica, textual, bibliográfica, visual e de acessibilidade. As cinco ilustrações originais assinaladas nos capítulos foram produzidas em SVG e incorporadas às edições web e impressa.

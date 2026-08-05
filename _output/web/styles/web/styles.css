@@ -1,5 +1,5 @@
 :root {
-  --dicas-accent: var(--bs-primary, #eb6864);
+  --dicas-accent: color-mix(in srgb, var(--bs-primary, #b33b37) 72%, var(--bs-body-color));
   --dicas-soft: color-mix(in srgb, var(--dicas-accent) 12%, var(--bs-body-bg));
   --dicas-muted: color-mix(in srgb, var(--bs-body-color) 7%, var(--bs-body-bg));
   --dicas-border: color-mix(in srgb, var(--bs-body-color) 28%, var(--bs-body-bg));
@@ -120,6 +120,13 @@ h3.ficha-section {
   margin-bottom: 0;
 }
 
+.figure-source {
+  display: block;
+  margin: -.2rem 0 1rem;
+  color: var(--bs-secondary-color);
+  font-size: .82rem;
+}
+
 /* Quadros textuais usam grade fechada, cabeçalho cinza e linhas alternadas. */
 .quarto-float-qua table,
 .quadro-grid table {
@@ -142,6 +149,16 @@ h3.ficha-section {
 .quarto-float-qua table tbody tr:nth-child(odd) td,
 .quadro-grid table tbody tr:nth-child(odd) td {
   background: #f6f6f6;
+}
+
+[data-bs-theme="dark"] .quarto-float-qua table thead th,
+[data-bs-theme="dark"] .quadro-grid table thead th {
+  background: color-mix(in srgb, var(--bs-body-color) 18%, var(--bs-body-bg));
+}
+
+[data-bs-theme="dark"] .quarto-float-qua table tbody tr:nth-child(odd) td,
+[data-bs-theme="dark"] .quadro-grid table tbody tr:nth-child(odd) td {
+  background: color-mix(in srgb, var(--bs-body-color) 7%, var(--bs-body-bg));
 }
 
 @media (max-width: 620px) {

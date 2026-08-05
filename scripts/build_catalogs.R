@@ -55,8 +55,12 @@ required_indicator <- c(
   "responsabilidade_gerencial", "notas", "analise_descritiva",
   "tema", "objetivo", "dimensoes", "unidade_medida", "unidade_territorial",
   "resolucao_temporal", "disponibilidade", "qualidade_incerteza",
-  "comparabilidade", "relacao_saude", "aplicacao_gestao"
-  , "capitulo", "referencia_metodologica"
+  "comparabilidade", "relacao_saude", "aplicacao_gestao",
+  "capitulo", "referencia_metodologica", "numerador", "denominador",
+  "resolucao_espacial_original", "periodo_referencia", "limiar_referencia",
+  "cobertura_geografica", "periodo_disponivel", "forma_acesso",
+  "url_persistente", "formatos", "necessidade_processamento",
+  "defasagens_temporais", "referencias"
 )
 
 indicator_documents <- lapply(yaml_files, yaml::read_yaml)
@@ -86,7 +90,8 @@ required_source <- c(
   "temas", "variaveis",
   "cobertura_geografica", "resolucao_espacial", "resolucao_temporal",
   "periodo_disponivel", "atualizacao", "acesso", "url", "limitacoes",
-  "ultima_verificacao", "indicadores"
+  "ultima_verificacao", "indicadores", "api", "formatos", "licenca",
+  "cadastro", "custos"
 )
 for (i in seq_along(sources)) {
   missing <- setdiff(required_source, names(sources[[i]]))
@@ -230,7 +235,7 @@ for (indicator in indicators) {
   write_utf8(ficha, file.path(root, "indicators", "includes", paste0(slug, ".qmd")))
 }
 
-indicator_rows <- vapply(indicators, function(x) {
+indicator_row <- function(x) {
   slug <- tolower(as.character(x$codigo))
   paste0(
     "| [", x$codigo, "](../", x$capitulo, "#sec-", slug, ") | ",
@@ -238,29 +243,41 @@ indicator_rows <- vapply(indicators, function(x) {
     paste(as_list(x$dimensoes), collapse = "; "), " | ",
     paste(as_list(x$disponibilidade), collapse = "; "), " |"
   )
-}, character(1L))
-indicator_rows_print <- vapply(indicators, function(x) {
+}
+indicator_row_print <- function(x) {
   paste0(
     "| ", x$codigo, " | ", x$titulo_resumido, " | ",
     paste(as_list(x$dimensoes), collapse = "; "), " |"
   )
-}, character(1L))
-indicator_index <- c(
+}
+
+titles <- vapply(indicators, function(x) as.character(x$titulo_completo), character(1L))
+title_order <- order(tolower(titles), method = "shell")
+code_order <- order(codes, method = "radix")
+
+indicator_document <- function(entries) c(
   "<!-- Arquivo gerado por scripts/build_catalogs.R. -->",
   "",
   "::: {.content-visible .quadro-grid when-format=\"html\"}",
   "| Código | Indicador | Tema | Dimensão | Disponibilidade |",
   "|---|---|---|---|---|",
-  indicator_rows,
+  vapply(entries, indicator_row, character(1L)),
   ":::",
   "",
   "::: {.content-visible .quadro-grid when-format=\"typst\"}",
   "| Código | Indicador | Dimensão |",
   "|---|---|---|",
-  indicator_rows_print,
+  vapply(entries, indicator_row_print, character(1L)),
   ":::"
 )
-write_utf8(indicator_index, file.path(root, "indicators", "generated-index.qmd"))
+write_utf8(
+  indicator_document(indicators[title_order]),
+  file.path(root, "indicators", "generated-index-alphabetical.qmd")
+)
+write_utf8(
+  indicator_document(indicators[code_order]),
+  file.path(root, "indicators", "generated-list.qmd")
+)
 
 source_rows <- vapply(sources, function(x) {
   target <- as.character(x$url)

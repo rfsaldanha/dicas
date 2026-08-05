@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Temperatura do ar e temperatura da superfície em corte urbano</title>
+  <desc id="desc">Corte esquemático urbano com satélite observando a emissão térmica de telhados, asfalto, água, solo e vegetação, enquanto uma estação mede o ar em altura padronizada e pessoas ocupam microambientes com sol e sombra.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0 0 L9 4.5 L0 9 Z" fill="#9a3e38"/>
+    </marker>
+    <style>
+      .label{font:600 20px Arial,Helvetica,sans-serif;fill:#223039}
+      .small{font:400 17px Arial,Helvetica,sans-serif;fill:#46555c}
+      .call{fill:#fff;stroke:#526168;stroke-width:1.6}
+      .heat{stroke:#9a3e38;stroke-width:3;fill:none;marker-end:url(#arrow)}
+      .sense{stroke:#53757c;stroke-width:2.5;stroke-dasharray:9 7;fill:none}
+    </style>
+  </defs>
+  <rect width="1200" height="720" fill="#ffffff"/>
+  <rect y="0" width="1200" height="475" fill="#eef3f4"/>
+  <rect y="475" width="1200" height="245" fill="#d8d2c5"/>
+
+  <g aria-label="Satélite e observação das superfícies" transform="translate(92 55)">
+    <rect x="42" y="28" width="82" height="46" rx="5" fill="#34454d"/>
+    <rect x="0" y="35" width="38" height="32" fill="#9eb8bc" stroke="#34454d" stroke-width="2"/>
+    <rect x="128" y="35" width="38" height="32" fill="#9eb8bc" stroke="#34454d" stroke-width="2"/>
+    <circle cx="83" cy="51" r="14" fill="#eef3f4"/>
+    <path class="sense" d="M82 78 L185 405 M102 76 L374 405"/>
+    <rect class="call" x="180" y="0" width="260" height="58" rx="4"/>
+    <text class="label" x="200" y="25">Satélite</text>
+    <text class="small" x="200" y="48">emissão térmica das superfícies</text>
+  </g>
+
+  <g aria-label="Nuvem e horário de passagem" transform="translate(515 76)">
+    <path d="M0 64 C-2 39 21 26 43 34 C52 8 91 3 106 31 C134 21 159 41 153 65 Z" fill="#d4dcde" stroke="#526168" stroke-width="2"/>
+    <rect class="call" x="184" y="8" width="222" height="60" rx="4"/>
+    <text class="label" x="204" y="34">Condições da cena</text>
+    <text class="small" x="204" y="57">nuvens · horário de passagem</text>
+  </g>
+
+  <g aria-label="Corte urbano">
+    <rect x="60" y="350" width="185" height="125" fill="#b9b1a3" stroke="#34454d" stroke-width="2"/>
+    <polygon points="48,350 153,286 257,350" fill="#756b62" stroke="#34454d" stroke-width="2"/>
+    <rect x="98" y="404" width="38" height="71" fill="#eef3f4"/>
+    <rect x="170" y="384" width="40" height="34" fill="#b9d0d3"/>
+    <text class="small" x="128" y="508">telhado</text>
+
+    <rect x="245" y="430" width="280" height="45" fill="#596166"/>
+    <path d="M278 453 H492" stroke="#f2eee4" stroke-width="5" stroke-dasharray="28 20"/>
+    <text class="small" x="360" y="508">asfalto</text>
+
+    <path d="M525 442 C580 424 640 431 695 444 V475 H525 Z" fill="#82aab2" stroke="#34454d" stroke-width="2"/>
+    <path d="M543 452 Q564 441 585 452 T627 452 T669 452" fill="none" stroke="#edf5f5" stroke-width="3"/>
+    <text class="small" x="610" y="508">água</text>
+
+    <rect x="695" y="428" width="180" height="47" fill="#b88966"/>
+    <text class="small" x="785" y="508">solo</text>
+
+    <g transform="translate(902 337)">
+      <rect x="46" y="80" width="15" height="58" fill="#665342"/>
+      <circle cx="53" cy="55" r="55" fill="#78977b"/>
+      <circle cx="25" cy="77" r="34" fill="#6d8c71"/>
+      <circle cx="83" cy="79" r="35" fill="#83a186"/>
+    </g>
+    <text class="small" x="955" y="508">vegetação e sombra</text>
+  </g>
+
+  <g aria-label="Emissão térmica das superfícies">
+    <path class="heat" d="M155 330 C145 302 172 284 158 255"/>
+    <path class="heat" d="M366 426 C355 392 383 373 368 338"/>
+    <path class="heat" d="M610 425 C600 396 624 381 614 350"/>
+    <path class="heat" d="M785 424 C776 391 801 374 789 341"/>
+    <path class="heat" d="M956 340 C948 312 971 295 960 267"/>
+    <text class="small" x="565" y="276" text-anchor="middle">emissão e emissividade variam entre superfícies</text>
+  </g>
+
+  <g aria-label="Estação meteorológica" transform="translate(735 304)">
+    <line x1="0" y1="170" x2="0" y2="40" stroke="#34454d" stroke-width="6"/>
+    <path d="M-32 55 H32 L20 83 H-20 Z" fill="#ffffff" stroke="#34454d" stroke-width="3"/>
+    <path d="M-25 63 H25 M-21 72 H21" stroke="#87949a" stroke-width="2"/>
+    <rect class="call" x="-84" y="-18" width="286" height="70" rx="4"/>
+    <text class="label" x="-64" y="9">Estação</text>
+    <text class="small" x="-64" y="34">temperatura do ar em altura padronizada</text>
+  </g>
+
+  <g aria-label="Microambiente ocupado" transform="translate(1030 397)">
+    <circle cx="0" cy="0" r="16" fill="#34454d"/>
+    <line x1="0" y1="16" x2="0" y2="66" stroke="#34454d" stroke-width="8"/>
+    <line x1="0" y1="35" x2="-24" y2="58" stroke="#34454d" stroke-width="7"/>
+    <line x1="0" y1="35" x2="23" y2="56" stroke="#34454d" stroke-width="7"/>
+    <line x1="0" y1="66" x2="-18" y2="94" stroke="#34454d" stroke-width="7"/>
+    <line x1="0" y1="66" x2="18" y2="94" stroke="#34454d" stroke-width="7"/>
+  </g>
+  <rect class="call" x="842" y="548" width="312" height="74" rx="4"/>
+  <text class="label" x="862" y="577">Microambiente vivido</text>
+  <text class="small" x="862" y="603">sombra · ventilação · materiais · ocupação</text>
+
+  <g aria-label="Distinção entre as medidas">
+    <path d="M80 663 H1120" stroke="#34454d" stroke-width="2"/>
+    <text x="600" y="698" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="20" fill="#9a3e38">Medidas relacionadas, mas sem conversão fixa entre temperatura da superfície e temperatura do ar</text>
+  </g>
+</svg>
