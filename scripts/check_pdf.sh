@@ -68,7 +68,8 @@ if command -v pdftotext >/dev/null 2>&1; then
   text_file=$(mktemp)
   trap 'rm -f "$text_file" ${image_list:-}' EXIT HUP INT TERM
   pdftotext -layout "$pdf" "$text_file"
-  for title in "Ficha técnica" "Apresentação" "Lista de siglas" "Sumário" \
+  for title in "Agradecimentos" "Apresentação" "Prefácio do autor" \
+    "Lista de siglas" "Sumário" "Como utilizar este livro" \
     "Dados, variáveis, índices e" "Temperatura e condições" \
     "Temperatura máxima diária" "Título resumido" "Responsabilidade gerencial" \
     "Análise descritiva do indicador" "Tipo de registro" \

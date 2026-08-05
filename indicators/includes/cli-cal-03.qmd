@@ -1,47 +1,47 @@
-## Ficha do indicador: Número de ondas de calor (HWN) {#sec-cli-cal-03}
+## Ficha do indicador: Número de ondas de calor (HWN) {#sec-cli-cal-03 .ficha-title}
 
 ::: {.indicator-card}
-**Código:** CLI-CAL-03 \
-**Título resumido:** Número de ondas — HWN \
-**Tema:** Temperatura e condições térmicas \
-**Dimensão:** perigo; exposição \
-**Disponibilidade:** [requer processamento climatológico]{.availability}
+[Código:]{.field-label} CLI-CAL-03 \
+[Título resumido:]{.field-label} Número de ondas — HWN \
+[Tema:]{.field-label} Temperatura e condições térmicas \
+[Dimensão:]{.field-label} perigo; exposição \
+[Disponibilidade:]{.field-label} [requer processamento climatológico]{.availability}
 :::
 
-### Identificação e fundamento
+### Identificação e fundamento {.unnumbered .ficha-section}
 
-**Indicador consolidado em.** Estrutura multiaspecto de ondas de calor proposta por Perkins e Alexander (2013), aplicada a episódios definidos por temperatura máxima, temperatura mínima ou EHF.
+[Indicador consolidado em.]{.field-label} Estrutura multiaspecto de ondas de calor proposta por Perkins e Alexander (2013), aplicada a episódios definidos por temperatura máxima, temperatura mínima ou EHF.
 
-### Conceito
-
+::: {.callout-note icon=false title="Conceito-chave"}
 Número de episódios distintos de onda de calor identificados no local e período.
+:::
 
-### Objetivo
+### Objetivo {.unnumbered .ficha-section}
 
 Quantificar a frequência de episódios, preservando a separação entre sequências.
 
-### Interpretação
+### Interpretação {.unnumbered .ficha-section}
 
 Valor maior indica mais episódios; não implica maior número total de dias nem maior intensidade.
 
-### Usos
+### Usos {.unnumbered .ficha-section}
 
 - Comparar frequência entre temporadas.
 - Avaliar recorrência de ativações operacionais.
 - Descrever exposição repetida em análises de saúde.
 
-### Limitações
+### Limitações {.unnumbered .ficha-section}
 
 - Uma falha pode dividir um episódio em dois.
 - Eventos de fronteira exigem regra de atribuição.
 - Não distingue ondas curtas e longas.
 
-### Fontes de dados
+### Fontes de dados {.unnumbered .ficha-section}
 
 - Instituto Nacional de Meteorologia — observações diárias de temperatura em estação ([cadastro](../../backmatter/indice-fontes.qmd#inmet))
 - ERA5-Land — reanálise em grade quando validada para a finalidade ([cadastro](../../backmatter/indice-fontes.qmd#era5-land))
 
-### Método de cálculo
+### Método de cálculo {.unnumbered .ficha-section}
 
 Identificar todas as sequências que atendem à definição e contar seus inícios dentro da estação ou período, aplicando regra documentada para eventos que cruzam fronteiras.
 
@@ -50,70 +50,70 @@ HWN_j = \sum_{e \in j} 1(e \text{ atende à definição})
 $$
 
 ::: {.indicator-card}
-**Numerador.** Não se aplica.
+[Numerador.]{.field-label} Não se aplica.
 
-**Denominador.** Não se aplica.
+[Denominador.]{.field-label} Não se aplica.
 
-**Unidade de medida.** Episódios por período.
+[Unidade de medida.]{.field-label} Episódios por período.
 
-**Variáveis e categorias de análise.** Definição térmica; estação quente; local; estação meteorológica ou célula; faixa etária e outros estratos apenas quando combinados com dados populacionais ou de saúde.
+[Variáveis e categorias de análise.]{.field-label} Definição térmica; estação quente; local; estação meteorológica ou célula; faixa etária e outros estratos apenas quando combinados com dados populacionais ou de saúde.
 
-**Granularidade.** Estação ou célula de grade; sínteses territoriais exigem regra explícita de agregação.
+[Granularidade.]{.field-label} Estação ou célula de grade; sínteses territoriais exigem regra explícita de agregação.
 
-**Periodicidade de atualização.** Sazonal ou anual para monitoramento; versões operacionais podem ser atualizadas diariamente com previsão, sob protocolo distinto.
+[Periodicidade de atualização.]{.field-label} Sazonal ou anual para monitoramento; versões operacionais podem ser atualizadas diariamente com previsão, sob protocolo distinto.
 
-**Responsabilidade gerencial.** Serviço meteorológico ou climático produtor e instituição de saúde usuária devem pactuar definição, calendário, atualização e interpretação.
+[Responsabilidade gerencial.]{.field-label} Serviço meteorológico ou climático produtor e instituição de saúde usuária devem pactuar definição, calendário, atualização e interpretação.
 
-**Notas.** A estrutura multiaspecto separa propriedades que não devem ser usadas como sinônimos. A definição do episódio precede o cálculo de qualquer aspecto.
+[Notas.]{.field-label} A estrutura multiaspecto separa propriedades que não devem ser usadas como sinônimos. A definição do episódio precede o cálculo de qualquer aspecto.
 
-**Análise descritiva do indicador.** Mostrar HWN junto da distribuição das durações, HWF, HWM e HWA.
+[Análise descritiva do indicador.]{.field-label} Mostrar HWN junto da distribuição das durações, HWF, HWM e HWA.
 
 :::
 
-### Campos complementares para clima, ambiente e saúde
+### Campos complementares para clima, ambiente e saúde {.unnumbered .ficha-section}
 
 ::: {.indicator-card}
-**Unidade territorial.** Estação meteorológica, célula de grade ou território derivado.
+[Unidade territorial.]{.field-label} Estação meteorológica, célula de grade ou território derivado.
 
-**Resolução espacial original.** A da fonte meteorológica; não atribuir automaticamente um ponto a todo o município.
+[Resolução espacial original.]{.field-label} A da fonte meteorológica; não atribuir automaticamente um ponto a todo o município.
 
-**Resolução temporal.** Entrada diária; saída por estação quente ou ano, preservando o calendário do hemisfério e a regra para episódios que cruzam limites.
+[Resolução temporal.]{.field-label} Entrada diária; saída por estação quente ou ano, preservando o calendário do hemisfério e a regra para episódios que cruzam limites.
 
-**Período de referência.** Período-base usado para estimar percentis e normalizar magnitudes; deve ser fixo e comum às comparações.
+[Período de referência.]{.field-label} Período-base usado para estimar percentis e normalizar magnitudes; deve ser fixo e comum às comparações.
 
-**Limiar ou valor de referência.** Pelo menos três dias consecutivos acima do percentil 90 de TX, acima do percentil 90 de TN ou com EHF positivo, conforme a definição escolhida; não misturar definições numa mesma série.
+[Limiar ou valor de referência.]{.field-label} Pelo menos três dias consecutivos acima do percentil 90 de TX, acima do percentil 90 de TN ou com EHF positivo, conforme a definição escolhida; não misturar definições numa mesma série.
 
 :::
 
-### Disponibilidade e acesso
+### Disponibilidade e acesso {.unnumbered .ficha-section}
 
-**Cobertura geográfica.** Determinada pela rede ou produto; a cobertura analítica depende também da completude da série.
+[Cobertura geográfica.]{.field-label} Determinada pela rede ou produto; a cobertura analítica depende também da completude da série.
 
-**Período disponível.** O da fonte selecionada, com extensão suficiente para período-base e análise.
+[Período disponível.]{.field-label} O da fonte selecionada, com extensão suficiente para período-base e análise.
 
-**Periodicidade de atualização.** Sazonal ou anual para monitoramento; versões operacionais podem ser atualizadas diariamente com previsão, sob protocolo distinto.
+[Periodicidade de atualização.]{.field-label} Sazonal ou anual para monitoramento; versões operacionais podem ser atualizadas diariamente com previsão, sob protocolo distinto.
 
-**Forma de acesso.** Cálculo reprodutível sobre séries diárias de temperatura máxima, mínima ou média.
+[Forma de acesso.]{.field-label} Cálculo reprodutível sobre séries diárias de temperatura máxima, mínima ou média.
 
-**URL ou identificador persistente.** https://doi.org/10.1175/JCLI-D-12-00383.1
+[URL ou identificador persistente.]{.field-label} https://doi.org/10.1175/JCLI-D-12-00383.1
 
-**Formato dos arquivos.** Tabela diária por estação ou arquivo multidimensional por célula, com códigos de qualidade e metadados.
+[Formato dos arquivos.]{.field-label} Tabela diária por estação ou arquivo multidimensional por célula, com códigos de qualidade e metadados.
 
-**Necessidade de processamento.** Controle de qualidade, cálculo do limiar, detecção de sequências, identificação de eventos e síntese do aspecto específico.
+[Necessidade de processamento.]{.field-label} Controle de qualidade, cálculo do limiar, detecção de sequências, identificação de eventos e síntese do aspecto específico.
 
-### Qualidade, comparação e saúde
+### Qualidade, comparação e saúde {.unnumbered .ficha-section}
 
-**Qualidade e incerteza.** Relatar fonte, falhas que criem ou interrompam sequências, período-base, algoritmo de percentil, definição da estação, viés de grades e sensibilidade à definição.
+[Qualidade e incerteza.]{.field-label} Relatar fonte, falhas que criem ou interrompam sequências, período-base, algoritmo de percentil, definição da estação, viés de grades e sensibilidade à definição.
 
-**Possibilidade de comparação.** Exige a mesma variável térmica, limiar, período-base, duração mínima, estação, calendário, completude e tratamento de eventos de fronteira.
+[Possibilidade de comparação.]{.field-label} Exige a mesma variável térmica, limiar, período-base, duração mínima, estação, calendário, completude e tratamento de eventos de fronteira.
 
-**Relação com desfechos de saúde.** Ondas de calor estão associadas a aumento de morbidade, mortalidade e demanda de serviços. A magnitude da associação varia com definição, clima, população, desfecho e adaptação.
+[Relação com desfechos de saúde.]{.field-label} Ondas de calor estão associadas a aumento de morbidade, mortalidade e demanda de serviços. A magnitude da associação varia com definição, clima, população, desfecho e adaptação.
 
-**Defasagens temporais relevantes.** Para efeitos agudos, conservar datas dos eventos e analisar defasagens segundo o desfecho; a síntese sazonal não substitui a exposição diária.
+[Defasagens temporais relevantes.]{.field-label} Para efeitos agudos, conservar datas dos eventos e analisar defasagens segundo o desfecho; a síntese sazonal não substitui a exposição diária.
 
-**Aplicação na gestão.** Caracterizar episódios, comparar temporadas, apoiar planejamento calor–saúde e avaliar retrospectivamente alertas e pressão assistencial.
+[Aplicação na gestão.]{.field-label} Caracterizar episódios, comparar temporadas, apoiar planejamento calor–saúde e avaliar retrospectivamente alertas e pressão assistencial.
 
-### Referências metodológicas
+### Referências metodológicas {.unnumbered .ficha-section}
 
 - [@perkins2013heatwaves]
 - [@nawaro2023]

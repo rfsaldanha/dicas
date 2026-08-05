@@ -1,6 +1,6 @@
 # Dados e Indicadores de Clima e Ambiente para a Saúde
 
-Livro técnico em Quarto sobre dados e indicadores aplicáveis à vigilância, ao planejamento e à gestão pública. O projeto produz uma versão digital responsiva e um PDF de 155 × 230 mm preparado para revisão editorial.
+Livro técnico em Quarto sobre dados e indicadores aplicáveis à vigilância, ao planejamento e à gestão pública. O projeto produz uma versão digital responsiva e um PDF de 160 × 230 mm preparado para revisão editorial.
 
 O público principal inclui profissionais de secretarias de saúde, vigilância em saúde ambiental, epidemiologia, planejamento, pesquisa e ensino em saúde coletiva.
 
@@ -12,10 +12,11 @@ Comece pelo [guia de revisão](docs/guia-de-revisao.md) e consulte o [relatório
 
 ## Estrutura
 
-- `_quarto.yml`: metadados centrais, ordem do livro e configuração compartilhada.
-- `_quarto-web.yml` e `_quarto-print.yml`: perfis de saída.
+- `_quarto.yml`: metadados centrais e configuração compartilhada.
+- `_quarto-web.yml` e `_quarto-print.yml`: ordem do livro e configuração de cada saída.
 - `chapters/`: 14 capítulos organizados em quatro partes.
-- `frontmatter/` e `backmatter/`: elementos pré e pós-textuais.
+- `frontmatter/` e `backmatter/`: elementos pré e pós-textuais compartilhados.
+- `print/pretextuais.typ`: pré-textuais próprios da edição impressa.
 - `indicators/data/`: fichas estruturadas em YAML.
 - `sources/data/sources.yml`: catálogo estruturado de fontes.
 - `scripts/`: geração, compilação e validação.
@@ -57,7 +58,7 @@ make
 
 1. Crie o `.qmd` no diretório da parte correspondente.
 2. Use um título de nível 1 e um identificador estável.
-3. Acrescente o caminho à parte correta em `_quarto.yml`.
+3. Acrescente o caminho à parte correta em `_quarto-web.yml` e `_quarto-print.yml`, conforme as saídas em que o capítulo deve aparecer.
 4. Atualize a matriz editorial e execute `make`.
 
 ## Adicionar uma ficha

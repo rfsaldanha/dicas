@@ -18,6 +18,29 @@
   margin: 1rem 0 1.5rem;
 }
 
+h2.ficha-title {
+  margin-top: 3rem;
+  padding: .9rem 1rem .85rem;
+  border-top: .28rem solid var(--bs-body-color);
+  border-bottom: 1px solid var(--dicas-border);
+  background: var(--dicas-soft);
+  line-height: 1.25;
+}
+
+h2.ficha-title .header-section-number {
+  color: var(--dicas-accent);
+  font-variant-numeric: tabular-nums;
+}
+
+h3.ficha-section {
+  margin-top: 1.6rem;
+  padding-bottom: .28rem;
+  border-bottom: 1px solid var(--dicas-border);
+  color: var(--bs-body-color);
+  font-size: 1.08rem;
+  letter-spacing: .01em;
+}
+
 .indicator-card {
   border: 1px solid var(--dicas-border);
   border-radius: .35rem;
@@ -50,6 +73,13 @@
   font-weight: 650;
 }
 
+.field-label {
+  color: var(--dicas-accent);
+  font-variant-caps: small-caps;
+  font-weight: 400;
+  letter-spacing: .035em;
+}
+
 .source-table {
   font-size: .92rem;
 }
@@ -65,15 +95,28 @@
   padding: .65rem .8rem;
 }
 
-/* Quadros textuais usam grade fechada, como na edição web de referência. */
-.quarto-float-qua table {
+/* Quadros textuais usam grade fechada, cabeçalho cinza e linhas alternadas. */
+.quarto-float-qua table,
+.quadro-grid table {
   border-collapse: collapse;
   width: 100%;
 }
 
 .quarto-float-qua table th,
-.quarto-float-qua table td {
-  border: 1px solid var(--bs-border-color, #777) !important;
+.quarto-float-qua table td,
+.quadro-grid table th,
+.quadro-grid table td {
+  border: 1px solid #999 !important;
+}
+
+.quarto-float-qua table thead th,
+.quadro-grid table thead th {
+  background: #dedede;
+}
+
+.quarto-float-qua table tbody tr:nth-child(odd) td,
+.quadro-grid table tbody tr:nth-child(odd) td {
+  background: #f6f6f6;
 }
 
 @media (max-width: 620px) {

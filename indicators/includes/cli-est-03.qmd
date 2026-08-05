@@ -1,36 +1,36 @@
-## Ficha do indicador: Humidex do Environment and Climate Change Canada {#sec-cli-est-03}
+## Ficha do indicador: Humidex do Environment and Climate Change Canada {#sec-cli-est-03 .ficha-title}
 
 ::: {.indicator-card}
-**Código:** CLI-EST-03 \
-**Título resumido:** Humidex \
-**Tema:** Temperatura e condições térmicas \
-**Dimensão:** perigo; exposição \
-**Disponibilidade:** [requer processamento meteorológico]{.availability}
+[Código:]{.field-label} CLI-EST-03 \
+[Título resumido:]{.field-label} Humidex \
+[Tema:]{.field-label} Temperatura e condições térmicas \
+[Dimensão:]{.field-label} perigo; exposição \
+[Disponibilidade:]{.field-label} [requer processamento meteorológico]{.availability}
 :::
 
-### Identificação e fundamento
+### Identificação e fundamento {.unnumbered .ficha-section}
 
-**Indicador consolidado em.** Fórmula padronizada pelo Environment and Climate Change Canada e método original de Masterton e Richardson.
+[Indicador consolidado em.]{.field-label} Fórmula padronizada pelo Environment and Climate Change Canada e método original de Masterton e Richardson.
 
-### Conceito
-
+::: {.callout-note icon=false title="Conceito-chave"}
 Índice adimensional que combina temperatura do ar e pressão de vapor, expressando quão quente e úmida a condição parece para uma pessoa média.
+:::
 
-### Objetivo
+### Objetivo {.unnumbered .ficha-section}
 
 Comunicar desconforto e perigo potencial associados à combinação de temperatura elevada e umidade.
 
-### Interpretação
+### Interpretação {.unnumbered .ficha-section}
 
 Na escala operacional canadense, 20–29 indica pouco desconforto; 30–39, algum desconforto; 40–45, grande desconforto e recomendação de evitar esforço; 46 ou mais, condição perigosa com possibilidade de golpe de calor.
 
-### Usos
+### Usos {.unnumbered .ficha-section}
 
 - Comunicação de calor úmido.
 - Orientação de atividades ao ar livre no sistema canadense.
 - Estudos de exposição que adotem explicitamente o Humidex.
 
-### Limitações
+### Limitações {.unnumbered .ficha-section}
 
 - Não incorpora vento nem radiação solar.
 - Categorias refletem orientação canadense e não equivalem a limiares brasileiros.
@@ -38,12 +38,12 @@ Na escala operacional canadense, 20–29 indica pouco desconforto; 30–39, algu
 - vestimenta ou suscetibilidade individual.
 - O uso de umidade relativa exige sua conversão consistente para pressão de vapor ou ponto de orvalho.
 
-### Fontes de dados
+### Fontes de dados {.unnumbered .ficha-section}
 
 - Instituto Nacional de Meteorologia — temperatura do ar e ponto de orvalho ou umidade relativa ([cadastro](../../backmatter/indice-fontes.qmd#inmet))
 - ERA5-Land — temperatura e umidade em grade para análise retrospectiva, após validação ([cadastro](../../backmatter/indice-fontes.qmd#era5-land))
 
-### Método de cálculo
+### Método de cálculo {.unnumbered .ficha-section}
 
 Converter o ponto de orvalho para kelvin. Calcular a pressão de vapor e, em seguida, o incremento h; somá-lo à temperatura do ar em graus Celsius. Se a entrada disponível for umidade relativa, derivar primeiro o ponto de orvalho ou a pressão de vapor com método documentado.
 
@@ -52,70 +52,70 @@ Humidex=T_a+0.5555(e-10),\quad e=6.11\exp\left[5417.7530\left(\frac{1}{273.15}-\
 $$
 
 ::: {.indicator-card}
-**Numerador.** Não se aplica.
+[Numerador.]{.field-label} Não se aplica.
 
-**Denominador.** Não se aplica.
+[Denominador.]{.field-label} Não se aplica.
 
-**Unidade de medida.** Índice adimensional informado em escala semelhante a graus Celsius.
+[Unidade de medida.]{.field-label} Índice adimensional informado em escala semelhante a graus Celsius.
 
-**Variáveis e categorias de análise.** Temperatura do ar (°C); ponto de orvalho (K) ou pressão de vapor (hPa); hora; local; faixa canadense de impacto.
+[Variáveis e categorias de análise.]{.field-label} Temperatura do ar (°C); ponto de orvalho (K) ou pressão de vapor (hPa); hora; local; faixa canadense de impacto.
 
-**Granularidade.** Valor horário ou por observação; resumo diário, por episódio ou território.
+[Granularidade.]{.field-label} Valor horário ou por observação; resumo diário, por episódio ou território.
 
-**Periodicidade de atualização.** Horária ou conforme a fonte.
+[Periodicidade de atualização.]{.field-label} Horária ou conforme a fonte.
 
-**Responsabilidade gerencial.** Serviço meteorológico ou equipe de saúde ambiental ou do trabalhador responsável pela medição, com autoridade de saúde responsável pelo protocolo de uso.
+[Responsabilidade gerencial.]{.field-label} Serviço meteorológico ou equipe de saúde ambiental ou do trabalhador responsável pela medição, com autoridade de saúde responsável pelo protocolo de uso.
 
-**Notas.** O valor é uma temperatura ou índice equivalente, não a temperatura corporal nem uma medição direta de risco individual. Categorias operacionais de outro país não constituem automaticamente limiares de alerta no Brasil.
+[Notas.]{.field-label} O valor é uma temperatura ou índice equivalente, não a temperatura corporal nem uma medição direta de risco individual. Categorias operacionais de outro país não constituem automaticamente limiares de alerta no Brasil.
 
-**Análise descritiva do indicador.** Apresentar distribuição, máximo diário, horas em cada faixa, completude e comparação com temperatura do ar; separar a descrição das decisões de alerta.
+[Análise descritiva do indicador.]{.field-label} Apresentar distribuição, máximo diário, horas em cada faixa, completude e comparação com temperatura do ar; separar a descrição das decisões de alerta.
 
 :::
 
-### Campos complementares para clima, ambiente e saúde
+### Campos complementares para clima, ambiente e saúde {.unnumbered .ficha-section}
 
 ::: {.indicator-card}
-**Unidade territorial.** Ponto de observação, célula de grade ou território obtido por agregação explícita.
+[Unidade territorial.]{.field-label} Ponto de observação, célula de grade ou território obtido por agregação explícita.
 
-**Resolução espacial original.** Ponto de estação ou célula do produto meteorológico.
+[Resolução espacial original.]{.field-label} Ponto de estação ou célula do produto meteorológico.
 
-**Resolução temporal.** Horária ou subdiária.
+[Resolução temporal.]{.field-label} Horária ou subdiária.
 
-**Período de referência.** Não exige climatologia; tendências requerem série homogênea.
+[Período de referência.]{.field-label} Não exige climatologia; tendências requerem série homogênea.
 
-**Limiar ou valor de referência.** Faixas canadenses 20–29, 30–39, 40–45 e ≥46; seu emprego como gatilho fora do Canadá requer validação local.
+[Limiar ou valor de referência.]{.field-label} Faixas canadenses 20–29, 30–39, 40–45 e ≥46; seu emprego como gatilho fora do Canadá requer validação local.
 
 :::
 
-### Disponibilidade e acesso
+### Disponibilidade e acesso {.unnumbered .ficha-section}
 
-**Cobertura geográfica.** A da fonte meteorológica ou do levantamento microambiental selecionado.
+[Cobertura geográfica.]{.field-label} A da fonte meteorológica ou do levantamento microambiental selecionado.
 
-**Período disponível.** O período comum às variáveis de temperatura e umidade.
+[Período disponível.]{.field-label} O período comum às variáveis de temperatura e umidade.
 
-**Periodicidade de atualização.** Horária ou conforme a fonte.
+[Periodicidade de atualização.]{.field-label} Horária ou conforme a fonte.
 
-**Forma de acesso.** Cálculo sobre observações sincronizadas de temperatura e umidade.
+[Forma de acesso.]{.field-label} Cálculo sobre observações sincronizadas de temperatura e umidade.
 
-**URL ou identificador persistente.** https://www.canada.ca/en/environment-climate-change/services/climate-change/canadian-centre-climate-services/display-download/technical-documentation-climate-normals.html
+[URL ou identificador persistente.]{.field-label} https://www.canada.ca/en/environment-climate-change/services/climate-change/canadian-centre-climate-services/display-download/technical-documentation-climate-normals.html
 
-**Formato dos arquivos.** Tabela horária por estação ou grade.
+[Formato dos arquivos.]{.field-label} Tabela horária por estação ou grade.
 
-**Necessidade de processamento.** Controle de qualidade, conversão do ponto de orvalho para kelvin, cálculo de pressão de vapor e aplicação da fórmula.
+[Necessidade de processamento.]{.field-label} Controle de qualidade, conversão do ponto de orvalho para kelvin, cálculo de pressão de vapor e aplicação da fórmula.
 
-### Qualidade, comparação e saúde
+### Qualidade, comparação e saúde {.unnumbered .ficha-section}
 
-**Qualidade e incerteza.** Verificar unidades, altura e abrigo dos sensores, sincronização das variáveis, dados ausentes, domínio de validade da fórmula, representatividade espacial e diferença entre valor medido e modelado.
+[Qualidade e incerteza.]{.field-label} Verificar unidades, altura e abrigo dos sensores, sincronização das variáveis, dados ausentes, domínio de validade da fórmula, representatividade espacial e diferença entre valor medido e modelado.
 
-**Possibilidade de comparação.** Manter fórmula, versão, entradas, unidades, altura do vento, tratamento da radiação, resolução temporal e regra de agregação; índices diferentes não são conversíveis por uma escala comum.
+[Possibilidade de comparação.]{.field-label} Manter fórmula, versão, entradas, unidades, altura do vento, tratamento da radiação, resolução temporal e regra de agregação; índices diferentes não são conversíveis por uma escala comum.
 
-**Relação com desfechos de saúde.** A umidade elevada dificulta a perda de calor por evaporação; o Humidex apoia comunicação de desconforto e risco, mas não modela diretamente a termorregulação individual.
+[Relação com desfechos de saúde.]{.field-label} A umidade elevada dificulta a perda de calor por evaporação; o Humidex apoia comunicação de desconforto e risco, mas não modela diretamente a termorregulação individual.
 
-**Defasagens temporais relevantes.** Preservar valores horários e diários para relacionar exposições agudas a desfechos no mesmo dia e em dias subsequentes; a agregação anual não serve para estimar efeitos de curto prazo.
+[Defasagens temporais relevantes.]{.field-label} Preservar valores horários e diários para relacionar exposições agudas a desfechos no mesmo dia e em dias subsequentes; a agregação anual não serve para estimar efeitos de curto prazo.
 
-**Aplicação na gestão.** Apoiar comunicação e orientação de atividades quando a autoridade adotar e validar explicitamente a escala; não converter suas faixas para Heat Index.
+[Aplicação na gestão.]{.field-label} Apoiar comunicação e orientação de atividades quando a autoridade adotar e validar explicitamente a escala; não converter suas faixas para Heat Index.
 
-### Referências metodológicas
+### Referências metodológicas {.unnumbered .ficha-section}
 
 - [@canada2026humidex]
 - [@canada2021humidexformula]

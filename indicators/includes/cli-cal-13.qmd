@@ -1,49 +1,49 @@
-## Ficha do indicador: Índice Cumulativo de Excesso de Calor em Ondas de Calor (CEHWI) {#sec-cli-cal-13}
+## Ficha do indicador: Índice Cumulativo de Excesso de Calor em Ondas de Calor (CEHWI) {#sec-cli-cal-13 .ficha-title}
 
 ::: {.indicator-card}
-**Código:** CLI-CAL-13 \
-**Título resumido:** Excesso acumulado — CEHWI \
-**Tema:** Temperatura e condições térmicas \
-**Dimensão:** perigo; exposição \
-**Disponibilidade:** [requer processamento climatológico]{.availability}
+[Código:]{.field-label} CLI-CAL-13 \
+[Título resumido:]{.field-label} Excesso acumulado — CEHWI \
+[Tema:]{.field-label} Temperatura e condições térmicas \
+[Dimensão:]{.field-label} perigo; exposição \
+[Disponibilidade:]{.field-label} [requer processamento climatológico]{.availability}
 :::
 
-### Identificação e fundamento
+### Identificação e fundamento {.unnumbered .ficha-section}
 
-**Indicador consolidado em.** Cumulative Excess Heatwave Index aplicado por Liu et al. às relações não lineares entre ondas diurnas, noturnas e compostas e mortalidade.
+[Indicador consolidado em.]{.field-label} Cumulative Excess Heatwave Index aplicado por Liu et al. às relações não lineares entre ondas diurnas, noturnas e compostas e mortalidade.
 
-### Conceito
-
+::: {.callout-note icon=false title="Conceito-chave"}
 Média do excesso positivo da temperatura horária sobre o limiar térmico diário durante as horas pertinentes de cada dia de onda, acumulável ao longo do episódio.
+:::
 
-### Objetivo
+### Objetivo {.unnumbered .ficha-section}
 
 Representar simultaneamente excesso térmico e persistência durante ondas diurnas, noturnas ou compostas, sem reduzi-las a uma exposição binária.
 
-### Interpretação
+### Interpretação {.unnumbered .ficha-section}
 
 Valor diário maior indica excesso médio mais elevado entre as horas acima do limiar. A soma ao longo da onda representa acumulação; seu gradiente de risco depende do tipo de onda, cidade e desfecho.
 
-### Usos
+### Usos {.unnumbered .ficha-section}
 
 - Modelar relações exposição–resposta com mortalidade.
 - Comparar intensidade de ondas diurnas
 - noturnas e compostas.
 - Estimar carga atribuível em estudos epidemiológicos.
 
-### Limitações
+### Limitações {.unnumbered .ficha-section}
 
 - Requer dados horários e horários locais de nascer e pôr do sol.
 - A definição publicada foi avaliada em cidades do leste da Ásia.
 - O limiar varia por calendário e local.
 - Não é índice fisiológico nem protocolo de alerta universal.
 
-### Fontes de dados
+### Fontes de dados {.unnumbered .ficha-section}
 
 - Instituto Nacional de Meteorologia — temperaturas máxima, mínima e, quando necessário, horária ([cadastro](../../backmatter/indice-fontes.qmd#inmet))
 - ERA5-Land — temperatura horária em grade, condicionada à validação ([cadastro](../../backmatter/indice-fontes.qmd#era5-land))
 
-### Método de cálculo
+### Método de cálculo {.unnumbered .ficha-section}
 
 Classificar ondas como diurnas, noturnas ou compostas. Dividir o dia em noite, dia e entardecer conforme nascer e pôr do sol. Para cada hora do período pertinente, subtrair o limiar diário local — TX90 para onda diurna, TN90 para noturna e Tmean90 para composta —, manter apenas diferenças positivas, somá-las e dividir pelo número de horas com excesso. Somar os valores diários quando a finalidade for representar o episódio.
 
@@ -52,69 +52,69 @@ CEHWI_{ig}=\frac{\sum_{j=1}^{N_{ig}}(t_{jg}-Thr_{ig})I(t_{jg}>Thr_{ig})}{n_{ig}}
 $$
 
 ::: {.indicator-card}
-**Numerador.** Soma dos excessos horários positivos sobre o limiar pertinente no dia e tipo de onda.
+[Numerador.]{.field-label} Soma dos excessos horários positivos sobre o limiar pertinente no dia e tipo de onda.
 
-**Denominador.** Número de horas do período da onda em que a temperatura excede o limiar.
+[Denominador.]{.field-label} Número de horas do período da onda em que a temperatura excede o limiar.
 
-**Unidade de medida.** Grau Celsius (°C) por dia; soma de °C-dia quando acumulado no episódio, conforme especificação declarada.
+[Unidade de medida.]{.field-label} Grau Celsius (°C) por dia; soma de °C-dia quando acumulado no episódio, conforme especificação declarada.
 
-**Variáveis e categorias de análise.** Temperatura horária; TX, TN e temperatura média; nascer e pôr do sol; tipo de onda; episódio; cidade.
+[Variáveis e categorias de análise.]{.field-label} Temperatura horária; TX, TN e temperatura média; nascer e pôr do sol; tipo de onda; episódio; cidade.
 
-**Granularidade.** Valor diário por tipo de onda e soma por episódio.
+[Granularidade.]{.field-label} Valor diário por tipo de onda e soma por episódio.
 
-**Periodicidade de atualização.** Diária em aplicação operacional ou por estudo epidemiológico.
+[Periodicidade de atualização.]{.field-label} Diária em aplicação operacional ou por estudo epidemiológico.
 
-**Responsabilidade gerencial.** Serviço meteorológico ou climático responsável pela exposição e autoridade de saúde responsável por validar o uso.
+[Responsabilidade gerencial.]{.field-label} Serviço meteorológico ou climático responsável pela exposição e autoridade de saúde responsável por validar o uso.
 
-**Notas.** As definições publicadas abaixo são reproduzidas para comparabilidade. Seu uso como gatilho operacional depende de validação com desfechos locais.
+[Notas.]{.field-label} As definições publicadas abaixo são reproduzidas para comparabilidade. Seu uso como gatilho operacional depende de validação com desfechos locais.
 
-**Análise descritiva do indicador.** Mostrar distribuição do CEHWI por tipo de onda, trajetória diária, total por episódio, percentis locais e curvas exposição–resposta com intervalos de incerteza.
+[Análise descritiva do indicador.]{.field-label} Mostrar distribuição do CEHWI por tipo de onda, trajetória diária, total por episódio, percentis locais e curvas exposição–resposta com intervalos de incerteza.
 
 :::
 
-### Campos complementares para clima, ambiente e saúde
+### Campos complementares para clima, ambiente e saúde {.unnumbered .ficha-section}
 
 ::: {.indicator-card}
-**Unidade territorial.** Estação meteorológica, célula de grade ou território derivado.
+[Unidade territorial.]{.field-label} Estação meteorológica, célula de grade ou território derivado.
 
-**Resolução espacial original.** A da série meteorológica; a atribuição territorial exige método explícito.
+[Resolução espacial original.]{.field-label} A da série meteorológica; a atribuição territorial exige método explícito.
 
-**Resolução temporal.** Entrada horária; saída diária e por episódio.
+[Resolução temporal.]{.field-label} Entrada horária; saída diária e por episódio.
 
-**Período de referência.** 1981–2010 e janela móvel de 15 dias na aplicação publicada.
+[Período de referência.]{.field-label} 1981–2010 e janela móvel de 15 dias na aplicação publicada.
 
-**Limiar ou valor de referência.** Percentil 90 diário local de TX, TN ou temperatura média, conforme o tipo de onda.
+[Limiar ou valor de referência.]{.field-label} Percentil 90 diário local de TX, TN ou temperatura média, conforme o tipo de onda.
 
 :::
 
-### Disponibilidade e acesso
+### Disponibilidade e acesso {.unnumbered .ficha-section}
 
-**Cobertura geográfica.** A da fonte meteorológica selecionada.
+[Cobertura geográfica.]{.field-label} A da fonte meteorológica selecionada.
 
-**Período disponível.** O da fonte horária, incluindo período-base adequado.
+[Período disponível.]{.field-label} O da fonte horária, incluindo período-base adequado.
 
-**Periodicidade de atualização.** Diária em aplicação operacional ou por estudo epidemiológico.
+[Periodicidade de atualização.]{.field-label} Diária em aplicação operacional ou por estudo epidemiológico.
 
-**Forma de acesso.** Cálculo sobre temperatura horária e efemérides locais, com código e parâmetros versionados.
+[Forma de acesso.]{.field-label} Cálculo sobre temperatura horária e efemérides locais, com código e parâmetros versionados.
 
-**URL ou identificador persistente.** https://doi.org/10.1038/s41467-025-56067-7
+[URL ou identificador persistente.]{.field-label} https://doi.org/10.1038/s41467-025-56067-7
 
-**Formato dos arquivos.** Tabela horária de entrada e tabela diária/por episódio de saída.
+[Formato dos arquivos.]{.field-label} Tabela horária de entrada e tabela diária/por episódio de saída.
 
-**Necessidade de processamento.** Reconstruir TX, TN e média, calcular percentis, classificar ondas e períodos do dia, calcular excessos horários e acumular.
+[Necessidade de processamento.]{.field-label} Reconstruir TX, TN e média, calcular percentis, classificar ondas e períodos do dia, calcular excessos horários e acumular.
 
-### Qualidade, comparação e saúde
+### Qualidade, comparação e saúde {.unnumbered .ficha-section}
 
-**Qualidade e incerteza.** Relatar falhas, homogeneidade, período-base, algoritmo de percentil, definição temporal de dia e noite, viés de produtos em grade e sensibilidade aos parâmetros.
+[Qualidade e incerteza.]{.field-label} Relatar falhas, homogeneidade, período-base, algoritmo de percentil, definição temporal de dia e noite, viés de produtos em grade e sensibilidade aos parâmetros.
 
-**Possibilidade de comparação.** Manter variável, período-base, janela do calendário, duração mínima, fonte, resolução e regra de agregação; classificações distintas não são intercambiáveis.
+[Possibilidade de comparação.]{.field-label} Manter variável, período-base, janela do calendário, duração mínima, fonte, resolução e regra de agregação; classificações distintas não são intercambiáveis.
 
-**Relação com desfechos de saúde.** A mínima elevada indica ausência de resfriamento noturno. Episódios compostos combinam calor diurno e noturno, condição associada a maior risco de mortalidade em estudos multicêntricos.
+[Relação com desfechos de saúde.]{.field-label} A mínima elevada indica ausência de resfriamento noturno. Episódios compostos combinam calor diurno e noturno, condição associada a maior risco de mortalidade em estudos multicêntricos.
 
-**Defasagens temporais relevantes.** Preservar datas e valores diários ou horários para estimar efeitos no mesmo dia e defasados; não reduzir a exposição a uma contagem anual em análises de efeitos agudos.
+[Defasagens temporais relevantes.]{.field-label} Preservar datas e valores diários ou horários para estimar efeitos no mesmo dia e defasados; não reduzir a exposição a uma contagem anual em análises de efeitos agudos.
 
-**Aplicação na gestão.** Incorporar persistência noturna e episódios compostos em vigilância calor–saúde, planejamento de comunicação e avaliação retrospectiva.
+[Aplicação na gestão.]{.field-label} Incorporar persistência noturna e episódios compostos em vigilância calor–saúde, planejamento de comunicação e avaliação retrospectiva.
 
-### Referências metodológicas
+### Referências metodológicas {.unnumbered .ficha-section}
 
 - [@liu2025cehwi]

@@ -119,7 +119,7 @@ if (length(unknown_sources)) {
 }
 
 field <- function(label, value) {
-  c(paste0("**", label, ".** ", as_text(value)), "")
+  c(paste0("[", label, ".]{.field-label} ", as_text(value)), "")
 }
 
 for (indicator in indicators) {
@@ -132,22 +132,22 @@ for (indicator in indicators) {
     )
   }, character(1L))
   ficha <- c(
-    paste0("## Ficha do indicador: ", indicator$titulo_completo, " {#sec-", slug, "}"),
+    paste0("## Ficha do indicador: ", indicator$titulo_completo, " {#sec-", slug, " .ficha-title}"),
     "",
     "::: {.indicator-card}",
-    paste0("**Código:** ", indicator$codigo, " \\"),
-    paste0("**Título resumido:** ", indicator$titulo_resumido, " \\"),
-    paste0("**Tema:** ", indicator$tema, " \\"),
-    paste0("**Dimensão:** ", paste(as_list(indicator$dimensoes), collapse = "; "), " \\"),
-    paste0("**Disponibilidade:** ", paste0("[", as_list(indicator$disponibilidade), "]{.availability}", collapse = " ")),
+    paste0("[Código:]{.field-label} ", indicator$codigo, " \\"),
+    paste0("[Título resumido:]{.field-label} ", indicator$titulo_resumido, " \\"),
+    paste0("[Tema:]{.field-label} ", indicator$tema, " \\"),
+    paste0("[Dimensão:]{.field-label} ", paste(as_list(indicator$dimensoes), collapse = "; "), " \\"),
+    paste0("[Disponibilidade:]{.field-label} ", paste0("[", as_list(indicator$disponibilidade), "]{.availability}", collapse = " ")),
     ":::",
     "",
     "### Identificação e fundamento",
     "",
     field("Indicador consolidado em", indicator$referencia_metodologica),
-    "### Conceito",
-    "",
+    "::: {.callout-note icon=false title=\"Conceito-chave\"}",
     as_text(indicator$conceito),
+    ":::",
     "",
     "### Objetivo",
     "",
@@ -219,6 +219,11 @@ for (indicator in indicators) {
     "",
     md_list(indicator$referencias)
   )
+  ficha <- sub(
+    "^### (.+)",
+    "### \\1 {.unnumbered .ficha-section}",
+    ficha
+  )
   write_utf8(ficha, file.path(root, "indicators", "includes", paste0(slug, ".qmd")))
 }
 
@@ -240,13 +245,13 @@ indicator_rows_print <- vapply(indicators, function(x) {
 indicator_index <- c(
   "<!-- Arquivo gerado por scripts/build_catalogs.R. -->",
   "",
-  "::: {.content-visible when-format=\"html\"}",
+  "::: {.content-visible .quadro-grid when-format=\"html\"}",
   "| Código | Indicador | Tema | Dimensão | Disponibilidade |",
   "|---|---|---|---|---|",
   indicator_rows,
   ":::",
   "",
-  "::: {.content-visible when-format=\"typst\"}",
+  "::: {.content-visible .quadro-grid when-format=\"typst\"}",
   "| Código | Indicador | Dimensão |",
   "|---|---|---|",
   indicator_rows_print,
@@ -271,13 +276,13 @@ source_rows_print <- vapply(sources, function(x) {
 source_index <- c(
   "<!-- Arquivo gerado por scripts/build_catalogs.R. -->",
   "",
-  "::: {.content-visible when-format=\"html\"}",
+  "::: {.content-visible .quadro-grid when-format=\"html\"}",
   "| Fonte | Tipo de registro | Instituição responsável | Temas | Verificação |",
   "|---|---|---|---|---|",
   source_rows,
   ":::",
   "",
-  "::: {.content-visible when-format=\"typst\"}",
+  "::: {.content-visible .quadro-grid when-format=\"typst\"}",
   "| Fonte | Tipo de registro | Instituição responsável |",
   "|---|---|---|",
   source_rows_print,
@@ -291,24 +296,24 @@ source_cards <- unlist(lapply(sources, function(x) {
     "",
     as_text(x$descricao),
     "",
-    paste0("**Tipo de registro:** ", x$tipo_registro, " \\"),
-    paste0("**Instituição:** ", x$instituicao, " \\"),
-    paste0("**Recursos relacionados:** ", paste(as_list(x$recursos_relacionados), collapse = "; "), " \\"),
-    paste0("**Temas:** ", paste(as_list(x$temas), collapse = "; "), " \\"),
-    paste0("**Cobertura:** ", x$cobertura_geografica, " \\"),
-    paste0("**Resolução espacial:** ", x$resolucao_espacial, " \\"),
-    paste0("**Resolução temporal:** ", x$resolucao_temporal, " \\"),
-    paste0("**Período:** ", x$periodo_disponivel, " \\"),
-    paste0("**Atualização:** ", x$atualizacao, " \\"),
-    paste0("**Acesso:** ", x$acesso, " \\"),
-    paste0("**URL:** ", if (grepl("^https?://", x$url)) paste0("<", x$url, ">") else x$url, " \\"),
-    paste0("**API:** ", as_text(x$api, "Não informada para este recurso."), " \\"),
-    paste0("**Formatos:** ", paste(as_list(x$formatos), collapse = "; "), " \\"),
-    paste0("**Licença:** ", as_text(x$licenca, "Não informada para este recurso."), " \\"),
-    paste0("**Cadastro:** ", as_text(x$cadastro, "Não informado para este recurso."), " \\"),
-    paste0("**Custos:** ", as_text(x$custos, "Não informados para este recurso."), " \\"),
-    paste0("**Limitações:** ", x$limitacoes, " \\"),
-    paste0("**Última verificação:** ", x$ultima_verificacao),
+    paste0("[Tipo de registro:]{.field-label} ", x$tipo_registro, " \\"),
+    paste0("[Instituição:]{.field-label} ", x$instituicao, " \\"),
+    paste0("[Recursos relacionados:]{.field-label} ", paste(as_list(x$recursos_relacionados), collapse = "; "), " \\"),
+    paste0("[Temas:]{.field-label} ", paste(as_list(x$temas), collapse = "; "), " \\"),
+    paste0("[Cobertura:]{.field-label} ", x$cobertura_geografica, " \\"),
+    paste0("[Resolução espacial:]{.field-label} ", x$resolucao_espacial, " \\"),
+    paste0("[Resolução temporal:]{.field-label} ", x$resolucao_temporal, " \\"),
+    paste0("[Período:]{.field-label} ", x$periodo_disponivel, " \\"),
+    paste0("[Atualização:]{.field-label} ", x$atualizacao, " \\"),
+    paste0("[Acesso:]{.field-label} ", x$acesso, " \\"),
+    paste0("[URL:]{.field-label} ", if (grepl("^https?://", x$url)) paste0("<", x$url, ">") else x$url, " \\"),
+    paste0("[API:]{.field-label} ", as_text(x$api, "Não informada para este recurso."), " \\"),
+    paste0("[Formatos:]{.field-label} ", paste(as_list(x$formatos), collapse = "; "), " \\"),
+    paste0("[Licença:]{.field-label} ", as_text(x$licenca, "Não informada para este recurso."), " \\"),
+    paste0("[Cadastro:]{.field-label} ", as_text(x$cadastro, "Não informado para este recurso."), " \\"),
+    paste0("[Custos:]{.field-label} ", as_text(x$custos, "Não informados para este recurso."), " \\"),
+    paste0("[Limitações:]{.field-label} ", x$limitacoes, " \\"),
+    paste0("[Última verificação:]{.field-label} ", x$ultima_verificacao),
     ""
   )
 }), use.names = FALSE)

@@ -1,37 +1,37 @@
-## Ficha do indicador: Índice Térmico Universal do Clima (UTCI) {#sec-cli-est-04}
+## Ficha do indicador: Índice Térmico Universal do Clima (UTCI) {#sec-cli-est-04 .ficha-title}
 
 ::: {.indicator-card}
-**Código:** CLI-EST-04 \
-**Título resumido:** UTCI \
-**Tema:** Temperatura e condições térmicas \
-**Dimensão:** perigo; exposição \
-**Disponibilidade:** [requer processamento meteorológico]{.availability}
+[Código:]{.field-label} CLI-EST-04 \
+[Título resumido:]{.field-label} UTCI \
+[Tema:]{.field-label} Temperatura e condições térmicas \
+[Dimensão:]{.field-label} perigo; exposição \
+[Disponibilidade:]{.field-label} [requer processamento meteorológico]{.availability}
 :::
 
-### Identificação e fundamento
+### Identificação e fundamento {.unnumbered .ficha-section}
 
-**Indicador consolidado em.** Procedimento operacional do Universal Thermal Climate Index desenvolvido pela ação COST 730 e base ERA5-HEAT do Copernicus.
+[Indicador consolidado em.]{.field-label} Procedimento operacional do Universal Thermal Climate Index desenvolvido pela ação COST 730 e base ERA5-HEAT do Copernicus.
 
-### Conceito
-
+::: {.callout-note icon=false title="Conceito-chave"}
 Temperatura do ar de um ambiente externo de referência que produziria a mesma resposta fisiológica dinâmica estimada que a combinação real de temperatura do ar, temperatura radiante média, umidade e vento.
+:::
 
-### Objetivo
+### Objetivo {.unnumbered .ficha-section}
 
 Classificar estresse térmico externo por meio de um modelo termofisiológico e de vestimenta com categorias comparáveis.
 
-### Interpretação
+### Interpretação {.unnumbered .ficha-section}
 
 Para calor, 26–32 °C indica estresse moderado; acima de 32 até 38 °C, forte; acima de 38 até 46 °C, muito forte; acima de 46 °C, extremo. Entre 9 e 26 °C, a escala indica ausência de estresse térmico.
 
-### Usos
+### Usos {.unnumbered .ficha-section}
 
 - Monitorar estresse térmico externo.
 - Mapear horas ou dias em categorias de calor.
 - Apoiar alertas
 - planejamento urbano e estudos de exposição em saúde.
 
-### Limitações
+### Limitações {.unnumbered .ficha-section}
 
 - A aproximação polinomial oficial restringe o vento a 0
 - 5–17 m/s.
@@ -39,12 +39,12 @@ Para calor, 26–32 °C indica estresse moderado; acima de 32 até 38 °C, forte
 - A referência supõe caminhada a 4 km/h e vestimenta adaptativa modelada.
 - Grade de reanálise não descreve sombra e geometria urbana em microescala.
 
-### Fontes de dados
+### Fontes de dados {.unnumbered .ficha-section}
 
 - ERA5-HEAT — índices de conforto térmico derivados do ERA5 — UTCI e temperatura radiante média horárias já derivadas do ERA5 ([cadastro](../../backmatter/indice-fontes.qmd#era5-heat))
 - Instituto Nacional de Meteorologia — observações meteorológicas para validação das entradas ou de aplicações locais ([cadastro](../../backmatter/indice-fontes.qmd#inmet))
 
-### Método de cálculo
+### Método de cálculo {.unnumbered .ficha-section}
 
 Usar a implementação oficial do UTCI com temperatura do ar, diferença entre temperatura radiante média e temperatura do ar, pressão de vapor ou umidade relativa e vento a 10 m. Para séries globais, usar o UTCI horário do ERA5-HEAT, registrando versão. Classificar cada valor pela escala UTCI e agregar horas ou dias conforme a pergunta.
 
@@ -53,70 +53,70 @@ UTCI=T_a+Offset(T_a,T_{mrt}-T_a,v_{10},p_a)
 $$
 
 ::: {.indicator-card}
-**Numerador.** Não se aplica; aproximação polinomial multivariada do modelo UTCI.
+[Numerador.]{.field-label} Não se aplica; aproximação polinomial multivariada do modelo UTCI.
 
-**Denominador.** Não se aplica.
+[Denominador.]{.field-label} Não se aplica.
 
-**Unidade de medida.** Grau Celsius de temperatura equivalente UTCI (°C).
+[Unidade de medida.]{.field-label} Grau Celsius de temperatura equivalente UTCI (°C).
 
-**Variáveis e categorias de análise.** Temperatura do ar; temperatura radiante média; vento a 10 m; pressão de vapor ou umidade relativa; dez categorias de estresse térmico.
+[Variáveis e categorias de análise.]{.field-label} Temperatura do ar; temperatura radiante média; vento a 10 m; pressão de vapor ou umidade relativa; dez categorias de estresse térmico.
 
-**Granularidade.** Valor horário por ponto ou célula; resumo diário, sazonal, anual ou territorial.
+[Granularidade.]{.field-label} Valor horário por ponto ou célula; resumo diário, sazonal, anual ou territorial.
 
-**Periodicidade de atualização.** O conjunto histórico é estendido conforme o ERA5; verificar latência e versão.
+[Periodicidade de atualização.]{.field-label} O conjunto histórico é estendido conforme o ERA5; verificar latência e versão.
 
-**Responsabilidade gerencial.** Serviço meteorológico ou equipe de saúde ambiental ou do trabalhador responsável pela medição, com autoridade de saúde responsável pelo protocolo de uso.
+[Responsabilidade gerencial.]{.field-label} Serviço meteorológico ou equipe de saúde ambiental ou do trabalhador responsável pela medição, com autoridade de saúde responsável pelo protocolo de uso.
 
-**Notas.** O valor é uma temperatura ou índice equivalente, não a temperatura corporal nem uma medição direta de risco individual. Categorias operacionais de outro país não constituem automaticamente limiares de alerta no Brasil.
+[Notas.]{.field-label} O valor é uma temperatura ou índice equivalente, não a temperatura corporal nem uma medição direta de risco individual. Categorias operacionais de outro país não constituem automaticamente limiares de alerta no Brasil.
 
-**Análise descritiva do indicador.** Apresentar máximos e mínimos, horas ou dias em cada categoria, mapas, população exposta e incerteza; comparar com temperatura do ar para evidenciar o papel de vento, umidade e radiação.
+[Análise descritiva do indicador.]{.field-label} Apresentar máximos e mínimos, horas ou dias em cada categoria, mapas, população exposta e incerteza; comparar com temperatura do ar para evidenciar o papel de vento, umidade e radiação.
 
 :::
 
-### Campos complementares para clima, ambiente e saúde
+### Campos complementares para clima, ambiente e saúde {.unnumbered .ficha-section}
 
 ::: {.indicator-card}
-**Unidade territorial.** Ponto de observação, célula de grade ou território obtido por agregação explícita.
+[Unidade territorial.]{.field-label} Ponto de observação, célula de grade ou território obtido por agregação explícita.
 
-**Resolução espacial original.** 0,25° na distribuição regular do ERA5-HEAT; aplicações locais podem ter outra resolução, que deve ser declarada.
+[Resolução espacial original.]{.field-label} 0,25° na distribuição regular do ERA5-HEAT; aplicações locais podem ter outra resolução, que deve ser declarada.
 
-**Resolução temporal.** Horária na entrada; saída horária ou agregada.
+[Resolução temporal.]{.field-label} Horária na entrada; saída horária ou agregada.
 
-**Período de referência.** Não exige climatologia para a categoria; anomalias e contagens comparativas devem declarar o período-base.
+[Período de referência.]{.field-label} Não exige climatologia para a categoria; anomalias e contagens comparativas devem declarar o período-base.
 
-**Limiar ou valor de referência.** Calor moderado 26–32 °C; forte >32–38 °C; muito forte >38–46 °C; extremo >46 °C.
+[Limiar ou valor de referência.]{.field-label} Calor moderado 26–32 °C; forte >32–38 °C; muito forte >38–46 °C; extremo >46 °C.
 
 :::
 
-### Disponibilidade e acesso
+### Disponibilidade e acesso {.unnumbered .ficha-section}
 
-**Cobertura geográfica.** A da fonte meteorológica ou do levantamento microambiental selecionado.
+[Cobertura geográfica.]{.field-label} A da fonte meteorológica ou do levantamento microambiental selecionado.
 
-**Período disponível.** Desde 1940 até próximo do presente no ERA5-HEAT, conforme a versão consultada.
+[Período disponível.]{.field-label} Desde 1940 até próximo do presente no ERA5-HEAT, conforme a versão consultada.
 
-**Periodicidade de atualização.** O conjunto histórico é estendido conforme o ERA5; verificar latência e versão.
+[Periodicidade de atualização.]{.field-label} O conjunto histórico é estendido conforme o ERA5; verificar latência e versão.
 
-**Forma de acesso.** Download pelo Copernicus Climate Data Store ou cálculo com a implementação oficial do UTCI.
+[Forma de acesso.]{.field-label} Download pelo Copernicus Climate Data Store ou cálculo com a implementação oficial do UTCI.
 
-**URL ou identificador persistente.** https://doi.org/10.24381/cds.553b7518
+[URL ou identificador persistente.]{.field-label} https://doi.org/10.24381/cds.553b7518
 
-**Formato dos arquivos.** NetCDF para grade; NetCDF ou CSV no produto de séries temporais.
+[Formato dos arquivos.]{.field-label} NetCDF para grade; NetCDF ou CSV no produto de séries temporais.
 
-**Necessidade de processamento.** Selecionar versão e fluxo, converter kelvin para Celsius quando necessário, classificar valores, tratar horários e agregar sem ocultar extremos.
+[Necessidade de processamento.]{.field-label} Selecionar versão e fluxo, converter kelvin para Celsius quando necessário, classificar valores, tratar horários e agregar sem ocultar extremos.
 
-### Qualidade, comparação e saúde
+### Qualidade, comparação e saúde {.unnumbered .ficha-section}
 
-**Qualidade e incerteza.** Verificar unidades, altura e abrigo dos sensores, sincronização das variáveis, dados ausentes, domínio de validade da fórmula, representatividade espacial e diferença entre valor medido e modelado.
+[Qualidade e incerteza.]{.field-label} Verificar unidades, altura e abrigo dos sensores, sincronização das variáveis, dados ausentes, domínio de validade da fórmula, representatividade espacial e diferença entre valor medido e modelado.
 
-**Possibilidade de comparação.** Manter fórmula, versão, entradas, unidades, altura do vento, tratamento da radiação, resolução temporal e regra de agregação; índices diferentes não são conversíveis por uma escala comum.
+[Possibilidade de comparação.]{.field-label} Manter fórmula, versão, entradas, unidades, altura do vento, tratamento da radiação, resolução temporal e regra de agregação; índices diferentes não são conversíveis por uma escala comum.
 
-**Relação com desfechos de saúde.** As categorias derivam de respostas termofisiológicas modeladas e o índice é aplicado a alertas e avaliação de estresse térmico humano, não a diagnóstico individual.
+[Relação com desfechos de saúde.]{.field-label} As categorias derivam de respostas termofisiológicas modeladas e o índice é aplicado a alertas e avaliação de estresse térmico humano, não a diagnóstico individual.
 
-**Defasagens temporais relevantes.** Preservar valores horários e diários para relacionar exposições agudas a desfechos no mesmo dia e em dias subsequentes; a agregação anual não serve para estimar efeitos de curto prazo.
+[Defasagens temporais relevantes.]{.field-label} Preservar valores horários e diários para relacionar exposições agudas a desfechos no mesmo dia e em dias subsequentes; a agregação anual não serve para estimar efeitos de curto prazo.
 
-**Aplicação na gestão.** Apoiar vigilância, comunicação e planejamento territorial de estresse térmico externo, com validação local e resolução compatível com a ação.
+[Aplicação na gestão.]{.field-label} Apoiar vigilância, comunicação e planejamento territorial de estresse térmico externo, com validação local e resolução compatível com a ação.
 
-### Referências metodológicas
+### Referências metodológicas {.unnumbered .ficha-section}
 
 - [@brode2012utci]
 - [@dinapoli2021era5heat]

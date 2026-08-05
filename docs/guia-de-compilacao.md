@@ -48,15 +48,15 @@ O pré-render executa `scripts/build_catalogs.R`. Esse script lê YAML, valida c
 
 ## Solução de problemas
 
-**Pacote `yaml` ausente:** execute `install.packages("yaml")`.
+- Pacote `yaml` ausente: execute `install.packages("yaml")`.
 
-**PDF ausente:** confira se o perfil `print` foi usado e se a extensão `_extensions/dicas-print/` está presente.
+- PDF ausente: confira se o perfil `print` foi usado e se a extensão `_extensions/dicas-print/` está presente.
 
-**Fonte indisponível:** instale Libertinus Serif ou selecione uma família livre equivalente após teste de paginação.
+- Fonte indisponível: instale Libertinus Serif ou selecione uma família livre equivalente após teste de paginação.
 
-**Link interno quebrado:** use caminhos relativos ao arquivo `.qmd`; execute `make validate`.
+- Link interno quebrado: use caminhos relativos ao arquivo `.qmd`; execute `make validate`.
 
-**Página de ficha desatualizada:** edite o YAML, nunca o `.qmd` gerado, e execute `make catalogs`.
+- Página de ficha desatualizada: edite o YAML, nunca o `.qmd` gerado, e execute `make catalogs`.
 
 ## Limpeza
 

@@ -8,15 +8,21 @@ Qualidade não existe fora do uso. A norma ISO 19157-1 organiza a descrição, a
 
 ## Suporte, escala e resolução espacial
 
-**Localização** informa onde um registro foi obtido ou estimado. **Suporte espacial** é a porção do espaço à qual o valor se refere. Uma coordenada de estação identifica um ponto de medição; uma célula de reanálise representa uma estimativa média ou modelada sobre uma área e um volume atmosférico; uma taxa municipal resume eventos e população dentro de um limite administrativo.
+::: {.callout-note icon=false title="Conceito-chave: localização, suporte, resolução e escala"}
 
-**Resolução espacial** descreve o nível de detalhe ou o tamanho nominal da unidade. Resolução mais fina não garante maior exatidão. Um produto de 1 km derivado de modelo pode ter pixel pequeno e incerteza considerável. Uma estação pontual pode medir com alta precisão no local e representar mal a heterogeneidade do território.
+Localização informa onde um registro foi obtido ou estimado. Suporte espacial é a porção do espaço à qual o valor se refere. Uma coordenada de estação identifica um ponto de medição; uma célula de reanálise representa uma estimativa média ou modelada sobre uma área e um volume atmosférico; uma taxa municipal resume eventos e população dentro de um limite administrativo.
 
-**Escala** também se refere ao nível em que processos são observados. Sombra, ventilação e material construtivo atuam em escala local; circulação atmosférica e seca podem abranger regiões; políticas e sistemas de informação operam em territórios administrativos. A escala do dado deve ser compatível com o mecanismo e a decisão.
+Resolução espacial descreve o nível de detalhe ou o tamanho nominal da unidade. Resolução mais fina não garante maior exatidão. Um produto de 1 km derivado de modelo pode ter pixel pequeno e incerteza considerável. Uma estação pontual pode medir com alta precisão no local e representar mal a heterogeneidade do território.
 
-Esses conceitos respondem a perguntas diferentes. Um arquivo pode ter células de 1 km (**resolução nominal**), representar uma média de área maior por causa do sensor ou modelo (**suporte efetivo**) e ser interpretado em município de milhares de quilômetros quadrados (**escala de análise**). Aumentar artificialmente o número de pixels por reamostragem altera a aparência, não recupera detalhe ausente.
+Escala também se refere ao nível em que processos são observados. Sombra, ventilação e material construtivo atuam em escala local; circulação atmosférica e seca podem abranger regiões; políticas e sistemas de informação operam em territórios administrativos. A escala do dado deve ser compatível com o mecanismo e a decisão.
+
+Esses conceitos respondem a perguntas diferentes. Um arquivo pode ter células de 1 km (resolução nominal), representar uma média de área maior por causa do sensor ou modelo (suporte efetivo) e ser interpretado em município de milhares de quilômetros quadrados (escala de análise). Aumentar artificialmente o número de pixels por reamostragem altera a aparência, não recupera detalhe ausente.
+
+:::
 
 O processo observado também tem escala própria. Temperatura do ar pode variar de forma relativamente suave em uma região e abruptamente entre uma rua sombreada e uma superfície asfaltada. Precipitação convectiva pode produzir máximos muito localizados. Taxas de doenças raras tornam-se instáveis em áreas pequenas. Portanto, “usar a maior resolução disponível” não é regra geral: o suporte deve captar variação relevante sem oferecer precisão que a fonte não sustenta.
+
+::: {#qua-suportes-espaciais}
 
 | Unidade | O que o valor representa | Vantagem | Risco de interpretação |
 |---|---|---|---|
@@ -25,7 +31,9 @@ O processo observado também tem escala própria. Temperatura do ar pode variar 
 | Polígono territorial | Estatística agregada segundo limite e método | Compatibilidade com gestão | Ocultar heterogeneidade interna |
 | Endereço ou trajetória individual | Local de residência ou mobilidade registrada | Aproxima exposição ao sujeito | Confundir residência com toda a exposição |
 
-: Suportes espaciais comuns em clima, ambiente e saúde {#tbl-suportes-espaciais}
+Suportes espaciais comuns em clima, ambiente e saúde
+
+:::
 
 ### Estações de monitoramento
 
@@ -76,7 +84,7 @@ O pixel é uma área de resposta do sensor e pode conter múltiplos materiais. A
 
 Mudar de ponto ou pixel para território é uma operação analítica. Média simples, máximo, percentil, proporção de área e média ponderada pela população produzem indicadores distintos.
 
-Essa operação é chamada de **mudança de suporte** porque transfere uma medida de sua unidade original para outra. Ela pode envolver agregação, desagregação ou interpolação areal. A operação precisa declarar o que se conserva: média, total, proporção, ocorrência ou distribuição. Não existe transformação neutra que preserve simultaneamente todas essas propriedades.
+Essa operação é chamada de mudança de suporte porque transfere uma medida de sua unidade original para outra. Ela pode envolver agregação, desagregação ou interpolação areal. A operação precisa declarar o que se conserva: média, total, proporção, ocorrência ou distribuição. Não existe transformação neutra que preserve simultaneamente todas essas propriedades.
 
 Considere uma grade de PM2,5 e um município. A média simples das células descreve a concentração espacial média. A média ponderada pela população aproxima a concentração média onde as pessoas residem. O máximo identifica a maior estimativa. Nenhuma é universalmente correta; a pergunta determina a estatística.
 
@@ -125,7 +133,7 @@ Indicadores ambientais podem ser agregados à região para uma decisão regional
 
 Resultados de dados agregados podem mudar quando o mesmo território é dividido em unidades diferentes. Esse é o problema da unidade de área modificável: valores de correlação, classes e rankings dependem da escala e do zoneamento. Relações observadas entre áreas também não podem ser automaticamente atribuídas a indivíduos, erro conhecido como falácia ecológica [@openshaw1984].
 
-O problema possui componente de **escala** — resultados mudam ao agrupar unidades menores — e de **zoneamento** — resultados mudam quando unidades de tamanho semelhante são redesenhadas. Não é resolvido apenas escolhendo o menor território disponível: unidades pequenas podem ampliar instabilidade, confidencialidade e desalinhamento com o processo ambiental. Recomenda-se repetir análises em suportes plausíveis e descrever o que permanece ou muda.
+O problema possui componente de escala — resultados mudam ao agrupar unidades menores — e de zoneamento — resultados mudam quando unidades de tamanho semelhante são redesenhadas. Não é resolvido apenas escolhendo o menor território disponível: unidades pequenas podem ampliar instabilidade, confidencialidade e desalinhamento com o processo ambiental. Recomenda-se repetir análises em suportes plausíveis e descrever o que permanece ou muda.
 
 Um município com maior calor e maior mortalidade não demonstra que as pessoas mais expostas ao calor foram as que morreram. A análise ecológica pode ser apropriada para políticas territoriais, desde que suas inferências permaneçam no nível agregado e as limitações sejam explícitas.
 
@@ -141,7 +149,7 @@ O tempo do fenômeno, da medição, do registro e da decisão pode ser diferente
 
 Pelo menos cinco datas podem coexistir: ocorrência do fenômeno; início e fim da exposição; ocorrência do desfecho; entrada no sistema; e publicação. Em previsão, acrescentam-se data da rodada e horizonte válido. Confundir data de notificação com data de início dos sintomas ou data de atualização com competência do indicador desloca relações e produz alertas retroativos.
 
-Variáveis temporais também podem ser **estoques**, **fluxos** ou **eventos**. Número de pessoas internadas em um instante é estoque; novas internações durante o dia são fluxo; interrupção de energia pode ser evento com início, duração e término. Somar estoques diários duplica pessoas; tirar média de eventos pode apagar duração; usar apenas data inicial perde persistência.
+Variáveis temporais também podem ser estoques, fluxos ou eventos. Número de pessoas internadas em um instante é estoque; novas internações durante o dia são fluxo; interrupção de energia pode ser evento com início, duração e término. Somar estoques diários duplica pessoas; tirar média de eventos pode apagar duração; usar apenas data inicial perde persistência.
 
 ### Janela e fuso
 
@@ -163,6 +171,8 @@ Agregação temporal funciona como filtro. Média mensal reduz variação diári
 
 Defasagem deve decorrer de um mecanismo. Calor pode produzir efeitos no mesmo dia e nos seguintes; chuva pode preceder inundação, contaminação, incubação e notificação em janelas distintas; seca pode operar por meses. Testar dezenas de defasagens e selecionar apenas a associação mais forte aumenta a chance de resultado espúrio. A janela precisa ser especificada a priori quando possível e examinada por sensibilidade [@hernan2020causal; @gasparrini2010dlnm].
 
+::: {#qua-transformacoes-temporais}
+
 | Transformação | Pergunta respondida | Exemplo | Cuidado |
 |---|---|---|---|
 | Média | Qual o nível típico no período? | PM2,5 médio diário | Sensível à cobertura horária |
@@ -171,7 +181,9 @@ Defasagem deve decorrer de um mecanismo. Calor pode produzir efeitos no mesmo di
 | Contagem | Quantos dias atendem à condição? | TX90p | Limiar e dias válidos |
 | Sequência | Por quanto tempo a condição persistiu? | WSDI ou CDD | Falhas podem quebrar episódios |
 
-: Transformações temporais e seus significados {#tbl-transformacoes-temporais}
+Transformações temporais e seus significados
+
+:::
 
 ## Períodos de referência
 
@@ -242,7 +254,11 @@ Relate completude por período e unidade, não apenas média global. Uma série 
 
 Ausência também possui mecanismo. Falhas completamente casuais afetam principalmente precisão; falhas associadas a tempestades, falta de energia, sobrecarga do serviço ou dificuldade de acesso criam viés informativo. Uma estação que para durante o extremo e uma unidade que deixa de notificar durante o desastre perdem dados justamente nas condições de interesse. Imputar pela média pode apagar o evento e produzir completude aparente.
 
-É necessário distinguir registro **ausente**, **zero verdadeiro**, **não aplicável**, **abaixo do limite de detecção** e **suprimido por confidencialidade**. Codificar todos como zero altera totais, taxas e tendências. O dicionário deve preservar os estados e a análise deve explicitar quais entraram no denominador.
+::: {.callout-warning title="Ausência não é zero"}
+
+É necessário distinguir registro ausente, zero verdadeiro, não aplicável, abaixo do limite de detecção e suprimido por confidencialidade. Codificar todos como zero altera totais, taxas e tendências. O dicionário deve preservar os estados e a análise deve explicitar quais entraram no denominador.
+
+:::
 
 ### Oportunidade
 
@@ -277,11 +293,17 @@ Comparabilidade não exige identidade absoluta; exige que diferenças restantes 
 
 Incerteza não é sinônimo de erro evitável. Ela expressa limites de conhecimento e pode vir de medição, amostragem, modelo, parâmetros, imputação, agregação e cenário. O objetivo não é ocultá-la, mas torná-la utilizável.
 
-Uma distinção prática separa incerteza **aleatória**, associada à variabilidade entre observações ou amostras, de incerteza **epistêmica**, associada ao que não se conhece suficientemente sobre o processo, a fonte ou o modelo. Mais dados semelhantes podem reduzir a primeira; não corrigem automaticamente sensor enviesado, população ausente, modelo inadequado ou definição errada. Essas categorias podem se sobrepor, mas ajudam a escolher a resposta: ampliar amostra, melhorar medição, comparar modelos, revisar conceito ou adotar precaução.
+::: {.callout-note icon=false title="Conceito-chave: incerteza e variabilidade"}
 
-Também se deve separar incerteza de **variabilidade real**. Diferenças entre bairros ou anos podem ser o fenômeno de interesse, não ruído a suavizar. Um intervalo estreito em torno de uma média municipal pode coexistir com grande desigualdade intramunicipal. Comunicar apenas erro-padrão não informa heterogeneidade, viés de mensuração nem incerteza de cenário.
+Uma distinção prática separa incerteza aleatória, associada à variabilidade entre observações ou amostras, de incerteza epistêmica, associada ao que não se conhece suficientemente sobre o processo, a fonte ou o modelo. Mais dados semelhantes podem reduzir a primeira; não corrigem automaticamente sensor enviesado, população ausente, modelo inadequado ou definição errada. Essas categorias podem se sobrepor, mas ajudam a escolher a resposta: ampliar amostra, melhorar medição, comparar modelos, revisar conceito ou adotar precaução.
+
+Também se deve separar incerteza de variabilidade real. Diferenças entre bairros ou anos podem ser o fenômeno de interesse, não ruído a suavizar. Um intervalo estreito em torno de uma média municipal pode coexistir com grande desigualdade intramunicipal. Comunicar apenas erro-padrão não informa heterogeneidade, viés de mensuração nem incerteza de cenário.
+
+:::
 
 ### Fontes de incerteza
+
+::: {#qua-fontes-incerteza}
 
 | Etapa | Exemplo de incerteza | Forma de avaliação |
 |---|---|---|
@@ -292,7 +314,9 @@ Também se deve separar incerteza de **variabilidade real**. Diferenças entre b
 | Saúde | sub-registro, classificação e denominador | estudos de cobertura, revisão e intervalos |
 | Decisão | relação entre valor e ação | validação prospectiva e avaliação de resultados |
 
-: Fontes de incerteza ao longo da produção do indicador {#tbl-fontes-incerteza}
+Fontes de incerteza ao longo da produção do indicador
+
+:::
 
 Intervalos de confiança representam incerteza amostral sob um modelo; não abrangem automaticamente viés de seleção, erro de exposição ou mudança de definição. Para mapas, uma superfície de estimativa sem mapa de incerteza pode criar falsa precisão.
 
@@ -336,16 +360,16 @@ Técnicas como supressão de células pequenas, agregação, arredondamento e co
 O @qua-checklist-dados resume a avaliação mínima.
 
 ::: {#qua-checklist-dados}
-1. **Conceito:** variável e indicador estão definidos sem ambiguidade?
-2. **Proveniência:** instituição, produto, versão e transformação estão registrados?
-3. **Espaço:** suporte, resolução, projeção e território são compatíveis?
-4. **Tempo:** fuso, calendário, janela, período-base e latência estão claros?
-5. **População:** numerador e denominador referem-se à mesma população e data?
-6. **Qualidade:** completude, consistência, homogeneidade e revisão foram avaliadas?
-7. **Incerteza:** fontes principais e sensibilidade foram comunicadas?
-8. **Comparabilidade:** diferenças de método e cobertura foram controladas?
-9. **Proteção:** divulgação respeita privacidade e uso responsável?
-10. **Decisão:** a qualidade é suficiente para a consequência prevista?
+1. Conceito: variável e indicador estão definidos sem ambiguidade?
+2. Proveniência: instituição, produto, versão e transformação estão registrados?
+3. Espaço: suporte, resolução, projeção e território são compatíveis?
+4. Tempo: fuso, calendário, janela, período-base e latência estão claros?
+5. População: numerador e denominador referem-se à mesma população e data?
+6. Qualidade: completude, consistência, homogeneidade e revisão foram avaliadas?
+7. Incerteza: fontes principais e sensibilidade foram comunicadas?
+8. Comparabilidade: diferenças de método e cobertura foram controladas?
+9. Proteção: divulgação respeita privacidade e uso responsável?
+10. Decisão: a qualidade é suficiente para a consequência prevista?
 
 : Checklist de espaço, tempo e qualidade
 :::

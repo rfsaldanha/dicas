@@ -1,38 +1,49 @@
 #import "@preview/orange-book:0.7.1": book
+#import "print/pretextuais.typ": pretextuais
 
 // O sumário deste projeto já ocupa uma posição editorial explícita entre os
 // elementos pré-textuais. Suprime apenas o sumário automático do modelo.
 #show outline: it => if it.title == auto { none } else { it }
 
-// Verso sintético da edição. A ficha técnica completa segue
-// no corpo pré-textual do livro.
+// Verso da folha de rosto, com créditos editoriais e área reservada para
+// a ficha catalográfica. Os campos ainda não atribuídos permanecem explícitos.
 #let copyright-page = [
   #set text(size: 9pt)
-  #set par(first-line-indent: 0pt, leading: 0.35em, spacing: 0.7em)
-  #align(center + horizon)[
-    #block(width: 96mm)[
-      #align(center)[
-        *Dados e Indicadores de Clima e Ambiente para a Saúde*
+  #set par(first-line-indent: 0pt, leading: 0.35em, spacing: 0.6em)
 
-        Guia para vigilância e gestão pública
+  #block(width: 100%)[
+    #grid(
+      columns: (38mm, 1fr),
+      column-gutter: 4mm,
+      row-gutter: 2mm,
+      align: (left + top, left + top),
+      [*Direitos autorais*], [© 2026 Raphael de Freitas Saldanha],
+      [*Créditos editoriais*], [Raphael de Freitas Saldanha],
+      [*Editora*], [Edição do autor],
+      [*ISBN*], [Não atribuído],
+      [*Impressão*], [UICLAP],
+    )
 
-        #v(4mm)
+    #v(6mm)
 
-        © 2026 Raphael de Freitas Saldanha
+    Esta publicação e seu código-fonte estão disponíveis em
+    #link("https://github.com/rfsaldanha/dicas")[github.com/rfsaldanha/dicas].
+    Os arquivos autorais seguem a licença GNU General Public License, versão 3;
+    fontes de terceiros mantêm suas licenças próprias.
 
-        Primeira edição
+    #v(6mm)
 
-        #v(4mm)
+    #block(
+      width: 100%,
+      height: 80mm,
+      inset: 0mm,
+      stroke: 0.6pt + black,
+    )[]
 
-        Composição editorial com Quarto e Typst.
+    #v(2mm)
 
-        Impressão sob demanda: UICLAP.
-
-        Código-fonte e versão digital:
-
-        #link("https://github.com/rfsaldanha/dicas")[github.com/rfsaldanha/dicas]
-      ]
-    ]
+    #set text(size: 8pt)
+    #align(center)[Espaço reservado para a ficha catalográfica]
   ]
 ]
 
@@ -86,12 +97,92 @@
       #set text(size: 10.5pt)
       #set par(first-line-indent: 0pt, leading: 0.35em)
       #align(center)[Brasil\
+      Edição do autor\
       2026]
     ]
   }
 })
 
-#show: book.with(
+// Aberturas de parte: composição própria, em escala de cinza, com forte
+// contraste entre o algarismo romano, a rubrica editorial e o título. A
+// identificação parte do título gerado pelo Quarto, preservando o elemento
+// heading original para o sumário e para a navegação interna do PDF.
+#let dicas-part-counter = counter("dicas-part-counter")
+
+#let dicas-is-part-title(body) = {
+  let value = content-to-string(body)
+  value.starts-with("Parte ") or value == "Elementos pós-textuais"
+}
+
+#let dicas-part-opening(it) = {
+  pagebreak(to: "odd")
+  dicas-part-counter.step()
+
+  context {
+    let full-title = content-to-string(it.body)
+    let short-title = if full-title.starts-with("Parte ") {
+      full-title.replace(
+        regex("^Parte\s+[IVXLCDM]+\s+[-–—]+\s+"),
+        "",
+      )
+    } else {
+      full-title
+    }
+    let part-number = dicas-part-counter.get().first()
+    let roman = numbering("I", part-number)
+
+    set par(justify: false, first-line-indent: 0pt, leading: 0.66em)
+
+    block(width: 100%, height: 100%, breakable: false)[
+      #place(top + left, dy: 10mm)[
+        #block(width: 100%)[
+          #grid(
+            columns: (5mm, 1fr, auto),
+            column-gutter: 5mm,
+            align: (left + top, left + bottom, right + top),
+            rect(width: 5mm, height: 34mm, fill: black),
+            [
+              #text(size: 9pt, weight: "bold", tracking: 0.16em)[PARTE]
+              #v(2mm)
+              #line(length: 32mm, stroke: 0.7pt + black)
+            ],
+            text(size: 62pt, weight: "bold", fill: luma(205), roman),
+          )
+        ]
+      ]
+
+      #place(top + left, dy: 57mm)[
+        #block(
+          width: 100%,
+          inset: (top: 8mm),
+          stroke: (top: 1.4pt + black),
+        )[
+          #text(size: 25pt, weight: "bold", short-title)
+        ]
+      ]
+
+      #place(bottom + left, dy: -4mm)[
+        #block(
+          width: 100%,
+          inset: (top: 4mm),
+          stroke: (top: 0.5pt + black),
+        )[
+          #grid(
+            columns: (1fr, auto),
+            column-gutter: 6mm,
+            align: (left + horizon, right + horizon),
+            text(size: 7.5pt, tracking: 0.06em)[
+              DADOS E INDICADORES DE CLIMA E AMBIENTE PARA A SAÚDE
+            ],
+            text(size: 8pt, weight: "bold")[PARTE #roman],
+          )
+        ]
+      ]
+    ]
+  }
+}
+
+#let dicas-book = book.with(
 $if(title)$
   title: [$title$],
 $endif$
@@ -130,6 +221,18 @@ $if(toc-depth)$
 $endif$
 )
 
+// Os pré-textuais próprios da edição impressa entram depois da folha de rosto
+// e antes da lista de siglas, sem duplicar as páginas correspondentes do site.
+#show: body => dicas-book([#pretextuais #body])
+
+// O modelo trata as partes como títulos de nível 1 sem numeração. Esta regra
+// substitui apenas essas cinco aberturas; os demais títulos continuam sendo
+// compostos normalmente pelo Orange Book.
+#show heading.where(level: 1, numbering: none): it => {
+  if dicas-is-part-title(it.body) { dicas-part-opening(it) } else { it }
+}
+
+
 // Fólios e títulos correntes seguem o padrão do volume de referência:
 // abertura no rodapé; demais páginas no cabeçalho, junto ao título corrente.
 #set page(
@@ -140,14 +243,20 @@ $endif$
     let chapter-opening = chapter-headings.any(
       it => it.location().page() == page-number
     )
-    let textual-headings = chapter-headings.filter(it => it.body == [Bem-vindo])
+    let part-opening = chapter-headings.any(
+      it => it.location().page() == page-number and dicas-is-part-title(it.body)
+    )
+    let after-part-opening = chapter-headings.any(
+      it => it.location().page() + 1 == page-number and dicas-is-part-title(it.body)
+    )
+    let textual-headings = chapter-headings.filter(it => it.body == [Clima, ambiente e saúde pública])
     let textual-start = if textual-headings == () {
       1
     } else {
       textual-headings.first().location().page()
     }
 
-    if page-number >= textual-start and not chapter-opening {
+    if page-number >= textual-start and not chapter-opening and not after-part-opening {
       let chapters-before = query(
         selector(heading.where(level: 1)).before(here())
       )
@@ -197,13 +306,16 @@ $endif$
     let chapter-opening = chapter-headings.any(
       it => it.location().page() == page-number
     )
-    let textual-headings = chapter-headings.filter(it => it.body == [Bem-vindo])
+    let part-opening = chapter-headings.any(
+      it => it.location().page() == page-number and dicas-is-part-title(it.body)
+    )
+    let textual-headings = chapter-headings.filter(it => it.body == [Clima, ambiente e saúde pública])
     let textual-start = if textual-headings == () {
       1
     } else {
       textual-headings.first().location().page()
     }
-    if page-number >= textual-start and chapter-opening {
+    if page-number >= textual-start and chapter-opening and not part-opening {
       align(center, numbering("1", page-number))
     }
   },

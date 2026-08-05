@@ -1,30 +1,30 @@
-## Ficha do indicador: Índice Padronizado de Precipitação (SPI) {#sec-cli-sec-01}
+## Ficha do indicador: Índice Padronizado de Precipitação (SPI) {#sec-cli-sec-01 .ficha-title}
 
 ::: {.indicator-card}
-**Código:** CLI-SEC-01 \
-**Título resumido:** Seca meteorológica — SPI \
-**Tema:** Precipitação, secas e eventos hidrológicos \
-**Dimensão:** perigo; exposição \
-**Disponibilidade:** [requer processamento climatológico]{.availability}
+[Código:]{.field-label} CLI-SEC-01 \
+[Título resumido:]{.field-label} Seca meteorológica — SPI \
+[Tema:]{.field-label} Precipitação, secas e eventos hidrológicos \
+[Dimensão:]{.field-label} perigo; exposição \
+[Disponibilidade:]{.field-label} [requer processamento climatológico]{.availability}
 :::
 
-### Identificação e fundamento
+### Identificação e fundamento {.unnumbered .ficha-section}
 
-**Indicador consolidado em.** Standardized Precipitation Index recomendado pela Organização Meteorológica Mundial para caracterizar seca meteorológica.
+[Indicador consolidado em.]{.field-label} Standardized Precipitation Index recomendado pela Organização Meteorológica Mundial para caracterizar seca meteorológica.
 
-### Conceito
-
+::: {.callout-note icon=false title="Conceito-chave"}
 Transformação probabilística do total de precipitação acumulado em uma escala temporal para uma distribuição normal padronizada.
+:::
 
-### Objetivo
+### Objetivo {.unnumbered .ficha-section}
 
 Comparar déficit ou excesso de precipitação entre períodos, escalas temporais e climas distintos.
 
-### Interpretação
+### Interpretação {.unnumbered .ficha-section}
 
 SPI igual a zero representa condição próxima da mediana ajustada; valores negativos indicam déficit e positivos, excesso. Na classificação usual, SPI ≤ −1 inicia uma condição de seca que persiste até retornar a valor positivo.
 
-### Usos
+### Usos {.unnumbered .ficha-section}
 
 - Monitorar início
 - duração e intensidade de seca meteorológica.
@@ -33,7 +33,7 @@ SPI igual a zero representa condição próxima da mediana ajustada; valores neg
 - alimento
 - saúde mental e serviços.
 
-### Limitações
+### Limitações {.unnumbered .ficha-section}
 
 - Usa apenas precipitação.
 - Requer série longa e relativamente consistente.
@@ -42,13 +42,13 @@ SPI igual a zero representa condição próxima da mediana ajustada; valores neg
 - Não mede diretamente seca hidrológica
 - agrícola ou impacto social.
 
-### Fontes de dados
+### Fontes de dados {.unnumbered .ficha-section}
 
 - Instituto Nacional de Meteorologia — observações pluviométricas diárias ([cadastro](../../backmatter/indice-fontes.qmd#inmet))
 - Centro Nacional de Monitoramento e Alertas de Desastres Naturais — observações pluviométricas subdiárias ou diárias para monitoramento ([cadastro](../../backmatter/indice-fontes.qmd#cemaden))
 - ERA5-Land — precipitação em reanálise condicionada à validação ([cadastro](../../backmatter/indice-fontes.qmd#era5-land))
 
-### Método de cálculo
+### Método de cálculo {.unnumbered .ficha-section}
 
 Acumular precipitação na escala escolhida, ajustar distribuição probabilística adequada à série e ao mês, converter a probabilidade acumulada para a normal padrão e identificar episódios conforme a classificação declarada.
 
@@ -57,70 +57,70 @@ SPI_{k,t}=\Phi^{-1}\{F_{k,m}(P_{k,t})\}
 $$
 
 ::: {.indicator-card}
-**Numerador.** Não se aplica.
+[Numerador.]{.field-label} Não se aplica.
 
-**Denominador.** Não se aplica.
+[Denominador.]{.field-label} Não se aplica.
 
-**Unidade de medida.** Adimensional, em desvios-padrão da distribuição normal transformada.
+[Unidade de medida.]{.field-label} Adimensional, em desvios-padrão da distribuição normal transformada.
 
-**Variáveis e categorias de análise.** Precipitação diária; dia do calendário; mês; estação; ano; estação ou célula de grade.
+[Variáveis e categorias de análise.]{.field-label} Precipitação diária; dia do calendário; mês; estação; ano; estação ou célula de grade.
 
-**Granularidade.** Entrada diária por estação ou célula; resumo mensal, sazonal ou anual.
+[Granularidade.]{.field-label} Entrada diária por estação ou célula; resumo mensal, sazonal ou anual.
 
-**Periodicidade de atualização.** Anual para monitoramento climático; diária ou subdiária em protocolo operacional próprio.
+[Periodicidade de atualização.]{.field-label} Anual para monitoramento climático; diária ou subdiária em protocolo operacional próprio.
 
-**Responsabilidade gerencial.** Serviço meteorológico ou hidrológico responsável pelo dado e órgão de saúde que qualifique o uso sanitário.
+[Responsabilidade gerencial.]{.field-label} Serviço meteorológico ou hidrológico responsável pelo dado e órgão de saúde que qualifique o uso sanitário.
 
-**Notas.** Índices ETCCDI descrevem a precipitação observada. Não substituem modelagem hidrológica, mapeamento de inundação ou registro de desastre.
+[Notas.]{.field-label} Índices ETCCDI descrevem a precipitação observada. Não substituem modelagem hidrológica, mapeamento de inundação ou registro de desastre.
 
-**Análise descritiva do indicador.** Apresentar séries de SPI-1, SPI-3, SPI-6 ou SPI-12 conforme mecanismo, duração e intensidade dos episódios, área afetada e associação com indicadores sanitários.
+[Análise descritiva do indicador.]{.field-label} Apresentar séries de SPI-1, SPI-3, SPI-6 ou SPI-12 conforme mecanismo, duração e intensidade dos episódios, área afetada e associação com indicadores sanitários.
 
 :::
 
-### Campos complementares para clima, ambiente e saúde
+### Campos complementares para clima, ambiente e saúde {.unnumbered .ficha-section}
 
 ::: {.indicator-card}
-**Unidade territorial.** Estação meteorológica, célula de grade, bacia ou território derivado.
+[Unidade territorial.]{.field-label} Estação meteorológica, célula de grade, bacia ou território derivado.
 
-**Resolução espacial original.** A da fonte de precipitação; agregações territoriais exigem ponderação declarada.
+[Resolução espacial original.]{.field-label} A da fonte de precipitação; agregações territoriais exigem ponderação declarada.
 
-**Resolução temporal.** Entrada diária; saída por período.
+[Resolução temporal.]{.field-label} Entrada diária; saída por período.
 
-**Período de referência.** Série de pelo menos 30 anos recomendada; séries mais longas melhoram estabilidade.
+[Período de referência.]{.field-label} Série de pelo menos 30 anos recomendada; séries mais longas melhoram estabilidade.
 
-**Limiar ou valor de referência.** Classes usuais incluem −1,0 a −1,49 moderadamente seco; −1,5 a −1,99 severamente seco; ≤ −2,0 extremamente seco.
+[Limiar ou valor de referência.]{.field-label} Classes usuais incluem −1,0 a −1,49 moderadamente seco; −1,5 a −1,99 severamente seco; ≤ −2,0 extremamente seco.
 
 :::
 
-### Disponibilidade e acesso
+### Disponibilidade e acesso {.unnumbered .ficha-section}
 
-**Cobertura geográfica.** A da fonte selecionada, condicionada à densidade observacional e qualidade.
+[Cobertura geográfica.]{.field-label} A da fonte selecionada, condicionada à densidade observacional e qualidade.
 
-**Período disponível.** O da fonte, incluindo série suficiente para o período-base quando houver percentis.
+[Período disponível.]{.field-label} O da fonte, incluindo série suficiente para o período-base quando houver percentis.
 
-**Periodicidade de atualização.** Anual para monitoramento climático; diária ou subdiária em protocolo operacional próprio.
+[Periodicidade de atualização.]{.field-label} Anual para monitoramento climático; diária ou subdiária em protocolo operacional próprio.
 
-**Forma de acesso.** Cálculo sobre série de precipitação controlada, com algoritmo, unidades e calendário versionados.
+[Forma de acesso.]{.field-label} Cálculo sobre série de precipitação controlada, com algoritmo, unidades e calendário versionados.
 
-**URL ou identificador persistente.** https://library.wmo.int/idurl/4/39629
+[URL ou identificador persistente.]{.field-label} https://library.wmo.int/idurl/4/39629
 
-**Formato dos arquivos.** Tabela por estação ou arquivo multidimensional por célula.
+[Formato dos arquivos.]{.field-label} Tabela por estação ou arquivo multidimensional por célula.
 
-**Necessidade de processamento.** Verificar completude, acumular por escala, ajustar distribuição por mês, tratar zeros, transformar probabilidade e detectar episódios.
+[Necessidade de processamento.]{.field-label} Verificar completude, acumular por escala, ajustar distribuição por mês, tratar zeros, transformar probabilidade e detectar episódios.
 
-### Qualidade, comparação e saúde
+### Qualidade, comparação e saúde {.unnumbered .ficha-section}
 
-**Qualidade e incerteza.** Relatar falhas, horário de acumulação, vento e subcaptura do pluviômetro, mudança de instrumento, homogeneidade, viés de grade e cobertura espacial.
+[Qualidade e incerteza.]{.field-label} Relatar falhas, horário de acumulação, vento e subcaptura do pluviômetro, mudança de instrumento, homogeneidade, viés de grade e cobertura espacial.
 
-**Possibilidade de comparação.** Manter limiar de dia úmido, período-base, calendário, fonte, unidade, regra de falhas e método de agregação.
+[Possibilidade de comparação.]{.field-label} Manter limiar de dia úmido, período-base, calendário, fonte, unidade, regra de falhas e método de agregação.
 
-**Relação com desfechos de saúde.** Extremos e persistência de chuva ou ausência de chuva ajudam a caracterizar perigos relacionados a água, saneamento, vetores, segurança alimentar e acesso a serviços; não equivalem ao efeito sanitário.
+[Relação com desfechos de saúde.]{.field-label} Extremos e persistência de chuva ou ausência de chuva ajudam a caracterizar perigos relacionados a água, saneamento, vetores, segurança alimentar e acesso a serviços; não equivalem ao efeito sanitário.
 
-**Defasagens temporais relevantes.** Preservar série diária e datas para testar janelas compatíveis com o mecanismo e o desfecho.
+[Defasagens temporais relevantes.]{.field-label} Preservar série diária e datas para testar janelas compatíveis com o mecanismo e o desfecho.
 
-**Aplicação na gestão.** Caracterizar sazonalidade e extremos, apoiar vigilância de agravos sensíveis ao clima e contextualizar alertas hidrometeorológicos.
+[Aplicação na gestão.]{.field-label} Caracterizar sazonalidade e extremos, apoiar vigilância de agravos sensíveis ao clima e contextualizar alertas hidrometeorológicos.
 
-### Referências metodológicas
+### Referências metodológicas {.unnumbered .ficha-section}
 
 - [@wmo2012spi]
 - [@wmo2016drought]

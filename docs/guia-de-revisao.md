@@ -44,14 +44,14 @@ Conferir formato, margens, aberturas, cabeçalhos, fólios, tabelas, fórmulas, 
 
 ## Arte
 
-Os blocos **Ilustração editorial necessária** especificam as peças originais que devem ser produzidas. A revisão deve avaliar pertinência, acessibilidade, fonte, autoria, licença e coerência com o texto antes da incorporação.
+Os blocos “Ilustração editorial necessária” especificam as peças originais que devem ser produzidas. A revisão deve avaliar pertinência, acessibilidade, fonte, autoria, licença e coerência com o texto antes da incorporação.
 
 ## Registro de comentários
 
 Indicar arquivo ou página, seção e categoria:
 
-- **bloqueio:** impede compreender, validar ou compilar;
-- **decisão:** exige escolha técnica ou editorial;
-- **ajuste:** correção localizada.
+- bloqueio: impede compreender, validar ou compilar;
+- decisão: exige escolha técnica ou editorial;
+- ajuste: correção localizada.
 
 Para fichas e fontes, citar o código ou ID.

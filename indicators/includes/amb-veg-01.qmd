@@ -1,36 +1,36 @@
-## Ficha do indicador: Índice de Vegetação por Diferença Normalizada residencial médio (NDVI) {#sec-amb-veg-01}
+## Ficha do indicador: Índice de Vegetação por Diferença Normalizada residencial médio (NDVI) {#sec-amb-veg-01 .ficha-title}
 
 ::: {.indicator-card}
-**Código:** AMB-VEG-01 \
-**Título resumido:** Verdor residencial — NDVI \
-**Tema:** Uso e cobertura da terra, vegetação e ambiente urbano \
-**Dimensão:** exposição; vulnerabilidade; resposta \
-**Disponibilidade:** [requer processamento de sensoriamento remoto]{.availability}
+[Código:]{.field-label} AMB-VEG-01 \
+[Título resumido:]{.field-label} Verdor residencial — NDVI \
+[Tema:]{.field-label} Uso e cobertura da terra, vegetação e ambiente urbano \
+[Dimensão:]{.field-label} exposição; vulnerabilidade; resposta \
+[Disponibilidade:]{.field-label} [requer processamento de sensoriamento remoto]{.availability}
 :::
 
-### Identificação e fundamento
+### Identificação e fundamento {.unnumbered .ficha-section}
 
-**Indicador consolidado em.** NDVI em buffers residenciais, medida de exposição a verdor mais usada em estudos epidemiológicos de espaços verdes.
+[Indicador consolidado em.]{.field-label} NDVI em buffers residenciais, medida de exposição a verdor mais usada em estudos epidemiológicos de espaços verdes.
 
-### Conceito
-
+::: {.callout-note icon=false title="Conceito-chave"}
 Média do NDVI dos pixels válidos dentro de um buffer em torno do endereço, ponto ou unidade residencial durante a janela temporal definida.
+:::
 
-### Objetivo
+### Objetivo {.unnumbered .ficha-section}
 
 Representar densidade de vegetação fotossinteticamente ativa no entorno residencial de maneira reprodutível.
 
-### Interpretação
+### Interpretação {.unnumbered .ficha-section}
 
 Valores maiores indicam maior verdor espectral no produto e período. NDVI varia teoricamente de −1 a 1; não mede acesso, qualidade, espécie, sombra ou uso.
 
-### Usos
+### Usos {.unnumbered .ficha-section}
 
 - Estudos de mortalidade e doenças crônicas.
 - Avaliação de desigualdade de verdor.
 - Análise de modificação de efeitos de calor e poluição.
 
-### Limitações
+### Limitações {.unnumbered .ficha-section}
 
 - Satura em vegetação densa.
 - É afetado por nuvens
@@ -39,12 +39,12 @@ Valores maiores indicam maior verdor espectral no produto e período. NDVI varia
 - Água e superfícies não vegetadas alteram média.
 - Tamanho do buffer muda exposição.
 
-### Fontes de dados
+### Fontes de dados {.unnumbered .ficha-section}
 
 - Landsat — reflectância multiespectral para NDVI ([cadastro](../../backmatter/indice-fontes.qmd#landsat))
 - Instituto Brasileiro de Geografia e Estatística — endereços agregados, setores e população quando aplicável ([cadastro](../../backmatter/indice-fontes.qmd#ibge))
 
-### Método de cálculo
+### Método de cálculo {.unnumbered .ficha-section}
 
 Obter reflectância corrigida no vermelho e infravermelho próximo, mascarar nuvens e pixels inválidos, calcular NDVI, compor a janela temporal e obter média dos pixels em buffer previamente definido.
 
@@ -53,70 +53,70 @@ NDVI=\frac{\rho_{NIR}-\rho_{red}}{\rho_{NIR}+\rho_{red}};\quad \overline{NDVI}_b
 $$
 
 ::: {.indicator-card}
-**Numerador.** Na fórmula espectral, diferença entre reflectância no infravermelho próximo e vermelho; no buffer, soma ponderada dos NDVI válidos.
+[Numerador.]{.field-label} Na fórmula espectral, diferença entre reflectância no infravermelho próximo e vermelho; no buffer, soma ponderada dos NDVI válidos.
 
-**Denominador.** Na fórmula espectral, soma das reflectâncias; no buffer, soma dos pesos ou áreas válidas.
+[Denominador.]{.field-label} Na fórmula espectral, soma das reflectâncias; no buffer, soma dos pesos ou áreas válidas.
 
-**Unidade de medida.** Adimensional.
+[Unidade de medida.]{.field-label} Adimensional.
 
-**Variáveis e categorias de análise.** Reflectância; NDVI; buffer; endereço; estação; ano; grupo populacional.
+[Variáveis e categorias de análise.]{.field-label} Reflectância; NDVI; buffer; endereço; estação; ano; grupo populacional.
 
-**Granularidade.** Pixel de entrada e valor por ponto ou unidade.
+[Granularidade.]{.field-label} Pixel de entrada e valor por ponto ou unidade.
 
-**Periodicidade de atualização.** Sazonal ou anual.
+[Periodicidade de atualização.]{.field-label} Sazonal ou anual.
 
-**Responsabilidade gerencial.** Planejamento urbano e ambiental produz intervenções e cadastros; saúde interpreta exposições e desigualdades; geoinformação mantém métodos.
+[Responsabilidade gerencial.]{.field-label} Planejamento urbano e ambiental produz intervenções e cadastros; saúde interpreta exposições e desigualdades; geoinformação mantém métodos.
 
-**Notas.** Verdor espectral, cobertura vegetal, espaço público acessível e uso efetivo são dimensões diferentes.
+[Notas.]{.field-label} Verdor espectral, cobertura vegetal, espaço público acessível e uso efetivo são dimensões diferentes.
 
-**Análise descritiva do indicador.** Mostrar distribuição por buffers alternativos, grupos sociais, sazonalidade e mapa sem divulgar endereços individuais.
+[Análise descritiva do indicador.]{.field-label} Mostrar distribuição por buffers alternativos, grupos sociais, sazonalidade e mapa sem divulgar endereços individuais.
 
 :::
 
-### Campos complementares para clima, ambiente e saúde
+### Campos complementares para clima, ambiente e saúde {.unnumbered .ficha-section}
 
 ::: {.indicator-card}
-**Unidade territorial.** Domicílio ou ponto, zona urbana, bairro, setor censitário ou cidade.
+[Unidade territorial.]{.field-label} Domicílio ou ponto, zona urbana, bairro, setor censitário ou cidade.
 
-**Resolução espacial original.** A do produto; 30 m em produtos multiespectrais Landsat usuais.
+[Resolução espacial original.]{.field-label} A do produto; 30 m em produtos multiespectrais Landsat usuais.
 
-**Resolução temporal.** Cena e composição sazonal ou anual.
+[Resolução temporal.]{.field-label} Cena e composição sazonal ou anual.
 
-**Período de referência.** Janela correspondente à exposição epidemiológica.
+[Período de referência.]{.field-label} Janela correspondente à exposição epidemiológica.
 
-**Limiar ou valor de referência.** Não há ponto de corte sanitário universal; analisar continuamente e por quantis pré-especificados.
+[Limiar ou valor de referência.]{.field-label} Não há ponto de corte sanitário universal; analisar continuamente e por quantis pré-especificados.
 
 :::
 
-### Disponibilidade e acesso
+### Disponibilidade e acesso {.unnumbered .ficha-section}
 
-**Cobertura geográfica.** Global no Landsat; análise depende de nuvens e geocodificação.
+[Cobertura geográfica.]{.field-label} Global no Landsat; análise depende de nuvens e geocodificação.
 
-**Período disponível.** Conforme missão e produto selecionados.
+[Período disponível.]{.field-label} Conforme missão e produto selecionados.
 
-**Periodicidade de atualização.** Sazonal ou anual.
+[Periodicidade de atualização.]{.field-label} Sazonal ou anual.
 
-**Forma de acesso.** Produtos Landsat de reflectância de superfície.
+[Forma de acesso.]{.field-label} Produtos Landsat de reflectância de superfície.
 
-**URL ou identificador persistente.** https://doi.org/10.1016/S2542-5196(19)30215-3
+[URL ou identificador persistente.]{.field-label} https://doi.org/10.1016/S2542-5196(19)30215-3
 
-**Formato dos arquivos.** GeoTIFF e tabela por unidade.
+[Formato dos arquivos.]{.field-label} GeoTIFF e tabela por unidade.
 
-**Necessidade de processamento.** Correção/seleção do produto, máscara, composição, buffers, ponderação e controle de geocodificação.
+[Necessidade de processamento.]{.field-label} Correção/seleção do produto, máscara, composição, buffers, ponderação e controle de geocodificação.
 
-### Qualidade, comparação e saúde
+### Qualidade, comparação e saúde {.unnumbered .ficha-section}
 
-**Qualidade e incerteza.** Relatar sensor, produto, data, nuvens, resolução, classificação, delimitação urbana, população, buffer, erros posicionais e análise de sensibilidade.
+[Qualidade e incerteza.]{.field-label} Relatar sensor, produto, data, nuvens, resolução, classificação, delimitação urbana, população, buffer, erros posicionais e análise de sensibilidade.
 
-**Possibilidade de comparação.** Manter produto, estação, composição temporal, resolução, definição de verde, limite urbano, população e parâmetros espaciais.
+[Possibilidade de comparação.]{.field-label} Manter produto, estação, composição temporal, resolução, definição de verde, limite urbano, população e parâmetros espaciais.
 
-**Relação com desfechos de saúde.** Vegetação e espaços verdes podem influenciar atividade física, contato social, restauração, calor, ruído e poluição, mas efeitos dependem de acesso, qualidade, segurança e contexto.
+[Relação com desfechos de saúde.]{.field-label} Vegetação e espaços verdes podem influenciar atividade física, contato social, restauração, calor, ruído e poluição, mas efeitos dependem de acesso, qualidade, segurança e contexto.
 
-**Defasagens temporais relevantes.** Distinguir exposição contemporânea, histórica e intervenção; atualizar endereço, vegetação e população de maneira compatível.
+[Defasagens temporais relevantes.]{.field-label} Distinguir exposição contemporânea, histórica e intervenção; atualizar endereço, vegetação e população de maneira compatível.
 
-**Aplicação na gestão.** Identificar desigualdades, priorizar arborização e espaços públicos, avaliar intervenções e integrar planejamento calor–saúde.
+[Aplicação na gestão.]{.field-label} Identificar desigualdades, priorizar arborização e espaços públicos, avaliar intervenções e integrar planejamento calor–saúde.
 
-### Referências metodológicas
+### Referências metodológicas {.unnumbered .ficha-section}
 
 - [@rojasrueda2019greenspace]
 - [@who2016greenspace]

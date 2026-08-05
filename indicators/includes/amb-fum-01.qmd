@@ -1,49 +1,49 @@
-## Ficha do indicador: Exposição populacional média a PM2,5 atribuível à fumaça de incêndios {#sec-amb-fum-01}
+## Ficha do indicador: Exposição populacional média a PM2,5 atribuível à fumaça de incêndios {#sec-amb-fum-01 .ficha-title}
 
 ::: {.indicator-card}
-**Código:** AMB-FUM-01 \
-**Título resumido:** PM2,5 de fumaça ponderado pela população \
-**Tema:** Qualidade do ar, queimadas e fumaça \
-**Dimensão:** perigo; exposição \
-**Disponibilidade:** [requer produto de atribuição de fonte]{.availability} [requer processamento geoespacial]{.availability}
+[Código:]{.field-label} AMB-FUM-01 \
+[Título resumido:]{.field-label} PM2,5 de fumaça ponderado pela população \
+[Tema:]{.field-label} Qualidade do ar, queimadas e fumaça \
+[Dimensão:]{.field-label} perigo; exposição \
+[Disponibilidade:]{.field-label} [requer produto de atribuição de fonte]{.availability} [requer processamento geoespacial]{.availability}
 :::
 
-### Identificação e fundamento
+### Identificação e fundamento {.unnumbered .ficha-section}
 
-**Indicador consolidado em.** Indicador de fumaça de incêndios do Lancet Countdown, que integra concentração de PM2,5 atribuível ao fogo e população.
+[Indicador consolidado em.]{.field-label} Indicador de fumaça de incêndios do Lancet Countdown, que integra concentração de PM2,5 atribuível ao fogo e população.
 
-### Conceito
-
+::: {.callout-note icon=false title="Conceito-chave"}
 Média espacial da concentração de PM2,5 atribuída a emissões de incêndios, ponderada pela população residente, em período declarado.
+:::
 
-### Objetivo
+### Objetivo {.unnumbered .ficha-section}
 
 Quantificar a intensidade média de exposição populacional à fumaça de incêndios separada, por modelagem, de outras fontes de PM2,5.
 
-### Interpretação
+### Interpretação {.unnumbered .ficha-section}
 
 Valor maior indica que a população do território viveu, em média, maior concentração ambiental de PM2,5 atribuível ao fogo. Não representa dose individual nem a concentração total.
 
-### Usos
+### Usos {.unnumbered .ficha-section}
 
 - Monitorar exposição a fumaça ao longo do tempo.
 - Comparar desigualdades territoriais.
 - Apoiar estimativas de mortalidade atribuível e preparação sanitária.
 
-### Limitações
+### Limitações {.unnumbered .ficha-section}
 
 - A atribuição ao fogo é modelada e incerta.
 - Satélites podem representar a coluna atmosférica e não apenas a superfície.
 - Ponderação residencial não capta mobilidade ou ambiente interno.
 - Produtos e inventários de emissão geram estimativas distintas.
 
-### Fontes de dados
+### Fontes de dados {.unnumbered .ficha-section}
 
 - Copernicus Atmosphere Monitoring Service — modelagem atmosférica, quando o produto separar contribuição do fogo ([cadastro](../../backmatter/indice-fontes.qmd#cams))
 - Programa Queimadas do INPE — informação de ocorrência e emissão usada na atribuição de fonte ([cadastro](../../backmatter/indice-fontes.qmd#queimadas-inpe))
 - Instituto Brasileiro de Geografia e Estatística — população para ponderação no Brasil ([cadastro](../../backmatter/indice-fontes.qmd#ibge))
 
-### Método de cálculo
+### Método de cálculo {.unnumbered .ficha-section}
 
 Obter para cada célula e período a concentração superficial de PM2,5 atribuída a incêndios por produto validado, compatibilizar com população e calcular média ponderada; agregar temporalmente somente depois de preservar os valores diários.
 
@@ -52,70 +52,70 @@ $$
 $$
 
 ::: {.indicator-card}
-**Numerador.** Soma dos produtos entre concentração de PM2,5 atribuível ao fogo e população da célula.
+[Numerador.]{.field-label} Soma dos produtos entre concentração de PM2,5 atribuível ao fogo e população da célula.
 
-**Denominador.** População total incluída.
+[Denominador.]{.field-label} População total incluída.
 
-**Unidade de medida.** Microgramas por metro cúbico (µg/m³).
+[Unidade de medida.]{.field-label} Microgramas por metro cúbico (µg/m³).
 
-**Variáveis e categorias de análise.** PM2,5 de fogo; população; célula; dia, temporada ou ano; produto; território; grupo populacional.
+[Variáveis e categorias de análise.]{.field-label} PM2,5 de fogo; população; célula; dia, temporada ou ano; produto; território; grupo populacional.
 
-**Granularidade.** Célula diária e território diário, sazonal ou anual.
+[Granularidade.]{.field-label} Célula diária e território diário, sazonal ou anual.
 
-**Periodicidade de atualização.** Diária ou anual, conforme a finalidade.
+[Periodicidade de atualização.]{.field-label} Diária ou anual, conforme a finalidade.
 
-**Responsabilidade gerencial.** Órgão ambiental responsável pelo monitoramento e setor saúde responsável pela vigilância dos efeitos e comunicação sanitária.
+[Responsabilidade gerencial.]{.field-label} Órgão ambiental responsável pelo monitoramento e setor saúde responsável pela vigilância dos efeitos e comunicação sanitária.
 
-**Notas.** Concentração, índice de comunicação e estimativa de fonte específica são indicadores distintos e não devem ser convertidos sem a especificação correspondente.
+[Notas.]{.field-label} Concentração, índice de comunicação e estimativa de fonte específica são indicadores distintos e não devem ser convertidos sem a especificação correspondente.
 
-**Análise descritiva do indicador.** Apresentar série diária, média e soma sazonal, dias de maior exposição, população por faixas, desigualdades e incerteza do modelo.
+[Análise descritiva do indicador.]{.field-label} Apresentar série diária, média e soma sazonal, dias de maior exposição, população por faixas, desigualdades e incerteza do modelo.
 
 :::
 
-### Campos complementares para clima, ambiente e saúde
+### Campos complementares para clima, ambiente e saúde {.unnumbered .ficha-section}
 
 ::: {.indicator-card}
-**Unidade territorial.** Estação de monitoramento, célula de grade ou território derivado.
+[Unidade territorial.]{.field-label} Estação de monitoramento, célula de grade ou território derivado.
 
-**Resolução espacial original.** A do produto de fumaça e da grade populacional após harmonização.
+[Resolução espacial original.]{.field-label} A do produto de fumaça e da grade populacional após harmonização.
 
-**Resolução temporal.** Preferencialmente diária; resumo sazonal ou anual.
+[Resolução temporal.]{.field-label} Preferencialmente diária; resumo sazonal ou anual.
 
-**Período de referência.** Ano ou temporada, com população correspondente e versão do modelo.
+[Período de referência.]{.field-label} Ano ou temporada, com população correspondente e versão do modelo.
 
-**Limiar ou valor de referência.** Não há limiar universal específico de PM2,5 de fogo; comparações com diretrizes de PM2,5 total devem ser claramente identificadas.
+[Limiar ou valor de referência.]{.field-label} Não há limiar universal específico de PM2,5 de fogo; comparações com diretrizes de PM2,5 total devem ser claramente identificadas.
 
 :::
 
-### Disponibilidade e acesso
+### Disponibilidade e acesso {.unnumbered .ficha-section}
 
-**Cobertura geográfica.** A do produto atmosférico e populacional selecionados.
+[Cobertura geográfica.]{.field-label} A do produto atmosférico e populacional selecionados.
 
-**Período disponível.** Conforme produto; não interpolar versões sem avaliação.
+[Período disponível.]{.field-label} Conforme produto; não interpolar versões sem avaliação.
 
-**Periodicidade de atualização.** Diária ou anual, conforme a finalidade.
+[Periodicidade de atualização.]{.field-label} Diária ou anual, conforme a finalidade.
 
-**Forma de acesso.** Produto modelado de fonte específica e grade populacional versionada.
+[Forma de acesso.]{.field-label} Produto modelado de fonte específica e grade populacional versionada.
 
-**URL ou identificador persistente.** https://doi.org/10.1016/S2468-2667(24)00055-0
+[URL ou identificador persistente.]{.field-label} https://doi.org/10.1016/S2468-2667(24)00055-0
 
-**Formato dos arquivos.** Arquivos multidimensionais e tabelas territoriais.
+[Formato dos arquivos.]{.field-label} Arquivos multidimensionais e tabelas territoriais.
 
-**Necessidade de processamento.** Harmonizar grade, tempo e unidade; ponderar pela população; agregar e propagar incerteza.
+[Necessidade de processamento.]{.field-label} Harmonizar grade, tempo e unidade; ponderar pela população; agregar e propagar incerteza.
 
-### Qualidade, comparação e saúde
+### Qualidade, comparação e saúde {.unnumbered .ficha-section}
 
-**Qualidade e incerteza.** Relatar método, calibração, completude, representatividade da estação, componente modelado, resolução, incerteza, versão e condições meteorológicas.
+[Qualidade e incerteza.]{.field-label} Relatar método, calibração, completude, representatividade da estação, componente modelado, resolução, incerteza, versão e condições meteorológicas.
 
-**Possibilidade de comparação.** Manter poluente, tempo de média, unidade, método, regra de completude, versão do produto e suporte espacial.
+[Possibilidade de comparação.]{.field-label} Manter poluente, tempo de média, unidade, método, regra de completude, versão do produto e suporte espacial.
 
-**Relação com desfechos de saúde.** A poluição do ar aumenta morbidade e mortalidade cardiovascular e respiratória e está associada a câncer de pulmão, infecções respiratórias e desfechos materno-infantis.
+[Relação com desfechos de saúde.]{.field-label} A poluição do ar aumenta morbidade e mortalidade cardiovascular e respiratória e está associada a câncer de pulmão, infecções respiratórias e desfechos materno-infantis.
 
-**Defasagens temporais relevantes.** Preservar concentrações horárias ou diárias para avaliar efeitos agudos e médias de longo prazo para efeitos crônicos.
+[Defasagens temporais relevantes.]{.field-label} Preservar concentrações horárias ou diárias para avaliar efeitos agudos e médias de longo prazo para efeitos crônicos.
 
-**Aplicação na gestão.** Apoiar comunicação de risco, vigilância de agravos, avaliação de políticas de emissão e preparação dos serviços.
+[Aplicação na gestão.]{.field-label} Apoiar comunicação de risco, vigilância de agravos, avaliação de políticas de emissão e preparação dos serviços.
 
-### Referências metodológicas
+### Referências metodológicas {.unnumbered .ficha-section}
 
 - [@vandaalen2024lancet]
 - [@who2021air]

@@ -54,12 +54,18 @@ Do mesmo modo, coexistência espacial ou temporal entre exposição e desfecho n
 
 Use a taxonomia:
 
-- **Conceito-chave:** definição central;
-- **Boa prática:** recomendação aplicável;
-- **Atenção:** risco de erro ou interpretação;
-- **Nota técnica:** detalhe necessário.
+- Conceito-chave: definição central;
+- Boa prática: recomendação aplicável;
+- Atenção: risco de erro ou interpretação;
+- Nota técnica: detalhe necessário.
 
 Boxes não substituem desenvolvimento do texto.
+
+## Ênfase tipográfica
+
+Use negrito apenas quando houver uma função editorial que não possa ser expressa pela estrutura do documento. Não o empregue para destacar palavras ou frases no texto corrido. Prefira títulos para agrupamentos, listas de definições para pares entre termos e significados e callouts para conceitos centrais.
+
+Nos callouts, use a rubrica correspondente à taxonomia acima. Conceitos e definições centrais devem aparecer, de preferência, em callouts intitulados “Conceito-chave” ou “Conceito-chave: assunto”.
 
 ## Recursos visuais
 

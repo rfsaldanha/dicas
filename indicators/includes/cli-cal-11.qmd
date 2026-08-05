@@ -1,48 +1,48 @@
-## Ficha do indicador: Percentual de noites quentes (TN90p) {#sec-cli-cal-11}
+## Ficha do indicador: Percentual de noites quentes (TN90p) {#sec-cli-cal-11 .ficha-title}
 
 ::: {.indicator-card}
-**Código:** CLI-CAL-11 \
-**Título resumido:** Noites quentes — TN90p \
-**Tema:** Temperatura e condições térmicas \
-**Dimensão:** perigo; exposição \
-**Disponibilidade:** [requer processamento climatológico]{.availability}
+[Código:]{.field-label} CLI-CAL-11 \
+[Título resumido:]{.field-label} Noites quentes — TN90p \
+[Tema:]{.field-label} Temperatura e condições térmicas \
+[Dimensão:]{.field-label} perigo; exposição \
+[Disponibilidade:]{.field-label} [requer processamento climatológico]{.availability}
 :::
 
-### Identificação e fundamento
+### Identificação e fundamento {.unnumbered .ficha-section}
 
-**Indicador consolidado em.** Índice de extremos climáticos TN90p, coordenado pelo ETCCDI e documentado pelo Climdex.
+[Indicador consolidado em.]{.field-label} Índice de extremos climáticos TN90p, coordenado pelo ETCCDI e documentado pelo Climdex.
 
-### Conceito
-
+::: {.callout-note icon=false title="Conceito-chave"}
 Percentual de dias no período em que a temperatura mínima diária excede o percentil 90 específico do dia do calendário no período-base.
+:::
 
-### Objetivo
+### Objetivo {.unnumbered .ficha-section}
 
 Medir a frequência relativa de noites excepcionalmente quentes para o clima local.
 
-### Interpretação
+### Interpretação {.unnumbered .ficha-section}
 
 Valor de 20% indica que, entre os dias válidos do período, uma em cada cinco mínimas excedeu o limiar climatológico correspondente. O índice não identifica sozinho ondas nem dose individual.
 
-### Usos
+### Usos {.unnumbered .ficha-section}
 
 - Monitorar tendência de noites quentes.
 - Caracterizar ausência de resfriamento noturno.
 - Apoiar estudos de morbimortalidade e desigualdade térmica.
 
-### Limitações
+### Limitações {.unnumbered .ficha-section}
 
 - Não exige dias consecutivos.
 - A mínima meteorológica diária pode não coincidir com o período noturno civil.
 - Período-base e algoritmo de percentil condicionam o valor.
 - Estação externa não representa necessariamente o interior da moradia.
 
-### Fontes de dados
+### Fontes de dados {.unnumbered .ficha-section}
 
 - Instituto Nacional de Meteorologia — temperaturas máxima, mínima e, quando necessário, horária ([cadastro](../../backmatter/indice-fontes.qmd#inmet))
 - ERA5-Land — temperatura horária em grade, condicionada à validação ([cadastro](../../backmatter/indice-fontes.qmd#era5-land))
 
-### Método de cálculo
+### Método de cálculo {.unnumbered .ficha-section}
 
 Calcular o percentil 90 de TN para cada dia do calendário, em janela centrada de cinco dias no período-base. Contar no período analisado os dias válidos em que TN excede o limiar correspondente e dividir pelo total de dias válidos; no período-base, aplicar o procedimento de bootstrap do ETCCDI.
 
@@ -51,70 +51,70 @@ TN90p_p=100\times\frac{\sum_{d\in p}I(TN_d>TN90_{cal(d)})}{N_{válidos,p}}
 $$
 
 ::: {.indicator-card}
-**Numerador.** Número de dias válidos com TN acima do percentil 90 do calendário.
+[Numerador.]{.field-label} Número de dias válidos com TN acima do percentil 90 do calendário.
 
-**Denominador.** Total de dias com TN válida no período.
+[Denominador.]{.field-label} Total de dias com TN válida no período.
 
-**Unidade de medida.** Percentual (%).
+[Unidade de medida.]{.field-label} Percentual (%).
 
-**Variáveis e categorias de análise.** Temperatura mínima diária; dia do calendário; estação do ano; ano; local.
+[Variáveis e categorias de análise.]{.field-label} Temperatura mínima diária; dia do calendário; estação do ano; ano; local.
 
-**Granularidade.** Valor diário binário e resumo mensal, sazonal ou anual.
+[Granularidade.]{.field-label} Valor diário binário e resumo mensal, sazonal ou anual.
 
-**Periodicidade de atualização.** Anual em monitoramento climático; diária apenas em implementação operacional distinta.
+[Periodicidade de atualização.]{.field-label} Anual em monitoramento climático; diária apenas em implementação operacional distinta.
 
-**Responsabilidade gerencial.** Serviço meteorológico ou climático responsável pela exposição e autoridade de saúde responsável por validar o uso.
+[Responsabilidade gerencial.]{.field-label} Serviço meteorológico ou climático responsável pela exposição e autoridade de saúde responsável por validar o uso.
 
-**Notas.** As definições publicadas abaixo são reproduzidas para comparabilidade. Seu uso como gatilho operacional depende de validação com desfechos locais.
+[Notas.]{.field-label} As definições publicadas abaixo são reproduzidas para comparabilidade. Seu uso como gatilho operacional depende de validação com desfechos locais.
 
-**Análise descritiva do indicador.** Apresentar TN90p com número de dias válidos, tendência, sazonalidade, distribuição territorial e, quando pertinente, associação com desfechos preservando a série diária.
+[Análise descritiva do indicador.]{.field-label} Apresentar TN90p com número de dias válidos, tendência, sazonalidade, distribuição territorial e, quando pertinente, associação com desfechos preservando a série diária.
 
 :::
 
-### Campos complementares para clima, ambiente e saúde
+### Campos complementares para clima, ambiente e saúde {.unnumbered .ficha-section}
 
 ::: {.indicator-card}
-**Unidade territorial.** Estação meteorológica, célula de grade ou território derivado.
+[Unidade territorial.]{.field-label} Estação meteorológica, célula de grade ou território derivado.
 
-**Resolução espacial original.** A da série meteorológica; a atribuição territorial exige método explícito.
+[Resolução espacial original.]{.field-label} A da série meteorológica; a atribuição territorial exige método explícito.
 
-**Resolução temporal.** Entrada diária; saída mensal, sazonal ou anual.
+[Resolução temporal.]{.field-label} Entrada diária; saída mensal, sazonal ou anual.
 
-**Período de referência.** Período climatológico declarado, com 30 anos quando viável; não misturar bases.
+[Período de referência.]{.field-label} Período climatológico declarado, com 30 anos quando viável; não misturar bases.
 
-**Limiar ou valor de referência.** Percentil 90 de TN específico do dia do calendário.
+[Limiar ou valor de referência.]{.field-label} Percentil 90 de TN específico do dia do calendário.
 
 :::
 
-### Disponibilidade e acesso
+### Disponibilidade e acesso {.unnumbered .ficha-section}
 
-**Cobertura geográfica.** A da fonte meteorológica selecionada.
+[Cobertura geográfica.]{.field-label} A da fonte meteorológica selecionada.
 
-**Período disponível.** O da fonte, com extensão suficiente para o período-base.
+[Período disponível.]{.field-label} O da fonte, com extensão suficiente para o período-base.
 
-**Periodicidade de atualização.** Anual em monitoramento climático; diária apenas em implementação operacional distinta.
+[Periodicidade de atualização.]{.field-label} Anual em monitoramento climático; diária apenas em implementação operacional distinta.
 
-**Forma de acesso.** Cálculo sobre série diária controlada, preferencialmente com implementação ETCCDI validada.
+[Forma de acesso.]{.field-label} Cálculo sobre série diária controlada, preferencialmente com implementação ETCCDI validada.
 
-**URL ou identificador persistente.** https://www.climdex.org/learn/indices/
+[URL ou identificador persistente.]{.field-label} https://www.climdex.org/learn/indices/
 
-**Formato dos arquivos.** Tabela por estação ou matriz multidimensional por célula.
+[Formato dos arquivos.]{.field-label} Tabela por estação ou matriz multidimensional por célula.
 
-**Necessidade de processamento.** Controle de qualidade, percentis do calendário, bootstrap do período-base, teste diário e agregação.
+[Necessidade de processamento.]{.field-label} Controle de qualidade, percentis do calendário, bootstrap do período-base, teste diário e agregação.
 
-### Qualidade, comparação e saúde
+### Qualidade, comparação e saúde {.unnumbered .ficha-section}
 
-**Qualidade e incerteza.** Relatar falhas, homogeneidade, período-base, algoritmo de percentil, definição temporal de dia e noite, viés de produtos em grade e sensibilidade aos parâmetros.
+[Qualidade e incerteza.]{.field-label} Relatar falhas, homogeneidade, período-base, algoritmo de percentil, definição temporal de dia e noite, viés de produtos em grade e sensibilidade aos parâmetros.
 
-**Possibilidade de comparação.** Manter variável, período-base, janela do calendário, duração mínima, fonte, resolução e regra de agregação; classificações distintas não são intercambiáveis.
+[Possibilidade de comparação.]{.field-label} Manter variável, período-base, janela do calendário, duração mínima, fonte, resolução e regra de agregação; classificações distintas não são intercambiáveis.
 
-**Relação com desfechos de saúde.** A mínima elevada indica ausência de resfriamento noturno. Episódios compostos combinam calor diurno e noturno, condição associada a maior risco de mortalidade em estudos multicêntricos.
+[Relação com desfechos de saúde.]{.field-label} A mínima elevada indica ausência de resfriamento noturno. Episódios compostos combinam calor diurno e noturno, condição associada a maior risco de mortalidade em estudos multicêntricos.
 
-**Defasagens temporais relevantes.** Preservar datas e valores diários ou horários para estimar efeitos no mesmo dia e defasados; não reduzir a exposição a uma contagem anual em análises de efeitos agudos.
+[Defasagens temporais relevantes.]{.field-label} Preservar datas e valores diários ou horários para estimar efeitos no mesmo dia e defasados; não reduzir a exposição a uma contagem anual em análises de efeitos agudos.
 
-**Aplicação na gestão.** Incorporar persistência noturna e episódios compostos em vigilância calor–saúde, planejamento de comunicação e avaliação retrospectiva.
+[Aplicação na gestão.]{.field-label} Incorporar persistência noturna e episódios compostos em vigilância calor–saúde, planejamento de comunicação e avaliação retrospectiva.
 
-### Referências metodológicas
+### Referências metodológicas {.unnumbered .ficha-section}
 
 - [@climdex2024]
 - [@zhang2005]

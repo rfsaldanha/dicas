@@ -38,7 +38,10 @@ required <- c(
 )
 invisible(lapply(required, check_file))
 
-config <- readLines("_quarto.yml", warn = FALSE, encoding = "UTF-8")
+config <- unlist(lapply(
+  c("_quarto-web.yml", "_quarto-print.yml"),
+  readLines, warn = FALSE, encoding = "UTF-8"
+), use.names = FALSE)
 book_paths <- trimws(sub("^[[:space:]]*-[[:space:]]+", "", grep(
   "^[[:space:]]*-[[:space:]]+.*\\.qmd[[:space:]]*$", config, value = TRUE
 )))

@@ -1,48 +1,48 @@
-## Ficha do indicador: Fator de Excesso de Calor (EHF) {#sec-cli-cal-09}
+## Ficha do indicador: Fator de Excesso de Calor (EHF) {#sec-cli-cal-09 .ficha-title}
 
 ::: {.indicator-card}
-**Código:** CLI-CAL-09 \
-**Título resumido:** Fator de Excesso de Calor — EHF \
-**Tema:** Temperatura e condições térmicas \
-**Dimensão:** perigo; exposição \
-**Disponibilidade:** [requer processamento climatológico]{.availability}
+[Código:]{.field-label} CLI-CAL-09 \
+[Título resumido:]{.field-label} Fator de Excesso de Calor — EHF \
+[Tema:]{.field-label} Temperatura e condições térmicas \
+[Dimensão:]{.field-label} perigo; exposição \
+[Disponibilidade:]{.field-label} [requer processamento climatológico]{.availability}
 :::
 
-### Identificação e fundamento
+### Identificação e fundamento {.unnumbered .ficha-section}
 
-**Indicador consolidado em.** Excess Heat Factor de Nairn e Fawcett, usado para intensidade e classificação de severidade de ondas de calor.
+[Indicador consolidado em.]{.field-label} Excess Heat Factor de Nairn e Fawcett, usado para intensidade e classificação de severidade de ondas de calor.
 
-### Conceito
-
+::: {.callout-note icon=false title="Conceito-chave"}
 Produto entre a significância do calor em uma média de três dias, em relação ao percentil 95 climatológico, e um fator de aclimatação que compara esses três dias aos 30 dias anteriores.
+:::
 
-### Objetivo
+### Objetivo {.unnumbered .ficha-section}
 
 Identificar calor excepcional e recente, incorporando intensidade climatológica e aclimatação de curto prazo.
 
-### Interpretação
+### Interpretação {.unnumbered .ficha-section}
 
 EHF positivo identifica condições de onda de calor na especificação original; valores positivos maiores indicam maior intensidade. A classificação de severidade requer distribuição local do EHF positivo.
 
-### Usos
+### Usos {.unnumbered .ficha-section}
 
 - Monitoramento e previsão de ondas de calor.
 - Classificação relativa de intensidade e severidade.
 - Avaliação de utilização de serviços e gatilhos validados.
 
-### Limitações
+### Limitações {.unnumbered .ficha-section}
 
 - Depende de 33 dias consecutivos de dados.
 - Percentil e aclimatação são locais.
 - Valores em °C² não têm interpretação clínica direta.
 - Desempenho sanitário deve ser validado.
 
-### Fontes de dados
+### Fontes de dados {.unnumbered .ficha-section}
 
 - Instituto Nacional de Meteorologia — observações diárias de temperatura ([cadastro](../../backmatter/indice-fontes.qmd#inmet))
 - ERA5-Land — reanálise em grade condicionada à validação ([cadastro](../../backmatter/indice-fontes.qmd#era5-land))
 
-### Método de cálculo
+### Método de cálculo {.unnumbered .ficha-section}
 
 Calcular a média de temperatura média diária dos dias d a d+2. Subtrair o percentil 95 para obter EHIsig e a média dos 30 dias anteriores para obter EHIaccl. Multiplicar EHIsig pelo máximo entre 1 e EHIaccl.
 
@@ -51,70 +51,70 @@ EHF_d = EHI_{sig,d}\max(1,EHI_{accl,d});\quad EHI_{sig,d}=\overline{T}_{d:d+2}-T
 $$
 
 ::: {.indicator-card}
-**Numerador.** Não se aplica.
+[Numerador.]{.field-label} Não se aplica.
 
-**Denominador.** Não se aplica.
+[Denominador.]{.field-label} Não se aplica.
 
-**Unidade de medida.** Grau Celsius ao quadrado (°C²), segundo a formulação operacional.
+[Unidade de medida.]{.field-label} Grau Celsius ao quadrado (°C²), segundo a formulação operacional.
 
-**Variáveis e categorias de análise.** Temperatura máxima e mínima diárias ou temperatura média; local; período-base; episódio; temporada.
+[Variáveis e categorias de análise.]{.field-label} Temperatura máxima e mínima diárias ou temperatura média; local; período-base; episódio; temporada.
 
-**Granularidade.** Estação ou célula de grade; extensão regional é uma derivação posterior.
+[Granularidade.]{.field-label} Estação ou célula de grade; extensão regional é uma derivação posterior.
 
-**Periodicidade de atualização.** Diária em aplicação operacional ou anual em monitoramento climático.
+[Periodicidade de atualização.]{.field-label} Diária em aplicação operacional ou anual em monitoramento climático.
 
-**Responsabilidade gerencial.** Serviço meteorológico ou climático que produza o índice e instituição de saúde que valide seu uso.
+[Responsabilidade gerencial.]{.field-label} Serviço meteorológico ou climático que produza o índice e instituição de saúde que valide seu uso.
 
-**Notas.** Estes índices combinam mais de um aspecto do calor. Seus valores não são equivalentes a temperatura do ar nem a risco relativo.
+[Notas.]{.field-label} Estes índices combinam mais de um aspecto do calor. Seus valores não são equivalentes a temperatura do ar nem a risco relativo.
 
-**Análise descritiva do indicador.** Mostrar EHF diário, início e fim, pico, soma por episódio e classe de severidade com referência local.
+[Análise descritiva do indicador.]{.field-label} Mostrar EHF diário, início e fim, pico, soma por episódio e classe de severidade com referência local.
 
 :::
 
-### Campos complementares para clima, ambiente e saúde
+### Campos complementares para clima, ambiente e saúde {.unnumbered .ficha-section}
 
 ::: {.indicator-card}
-**Unidade territorial.** Estação meteorológica, célula de grade ou território derivado.
+[Unidade territorial.]{.field-label} Estação meteorológica, célula de grade ou território derivado.
 
-**Resolução espacial original.** A da série meteorológica selecionada.
+[Resolução espacial original.]{.field-label} A da série meteorológica selecionada.
 
-**Resolução temporal.** Entrada diária; saída diária, por episódio e anual.
+[Resolução temporal.]{.field-label} Entrada diária; saída diária, por episódio e anual.
 
-**Período de referência.** Período climatológico usado para o percentil 95 e histórico local de EHF positivo para severidade.
+[Período de referência.]{.field-label} Período climatológico usado para o percentil 95 e histórico local de EHF positivo para severidade.
 
-**Limiar ou valor de referência.** EHF maior que zero para condição de onda de calor; categorias de severidade derivam da distribuição local conforme o método.
+[Limiar ou valor de referência.]{.field-label} EHF maior que zero para condição de onda de calor; categorias de severidade derivam da distribuição local conforme o método.
 
 :::
 
-### Disponibilidade e acesso
+### Disponibilidade e acesso {.unnumbered .ficha-section}
 
-**Cobertura geográfica.** A da fonte, condicionada à qualidade e à extensão da série.
+[Cobertura geográfica.]{.field-label} A da fonte, condicionada à qualidade e à extensão da série.
 
-**Período disponível.** O da fonte, incluindo período-base suficiente.
+[Período disponível.]{.field-label} O da fonte, incluindo período-base suficiente.
 
-**Periodicidade de atualização.** Diária em aplicação operacional ou anual em monitoramento climático.
+[Periodicidade de atualização.]{.field-label} Diária em aplicação operacional ou anual em monitoramento climático.
 
-**Forma de acesso.** Cálculo sobre série diária com implementação e parâmetros versionados.
+[Forma de acesso.]{.field-label} Cálculo sobre série diária com implementação e parâmetros versionados.
 
-**URL ou identificador persistente.** https://doi.org/10.3390/ijerph120100227
+[URL ou identificador persistente.]{.field-label} https://doi.org/10.3390/ijerph120100227
 
-**Formato dos arquivos.** Tabela por estação ou arquivo multidimensional por célula.
+[Formato dos arquivos.]{.field-label} Tabela por estação ou arquivo multidimensional por célula.
 
-**Necessidade de processamento.** Calcular temperatura média diária, percentil 95, médias móveis de 3 e 30 dias, EHI e EHF; preservar resultados diários.
+[Necessidade de processamento.]{.field-label} Calcular temperatura média diária, percentil 95, médias móveis de 3 e 30 dias, EHI e EHF; preservar resultados diários.
 
-### Qualidade, comparação e saúde
+### Qualidade, comparação e saúde {.unnumbered .ficha-section}
 
-**Qualidade e incerteza.** Relatar falhas, homogeneidade, período-base, algoritmo de percentil, viés da fonte e sensibilidade aos parâmetros.
+[Qualidade e incerteza.]{.field-label} Relatar falhas, homogeneidade, período-base, algoritmo de percentil, viés da fonte e sensibilidade aos parâmetros.
 
-**Possibilidade de comparação.** Manter fórmula, período-base, calendário, fonte harmonizada e tratamento de falhas; variantes não são intercambiáveis.
+[Possibilidade de comparação.]{.field-label} Manter fórmula, período-base, calendário, fonte harmonizada e tratamento de falhas; variantes não são intercambiáveis.
 
-**Relação com desfechos de saúde.** Índices de magnitude e severidade podem ordenar episódios e apoiar a avaliação de impactos, mas seu gradiente deve ser validado com desfechos e capacidade de resposta locais.
+[Relação com desfechos de saúde.]{.field-label} Índices de magnitude e severidade podem ordenar episódios e apoiar a avaliação de impactos, mas seu gradiente deve ser validado com desfechos e capacidade de resposta locais.
 
-**Defasagens temporais relevantes.** Preservar os valores diários e datas para estudar efeitos no mesmo dia e defasados.
+[Defasagens temporais relevantes.]{.field-label} Preservar os valores diários e datas para estudar efeitos no mesmo dia e defasados.
 
-**Aplicação na gestão.** Classificar episódios, contextualizar alertas e avaliar retrospectivamente pressão sobre serviços.
+[Aplicação na gestão.]{.field-label} Classificar episódios, contextualizar alertas e avaliar retrospectivamente pressão sobre serviços.
 
-### Referências metodológicas
+### Referências metodológicas {.unnumbered .ficha-section}
 
 - [@nairn2015ehf]
 - [@wmoWho2015heat]

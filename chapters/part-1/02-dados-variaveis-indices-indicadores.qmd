@@ -2,21 +2,27 @@
 
 Medir não é apenas atribuir um número. Antes do cálculo, é preciso definir o que será representado, para qual decisão, em que território e período e com quais limites. Essa sequência evita que qualquer coluna de uma planilha seja apresentada como indicador e que produtos de naturezas distintas sejam comparados como se fossem equivalentes.
 
-Entre o fenômeno e o número existe uma cadeia de representação. Primeiro se formula um **conceito** — por exemplo, exposição ao calor. Em seguida escolhem-se dimensões observáveis — intensidade térmica, duração e presença de pessoas. Essas dimensões são convertidas em variáveis, obtidas por instrumentos ou sistemas, submetidas a regras de qualidade e combinadas por um método. Somente ao final surge uma medida interpretável. Cada elo pode introduzir redução, viés ou incerteza; nenhum software elimina a necessidade de justificar essas escolhas.
+Entre o fenômeno e o número existe uma cadeia de representação. Primeiro se formula um conceito — por exemplo, exposição ao calor. Em seguida escolhem-se dimensões observáveis — intensidade térmica, duração e presença de pessoas. Essas dimensões são convertidas em variáveis, obtidas por instrumentos ou sistemas, submetidas a regras de qualidade e combinadas por um método. Somente ao final surge uma medida interpretável. Cada elo pode introduzir redução, viés ou incerteza; nenhum software elimina a necessidade de justificar essas escolhas.
 
 Essa distinção é central em sistemas públicos de informação. Os Princípios Fundamentais das Estatísticas Oficiais associam utilidade pública a métodos profissionais, transparência, metadados, imparcialidade e prevenção do uso incorreto [@un2014statistics]. A Ficha de Qualificação do Indicador da RIPSA cumpre função semelhante ao tornar visíveis conceituação, interpretação, método, fontes e limitações [@ripsa2026]. Neste livro, a ficha não é um apêndice burocrático: é a especificação que mantém o número ligado ao conceito.
 
 ## Do registro à decisão
 
-Um **dado** é um registro, valor ou representação associado a uma observação, estimativa ou operação. Pode ser a leitura de um termômetro, a classe atribuída a um pixel de imagem, o número de internações registrado em um sistema ou a localização de um estabelecimento.
+::: {.callout-important icon=false title="Conceito-chave: dado, variável, índice, indicador e informação"}
 
-Uma **variável** é uma característica que pode assumir diferentes valores ou categorias. Temperatura do ar, concentração de PM2,5, classe de cobertura da terra e situação de funcionamento de um serviço são variáveis. A variável descreve o que muda; o dado é uma realização dessa variável em determinado suporte e momento.
+Um dado é um registro, valor ou representação associado a uma observação, estimativa ou operação. Pode ser a leitura de um termômetro, a classe atribuída a um pixel de imagem, o número de internações registrado em um sistema ou a localização de um estabelecimento.
 
-Um **índice** resulta de uma transformação ou síntese. Pode combinar variáveis, padronizar escalas ou expressar uma condição que não é medida diretamente. O nome “índice”, porém, não garante validade: fórmula, componentes, ponderações e interpretação precisam ser documentados.
+Uma variável é uma característica que pode assumir diferentes valores ou categorias. Temperatura do ar, concentração de PM2,5, classe de cobertura da terra e situação de funcionamento de um serviço são variáveis. A variável descreve o que muda; o dado é uma realização dessa variável em determinado suporte e momento.
 
-Um **indicador** vincula uma medida a um objetivo representacional e a uma interpretação. A temperatura máxima diária torna-se indicador quando é definida como medida para acompanhar uma condição térmica em um território, com método, unidade, período, fonte, limitações e uso explicitados.
+Um índice resulta de uma transformação ou síntese. Pode combinar variáveis, padronizar escalas ou expressar uma condição que não é medida diretamente. O nome “índice”, porém, não garante validade: fórmula, componentes, ponderações e interpretação precisam ser documentados.
 
-Também convém distinguir **informação** de dado. Informação é dado interpretado em um contexto e para uma pergunta. “38 °C” é um valor; “máxima observada às 15h na estação X, acima do percentil 99 local e prevista para persistir por três dias” é informação mais próxima de uma decisão. Ainda assim, ela não informa sozinha quem está exposto, que serviços podem ser afetados ou que ação está autorizada.
+Um indicador vincula uma medida a um objetivo representacional e a uma interpretação. A temperatura máxima diária torna-se indicador quando é definida como medida para acompanhar uma condição térmica em um território, com método, unidade, período, fonte, limitações e uso explicitados.
+
+Também convém distinguir informação de dado. Informação é dado interpretado em um contexto e para uma pergunta. “38 °C” é um valor; “máxima observada às 15h na estação X, acima do percentil 99 local e prevista para persistir por três dias” é informação mais próxima de uma decisão. Ainda assim, ela não informa sozinha quem está exposto, que serviços podem ser afetados ou que ação está autorizada.
+
+:::
+
+::: {#qua-cadeia-medicao}
 
 | Camada | Operação principal | Exemplo com calor | Pergunta de controle |
 |---|---|---|---|
@@ -28,11 +34,13 @@ Também convém distinguir **informação** de dado. Informação é dado interp
 | Indicador | ligar medida, objetivo e interpretação | ocorrência anual de ondas de calor pela definição Z | Para que uso a medida é válida e quais são seus limites? |
 | Informação para decisão | combinar indicador e contexto operacional | alerta, população, capacidade e ações pactuadas | Quem deve fazer o quê e quando? |
 
-: Da realidade observada à informação para decisão {#tbl-cadeia-medicao}
+Da realidade observada à informação para decisão
+
+:::
 
 A cadeia não precisa ser longa, mas precisa ser reconstruível. Um indicador simples pode exigir apenas uma variável e uma contagem; um indicador composto pode exigir dezenas de bases. Em ambos os casos, a validade depende da correspondência entre aquilo que se afirma medir e aquilo que as operações efetivamente produzem.
 
-::: {.callout-important title="Conceito-chave"}
+::: {.callout-important icon=false title="Conceito-chave"}
 O mesmo valor pode ser apenas um dado em uma tabela ou integrar um indicador. O que o transforma em indicador é a articulação entre conceito, finalidade, método e interpretação.
 :::
 
@@ -44,15 +52,15 @@ Uma temperatura registrada por estação representa a medição naquele ponto e 
 
 ### Tipo, unidade e escala de mensuração
 
-Variáveis **quantitativas contínuas** podem assumir valores em um intervalo, como temperatura e concentração. **Contagens** registram ocorrências discretas, como óbitos ou estabelecimentos interrompidos. Variáveis **categóricas nominais** distinguem classes sem ordem necessária, como tipo de cobertura da terra. Variáveis **ordinais** possuem ordem, mas a distância entre categorias não é automaticamente mensurável, como níveis “baixo”, “moderado” e “alto”. Tratar uma escala ordinal como se cada passo tivesse a mesma distância cria operações sem sustentação.
+Variáveis quantitativas contínuas podem assumir valores em um intervalo, como temperatura e concentração. Contagens registram ocorrências discretas, como óbitos ou estabelecimentos interrompidos. Variáveis categóricas nominais distinguem classes sem ordem necessária, como tipo de cobertura da terra. Variáveis ordinais possuem ordem, mas a distância entre categorias não é automaticamente mensurável, como níveis “baixo”, “moderado” e “alto”. Tratar uma escala ordinal como se cada passo tivesse a mesma distância cria operações sem sustentação.
 
 A unidade faz parte do significado. Converter kelvin em graus Celsius preserva diferenças térmicas por uma transformação conhecida; somar classes de risco codificadas como 1, 2 e 3 não transforma categorias em grandeza física. Percentuais exigem denominador explícito; taxas exigem população sob risco e período; concentrações exigem volume ou massa de referência. Unidades aparentemente compatíveis podem representar operações distintas.
 
-Outra distinção útil separa grandezas **intensivas** e **extensivas**. Temperatura e concentração não crescem apenas porque a área aumentou; população, volume de precipitação sobre uma bacia e número de eventos dependem da extensão considerada. Ao agregar territórios, médias, somas e ponderações precisam respeitar essa natureza. Somar temperaturas de bairros não produz “temperatura municipal”; somar populações, em princípio, produz uma população total, desde que as referências temporais e as categorias não se sobreponham.
+Outra distinção útil separa grandezas intensivas e extensivas. Temperatura e concentração não crescem apenas porque a área aumentou; população, volume de precipitação sobre uma bacia e número de eventos dependem da extensão considerada. Ao agregar territórios, médias, somas e ponderações precisam respeitar essa natureza. Somar temperaturas de bairros não produz “temperatura municipal”; somar populações, em princípio, produz uma população total, desde que as referências temporais e as categorias não se sobreponham.
 
 ### Variável latente e variável substituta
 
-Nem todo conceito é diretamente observável. Vulnerabilidade, resiliência, conforto térmico e insegurança hídrica são construções que precisam ser representadas por dimensões e variáveis. Uma **variável substituta** ou *proxy* é usada quando a grandeza de interesse não está disponível. Renda pode informar capacidade material, mas não mede sozinha proteção; endereço residencial aproxima localização, mas não reproduz mobilidade; cobertura de arborização aproxima uma condição ambiental, mas não garante sombra acessível.
+Nem todo conceito é diretamente observável. Vulnerabilidade, resiliência, conforto térmico e insegurança hídrica são construções que precisam ser representadas por dimensões e variáveis. Uma variável substituta ou *proxy* é usada quando a grandeza de interesse não está disponível. Renda pode informar capacidade material, mas não mede sozinha proteção; endereço residencial aproxima localização, mas não reproduz mobilidade; cobertura de arborização aproxima uma condição ambiental, mas não garante sombra acessível.
 
 O uso de *proxy* é defensável quando a relação conceitual é explícita, a direção do possível viés é discutida e não se atribui ao substituto um significado que ele não possui. Disponibilidade não é validade: a coluna mais fácil de obter não se torna a melhor representação do fenômeno.
 
@@ -66,15 +74,15 @@ Ao documentar uma variável, registre pelo menos:
 - natureza observada, estimada, modelada, prevista ou projetada;
 - versão e data de acesso.
 
-Esses elementos permitem avaliar **validade de mensuração**: se a operação representa adequadamente o conceito na população e no contexto de uso. Eles também permitem separar erro aleatório, que produz dispersão, de erro sistemático, que desloca valores ou grupos em determinada direção. O capítulo seguinte desenvolve qualidade, suporte e incerteza; os requisitos da inferência causal [@hernan2020causal] são retomados no capítulo 12.
+Esses elementos permitem avaliar validade de mensuração: se a operação representa adequadamente o conceito na população e no contexto de uso. Eles também permitem separar erro aleatório, que produz dispersão, de erro sistemático, que desloca valores ou grupos em determinada direção. O capítulo seguinte desenvolve qualidade, suporte e incerteza; os requisitos da inferência causal [@hernan2020causal] são retomados no capítulo 12.
 
 ## Índices
 
 Índices são úteis quando uma única variável não representa adequadamente o fenômeno. Sensação térmica, seca e vulnerabilidade são exemplos de conceitos que podem exigir combinações ou transformações. Há três decisões que não devem permanecer ocultas:
 
-1. **seleção de componentes:** quais dimensões entram e quais ficam de fora;
-2. **padronização e ponderação:** como medidas em escalas diferentes são combinadas;
-3. **classificação:** como valores contínuos são convertidos em categorias ou níveis de ação.
+1. seleção de componentes: quais dimensões entram e quais ficam de fora;
+2. padronização e ponderação: como medidas em escalas diferentes são combinadas;
+3. classificação: como valores contínuos são convertidos em categorias ou níveis de ação.
 
 Um índice composto facilita comunicação e comparação, mas pode esconder compensações. Um valor favorável em uma dimensão pode neutralizar numericamente uma condição crítica em outra. Por isso, apresente o índice junto de seus componentes sempre que eles forem relevantes à decisão.
 
@@ -82,11 +90,11 @@ Um índice composto facilita comunicação e comparação, mas pode esconder com
 
 O termo “índice” é empregado para construções metodologicamente diferentes:
 
-- **transformação de uma variável**, como anomalia padronizada;
-- **regra de evento**, que combina limiar, duração e continuidade;
-- **modelo físico ou biometeorológico**, como UTCI ou WBGT;
-- **síntese multivariada**, como índice de vulnerabilidade;
-- **escala operacional**, que converte valores em categorias de comunicação.
+- transformação de uma variável, como anomalia padronizada;
+- regra de evento, que combina limiar, duração e continuidade;
+- modelo físico ou biometeorológico, como UTCI ou WBGT;
+- síntese multivariada, como índice de vulnerabilidade;
+- escala operacional, que converte valores em categorias de comunicação.
 
 Esses tipos não podem ser avaliados pelo mesmo critério. Um índice físico é examinado quanto a hipóteses, entradas e domínio de validade. Um índice composto exige, adicionalmente, modelo conceitual, tratamento de correlação, normalização, ponderação, regra de agregação e análise de sensibilidade. Uma categoria operacional exige validação dos limiares e das ações associadas.
 
@@ -94,11 +102,15 @@ Esses tipos não podem ser avaliados pelo mesmo critério. Um índice físico é
 
 A construção começa por um modelo conceitual, não por uma matriz de correlação. O modelo define dimensões e estabelece por que cada componente pertence ao índice. Depois são avaliadas disponibilidade, direção, distribuição, redundância e qualidade. O manual da OCDE e do Centro Comum de Investigação da Comissão Europeia organiza esse processo em quadro teórico, seleção dos dados, imputação, análise multivariada, normalização, ponderação, agregação, análise de incerteza e retorno aos componentes [@oecd2008composite].
 
-**Normalização** coloca variáveis em escala comum. Escore-z, transformação mínimo–máximo, distância a uma meta e classificação por postos produzem resultados diferentes. Mínimos e máximos amostrais tornam o índice sensível à entrada de novos territórios; postos descartam a magnitude das diferenças; escore-z depende da distribuição e da referência. A transformação escolhida precisa corresponder ao uso.
+::: {.callout-note icon=false title="Decisões na construção de índices"}
 
-**Ponderação** expressa importância relativa ou uma propriedade do método; não revela automaticamente importância causal. Pesos iguais também são uma escolha. Pesos derivados de componentes principais maximizam uma estrutura estatística de variância, mas não necessariamente a relevância sanitária. Pesos definidos por especialistas ou participação social podem incorporar julgamento legítimo, desde que o processo seja transparente e a sensibilidade seja testada.
+Normalização coloca variáveis em escala comum. Escore-z, transformação mínimo–máximo, distância a uma meta e classificação por postos produzem resultados diferentes. Mínimos e máximos amostrais tornam o índice sensível à entrada de novos territórios; postos descartam a magnitude das diferenças; escore-z depende da distribuição e da referência. A transformação escolhida precisa corresponder ao uso.
 
-**Agregação** determina compensabilidade. Em uma soma ponderada, bom resultado em um componente pode compensar condição crítica em outro. Média geométrica reduz parcialmente essa compensação e exige tratamento de zeros. Regras não compensatórias podem estabelecer requisitos mínimos, mas produzem descontinuidades. Quando água, energia ou acesso são indispensáveis à continuidade de um serviço, permitir compensação irrestrita pode ser conceitualmente errado.
+Ponderação expressa importância relativa ou uma propriedade do método; não revela automaticamente importância causal. Pesos iguais também são uma escolha. Pesos derivados de componentes principais maximizam uma estrutura estatística de variância, mas não necessariamente a relevância sanitária. Pesos definidos por especialistas ou participação social podem incorporar julgamento legítimo, desde que o processo seja transparente e a sensibilidade seja testada.
+
+Agregação determina compensabilidade. Em uma soma ponderada, bom resultado em um componente pode compensar condição crítica em outro. Média geométrica reduz parcialmente essa compensação e exige tratamento de zeros. Regras não compensatórias podem estabelecer requisitos mínimos, mas produzem descontinuidades. Quando água, energia ou acesso são indispensáveis à continuidade de um serviço, permitir compensação irrestrita pode ser conceitualmente errado.
+
+:::
 
 Um índice composto deve ser recalculado sob escolhas plausíveis de componentes, normalização, pesos e agregação. Se pequenas mudanças reorganizam completamente as prioridades, o ranking é instável. O resultado deve ser apresentado com perfis dos componentes, não apenas como nota final [@oecd2008composite].
 
@@ -106,10 +118,10 @@ Um índice composto deve ser recalculado sob escolhas plausíveis de componentes
 
 Um indicador deve permitir responder quatro perguntas:
 
-- **O que representa?** A definição delimita o fenômeno ou condição.
-- **Como é obtido?** O método explicita dados, fórmula e regras.
-- **Como deve ser interpretado?** A leitura esclarece direção, unidade e limites.
-- **Para que será usado?** A finalidade conecta a medida a uma ação ou análise.
+- O que representa? A definição delimita o fenômeno ou condição.
+- Como é obtido? O método explicita dados, fórmula e regras.
+- Como deve ser interpretado? A leitura esclarece direção, unidade e limites.
+- Para que será usado? A finalidade conecta a medida a uma ação ou análise.
 
 Indicadores também precisam declarar território, período e população ou infraestrutura em escopo. “População exposta ao calor” não é uma medida completa sem definição de calor, fonte térmica, resolução, período, critério de exposição e população de referência.
 
@@ -117,16 +129,16 @@ Indicadores também precisam declarar território, período e população ou inf
 
 Um indicador é adequado quando suas propriedades são compatíveis com a finalidade. Entre as principais estão:
 
-- **relevância:** representa uma questão que importa à decisão;
-- **validade:** corresponde ao conceito que afirma representar;
-- **confiabilidade:** produz resultados consistentes sob o mesmo procedimento;
-- **sensibilidade:** responde a mudanças relevantes do fenômeno ou da intervenção;
-- **especificidade interpretativa:** não muda predominantemente por processos alheios ao conceito;
-- **comparabilidade:** mantém definição e método entre lugares ou períodos;
-- **oportunidade:** chega antes de perder utilidade;
-- **desagregação:** permite revelar distribuições importantes sem violar proteção;
-- **interpretabilidade:** unidade, direção e limites podem ser compreendidos;
-- **acionabilidade:** o resultado pode ser ligado a responsabilidade ou decisão.
+- relevância: representa uma questão que importa à decisão;
+- validade: corresponde ao conceito que afirma representar;
+- confiabilidade: produz resultados consistentes sob o mesmo procedimento;
+- sensibilidade: responde a mudanças relevantes do fenômeno ou da intervenção;
+- especificidade interpretativa: não muda predominantemente por processos alheios ao conceito;
+- comparabilidade: mantém definição e método entre lugares ou períodos;
+- oportunidade: chega antes de perder utilidade;
+- desagregação: permite revelar distribuições importantes sem violar proteção;
+- interpretabilidade: unidade, direção e limites podem ser compreendidos;
+- acionabilidade: o resultado pode ser ligado a responsabilidade ou decisão.
 
 Nenhuma propriedade domina todas as outras. Um indicador oportuno pode ser preliminar; um indicador preciso pode chegar tarde; uma medida comparável internacionalmente pode ser pouco sensível à realidade local. Qualidade significa adequação ao uso e exige declarar os compromissos feitos, princípio presente tanto nas estatísticas oficiais quanto na avaliação de dados de saúde [@un2014statistics; @who2023dqa].
 
@@ -144,7 +156,7 @@ Um indicador simples pode derivar de uma variável por uma operação direta, co
 
 “Simples” não significa automaticamente confiável, e “composto” não significa automaticamente mais informativo. A escolha depende da pergunta. Para acionar uma rotina operacional, uma medida simples e atualizada pode ser mais útil. Para priorização estrutural, múltiplas dimensões podem ser necessárias.
 
-Também é possível trabalhar com um **painel de indicadores simples** sem agregá-los. Essa solução preserva as dimensões e torna conflitos visíveis: um território pode apresentar perigo elevado e boa capacidade, ou perigo moderado e exposição muito alta. O custo é exigir leitura conjunta. A agregação só é justificável quando existe interpretação defensável para o valor combinado.
+Também é possível trabalhar com um painel de indicadores simples sem agregá-los. Essa solução preserva as dimensões e torna conflitos visíveis: um território pode apresentar perigo elevado e boa capacidade, ou perigo moderado e exposição muito alta. O custo é exigir leitura conjunta. A agregação só é justificável quando existe interpretação defensável para o valor combinado.
 
 ### Indicadores absolutos e relativos
 
@@ -152,13 +164,15 @@ Medidas absolutas expressam quantidades, como o número de pessoas afetadas ou d
 
 Medidas relativas colocam a quantidade em relação a uma referência, como a proporção da população exposta. Facilitam comparações entre territórios de tamanhos diferentes, mas podem ocultar volumes operacionais. Um município pequeno pode ter grande proporção exposta e poucas pessoas; uma capital pode ter proporção menor e contingente muito maior.
 
-::: {.callout-note title="Boa prática"}
+::: {.callout-note icon=false title="Boa prática"}
 Quando a decisão envolve magnitude e prioridade relativa, apresente o número absoluto e a medida relativa lado a lado.
 :::
 
 ## Perigo, exposição, vulnerabilidade, efeito e resposta
 
 A classificação por dimensão ajuda a evitar interpretações indevidas.
+
+::: {#qua-dimensoes-indicadores}
 
 | Dimensão | Pergunta principal | Exemplo de medida |
 |---|---|---|
@@ -170,7 +184,9 @@ A classificação por dimensão ajuda a evitar interpretações indevidas.
 | Adaptação | Que mudanças reduzem riscos presentes ou futuros? | Implantação de protocolo para episódios de calor |
 | Resiliência | Como sistemas mantêm e recuperam funções? | Tempo de restabelecimento de serviço essencial |
 
-: Dimensões analíticas dos indicadores {#tbl-dimensoes-indicadores}
+Dimensões analíticas dos indicadores
+
+:::
 
 Um indicador pode ocupar mais de uma dimensão, mas a classificação múltipla precisa ser justificada. Temperatura extrema descreve principalmente perigo; quando combinada com a distribuição populacional, pode integrar uma medida de exposição. A classificação não deve substituir a descrição do método.
 
@@ -180,13 +196,17 @@ Esses marcos são mapas de raciocínio, não sequências rígidas. Uma política
 
 ## Valores observados, estimados e modelados
 
-**Observado** indica que um instrumento ou registro captou diretamente uma grandeza ou ocorrência segundo determinado procedimento. Isso não elimina erro de medição, falha ou viés de cobertura.
+::: {.callout-note icon=false title="Conceito-chave: natureza dos valores"}
 
-**Estimado** indica que o valor foi inferido a partir de dados e método. Interpolação entre estações, estimativa populacional e classificação de imagem são exemplos.
+Observado indica que um instrumento ou registro captou diretamente uma grandeza ou ocorrência segundo determinado procedimento. Isso não elimina erro de medição, falha ou viés de cobertura.
 
-**Modelado** indica dependência substantiva de um modelo que representa processos ou relações. Reanálises combinam modelos e observações assimiladas para produzir campos coerentes no espaço e no tempo.
+Estimado indica que o valor foi inferido a partir de dados e método. Interpolação entre estações, estimativa populacional e classificação de imagem são exemplos.
 
-**Previsto** descreve condições futuras em horizonte operacional e depende de uma rodada e de um modelo. **Projetado** explora futuros condicionados a cenários e hipóteses. Nenhum desses termos é intercambiável.
+Modelado indica dependência substantiva de um modelo que representa processos ou relações. Reanálises combinam modelos e observações assimiladas para produzir campos coerentes no espaço e no tempo.
+
+Previsto descreve condições futuras em horizonte operacional e depende de uma rodada e de um modelo. Projetado explora futuros condicionados a cenários e hipóteses. Nenhum desses termos é intercambiável.
+
+:::
 
 Essas categorias descrevem o estatuto de produção do valor, não uma hierarquia simples de qualidade. Uma observação isolada pode representar mal um território; uma estimativa modelada e validada pode ser mais adequada a uma análise espacial. O problema começa quando a natureza do valor é ocultada ou quando a validação não corresponde ao uso.
 
@@ -198,18 +218,22 @@ Não preencha lacunas de observação com previsão ou projeção sem tornar a m
 
 ## Indicador ambiental e indicador de saúde ambiental
 
-Um **indicador ambiental** caracteriza condição, pressão, estado ou mudança no ambiente. Concentração de poluente, cobertura vegetal e precipitação acumulada são exemplos possíveis quando qualificados.
+::: {.callout-note icon=false title="Conceito-chave: indicador ambiental e indicador de saúde ambiental"}
 
-Um **indicador de saúde ambiental** articula ambiente e saúde de forma mais direta. Pode representar exposição populacional, efeito sobre a saúde, vulnerabilidade ou resposta institucional. A simples presença de uma variável ambiental não demonstra efeito sanitário.
+Um indicador ambiental caracteriza condição, pressão, estado ou mudança no ambiente. Concentração de poluente, cobertura vegetal e precipitação acumulada são exemplos possíveis quando qualificados.
+
+Um indicador de saúde ambiental articula ambiente e saúde de forma mais direta. Pode representar exposição populacional, efeito sobre a saúde, vulnerabilidade ou resposta institucional. A simples presença de uma variável ambiental não demonstra efeito sanitário.
+
+:::
 
 Por exemplo, a concentração média diária de PM2,5 é uma medida ambiental e potencial indicador de exposição. Internações por doença respiratória são um indicador de saúde. A associação entre ambas exige desenho analítico, alinhamento temporal e espacial, controle de confundimento e avaliação de incerteza. A justaposição de duas séries não estabelece causalidade.
 
 Há pelo menos quatro maneiras pelas quais ambiente e saúde podem aparecer em um indicador:
 
-1. **condição ambiental com relevância sanitária**, como PM2,5 médio anual;
-2. **exposição populacional**, como PM2,5 ponderado pela distribuição residencial;
-3. **efeito observado**, como internações por diagnóstico e período definidos;
-4. **efeito atribuível estimado**, que combina exposição, função exposição–resposta, população e contrafactual.
+1. condição ambiental com relevância sanitária, como PM2,5 médio anual;
+2. exposição populacional, como PM2,5 ponderado pela distribuição residencial;
+3. efeito observado, como internações por diagnóstico e período definidos;
+4. efeito atribuível estimado, que combina exposição, função exposição–resposta, população e contrafactual.
 
 Passar de uma categoria à seguinte exige dados e hipóteses adicionais. A evidência de que um poluente causa dano em determinada literatura não transforma automaticamente qualquer mapa desse poluente em estimativa local de casos. Inferência causal requer explicitar intervenção ou contraste, população, tempo zero, desfecho, confundimento, seleção e mensuração [@hernan2020causal].
 

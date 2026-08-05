@@ -1,36 +1,36 @@
-## Ficha do indicador: Extensão espacial diária contígua da onda de calor {#sec-cli-exp-01}
+## Ficha do indicador: Extensão espacial diária contígua da onda de calor {#sec-cli-exp-01 .ficha-title}
 
 ::: {.indicator-card}
-**Código:** CLI-EXP-01 \
-**Título resumido:** Extensão contígua da onda de calor \
-**Tema:** Temperatura e condições térmicas \
-**Dimensão:** perigo; exposição \
-**Disponibilidade:** [requer processamento geoespacial]{.availability}
+[Código:]{.field-label} CLI-EXP-01 \
+[Título resumido:]{.field-label} Extensão contígua da onda de calor \
+[Tema:]{.field-label} Temperatura e condições térmicas \
+[Dimensão:]{.field-label} perigo; exposição \
+[Disponibilidade:]{.field-label} [requer processamento geoespacial]{.availability}
 :::
 
-### Identificação e fundamento
+### Identificação e fundamento {.unnumbered .ficha-section}
 
-**Indicador consolidado em.** Método de componentes conexos de Skinner et al. para identificar e medir ondas de calor espacialmente contíguas.
+[Indicador consolidado em.]{.field-label} Método de componentes conexos de Skinner et al. para identificar e medir ondas de calor espacialmente contíguas.
 
-### Conceito
-
+::: {.callout-note icon=false title="Conceito-chave"}
 Área total das células de grade espacialmente conectadas que, em um mesmo dia, pertencem a uma onda de calor definida por limiar e duração explícitos.
+:::
 
-### Objetivo
+### Objetivo {.unnumbered .ficha-section}
 
 Medir o tamanho territorial de episódios de calor espacialmente coerentes.
 
-### Interpretação
+### Interpretação {.unnumbered .ficha-section}
 
 Valor maior indica uma onda simultaneamente mais extensa. Pode-se relatar a maior área diária do episódio, a trajetória diária e a proporção do território afetada.
 
-### Usos
+### Usos {.unnumbered .ficha-section}
 
 - Caracterizar alcance regional de ondas de calor.
 - Planejar coordenação entre jurisdições e redes assistenciais.
 - Contextualizar população e serviços potencialmente expostos.
 
-### Limitações
+### Limitações {.unnumbered .ficha-section}
 
 - Depende fortemente da resolução e da regra de vizinhança.
 - A definição publicada conecta células por aresta ou canto e admite separações especificadas; adaptações devem ser declaradas.
@@ -38,12 +38,12 @@ Valor maior indica uma onda simultaneamente mais extensa. Pode-se relatar a maio
 - Continuidade física pode ser afetada por máscaras de costa
 - ilhas e lacunas.
 
-### Fontes de dados
+### Fontes de dados {.unnumbered .ficha-section}
 
 - ERA5-Land — temperatura diária em grade para identificar células em onda de calor ([cadastro](../../backmatter/indice-fontes.qmd#era5-land))
 - Instituto Nacional de Meteorologia — observações para avaliar o campo de temperatura e seus extremos ([cadastro](../../backmatter/indice-fontes.qmd#inmet))
 
-### Método de cálculo
+### Método de cálculo {.unnumbered .ficha-section}
 
 Em cada célula terrestre, identificar dias de onda segundo uma definição fixa. Para cada dia, criar grade binária e rotular os componentes conexos com vizinhança de oito direções, conforme o método publicado. Somar a área geodésica das células de cada componente. Para cada episódio, registrar a extensão máxima diária e a série de extensões; para um território, pode-se dividir a área afetada pela área elegível.
 
@@ -52,69 +52,69 @@ A_{c,d}=\sum_{g\in C_{c,d}}area(g),\qquad A^{max}_e=\max_{d\in e}A_{c,d}
 $$
 
 ::: {.indicator-card}
-**Numerador.** Soma da área das células pertencentes ao componente contíguo no dia.
+[Numerador.]{.field-label} Soma da área das células pertencentes ao componente contíguo no dia.
 
-**Denominador.** Área total elegível do território apenas quando expresso como proporção.
+[Denominador.]{.field-label} Área total elegível do território apenas quando expresso como proporção.
 
-**Unidade de medida.** Quilômetro quadrado (km²) e, opcionalmente, percentual do território.
+[Unidade de medida.]{.field-label} Quilômetro quadrado (km²) e, opcionalmente, percentual do território.
 
-**Variáveis e categorias de análise.** Célula em onda ou não; componente; data; episódio; área da célula; território.
+[Variáveis e categorias de análise.]{.field-label} Célula em onda ou não; componente; data; episódio; área da célula; território.
 
-**Granularidade.** Componente espacial por dia; resumo por episódio, estação ou ano.
+[Granularidade.]{.field-label} Componente espacial por dia; resumo por episódio, estação ou ano.
 
-**Periodicidade de atualização.** Diária em monitoramento ou anual em avaliação climatológica.
+[Periodicidade de atualização.]{.field-label} Diária em monitoramento ou anual em avaliação climatológica.
 
-**Responsabilidade gerencial.** Serviço meteorológico ou climático responsável pelo perigo, instituição estatística responsável pela população e autoridade de saúde responsável pelo uso.
+[Responsabilidade gerencial.]{.field-label} Serviço meteorológico ou climático responsável pelo perigo, instituição estatística responsável pela população e autoridade de saúde responsável pelo uso.
 
-**Notas.** Extensão e exposição populacional não medem vulnerabilidade nem dano. O mesmo valor pode envolver populações, duração, intensidade e capacidades de proteção muito diferentes.
+[Notas.]{.field-label} Extensão e exposição populacional não medem vulnerabilidade nem dano. O mesmo valor pode envolver populações, duração, intensidade e capacidades de proteção muito diferentes.
 
-**Análise descritiva do indicador.** Apresentar mapa e trajetória da extensão, maior área diária, proporção do território, intensidade e duração correspondentes e sensibilidade à grade e conectividade.
+[Análise descritiva do indicador.]{.field-label} Apresentar mapa e trajetória da extensão, maior área diária, proporção do território, intensidade e duração correspondentes e sensibilidade à grade e conectividade.
 
 :::
 
-### Campos complementares para clima, ambiente e saúde
+### Campos complementares para clima, ambiente e saúde {.unnumbered .ficha-section}
 
 ::: {.indicator-card}
-**Unidade territorial.** Componente contíguo de células e território de referência.
+[Unidade territorial.]{.field-label} Componente contíguo de células e território de referência.
 
-**Resolução espacial original.** A da grade térmica; o método publicado usou grade global e vizinhança de oito direções.
+[Resolução espacial original.]{.field-label} A da grade térmica; o método publicado usou grade global e vizinhança de oito direções.
 
-**Resolução temporal.** Entrada diária; saída diária e por episódio.
+[Resolução temporal.]{.field-label} Entrada diária; saída diária e por episódio.
 
-**Período de referência.** O período-base da definição de onda de calor; no método publicado, 1980–2019 para percentis do calendário.
+[Período de referência.]{.field-label} O período-base da definição de onda de calor; no método publicado, 1980–2019 para percentis do calendário.
 
-**Limiar ou valor de referência.** No método publicado, TX ou TN acima do percentil 90 do calendário por pelo menos três dias consecutivos; outra definição caracteriza adaptação.
+[Limiar ou valor de referência.]{.field-label} No método publicado, TX ou TN acima do percentil 90 do calendário por pelo menos três dias consecutivos; outra definição caracteriza adaptação.
 
 :::
 
-### Disponibilidade e acesso
+### Disponibilidade e acesso {.unnumbered .ficha-section}
 
-**Cobertura geográfica.** Território de análise coberto simultaneamente pelas superfícies de calor e pelos dados populacionais, quando aplicável.
+[Cobertura geográfica.]{.field-label} Território de análise coberto simultaneamente pelas superfícies de calor e pelos dados populacionais, quando aplicável.
 
-**Período disponível.** O período da grade térmica, incluindo o período-base.
+[Período disponível.]{.field-label} O período da grade térmica, incluindo o período-base.
 
-**Periodicidade de atualização.** Diária em monitoramento ou anual em avaliação climatológica.
+[Periodicidade de atualização.]{.field-label} Diária em monitoramento ou anual em avaliação climatológica.
 
-**Forma de acesso.** Processamento geoespacial de grade diária com área de célula e algoritmo de componentes conexos versionado.
+[Forma de acesso.]{.field-label} Processamento geoespacial de grade diária com área de célula e algoritmo de componentes conexos versionado.
 
-**URL ou identificador persistente.** https://doi.org/10.1038/s43247-025-02661-y
+[URL ou identificador persistente.]{.field-label} https://doi.org/10.1038/s43247-025-02661-y
 
-**Formato dos arquivos.** Raster diário de classificação e tabela de componentes e episódios.
+[Formato dos arquivos.]{.field-label} Raster diário de classificação e tabela de componentes e episódios.
 
-**Necessidade de processamento.** Controle de qualidade, percentis, detecção temporal, rotulação espacial, cálculo geodésico de área e agregação por episódio.
+[Necessidade de processamento.]{.field-label} Controle de qualidade, percentis, detecção temporal, rotulação espacial, cálculo geodésico de área e agregação por episódio.
 
-### Qualidade, comparação e saúde
+### Qualidade, comparação e saúde {.unnumbered .ficha-section}
 
-**Qualidade e incerteza.** Documentar definição da onda, período-base, grade, conectividade, área real das células, máscara de terra, fonte e ano da população, imputações, mobilidade não observada e propagação de incerteza.
+[Qualidade e incerteza.]{.field-label} Documentar definição da onda, período-base, grade, conectividade, área real das células, máscara de terra, fonte e ano da população, imputações, mobilidade não observada e propagação de incerteza.
 
-**Possibilidade de comparação.** Manter definição térmica, período-base, resolução, projeção, vizinhança espacial, população de referência e agregação temporal; mudanças metodológicas interrompem comparabilidade direta.
+[Possibilidade de comparação.]{.field-label} Manter definição térmica, período-base, resolução, projeção, vizinhança espacial, população de referência e agregação temporal; mudanças metodológicas interrompem comparabilidade direta.
 
-**Relação com desfechos de saúde.** Episódios extensos podem expor simultaneamente múltiplas populações e pressionar redes de energia, água, emergência e saúde, mas a extensão não estima sozinha a carga sanitária.
+[Relação com desfechos de saúde.]{.field-label} Episódios extensos podem expor simultaneamente múltiplas populações e pressionar redes de energia, água, emergência e saúde, mas a extensão não estima sozinha a carga sanitária.
 
-**Defasagens temporais relevantes.** Preservar a data de cada dia de onda e do desfecho para análises agudas; pessoas-dia acumuladas não informam sozinhas a sequência nem as defasagens.
+[Defasagens temporais relevantes.]{.field-label} Preservar a data de cada dia de onda e do desfecho para análises agudas; pessoas-dia acumuladas não informam sozinhas a sequência nem as defasagens.
 
-**Aplicação na gestão.** Dimensionar coordenação regional, comunicação, insumos, capacidade assistencial e avaliação de alcance, sempre combinado com intensidade, duração e vulnerabilidade.
+[Aplicação na gestão.]{.field-label} Dimensionar coordenação regional, comunicação, insumos, capacidade assistencial e avaliação de alcance, sempre combinado com intensidade, duração e vulnerabilidade.
 
-### Referências metodológicas
+### Referências metodológicas {.unnumbered .ficha-section}
 
 - [@skinner2025extent]

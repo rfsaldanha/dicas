@@ -1,37 +1,37 @@
-## Ficha do indicador: Número e fração de eventos atribuíveis à temperatura em modelos de defasagem distribuída {#sec-efe-atr-01}
+## Ficha do indicador: Número e fração de eventos atribuíveis à temperatura em modelos de defasagem distribuída {#sec-efe-atr-01 .ficha-title}
 
 ::: {.indicator-card}
-**Código:** EFE-ATR-01 \
-**Título resumido:** Eventos atribuíveis à temperatura \
-**Tema:** Efeitos do clima e do ambiente sobre a saúde \
-**Dimensão:** efeito \
-**Disponibilidade:** [dados secundários de saúde]{.availability} [requer qualificação]{.availability}
+[Código:]{.field-label} EFE-ATR-01 \
+[Título resumido:]{.field-label} Eventos atribuíveis à temperatura \
+[Tema:]{.field-label} Efeitos do clima e do ambiente sobre a saúde \
+[Dimensão:]{.field-label} efeito \
+[Disponibilidade:]{.field-label} [dados secundários de saúde]{.availability} [requer qualificação]{.availability}
 :::
 
-### Identificação e fundamento
+### Identificação e fundamento {.unnumbered .ficha-section}
 
-**Indicador consolidado em.** Método de risco atribuível de Gasparrini e Leone para modelos de defasagem distribuída, aplicado a temperatura e mortalidade ou morbidade.
+[Indicador consolidado em.]{.field-label} Método de risco atribuível de Gasparrini e Leone para modelos de defasagem distribuída, aplicado a temperatura e mortalidade ou morbidade.
 
-### Conceito
-
+::: {.callout-note icon=false title="Conceito-chave"}
 Número e proporção de eventos estimados que não ocorreriam no período se a exposição observada fosse substituída pela temperatura de referência, dadas a curva exposição–resposta e as defasagens modeladas.
+:::
 
-### Objetivo
+### Objetivo {.unnumbered .ficha-section}
 
 Quantificar carga atribuível a temperaturas acima, abaixo ou diferentes do ponto de risco mínimo.
 
-### Interpretação
+### Interpretação {.unnumbered .ficha-section}
 
 Fração atribuível de 5% estima que 5% dos eventos no período são atribuíveis à distribuição de temperatura em relação ao contrafactual, sob o modelo e suas hipóteses. Não é a proporção de declarações com código de calor.
 
-### Usos
+### Usos {.unnumbered .ficha-section}
 
 - Estimar mortes ou internações atribuíveis ao calor e ao frio.
 - Separar componentes moderados e extremos.
 - Comparar cenários e populações.
 - Avaliar impacto potencial de adaptação.
 
-### Limitações
+### Limitações {.unnumbered .ficha-section}
 
 - Exige hipótese causal
 - controle adequado de sazonalidade e confundimento.
@@ -39,13 +39,13 @@ Fração atribuível de 5% estima que 5% dos eventos no período são atribuíve
 - O ponto de risco mínimo é estimado com incerteza.
 - Somar frações de exposições correlacionadas pode gerar dupla contagem.
 
-### Fontes de dados
+### Fontes de dados {.unnumbered .ficha-section}
 
 - Sistema de Informações sobre Mortalidade — série diária de óbitos por desfecho ([cadastro](../../backmatter/indice-fontes.qmd#sim))
 - Instituto Nacional de Meteorologia — série diária de temperatura ou índice térmico ([cadastro](../../backmatter/indice-fontes.qmd#inmet))
 - ERA5-Land — exposição em grade quando validada para o território ([cadastro](../../backmatter/indice-fontes.qmd#era5-land))
 
-### Método de cálculo
+### Método de cálculo {.unnumbered .ficha-section}
 
 Ajustar um modelo de série temporal com função não linear de exposição e defasagem distribuída, controlando sazonalidade, tendência, calendário e confundidores definidos. Escolher a temperatura de referência, usualmente o ponto de risco mínimo. Para cada dia, obter o risco relativo acumulado das exposições presentes e defasadas, calcular a fração atribuível e multiplicar pelo número de eventos. Somar números atribuíveis e dividir pelo total para a fração do período. Estimar intervalos por simulação dos coeficientes.
 
@@ -54,70 +54,70 @@ AF_t=1-\exp\left(-\sum_{\ell=0}^{L}\beta_{x_{t-\ell},\ell}\right);\quad AN_t=AF_
 $$
 
 ::: {.indicator-card}
-**Numerador.** Soma dos eventos atribuíveis estimados no período.
+[Numerador.]{.field-label} Soma dos eventos atribuíveis estimados no período.
 
-**Denominador.** Total de eventos observados para a fração atribuível.
+[Denominador.]{.field-label} Total de eventos observados para a fração atribuível.
 
-**Unidade de medida.** Eventos atribuíveis e percentual atribuível (%).
+[Unidade de medida.]{.field-label} Eventos atribuíveis e percentual atribuível (%).
 
-**Variáveis e categorias de análise.** Exposição diária; lag; desfecho diário; temperatura de referência; calor e frio; moderado e extremo; idade; sexo; território.
+[Variáveis e categorias de análise.]{.field-label} Exposição diária; lag; desfecho diário; temperatura de referência; calor e frio; moderado e extremo; idade; sexo; território.
 
-**Granularidade.** Dia na modelagem; período e território no resultado.
+[Granularidade.]{.field-label} Dia na modelagem; período e território no resultado.
 
-**Periodicidade de atualização.** Por estudo ou ciclo analítico; não é simples indicador de atualização automática.
+[Periodicidade de atualização.]{.field-label} Por estudo ou ciclo analítico; não é simples indicador de atualização automática.
 
-**Responsabilidade gerencial.** Área de vigilância epidemiológica e informação em saúde, com apoio de epidemiologia e estatística para modelagem e interpretação.
+[Responsabilidade gerencial.]{.field-label} Área de vigilância epidemiológica e informação em saúde, com apoio de epidemiologia e estatística para modelagem e interpretação.
 
-**Notas.** Contagens, taxas, excesso, associação e atribuição respondem a perguntas diferentes. Resultados estimados devem informar modelo, referência contrafactual e incerteza.
+[Notas.]{.field-label} Contagens, taxas, excesso, associação e atribuição respondem a perguntas diferentes. Resultados estimados devem informar modelo, referência contrafactual e incerteza.
 
-**Análise descritiva do indicador.** Mostrar curva exposição–resposta, lag, referência, eventos atribuíveis por dia e acumulados, componentes de calor e frio, intervalos e sensibilidade a graus de liberdade.
+[Análise descritiva do indicador.]{.field-label} Mostrar curva exposição–resposta, lag, referência, eventos atribuíveis por dia e acumulados, componentes de calor e frio, intervalos e sensibilidade a graus de liberdade.
 
 :::
 
-### Campos complementares para clima, ambiente e saúde
+### Campos complementares para clima, ambiente e saúde {.unnumbered .ficha-section}
 
 ::: {.indicator-card}
-**Unidade territorial.** Cidade ou território com exposição e desfecho temporalmente alinhados.
+[Unidade territorial.]{.field-label} Cidade ou território com exposição e desfecho temporalmente alinhados.
 
-**Resolução espacial original.** A da exposição e do desfecho; a atribuição territorial deve ser validada.
+[Resolução espacial original.]{.field-label} A da exposição e do desfecho; a atribuição territorial deve ser validada.
 
-**Resolução temporal.** Diária ou subdiária agregada conforme o modelo; lags em dias.
+[Resolução temporal.]{.field-label} Diária ou subdiária agregada conforme o modelo; lags em dias.
 
-**Período de referência.** Série suficientemente longa para estimar sazonalidade e curva; contrafactual no ponto de risco mínimo ou valor definido.
+[Período de referência.]{.field-label} Série suficientemente longa para estimar sazonalidade e curva; contrafactual no ponto de risco mínimo ou valor definido.
 
-**Limiar ou valor de referência.** Temperatura de risco mínimo e percentis que separam exposições moderadas e extremas, todos estimados ou definidos no protocolo.
+[Limiar ou valor de referência.]{.field-label} Temperatura de risco mínimo e percentis que separam exposições moderadas e extremas, todos estimados ou definidos no protocolo.
 
 :::
 
-### Disponibilidade e acesso
+### Disponibilidade e acesso {.unnumbered .ficha-section}
 
-**Cobertura geográfica.** Territórios com séries de saúde e temperatura compatíveis.
+[Cobertura geográfica.]{.field-label} Territórios com séries de saúde e temperatura compatíveis.
 
-**Período disponível.** Interseção das séries qualificadas.
+[Período disponível.]{.field-label} Interseção das séries qualificadas.
 
-**Periodicidade de atualização.** Por estudo ou ciclo analítico; não é simples indicador de atualização automática.
+[Periodicidade de atualização.]{.field-label} Por estudo ou ciclo analítico; não é simples indicador de atualização automática.
 
-**Forma de acesso.** Modelagem epidemiológica reproduzível com dados diários e código versionado.
+[Forma de acesso.]{.field-label} Modelagem epidemiológica reproduzível com dados diários e código versionado.
 
-**URL ou identificador persistente.** https://doi.org/10.1186/1471-2288-14-55
+[URL ou identificador persistente.]{.field-label} https://doi.org/10.1186/1471-2288-14-55
 
-**Formato dos arquivos.** Séries diárias, objetos do modelo e tabelas de número e fração atribuíveis.
+[Formato dos arquivos.]{.field-label} Séries diárias, objetos do modelo e tabelas de número e fração atribuíveis.
 
-**Necessidade de processamento.** Harmonizar séries, ajustar DLNM, escolher referência, calcular contribuições backward ou forward, simular incerteza e realizar sensibilidade.
+[Necessidade de processamento.]{.field-label} Harmonizar séries, ajustar DLNM, escolher referência, calcular contribuições backward ou forward, simular incerteza e realizar sensibilidade.
 
-### Qualidade, comparação e saúde
+### Qualidade, comparação e saúde {.unnumbered .ficha-section}
 
-**Qualidade e incerteza.** Avaliar cobertura, completude, oportunidade, duplicidade, definição de caso, codificação CID, causa básica e associadas, revisões, estabilidade do denominador, pequenas contagens e intervalos de incerteza.
+[Qualidade e incerteza.]{.field-label} Avaliar cobertura, completude, oportunidade, duplicidade, definição de caso, codificação CID, causa básica e associadas, revisões, estabilidade do denominador, pequenas contagens e intervalos de incerteza.
 
-**Possibilidade de comparação.** Manter desfecho, definição, códigos, população, fonte, território, calendário, padronização e versão; mudanças assistenciais e de registro podem alterar o indicador sem mudança igual na ocorrência.
+[Possibilidade de comparação.]{.field-label} Manter desfecho, definição, códigos, população, fonte, território, calendário, padronização e versão; mudanças assistenciais e de registro podem alterar o indicador sem mudança igual na ocorrência.
 
-**Relação com desfechos de saúde.** Mede ocorrência observada ou carga estimada de desfechos; a relação com clima ou ambiente exige exposição definida e desenho analítico compatível.
+[Relação com desfechos de saúde.]{.field-label} Mede ocorrência observada ou carga estimada de desfechos; a relação com clima ou ambiente exige exposição definida e desenho analítico compatível.
 
-**Defasagens temporais relevantes.** Registrar data do evento de saúde e considerar o intervalo biologicamente plausível entre exposição e desfecho; data de processamento ou competência não deve substituir automaticamente a data clínica.
+[Defasagens temporais relevantes.]{.field-label} Registrar data do evento de saúde e considerar o intervalo biologicamente plausível entre exposição e desfecho; data de processamento ou competência não deve substituir automaticamente a data clínica.
 
-**Aplicação na gestão.** Monitorar impacto, desigualdades e pressão sobre serviços, avaliar alertas e intervenções e apoiar priorização, sem atribuir causalidade além do desenho.
+[Aplicação na gestão.]{.field-label} Monitorar impacto, desigualdades e pressão sobre serviços, avaliar alertas e intervenções e apoiar priorização, sem atribuir causalidade além do desenho.
 
-### Referências metodológicas
+### Referências metodológicas {.unnumbered .ficha-section}
 
 - [@gasparrini2010dlnm]
 - [@gasparrini2014attributable]

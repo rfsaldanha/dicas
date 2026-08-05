@@ -1,48 +1,48 @@
-## Ficha do indicador: Precipitação total em dias muito úmidos (R95pTOT) {#sec-cli-prc-03}
+## Ficha do indicador: Precipitação total em dias muito úmidos (R95pTOT) {#sec-cli-prc-03 .ficha-title}
 
 ::: {.indicator-card}
-**Código:** CLI-PRC-03 \
-**Título resumido:** Chuva em dias muito úmidos — R95pTOT \
-**Tema:** Precipitação, secas e eventos hidrológicos \
-**Dimensão:** perigo; exposição \
-**Disponibilidade:** [requer processamento climatológico]{.availability}
+[Código:]{.field-label} CLI-PRC-03 \
+[Título resumido:]{.field-label} Chuva em dias muito úmidos — R95pTOT \
+[Tema:]{.field-label} Precipitação, secas e eventos hidrológicos \
+[Dimensão:]{.field-label} perigo; exposição \
+[Disponibilidade:]{.field-label} [requer processamento climatológico]{.availability}
 :::
 
-### Identificação e fundamento
+### Identificação e fundamento {.unnumbered .ficha-section}
 
-**Indicador consolidado em.** Índice R95pTOT do conjunto ETCCDI, documentado pelo Climdex.
+[Indicador consolidado em.]{.field-label} Índice R95pTOT do conjunto ETCCDI, documentado pelo Climdex.
 
-### Conceito
-
+::: {.callout-note icon=false title="Conceito-chave"}
 Soma da precipitação nos dias úmidos do período em que o total diário excede o percentil 95 dos dias úmidos do período-base.
+:::
 
-### Objetivo
+### Objetivo {.unnumbered .ficha-section}
 
 Quantificar o volume de chuva concentrado nos dias climatologicamente muito úmidos.
 
-### Interpretação
+### Interpretação {.unnumbered .ficha-section}
 
 Valor maior pode resultar de mais dias acima do percentil, de dias mais intensos ou de ambos; deve ser acompanhado por frequência e contribuição percentual.
 
-### Usos
+### Usos {.unnumbered .ficha-section}
 
 - Monitorar concentração da chuva em extremos.
 - Avaliar mudanças no regime de precipitação.
 - Caracterizar exposições relacionadas a chuva intensa.
 
-### Limitações
+### Limitações {.unnumbered .ficha-section}
 
 - Depende do período-base e do limiar de dia úmido.
 - Soma não separa frequência e intensidade.
 - Comparação exige implementação percentílica harmonizada.
 
-### Fontes de dados
+### Fontes de dados {.unnumbered .ficha-section}
 
 - Instituto Nacional de Meteorologia — observações pluviométricas diárias ([cadastro](../../backmatter/indice-fontes.qmd#inmet))
 - Centro Nacional de Monitoramento e Alertas de Desastres Naturais — observações pluviométricas subdiárias ou diárias para monitoramento ([cadastro](../../backmatter/indice-fontes.qmd#cemaden))
 - ERA5-Land — precipitação em reanálise condicionada à validação ([cadastro](../../backmatter/indice-fontes.qmd#era5-land))
 
-### Método de cálculo
+### Método de cálculo {.unnumbered .ficha-section}
 
 No período-base, calcular o percentil 95 entre dias com PR igual ou superior a 1 mm. No período analisado, somar PR dos dias úmidos que excedem esse limiar.
 
@@ -51,69 +51,69 @@ R95pTOT_p=\sum_{d\in p}PR_d I(PR_d>PR95_{wet})
 $$
 
 ::: {.indicator-card}
-**Numerador.** Não se aplica; soma de precipitação qualificada.
+[Numerador.]{.field-label} Não se aplica; soma de precipitação qualificada.
 
-**Denominador.** Não se aplica.
+[Denominador.]{.field-label} Não se aplica.
 
-**Unidade de medida.** Milímetros (mm) por período.
+[Unidade de medida.]{.field-label} Milímetros (mm) por período.
 
-**Variáveis e categorias de análise.** Precipitação diária; dia do calendário; mês; estação; ano; estação ou célula de grade.
+[Variáveis e categorias de análise.]{.field-label} Precipitação diária; dia do calendário; mês; estação; ano; estação ou célula de grade.
 
-**Granularidade.** Entrada diária por estação ou célula; resumo mensal, sazonal ou anual.
+[Granularidade.]{.field-label} Entrada diária por estação ou célula; resumo mensal, sazonal ou anual.
 
-**Periodicidade de atualização.** Anual para monitoramento climático; diária ou subdiária em protocolo operacional próprio.
+[Periodicidade de atualização.]{.field-label} Anual para monitoramento climático; diária ou subdiária em protocolo operacional próprio.
 
-**Responsabilidade gerencial.** Serviço meteorológico ou hidrológico responsável pelo dado e órgão de saúde que qualifique o uso sanitário.
+[Responsabilidade gerencial.]{.field-label} Serviço meteorológico ou hidrológico responsável pelo dado e órgão de saúde que qualifique o uso sanitário.
 
-**Notas.** Índices ETCCDI descrevem a precipitação observada. Não substituem modelagem hidrológica, mapeamento de inundação ou registro de desastre.
+[Notas.]{.field-label} Índices ETCCDI descrevem a precipitação observada. Não substituem modelagem hidrológica, mapeamento de inundação ou registro de desastre.
 
-**Análise descritiva do indicador.** Apresentar R95pTOT, número de dias contribuintes, proporção de PRCPTOT, tendência e distribuição territorial.
+[Análise descritiva do indicador.]{.field-label} Apresentar R95pTOT, número de dias contribuintes, proporção de PRCPTOT, tendência e distribuição territorial.
 
 :::
 
-### Campos complementares para clima, ambiente e saúde
+### Campos complementares para clima, ambiente e saúde {.unnumbered .ficha-section}
 
 ::: {.indicator-card}
-**Unidade territorial.** Estação meteorológica, célula de grade, bacia ou território derivado.
+[Unidade territorial.]{.field-label} Estação meteorológica, célula de grade, bacia ou território derivado.
 
-**Resolução espacial original.** A da fonte de precipitação; agregações territoriais exigem ponderação declarada.
+[Resolução espacial original.]{.field-label} A da fonte de precipitação; agregações territoriais exigem ponderação declarada.
 
-**Resolução temporal.** Entrada diária; saída por período.
+[Resolução temporal.]{.field-label} Entrada diária; saída por período.
 
-**Período de referência.** Período climatológico declarado para o percentil 95.
+[Período de referência.]{.field-label} Período climatológico declarado para o percentil 95.
 
-**Limiar ou valor de referência.** Percentil 95 da precipitação em dias úmidos, definidos por PR ≥ 1 mm.
+[Limiar ou valor de referência.]{.field-label} Percentil 95 da precipitação em dias úmidos, definidos por PR ≥ 1 mm.
 
 :::
 
-### Disponibilidade e acesso
+### Disponibilidade e acesso {.unnumbered .ficha-section}
 
-**Cobertura geográfica.** A da fonte selecionada, condicionada à densidade observacional e qualidade.
+[Cobertura geográfica.]{.field-label} A da fonte selecionada, condicionada à densidade observacional e qualidade.
 
-**Período disponível.** O da fonte, incluindo série suficiente para o período-base quando houver percentis.
+[Período disponível.]{.field-label} O da fonte, incluindo série suficiente para o período-base quando houver percentis.
 
-**Periodicidade de atualização.** Anual para monitoramento climático; diária ou subdiária em protocolo operacional próprio.
+[Periodicidade de atualização.]{.field-label} Anual para monitoramento climático; diária ou subdiária em protocolo operacional próprio.
 
-**Forma de acesso.** Cálculo sobre série de precipitação controlada, com algoritmo, unidades e calendário versionados.
+[Forma de acesso.]{.field-label} Cálculo sobre série de precipitação controlada, com algoritmo, unidades e calendário versionados.
 
-**URL ou identificador persistente.** https://www.climdex.org/learn/indices/
+[URL ou identificador persistente.]{.field-label} https://www.climdex.org/learn/indices/
 
-**Formato dos arquivos.** Tabela por estação ou arquivo multidimensional por célula.
+[Formato dos arquivos.]{.field-label} Tabela por estação ou arquivo multidimensional por célula.
 
-**Necessidade de processamento.** Selecionar dias úmidos no período-base, calcular percentil, testar dias e somar precipitação excedente.
+[Necessidade de processamento.]{.field-label} Selecionar dias úmidos no período-base, calcular percentil, testar dias e somar precipitação excedente.
 
-### Qualidade, comparação e saúde
+### Qualidade, comparação e saúde {.unnumbered .ficha-section}
 
-**Qualidade e incerteza.** Relatar falhas, horário de acumulação, vento e subcaptura do pluviômetro, mudança de instrumento, homogeneidade, viés de grade e cobertura espacial.
+[Qualidade e incerteza.]{.field-label} Relatar falhas, horário de acumulação, vento e subcaptura do pluviômetro, mudança de instrumento, homogeneidade, viés de grade e cobertura espacial.
 
-**Possibilidade de comparação.** Manter limiar de dia úmido, período-base, calendário, fonte, unidade, regra de falhas e método de agregação.
+[Possibilidade de comparação.]{.field-label} Manter limiar de dia úmido, período-base, calendário, fonte, unidade, regra de falhas e método de agregação.
 
-**Relação com desfechos de saúde.** Extremos e persistência de chuva ou ausência de chuva ajudam a caracterizar perigos relacionados a água, saneamento, vetores, segurança alimentar e acesso a serviços; não equivalem ao efeito sanitário.
+[Relação com desfechos de saúde.]{.field-label} Extremos e persistência de chuva ou ausência de chuva ajudam a caracterizar perigos relacionados a água, saneamento, vetores, segurança alimentar e acesso a serviços; não equivalem ao efeito sanitário.
 
-**Defasagens temporais relevantes.** Preservar série diária e datas para testar janelas compatíveis com o mecanismo e o desfecho.
+[Defasagens temporais relevantes.]{.field-label} Preservar série diária e datas para testar janelas compatíveis com o mecanismo e o desfecho.
 
-**Aplicação na gestão.** Caracterizar sazonalidade e extremos, apoiar vigilância de agravos sensíveis ao clima e contextualizar alertas hidrometeorológicos.
+[Aplicação na gestão.]{.field-label} Caracterizar sazonalidade e extremos, apoiar vigilância de agravos sensíveis ao clima e contextualizar alertas hidrometeorológicos.
 
-### Referências metodológicas
+### Referências metodológicas {.unnumbered .ficha-section}
 
 - [@climdex2024]

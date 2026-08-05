@@ -70,9 +70,9 @@ div.csl-indent {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-3d1123404ec97a084d6513b5148bd96c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-a59c595c00dfb3cf3f084b5c8c0c922f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-3d1123404ec97a084d6513b5148bd96c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-311c7a20127a08e8a280d0ca349f6d60.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-fa5b87100d7cdc106e105900c43c11a8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-311c7a20127a08e8a280d0ca349f6d60.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -564,7 +564,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../backmatter/lista-tabelas.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lista de tabelas</span></a>
+ <span class="menu-text">Lista de quadros e tabelas</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -661,17 +661,29 @@ window.Quarto = {
 <p>Qualidade não existe fora do uso. A norma ISO 19157-1 organiza a descrição, avaliação e comunicação da qualidade de dados geográficos, mas não fixa um nível universalmente aceitável: cabe à especificação do produto e à aplicação declarar os requisitos <span class="citation" data-cites="iso2023geoquality">(<a href="../../backmatter/referencias.html#ref-iso2023geoquality" role="doc-biblioref">International Organization for Standardization, 2023</a>)</span>. A mesma lógica vale para clima e saúde. Um dado pode sustentar uma descrição regional e ser insuficiente para acionar uma equipe em um bairro; pode ser adequado para planejamento retrospectivo e tardio para vigilância.</p>
 <section id="suporte-escala-e-resolução-espacial" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="suporte-escala-e-resolução-espacial"><span class="header-section-number">3.1</span> Suporte, escala e resolução espacial</h2>
-<p><strong>Localização</strong> informa onde um registro foi obtido ou estimado. <strong>Suporte espacial</strong> é a porção do espaço à qual o valor se refere. Uma coordenada de estação identifica um ponto de medição; uma célula de reanálise representa uma estimativa média ou modelada sobre uma área e um volume atmosférico; uma taxa municipal resume eventos e população dentro de um limite administrativo.</p>
-<p><strong>Resolução espacial</strong> descreve o nível de detalhe ou o tamanho nominal da unidade. Resolução mais fina não garante maior exatidão. Um produto de 1 km derivado de modelo pode ter pixel pequeno e incerteza considerável. Uma estação pontual pode medir com alta precisão no local e representar mal a heterogeneidade do território.</p>
-<p><strong>Escala</strong> também se refere ao nível em que processos são observados. Sombra, ventilação e material construtivo atuam em escala local; circulação atmosférica e seca podem abranger regiões; políticas e sistemas de informação operam em territórios administrativos. A escala do dado deve ser compatível com o mecanismo e a decisão.</p>
-<p>Esses conceitos respondem a perguntas diferentes. Um arquivo pode ter células de 1 km (<strong>resolução nominal</strong>), representar uma média de área maior por causa do sensor ou modelo (<strong>suporte efetivo</strong>) e ser interpretado em município de milhares de quilômetros quadrados (<strong>escala de análise</strong>). Aumentar artificialmente o número de pixels por reamostragem altera a aparência, não recupera detalhe ausente.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Conceito-chave: localização, suporte, resolução e escala">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Conceito-chave: localização, suporte, resolução e escala
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Localização informa onde um registro foi obtido ou estimado. Suporte espacial é a porção do espaço à qual o valor se refere. Uma coordenada de estação identifica um ponto de medição; uma célula de reanálise representa uma estimativa média ou modelada sobre uma área e um volume atmosférico; uma taxa municipal resume eventos e população dentro de um limite administrativo.</p>
+<p>Resolução espacial descreve o nível de detalhe ou o tamanho nominal da unidade. Resolução mais fina não garante maior exatidão. Um produto de 1 km derivado de modelo pode ter pixel pequeno e incerteza considerável. Uma estação pontual pode medir com alta precisão no local e representar mal a heterogeneidade do território.</p>
+<p>Escala também se refere ao nível em que processos são observados. Sombra, ventilação e material construtivo atuam em escala local; circulação atmosférica e seca podem abranger regiões; políticas e sistemas de informação operam em territórios administrativos. A escala do dado deve ser compatível com o mecanismo e a decisão.</p>
+<p>Esses conceitos respondem a perguntas diferentes. Um arquivo pode ter células de 1 km (resolução nominal), representar uma média de área maior por causa do sensor ou modelo (suporte efetivo) e ser interpretado em município de milhares de quilômetros quadrados (escala de análise). Aumentar artificialmente o número de pixels por reamostragem altera a aparência, não recupera detalhe ausente.</p>
+</div>
+</div>
 <p>O processo observado também tem escala própria. Temperatura do ar pode variar de forma relativamente suave em uma região e abruptamente entre uma rua sombreada e uma superfície asfaltada. Precipitação convectiva pode produzir máximos muito localizados. Taxas de doenças raras tornam-se instáveis em áreas pequenas. Portanto, “usar a maior resolução disponível” não é regra geral: o suporte deve captar variação relevante sem oferecer precisão que a fonte não sustenta.</p>
-<div id="tbl-suportes-espaciais" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-suportes-espaciais-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;3.1: Suportes espaciais comuns em clima, ambiente e saúde
+<div id="qua-suportes-espaciais" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-qua figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-qua" id="qua-suportes-espaciais-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Quadro&nbsp;3.1: Suportes espaciais comuns em clima, ambiente e saúde
 </figcaption>
-<div aria-describedby="tbl-suportes-espaciais-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div aria-describedby="qua-suportes-espaciais-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <colgroup>
 <col style="width: 25%">
@@ -759,7 +771,7 @@ Tabela&nbsp;3.1: Suportes espaciais comuns em clima, ambiente e saúde
 <section id="mudança-de-suporte-espacial" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="mudança-de-suporte-espacial"><span class="header-section-number">3.2</span> Mudança de suporte espacial</h2>
 <p>Mudar de ponto ou pixel para território é uma operação analítica. Média simples, máximo, percentil, proporção de área e média ponderada pela população produzem indicadores distintos.</p>
-<p>Essa operação é chamada de <strong>mudança de suporte</strong> porque transfere uma medida de sua unidade original para outra. Ela pode envolver agregação, desagregação ou interpolação areal. A operação precisa declarar o que se conserva: média, total, proporção, ocorrência ou distribuição. Não existe transformação neutra que preserve simultaneamente todas essas propriedades.</p>
+<p>Essa operação é chamada de mudança de suporte porque transfere uma medida de sua unidade original para outra. Ela pode envolver agregação, desagregação ou interpolação areal. A operação precisa declarar o que se conserva: média, total, proporção, ocorrência ou distribuição. Não existe transformação neutra que preserve simultaneamente todas essas propriedades.</p>
 <p>Considere uma grade de PM2,5 e um município. A média simples das células descreve a concentração espacial média. A média ponderada pela população aproxima a concentração média onde as pessoas residem. O máximo identifica a maior estimativa. Nenhuma é universalmente correta; a pergunta determina a estatística.</p>
 <p>Para uma variável (x_g) nas células (g=1,,G), a média ponderada por população é:</p>
 <p><span class="math display">\[
@@ -798,7 +810,7 @@ Tabela&nbsp;3.1: Suportes espaciais comuns em clima, ambiente e saúde
 <section id="problema-da-unidade-de-área-modificável" class="level3" data-number="3.3.3">
 <h3 data-number="3.3.3" class="anchored" data-anchor-id="problema-da-unidade-de-área-modificável"><span class="header-section-number">3.3.3</span> Problema da unidade de área modificável</h3>
 <p>Resultados de dados agregados podem mudar quando o mesmo território é dividido em unidades diferentes. Esse é o problema da unidade de área modificável: valores de correlação, classes e rankings dependem da escala e do zoneamento. Relações observadas entre áreas também não podem ser automaticamente atribuídas a indivíduos, erro conhecido como falácia ecológica <span class="citation" data-cites="openshaw1984">(<a href="../../backmatter/referencias.html#ref-openshaw1984" role="doc-biblioref">Openshaw, 1984</a>)</span>.</p>
-<p>O problema possui componente de <strong>escala</strong> — resultados mudam ao agrupar unidades menores — e de <strong>zoneamento</strong> — resultados mudam quando unidades de tamanho semelhante são redesenhadas. Não é resolvido apenas escolhendo o menor território disponível: unidades pequenas podem ampliar instabilidade, confidencialidade e desalinhamento com o processo ambiental. Recomenda-se repetir análises em suportes plausíveis e descrever o que permanece ou muda.</p>
+<p>O problema possui componente de escala — resultados mudam ao agrupar unidades menores — e de zoneamento — resultados mudam quando unidades de tamanho semelhante são redesenhadas. Não é resolvido apenas escolhendo o menor território disponível: unidades pequenas podem ampliar instabilidade, confidencialidade e desalinhamento com o processo ambiental. Recomenda-se repetir análises em suportes plausíveis e descrever o que permanece ou muda.</p>
 <p>Um município com maior calor e maior mortalidade não demonstra que as pessoas mais expostas ao calor foram as que morreram. A análise ecológica pode ser apropriada para políticas territoriais, desde que suas inferências permaneçam no nível agregado e as limitações sejam explícitas.</p>
 <p>Estudos ecológicos não são “inferiores” por definição. Eles podem responder perguntas sobre contextos, políticas e efeitos populacionais que não existem no nível individual. O erro ocorre quando o resultado agregado é reinterpretado como associação individual ou quando diferenças de composição e medição entre áreas não são consideradas <span class="citation" data-cites="piantadosi1988ecological">(<a href="../../backmatter/referencias.html#ref-piantadosi1988ecological" role="doc-biblioref">Piantadosi; Byar; Green, 1988</a>)</span>.</p>
 <div class="callout callout-style-default callout-warning callout-titled" title="Falácia ecológica">
@@ -820,7 +832,7 @@ Tabela&nbsp;3.1: Suportes espaciais comuns em clima, ambiente e saúde
 <h2 data-number="3.4" class="anchored" data-anchor-id="resolução-temporal-e-séries"><span class="header-section-number">3.4</span> Resolução temporal e séries</h2>
 <p>O tempo do fenômeno, da medição, do registro e da decisão pode ser diferente. Uma estação registra a cada hora; o sistema de saúde consolida eventos mensais; a base de mortalidade é revisada por anos; a gestão precisa decidir hoje. Compatibilizar significa preservar o mecanismo e reconhecer latências.</p>
 <p>Pelo menos cinco datas podem coexistir: ocorrência do fenômeno; início e fim da exposição; ocorrência do desfecho; entrada no sistema; e publicação. Em previsão, acrescentam-se data da rodada e horizonte válido. Confundir data de notificação com data de início dos sintomas ou data de atualização com competência do indicador desloca relações e produz alertas retroativos.</p>
-<p>Variáveis temporais também podem ser <strong>estoques</strong>, <strong>fluxos</strong> ou <strong>eventos</strong>. Número de pessoas internadas em um instante é estoque; novas internações durante o dia são fluxo; interrupção de energia pode ser evento com início, duração e término. Somar estoques diários duplica pessoas; tirar média de eventos pode apagar duração; usar apenas data inicial perde persistência.</p>
+<p>Variáveis temporais também podem ser estoques, fluxos ou eventos. Número de pessoas internadas em um instante é estoque; novas internações durante o dia são fluxo; interrupção de energia pode ser evento com início, duração e término. Somar estoques diários duplica pessoas; tirar média de eventos pode apagar duração; usar apenas data inicial perde persistência.</p>
 <section id="janela-e-fuso" class="level3" data-number="3.4.1">
 <h3 data-number="3.4.1" class="anchored" data-anchor-id="janela-e-fuso"><span class="header-section-number">3.4.1</span> Janela e fuso</h3>
 <p>“Dia” precisa de início, fim e fuso. Um produto em UTC e uma base de saúde em horário local podem deslocar exposições próximas da meia-noite. Horário de verão, quando aplicável, acrescenta descontinuidade. O procedimento recomendado é:</p>
@@ -838,12 +850,12 @@ Tabela&nbsp;3.1: Suportes espaciais comuns em clima, ambiente e saúde
 <p>Uma média diária calculada de 24 observações e outra de três horários não são necessariamente comparáveis. Critérios de completude evitam que dias com poucos registros recebam o mesmo peso de dias completos.</p>
 <p>Agregação temporal funciona como filtro. Média mensal reduz variação diária e impede examinar efeitos agudos; máximo diário preserva pico e descarta duração; contagem anual conserva frequência e perde a ordem dos eventos. Dados mensais de saúde não devem ser “desagregados” em dias por interpolação para produzir uma falsa série diária.</p>
 <p>Defasagem deve decorrer de um mecanismo. Calor pode produzir efeitos no mesmo dia e nos seguintes; chuva pode preceder inundação, contaminação, incubação e notificação em janelas distintas; seca pode operar por meses. Testar dezenas de defasagens e selecionar apenas a associação mais forte aumenta a chance de resultado espúrio. A janela precisa ser especificada a priori quando possível e examinada por sensibilidade <span class="citation" data-cites="hernan2020causal gasparrini2010dlnm">(<a href="../../backmatter/referencias.html#ref-gasparrini2010dlnm" role="doc-biblioref">Gasparrini; Armstrong; Kenward, 2010</a>; <a href="../../backmatter/referencias.html#ref-hernan2020causal" role="doc-biblioref">Hernán; Robins, 2020</a>)</span>.</p>
-<div id="tbl-transformacoes-temporais" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-transformacoes-temporais-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;3.2: Transformações temporais e seus significados
+<div id="qua-transformacoes-temporais" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-qua figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-qua" id="qua-transformacoes-temporais-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Quadro&nbsp;3.2: Transformações temporais e seus significados
 </figcaption>
-<div aria-describedby="tbl-transformacoes-temporais-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div aria-describedby="qua-transformacoes-temporais-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <colgroup>
 <col style="width: 25%">
@@ -953,7 +965,19 @@ C = 100 \times \frac{n_{válidos}}{n_{esperados}}.
 <p>O denominador depende do calendário de operação. Estação instalada no meio do ano não deveria ser avaliada como se tivesse obrigação anterior. Completude alta também não garante representatividade espacial.</p>
 <p>Relate completude por período e unidade, não apenas média global. Uma série com 95% pode perder justamente os dias de evento extremo.</p>
 <p>Ausência também possui mecanismo. Falhas completamente casuais afetam principalmente precisão; falhas associadas a tempestades, falta de energia, sobrecarga do serviço ou dificuldade de acesso criam viés informativo. Uma estação que para durante o extremo e uma unidade que deixa de notificar durante o desastre perdem dados justamente nas condições de interesse. Imputar pela média pode apagar o evento e produzir completude aparente.</p>
-<p>É necessário distinguir registro <strong>ausente</strong>, <strong>zero verdadeiro</strong>, <strong>não aplicável</strong>, <strong>abaixo do limite de detecção</strong> e <strong>suprimido por confidencialidade</strong>. Codificar todos como zero altera totais, taxas e tendências. O dicionário deve preservar os estados e a análise deve explicitar quais entraram no denominador.</p>
+<div class="callout callout-style-default callout-warning callout-titled" title="Ausência não é zero">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Aviso</span>Ausência não é zero
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>É necessário distinguir registro ausente, zero verdadeiro, não aplicável, abaixo do limite de detecção e suprimido por confidencialidade. Codificar todos como zero altera totais, taxas e tendências. O dicionário deve preservar os estados e a análise deve explicitar quais entraram no denominador.</p>
+</div>
+</div>
 </section>
 <section id="oportunidade" class="level3" data-number="3.6.3">
 <h3 data-number="3.6.3" class="anchored" data-anchor-id="oportunidade"><span class="header-section-number">3.6.3</span> Oportunidade</h3>
@@ -987,16 +1011,28 @@ C = 100 \times \frac{n_{válidos}}{n_{esperados}}.
 <section id="incerteza" class="level2" data-number="3.7">
 <h2 data-number="3.7" class="anchored" data-anchor-id="incerteza"><span class="header-section-number">3.7</span> Incerteza</h2>
 <p>Incerteza não é sinônimo de erro evitável. Ela expressa limites de conhecimento e pode vir de medição, amostragem, modelo, parâmetros, imputação, agregação e cenário. O objetivo não é ocultá-la, mas torná-la utilizável.</p>
-<p>Uma distinção prática separa incerteza <strong>aleatória</strong>, associada à variabilidade entre observações ou amostras, de incerteza <strong>epistêmica</strong>, associada ao que não se conhece suficientemente sobre o processo, a fonte ou o modelo. Mais dados semelhantes podem reduzir a primeira; não corrigem automaticamente sensor enviesado, população ausente, modelo inadequado ou definição errada. Essas categorias podem se sobrepor, mas ajudam a escolher a resposta: ampliar amostra, melhorar medição, comparar modelos, revisar conceito ou adotar precaução.</p>
-<p>Também se deve separar incerteza de <strong>variabilidade real</strong>. Diferenças entre bairros ou anos podem ser o fenômeno de interesse, não ruído a suavizar. Um intervalo estreito em torno de uma média municipal pode coexistir com grande desigualdade intramunicipal. Comunicar apenas erro-padrão não informa heterogeneidade, viés de mensuração nem incerteza de cenário.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Conceito-chave: incerteza e variabilidade">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Conceito-chave: incerteza e variabilidade
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Uma distinção prática separa incerteza aleatória, associada à variabilidade entre observações ou amostras, de incerteza epistêmica, associada ao que não se conhece suficientemente sobre o processo, a fonte ou o modelo. Mais dados semelhantes podem reduzir a primeira; não corrigem automaticamente sensor enviesado, população ausente, modelo inadequado ou definição errada. Essas categorias podem se sobrepor, mas ajudam a escolher a resposta: ampliar amostra, melhorar medição, comparar modelos, revisar conceito ou adotar precaução.</p>
+<p>Também se deve separar incerteza de variabilidade real. Diferenças entre bairros ou anos podem ser o fenômeno de interesse, não ruído a suavizar. Um intervalo estreito em torno de uma média municipal pode coexistir com grande desigualdade intramunicipal. Comunicar apenas erro-padrão não informa heterogeneidade, viés de mensuração nem incerteza de cenário.</p>
+</div>
+</div>
 <section id="fontes-de-incerteza" class="level3" data-number="3.7.1">
 <h3 data-number="3.7.1" class="anchored" data-anchor-id="fontes-de-incerteza"><span class="header-section-number">3.7.1</span> Fontes de incerteza</h3>
-<div id="tbl-fontes-incerteza" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-fontes-incerteza-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Tabela&nbsp;3.3: Fontes de incerteza ao longo da produção do indicador
+<div id="qua-fontes-incerteza" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-qua figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-qua" id="qua-fontes-incerteza-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Quadro&nbsp;3.3: Fontes de incerteza ao longo da produção do indicador
 </figcaption>
-<div aria-describedby="tbl-fontes-incerteza-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div aria-describedby="qua-fontes-incerteza-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <colgroup>
 <col style="width: 33%">
@@ -1080,24 +1116,24 @@ Tabela&nbsp;3.3: Fontes de incerteza ao longo da produção do indicador
 </section>
 <section id="checklist-antes-do-cálculo" class="level2" data-number="3.10">
 <h2 data-number="3.10" class="anchored" data-anchor-id="checklist-antes-do-cálculo"><span class="header-section-number">3.10</span> Checklist antes do cálculo</h2>
-<p>O <a href="#qua-checklist-dados" class="quarto-xref">Quadro&nbsp;<span>3.1</span></a> resume a avaliação mínima.</p>
+<p>O <a href="#qua-checklist-dados" class="quarto-xref">Quadro&nbsp;<span>3.4</span></a> resume a avaliação mínima.</p>
 <div id="qua-checklist-dados" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-qua figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-qua" id="qua-checklist-dados-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Quadro&nbsp;3.1: : Checklist de espaço, tempo e qualidade
+Quadro&nbsp;3.4: : Checklist de espaço, tempo e qualidade
 </figcaption>
 <div aria-describedby="qua-checklist-dados-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <ol type="1">
-<li><strong>Conceito:</strong> variável e indicador estão definidos sem ambiguidade?</li>
-<li><strong>Proveniência:</strong> instituição, produto, versão e transformação estão registrados?</li>
-<li><strong>Espaço:</strong> suporte, resolução, projeção e território são compatíveis?</li>
-<li><strong>Tempo:</strong> fuso, calendário, janela, período-base e latência estão claros?</li>
-<li><strong>População:</strong> numerador e denominador referem-se à mesma população e data?</li>
-<li><strong>Qualidade:</strong> completude, consistência, homogeneidade e revisão foram avaliadas?</li>
-<li><strong>Incerteza:</strong> fontes principais e sensibilidade foram comunicadas?</li>
-<li><strong>Comparabilidade:</strong> diferenças de método e cobertura foram controladas?</li>
-<li><strong>Proteção:</strong> divulgação respeita privacidade e uso responsável?</li>
-<li><strong>Decisão:</strong> a qualidade é suficiente para a consequência prevista?</li>
+<li>Conceito: variável e indicador estão definidos sem ambiguidade?</li>
+<li>Proveniência: instituição, produto, versão e transformação estão registrados?</li>
+<li>Espaço: suporte, resolução, projeção e território são compatíveis?</li>
+<li>Tempo: fuso, calendário, janela, período-base e latência estão claros?</li>
+<li>População: numerador e denominador referem-se à mesma população e data?</li>
+<li>Qualidade: completude, consistência, homogeneidade e revisão foram avaliadas?</li>
+<li>Incerteza: fontes principais e sensibilidade foram comunicadas?</li>
+<li>Comparabilidade: diferenças de método e cobertura foram controladas?</li>
+<li>Proteção: divulgação respeita privacidade e uso responsável?</li>
+<li>Decisão: a qualidade é suficiente para a consequência prevista?</li>
 </ol>
 </div>
 </figure>
