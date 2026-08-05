@@ -4,7 +4,7 @@
 
 - Quarto 1.10.18;
 - R 4.6.1;
-- pacote R `yaml`;
+- Pacote R `yaml`;
 - Typst 0.15.1, distribuído com o Quarto usado;
 - Poppler com `pdfinfo`, `pdftotext` e `pdffonts`.
 
@@ -38,9 +38,9 @@ make validate
 
 ## Saídas
 
-- `_output/web/index.html`;
-- `_output/web/search.json`;
-- `_output/print/dados-indicadores-clima-ambiente-saude.pdf`.
+- Arquivo `_output/web/index.html`;
+- Arquivo `_output/web/search.json`;
+- Arquivo `_output/print/dados-indicadores-clima-ambiente-saude.pdf`.
 
 ## Ordem da compilação
 

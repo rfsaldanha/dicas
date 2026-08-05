@@ -4,6 +4,8 @@
 
 Use português brasileiro, linguagem acessível e tecnicamente precisa. Prefira frases diretas, parágrafos com uma ideia principal e verbos que explicitem a ação. Defina siglas na primeira ocorrência e mantenha a grafia institucional oficial.
 
+Inicie com letra maiúscula cada item de lista numerada ou com marcadores, inclusive quando os itens formarem uma continuação sintática da frase introdutória.
+
 ## Maiúsculas, unidades e números
 
 - Use maiúscula em nomes próprios e denominações oficiais, não para dar ênfase.
@@ -36,13 +38,13 @@ Toda ficha deve registrar limitações de cobertura, medição, suporte, atualiz
 
 Diferencie:
 
-- observação;
-- estimativa;
-- interpolação;
-- modelagem;
-- reanálise;
-- previsão;
-- projeção.
+- Observação;
+- Estimativa;
+- Interpolação;
+- Modelagem;
+- Reanálise;
+- Previsão;
+- Projeção.
 
 ## Clima e causalidade
 

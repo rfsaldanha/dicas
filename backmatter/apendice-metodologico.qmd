@@ -6,16 +6,16 @@ Este apêndice reúne um protocolo mínimo para transformar fontes heterogêneas
 
 O protocolo deve ser escrito antes da produção do resultado e conter:
 
-1. pergunta e decisão;
-2. população, território e período;
-3. fenômeno e dimensão — perigo, exposição, vulnerabilidade, efeito ou resposta;
-4. indicador, versão e justificativa;
-5. fontes, responsáveis e datas de acesso;
-6. variáveis e critérios de inclusão;
-7. transformações, vínculos e agregações;
-8. regras de qualidade e ausência;
-9. análise principal e sensibilidades;
-10. produtos, acesso e proteção de dados.
+1. Pergunta e decisão;
+2. População, território e período;
+3. Fenômeno e dimensão — perigo, exposição, vulnerabilidade, efeito ou resposta;
+4. Indicador, versão e justificativa;
+5. Fontes, responsáveis e datas de acesso;
+6. Variáveis e critérios de inclusão;
+7. Transformações, vínculos e agregações;
+8. Regras de qualidade e ausência;
+9. Análise principal e sensibilidades;
+10. Produtos, acesso e proteção de dados.
 
 Mudanças posteriores são permitidas, mas devem permanecer no histórico com data, motivo e consequência esperada.
 
@@ -23,14 +23,14 @@ Mudanças posteriores são permitidas, mas devem permanecer no histórico com da
 
 Cada arquivo recebido ou baixado deve ter:
 
-- endereço e identificador persistente, quando houver;
-- instituição, sistema, produto e edição;
-- data e hora da extração;
-- período de referência;
-- formato, tamanho e soma de verificação;
-- licença ou termos;
-- código e parâmetros usados;
-- arquivo de saída e sua relação com a entrada.
+- Endereço e identificador persistente, quando houver;
+- Instituição, sistema, produto e edição;
+- Data e hora da extração;
+- Período de referência;
+- Formato, tamanho e soma de verificação;
+- Licença ou termos;
+- Código e parâmetros usados;
+- Arquivo de saída e sua relação com a entrada.
 
 Dados brutos devem ser preservados sem edição manual. Correções e recodificações pertencem a etapas derivadas. Se a fonte substituir um arquivo, conservar a versão usada na publicação quando os termos permitirem.
 
@@ -61,11 +61,11 @@ Antes de sobrepor dados, verificar sistema de referência, datum, geometria, res
 
 Estações são pontos; grades representam células; indicadores administrativos representam áreas. Atribuir o valor da estação mais próxima pressupõe que proximidade represente semelhança. Interpolar cria uma superfície estimada e exige método, validação e incerteza. Agregar grade a município requer função compatível:
 
-- média simples para propriedade distribuída quando as células têm áreas equivalentes;
-- média ponderada pela área para células parciais;
-- média ponderada pela população para exposição residencial;
-- máximo para perguntas sobre extremo territorial, com cautela sobre ruído;
-- soma apenas para quantidades extensivas compatíveis.
+- Média simples para propriedade distribuída quando as células têm áreas equivalentes;
+- Média ponderada pela área para células parciais;
+- Média ponderada pela população para exposição residencial;
+- Máximo para perguntas sobre extremo territorial, com cautela sobre ruído;
+- Soma apenas para quantidades extensivas compatíveis.
 
 Se \(x_g\) é o valor na célula \(g\) e \(w_g\) é o peso:
 
@@ -79,10 +79,10 @@ Peso de área e peso de população respondem a perguntas diferentes. O método 
 
 Municípios, setores e áreas de saúde mudam. Séries longas devem usar:
 
-1. malha vigente em cada ano, aceitando mudança do universo;
-2. malha constante, com harmonização retrospectiva;
-3. áreas mínimas comparáveis;
-4. agregação para nível estável.
+1. Malha vigente em cada ano, aceitando mudança do universo;
+2. Malha constante, com harmonização retrospectiva;
+3. Áreas mínimas comparáveis;
+4. Agregação para nível estável.
 
 A escolha deve ser declarada. Não atribuir dados de um município desmembrado a seus sucessores sem regra e fonte.
 
@@ -116,14 +116,14 @@ Qualidade deve ser avaliada para o uso específico.
 
 Verificar:
 
-- metadados e deslocamento da estação;
-- calibração e mudança de instrumento;
-- valores fisicamente implausíveis;
-- persistência artificial e saltos;
-- completude por dia, mês e ano;
-- comparação com estações ou produtos independentes;
-- bandeiras de qualidade;
-- homogeneidade para análise climatológica.
+- Metadados e deslocamento da estação;
+- Calibração e mudança de instrumento;
+- Valores fisicamente implausíveis;
+- Persistência artificial e saltos;
+- Completude por dia, mês e ano;
+- Comparação com estações ou produtos independentes;
+- Bandeiras de qualidade;
+- Homogeneidade para análise climatológica.
 
 Dados brutos de redes operacionais podem ser apropriados para alerta e inadequados para tendência sem qualificação adicional.
 
@@ -131,14 +131,14 @@ Dados brutos de redes operacionais podem ser apropriados para alerta e inadequad
 
 Examinar:
 
-- unidade de registro e duplicidade;
-- cobertura populacional e assistencial;
-- definição de caso e códigos;
-- causa básica e associadas;
-- residência e ocorrência;
-- oportunidade e revisões;
-- completude de idade, sexo, raça ou cor e demais campos;
-- mudanças de oferta, financiamento e sistema.
+- Unidade de registro e duplicidade;
+- Cobertura populacional e assistencial;
+- Definição de caso e códigos;
+- Causa básica e associadas;
+- Residência e ocorrência;
+- Oportunidade e revisões;
+- Completude de idade, sexo, raça ou cor e demais campos;
+- Mudanças de oferta, financiamento e sistema.
 
 Uma queda de internações durante desastre pode representar interrupção de acesso. A interpretação deve usar dados de funcionamento dos serviços.
 
@@ -150,12 +150,12 @@ Registrar fonte, data de referência e método de interpolação. Estimativas in
 
 Ausência não é zero. Distinguir:
 
-- não observado;
-- não aplicável;
-- abaixo do limite de detecção;
-- estação inativa;
-- município sem envio;
-- evento verdadeiramente ausente.
+- Não observado;
+- Não aplicável;
+- Abaixo do limite de detecção;
+- Estação inativa;
+- Município sem envio;
+- Evento verdadeiramente ausente.
 
 Imputação precisa de justificativa, modelo e marcação. Para extremos, remover apenas com evidência de erro. Valores raros são parte do objeto em estudos climáticos; filtros automáticos baseados em poucos desvios-padrão podem apagar eventos reais.
 
@@ -163,16 +163,16 @@ Imputação precisa de justificativa, modelo e marcação. Para extremos, remove
 
 Implementar testes com casos pequenos cujo resultado possa ser calculado manualmente. Para cada indicador, testar:
 
-- unidade e constante;
-- denominador vazio ou zero;
-- limites e igualdade ao limiar;
-- sequências que cruzam ano ou estação;
-- anos bissextos;
-- dados ausentes;
-- coordenadas fora do domínio;
-- duplicidades;
-- ordenação temporal;
-- versão da classificação.
+- Unidade e constante;
+- Denominador vazio ou zero;
+- Limites e igualdade ao limiar;
+- Sequências que cruzam ano ou estação;
+- Anos bissextos;
+- Dados ausentes;
+- Coordenadas fora do domínio;
+- Duplicidades;
+- Ordenação temporal;
+- Versão da classificação.
 
 Recalcular amostra por método independente quando o risco for alto. Comparar totais intermediários com publicações oficiais sem forçar igualdade quando universo ou processamento diferirem.
 
@@ -180,16 +180,16 @@ Recalcular amostra por método independente quando o risco for alto. Comparar to
 
 Sensibilidade não é repetir muitas opções e escolher a mais favorável. Deve examinar decisões plausíveis que podem alterar conclusão:
 
-- fonte ambiental;
-- período de referência;
-- limiar;
-- regra de completude;
-- suporte espacial;
-- população e denominador;
-- especificação de tendência e sazonalidade;
-- janela de defasagem;
-- contrafactual;
-- inclusão de períodos excepcionais.
+- Fonte ambiental;
+- Período de referência;
+- Limiar;
+- Regra de completude;
+- Suporte espacial;
+- População e denominador;
+- Especificação de tendência e sazonalidade;
+- Janela de defasagem;
+- Contrafactual;
+- Inclusão de períodos excepcionais.
 
 Apresentar o resultado principal e informar se direção, magnitude ou classificação mudam. Quando escolhas defensáveis levam a conclusões incompatíveis, a incerteza é parte do achado.
 
@@ -203,15 +203,15 @@ Mapas podem mostrar faixa, transparência, hachura ou painel de qualidade. Não 
 
 O pacote de reprodução deve conter:
 
-- instruções de ambiente;
-- código versionado;
-- parâmetros e configurações;
-- dicionários e esquemas;
-- testes;
-- registro de execução;
-- saídas intermediárias essenciais;
-- metadados das fontes;
-- instruções para obter dados que não podem ser redistribuídos.
+- Instruções de ambiente;
+- Código versionado;
+- Parâmetros e configurações;
+- Dicionários e esquemas;
+- Testes;
+- Registro de execução;
+- Saídas intermediárias essenciais;
+- Metadados das fontes;
+- Instruções para obter dados que não podem ser redistribuídos.
 
 Credenciais nunca devem entrar no repositório. Processos manuais inevitáveis devem ser registrados com operador, data, arquivo e decisão.
 
@@ -219,15 +219,15 @@ Credenciais nunca devem entrar no repositório. Processos manuais inevitáveis d
 
 Antes de publicar, confirmar:
 
-1. definição e fórmula iguais à ficha;
-2. numerador e denominador reproduzíveis;
-3. fonte e versão citadas;
-4. período e território claros;
-5. dados preliminares identificados;
-6. incerteza e limitações próximas ao resultado;
-7. comparação válida;
-8. proteção de dados;
-9. acessibilidade de tabelas, mapas e mensagens;
-10. ligação com decisão e responsável.
+1. Definição e fórmula iguais à ficha;
+2. Numerador e denominador reproduzíveis;
+3. Fonte e versão citadas;
+4. Período e território claros;
+5. Dados preliminares identificados;
+6. Incerteza e limitações próximas ao resultado;
+7. Comparação válida;
+8. Proteção de dados;
+9. Acessibilidade de tabelas, mapas e mensagens;
+10. Ligação com decisão e responsável.
 
 Após revisão da fonte, da metodologia ou do dado, a publicação deve conservar histórico de versões. Corrigir silenciosamente impede auditoria e aprendizado.

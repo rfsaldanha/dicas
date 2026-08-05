@@ -8,27 +8,27 @@ Os capítulos apresentam fundamentos, fenômenos climáticos e ambientais, impac
 
 ## Arquivos principais
 
-- `_quarto.yml`, `_quarto-web.yml` e `_quarto-print.yml`;
+- Arquivos `_quarto.yml`, `_quarto-web.yml` e `_quarto-print.yml`;
 - 14 capítulos em `chapters/`;
-- elementos editoriais em `frontmatter/` e `backmatter/`;
-- metadados das fichas em `indicators/data/`;
-- trechos gerados em `indicators/includes/`;
+- Elementos editoriais em `frontmatter/` e `backmatter/`;
+- Metadados das fichas em `indicators/data/`;
+- Trechos gerados em `indicators/includes/`;
 - 25 fontes em `sources/data/sources.yml`;
-- referências em `references.bib`;
-- saídas em `_output/web/` e `_output/print/`.
+- Referências em `references.bib`;
+- Saídas em `_output/web/` e `_output/print/`.
 
 O arquivo não rastreado `prompt.txt` pertence ao usuário e permanece fora da entrega.
 
 ## Decisões
 
-- árvore única para HTML e PDF;
-- fichas integradas por fenômeno;
-- somente indicadores com especificação verificável;
-- preferência por aplicações em saúde pública;
-- separação entre perigo, exposição, vulnerabilidade, efeito e resposta;
-- fontes, produtos e plataformas tipificados separadamente;
-- citações autor-data e bibliografia em estilo ABNT;
-- indicações de nova arte marcadas como `visual-needed`.
+- Árvore única para HTML e PDF;
+- Fichas integradas por fenômeno;
+- Somente indicadores com especificação verificável;
+- Preferência por aplicações em saúde pública;
+- Separação entre perigo, exposição, vulnerabilidade, efeito e resposta;
+- Fontes, produtos e plataformas tipificados separadamente;
+- Citações autor-data e bibliografia em estilo ABNT;
+- Indicações de nova arte marcadas como `visual-needed`.
 
 ## Compilação e validação
 

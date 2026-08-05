@@ -10,17 +10,17 @@ O projeto digital usa Quarto Book, publica em `docs/`, mantém capítulos no ní
 
 Padrões aproveitáveis:
 
-- fonte única de capítulos;
-- navegação e busca nativas do Quarto;
-- pré-render para índices derivados;
-- convenção explícita para quadros;
-- bibliografia BibTeX compartilhada;
-- automação editorial em R.
+- Fonte única de capítulos;
+- Navegação e busca nativas do Quarto;
+- Pré-render para índices derivados;
+- Convenção explícita para quadros;
+- Bibliografia BibTeX compartilhada;
+- Automação editorial em R.
 
 Limites para o novo projeto:
 
-- muitos arquivos no nível raiz dificultariam um livro com catálogos estruturados;
-- a configuração concentra recursos específicos de áudio e de um livro maduro;
+- Muitos arquivos no nível raiz dificultariam um livro com catálogos estruturados;
+- A configuração concentra recursos específicos de áudio e de um livro maduro;
 - HTML e PDF simples no mesmo formato não atendem ao acabamento impresso requerido aqui.
 
 ## `../diisp`
@@ -29,17 +29,17 @@ O livro organiza uma sequência metodológica próxima ao tema deste projeto. O 
 
 Padrões aproveitáveis:
 
-- progressão entre fundamentos, qualidade, incerteza e capítulos temáticos;
-- linguagem orientada ao uso;
-- fichas como unidade editorial dentro do domínio;
-- exemplos de distinção entre dado, variável e indicador.
+- Progressão entre fundamentos, qualidade, incerteza e capítulos temáticos;
+- Linguagem orientada ao uso;
+- Fichas como unidade editorial dentro do domínio;
+- Exemplos de distinção entre dado, variável e indicador.
 
 Limites para o novo projeto:
 
-- ficha sem metadados legíveis por máquina;
-- ausência de versão impressa ativa;
-- estrutura plana e sem catálogo de fontes;
-- campos insuficientes para suporte espacial, natureza do produto e disponibilidade.
+- Ficha sem metadados legíveis por máquina;
+- Ausência de versão impressa ativa;
+- Estrutura plana e sem catálogo de fontes;
+- Campos insuficientes para suporte espacial, natureza do produto e disponibilidade.
 
 ## `../sis_pdf`
 
@@ -48,17 +48,17 @@ O projeto impresso usa Quarto e Typst com formato local especializado. O miolo m
 Padrões aproveitáveis:
 
 - Typst para composição de impressão sob demanda;
-- dimensões e margens explícitas;
-- extensão local de formato;
-- nome previsível do PDF;
-- validação pós-render com Poppler;
-- auditoria de elementos iniciais, fontes incorporadas e tamanho de página.
+- Dimensões e margens explícitas;
+- Extensão local de formato;
+- Nome previsível do PDF;
+- Validação pós-render com Poppler;
+- Auditoria de elementos iniciais, fontes incorporadas e tamanho de página.
 
 Riscos que não foram repetidos:
 
-- separar web e impressão em repositórios distintos criaria sincronização precoce;
-- copiar a extensão completa traria regras específicas do SIS, QR codes, índice digital e filtros sem função neste livro;
-- validações altamente acopladas a títulos e páginas só são apropriadas após o conteúdo estabilizar.
+- Separar web e impressão em repositórios distintos criaria sincronização precoce;
+- Copiar a extensão completa traria regras específicas do SIS, QR codes, índice digital e filtros sem função neste livro;
+- Validações altamente acopladas a títulos e páginas só são apropriadas após o conteúdo estabilizar.
 
 ## Estratégia recomendada e adotada
 

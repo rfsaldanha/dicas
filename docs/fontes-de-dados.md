@@ -18,26 +18,26 @@ O catálogo cobre fontes brasileiras e internacionais usadas pelas fichas, inclu
 
 ## Critérios de seleção
 
-1. aderência à pergunta;
-2. autoridade e documentação;
-3. natureza do dado;
-4. cobertura espacial e temporal;
-5. qualidade e incerteza;
-6. atualização e estabilidade;
-7. acesso, licença e custo;
-8. possibilidade de reprodução;
-9. compatibilidade com o território e a decisão.
+1. Aderência à pergunta;
+2. Autoridade e documentação;
+3. Natureza do dado;
+4. Cobertura espacial e temporal;
+5. Qualidade e incerteza;
+6. Atualização e estabilidade;
+7. Acesso, licença e custo;
+8. Possibilidade de reprodução;
+9. Compatibilidade com o território e a decisão.
 
 ## Verificação
 
 Antes de publicar uma característica:
 
-- consulte página institucional ou documentação primária;
-- registre a URL específica, não apenas a página inicial;
-- confira a versão vigente;
-- confirme licença, cadastro e custo;
-- teste o download ou API;
-- abra um arquivo e confira metadados e unidade;
-- registre data e responsável pela verificação.
+- Consulte página institucional ou documentação primária;
+- Registre a URL específica, não apenas a página inicial;
+- Confira a versão vigente;
+- Confirme licença, cadastro e custo;
+- Teste o download ou API;
+- Abra um arquivo e confira metadados e unidade;
+- Registre data e responsável pela verificação.
 
 O processo de compilação não consulta serviços externos. Isso mantém a construção reproduzível e permite que indisponibilidade temporária de um portal não interrompa o livro.

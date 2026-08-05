@@ -6,12 +6,12 @@ Cada conjunto de fichas é mantido em YAML em `indicators/data/`. O script `scri
 
 Essa abordagem foi escolhida porque:
 
-- mantém revisão campo a campo;
-- gera HTML e PDF com o mesmo conteúdo;
-- permite filtros futuros por tema, dimensão, fonte e disponibilidade;
-- evita um filtro Lua complexo;
-- torna códigos e campos obrigatórios validáveis;
-- preserva páginas legíveis e vinculáveis.
+- Mantém revisão campo a campo;
+- Gera HTML e PDF com o mesmo conteúdo;
+- Permite filtros futuros por tema, dimensão, fonte e disponibilidade;
+- Evita um filtro Lua complexo;
+- Torna códigos e campos obrigatórios validáveis;
+- Preserva páginas legíveis e vinculáveis.
 
 CSV foi descartado porque textos longos, listas e fórmulas ficam frágeis. Metadados apenas no cabeçalho `.qmd` misturariam dado estruturado e apresentação. Um banco ou ambiente Python seria desproporcional.
 
@@ -27,12 +27,12 @@ Valores aceitos editorialmente: perigo, exposição, vulnerabilidade, efeito sob
 
 Use somente:
 
-- disponível para consulta;
-- disponível para download;
-- cálculo simples;
-- requer geoprocessamento;
-- requer modelagem;
-- sem produção regular.
+- Disponível para consulta;
+- Disponível para download;
+- Cálculo simples;
+- Requer geoprocessamento;
+- Requer modelagem;
+- Sem produção regular.
 
 O selo indica esforço de obtenção, não qualidade.
 
@@ -52,22 +52,22 @@ Arquivos em `indicators/includes/` são gerados e não devem ser editados manual
 
 A estrutura obrigatória acompanha os 16 campos da Ficha de Qualificação do Indicador (FQI) descritos na terceira edição de *Indicadores Básicos para a Saúde no Brasil*:
 
-1. código da RIPSA;
-2. título completo;
-3. título resumido;
-4. conceito;
-5. interpretação;
-6. usos;
-7. limitações;
-8. fontes de dados;
-9. fórmula de cálculo;
-10. método de cálculo;
-11. variáveis e categorias de análise;
-12. granularidade;
-13. periodicidade de atualização;
-14. responsabilidade gerencial;
-15. notas;
-16. análise descritiva do indicador.
+1. Código da RIPSA;
+2. Título completo;
+3. Título resumido;
+4. Conceito;
+5. Interpretação;
+6. Usos;
+7. Limitações;
+8. Fontes de dados;
+9. Fórmula de cálculo;
+10. Método de cálculo;
+11. Variáveis e categorias de análise;
+12. Granularidade;
+13. Periodicidade de atualização;
+14. Responsabilidade gerencial;
+15. Notas;
+16. Análise descritiva do indicador.
 
 Os códigos deste livro têm taxonomia própria e não devem ser confundidos com códigos oficiais da RIPSA. “Código da RIPSA” é, aqui, implementado como o identificador editorial do indicador, mantendo a mesma função de identificação sem alegar inclusão no portfólio da Rede.
 

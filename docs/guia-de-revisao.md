@@ -6,11 +6,11 @@ A versão 0.9.0 está preparada para revisão integral. Ela reúne 14 capítulos
 
 Os artefatos são:
 
-- site em `_output/web/index.html`;
+- Site em `_output/web/index.html`;
 - PDF em `_output/print/dados-indicadores-clima-ambiente-saude.pdf`;
-- originais em `chapters/`, `frontmatter/` e `backmatter/`;
-- fichas em `indicators/data/`;
-- fontes em `sources/data/sources.yml`.
+- Originais em `chapters/`, `frontmatter/` e `backmatter/`;
+- Fichas em `indicators/data/`;
+- Fontes em `sources/data/sources.yml`.
 
 ## Ordem sugerida
 
@@ -25,14 +25,14 @@ Os artefatos são:
 
 Verificar:
 
-- precisão conceitual e terminológica;
-- correspondência entre definição, fórmula, numerador, denominador e unidade;
-- uso de indicadores consolidados, sem propostas genéricas;
-- separação entre observação, estimativa, previsão, projeção e reanálise;
-- distinção entre associação, excesso e atribuição;
-- cobertura, resolução, período, atualização e limitações das fontes;
-- compatibilidade das afirmações com as referências citadas;
-- clareza da ligação com ações de saúde pública.
+- Precisão conceitual e terminológica;
+- Correspondência entre definição, fórmula, numerador, denominador e unidade;
+- Uso de indicadores consolidados, sem propostas genéricas;
+- Separação entre observação, estimativa, previsão, projeção e reanálise;
+- Distinção entre associação, excesso e atribuição;
+- Cobertura, resolução, período, atualização e limitações das fontes;
+- Compatibilidade das afirmações com as referências citadas;
+- Clareza da ligação com ações de saúde pública.
 
 ## Site
 
@@ -50,8 +50,8 @@ Os blocos “Ilustração editorial necessária” especificam as peças origina
 
 Indicar arquivo ou página, seção e categoria:
 
-- bloqueio: impede compreender, validar ou compilar;
-- decisão: exige escolha técnica ou editorial;
-- ajuste: correção localizada.
+- Bloqueio: impede compreender, validar ou compilar;
+- Decisão: exige escolha técnica ou editorial;
+- Ajuste: correção localizada.
 
 Para fichas e fontes, citar o código ou ID.

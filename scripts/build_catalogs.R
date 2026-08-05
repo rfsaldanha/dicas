@@ -18,6 +18,9 @@ as_text <- function(value, fallback = "Não se aplica.") {
 as_list <- function(value) {
   if (is.null(value) || !length(value)) character() else as.character(unlist(value, use.names = FALSE))
 }
+uppercase_initial <- function(value) {
+  paste0(toupper(substr(value, 1L, 1L)), substring(value, 2L))
+}
 source_entries <- function(value, indicator_code = "") {
   if (is.null(value) || !length(value)) {
     fail("A ficha ", indicator_code, " não declara fontes_dados.")
@@ -30,7 +33,7 @@ source_entries <- function(value, indicator_code = "") {
   })
 }
 md_list <- function(value) {
-  items <- as_list(value)
+  items <- uppercase_initial(as_list(value))
   if (!length(items)) return("- Não se aplica.")
   paste0("- ", items)
 }

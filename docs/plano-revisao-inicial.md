@@ -19,10 +19,10 @@ Preparar o protótipo existente para uma revisão editorial confiável, preserva
 1. Comparar a ordem e as subseções dos 14 capítulos com o escopo aprovado.
 2. Identificar sobreposições entre temperatura e ilha de calor, eventos hidrológicos e desastres, exposição e efeitos, capacidade de resposta e aplicação.
 3. Confirmar que capítulos não desenvolvidos contêm somente:
-   - descrição breve do escopo;
-   - estrutura de seções;
-   - indicadores planejados;
-   - tarefas `TODO` explícitas.
+   - Descrição breve do escopo;
+   - Estrutura de seções;
+   - Indicadores planejados;
+   - Tarefas `TODO` explícitas.
 4. Revisar a página inicial e os capítulos-modelo sem iniciar a redação integral da obra.
 
 ## Conferência de fichas e fontes
@@ -37,15 +37,15 @@ Preparar o protótipo existente para uma revisão editorial confiável, preserva
 
 Serão examinadas:
 
-- página inicial;
-- barra lateral, sumário e busca;
-- capítulo conceitual;
-- capítulo temático;
-- ficha de indicador;
-- índice de indicadores;
-- índice e registros de fontes;
-- tabelas, links e referências cruzadas;
-- larguras representativas de celular, tablet e computador.
+- Página inicial;
+- Barra lateral, sumário e busca;
+- Capítulo conceitual;
+- Capítulo temático;
+- Ficha de indicador;
+- Índice de indicadores;
+- Índice e registros de fontes;
+- Tabelas, links e referências cruzadas;
+- Larguras representativas de celular, tablet e computador.
 
 Evidências: capturas de tela, inspeção do HTML gerado e validação automática de links locais.
 
@@ -53,16 +53,16 @@ Evidências: capturas de tela, inspeção do HTML gerado e validação automáti
 
 Serão examinadas:
 
-- folha de rosto e páginas pré-textuais;
-- sumário;
-- abertura de partes e capítulos;
-- páginas pares e ímpares;
-- cabeçalhos, fólios, margens e tipografia;
-- capítulo com tabela e callout;
-- fichas completas e suas quebras;
-- referências e índices;
-- páginas em branco;
-- elementos fora da mancha, linhas isoladas e cortes.
+- Folha de rosto e páginas pré-textuais;
+- Sumário;
+- Abertura de partes e capítulos;
+- Páginas pares e ímpares;
+- Cabeçalhos, fólios, margens e tipografia;
+- Capítulo com tabela e callout;
+- Fichas completas e suas quebras;
+- Referências e índices;
+- Páginas em branco;
+- Elementos fora da mancha, linhas isoladas e cortes.
 
 Evidências: `pdfinfo`, `pdffonts`, `pdftotext`, conversão de páginas em imagem e auditoria geométrica.
 

@@ -8,9 +8,9 @@ Os 14 capítulos textuais são compartilhados entre as duas saídas. A edição 
 
 ## Perfis
 
-- `_quarto.yml`: metadados, referências cruzadas e pré-render.
-- `_quarto-web.yml`: ordem completa da edição digital, HTML, tema, CSS e diretório `_output/web`.
-- `_quarto-print.yml`: ordem específica da edição impressa, formato `dicas-print-typst`, tipografia e diretório `_output/print`.
+- Arquivo `_quarto.yml`: metadados, referências cruzadas e pré-render.
+- Arquivo `_quarto-web.yml`: ordem completa da edição digital, HTML, tema, CSS e diretório `_output/web`.
+- Arquivo `_quarto-print.yml`: ordem específica da edição impressa, formato `dicas-print-typst`, tipografia e diretório `_output/print`.
 
 O perfil web é padrão, portanto `quarto render` produz o site. `quarto render --profile print` produz somente o PDF.
 
@@ -28,11 +28,11 @@ O formato local estende o modelo Typst com folha de rosto, verso editorial, pré
 - 25 mm internos e 18 mm externos;
 - 20 mm superiores e 22 mm inferiores;
 - Libertinus Serif, 10,5 pt;
-- capítulos em página ímpar;
-- fólio em cabeçalho após as páginas iniciais;
-- pré-textuais sem fólio, abertos em páginas ímpares;
-- espaço de 80 mm reservado para a ficha catalográfica;
-- fechamento do miolo em múltiplo de quatro páginas.
+- Capítulos em página ímpar;
+- Fólio em cabeçalho após as páginas iniciais;
+- Pré-textuais sem fólio, abertos em páginas ímpares;
+- Espaço de 80 mm reservado para a ficha catalográfica;
+- Fechamento do miolo em múltiplo de quatro páginas.
 
 A composição pré-textual segue a arquitetura de `sis_pdf`, adaptada aos conteúdos e metadados disponíveis neste projeto. A ficha catalográfica permanece vazia até a atribuição formal de seus dados.
 

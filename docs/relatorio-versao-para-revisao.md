@@ -39,14 +39,14 @@ Na compilação consolidada de 28 de julho de 2026, o PDF possui 436 páginas e 
 
 O fluxo cobre:
 
-- validação dos 62 indicadores e 25 fontes;
-- presença e ordem dos 14 capítulos;
-- chaves bibliográficas;
+- Validação dos 62 indicadores e 25 fontes;
+- Presença e ordem dos 14 capítulos;
+- Chaves bibliográficas;
 - HTML, busca, links e âncoras;
-- referências cruzadas;
-- formato e paginação do PDF;
-- incorporação das fontes;
-- presença de elementos editoriais.
+- Referências cruzadas;
+- Formato e paginação do PDF;
+- Incorporação das fontes;
+- Presença de elementos editoriais.
 
 Comandos:
 

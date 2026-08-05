@@ -49,6 +49,33 @@ missing_book <- book_paths[!file.exists(book_paths)]
 if (length(missing_book)) fail("Arquivo listado no livro ausente: ", paste(missing_book, collapse = ", "))
 
 qmd_files <- list.files(".", pattern = "\\.qmd$", recursive = TRUE, full.names = TRUE)
+markdown_files <- list.files(".", pattern = "\\.(qmd|md)$", recursive = TRUE, full.names = TRUE)
+bad_list_items <- unlist(lapply(markdown_files, function(path) {
+  lines <- readLines(path, warn = FALSE, encoding = "UTF-8")
+  in_fence <- FALSE
+  bad <- character()
+  for (i in seq_along(lines)) {
+    if (grepl("^[[:space:]]*(```|~~~)", lines[[i]], perl = TRUE)) {
+      in_fence <- !in_fence
+    } else if (
+      !in_fence &&
+      grepl(
+        "^[[:space:]]*(?:[-+*]|[0-9]+[.)])[[:space:]]+(?:\\[[ xX]\\][[:space:]]+)?(?:\\*|_|`|\\[)*[[:lower:]]",
+        lines[[i]],
+        perl = TRUE
+      )
+    ) {
+      bad <- c(bad, paste0(path, ":", i, ": ", lines[[i]]))
+    }
+  }
+  bad
+}), use.names = FALSE)
+if (length(bad_list_items)) {
+  fail(
+    "Itens de lista devem começar com letra maiúscula:\n",
+    paste(bad_list_items, collapse = "\n")
+  )
+}
 source_text <- paste(vapply(qmd_files, function(path) {
   paste(readLines(path, warn = FALSE, encoding = "UTF-8"), collapse = "\n")
 }, character(1L)), collapse = "\n")

@@ -12,24 +12,24 @@ Comece pelo [guia de revisão](docs/guia-de-revisao.md) e consulte o [relatório
 
 ## Estrutura
 
-- `_quarto.yml`: metadados centrais e configuração compartilhada.
-- `_quarto-web.yml` e `_quarto-print.yml`: ordem do livro e configuração de cada saída.
-- `chapters/`: 14 capítulos organizados em quatro partes.
-- `frontmatter/` e `backmatter/`: elementos pré e pós-textuais compartilhados.
-- `print/pretextuais.typ`: pré-textuais próprios da edição impressa.
-- `indicators/data/`: fichas estruturadas em YAML.
-- `sources/data/sources.yml`: catálogo estruturado de fontes.
-- `scripts/`: geração, compilação e validação.
-- `styles/` e `_extensions/dicas-print/`: identidade web e composição impressa.
-- `docs/`: decisões arquiteturais e guias.
-- `_output/web/`: site compilado.
-- `_output/print/dados-indicadores-clima-ambiente-saude.pdf`: PDF compilado.
+- Arquivo `_quarto.yml`: metadados centrais e configuração compartilhada.
+- Arquivos `_quarto-web.yml` e `_quarto-print.yml`: ordem do livro e configuração de cada saída.
+- Diretório `chapters/`: 14 capítulos organizados em quatro partes.
+- Diretórios `frontmatter/` e `backmatter/`: elementos pré e pós-textuais compartilhados.
+- Arquivo `print/pretextuais.typ`: pré-textuais próprios da edição impressa.
+- Diretório `indicators/data/`: fichas estruturadas em YAML.
+- Arquivo `sources/data/sources.yml`: catálogo estruturado de fontes.
+- Diretório `scripts/`: geração, compilação e validação.
+- Diretórios `styles/` e `_extensions/dicas-print/`: identidade web e composição impressa.
+- Diretório `docs/`: decisões arquiteturais e guias.
+- Diretório `_output/web/`: site compilado.
+- Arquivo `_output/print/dados-indicadores-clima-ambiente-saude.pdf`: PDF compilado.
 
 ## Requisitos
 
 - Quarto 1.8 ou superior; a versão foi validada com 1.10.18.
 - R; a versão foi validada com R 4.6.1.
-- pacote R `yaml`;
+- Pacote R `yaml`;
 - Poppler (`pdfinfo`, `pdftotext` e `pdffonts`) para o pré-voo do PDF.
 
 Instale a única dependência R, se necessário:

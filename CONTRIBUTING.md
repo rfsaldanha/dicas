@@ -36,10 +36,10 @@ Revise clareza, coerência terminológica, unidades, casas decimais, datas, sigl
 
 Faça commits pequenos, com mensagem no imperativo e escopo reconhecível. Antes de abrir um pull request:
 
-- [ ] execute `make`;
-- [ ] confira `git diff --check`;
-- [ ] revise o HTML e o PDF;
-- [ ] confirme que não há fonte ou referência inventada;
-- [ ] confirme que arquivos gerados correspondem aos metadados;
-- [ ] descreva decisões editoriais e tarefas pendentes;
-- [ ] não inclua credenciais, dados sensíveis ou arquivos sem licença.
+- [ ] Execute `make`;
+- [ ] Confira `git diff --check`;
+- [ ] Revise o HTML e o PDF;
+- [ ] Confirme que não há fonte ou referência inventada;
+- [ ] Confirme que arquivos gerados correspondem aos metadados;
+- [ ] Descreva decisões editoriais e tarefas pendentes;
+- [ ] Não inclua credenciais, dados sensíveis ou arquivos sem licença.
