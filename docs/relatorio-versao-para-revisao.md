@@ -59,4 +59,4 @@ git diff --check
 
 ## Indicações de arte
 
-Os únicos marcadores deliberados no corpo do livro são seis blocos `visual-needed`. Eles especificam ilustrações originais sobre cadeia de impactos, processos hidrológicos, fumaça, água e saneamento, território urbano e desastres. A arte deverá ser produzida, licenciada, descrita com texto alternativo e revisada antes da edição pública.
+Há cinco frameboxes numerados para artes ainda não produzidas: cadeia de representação, mudança de suporte espacial, temperatura do ar e da superfície, residência e presença e defasagens entre exposição e registro. Cada espaço contém orientação de composição e legenda e já é referido no texto. A arte final deverá ser produzida, licenciada, descrita com texto alternativo e revisada antes da edição pública.

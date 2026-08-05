@@ -44,7 +44,7 @@ Conferir formato, margens, aberturas, cabeçalhos, fólios, tabelas, fórmulas, 
 
 ## Arte
 
-Os blocos “Ilustração editorial necessária” especificam as peças originais que devem ser produzidas. A revisão deve avaliar pertinência, acessibilidade, fonte, autoria, licença e coerência com o texto antes da incorporação.
+Os frameboxes numerados especificam as peças originais que ainda devem ser produzidas. A revisão deve conferir a função de cada figura, a coerência entre orientação, legenda e referência no texto e, após a substituição pela arte final, acessibilidade, fonte, autoria e licença.
 
 ## Registro de comentários
 

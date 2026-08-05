@@ -59,8 +59,33 @@ local function indicator_card(div)
   return pandoc.RawBlock("typst", rendered)
 end
 
+local function framebox(div)
+  if not quarto.doc.is_format("typst") or not has_class(div, "framebox") then
+    return nil
+  end
+
+  local body = pandoc.write(pandoc.Pandoc(div.content), "typst")
+  local rendered = [[
+#block(
+  width: 100%,
+  breakable: false,
+  inset: (x: 10pt, y: 9pt),
+  fill: rgb("#fafafa"),
+  stroke: 0.7pt + black,
+  radius: 1.5pt,
+)[
+  #set text(size: 9pt)
+  #set par(first-line-indent: 0pt, spacing: 0.5em, justify: false)
+]] .. body .. [[
+]
+]]
+  return pandoc.RawBlock("typst", rendered)
+end
+
 return {
   { Span = field_label },
   { Header = ficha_title },
-  { Div = indicator_card },
+  { Div = function(div)
+      return indicator_card(div) or framebox(div)
+    end },
 }

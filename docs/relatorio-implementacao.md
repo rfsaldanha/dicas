@@ -28,7 +28,7 @@ O arquivo não rastreado `prompt.txt` pertence ao usuário e permanece fora da e
 - Separação entre perigo, exposição, vulnerabilidade, efeito e resposta;
 - Fontes, produtos e plataformas tipificados separadamente;
 - Citações autor-data e bibliografia em estilo ABNT;
-- Indicações de nova arte marcadas como `visual-needed`.
+- Frameboxes numerados para ilustrações ainda pendentes de arte final.
 
 ## Compilação e validação
 

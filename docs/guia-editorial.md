@@ -73,3 +73,5 @@ Nos callouts, use a rubrica correspondente à taxonomia acima. Conceitos e defin
 
 Toda figura deve ter função, legenda, fonte, autoria, licença e texto alternativo. Não usar imagem decorativa sem função informacional nem imagem gerada por IA. Tabelas devem permanecer legíveis no celular e no miolo de 155 mm.
 
+Enquanto a arte final não existir, usar um framebox com identificador `fig-`, orientação objetiva de composição e legenda. A figura deve ser incorporada ao argumento por uma referência cruzada natural; ao substituir o framebox, preservar o identificador e revisar legenda e texto alternativo.
+

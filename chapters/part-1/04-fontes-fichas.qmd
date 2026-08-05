@@ -51,7 +51,7 @@ Entidade responsável e recurso usado
 
 :::
 
-## Fontes primárias e secundárias
+## Estatuto das fontes e produtos de dados
 
 ::: {.callout-note icon=false title="Conceito-chave: fontes primárias e secundárias"}
 
@@ -59,27 +59,37 @@ Fonte primária registra ou estima diretamente o fenômeno segundo um sistema de
 
 :::
 
-“Primária” depende da pergunta. A declaração de óbito é registro primário para o sistema de mortalidade e informação produzida por uma cadeia clínica e administrativa em relação ao evento biológico. A radiância é observação primária do sensor; temperatura de superfície é produto derivado por algoritmo. Reanálise é secundária em relação às observações assimiladas, mas pode ser a fonte operacional diretamente usada por uma análise. O rótulo não substitui a descrição da cadeia.
+“Primária” depende da pergunta. A declaração de óbito é registro primário para o sistema de mortalidade e informação produzida por uma cadeia clínica e administrativa em relação ao evento biológico. A radiância é observação primária do sensor; temperatura de superfície é produto derivado por algoritmo. Reanálise é secundária em relação às observações assimiladas, mas pode ser a fonte operacional diretamente usada por uma análise. O rótulo não substitui a descrição da cadeia [@w3c2013prov].
 
 Primária não significa automaticamente melhor. Uma estação pode ter falhas e baixa representatividade. Uma reanálise pode oferecer cobertura espacial coerente e, ainda assim, ser inadequada para extremos locais. A escolha considera finalidade, qualidade, escala e transparência.
 
 Em vez de hierarquizar fontes por proximidade da coleta, deve-se avaliar adequação ao uso. Observação local favorece validação pontual; produto em grade favorece cobertura; sistema administrativo favorece escala populacional; pesquisa amostral pode medir dimensões ausentes no registro rotineiro. Combinar fontes pode reduzir lacunas e também introduzir incompatibilidades de conceito, calendário e população.
 
-### Observações
 
-Observações resultam de instrumentos, exames, registros ou coleta estruturada. Devem conservar unidade, método, códigos de qualidade e metadados. “Dado observado” não significa ausência de processamento: calibração, validação e consolidação fazem parte da produção.
+Observações resultam de instrumentos, exames, registros ou coleta estruturada. Devem conservar unidade, método, códigos de qualidade e metadados. “Dado observado” não significa ausência de processamento: calibração, validação e consolidação fazem parte da produção [@wmo2023climatological; @who2023dqa].
 
-### Reanálises
 
 Reanálises combinam modelo e observações em um sistema de assimilação mantido ao longo do tempo. Elas oferecem cobertura espaço-temporal, mas são estimativas modeladas. Mudanças na disponibilidade de observações podem afetar a série, e o desempenho varia por variável e região. A documentação do ERA5, por exemplo, descreve conjuntamente o sistema de assimilação, os fluxos de observações, a resolução, as mudanças de produção e a avaliação do produto [@hersbach2020era5].
 
-### Previsões
 
-Previsões partem do estado estimado do sistema e produzem valores futuros com horizonte e rodada. Para vigilância, precisam chegar a tempo e ser verificadas. Arquivar apenas o valor observado depois do evento impede avaliar o desempenho que o gestor realmente recebeu.
+Previsões partem do estado estimado do sistema e produzem valores futuros com horizonte e rodada. Para vigilância, precisam chegar a tempo e ser verificadas. Arquivar apenas o valor observado depois do evento impede avaliar o desempenho que o gestor realmente recebeu [@wmoWho2015heat; @cdc2024evaluation].
 
-### Projeções
 
 Projeções dependem de cenários, modelos e métodos de regionalização. Seu uso é planejamento de médio e longo prazo, não alerta diário. Devem ser apresentadas como intervalos e futuros condicionais, sem falsa precisão municipal. Cenário não é previsão: descreve um futuro plausível sob hipóteses, enquanto projeção é a resposta modelada a essas hipóteses [@ipcc2022glossario].
+
+::: {.callout-note icon=false title="Conceito-chave: fonte de autoridade, produto e via de acesso"}
+
+Fonte de autoridade é a organização ou o sistema responsável pelo conteúdo. Produto é a edição identificável que reúne dados e método. Via de acesso é o meio pelo qual o produto é obtido, como arquivo, API, catálogo ou painel. Citar apenas a instituição omite o produto; citar apenas a URL omite responsabilidade e versão; citar apenas o painel confunde interface com conteúdo.
+
+:::
+
+Uma mesma instituição pode publicar observação, estimativa modelada, previsão e indicador agregado. O nome institucional não torna esses produtos equivalentes. A ficha deve registrar o estatuto de cada valor: observado por instrumento, declarado por pessoa, registrado por serviço, estimado por modelo, previsto para horizonte futuro ou projetado sob cenário. Essa informação limita as inferências permitidas e orienta validação [@w3c2017dwbp; @un2014statistics].
+
+Combinar fontes é justificável quando elas ocupam funções complementares. Estações podem avaliar viés local de uma grade; satélite pode revelar heterogeneidade espacial entre pontos; censo oferece totais; superfície populacional distribui esses totais segundo um modelo; registro de saúde informa utilização; inquérito revela eventos que não chegam ao serviço. A combinação precisa manter os papéis separados. Uma fonte auxiliar não se torna verdade de referência apenas porque preenche lacunas.
+
+Triangulação não é votação entre bases. Concordância aumenta confiança apenas quando erros não são inteiramente compartilhados. Reanálise e produto derivado da mesma reanálise não são evidências independentes; dois painéis podem reproduzir o mesmo banco; bases administrativas podem compartilhar o mesmo cadastro populacional. A linhagem deve ser examinada antes de interpretar convergência. Quando houver divergência, a resposta não é escolher automaticamente a série mais conveniente, mas investigar conceito, período, cobertura, revisão e processamento [@w3c2013prov; @hersbach2020era5].
+
+Para uso operacional, disponibilidade técnica e continuidade institucional entram no desenho. Autenticação, limites de requisição, latência, política de revisão, histórico de versões e possibilidade de exportação determinam se o produto pode sustentar rotina. Um protótipo pode aceitar processo manual; um alerta exige redundância, registro do que foi recebido e plano para indisponibilidade. Esses requisitos devem ser testados antes de o indicador adquirir dependência organizacional [@who2023framework; @wilkinson2016fair].
 
 ## Painéis, APIs, repositórios e arquivos
 
@@ -112,7 +122,7 @@ Se outra equipe não consegue identificar a mesma edição e reconstruir a extra
 
 ## Indicadores já calculados
 
-Sistemas oficiais e observatórios frequentemente publicam indicadores prontos. Usá-los pode preservar comparabilidade e reduzir processamento, desde que o metadado seja conhecido. Um valor baixado de painel sem fórmula, denominador, revisão ou cobertura não é auditável.
+Sistemas oficiais e observatórios frequentemente publicam indicadores prontos. Usá-los pode preservar comparabilidade e reduzir processamento, desde que o metadado seja conhecido. Um valor baixado de painel sem fórmula, denominador, revisão ou cobertura não é auditável [@ripsa2026; @un2014statistics].
 
 Há três opções legítimas: usar o valor publicado; reproduzir o cálculo para auditoria; ou adaptar o método a outra finalidade. Elas produzem estatutos diferentes. A reprodução deve alcançar resultados compatíveis dentro das regras publicadas; divergências precisam ser investigadas. A adaptação deve receber nome e versão próprios, pois muda a comparabilidade.
 
@@ -171,7 +181,6 @@ Um indicador integra o catálogo quando atende aos requisitos apresentados no qu
 
 Indicadores genéricos inventados para preencher uma lacuna não são incluídos. Uma medida simples pode entrar se for formalmente consolidada — por exemplo, incidência, mortalidade ou concentração média anual do ODS —, mas não apenas porque é fácil calcular.
 
-### Motivos de exclusão ou adiamento
 
 Um candidato é excluído ou adiado quando:
 
@@ -185,7 +194,6 @@ Um candidato é excluído ou adiado quando:
 
 Adiar não invalida o indicador. Significa que o livro não possui base suficiente para uma ficha completa.
 
-## Seleção não é ranking universal
 
 “Principal” pode significar mais citado, mais usado operacionalmente, mais comparável ou mais relevante para determinada decisão. O livro não cria uma pontuação universal. A síntese apresenta famílias e contextos.
 
@@ -219,11 +227,9 @@ Blocos das fichas de indicadores
 
 :::
 
-### Campos RIPSA
 
 O núcleo contém título, conceituação, interpretação, usos, limitações, fontes, método, categorias de análise, dados estatísticos e comentários. A forma estruturada facilita revisão e intercâmbio. Campos não aplicáveis são identificados, não preenchidos com conteúdo fictício.
 
-### Campos complementares
 
 Dados climáticos e ambientais exigem:
 
@@ -241,7 +247,7 @@ Dados climáticos e ambientais exigem:
 
 “Granularidade” registra a desagregação recomendada da saída. “Resolução espacial original” registra o suporte nativo da entrada. Confundi-las produz interpretações erradas.
 
-## Fichas integradas aos capítulos
+## Integração editorial e referências
 
 As fichas não formam uma parte separada. Elas aparecem no capítulo do fenômeno, depois de:
 
@@ -255,7 +261,6 @@ Essa ordem impede que a fórmula apareça sem contexto. O índice pós-textual p
 
 O conteúdo estruturado é mantido em `indicators/data/` e transformado em trechos incorporados pelo processo de publicação. A fonte única reduz divergência entre capítulo e índice. Alterações devem ocorrer no dado estruturado, nunca no arquivo gerado.
 
-## Referências e ABNT
 
 As citações no texto usam chaves ligadas ao arquivo bibliográfico. A lista final é formatada segundo estilo ABNT. Para cada referência, são verificados autoria, título, edição, local, editora ou periódico, ano, DOI/URL e data de acesso quando aplicável.
 
@@ -295,7 +300,13 @@ A seleção deve ocorrer em duas etapas. Primeiro aplicam-se requisitos eliminat
 
 Fontes podem ser combinadas quando ocupam funções diferentes. Estação pode validar produto em grade; censo fornece totais e superfície modelada distribui população; observação recente orienta resposta e série consolidada sustenta avaliação. A combinação precisa declarar qual fonte domina em caso de conflito e como incertezas e revisões se propagam.
 
-Os critérios também devem considerar continuidade institucional. Uma prova de conceito pode usar produto experimental; um painel público exige manutenção, documentação de mudança, canal de suporte, plano de contingência e capacidade de recálculo. Sustentabilidade não é prestígio da instituição: é a possibilidade concreta de manter o indicador no ciclo decisório.
+Os critérios também devem considerar continuidade institucional. Uma prova de conceito pode usar produto experimental; um painel público exige manutenção, documentação de mudança, canal de suporte, plano de contingência e capacidade de recálculo. Sustentabilidade não é prestígio da instituição: é a possibilidade concreta de manter o indicador no ciclo decisório [@un2014statistics; @wilkinson2016fair].
+
+A seleção final deve registrar não apenas por que uma fonte foi escolhida, mas também por que alternativas plausíveis foram rejeitadas. Esse registro evita que a decisão seja reconstruída depois do resultado. Motivos aceitáveis incluem incompatibilidade conceitual, cobertura insuficiente, ausência de versão identificável, restrição legal, latência excessiva ou desempenho inadequado na validação. Conveniência e familiaridade podem influenciar custo, mas não substituem correspondência com o indicador.
+
+Quando duas fontes elegíveis oferecem vantagens diferentes, a decisão pode ser modular. Uma série consolidada sustenta tendência; outra, mais oportuna, sustenta situação recente; uma observação local verifica extremos; um produto em grade cobre o território. O painel deve mostrar a função de cada uma e impedir emendas silenciosas. Se a fonte muda no meio da série, período de sobreposição, comparação e regra de transição precisam ser planejados.
+
+A ficha também deve antecipar manutenção. É necessário saber quem acompanha mudanças de versão, quem verifica falhas, quanto tempo é aceitável ficar sem atualização, como valores corrigidos substituem preliminares e quais produtos dependentes precisam ser recalculados. Sem essa rotina, proveniência descreve o passado, mas não protege a continuidade futura [@un2014statistics; @w3c2017dwbp].
 
 ## Proveniência e processamento
 
@@ -322,7 +333,7 @@ Proveniência possui dois sentidos complementares: linhagem, que descreve de ond
 
 O conjunto mínimo preservável inclui entrada bruta permitida, manifesto de arquivos, dicionário, parâmetros, código, versões de dependências, registros de validação e saída publicada. Para fontes que mudam continuamente, hash, data de extração e cópia controlada ajudam a reconstruir o estado usado. Restrições de acesso devem ser documentadas sem expor dados protegidos.
 
-## Validação de uma ficha
+## Validação, atualização e uso das fichas
 
 Antes da publicação, cada ficha passa por quatro leituras:
 
@@ -345,7 +356,6 @@ Também são executadas validações automáticas:
 - Fórmula renderizável;
 - Ausência de pendências não autorizadas.
 
-## Atualização
 
 Uma ficha muda quando a especificação, fonte, norma ou uso muda. A revisão deve registrar:
 
@@ -360,7 +370,6 @@ Mudança silenciosa de fórmula é inaceitável. Se a revisão rompe comparabili
 
 Atualização de dados e atualização de método são eventos distintos. Novos meses podem entrar sem alterar a definição; nova malha, população, algoritmo ou norma pode exigir recálculo de toda a série. O histórico deve indicar se o valor mudou porque o mundo mudou, porque chegaram registros atrasados ou porque a mensuração foi revisada.
 
-## Como usar as fichas
 
 Para uma pergunta de gestão:
 

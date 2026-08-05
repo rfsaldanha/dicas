@@ -27,11 +27,23 @@ Ela não equivale à temperatura do ar. Horário de passagem do satélite, cober
 Não use temperatura da superfície e temperatura do ar como medidas substitutas sem uma justificativa física e uma validação compatível com o território e a finalidade.
 :::
 
+A distinção ganha forma na @fig-temperatura-ar-superficie, que separa o alvo observado pelo satélite, a medição do ar e o microambiente vivido.
+
+::: {#fig-temperatura-ar-superficie}
+::: {.framebox}
+[Ilustração editorial a produzir]{.framebox-title}
+
+Criar um corte esquemático de uma área urbana. O satélite deve observar a emissão térmica de telhados, asfalto, água, solo e vegetação, enquanto uma estação mede o ar em altura padronizada. Indicar, sem quantificar, a influência de sombra, emissividade, nuvens e horário de passagem, além do microambiente ocupado pelas pessoas. Evitar qualquer seta que sugira conversão fixa entre temperatura da superfície e do ar.
+:::
+
+Temperatura do ar e temperatura da superfície medem componentes distintos
+:::
+
 ## Calor e frio
 
 Calor e frio podem ser representados por limiares absolutos, posição na distribuição local ou combinação de duração e intensidade. Limiares absolutos são fáceis de comunicar, mas uma mesma temperatura pode ter significados diferentes conforme estação, infraestrutura, aclimatação e perfil populacional.
 
-Limiares relativos, como percentis de uma série de referência, reconhecem o contexto climatológico. Em contrapartida, dependem da qualidade, extensão e estabilidade da série. A escolha do período de referência altera a classificação dos eventos e deve permanecer explícita.
+Limiares relativos, como percentis de uma série de referência, reconhecem o contexto climatológico. Em contrapartida, dependem da qualidade, extensão e estabilidade da série. A escolha do período de referência altera a classificação dos eventos e deve permanecer explícita [@zhang2005; @wmo2017normals].
 
 Medidas úteis incluem:
 
@@ -63,9 +75,9 @@ Para qualquer definição de onda de calor, recomenda-se registrar:
 - População potencialmente exposta;
 - Nível de incerteza.
 
-## Umidade e sensação térmica
+## Umidade, sensação e conforto térmico
 
-A umidade influencia a troca de calor entre corpo e ambiente. Índices de sensação térmica combinam variáveis para representar aspectos do estresse térmico, mas diferem em fórmula, domínio de validade e finalidade.
+A umidade influencia a troca de calor entre corpo e ambiente. Índices de sensação térmica combinam variáveis para representar aspectos do estresse térmico, mas diferem em fórmula, domínio de validade e finalidade [@masterton1979; @steadman1994].
 
 Ao usar um índice:
 
@@ -75,7 +87,6 @@ Ao usar um índice:
 4. Documente categorias e limiares;
 5. Evite interpretar o índice como temperatura medida.
 
-## Conforto térmico
 
 Conforto térmico inclui componentes ambientais, fisiológicos, comportamentais e contextuais. Temperatura do ar, umidade, radiação e vento interagem com vestimenta, atividade, adaptação e características do ambiente construído [@steadman1994; @brode2012utci].
 
@@ -91,25 +102,39 @@ Para uso em saúde, a medida térmica deve ser combinada com distribuição da p
 
 ## Exposição ocupacional
 
-Trabalhadores ao ar livre, em cozinhas, fundições, lavanderias, galpões e outros ambientes podem enfrentar calor intenso. A avaliação ocupacional requer medidas, índices e protocolos próprios, além de considerar esforço, vestimenta, pausas, hidratação e organização do trabalho.
+Trabalhadores ao ar livre, em cozinhas, fundições, lavanderias, galpões e outros ambientes podem enfrentar calor intenso. A avaliação ocupacional requer medidas, índices e protocolos próprios, além de considerar esforço, vestimenta, pausas, hidratação e organização do trabalho [@who2025workplaceheat; @niosh2016heat].
 
 O WBGT é a medida de triagem consolidada para esse domínio. A ISO 7243:2017 o aplica à avaliação da exposição total ao longo de jornadas de até oito horas, em ambientes internos e externos, para adultos aptos ao trabalho; exposições muito curtas ficam fora desse escopo [@iso2017wbgt]. A ficha apresentada adiante documenta o índice e remete a interpretação dos valores à combinação entre carga ambiental, esforço, vestimenta, aclimatação e norma aplicável. Ela não fixa um limite jurídico único, pois o valor de referência depende dessas condições e da regulamentação vigente.
 
-## Impactos sobre a saúde
+## Efeitos, defasagens e grupos vulnerabilizados
 
-Condições térmicas podem se relacionar a agravos por caminhos diretos e indiretos. A análise deve considerar o desfecho específico, a escala temporal, a sazonalidade, a adaptação local e fatores que variam junto com a temperatura [@ipcc2022saude; @who2026heat].
+Condições térmicas podem se relacionar a agravos por caminhos diretos e indiretos. A análise deve considerar o desfecho específico, a escala temporal, a sazonalidade, a adaptação local e fatores que variam junto com a temperatura [@ipcc2022saude; @who2026heat; @romanello2024lancet].
 
 Comparar uma curva de temperatura a uma curva de internações é insuficiente para concluir causalidade. Estudos analíticos precisam tratar tendência, sazonalidade, defasagem, qualidade do desfecho, autocorrelação e possíveis confundidores.
 
-### Efeitos imediatos e defasados
 
 Alguns desfechos podem ocorrer no mesmo dia; outros aparecem após defasagem. Uma única escolha de *lag* pode omitir parte da associação ou selecionar um resultado casual. Defina janelas a priori, com justificativa substantiva, e apresente análises de sensibilidade quando aplicável.
 
-### Grupos e territórios vulnerabilizados
 
 Idade, condições crônicas, uso de medicamentos, gestação, trabalho, isolamento social, moradia, energia, água, arborização, mobilidade e acesso a serviços podem modificar risco e capacidade de proteção. Essas dimensões não devem ser reduzidas a uma lista fixa nem tratadas como atributos naturais dos grupos.
 
-## Fontes de dados
+::: {.callout-important icon=false title="Conceito-chave: condição térmica, exposição, sobrecarga e efeito"}
+
+Condição térmica descreve o ambiente por variáveis ou índices. Exposição acrescenta lugar, duração, atividade e presença. Sobrecarga térmica é a resposta fisiológica produzida pela troca de calor entre corpo e ambiente. Efeito em saúde é o desfecho clínico ou populacional observado ou estimado. Temperatura, índice biometeorológico, exposição e efeito ocupam etapas diferentes e não devem receber o mesmo nome.
+
+:::
+
+A escolha da medida começa pelo mecanismo. Para caracterizar clima, interessam distribuição, extremos, persistência e referência histórica. Para vigilância aguda, interessam previsão, temperatura observada, duração, recuperação noturna e território. Para ambiente de trabalho, radiação, vento, umidade, esforço, vestimenta e pausas podem ser indispensáveis. Para estudos epidemiológicos, a variável precisa corresponder à janela biológica e à localização da população. Uma medida adequada em uma dessas aplicações pode ser insuficiente nas demais [@wmo2023climatological; @wmoWho2015heat; @who2025workplaceheat].
+
+A validação de um índice térmico tem pelo menos quatro componentes. O primeiro é matemático: fórmula, unidades e condições de aplicação foram reproduzidas. O segundo é ambiental: as entradas representam o microclima e o período de interesse. O terceiro é populacional: vestimenta, atividade, aclimatação, moradia e acesso a proteção são compatíveis com a interpretação. O quarto é decisório: categorias e limiares foram relacionados a ações e avaliados no território. Reproduzir corretamente uma fórmula não valida automaticamente um gatilho sanitário.
+
+Indicadores relativos e absolutos cumprem papéis complementares. Percentis permitem reconhecer extremos em climas distintos, mas uma mesma categoria relativa pode corresponder a condições físicas diferentes. Limiares absolutos favorecem comunicação e proteção em contextos definidos, mas não incorporam adaptação local por si. Sistemas robustos podem acompanhar as duas referências e declarar qual delas ativa a decisão. A série usada para percentis precisa ser homogênea; a regra operacional precisa ser avaliada prospectivamente [@zhang2005; @perkins2013heatwaves; @wmoWho2015heat].
+
+A noite merece atenção porque ausência de resfriamento reduz a oportunidade de recuperação e pode coincidir com moradias que retêm calor. Ainda assim, temperatura mínima externa não mede diretamente o quarto ou a carga fisiológica. O mesmo vale para temperatura de superfície: ela revela materiais e contrastes, mas não substitui o ar nem o ambiente interno. Combinar medidas é útil quando cada camada mantém significado próprio.
+
+Na publicação, apresente a variável original junto ao índice sempre que possível. Informe fonte, altura ou nível, janela, fuso, período-base, completude, transformação, resolução e condição de validade. Para alertas, acrescente horizonte da previsão, hora de emissão, incerteza, autoridade e ações por nível. Para avaliação, preserve o que estava disponível no momento da decisão, não apenas a observação consolidada depois do evento [@wmo2023climatological; @who2023framework].
+
+## Fontes, seleção e principais indicadores
 
 O catálogo inicial registra duas alternativas para temperatura:
 
@@ -118,7 +143,12 @@ O catálogo inicial registra duas alternativas para temperatura:
 
 Observação em estação e reanálise não são equivalentes. A escolha depende da pergunta, cobertura, resolução, duração da série, latência e possibilidade de validação. Em qualquer caso, arquive o identificador do produto, versão, data de acesso e transformação aplicada.
 
-## Principais indicadores usados em saúde pública
+
+A seleção entre estação e reanálise depende do suporte necessário. Estações favorecem observação local e auditoria de instrumento, mas sua distribuição pode deixar áreas sem representação. Reanálises oferecem continuidade espacial e temporal, porém seus valores resultam de modelo e assimilação e precisam de avaliação regional. Interpolar estações ou recortar uma grade para o município são novas operações, que devem registrar método, células, ponderação e validação [@wmo2023climatological; @hersbach2020era5].
+
+Produtos derivados exigem versão própria. UTCI calculado a partir de reanálise não é apenas “temperatura do ERA5”; incorpora radiação, vento, umidade e modelo termofisiológico. Temperatura de superfície depende de sensor e recuperação. Percentis dependem de série-base e tratamento de calendário. A ficha deve apontar tanto para a fonte das entradas quanto para a referência do método [@dinapoli2021era5heat; @copernicus2026utci; @jin2012uhi].
+
+Para combinar fontes, preserve uma hierarquia de funções. Observação local pode verificar viés; grade pode preencher cobertura; previsão pode orientar ação; série consolidada pode sustentar avaliação. Não emende valores sem período de sobreposição e teste. Se a fonte operacional falhar, o protocolo deve declarar alternativa e diferença esperada.
 
 A literatura epidemiológica utiliza temperatura média, máxima, mínima, temperatura aparente e múltiplas definições de onda de calor. Em 54 estudos cardiovasculares, foram identificadas 21 combinações de critérios para definir calor, 12 baseadas apenas em temperatura do ar e as demais combinando fatores meteorológicos [@nawaro2023]. Em uma avaliação de 29 definições aplicada a cinco tipos de atendimento em saúde, o desempenho e o limiar variaram segundo a medida e o desfecho; o resultado local de Brisbane não constitui limiar transferível para outro território [@xu2018heatmetrics]. A orientação conjunta da OMM e da OMS recomenda que gatilhos operacionais sejam relacionados aos efeitos locais sobre a saúde [@wmoWho2015heat]. Não há, portanto, uma definição meteorológica única que funcione como alerta universal.
 
@@ -129,16 +159,16 @@ Os principais indicadores usados em saúde pública podem ser organizados em set
 3. Intensidade, amplitude e severidade — intensidade média (HWM/HWI), máxima ou amplitude (HWA), intensidade acumulada, EHF e HWMId;
 4. Componente noturno e composto — noites quentes durante episódios e ondas compostas diurnas e noturnas;
 5. Estresse térmico biometeorológico — Índice de Calor, temperatura aparente, Humidex, UTCI e WBGT;
-6. Extensão espacial — área atingida segundo uma definição espacialmente coerente;
-7. Exposição populacional — pessoas ou pessoas-dia expostas à onda de calor.
+6. Extensão espacial — área atingida segundo uma definição espacialmente coerente [@skinner2025extent];
+7. Exposição populacional — pessoas ou pessoas-dia expostas à onda de calor [@lancetcountdown2026data].
 
-O conjunto HWN–HWF–HWD–HWM–HWA foi sistematizado como uma estrutura de múltiplos aspectos para separar número, dias participantes, persistência e magnitude dos episódios [@perkins2013heatwaves]. EHF acrescenta significância climatológica e aclimatação recente [@nairn2015ehf]. Índices biometeorológicos não são variantes nominais da mesma medida: usam entradas, modelos fisiológicos, condições de referência e domínios de aplicação distintos.
+O conjunto HWN–HWF–HWD–HWM–HWA foi sistematizado como uma estrutura de múltiplos aspectos para separar número, dias participantes, persistência e magnitude dos episódios [@perkins2013heatwaves]. EHF acrescenta significância climatológica e aclimatação recente [@nairn2015ehf]. O HWMId acumula magnitudes diárias normalizadas em relação à climatologia local [@russo2015hwmid]. Índices biometeorológicos não são variantes nominais da mesma medida: usam entradas, modelos fisiológicos, condições de referência e domínios de aplicação distintos.
 
 ### Índices biometeorológicos: medidas distintas, não sinônimos
 
-O Índice de Calor do National Weather Service combina temperatura do ar e umidade relativa nas condições de referência das tabelas de Steadman. A regressão de Rothfusz é usada apenas depois de uma avaliação preliminar e não deve ser extrapolada para combinações extremas fora de seu domínio [@nws2026heat; @rothfusz1990]. O Humidex também representa calor úmido, mas usa temperatura e pressão de vapor, tem fórmula própria e categorias operacionais canadenses [@canada2021humidexformula; @canada2026humidex]. Uma classe de Humidex, portanto, não pode ser traduzida diretamente em uma classe do Índice de Calor.
+O Índice de Calor do National Weather Service combina temperatura do ar e umidade relativa nas condições de referência das tabelas de Steadman. A regressão de Rothfusz é usada apenas depois de uma avaliação preliminar e não deve ser extrapolada para combinações extremas fora de seu domínio [@nws2026heat; @rothfusz1990]. O Humidex também representa calor úmido, mas usa temperatura e pressão de vapor, tem fórmula própria e categorias operacionais canadenses [@masterton1979; @canada2021humidexformula; @canada2026humidex]. Uma classe de Humidex, portanto, não pode ser traduzida diretamente em uma classe do Índice de Calor.
 
-A temperatura aparente externa usada pelo Bureau of Meteorology acrescenta o efeito do vento à temperatura e à pressão de vapor. A versão operacional à sombra não incorpora radiação solar direta e representa um adulto apropriadamente vestido e caminhando [@steadman1994; @bom2026apparent]. UTCI segue outra lógica: sua temperatura equivalente é obtida de um modelo termofisiológico que considera temperatura do ar, radiação, umidade e vento, com vestimenta adaptativa e atividade de referência [@brode2012utci]. O ERA5-HEAT disponibiliza UTCI e temperatura radiante média horárias em grade global, úteis para análises retrospectivas, mas insuficientes para representar a sombra e a ventilação de uma rua, residência ou posto de trabalho [@dinapoli2021era5heat].
+A temperatura aparente externa usada pelo Bureau of Meteorology acrescenta o efeito do vento à temperatura e à pressão de vapor. A versão operacional à sombra não incorpora radiação solar direta e representa um adulto apropriadamente vestido e caminhando [@steadman1994; @bom2026apparent]. UTCI segue outra lógica: sua temperatura equivalente é obtida de um modelo termofisiológico que considera temperatura do ar, radiação, umidade e vento, com vestimenta adaptativa e atividade de referência [@brode2012utci]. O ERA5-HEAT disponibiliza UTCI e temperatura radiante média horárias em grade global, úteis para análises retrospectivas, mas insuficientes para representar a sombra e a ventilação de uma rua, residência ou posto de trabalho [@dinapoli2021era5heat; @copernicus2026utci].
 
 WBGT foi desenvolvido para triagem de estresse térmico de pessoas fisicamente ativas e está consolidado em saúde ocupacional. Sua versão medida combina bulbo úmido natural, globo e, sob sol direto, temperatura do ar. O valor ambiental só se torna uma decisão de proteção quando interpretado com esforço, vestimenta, aclimatação e duração [@iso2017wbgt; @niosh2016heat]. Índice de Calor, Humidex, temperatura aparente, UTCI e WBGT não formam uma escala crescente de sofisticação: cada um responde a uma situação e conserva hipóteses próprias.
 
