@@ -252,7 +252,13 @@ indicators:
       - id: sim
         papel: mortalidade nacional para componentes locais de YLL
     metodo_calculo: Estimar YLL multiplicando óbitos por expectativa de vida padrão restante; estimar YLD pela prevalência do estado de saúde multiplicada pelo peso de incapacidade; somar para obter DALY. Calcular a fração atribuível populacional a partir da distribuição observada de exposição, distribuição contrafactual e riscos relativos. Multiplicar a carga do desfecho pela fração, mantendo idade, sexo, causa e ano. Propagar incerteza de todos os componentes.
-    formula_calculo: 'DALY=YLL+YLD;\quad YLL=\sum_aD_aL_a;\quad YLD=\sum_sPrev_sDW_s;\quad DALY_{atr}=PAF\times DALY'
+    formula_calculo: |
+      \begin{aligned}
+      DALY &= YLL+YLD,\\
+      YLL &= \sum_a D_aL_a,\\
+      YLD &= \sum_s Prev_sDW_s,\\
+      DALY_{atr} &= PAF\times DALY.
+      \end{aligned}
     numerador: DALY atribuível estimado; a PAF tem numerador igual à diferença de carga ponderada entre exposição observada e contrafactual.
     denominador: DALY total do desfecho para a fração atribuível.
     unidade_medida: Anos de vida saudável perdidos; número e taxa por população.

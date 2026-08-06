@@ -2,13 +2,43 @@
 -- Os textos alternativos permanecem junto de cada diagrama, pois descrevem
 -- relações específicas; fonte, autoria e licença são comuns à série.
 
+local function typst_escape(value)
+  return value
+    :gsub("\\", "\\\\")
+    :gsub("#", "\\#")
+    :gsub("%[", "\\[")
+    :gsub("%]", "\\]")
+end
+
+local function print_source_note(value)
+  return pandoc.RawBlock(
+    "typst",
+    "#block(above: 2pt, below: 5pt)[" ..
+      "#set text(size: 8.5pt, fill: luma(55)); " ..
+      "#set par(first-line-indent: 0pt, leading: 0.25em, spacing: 0pt); " ..
+      typst_escape(value) ..
+    "]"
+  )
+end
+
 function CodeBlock(block)
   if block.classes:includes("mermaid") then
-    local note = pandoc.Span(
-      pandoc.Inlines("Fonte e autoria: elaboração própria. Licença: a mesma dos textos autorais da obra."),
-      pandoc.Attr("", { "figure-source" })
-    )
+    local value = "Fonte e autoria: elaboração própria. Licença: a mesma dos textos autorais da obra."
+    if quarto.doc.is_format("typst") then
+      return { block, print_source_note(value) }
+    end
+    local note = pandoc.Span(pandoc.Inlines(value), pandoc.Attr("", { "figure-source" }))
     return { block, pandoc.Para({ note }) }
+  end
+end
+
+function Para(para)
+  if not quarto.doc.is_format("typst") or #para.content ~= 1 then
+    return
+  end
+  local span = para.content[1]
+  if span.t == "Span" and span.classes:includes("figure-source") then
+    return print_source_note(pandoc.utils.stringify(span.content))
   end
 end
 

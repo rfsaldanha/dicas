@@ -115,7 +115,7 @@
 
 #let dicas-is-list-title(body) = {
   let value = content-to-string(body)
-  value == "Lista de quadros e tabelas" or value == "Lista de figuras"
+  value == "Lista de figuras"
 }
 
 #let dicas-part-opening(it) = {
@@ -231,12 +231,26 @@ $endif$
 // substitui apenas essas cinco aberturas; os demais títulos continuam sendo
 // compostos normalmente pelo Orange Book.
 #show heading.where(level: 1, numbering: none): it => {
-  if dicas-is-part-title(it.body) { dicas-part-opening(it) } else { it }
+  let value = content-to-string(it.body)
+  if value == "Apêndices" {
+    none
+  } else if dicas-is-part-title(it.body) {
+    dicas-part-opening(it)
+  } else {
+    it
+  }
 }
 
 
 // Fólios e títulos correntes seguem o padrão do volume de referência:
 // abertura no rodapé; demais páginas no cabeçalho, junto ao título corrente.
+// A relação corresponde aos versos vazios da prova final e deve ser revista se
+// o miolo for repaginado; o conteúdo dessas páginas permanece deliberadamente
+// sem cabeçalho e sem fólio.
+#let dicas-intentional-blank-pages = (
+  40, 56, 206, 260, 282, 306, 330, 368, 426, 436, 458, 468, 476,
+)
+
 #set page(
   header: context {
     set text(size: 9pt)
@@ -248,6 +262,7 @@ $endif$
     let part-opening = chapter-headings.any(
       it => it.location().page() == page-number and dicas-is-part-title(it.body)
     )
+    let intentional-blank = dicas-intentional-blank-pages.contains(page-number)
     let after-part-opening = chapter-headings.any(
       it => it.location().page() + 1 == page-number and dicas-is-part-title(it.body)
     )
@@ -258,7 +273,7 @@ $endif$
       textual-headings.first().location().page()
     }
 
-    if page-number >= textual-start and not chapter-opening and not after-part-opening {
+    if page-number >= textual-start and not chapter-opening and not after-part-opening and not intentional-blank {
       let chapters-before = query(
         selector(heading.where(level: 1)).before(here())
       )
@@ -311,13 +326,14 @@ $endif$
     let part-opening = chapter-headings.any(
       it => it.location().page() == page-number and dicas-is-part-title(it.body)
     )
+    let intentional-blank = dicas-intentional-blank-pages.contains(page-number)
     let textual-headings = chapter-headings.filter(it => it.body == [Clima, ambiente e saúde pública])
     let textual-start = if textual-headings == () {
       1
     } else {
       textual-headings.first().location().page()
     }
-    if page-number >= textual-start and chapter-opening and not part-opening {
+    if page-number >= textual-start and chapter-opening and not part-opening and not intentional-blank {
       align(center, numbering("1", page-number))
     }
   },

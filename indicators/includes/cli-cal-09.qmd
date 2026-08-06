@@ -10,7 +10,7 @@
 
 ### Identificação e fundamento {.unnumbered .ficha-section}
 
-[Indicador consolidado em.]{.field-label} Excess Heat Factor de Nairn e Fawcett, usado para intensidade e classificação de severidade de ondas de calor.
+[Base de consolidação.]{.field-label} Excess Heat Factor de Nairn e Fawcett, usado para intensidade e classificação de severidade de ondas de calor.
 
 ::: {.callout-note icon=false title="Conceito-chave"}
 Produto entre a significância do calor em uma média de três dias, em relação ao percentil 95 climatológico, e um fator de aclimatação que compara esses três dias aos 30 dias anteriores.
@@ -47,7 +47,11 @@ EHF positivo identifica condições de onda de calor na especificação original
 Calcular a média de temperatura média diária dos dias d a d+2. Subtrair o percentil 95 para obter EHIsig e a média dos 30 dias anteriores para obter EHIaccl. Multiplicar EHIsig pelo máximo entre 1 e EHIaccl.
 
 $$
-EHF_d = EHI_{sig,d}\max(1,EHI_{accl,d});\quad EHI_{sig,d}=\overline{T}_{d:d+2}-T_{95};\quad EHI_{accl,d}=\overline{T}_{d:d+2}-\overline{T}_{d-30:d-1}
+\begin{aligned}
+EHF_d &= EHI_{sig,d}\max(1,EHI_{accl,d}),\\
+EHI_{sig,d} &= \overline{T}_{d:d+2}-T_{95},\\
+EHI_{accl,d} &= \overline{T}_{d:d+2}-\overline{T}_{d-30:d-1}.
+\end{aligned}
 $$
 
 ::: {.indicator-card}

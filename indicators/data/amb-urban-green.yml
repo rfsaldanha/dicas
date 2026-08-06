@@ -60,7 +60,13 @@ indicators:
     usos: [Monitorar as duas séries do ODS 11.7.1., Comparar cidades com método harmonizado., Planejar oferta e distribuição de espaços públicos., "Examinar desigualdades de acesso por sexo, idade e deficiência."]
     limitacoes: [A delimitação da cidade ou área urbana afeta o denominador., Espaços identificados por imagem exigem verificação de uso público e gratuidade., Espaço público aberto pode não ser verde., "Cadastro incompleto, rede caminhável inadequada e imagem defasada geram erro.", A série territorial e a série de acesso não devem ser fundidas em uma única medida.]
     metodo_calculo: Delimitar a cidade ou área urbana pelo protocolo ODS; identificar e verificar os espaços públicos abertos; estimar a área total destinada a ruas; somar as duas áreas e dividi-las pela área total delimitada. Calcular separadamente a população que alcança um espaço público aberto por percurso caminhável de até 400 m, dividindo-a pela população urbana total e desagregando o resultado por sexo, idade e deficiência.
-    formula_calculo: 'ODS11.7.1_{área}=100\times\frac{A_{espaços\ públicos\ abertos}+A_{ruas}}{A_{cidade}};\quad ODS11.7.1_{acesso}=100\times\frac{Pop_{\leq 400\,m\ caminháveis}}{Pop_{urbana}}'
+    formula_calculo: |
+      \begin{aligned}
+      ODS11.7.1_{área}
+        &=100\times\frac{A_{espaços\ públicos\ abertos}+A_{ruas}}{A_{cidade}},\\
+      ODS11.7.1_{acesso}
+        &=100\times\frac{Pop_{\leq 400\,m\ caminháveis}}{Pop_{urbana}}.
+      \end{aligned}
     numerador: Na série territorial, soma da área dos espaços públicos abertos verificados com a área destinada a ruas; na série de acesso, população urbana a até 400 m caminháveis de um espaço público aberto.
     denominador: Na série territorial, área total da cidade ou área urbana delimitada; na série de acesso, população urbana total da mesma área.
     unidade_medida: Percentual (%).

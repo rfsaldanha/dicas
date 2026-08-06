@@ -152,7 +152,7 @@ for (indicator in indicators) {
     "",
     "### Identificação e fundamento",
     "",
-    field("Indicador consolidado em", indicator$referencia_metodologica),
+    field("Base de consolidação", indicator$referencia_metodologica),
     "::: {.callout-note icon=false title=\"Conceito-chave\"}",
     as_text(indicator$conceito),
     ":::",
@@ -182,7 +182,7 @@ for (indicator in indicators) {
     as_text(indicator$metodo_calculo),
     "",
     "$$",
-    as_text(indicator$formula_calculo),
+    trimws(as_text(indicator$formula_calculo), which = "right"),
     "$$",
     "",
     "::: {.indicator-card}",
@@ -244,18 +244,43 @@ indicator_row <- function(x) {
     paste(as_list(x$disponibilidade), collapse = "; "), " |"
   )
 }
-indicator_row_print <- function(x) {
+indicator_page_ref <- function(x) {
+  slug <- tolower(as.character(x$codigo))
+  paste0("`#ref(<sec-", slug, ">, form: \"page\")`{=typst}")
+}
+indicator_row_print_index <- function(x) {
   paste0(
-    "| ", x$codigo, " | ", x$titulo_resumido, " | ",
-    paste(as_list(x$dimensoes), collapse = "; "), " |"
+    "| ", x$titulo_resumido, " | ", x$codigo, " | ",
+    indicator_page_ref(x), " |"
+  )
+}
+indicator_row_print_list <- function(x) {
+  chapter_number <- sub("^.*/([0-9]+)-.*$", "\\1", as.character(x$capitulo))
+  paste0(
+    "| ", x$codigo, " | ", x$titulo_resumido, " | cap. ",
+    as.integer(chapter_number), " | ", indicator_page_ref(x), " |"
   )
 }
 
 titles <- vapply(indicators, function(x) as.character(x$titulo_completo), character(1L))
 title_order <- order(tolower(titles), method = "shell")
+short_titles <- vapply(indicators, function(x) as.character(x$titulo_resumido), character(1L))
+short_title_order <- order(tolower(short_titles), method = "shell")
 code_order <- order(codes, method = "radix")
 
-indicator_document <- function(entries) c(
+indicator_document <- function(entries, print_kind = c("index", "list"), print_entries = entries) {
+  print_kind <- match.arg(print_kind)
+  print_header <- if (print_kind == "index") {
+    c("| Indicador | Código | Página |", "|---|---|---|")
+  } else {
+    c("| Código | Indicador | Capítulo | Página |", "|---|---|---|---|")
+  }
+  print_rows <- if (print_kind == "index") {
+    vapply(print_entries, indicator_row_print_index, character(1L))
+  } else {
+    vapply(print_entries, indicator_row_print_list, character(1L))
+  }
+  c(
   "<!-- Arquivo gerado por scripts/build_catalogs.R. -->",
   "",
   "::: {.content-visible .quadro-grid when-format=\"html\"}",
@@ -265,17 +290,21 @@ indicator_document <- function(entries) c(
   ":::",
   "",
   "::: {.content-visible .quadro-grid when-format=\"typst\"}",
-  "| Código | Indicador | Dimensão |",
-  "|---|---|---|",
-  vapply(entries, indicator_row_print, character(1L)),
+  print_header,
+  print_rows,
   ":::"
-)
+  )
+}
 write_utf8(
-  indicator_document(indicators[title_order]),
+  indicator_document(
+    indicators[title_order],
+    "index",
+    indicators[short_title_order]
+  ),
   file.path(root, "indicators", "generated-index-alphabetical.qmd")
 )
 write_utf8(
-  indicator_document(indicators[code_order]),
+  indicator_document(indicators[code_order], "list"),
   file.path(root, "indicators", "generated-list.qmd")
 )
 

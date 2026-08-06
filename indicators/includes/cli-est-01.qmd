@@ -10,7 +10,7 @@
 
 ### Identificação e fundamento {.unnumbered .ficha-section}
 
-[Indicador consolidado em.]{.field-label} Regressão de Rothfusz adotada operacionalmente pelo National Weather Service dos Estados Unidos a partir das tabelas de Steadman.
+[Base de consolidação.]{.field-label} Regressão de Rothfusz adotada operacionalmente pelo National Weather Service dos Estados Unidos a partir das tabelas de Steadman.
 
 ::: {.callout-note icon=false title="Conceito-chave"}
 Temperatura aparente em graus Fahrenheit estimada pela combinação da temperatura do ar e da umidade relativa, sob condições de referência que pressupõem sombra e vento fraco.
@@ -47,7 +47,12 @@ Valores maiores indicam maior carga térmica aparente nas condições assumidas.
 Converter a temperatura para graus Fahrenheit. Calcular primeiro a aproximação simples de Steadman e tirar sua média com a temperatura observada. Se essa média for inferior a 80 °F, usar o resultado simples. Se atingir 80 °F, aplicar a regressão de Rothfusz e os ajustes oficiais para umidade muito baixa ou muito alta nas faixas especificadas pelo NWS. Converter para graus Celsius apenas ao final, quando necessário.
 
 $$
-HI=-42{,}379+2{,}04901523T+10{,}14333127RH-0{,}22475541TRH-0{,}00683783T^2-0{,}05481717RH^2+0{,}00122874T^2RH+0{,}00085282TRH^2-0{,}00000199T^2RH^2
+\begin{aligned}
+HI={}&-42{,}379+2{,}04901523T+10{,}14333127RH\\
+&-0{,}22475541TRH-0{,}00683783T^2-0{,}05481717RH^2\\
+&+0{,}00122874T^2RH+0{,}00085282TRH^2\\
+&-0{,}00000199T^2RH^2.
+\end{aligned}
 $$
 
 ::: {.indicator-card}

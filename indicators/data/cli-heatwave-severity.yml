@@ -38,7 +38,12 @@ indicators:
     usos: [Monitoramento e previsão de ondas de calor., Classificação relativa de intensidade e severidade., Avaliação de utilização de serviços e gatilhos validados.]
     limitacoes: [Depende de 33 dias consecutivos de dados., Percentil e aclimatação são locais., Valores em °C² não têm interpretação clínica direta., Desempenho sanitário deve ser validado.]
     metodo_calculo: Calcular a média de temperatura média diária dos dias d a d+2. Subtrair o percentil 95 para obter EHIsig e a média dos 30 dias anteriores para obter EHIaccl. Multiplicar EHIsig pelo máximo entre 1 e EHIaccl.
-    formula_calculo: 'EHF_d = EHI_{sig,d}\max(1,EHI_{accl,d});\quad EHI_{sig,d}=\overline{T}_{d:d+2}-T_{95};\quad EHI_{accl,d}=\overline{T}_{d:d+2}-\overline{T}_{d-30:d-1}'
+    formula_calculo: |
+      \begin{aligned}
+      EHF_d &= EHI_{sig,d}\max(1,EHI_{accl,d}),\\
+      EHI_{sig,d} &= \overline{T}_{d:d+2}-T_{95},\\
+      EHI_{accl,d} &= \overline{T}_{d:d+2}-\overline{T}_{d-30:d-1}.
+      \end{aligned}
     numerador: Não se aplica.
     denominador: Não se aplica.
     unidade_medida: Grau Celsius ao quadrado (°C²), segundo a formulação operacional.

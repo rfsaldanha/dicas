@@ -111,14 +111,14 @@ centres <- sf::st_point_on_surface(temperature_plot) |>
 maximum_cell <- temperature_plot |>
   dplyr::filter(temperature_c == maximum)
 
-base_theme <- ggplot2::theme_void(base_family = "Helvetica", base_size = 10) +
+base_theme <- ggplot2::theme_void(base_family = "Helvetica", base_size = 11) +
   ggplot2::theme(
-    plot.title = ggplot2::element_text(face = "bold", size = 12, colour = "#223039", hjust = 0.5),
-    plot.subtitle = ggplot2::element_text(size = 10, colour = "#46555c", hjust = 0.5),
+    plot.title = ggplot2::element_text(face = "bold", size = 13, colour = "#223039", hjust = 0.5),
+    plot.subtitle = ggplot2::element_text(size = 11, colour = "#46555c", hjust = 0.5),
     plot.margin = ggplot2::margin(4, 4, 4, 4),
     legend.position = "bottom",
-    legend.title = ggplot2::element_text(face = "bold", size = 9),
-    legend.text = ggplot2::element_text(size = 8),
+    legend.title = ggplot2::element_text(face = "bold", size = 11),
+    legend.text = ggplot2::element_text(size = 10),
     panel.border = ggplot2::element_rect(colour = "#34454d", fill = NA, linewidth = 0.5)
   )
 
@@ -128,7 +128,8 @@ base_map <- function() {
     ggplot2::geom_sf(data = state_plot, fill = NA, colour = "#223039", linewidth = 0.75) +
     ggplot2::scale_fill_manual(
       values = c("#dfe8e7", "#d6d7d2", "#c9bdb6", "#b9877f", "#9a3e38"),
-      name = "Temperatura do ar (°C)",
+      name = NULL,
+      labels = c("≤ 16", "16–18", "18–20", "20–22", "> 22"),
       drop = FALSE
     ) +
     ggplot2::coord_sf(datum = NA, expand = FALSE) +
@@ -137,7 +138,7 @@ base_map <- function() {
 
 p_area <- base_map() +
   ggplot2::labs(
-    title = "Média pela área territorial",
+    title = "Média territorial",
     subtitle = paste0(format(round(area_mean, 1), decimal.mark = ","), " °C")
   )
 
@@ -148,13 +149,13 @@ p_population <- base_map() +
     shape = 21, fill = "#34454d", colour = "#ffffff", alpha = 0.78,
     inherit.aes = FALSE
   ) +
-  ggplot2::scale_size_area(
-    name = paste0("População residente (", population_year, ")"), max_size = 7,
-    labels = scales::label_number(big.mark = ".", decimal.mark = ",")
-  ) +
+  ggplot2::scale_size_area(max_size = 7, guide = "none") +
   ggplot2::labs(
-    title = "Média ponderada pela população",
-    subtitle = paste0(format(round(population_mean, 1), decimal.mark = ","), " °C")
+    title = "Média populacional",
+    subtitle = paste0(
+      format(round(population_mean, 1), decimal.mark = ","),
+      " °C\nCírculos ∝ população ", population_year
+    )
   )
 
 p_maximum <- base_map() +
@@ -164,8 +165,12 @@ p_maximum <- base_map() +
     subtitle = paste0(format(round(maximum, 1), decimal.mark = ","), " °C")
   )
 
-figure <- (p_area | p_population | p_maximum) +
-  patchwork::plot_layout(guides = "collect") +
+figure_design <- "
+AB
+CC
+"
+figure <- (p_area + p_population + p_maximum) +
+  patchwork::plot_layout(design = figure_design, guides = "collect") +
   patchwork::plot_annotation(
     title = "Estado do Rio de Janeiro · temperatura do ar a 2 m",
     subtitle = paste0(
@@ -174,10 +179,10 @@ figure <- (p_area | p_population | p_maximum) +
     ),
     theme = ggplot2::theme(
       plot.title = ggplot2::element_text(
-        family = "Helvetica", face = "bold", size = 16, colour = "#223039", hjust = 0.5
+        family = "Helvetica", face = "bold", size = 15, colour = "#223039", hjust = 0.5
       ),
       plot.subtitle = ggplot2::element_text(
-        family = "Helvetica", size = 10, colour = "#46555c", hjust = 0.5
+        family = "Helvetica", size = 11, colour = "#46555c", hjust = 0.5
       )
     )
   ) &
@@ -189,9 +194,9 @@ temporary_pdf <- tempfile(fileext = ".pdf")
 on.exit(unlink(temporary_pdf), add = TRUE)
 grDevices::pdf(
   file = temporary_pdf,
-  width = 12,
-  height = 6.9,
-  pointsize = 10,
+  width = 5.1,
+  height = 4.8,
+  pointsize = 11,
   family = "Helvetica",
   bg = "white",
   onefile = TRUE,
