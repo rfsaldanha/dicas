@@ -254,8 +254,22 @@ indicator_row_print_index <- function(x) {
     indicator_page_ref(x), " |"
   )
 }
+# A ordem editorial é a mesma nas duas saídas e independe do prefixo do arquivo.
+configured_chapters <- function(profile) {
+  config <- yaml::read_yaml(file.path(root, profile))
+  paths <- unlist(lapply(config$book$chapters, function(entry) {
+    if (is.character(entry)) entry else if (!is.null(entry$chapters)) unlist(entry$chapters) else entry$href
+  }), use.names = FALSE)
+  paths[grepl("^chapters/", paths)]
+}
+chapter_paths <- configured_chapters("_quarto-web.yml")
+if (!identical(chapter_paths, configured_chapters("_quarto-print.yml"))) {
+  fail("A ordem dos capítulos difere entre web e impressão.")
+}
+chapter_numbers <- setNames(seq_along(chapter_paths), chapter_paths)
 indicator_row_print_list <- function(x) {
-  chapter_number <- sub("^.*/([0-9]+)-.*$", "\\1", as.character(x$capitulo))
+  chapter_number <- unname(chapter_numbers[as.character(x$capitulo)])
+  if (is.na(chapter_number)) fail("Capítulo da ficha ausente na configuração: ", x$capitulo)
   paste0(
     "| ", x$codigo, " | ", x$titulo_resumido, " | cap. ",
     as.integer(chapter_number), " | ", indicator_page_ref(x), " |"

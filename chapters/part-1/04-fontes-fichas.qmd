@@ -4,9 +4,9 @@ Uma ficha confiável começa antes da fórmula. O indicador deve possuir especif
 
 Fontes e fichas cumprem papéis diferentes. A fonte informa de onde vêm registros e estimativas; a referência metodológica define como o indicador é construído; a literatura de aplicação sustenta usos e interpretações; a ficha reúne essas evidências em uma especificação operacional. Uma única página institucional raramente cumpre todas essas funções.
 
-Transparência sobre fonte, método e metadados é requisito de confiança nas estatísticas oficiais [@un2014statistics]. Para dados científicos, os princípios FAIR acrescentam encontrabilidade, acessibilidade, interoperabilidade e reutilização [@wilkinson2016fair]. Esses princípios não garantem validade substantiva, mas permitem que outras pessoas encontrem, compreendam e examinem o processo.
+Transparência sobre fonte, método e metadados é requisito de confiança nas estatísticas oficiais [@un2014statistics]. Para dados científicos, os princípios de encontrabilidade, acessibilidade, interoperabilidade e reutilização (FAIR, do inglês *Findable, Accessible, Interoperable and Reusable*) acrescentam encontrabilidade, acessibilidade, interoperabilidade e reutilização [@wilkinson2016fair]. Esses princípios não garantem validade substantiva, mas permitem que outras pessoas encontrem, compreendam e examinem o processo.
 
-A instituição responsável e o recurso utilizado não são a mesma coisa. “OMS”, “INMET”, “IBGE” ou “DATASUS” identificam organizações; uma análise reprodutível precisa nomear a base, produto, sistema, edição, variável, arquivo ou serviço. A citação institucional não substitui a proveniência do dado.
+A instituição responsável e o recurso utilizado não são a mesma coisa. “OMS (Organização Mundial da Saúde)”, “INMET (Instituto Nacional de Meteorologia)”, “IBGE (Instituto Brasileiro de Geografia e Estatística)” ou “DATASUS (Departamento de Informática do Sistema Único de Saúde)” identificam organizações; uma análise reprodutível precisa nomear a base, produto, sistema, edição, variável, arquivo ou serviço. A citação institucional não substitui a proveniência do dado.
 
 ## O que é uma fonte
 
@@ -32,9 +32,13 @@ Também é necessário distinguir produtor, custodiante, distribuidor e usuário
 
 :::
 
-A fonte deve ser identificada no nível que permite reprodução. “Satélite”, “IBGE” ou “dados do SUS” são categorias, não referências suficientes. Produto, coleção, versão, variável, unidade, período, filtros e arquivo efetivamente usado constituem o mínimo. Quando a fonte muda silenciosamente, preservar a extração bruta ou seu identificador torna-se parte da evidência. As boas práticas para publicação de dados na web tratam metadados, licenças, proveniência, versionamento, identificadores persistentes e formas de acesso como dimensões complementares [@w3c2017dwbp].
+A fonte deve ser identificada no nível que permite reprodução. “Satélite”, “IBGE” ou “dados do SUS (Sistema Único de Saúde)” são categorias, não referências suficientes. Produto, coleção, versão, variável, unidade, período, filtros e arquivo efetivamente usado constituem o mínimo. Quando a fonte muda silenciosamente, preservar a extração bruta ou seu identificador torna-se parte da evidência. As boas práticas para publicação de dados na web tratam metadados, licenças, proveniência, versionamento, identificadores persistentes e formas de acesso como dimensões complementares [@w3c2017dwbp].
 
 O quadro a seguir separa os níveis de documentação.
+
+PM2,5 significa material particulado com diâmetro aerodinâmico igual ou inferior a 2,5 µm.
+
+URL significa localizador uniforme de recursos (*Uniform Resource Locator*).
 
 ::: {#qua-entidade-recurso}
 
@@ -69,7 +73,7 @@ Em vez de hierarquizar fontes por proximidade da coleta, deve-se avaliar adequa�
 Observações resultam de instrumentos, exames, registros ou coleta estruturada. Devem conservar unidade, método, códigos de qualidade e metadados. “Dado observado” não significa ausência de processamento: calibração, validação e consolidação fazem parte da produção [@wmo2023climatological; @who2023dqa].
 
 
-Reanálises combinam modelo e observações em um sistema de assimilação mantido ao longo do tempo. Elas oferecem cobertura espaço-temporal, mas são estimativas modeladas. Mudanças na disponibilidade de observações podem afetar a série, e o desempenho varia por variável e região. A documentação do ERA5, por exemplo, descreve conjuntamente o sistema de assimilação, os fluxos de observações, a resolução, as mudanças de produção e a avaliação do produto [@hersbach2020era5].
+Reanálises combinam modelo e observações em um sistema de assimilação mantido ao longo do tempo. Elas oferecem cobertura espaço-temporal, mas são estimativas modeladas. Mudanças na disponibilidade de observações podem afetar a série, e o desempenho varia por variável e região. A documentação do ERA5 (Quinta geração da reanálise atmosférica do Centro Europeu de Previsões Meteorológicas de Médio Prazo), por exemplo, descreve conjuntamente o sistema de assimilação, os fluxos de observações, a resolução, as mudanças de produção e a avaliação do produto [@hersbach2020era5].
 
 
 Previsões partem do estado estimado do sistema e produzem valores futuros com horizonte e rodada. Para vigilância, precisam chegar a tempo e ser verificadas. Arquivar apenas o valor observado depois do evento impede avaliar o desempenho que o gestor realmente recebeu [@wmoWho2015heat; @cdc2024evaluation].
@@ -136,7 +140,7 @@ Antes de recalcular um indicador oficial:
 4. Avalie se a reprodução local é autorizada e necessária;
 5. Diferencie resultado oficial de cálculo próprio.
 
-Uma estimativa própria baseada no metadado do ODS 11.6.2 não deve ser rotulada como valor oficial da OMS. Da mesma forma, adaptar um índice internacional a outro período-base cria uma variante que precisa ser identificada.
+Uma estimativa própria baseada no metadado do ODS (Objetivo de Desenvolvimento Sustentável) 11.6.2 não deve ser rotulada como valor oficial da OMS. Da mesma forma, adaptar um índice internacional a outro período-base cria uma variante que precisa ser identificada.
 
 ## Repertório de indicadores por fenômeno
 
@@ -197,11 +201,11 @@ Adiar não invalida o indicador. Significa que o livro não possui base suficien
 
 “Principal” pode significar mais citado, mais usado operacionalmente, mais comparável ou mais relevante para determinada decisão. O livro não cria uma pontuação universal. A síntese apresenta famílias e contextos.
 
-O caso das ondas de calor ilustra: HWN mede número de episódios; HWF mede dias participantes; HWD mede duração máxima; HWM e HWA medem aspectos da magnitude; WBGT e UTCI representam estresse térmico por modelos distintos; população exposta combina perigo e demografia. Nenhuma medida substitui todas as outras.
+O caso das ondas de calor ilustra: HWN (Número de ondas de calor) mede número de episódios; HWF (Número total de dias em ondas de calor) mede dias participantes; HWD (Duração máxima das ondas de calor) mede duração máxima; HWM (Magnitude média das ondas de calor) e HWA (Amplitude ou intensidade máxima de onda de calor) medem aspectos da magnitude; WBGT (Temperatura de Globo e Bulbo Úmido) e UTCI (Índice Térmico Universal do Clima) representam estresse térmico por modelos distintos; população exposta combina perigo e demografia. Nenhuma medida substitui todas as outras.
 
 ## Estrutura das fichas
 
-As fichas adotam como núcleo os 16 campos da Ficha de Qualificação do Indicador (FQI) revistos pela RIPSA e publicados na terceira edição do *Livro Verde* [@ripsa2026]. O núcleo é complementado por campos necessários a clima e ambiente.
+As fichas adotam como núcleo os 16 campos da Ficha de Qualificação do Indicador (FQI) revistos pela RIPSA (Rede Interagencial de Informações para a Saúde) e publicados na terceira edição do *Livro Verde* [@ripsa2026]. O núcleo é complementado por campos necessários a clima e ambiente.
 
 A ficha funciona como contrato semântico e metodológico. Semântico, porque fixa o que o nome significa e o que não significa. Metodológico, porque especifica entradas, regras, saídas e controles. Operacional, porque identifica fonte, atualização, responsabilidades e condições de uso. Alterar um desses elementos pode criar nova versão mesmo quando o título permanece igual.
 
@@ -262,13 +266,13 @@ Essa ordem impede que a fórmula apareça sem contexto. O índice pós-textual p
 O conteúdo estruturado é mantido em `indicators/data/` e transformado em trechos incorporados pelo processo de publicação. A fonte única reduz divergência entre capítulo e índice. Alterações devem ocorrer no dado estruturado, nunca no arquivo gerado.
 
 
-As citações no texto usam chaves ligadas ao arquivo bibliográfico. A lista final é formatada segundo estilo ABNT. Para cada referência, são verificados autoria, título, edição, local, editora ou periódico, ano, identificador de objeto digital (DOI), URL e data de acesso quando aplicável.
+As citações no texto usam chaves ligadas ao arquivo bibliográfico. A lista final é formatada segundo estilo ABNT (Associação Brasileira de Normas Técnicas). Para cada referência, são verificados autoria, título, edição, local, editora ou periódico, ano, identificador de objeto digital (DOI), URL e data de acesso quando aplicável.
 
 Uma URL não substitui referência bibliográfica. DOI é preferido quando existe. Documentos institucionais usam a entidade responsável como autoria, evitando abreviações inconsistentes.
 
 A URL de acesso e a referência metodológica também não são a mesma coisa. O endereço da API permite obter dados; o manual ou artigo define seu conteúdo; a página de versão informa mudanças; a literatura independente discute validade e aplicações. Quando todos apontam para a página inicial de uma instituição, perde-se a possibilidade de verificar cada afirmação.
 
-Referências devem aparecer junto ao conceito que sustentam, e não apenas acumuladas ao final de uma seção. Uma citação pode apoiar definição, método ou evidência de efeito; o texto precisa deixar claro qual. Para documentos atualizados continuamente, registra-se data de acesso. Para versões estáveis, DOI, ISBN, edição ou identificador do relatório são preferíveis.
+Referências devem aparecer junto ao conceito que sustentam, e não apenas acumuladas ao final de uma seção. Uma citação pode apoiar definição, método ou evidência de efeito; o texto precisa deixar claro qual. Para documentos atualizados continuamente, registra-se data de acesso. Para versões estáveis, DOI, Número Padrão Internacional de Livro (ISBN, do inglês *International Standard Book Number*), edição ou identificador do relatório são preferíveis.
 
 Na ficha, a seção de referências metodológicas identifica a origem da definição. A bibliografia completa aparece nos elementos pós-textuais, evitando listas duplicadas com formatação divergente.
 
@@ -328,7 +332,7 @@ flowchart TD
   R --> F
 ```
 
-Cada seta corresponde a uma transformação ou decisão. Scripts, parâmetros e ambiente computacional integram a proveniência. No modelo PROV, entidades, atividades e agentes permitem representar o que foi usado, qual transformação ocorreu e quem assumiu determinado papel [@w3c2013prov]. Os princípios FAIR reforçam que dados devem ser encontráveis, acessíveis sob condições claras, interoperáveis e reutilizáveis [@wilkinson2016fair].
+Cada seta corresponde a uma transformação ou decisão. Scripts, parâmetros e ambiente computacional integram a proveniência. No modelo PROV (Modelo de proveniência do Consórcio World Wide Web), entidades, atividades e agentes permitem representar o que foi usado, qual transformação ocorreu e quem assumiu determinado papel [@w3c2013prov]. Os princípios FAIR reforçam que dados devem ser encontráveis, acessíveis sob condições claras, interoperáveis e reutilizáveis [@wilkinson2016fair].
 
 Proveniência possui dois sentidos complementares: linhagem, que descreve de onde cada elemento veio e como foi transformado; e responsabilidade, que identifica quem produziu, revisou e autorizou a publicação. Um script reproduz transformação, mas não justifica seleção de fonte ou limiar. Uma aprovação institucional demonstra governança, mas não substitui código e metadados.
 

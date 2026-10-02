@@ -4,7 +4,7 @@
 
 O identificador `dicas` foi mantido: não havia arquivo, pacote ou configuração conflitante no repositório inicial. O título aparece uma única vez em `_quarto.yml` e é consumido pelas duas saídas.
 
-Os 14 capítulos e os elementos pré-textuais em QMD são compartilhados entre as duas saídas. A extensão Typst acrescenta apenas folha de rosto, verso editorial, paginação e composição gráfica próprias da edição impressa.
+Os 15 capítulos e os elementos pré-textuais em QMD são compartilhados entre as duas saídas. A extensão Typst acrescenta apenas folha de rosto, verso editorial, paginação e composição gráfica próprias da edição impressa.
 
 ## Perfis
 
@@ -44,7 +44,7 @@ A composição pré-textual segue a arquitetura de `sis_pdf`, adaptada aos conte
 
 `references.bib` é a bibliografia única. O estilo local `styles/abnt.csl` aplica o sistema autor-data e contém correções editoriais para datas de páginas web, DOI e pontuação. A saída é validada como configuração do projeto; não se declara conformidade integral com uma edição normativa sem auditoria específica.
 
-Os elementos pós-textuais seguem uma ordem única nas duas saídas: glossário, catálogos, relação de instituições, lista de fichas, listas de quadros e figuras, apêndice metodológico e referências. O apêndice usa identificação alfabética; a bibliografia automática encerra o volume sob o título “Referências”.
+Os elementos pós-textuais seguem uma ordem única nas duas saídas: glossário, catálogos, relação de instituições, lista de fichas, listas de quadros e figuras, referências e apêndice metodológico. O apêndice usa identificação alfabética; a bibliografia única reúne todas as obras citadas, inclusive nos apêndices, sob o título “Referências”, antes deles. A impressão usa `citeproc: true` para respeitar a posição de `#refs`. Os nomes históricos dos arquivos são preservados; a ordem nas configurações define a numeração editorial.
 
 ## Publicação
 

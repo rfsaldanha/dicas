@@ -248,7 +248,7 @@ $endif$
 // o miolo for repaginado; o conteúdo dessas páginas permanece deliberadamente
 // sem cabeçalho e sem fólio.
 #let dicas-intentional-blank-pages = (
-  40, 56, 206, 260, 282, 306, 330, 368, 426, 436, 458, 468, 476,
+  72, 114, 228, 328, 330, 352, 390, 428, 448, 450, 458, 480,
 )
 
 #set page(
@@ -384,3 +384,10 @@ $endif$
 #show bibliography: set par(spacing: 0.8em)
 #set bibliography(title: [Referências])
 #show link: set text(hyphenate: false)
+
+// Citações diretas em bloco: composição consistente com o miolo técnico.
+#show quote.where(block: true): it => block(inset: (left: 4cm), above: 0.8em, below: 0.8em)[
+  #set text(size: 9.5pt)
+  #set par(first-line-indent: 0pt, leading: 0.55em, spacing: 0.65em)
+  #it.body
+]

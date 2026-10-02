@@ -50,7 +50,7 @@ if command -v pdfimages >/dev/null 2>&1; then
   trap 'rm -f "$image_list"' EXIT HUP INT TERM
   pdfimages -list "$pdf" > "$image_list"
   if ! tail -n +3 "$image_list" | awk '
-    NF && $6 != "gray" && $6 != "mono" { exit 1 }
+    NF && $6 != "gray" && $6 != "mono" && !($6 == "icc" && $7 == 1) { exit 1 }
   '; then
     printf 'O PDF contém imagens raster coloridas; o miolo deve permanecer em escala de cinza.\n' >&2
     exit 1
@@ -70,7 +70,7 @@ if command -v pdftotext >/dev/null 2>&1; then
   pdftotext -layout "$pdf" "$text_file"
   for title in "Agradecimentos" "Apresentação" "Prefácio do autor" \
     "Lista de siglas" "Sumário" "Como utilizar este livro" \
-    "Dados, variáveis, índices e" "Temperatura e condições" \
+    "Dos dados aos indicadores" "Temperatura e condições" \
     "Temperatura máxima diária" "Título resumido" "Responsabilidade gerencial" \
     "Análise descritiva do indicador" "Tipo de registro" \
     "Referências" "Catálogo de fontes de dados"; do
@@ -89,6 +89,15 @@ if command -v pdftotext >/dev/null 2>&1; then
   fi
   if ! grep -F "Quadro A.1" "$text_file" >/dev/null; then
     printf 'Numeração do quadro do apêndice não foi convertida para A.1.\n' >&2
+    exit 1
+  fi
+  # A entrada bibliográfica fica depois dos capítulos e antes do conteúdo do apêndice.
+  if ! awk '
+    /BARCELLOS, C/ && !reference { reference = NR }
+    /Este apêndice reúne um protocolo/ && !appendix { appendix = NR }
+    END { exit !(reference && appendix && reference < appendix) }
+  ' "$text_file"; then
+    printf 'Bibliografia central ausente ou posicionada depois do apêndice.\n' >&2
     exit 1
   fi
   if ! grep -F "WORLD WIDE WEB CONSORTIUM. Data on the Web Best Practices." "$text_file" >/dev/null; then

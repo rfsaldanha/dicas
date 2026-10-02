@@ -57,3 +57,22 @@ function Header(header)
     return header
   end
 end
+
+-- Variantes de impressão ficam ao lado da arte colorida. A substituição
+-- conserva o identificador e o caminho já normalizado pelo Quarto.
+function Image(element)
+  local print_src = element.attributes["print-src"]
+  local print_width = element.attributes["print-width"]
+  if print_src then
+    if quarto.doc.is_format("typst") then
+      local directory = element.src:match("^(.*[/])") or ""
+      element.src = directory .. print_src
+      if print_width then
+        element.attributes.width = print_width
+      end
+    end
+    element.attributes["print-src"] = nil
+    element.attributes["print-width"] = nil
+    return element
+  end
+end

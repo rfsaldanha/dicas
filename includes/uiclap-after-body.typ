@@ -1,6 +1,6 @@
-// Três páginas brancas completam o último caderno de quatro páginas da prova
-// final. O pré-voo falha se uma repaginação futura exigir rever esta quantidade.
-#for _ in range(3) {
+// Complemento do último caderno; rever a quantidade depois de repaginar.
+// O pré-voo exige que o total de páginas seja múltiplo de quatro.
+#for _ in range(1) {
   pagebreak()
   set page(header: none, footer: none, numbering: none)
   box(width: 0pt, height: 0pt)

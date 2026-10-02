@@ -2,7 +2,7 @@
 
 ## Língua e tom
 
-Use português brasileiro, linguagem acessível e tecnicamente precisa. Prefira frases diretas, parágrafos com uma ideia principal e verbos que explicitem a ação. Defina siglas na primeira ocorrência e mantenha a grafia institucional oficial.
+Use português brasileiro, linguagem acessível e tecnicamente precisa. Prefira frases diretas, parágrafos com uma ideia principal e verbos que explicitem a ação. Defina siglas na primeira ocorrência de cada capítulo, inclusive em quadros e legendas, e mantenha a grafia institucional oficial.
 
 Inicie com letra maiúscula cada item de lista numerada ou com marcadores, inclusive quando os itens formarem uma continuação sintática da frase introdutória.
 
@@ -75,4 +75,38 @@ Toda figura deve ter função, legenda, fonte, autoria, licença e texto alterna
 
 Gráficos e mapas devem usar dados reais e rastreáveis, nunca valores simulados apresentados como observação. Devem informar fonte, período, unidade, tratamento aplicado e, sempre que possível, ser produzidos por código versionado a partir da fonte original ou de um repositório institucional do autor.
 
-Enquanto a arte final não existir, usar um framebox com identificador `fig-`, orientação objetiva de composição e legenda. A figura deve ser incorporada ao argumento por uma referência cruzada natural; ao substituir o framebox, preservar o identificador e revisar legenda e texto alternativo.
+Na etapa de planejamento de arte, marcar o local com um comentário HTML no QMD (`<!-- ... -->`), contendo finalidade, prompt completo, instruções de montagem e legenda proposta. Usar marcadores de produção como `ARTE CAP1-01`, sem atribuir identificadores `fig-` a imagens ainda não produzidas. Os comentários ficam junto aos trechos nos originais e não devem aparecer no conteúdo renderizado do site ou do PDF nem nas listas de figuras.
+
+Ao incorporar a arte aprovada, atribuir identificador `fig-` apenas às figuras novas e acrescentar sua referência no texto, legenda, fonte, autoria, licença e texto alternativo. Nos redesenhos, preservar o identificador existente e a integridade das relações conceituais. A Figura 1.1 permanece a primeira figura do livro.
+
+### Direção de arte: aquarela, grafite e nanquim
+
+Ilustração editorial em aquarela tradicional translúcida, combinada com traços finos e espontâneos de lápis grafite e nanquim. Contornos parcialmente abertos, hachuras leves e marcas discretas de rascunho. Textura sutil de papel aquarela, pigmentação irregular e transições suaves. Paleta de verdes naturais, azuis acinzentados, ocres e terracota, com saturação moderada. Preservar áreas de papel branco e bordas irregulares que se dissolvem no fundo. Pessoas com proporções naturais e diversidade de tons de pele. Linguagem visual madura, acolhedora e adequada à divulgação científica para adultos.
+
+A referência visual da série foi fornecida pelo autor e está preservada em `assets/references/aquarela-grafite-nanquim.png`. Usá-la em todas as gerações para manter o tratamento de luz, pigmentos, contornos e figuras humanas.
+
+| Elemento | Padrão para toda a série |
+|---|---|
+| Traço | Traços finos e espontâneos de grafite e nanquim; contornos parcialmente abertos, hachuras leves e marcas discretas de rascunho |
+| Água e infraestrutura | Azuis acinzentados, com pigmentação irregular e transições suaves |
+| Vegetação e proteção | Verdes naturais, com variação de pigmentos e saturação moderada |
+| Calor e pressão ambiental | Ocres e terracota, com saturação moderada |
+| Perspectiva | Levemente elevada nas cenas; frontal nos esquemas abstratos |
+| Pessoas | Proporções naturais, diversidade de tons de pele, idades e condições de vida; dignidade e ausência de caricaturas |
+| Composição | Poucos elementos por vinheta, margens generosas e espaços previstos para textos e conexões |
+| Tipografia e conexões | Rótulos e setas acrescentados como elementos editáveis, com a tipografia do livro |
+| Escala de cinza | Formas, posição, hachuras e contraste sustentam as distinções também sem cor |
+
+Manter mãos, dedos, braços e pernas anatomicamente coerentes, com proporções naturais, articulações plausíveis e continuidade entre os segmentos. Evitar dedos extras ou fundidos, membros duplicados, torções impossíveis e mãos ou pés disformes. Preferir gestos simples e poses claras, respeitando a perspectiva, as oclusões e as características de cada personagem.
+
+A paleta é uma convenção editorial qualitativa. Cores, intensidades de aguada, tamanhos de personagens e larguras de caminhos não representam magnitudes observadas. Gráficos e mapas construídos com dados mantêm escalas, geometrias, símbolos e legendas tecnicamente adequados; a aquarela pode compor elementos de apoio, sem deformar a informação.
+
+### Prompts e continuidade entre capítulos
+
+Cada prompt deve conter o padrão visual completo, seguido de função conceitual, composição, proporção e elementos obrigatórios da cena. Os seis comentários de arte do capítulo 1 usam o mesmo parágrafo de direção de arte. Manter esse parágrafo idêntico nas próximas solicitações e alterar apenas a parte específica de cada imagem.
+
+Anexar `assets/references/aquarela-grafite-nanquim.png` como referência de estilo às solicitações. Quando uma arte existente servir também de referência de conteúdo ou disposição, identificar separadamente o papel de cada imagem. Conferir lado a lado paleta, peso do traço, textura, perspectiva, simplificação dos personagens e densidade de elementos. A constância da série depende da referência visual e da revisão, além do texto do prompt.
+
+Gerar as cenas sem palavras ou números e reservar áreas para os rótulos. Compor setas, textos e legendas na diagramação, conferindo cada relação com o texto científico. Distinguir ilustração conceitual de observação empírica; identificar territórios hipotéticos e propostas conceituais em desenvolvimento quando aplicável.
+
+Na arte final, verificar legibilidade no miolo de 160 × 230 mm e em tela estreita, além da versão em escala de cinza. Exportar o arquivo raster com resolução efetiva mínima de 300 pontos por polegada no tamanho de uso; uma arte com 120 mm de largura requer pelo menos 1.418 pixels nessa dimensão. Preservar também o original de maior resolução e a composição com rótulos editáveis. Registrar ferramenta, versão quando disponível, prompt, imagem de referência, intervenções humanas e condições de uso para completar os créditos da figura.

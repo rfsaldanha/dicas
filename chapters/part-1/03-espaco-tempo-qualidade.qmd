@@ -4,9 +4,9 @@ No capítulo anterior, a pergunta central foi **o que um dado ou indicador repre
 
 Uma estação meteorológica registra condições em um ponto; uma célula de uma grade representa um valor associado a uma área; uma taxa municipal resume eventos e população segundo um território administrativo. Do mesmo modo, uma concentração horária, uma média diária, um total mensal e uma taxa anual pertencem a janelas temporais diferentes. Unir essas informações exige mais do que encontrar uma coluna de município e outra de data: exige verificar **que espaço, que tempo e que população cada valor efetivamente representa**.
 
-Essa compatibilização modifica o dado. Transformar uma grade em uma média municipal, converter UTC para horário local, agregar horas em dias, escolher um período de referência ou tratar valores ausentes são decisões analíticas. Elas podem ser necessárias e perfeitamente defensáveis, mas precisam ser coerentes com a pergunta e permanecer documentadas.
+Essa compatibilização modifica o dado. Transformar uma grade em uma média municipal, converter UTC (Tempo Universal Coordenado) para horário local, agregar horas em dias, escolher um período de referência ou tratar valores ausentes são decisões analíticas. Elas podem ser necessárias e perfeitamente defensáveis, mas precisam ser coerentes com a pergunta e permanecer documentadas.
 
-A qualidade deve ser examinada pela mesma lógica. Um produto pode ser adequado para comparar grandes regiões e insuficiente para orientar uma ação em um bairro; uma base consolidada pode ser excelente para análise retrospectiva e chegar tarde demais para vigilância operacional. A ISO 19157-1 organiza a qualidade de dados geográficos a partir dos requisitos do produto e do uso [@iso2023geoquality]. Aqui, adotaremos uma formulação prática: **não basta perguntar se o dado é bom; é preciso perguntar se ele é adequado para aquilo que se pretende fazer com ele**.
+A qualidade deve ser examinada pela mesma lógica. Um produto pode ser adequado para comparar grandes regiões e insuficiente para orientar uma ação em um bairro; uma base consolidada pode ser excelente para análise retrospectiva e chegar tarde demais para vigilância operacional. A norma 19157-1 da Organização Internacional de Normalização (ISO) organiza a qualidade de dados geográficos a partir dos requisitos do produto e do uso [@iso2023geoquality]. Aqui, adotaremos uma formulação prática: **não basta perguntar se o dado é bom; é preciso perguntar se ele é adequado para aquilo que se pretende fazer com ele**.
 
 Assim, este capítulo se concentra em três perguntas: **que espaço o dado representa? que tempo ele representa? e sua qualidade é suficiente para a análise ou decisão pretendida?**
 
@@ -29,6 +29,7 @@ A @fig-suporte-localizacao resume essa distinção. Os elementos podem ocupar a 
 %%| label: fig-suporte-localizacao
 %%| fig-cap: "Localização, suporte e unidade de análise não são a mesma coisa."
 %%| fig-alt: "Diagrama conceitual de um município que contém células de grade, uma estação meteorológica e uma residência. A estação e a residência são pontos; a célula é uma área; e o município é um polígono usado como unidade de análise."
+%%{init: {"htmlLabels": false, "flowchart": {"htmlLabels": false}}}%%
 flowchart TB
     subgraph M["Município — polígono / unidade de análise"]
         direction LR
@@ -79,7 +80,7 @@ Células vizinhas frequentemente compartilham informação e apresentam **depend
 
 ## Do suporte original ao território de gestão
 
-Grande parte da vigilância e da gestão do SUS trabalha com municípios, regiões de saúde e estados. Os dados ambientais, porém, raramente são produzidos exatamente nesses limites. Transformar uma estação ou uma grade em um indicador territorial exige uma **mudança de suporte espacial**: o valor passa a representar outra unidade.
+Grande parte da vigilância e da gestão do SUS (Sistema Único de Saúde) trabalha com municípios, regiões de saúde e estados. Os dados ambientais, porém, raramente são produzidos exatamente nesses limites. Transformar uma estação ou uma grade em um indicador territorial exige uma **mudança de suporte espacial**: o valor passa a representar outra unidade.
 
 Essa mudança pode parecer simples — “calcular a média do município” —, mas regras diferentes respondem a perguntas diferentes. Considere uma grade de temperatura. A média pela área municipal descreve a condição térmica média do território. Uma média ponderada pela população dá maior peso aos locais onde vivem mais pessoas e aproxima a condição térmica média nos locais de residência. O máximo territorial procura identificar a maior temperatura estimada. Nenhuma dessas estatísticas é universalmente correta; a escolha depende da pergunta [@openshaw1984].
 
@@ -151,6 +152,7 @@ Uma chuva intensa pode ocorrer hoje; uma inundação, algumas horas depois; sint
 %%| label: fig-tempos-dado
 %%| fig-cap: "Entre o fenômeno ambiental e a disponibilidade do dado podem existir diferentes tempos e atrasos."
 %%| fig-alt: "Fluxo temporal com fenômeno ambiental, exposição, possível efeito sobre a saúde, registro no sistema e publicação do dado, ligados por setas que representam atrasos variáveis."
+%%{init: {"htmlLabels": false, "flowchart": {"htmlLabels": false}}}%%
 flowchart LR
     A["Fenômeno ambiental"] --> B["Exposição"]
     B --> C["Possível efeito sobre a saúde"]
@@ -168,6 +170,7 @@ Em previsões, três referências devem ser preservadas: **inicialização**, **
 %%| label: fig-tempos-previsao
 %%| fig-cap: "Três tempos de uma previsão: inicialização, horizonte e validade."
 %%| fig-alt: "Linha temporal em que uma previsão é inicializada no tempo zero, avança por um horizonte de 72 horas e produz um valor válido no tempo zero mais 72 horas."
+%%{init: {"htmlLabels": false, "flowchart": {"htmlLabels": false}}}%%
 flowchart LR
     I["Inicialização da rodada<br/>t₀"] -->|"lead time / horizonte<br/>+72 h"| V["Tempo de validade<br/>t₀ + 72 h"]
 ```
@@ -181,7 +184,7 @@ flowchart LR
 Uma prática segura é conservar o horário original e seu fuso, realizar conversões explicitamente e somente depois criar janelas diárias, semanais ou mensais para a análise. Quando um deslocamento de algumas horas pode alterar a associação, a sensibilidade à definição temporal deve ser verificada.
 
 ::: {.callout-note icon=false title="Para quem trabalhará com projeções climáticas"}
-Arquivos de modelos climáticos podem utilizar calendários diferentes do calendário civil. As convenções CF, amplamente usadas em arquivos NetCDF, preveem calendários como `365_day`/`noleap`, `366_day` e `360_day`, no qual todos os meses possuem 30 dias.^[NetCDF Climate and Forecast (CF) Metadata Conventions, seção sobre calendários: <https://cfconventions.org/cf-conventions/cf-conventions.html#calendar>.]
+Arquivos de modelos climáticos podem utilizar calendários diferentes do calendário civil. As convenções CF (Clima e Previsão (*Climate and Forecast*)), amplamente usadas em arquivos NetCDF, preveem calendários como `365_day`/`noleap`, `366_day` e `360_day`, no qual todos os meses possuem 30 dias.^[NetCDF Climate and Forecast (CF) Metadata Conventions, seção sobre calendários: <https://cfconventions.org/cf-conventions/cf-conventions.html#calendar>.]
 
 Isso afeta junções com dados de saúde e o cálculo de médias mensais, totais anuais, sequências de dias e datas correspondentes. Antes de converter automaticamente uma coordenada temporal para datas civis, verifique o atributo `calendar` e preserve a lógica original do experimento.
 :::
@@ -216,14 +219,14 @@ Essa distância temporal costuma ser chamada de **defasagem**. Sua escolha deve 
 
 ## Períodos de referência e comparações no tempo
 
-Um valor pode adquirir significados diferentes conforme a referência utilizada. A OMM define normais climatológicas em períodos de 30 anos e recomenda janelas padronizadas, como 1991–2020, para caracterizar o clima recente [@wmo2017normals]. Entretanto, análises de mudança climática ou índices de extremos podem precisar de uma base fixa, justamente para que o referencial não se mova junto com o clima.
+Um valor pode adquirir significados diferentes conforme a referência utilizada. A OMM (Organização Meteorológica Mundial) define normais climatológicas em períodos de 30 anos e recomenda janelas padronizadas, como 1991–2020, para caracterizar o clima recente [@wmo2017normals]. Entretanto, análises de mudança climática ou índices de extremos podem precisar de uma base fixa, justamente para que o referencial não se mova junto com o clima.
 
 Não há contradição entre essas escolhas. O período depende da finalidade:
 
-- uma normal atualizada descreve melhor condições climatológicas recentes;
-- uma referência fixa permite acompanhar mudança em relação ao mesmo ponto de comparação;
-- índices padronizados devem seguir a especificação usada em sua definição;
-- critérios operacionais de alerta precisam ser definidos para a finalidade e o território em que serão usados.
+- Uma normal atualizada descreve melhor condições climatológicas recentes;
+- Uma referência fixa permite acompanhar mudança em relação ao mesmo ponto de comparação;
+- Índices padronizados devem seguir a especificação usada em sua definição;
+- Critérios operacionais de alerta precisam ser definidos para a finalidade e o território em que serão usados.
 
 Trocar o período de referência pode alterar substancialmente um indicador. Uma série calculada com 1961–1990 e outra com 1991–2020 podem ser válidas para finalidades distintas, mas não devem ser unidas como se a definição tivesse permanecido inalterada.
 
@@ -241,7 +244,7 @@ Uma anomalia positiva de temperatura indica valor acima da média de referência
 
 Depois de compreender onde e quando um valor existe, a pergunta seguinte é se ele possui qualidade suficiente para a finalidade pretendida. **Qualidade é multidimensional.** Uma base pode ser muito completa e pouco representativa; precisa e enviesada; atual e ainda sujeita a revisão; coerente internamente e incompatível com outra fonte.
 
-Para dados de saúde, a OMS destaca dimensões como completude, oportunidade, consistência interna e coerência com outras fontes [@who2023dqa]. Dados geográficos acrescentam aspectos de completude, consistência lógica, qualidade posicional, temporal e temática [@iso2023geoquality]. O importante não é transformar essas dimensões em uma nota única, e sim utilizá-las para responder perguntas concretas.
+Para dados de saúde, a OMS (Organização Mundial da Saúde) destaca dimensões como completude, oportunidade, consistência interna e coerência com outras fontes [@who2023dqa]. Dados geográficos acrescentam aspectos de completude, consistência lógica, qualidade posicional, temporal e temática [@iso2023geoquality]. O importante não é transformar essas dimensões em uma nota única, e sim utilizá-las para responder perguntas concretas.
 
 | Dimensão | Pergunta prática |
 |---|---|
@@ -347,7 +350,7 @@ Uma trilha mínima de proveniência deve permitir reconstruir o caminho do dado:
 
 Maior detalhe nem sempre é melhor para divulgação. Dados referentes à saúde são classificados pela Lei Geral de Proteção de Dados Pessoais (LGPD) como **dados pessoais sensíveis**, e a combinação de localização precisa, datas, características demográficas e eventos raros pode aumentar a possibilidade de identificar pessoas, mesmo quando nomes e documentos não estão presentes.^[Lei nº 13.709/2018 (LGPD), especialmente arts. 5º, 11 e 12: <https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709compilado.htm>.]
 
-O nível de detalhe necessário à análise deve, portanto, ser separado do nível adequado à publicação ou ao compartilhamento. Supressão de células pequenas, agregação territorial ou temporal, arredondamento, **pseudonimização** — substituição de identificadores diretos por códigos — e controle de acesso podem reduzir riscos, mas também modificam o dado e precisam ser considerados na interpretação. A ANPD orienta que tratamento e compartilhamento para estudos e pesquisas sejam planejados conforme finalidade, base legal, segurança, minimização e, sempre que possível, anonimização ou pseudonimização. Anonimizar significa reduzir a possibilidade de relacionar o dado a uma pessoa identificada ou identificável; pseudonimizar reduz a exposição dos identificadores, mas não equivale necessariamente a anonimização.^[Autoridade Nacional de Proteção de Dados. *Guia orientativo: Tratamento de dados pessoais para fins acadêmicos e para a realização de estudos e pesquisas*: <https://www.gov.br/anpd/pt-br/centrais-de-conteudo/materiais-educativos-e-publicacoes/guia-orientativo-tratamento-de-dados-pessoais-para-fins-academicos-e-para-a-realizacao-de-estudos-e-pesquisas>.]
+O nível de detalhe necessário à análise deve, portanto, ser separado do nível adequado à publicação ou ao compartilhamento. Supressão de células pequenas, agregação territorial ou temporal, arredondamento, **pseudonimização** — substituição de identificadores diretos por códigos — e controle de acesso podem reduzir riscos, mas também modificam o dado e precisam ser considerados na interpretação. A ANPD (Autoridade Nacional de Proteção de Dados) orienta que tratamento e compartilhamento para estudos e pesquisas sejam planejados conforme finalidade, base legal, segurança, minimização e, sempre que possível, anonimização ou pseudonimização. Anonimizar significa reduzir a possibilidade de relacionar o dado a uma pessoa identificada ou identificável; pseudonimizar reduz a exposição dos identificadores, mas não equivale necessariamente a anonimização.^[Autoridade Nacional de Proteção de Dados. *Guia orientativo: Tratamento de dados pessoais para fins acadêmicos e para a realização de estudos e pesquisas*: <https://www.gov.br/anpd/pt-br/centrais-de-conteudo/materiais-educativos-e-publicacoes/guia-orientativo-tratamento-de-dados-pessoais-para-fins-academicos-e-para-a-realizacao-de-estudos-e-pesquisas>.]
 
 Proteção não deve ser tratada como uma correção aplicada somente no momento de publicar a tabela. Ela influencia o desenho da base, as chaves de ligação, o nível de agregação, os ambientes de acesso e as saídas permitidas. Valores deliberadamente suprimidos para proteção não devem ser reconstruídos por diferença entre totais.
 
