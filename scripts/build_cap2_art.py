@@ -122,6 +122,29 @@ def layout(number, sw, sh):
             label(900, 1770, 'Menos consultas não comprovam menor adoecimento.', 48),
             label(900, 1860, 'Situações didáticas; sem contagens ou resultados atribuídos a um desastre real.', 38),
         ]
+    elif number == '04':
+        slug, title, width, height = 'adaptacao', 'Acompanhamento, continuidade do cuidado e adaptação contínua', 1800, 2070
+        desc = ('Quatro cenas ilustram preparação de uma unidade, continuidade do cuidado em território com acesso difícil, acompanhamento e recuperação do acesso e avaliação participativa. Setas pontilhadas retornam da avaliação à preparação e à continuidade. Calor e abastecimento irregular lembram mudanças graduais e eventos recorrentes. As ações podem coexistir.')
+        parts = [
+            label(625, 85, 'Preparar', 52),
+            label(1400, 65, ['Sustentar a continuidade', 'do cuidado'], 46),
+            picture('condicoes-graduais', (0, 0, 185, sh), 10, 170, 210, 1410),
+            picture('preparacao', (190, 0, 590, 505), 270, 200, 710, 500),
+            picture('continuidade', (790, 0, 746, 505), 1035, 200, 725, 500),
+            box(340, 775, 1380, 130),
+            label(1030, 830, ['Acompanhamento do território', 'e dos serviços'], 46),
+            line('M625 705 V760', arrow=False), line('M1400 705 V760', arrow=False),
+            label(625, 1040, 'Avaliar e adaptar', 50),
+            label(1400, 1010, ['Acompanhar e recuperar', 'o acesso'], 46),
+            picture('avaliacao', (190, 510, 640, 514), 270, 1120, 710, 535),
+            picture('recuperacao', (830, 510, 706, 514), 1035, 1120, 725, 535),
+            line('M500 985 H245 V155 H625 V185', dashed=True),
+            line('M750 985 V950 H1780 V155 H1400 V185', dashed=True),
+            label(900, 1750, 'A proteção alcançou quem enfrentava maiores barreiras?', 46),
+            label(900, 1840, 'Reabrir uma unidade não garante recuperar o acesso.', 46),
+            label(900, 1920, 'Ações podem coexistir; considerar eventos recorrentes e mudanças graduais.', 40),
+            label(900, 2020, 'Setas pontilhadas: revisão da preparação e da continuidade a partir da avaliação.', 38),
+        ]
     else:
         raise SystemExit('Arte ainda não configurada: ' + number)
     return slug, title, width, height, desc, parts
