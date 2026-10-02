@@ -60,6 +60,26 @@ def layout(number, sw, sh):
             label(900, 1715, 'Referência estatística não é limite de segurança', 46),
             label(900, 1780, 'Finalidades complementares. Esquema conceitual, sem dados observados.', 38),
         ]
+    elif number == '02':
+        slug, title, width, height = 'cascatas', 'Eventos combinados e efeitos em cascata', 1800, 2070
+        desc = ('À esquerda, calor e fumaça atingem um bairro hipotético ao mesmo tempo. À direita, uma inundação se ramifica em interrupção de acesso e falha de energia, comprometendo chegada de equipes e insumos, equipamentos e comunicação. Os caminhos convergem na redução da capacidade operacional de uma unidade com prédio intacto.')
+        parts = [
+            label(450, 65, 'Eventos combinados', 54), label(1350, 65, 'Efeitos em cascata', 54),
+            picture('dois-paineis', (0, 0, sw, sh), 20, 110, 1760, 1174),
+            label(450, 1370, ['Calor e fumaça', 'podem coincidir'], 50),
+            label(450, 1535, ['Combinações também podem', 'ocorrer em sequência.'], 44),
+            label(450, 1740, ['Não se presume uma soma', 'dos efeitos isolados.'], 42),
+            label(1350, 1360, 'Inundação', 48),
+            line('M1350 1390 V1420 H1110 V1450'), line('M1350 1420 H1600 V1450'),
+            label(1110, 1500, ['Acesso', 'interrompido'], 44),
+            label(1600, 1500, ['Falha de', 'energia'], 44),
+            line('M1110 1585 V1615'), line('M1600 1585 V1600'),
+            label(1110, 1670, ['Equipes e insumos', 'não chegam'], 40),
+            label(1600, 1640, ['Equipamentos', 'e comunicação', 'afetados'], 40, step=48),
+            line('M1110 1750 V1790 H1350', arrow=False), line('M1600 1750 V1790 H1350 V1830'),
+            label(1350, 1885, ['Capacidade operacional', 'reduzida'], 44),
+            label(900, 2010, 'Prédio intacto não garante serviço funcionando. Caminhos hipotéticos.', 40),
+        ]
     else:
         raise SystemExit('Arte ainda não configurada: ' + number)
     return slug, title, width, height, desc, parts
