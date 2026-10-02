@@ -24,7 +24,7 @@ Registros de fonte devem distinguir instituição, sistema, produto e versão. N
 
 ## Imagens e tabelas
 
-Toda imagem precisa de legenda, fonte, autoria, licença, texto alternativo e arquivo com resolução adequada. Não são aceitas imagens geradas por inteligência artificial.
+Toda imagem precisa de legenda, fonte, autoria, licença, texto alternativo e arquivo com resolução adequada. As aquarelas conceituais dos capítulos 1 e 2 foram geradas por inteligência artificial a pedido do autor. Preserve os originais, os prompts, a referência de estilo, as composições editáveis e as versões de impressão no Git. Revise a coerência científica, a anatomia, a legibilidade e o contraste; as cenas não devem ser apresentadas como dados observados.
 
 Reserve “tabela” para dados predominantemente numéricos e “quadro” para sínteses textuais. Inclua unidade, período, território e notas metodológicas. Confira tabelas no celular e no PDF.
 

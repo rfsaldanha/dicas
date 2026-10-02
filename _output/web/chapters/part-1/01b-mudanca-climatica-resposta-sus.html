@@ -1,0 +1,1613 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Guia técnico sobre conceitos, dados e indicadores de clima e ambiente aplicados à vigilância e à gestão em saúde pública.">
+
+<title>2&nbsp; Mudança climática, planejamento e resposta do SUS – Dados e Indicadores de Clima e Ambiente para a Saúde</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 1em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../chapters/part-1/02-dados-variaveis-indices-indicadores.html" rel="next">
+<link href="../../chapters/part-1/01-clima-ambiente-saude.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-311c7a20127a08e8a280d0ca349f6d60.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-fa5b87100d7cdc106e105900c43c11a8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-311c7a20127a08e8a280d0ca349f6d60.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Nenhum resultado",
+    "search-matching-documents-text": "documentos correspondentes",
+    "search-copy-link-title": "Copiar link para a busca",
+    "search-hide-matches-text": "Esconder correspondências adicionais",
+    "search-more-match-text": "mais correspondência neste documento",
+    "search-more-matches-text": "mais correspondências neste documento",
+    "search-clear-button-title": "Limpar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Procurar"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles/web/styles.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/part-1/01-clima-ambiente-saude.html">Parte I — Fundamentos e métodos</a></li><li class="breadcrumb-item"><a href="../../chapters/part-1/01b-mudanca-climatica-resposta-sus.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Mudança climática, planejamento e resposta do SUS</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Procurar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">Dados e Indicadores de Clima e Ambiente para a Saúde</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/rfsaldanha/dicas" title="Código fonte" class="quarto-navigation-tool px-1" aria-label="Código fonte"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo escuro"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Procurar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bem-vindo</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/ficha-tecnica.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ficha técnica</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/apresentacao.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Apresentação</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/prefacio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prefácio do autor</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/agradecimentos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Agradecimentos</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/siglas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lista de siglas</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/sumario.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sumário</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/como-usar.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Como utilizar este livro</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Parte I — Fundamentos e métodos</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/01-clima-ambiente-saude.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Clima, ambiente e saúde pública</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/01b-mudanca-climatica-resposta-sus.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Mudança climática, planejamento e resposta do SUS</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/02-dados-variaveis-indices-indicadores.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Dos dados aos indicadores: como representar clima, ambiente e saúde</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/03-espaco-tempo-qualidade.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Compatibilizando dados: espaço, tempo e qualidade</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/04-fontes-fichas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Fontes de dados e fichas de indicadores</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Parte II — Dados e indicadores temáticos</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/05-temperatura-condicoes-termicas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Temperatura e condições térmicas</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/06-precipitacao-secas-eventos-hidrologicos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Precipitação, secas e eventos hidrológicos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/07-qualidade-ar-queimadas-fumaca.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Qualidade do ar, queimadas e fumaça</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/08-agua-saneamento-qualidade-ambiental.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Água, saneamento e qualidade ambiental</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/09-uso-cobertura-terra-ambiente-urbano.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Uso e cobertura da terra, vegetação e ambiente urbano</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/10-eventos-severos-desastres.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Eventos meteorológicos severos e desastres</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Parte III — Indicadores integrados de clima, ambiente e saúde</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-3/11-exposicao-vulnerabilidade.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Exposição e vulnerabilidade socioambiental</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-3/12-efeitos-saude.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Efeitos do clima e do ambiente sobre a saúde</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-3/13-resposta-adaptacao-resiliencia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Capacidade de resposta, adaptação e resiliência</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Parte IV — Aplicação na vigilância e na gestão pública</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/14-indicador-decisao.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Do indicador à decisão pública</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Elementos pós-textuais</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/glossario.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Glossário</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/indice-indicadores.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Índice alfabético de indicadores</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/indice-fontes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Catálogo de fontes de dados</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/indice-instituicoes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Relação de instituições</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/lista-fichas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lista de fichas por código e capítulo</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/lista-tabelas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lista de quadros e tabelas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/lista-figuras.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lista de figuras</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/referencias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Referências</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Apêndices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/apendice-metodologico.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Apêndice metodológico</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Índice</h2>
+   
+  <ul>
+  <li><a href="#variabilidade-e-mudança-climática-a-referência-também-muda" id="toc-variabilidade-e-mudança-climática-a-referência-também-muda" class="nav-link active" data-scroll-target="#variabilidade-e-mudança-climática-a-referência-também-muda"><span class="header-section-number">2.1</span> Variabilidade e mudança climática: a referência também muda</a>
+  <ul class="collapse">
+  <li><a href="#quando-os-eventos-se-combinam-e-os-efeitos-se-propagam" id="toc-quando-os-eventos-se-combinam-e-os-efeitos-se-propagam" class="nav-link" data-scroll-target="#quando-os-eventos-se-combinam-e-os-efeitos-se-propagam"><span class="header-section-number">2.1.1</span> Quando os eventos se combinam e os efeitos se propagam</a></li>
+  <li><a href="#previsões-projeções-e-decisões" id="toc-previsões-projeções-e-decisões" class="nav-link" data-scroll-target="#previsões-projeções-e-decisões"><span class="header-section-number">2.1.2</span> Previsões, projeções e decisões</a></li>
+  <li><a href="#sec-grades-planejamento-sus" id="toc-sec-grades-planejamento-sus" class="nav-link" data-scroll-target="#sec-grades-planejamento-sus"><span class="header-section-number">2.1.3</span> O que são dados em grade e o que permitem enxergar</a></li>
+  </ul></li>
+  <li><a href="#os-efeitos-chegam-às-pessoas-e-também-ao-sus" id="toc-os-efeitos-chegam-às-pessoas-e-também-ao-sus" class="nav-link" data-scroll-target="#os-efeitos-chegam-às-pessoas-e-também-ao-sus"><span class="header-section-number">2.2</span> Os efeitos chegam às pessoas — e também ao SUS</a>
+  <ul class="collapse">
+  <li><a href="#acompanhar-trajetórias-e-sustentar-a-adaptação-contínua" id="toc-acompanhar-trajetórias-e-sustentar-a-adaptação-contínua" class="nav-link" data-scroll-target="#acompanhar-trajetórias-e-sustentar-a-adaptação-contínua"><span class="header-section-number">2.2.1</span> Acompanhar trajetórias e sustentar a adaptação contínua</a></li>
+  </ul></li>
+  <li><a href="#da-informação-à-decisão-no-sus" id="toc-da-informação-à-decisão-no-sus" class="nav-link" data-scroll-target="#da-informação-à-decisão-no-sus"><span class="header-section-number">2.3</span> Da informação à decisão no SUS</a>
+  <ul class="collapse">
+  <li><a href="#ler-indicadores-em-conjunto-sem-transformá-los-em-uma-única-nota" id="toc-ler-indicadores-em-conjunto-sem-transformá-los-em-uma-única-nota" class="nav-link" data-scroll-target="#ler-indicadores-em-conjunto-sem-transformá-los-em-uma-única-nota"><span class="header-section-number">2.3.1</span> Ler indicadores em conjunto sem transformá-los em uma única nota</a></li>
+  </ul></li>
+  <li><a href="#síntese" id="toc-síntese" class="nav-link" data-scroll-target="#síntese"><span class="header-section-number">2.4</span> Síntese</a></li>
+  <li><a href="#bibliography" id="toc-bibliography" class="nav-link" data-scroll-target="#bibliography">Referências</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/rfsaldanha/dicas/blob/main/chapters/part-1/01b-mudanca-climatica-resposta-sus.qmd" class="toc-action"><i class="bi bi-github"></i>Ver o código fonte</a></li><li><a href="https://github.com/rfsaldanha/dicas/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/part-1/01-clima-ambiente-saude.html">Parte I — Fundamentos e métodos</a></li><li class="breadcrumb-item"><a href="../../chapters/part-1/01b-mudanca-climatica-resposta-sus.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Mudança climática, planejamento e resposta do SUS</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-mudanca-climatica-resposta-sus" class="quarto-section-identifier"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Mudança climática, planejamento e resposta do SUS</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<!--
+DIREÇÃO DE ARTE — CAPÍTULO 2
+
+As sete marcações ARTE CAP2-01 a ARTE CAP2-07 documentam as artes incorporadas como Figuras 2.1 a 2.7. Cada comentário preserva função, prompt, montagem e legenda proposta, além dos caminhos dos arquivos produzidos. Os comentários não integram o texto renderizado. Os códigos de produção foram preservados; CAP2-07 corresponde à Figura 2.3, sobre dados em grade.
+
+Padrão visual comum: aquarela tradicional translúcida, traços finos e espontâneos de lápis grafite e nanquim, contornos parcialmente abertos, hachuras leves e pigmentação irregular. Usar verdes naturais, azuis acinzentados, ocres e terracota com saturação moderada, preservando o branco do papel. Os sete prompts repetem integralmente o parágrafo de direção de arte do capítulo 1. A especificação permanente está em docs/guia-editorial.md.
+
+Referência visual da série: assets/references/aquarela-grafite-nanquim.png, fornecida pelo autor. Anexar essa imagem às solicitações de geração como referência de estilo. Conferir traço, textura, paleta e simplificação em conjunto. Compor malhas, rótulos e conexões como elementos editáveis. As propostas são conceituais, sem dados observados ou representação de um desastre real; cores, tamanhos e quantidades de elementos não codificam magnitudes.
+
+Ordem no texto:
+
+1. ARTE CAP2-01: Duas referências, perguntas diferentes — composição em aquarela das duas finalidades de referência climática.
+2. ARTE CAP2-02: Eventos combinados e efeitos em cascata — diagrama em dois painéis.
+3. ARTE CAP2-07: Dados em grade: organização e limites de interpretação — esquema espacial e temporal.
+4. ARTE CAP2-03: Necessidade de cuidado, oferta e atendimento observado — infográfico conceitual.
+5. ARTE CAP2-04: Acompanhamento e adaptação contínua — diagrama de ações e revisão.
+6. ARTE CAP2-05: Informação e ação em diferentes horizontes — prancha de síntese.
+7. ARTE CAP2-06: Ler em conjunto, preservar o significado — prancha com as seis dimensões do quadro revisado.
+-->
+<p>Compreender os caminhos entre clima, ambiente e saúde permite formular uma pergunta de gestão: em que momentos e sobre quais condições é possível agir? Para o Sistema Único de Saúde (SUS), a resposta envolve prevenir agravos, preparar serviços, sustentar o cuidado durante os eventos e acompanhar consequências que podem persistir depois deles. Envolve também mudanças graduais que reorganizam a exposição e a demanda por serviços, mesmo quando não há uma emergência claramente delimitada.</p>
+<p>Essas tarefas exigem aproximar informações que descrevem partes diferentes do problema. Uma previsão caracteriza uma condição ambiental; um mapa populacional ajuda a localizar pessoas potencialmente expostas; registros assistenciais mostram atendimentos realizados; informações sobre transporte, energia e equipes permitem avaliar a capacidade de cuidar. Nenhuma dessas fontes, isoladamente, representa toda a relação entre clima e saúde. Sua articulação depende de uma pergunta, de um território e de um período de análise coerentes <span class="citation" data-cites="barcellos2009clima corvalan1999links">(<a href="../../backmatter/referencias.html#ref-barcellos2009clima" role="doc-biblioref">Barcellos et al., 2009</a>; <a href="../../backmatter/referencias.html#ref-corvalan1999links" role="doc-biblioref">Corvalán; Kjellström; Smith, 1999</a>)</span>.</p>
+<p>Este capítulo retoma os conceitos do <a href="01-clima-ambiente-saude.html" class="quarto-xref"><span>Capítulo 1</span></a> e os aproxima do planejamento. Primeiro, examina mudanças nas referências climáticas e os tipos de informação usados para acompanhá-las. Em seguida, distingue efeitos sobre a população e pressões sobre os serviços. Por fim, relaciona essas informações a decisões em diferentes horizontes. O objetivo é compreender o que precisa ser conhecido para agir; a construção detalhada das medidas será desenvolvida no <a href="02-dados-variaveis-indices-indicadores.html" class="quarto-xref"><span>Capítulo 3</span></a>.</p>
+<section id="variabilidade-e-mudança-climática-a-referência-também-muda" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="variabilidade-e-mudança-climática-a-referência-também-muda"><span class="header-section-number">2.1</span> Variabilidade e mudança climática: a referência também muda</h2>
+<p>Variabilidade climática corresponde às flutuações das condições climáticas em diferentes escalas de tempo e espaço. Mudança climática corresponde a alterações persistentes em características dessas condições, como médias, variabilidade ou frequência de extremos. As duas podem coexistir: um ano relativamente frio pode ocorrer em um clima que se aquece ao longo das décadas. Da mesma forma, uma chuva intensa durante uma seca não demonstra, por si só, o fim da deficiência de água acumulada <span class="citation" data-cites="ipcc2022glossario">(<a href="../../backmatter/referencias.html#ref-ipcc2022glossario" role="doc-biblioref">Matthews et al., 2022</a>)</span>.</p>
+<p>Para a gestão, essa distinção tem uma consequência: a experiência passada continua útil, mas pode deixar de descrever suficientemente as condições para as quais os serviços precisam se preparar. Planejar apenas com base no evento mais recente também é insuficiente. É necessário examinar séries, sazonalidade, persistência e extremos, articulando-os às transformações da ocupação do território e das condições de proteção <span class="citation" data-cites="barcellos2009clima">(<a href="../../backmatter/referencias.html#ref-barcellos2009clima" role="doc-biblioref">Barcellos et al., 2009</a>)</span>.</p>
+<p>O período de referência define com que conjunto de condições uma medida será comparada. Manter uma base histórica fixa permite acompanhar mudanças em relação ao mesmo referencial. Usar uma normal climatológica mais recente aproxima a descrição de um período recente, embora não elimine a necessidade de acompanhar tendências em curso. A escolha deve corresponder à pergunta e permanecer explícita <span class="citation" data-cites="wmo2023climatological wmo2017normals">(<a href="../../backmatter/referencias.html#ref-wmo2017normals" role="doc-biblioref">World Meteorological Organization, 2017</a>, <a href="../../backmatter/referencias.html#ref-wmo2023climatological" role="doc-biblioref">2023</a>)</span>.</p>
+<p>A <a href="#fig-referencias-climaticas-sus" class="quarto-xref">Figura&nbsp;<span>2.1</span></a> organiza essas duas finalidades. O esquema separa a escolha da referência estatística da avaliação das consequências para a saúde.</p>
+<div id="fig-referencias-climaticas-sus" class="quarto-float quarto-figure quarto-figure-center anchored" data-print-src="arte-cap2-01-referencias-print.png" alt="Duas equipes ilustram a comparação com uma base histórica fixa e o planejamento com uma normal recente. Ambas exigem documentar período e método e avaliar exposição, vulnerabilidade e capacidade de resposta. Referência estatística não é limite de segurança. Cenas conceituais, sem dados observados.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-referencias-climaticas-sus-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../assets/figures/arte-cap2-01-referencias.svg" class="img-fluid figure-img" style="width:100.0%" alt="Duas equipes ilustram a comparação com uma base histórica fixa e o planejamento com uma normal recente. Ambas exigem documentar período e método e avaliar exposição, vulnerabilidade e capacidade de resposta. Referência estatística não é limite de segurança. Cenas conceituais, sem dados observados.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-referencias-climaticas-sus-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;2.1: Duas finalidades para escolher a referência climática
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte e composição: elaboração própria, com ilustração gerada por inteligência artificial. Licença: a mesma dos textos autorais da obra.</span></p>
+<p>No caminho da esquerda, a pergunta é quanto as condições se afastaram de um passado definido. Considere a contagem de dias cuja temperatura supera um valor calculado a partir de uma distribuição histórica: manter essa referência permite comparar a frequência de excedências sem mudar simultaneamente a régua. Se a referência for recalculada a cada período, parte da diferença pode decorrer dessa atualização. Uma mudança na classificação dos dias não deve ser interpretada automaticamente como mudança equivalente do perigo.</p>
+<p>No caminho da direita, a pergunta é como caracterizar as condições de um período recente para apoiar o planejamento. Essa referência pode ajudar a descrever a sazonalidade enfrentada pelos serviços, mas não informa sozinha se a infraestrutura suporta o calor ou se a população consegue se proteger. As escolhas não são mutuamente exclusivas: uma normal recente também pode ser mantida fixa em uma comparação. O diagrama distingue finalidades de uso, não duas fontes obrigatoriamente incompatíveis.</p>
+<p>A convergência dos caminhos destaca que uma normal climatológica é uma referência estatística, não um limite sanitário. Uma condição frequente pode ser danosa. O fato de um episódio deixar de parecer excepcional em relação a uma referência atualizada não demonstra redução de seus efeitos sobre a saúde. A avaliação exige observar exposição, vulnerabilidade e capacidade de resposta, além do comportamento da variável climática.</p>
+<!--
+ARTE CAP2-01 — Duas referências, perguntas diferentes
+
+Arte incorporada: assets/figures/arte-cap2-01-referencias.svg.
+Versão de impressão: assets/figures/arte-cap2-01-referencias-print.png.
+Aquarela original: assets/figures/arte-cap2-01-v1.png.
+Prompt efetivamente utilizado: assets/figures/arte-cap2-01-v1.prompt.txt.
+Referência visual: assets/references/aquarela-grafite-nanquim.png, apresentada à ferramenta na conversa.
+Produção: ferramenta integrada image_gen, em 2 de outubro de 2026. Composição, rótulos e conexões: scripts/build_cap2_art.py 01. Original colorido preservado; versão de impressão em escala de cinza.
+
+Local e função: Seção 2.1, junto ao diagrama de referências climáticas e à sua explicação. Redesenho em aquarela de `fig-referencias-climaticas-sus`, preservando o identificador e as relações do diagrama original, arquivado em assets/figures/referencias-climaticas-sus.svg. A figura compara finalidades de uso; não apresenta séries climáticas observadas.
+
+PROMPT COMPLETO PARA GERAÇÃO:
+
+Ilustração editorial em aquarela tradicional translúcida, combinada com traços finos e espontâneos de lápis grafite e nanquim. Contornos parcialmente abertos, hachuras leves e marcas discretas de rascunho. Textura sutil de papel aquarela, pigmentação irregular e transições suaves. Paleta de verdes naturais, azuis acinzentados, ocres e terracota, com saturação moderada. Preservar áreas de papel branco e bordas irregulares que se dissolvem no fundo. Pessoas com proporções naturais e diversidade de tons de pele. Linguagem visual madura, acolhedora e adequada à divulgação científica para adultos. Usar a imagem de referência fornecida pelo autor para manter o mesmo tratamento de pigmentos, contornos, luz, vegetação e figuras humanas. Preservar contraste legível também em escala de cinza. Manter mãos, dedos, braços e pernas anatomicamente coerentes, com proporções naturais, articulações plausíveis e continuidade entre os segmentos. Evitar dedos extras ou fundidos, membros duplicados, torções impossíveis e mãos ou pés disformes. Preferir gestos simples e poses claras, respeitando a perspectiva, as oclusões e as características de cada personagem. Sem texto, letras, números, logotipos ou marca-d'água: reservar espaços para rótulos acrescentados na diagramação. Evitar fotorrealismo e acabamento tridimensional. Não inventar dados, curvas quantitativas ou mapas de locais reais.
+
+Criar duas vinhetas comparativas de mesmo tamanho, lado a lado, em uma prancha horizontal de proporção 3:2. Em ambas, repetir uma pequena estação meteorológica e folhas de registros inteiramente em branco. À esquerda, profissionais consultam um conjunto preservado de registros para comparar condições com uma referência anterior. À direita, profissionais consultam registros recentes para planejar o funcionamento de uma unidade de saúde. Reservar uma faixa superior comum, margens sob as vinhetas para perguntas e uma faixa inferior ampla para a interpretação sanitária. As folhas não devem ter quantidades, datas ou áreas proporcionais a anos. Não desenhar gráficos, linhas de tendência, escalas de termômetro, calendários numerados ou símbolos que indiquem que uma escolha é superior à outra. A aquarela deve apoiar a leitura das escolhas documentais; o diagrama e os rótulos serão compostos como elementos editáveis.
+
+Montagem e revisão: Usar o SVG incorporado como referência de conteúdo e disposição, separadamente da imagem de estilo da série. Preservar as duas perguntas e os rótulos “Base histórica mantida fixa” e “Normal climatológica recente”. Fazer ambas as escolhas convergirem em “Documentar período e método” e “Avaliar exposição, vulnerabilidade e capacidade de resposta”. Acrescentar “Referência estatística não é limite de segurança” e “Finalidades complementares; sem dados observados”. Não representar as escolhas como categorias mutuamente exclusivas: uma normal recente também pode permanecer fixa na comparação. Conferir os caminhos com os três parágrafos explicativos que seguem a figura.
+
+Legenda proposta: Duas finalidades para escolher a referência climática: comparar condições com um passado definido e caracterizar um período recente. Ambas exigem documentação e avaliação das condições de exposição e proteção. Esquema conceitual.
+-->
+<p>A Ficha de Qualificação do Indicador, utilizada na Rede Interagencial de Informações para a Saúde (RIPSA), oferece um modo de tornar essas escolhas verificáveis. Ela reúne conceito, interpretação, usos, limitações, fontes, fórmula e método de cálculo, além de recortes de análise e atualização. Esses campos permitem distinguir o que uma medida pretende representar, como foi obtida e em quais condições pode ser utilizada <span class="citation" data-cites="ripsa2026">(<a href="../../backmatter/referencias.html#ref-ripsa2026" role="doc-biblioref">Organização Pan-Americana da Saúde, 2026</a>)</span>.</p>
+<p>Aplicada ao exemplo do calor, essa lógica exige documentar qual temperatura foi usada, a que local e período se refere, como se definiu a referência e como dias sem informação foram tratados. Duas equipes podem contar “dias quentes” e obter resultados diferentes porque adotaram critérios distintos. A ficha permite reconhecer essa diferença antes de atribuí-la ao clima. Neste livro, as fichas temáticas seguem essa preocupação com rastreabilidade; não se presume que todas sejam fichas oficiais da RIPSA. Sua estrutura será apresentada no <a href="04-fontes-fichas.html" class="quarto-xref"><span>Capítulo 5</span></a>.</p>
+<section id="quando-os-eventos-se-combinam-e-os-efeitos-se-propagam" class="level3" data-number="2.1.1">
+<h3 data-number="2.1.1" class="anchored" data-anchor-id="quando-os-eventos-se-combinam-e-os-efeitos-se-propagam"><span class="header-section-number">2.1.1</span> Quando os eventos se combinam e os efeitos se propagam</h3>
+<p>Eventos compostos envolvem a combinação de perigos ou condições que contribuem conjuntamente para um risco. A combinação pode ocorrer ao mesmo tempo, em sequência ou em lugares conectados. Calor e fumaça podem coincidir; uma seca pode anteceder queimadas e comprometer o abastecimento; chuvas intensas sucessivas podem alcançar um território ainda em recuperação. A questão é identificar como os componentes interagem, sem presumir que seus efeitos correspondam à soma dos efeitos isolados <span class="citation" data-cites="ipcc2022glossario ipcc2022saude">(<a href="../../backmatter/referencias.html#ref-ipcc2022saude" role="doc-biblioref">Cissé et al., 2022</a>; <a href="../../backmatter/referencias.html#ref-ipcc2022glossario" role="doc-biblioref">Matthews et al., 2022</a>)</span>.</p>
+<p>Efeitos em cascata são consequências que se propagam entre sistemas interdependentes. Uma inundação pode bloquear vias; o bloqueio pode impedir a chegada de trabalhadores e medicamentos; a falta desses recursos pode interromper atendimentos. Outra ramificação pode passar pela energia e pela comunicação. O estabelecimento pode permanecer estruturalmente intacto e perder capacidade operacional. Aqui, a análise acompanha as dependências que sustentam o cuidado, além da extensão do fenômeno inicial <span class="citation" data-cites="who2023framework">(<a href="../../backmatter/referencias.html#ref-who2023framework" role="doc-biblioref">World Health Organization, 2023</a>)</span>.</p>
+<p>As duas situações podem coexistir, mas orientam perguntas diferentes. Na combinação de perigos, interessa saber quais condições se encontram e por quanto tempo. Na cascata, interessa localizar quais funções dependem umas das outras e onde uma interrupção pode se propagar. Essa distinção ajuda a selecionar dados sobre clima, mobilidade, abastecimento, equipes e serviços, sem reduzir o acompanhamento a um único indicador do evento.</p>
+<p>A <a href="#fig-eventos-compostos-cascatas" class="quarto-xref">Figura&nbsp;<span>2.2</span></a> aproxima essas duas leituras: a coexistência de perigos e a propagação de interrupções pelas redes que sustentam o cuidado.</p>
+<div id="fig-eventos-compostos-cascatas" class="quarto-float quarto-figure quarto-figure-center anchored" data-print-src="arte-cap2-02-cascatas-print.png" alt="À esquerda, calor e fumaça atingem um bairro hipotético ao mesmo tempo. À direita, uma inundação se ramifica em interrupção de acesso e falha de energia, comprometendo chegada de equipes e insumos, equipamentos e comunicação. Os caminhos convergem na redução da capacidade operacional de uma unidade com prédio intacto.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-eventos-compostos-cascatas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../assets/figures/arte-cap2-02-cascatas.svg" class="img-fluid figure-img" style="width:100.0%" alt="À esquerda, calor e fumaça atingem um bairro hipotético ao mesmo tempo. À direita, uma inundação se ramifica em interrupção de acesso e falha de energia, comprometendo chegada de equipes e insumos, equipamentos e comunicação. Os caminhos convergem na redução da capacidade operacional de uma unidade com prédio intacto.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-eventos-compostos-cascatas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;2.2: Eventos combinados e efeitos em cascata: caminhos possíveis de impacto
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte e composição: elaboração própria, com ilustração gerada por inteligência artificial. Licença: a mesma dos textos autorais da obra.</span></p>
+<!--
+ARTE CAP2-02 — Eventos combinados e efeitos em cascata
+
+Arte incorporada: assets/figures/arte-cap2-02-cascatas.svg.
+Versão de impressão: assets/figures/arte-cap2-02-cascatas-print.png.
+Aquarela original: assets/figures/arte-cap2-02-v1.png.
+Prompt efetivamente utilizado: assets/figures/arte-cap2-02-v1.prompt.txt.
+Referência visual: assets/references/aquarela-grafite-nanquim.png, apresentada à ferramenta na conversa.
+Produção: ferramenta integrada image_gen, em 2 de outubro de 2026. Composição, rótulos e conexões: scripts/build_cap2_art.py 02. Original colorido preservado; versão de impressão em escala de cinza.
+
+Local e função: Seção 2.1.1, após a definição de eventos compostos e efeitos em cascata e a comparação entre suas perguntas de análise. Acrescentar um diagrama que diferencie condições combinadas de consequências que se propagam entre sistemas.
+
+PROMPT COMPLETO PARA GERAÇÃO:
+
+Ilustração editorial em aquarela tradicional translúcida, combinada com traços finos e espontâneos de lápis grafite e nanquim. Contornos parcialmente abertos, hachuras leves e marcas discretas de rascunho. Textura sutil de papel aquarela, pigmentação irregular e transições suaves. Paleta de verdes naturais, azuis acinzentados, ocres e terracota, com saturação moderada. Preservar áreas de papel branco e bordas irregulares que se dissolvem no fundo. Pessoas com proporções naturais e diversidade de tons de pele. Linguagem visual madura, acolhedora e adequada à divulgação científica para adultos. Usar a imagem de referência fornecida pelo autor para manter o mesmo tratamento de pigmentos, contornos, luz, vegetação e figuras humanas. Preservar contraste legível também em escala de cinza. Manter mãos, dedos, braços e pernas anatomicamente coerentes, com proporções naturais, articulações plausíveis e continuidade entre os segmentos. Evitar dedos extras ou fundidos, membros duplicados, torções impossíveis e mãos ou pés disformes. Preferir gestos simples e poses claras, respeitando a perspectiva, as oclusões e as características de cada personagem. Sem texto, letras, números, logotipos ou marca-d'água: reservar espaços para rótulos acrescentados na diagramação. Evitar fotorrealismo e acabamento tridimensional. Não inventar dados, curvas quantitativas ou mapas de locais reais.
+
+Criar uma prancha horizontal, proporção 3:2, dividida em dois painéis com margens amplas. No painel esquerdo, representar um bairro brasileiro hipotético durante calor e presença de fumaça: sol, superfícies aquecidas e uma camada tênue de fumaça alcançam a mesma cena, com pessoas buscando abrigo. Manter os dois perigos visualmente distinguíveis, sem graduar sua intensidade ou sugerir uma soma numérica. No painel direito, mostrar uma inundação e, ao redor, três pequenas vinhetas separadas por espaço branco: uma rua com acesso interrompido; infraestrutura de energia fora de operação; uma unidade de saúde com edificação intacta, mas com dificuldade de receber trabalhadores e insumos. Reservar espaço para conexões ramificadas e rótulos que serão acrescentados depois. Não mostrar pessoas atravessando água de inundação, danos espetaculares ou equipamento clínico submerso. A edificação da unidade deve permanecer em local seco para tornar visível que o funcionamento depende de redes externas. Os dois painéis são exemplos distintos, sem conexão automática entre calor, fumaça e inundação.
+
+Montagem e revisão: Intitular os painéis “Eventos combinados” e “Efeitos em cascata”. No primeiro, usar “Calor e fumaça podem coincidir” e a ressalva “Combinações também podem ocorrer em sequência”, sem soma ou estimativa de risco. No segundo, compor os caminhos “Inundação → Acesso interrompido → Chegada de trabalhadores e insumos dificultada” e “Inundação → Falha de energia → Equipamentos e comunicação comprometidos”, convergindo em “Capacidade operacional reduzida”. Junto à unidade, escrever “Prédio intacto não garante serviço funcionando”. Identificar caminhos possíveis, sem atribuição a um desastre real. Não confundir combinação de perigos com etapas obrigatórias de uma cascata. Permitir montagem vertical em tela estreita.
+
+Legenda proposta: Perigos podem ocorrer em conjunto, e seus efeitos podem se propagar pelas redes que sustentam o cuidado. Uma unidade sem dano estrutural também pode perder capacidade operacional. Exemplos hipotéticos.
+-->
+<div class="callout callout-style-default callout-warning no-icon callout-titled" title="Atenção: atribuição de eventos e de efeitos em saúde">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Aviso</span>Atenção: atribuição de eventos e de efeitos em saúde
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Observar uma inundação, uma seca ou uma onda de calor durante um período de aquecimento global não permite atribuir isoladamente o evento à mudança climática. Estudos de atribuição climática investigam em que medida a influência humana alterou sua probabilidade ou intensidade <span class="citation" data-cites="ipcc2022glossario">(<a href="../../backmatter/referencias.html#ref-ipcc2022glossario" role="doc-biblioref">Matthews et al., 2022</a>)</span>.</p>
+<p>A atribuição de um desfecho de saúde a uma exposição é outra pergunta. Estimar quantos agravos poderiam ter sido evitados sob uma exposição diferente exige dados, hipóteses e métodos próprios. A coincidência temporal entre evento e adoecimento pode orientar uma investigação, mas não equivale a uma estimativa de efeito atribuível <span class="citation" data-cites="hernan2020causal">(<a href="../../backmatter/referencias.html#ref-hernan2020causal" role="doc-biblioref">Hernán; Robins, 2020</a>)</span>.</p>
+</div>
+</div>
+</section>
+<section id="previsões-projeções-e-decisões" class="level3" data-number="2.1.2">
+<h3 data-number="2.1.2" class="anchored" data-anchor-id="previsões-projeções-e-decisões"><span class="header-section-number">2.1.2</span> Previsões, projeções e decisões</h3>
+<p>Uma previsão meteorológica descreve condições atmosféricas esperadas para um período futuro, a partir do conhecimento do estado atual e de modelos. No horizonte de dias, pode apoiar preparação e resposta imediata. Uma projeção climática explora condições futuras sob hipóteses, como trajetórias de emissões e mudanças no uso da terra. Ela permite examinar consequências de cenários; não determina o estado exato da atmosfera em uma data distante <span class="citation" data-cites="ipcc2022glossario">(<a href="../../backmatter/referencias.html#ref-ipcc2022glossario" role="doc-biblioref">Matthews et al., 2022</a>)</span>.</p>
+<p>Na gestão do SUS, isso significa formular perguntas compatíveis com cada produto. Para os próximos dias, pode interessar onde há previsão de calor persistente e quais unidades devem se preparar. Para uma reforma com longa vida útil, interessa avaliar se ventilação, abastecimento e energia continuarão adequados sob condições climáticas diferentes. A incerteza não precisa desaparecer para que essa comparação seja útil: ela deve orientar alternativas, acompanhamento e revisão do plano <span class="citation" data-cites="brasil2026adaptasus">(<a href="../../backmatter/referencias.html#ref-brasil2026adaptasus" role="doc-biblioref">Brasil. Ministério da Saúde, 2026</a>)</span>.</p>
+<p>A utilidade operacional também depende da avaliação do produto no contexto em que será empregado. Estudos com previsões de poluição no Brasil mostram a importância de examinar diferenças regionais, mudanças nos modelos e critérios de alerta antes de incorporar os resultados à vigilância. A disponibilidade de uma previsão, por si só, não comprova que seus valores e limiares sejam adequados a qualquer território <span class="citation" data-cites="roux2020alerta">(<a href="../../backmatter/referencias.html#ref-roux2020alerta" role="doc-biblioref">Roux et al., 2020</a>)</span>.</p>
+</section>
+<section id="sec-grades-planejamento-sus" class="level3" data-number="2.1.3">
+<h3 data-number="2.1.3" class="anchored" data-anchor-id="sec-grades-planejamento-sus"><span class="header-section-number">2.1.3</span> O que são dados em grade e o que permitem enxergar</h3>
+<p>Dados em grade organizam valores em posições de uma malha espacial. Em uma grade regular, essa organização pode ser imaginada como linhas e colunas sobre um território: cada posição tem coordenadas, e os valores estão associados a uma variável e a um instante ou intervalo. Uma sequência dessas camadas permite acompanhar mudanças no tempo. Em imagens digitais, o termo pixel designa o elemento da imagem associado a essa representação espacial.</p>
+<p>A grade descreve uma forma de organização, não um método único de produção. Seus valores podem resultar de interpolação entre estações, de observações por sensores, de modelos ou de combinações dessas informações. Uma reanálise, por exemplo, combina observações e um sistema de modelagem e assimilação para reconstruir condições passadas. Ter um valor disponível em cada posição da grade não significa que exista ali um instrumento de medição <span class="citation" data-cites="hersbach2020era5">(<a href="../../backmatter/referencias.html#ref-hersbach2020era5" role="doc-biblioref"><span class="nocase">Hersbach et al.</span>, 2020</a>)</span>.</p>
+<p>O significado espacial do valor precisa ser consultado nos metadados. Conforme o produto, ele pode representar uma estimativa em um ponto da malha, uma média em uma célula ou outra operação sobre uma área. Não se deve supor que todo valor em grade seja uma média, nem que descreva igualmente cada lugar ou pessoa dentro da célula. Coordenadas, limites das células e operações espaciais e temporais fazem parte dessa interpretação <span class="citation" data-cites="eaton2024cf">(<a href="../../backmatter/referencias.html#ref-eaton2024cf" role="doc-biblioref"><span class="nocase">Eaton et al.</span>, 2024</a>)</span>.</p>
+<p>Para planejar uma resposta ao calor, a gestão pode relacionar uma grade de temperatura a moradias, unidades de saúde e trajetos. Isso ajuda a localizar condições ambientais relevantes, mas não observa diretamente a temperatura de cada casa nem a exposição de cada morador. A resolução nominal informa o espaçamento ou tamanho declarado da malha; não garante igual capacidade de distinguir diferenças entre ruas. Ampliar a imagem na tela ou subdividir células não acrescenta observações ao produto original. A compatibilização entre grades, municípios e população será aprofundada no <a href="03-espaco-tempo-qualidade.html" class="quarto-xref"><span>Capítulo 4</span></a>.</p>
+<p>A <a href="#fig-dados-grade-sus" class="quarto-xref">Figura&nbsp;<span>2.3</span></a> distingue o ponto de observação, a organização em grade e a diversidade de ambientes dentro de uma célula. A ampliação do desenho não acrescenta observações ao produto.</p>
+<div id="fig-dados-grade-sus" class="quarto-float quarto-figure quarto-figure-center anchored" data-print-src="arte-cap2-07-grades-print.png" alt="Três cenas distinguem uma estação meteorológica, uma malha sobre um território hipotético e ambientes diversos dentro de uma célula. A malha não pressupõe instrumento em cada célula nem valor idêntico em cada residência. Camadas ilustram momentos distintos, sem temperaturas ou escala quantitativa.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-dados-grade-sus-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../assets/figures/arte-cap2-07-grades.svg" class="img-fluid figure-img" style="width:100.0%" alt="Três cenas distinguem uma estação meteorológica, uma malha sobre um território hipotético e ambientes diversos dentro de uma célula. A malha não pressupõe instrumento em cada célula nem valor idêntico em cada residência. Camadas ilustram momentos distintos, sem temperaturas ou escala quantitativa.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dados-grade-sus-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;2.3: Dados em grade: organização espacial, temporal e limites de interpretação
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte e composição: elaboração própria, com ilustração gerada por inteligência artificial. Licença: a mesma dos textos autorais da obra.</span></p>
+<!--
+ARTE CAP2-07 — Dados em grade: organização e limites de interpretação
+
+Arte incorporada: assets/figures/arte-cap2-07-grades.svg.
+Versão de impressão: assets/figures/arte-cap2-07-grades-print.png.
+Aquarela original: assets/figures/arte-cap2-07-v1.png.
+Prompt efetivamente utilizado: assets/figures/arte-cap2-07-v1.prompt.txt.
+Referência visual: assets/references/aquarela-grafite-nanquim.png, apresentada à ferramenta na conversa.
+Produção: ferramenta integrada image_gen, em 2 de outubro de 2026. Composição, rótulos e conexões: scripts/build_cap2_art.py 07. Original colorido preservado; versão de impressão em escala de cinza.
+
+Local e função: Final da seção 2.1.3, após a explicação de dados em grade e antes da seção sobre efeitos nas pessoas e nos serviços. Acrescentar um esquema espacial conceitual que prepare a leitura do exemplo de temperatura retomado em 2.2 e 2.3.
+
+PROMPT COMPLETO PARA GERAÇÃO:
+
+Ilustração editorial em aquarela tradicional translúcida, combinada com traços finos e espontâneos de lápis grafite e nanquim. Contornos parcialmente abertos, hachuras leves e marcas discretas de rascunho. Textura sutil de papel aquarela, pigmentação irregular e transições suaves. Paleta de verdes naturais, azuis acinzentados, ocres e terracota, com saturação moderada. Preservar áreas de papel branco e bordas irregulares que se dissolvem no fundo. Pessoas com proporções naturais e diversidade de tons de pele. Linguagem visual madura, acolhedora e adequada à divulgação científica para adultos. Usar a imagem de referência fornecida pelo autor para manter o mesmo tratamento de pigmentos, contornos, luz, vegetação e figuras humanas. Preservar contraste legível também em escala de cinza. Manter mãos, dedos, braços e pernas anatomicamente coerentes, com proporções naturais, articulações plausíveis e continuidade entre os segmentos. Evitar dedos extras ou fundidos, membros duplicados, torções impossíveis e mãos ou pés disformes. Preferir gestos simples e poses claras, respeitando a perspectiva, as oclusões e as características de cada personagem. Sem texto, letras, números, logotipos ou marca-d'água: reservar espaços para rótulos acrescentados na diagramação. Evitar fotorrealismo e acabamento tridimensional. Não inventar dados, curvas quantitativas ou mapas de locais reais.
+
+Criar uma prancha em três vinhetas, proporção 3:2. À esquerda, uma estação meteorológica em um pequeno território brasileiro hipotético com casas, vegetação e uma unidade de saúde. Ao centro, repetir o território em vista superior simplificada e deixar uma área livre para sobrepor uma malha geométrica na diagramação. À direita, ampliar conceitualmente um trecho com uma casa, uma rua e uma árvore, mostrando diversidade de ambientes dentro da área que será delimitada como célula. Reservar espaço abaixo para três camadas espaciais vazias que representarão momentos diferentes. Não desenhar mapas reais, números, gradientes de temperatura ou um sensor em cada célula. Não sugerir que o zoom produz novas medições. A malha, o limite da célula e as camadas temporais devem ser construídos como elementos vetoriais editáveis sobre a ilustração; a aquarela serve de apoio qualitativo, sem codificar valores.
+
+Montagem e revisão: Compor uma malha regular apenas no painel central. Usar “Observação em um ponto”, “Valores organizados em uma malha” e “Ambientes diferentes dentro de uma célula”. Não ligar a estação à grade como se toda grade fosse interpolada de estações; acrescentar “O método de produção varia conforme o produto”. Junto à célula, escrever “O valor pode representar um ponto, uma média ou outra operação: conferir os metadados”. Nas camadas inferiores, usar “Momentos distintos”, sem datas ou valores. Acrescentar “Célula não é medição em cada residência” e “Mais zoom não cria novas observações”. No exemplo, a variável em grade é temperatura do ar; não usar temperatura de telhados como substituto. A dimensão da célula é esquemática e não representa a resolução de um produto específico.
+
+Legenda proposta: Uma grade organiza valores no espaço e no tempo; seu método de produção e o significado de cada valor dependem do produto. O detalhe da malha não garante observação das condições de cada residência. Território hipotético, sem dados observados.
+-->
+</section>
+</section>
+<section id="os-efeitos-chegam-às-pessoas-e-também-ao-sus" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="os-efeitos-chegam-às-pessoas-e-também-ao-sus"><span class="header-section-number">2.2</span> Os efeitos chegam às pessoas — e também ao SUS</h2>
+<p>O risco climático pode produzir duas pressões simultâneas: ampliar necessidades de saúde e comprometer as condições de atender a essas necessidades. A primeira envolve agravos, sofrimento e cuidados requeridos pela população. A segunda envolve funcionamento dos estabelecimentos, disponibilidade de trabalhadores e insumos e possibilidade de acesso. Distingui-las evita tratar registros assistenciais como uma medida completa do impacto.</p>
+<p>Considere o calor como exemplo. Uma temperatura elevada caracteriza uma condição ambiental; ela não informa diretamente quantas pessoas adoecerão ou precisarão de atendimento. Sua interpretação depende de duração, condições de exposição e possibilidades de proteção. Ao mesmo tempo, o episódio pode aumentar a dependência de energia e dificultar o trabalho nas unidades. Assim, uma mesma situação pode elevar a necessidade de cuidado e reduzir a capacidade de ofertá-lo <span class="citation" data-cites="ipcc2022saude who2023framework">(<a href="../../backmatter/referencias.html#ref-ipcc2022saude" role="doc-biblioref">Cissé et al., 2022</a>; <a href="../../backmatter/referencias.html#ref-who2023framework" role="doc-biblioref">World Health Organization, 2023</a>)</span>.</p>
+<p>É preciso ainda explicitar qual temperatura sustenta essa análise. Uma estação meteorológica mede a temperatura do ar em seu local de instalação. Um produto em grade pode estimar essa mesma grandeza para posições da malha. Já a temperatura da superfície obtida por sensoriamento remoto caracteriza superfícies como telhados, solo e vegetação, a partir da radiação observada. Temperatura do ar e da superfície são grandezas distintas, mesmo quando expressas na mesma unidade. Essa diferença será retomada no exemplo de decisão sobre calor adiante <span class="citation" data-cites="nasaTemperaturaSuperficie">(<a href="../../backmatter/referencias.html#ref-nasaTemperaturaSuperficie" role="doc-biblioref">National Aeronautics and Space Administration, <em>[S.d.]</em></a>)</span>.</p>
+<p>Outros perigos ajudam a reconhecer os mesmos mecanismos. Uma inundação pode provocar lesões e deslocamentos e, simultaneamente, interromper transporte, energia e abastecimento de medicamentos. Nas análises das inundações de 2024 no Rio Grande do Sul, a combinação de áreas inundadas, dados populacionais e localização de estabelecimentos permitiu examinar diferentes dimensões da população e da infraestrutura afetadas <span class="citation" data-cites="xavier2025inundacoes">(<a href="../../backmatter/referencias.html#ref-xavier2025inundacoes" role="doc-biblioref">Xavier et al., 2025</a>)</span>. Na aplicação gerencial, localizar uma unidade em área afetada, constatar dano físico e registrar interrupção de um serviço continuam sendo verificações distintas.</p>
+<p>Três formas de pressão ajudam a organizar o acompanhamento:</p>
+<ol type="1">
+<li>Aumento da necessidade e da procura por cuidado: mais pessoas podem precisar de atendimento, embora nem todas consigam procurá-lo ou recebê-lo;</li>
+<li>Redução da oferta e do acesso: instalações, equipes, energia, transporte, comunicação ou insumos podem ficar indisponíveis;</li>
+<li>Mudança do perfil de necessidade: deslocamentos, interrupção de tratamentos e sofrimento mental podem exigir outras modalidades e duração de acompanhamento.</li>
+</ol>
+<p>Retomando o calor, contar dias de temperatura elevada informa uma característica do perigo; contar consultas informa uma produção assistencial. Entre as duas medidas estão a exposição, o adoecimento, a procura, o acesso e a oferta. Por isso, uma queda nas consultas não comprova, sozinha, redução dos efeitos do calor. É necessário verificar se a população conseguiu chegar e se os serviços mantiveram seu funcionamento.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Conceito-chave: necessidade, demanda e atendimento observado">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Conceito-chave: necessidade, demanda e atendimento observado
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Necessidade de saúde corresponde ao cuidado requerido para prevenir, tratar ou acompanhar problemas. Demanda expressa é a procura que chega aos serviços. Atendimento observado é o cuidado efetivamente realizado e registrado. Essas dimensões se relacionam, mas podem divergir quando há barreiras de acesso, capacidade insuficiente ou falhas de registro.</p>
+<p>Em um exemplo didático, consultas diminuem após uma inundação enquanto unidades permanecem fechadas e ruas estão bloqueadas. Antes de interpretar a redução como menor adoecimento, é preciso investigar interrupções e necessidades não atendidas. O exemplo não descreve resultados de um levantamento empírico.</p>
+</div>
+</div>
+<p>Uma rede resiliente ao clima precisa antecipar ameaças, sustentar funções essenciais, recuperar serviços e aprender com as dificuldades. Isso depende de infraestrutura e também de organização, trabalhadores, informação, financiamento e articulação territorial. Ter recursos cadastrados ou um plano aprovado não demonstra que estarão disponíveis e operantes durante um evento <span class="citation" data-cites="who2023framework brasil2026adaptasus">(<a href="../../backmatter/referencias.html#ref-brasil2026adaptasus" role="doc-biblioref">Brasil. Ministério da Saúde, 2026</a>; <a href="../../backmatter/referencias.html#ref-who2023framework" role="doc-biblioref">World Health Organization, 2023</a>)</span>.</p>
+<p>A <a href="#fig-necessidade-oferta-atendimento" class="quarto-xref">Figura&nbsp;<span>2.4</span></a> reúne essas pressões e torna visíveis as diferenças entre precisar de cuidado, conseguir procurá-lo e ter um atendimento registrado.</p>
+<div id="fig-necessidade-oferta-atendimento" class="quarto-float quarto-figure quarto-figure-center anchored" data-print-src="arte-cap2-03-atendimento-print.png" alt="Três cenas hipotéticas mostram procura por cuidado, acesso e oferta interrompidos e necessidades diversas após deslocamento. Precisar de cuidado, conseguir procurá-lo e ter atendimento registrado são situações diferentes. Menos consultas não comprovam menor adoecimento.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-necessidade-oferta-atendimento-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../assets/figures/arte-cap2-03-atendimento.svg" class="img-fluid figure-img" style="width:100.0%" alt="Três cenas hipotéticas mostram procura por cuidado, acesso e oferta interrompidos e necessidades diversas após deslocamento. Precisar de cuidado, conseguir procurá-lo e ter atendimento registrado são situações diferentes. Menos consultas não comprovam menor adoecimento.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-necessidade-oferta-atendimento-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;2.4: Necessidade, acesso e oferta condicionam o atendimento observado
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte e composição: elaboração própria, com ilustração gerada por inteligência artificial. Licença: a mesma dos textos autorais da obra.</span></p>
+<!--
+ARTE CAP2-03 — Necessidade de cuidado, oferta e atendimento observado
+
+Arte incorporada: assets/figures/arte-cap2-03-atendimento.svg.
+Versão de impressão: assets/figures/arte-cap2-03-atendimento-print.png.
+Aquarela original: assets/figures/arte-cap2-03-v1.png.
+Prompt efetivamente utilizado: assets/figures/arte-cap2-03-v1.prompt.txt.
+Referência visual: assets/references/aquarela-grafite-nanquim.png, apresentada à ferramenta na conversa.
+Produção: ferramenta integrada image_gen, em 2 de outubro de 2026. Composição, rótulos e conexões: scripts/build_cap2_art.py 03. Original colorido preservado; versão de impressão em escala de cinza.
+
+Local e função: Final da seção 2.2, após a distinção entre necessidade, demanda e atendimento observado e o parágrafo sobre resiliência. Reunir as pressões sobre o SUS e explicar por que consultas registradas não medem toda a necessidade de cuidado.
+
+PROMPT COMPLETO PARA GERAÇÃO:
+
+Ilustração editorial em aquarela tradicional translúcida, combinada com traços finos e espontâneos de lápis grafite e nanquim. Contornos parcialmente abertos, hachuras leves e marcas discretas de rascunho. Textura sutil de papel aquarela, pigmentação irregular e transições suaves. Paleta de verdes naturais, azuis acinzentados, ocres e terracota, com saturação moderada. Preservar áreas de papel branco e bordas irregulares que se dissolvem no fundo. Pessoas com proporções naturais e diversidade de tons de pele. Linguagem visual madura, acolhedora e adequada à divulgação científica para adultos. Usar a imagem de referência fornecida pelo autor para manter o mesmo tratamento de pigmentos, contornos, luz, vegetação e figuras humanas. Preservar contraste legível também em escala de cinza. Manter mãos, dedos, braços e pernas anatomicamente coerentes, com proporções naturais, articulações plausíveis e continuidade entre os segmentos. Evitar dedos extras ou fundidos, membros duplicados, torções impossíveis e mãos ou pés disformes. Preferir gestos simples e poses claras, respeitando a perspectiva, as oclusões e as características de cada personagem. Sem texto, letras, números, logotipos ou marca-d'água: reservar espaços para rótulos acrescentados na diagramação. Evitar fotorrealismo e acabamento tridimensional. Não inventar dados, curvas quantitativas ou mapas de locais reais.
+
+Criar três vinhetas em uma prancha horizontal, proporção 3:2, sobre pressões em uma rede de saúde de um território brasileiro hipotético após uma inundação. À esquerda, pessoas com necessidades de cuidado procuram uma unidade, acompanhadas por uma profissional que orienta o acesso. No centro, mostrar barreiras à oferta e ao acesso: um trecho de rua bloqueado e uma unidade temporariamente fechada, mantendo pessoas em área seca e segura. À direita, representar necessidades diversas com poucos elementos: uma pessoa que precisa retomar o uso de medicamentos, uma família deslocada e uma conversa de acolhimento com profissional de saúde. Não usar o número de personagens, o tamanho de filas ou a área das vinhetas para representar volume de demanda. Na faixa inferior, deixar espaço para uma ficha de atendimento em branco e para explicar que os registros dependem do cuidado que conseguiu ocorrer. Manter dignidade, gestos simples e ausência de cenas alarmistas. Não criar contagens, gráficos de consultas, diagnósticos individuais ou comparações numéricas antes e depois.
+
+Montagem e revisão: Acrescentar os títulos “Necessidade e procura por cuidado”, “Oferta e acesso comprometidos” e “Mudança do perfil de necessidade”. Distinguir, junto à primeira vinheta, “Precisar de cuidado”, “Conseguir procurá-lo” e “Ser atendido e ter o atendimento registrado”; não conectar essas situações como uma passagem garantida. Na segunda, perguntar “O serviço funciona?” e “A população consegue chegar?”. Na faixa inferior, escrever “Menos consultas não comprovam menor adoecimento”. Não compor uma equação ou impor uma direção à mudança dos registros. Identificar situações didáticas, sem atribuí-las aos resultados do estudo sobre o Rio Grande do Sul citado no texto.
+
+Legenda proposta: A demanda, a oferta e o perfil de necessidade podem mudar ao mesmo tempo. A produção assistencial observada deve ser interpretada junto às condições de funcionamento e acesso aos serviços. Situações didáticas.
+-->
+<section id="acompanhar-trajetórias-e-sustentar-a-adaptação-contínua" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="acompanhar-trajetórias-e-sustentar-a-adaptação-contínua"><span class="header-section-number">2.2.1</span> Acompanhar trajetórias e sustentar a adaptação contínua</h3>
+<p>A leitura de trajetórias acompanha como efeitos, condições de vida e necessidades de cuidado se encadeiam ao longo do tempo. Ela amplia a observação de um evento isolado para os caminhos que favorecem agravamento, persistência ou recuperação. Como discutido no <a href="01-clima-ambiente-saude.html#sec-trajetorias-impacto" class="quarto-xref"><span>Seção 1.2.1</span></a>, uma trajetória pode ter ramificações, reunir consequências diferentes e ser alcançada por novos eventos; não corresponde a uma sequência obrigatória de etapas.</p>
+<p>Continuidade do cuidado é a manutenção articulada do acompanhamento de que a pessoa necessita, inclusive quando muda de residência, equipe ou serviço. Recuperação envolve restabelecer funções e acesso após uma interrupção, com atenção a necessidades que permanecem. Adaptação é o ajuste de práticas, recursos e organização às condições climáticas atuais ou esperadas. Ela é contínua quando esses ajustes são acompanhados, avaliados e revistos à medida que riscos, capacidades e conhecimento se modificam <span class="citation" data-cites="who2023framework brasil2026adaptasus">(<a href="../../backmatter/referencias.html#ref-brasil2026adaptasus" role="doc-biblioref">Brasil. Ministério da Saúde, 2026</a>; <a href="../../backmatter/referencias.html#ref-who2023framework" role="doc-biblioref">World Health Organization, 2023</a>)</span>.</p>
+<p>Esses conceitos ajudam a interpretar os exemplos. Uma pessoa atendida por trauma durante uma inundação pode precisar de reabilitação: a lesão inicial passa a exigir acompanhamento prolongado. Uma pessoa deslocada que perde o acesso aos medicamentos necessita de continuidade do tratamento, mesmo que não tenha sofrido trauma. Uma família que retorna à moradia pode continuar encontrando barreiras de transporte e abastecimento. Recuperar o prédio da unidade não basta para considerar recuperado o acesso ao cuidado.</p>
+<p>A vigilância dessas trajetórias combina registros de saúde com condições que antecedem ou prolongam os agravos: abastecimento, medicamentos, transporte, funcionamento de unidades e condições dos abrigos. O acompanhamento pode ajudar a localizar uma interrupção e orientar a investigação de seus efeitos. A coexistência dos registros no tempo, contudo, não demonstra por si só que um evento causou determinado desfecho. A definição da população, do mecanismo e da janela de observação continua necessária.</p>
+<p>Na adaptação, acompanhar deve produzir revisão das práticas. Se uma rota interrompida impediu a chegada de equipes, a preparação precisa considerar alternativas de deslocamento e referência assistencial. Se pessoas perderam tratamentos durante deslocamentos, a resposta precisa articular localização, comunicação e continuidade do cuidado. A atenção primária contribui por seu vínculo territorial, enquanto necessidades de moradia, saneamento, trabalho e proteção social exigem atuação intersetorial.</p>
+<p>O mesmo raciocínio se aplica a mudanças graduais. Temporadas de calor mais persistente podem exigir adaptações nas unidades e nas condições de trabalho ao longo de vários anos. Para avaliar essas medidas, interessa observar se o cuidado permaneceu acessível, se necessidades persistentes foram acompanhadas e se a proteção alcançou os grupos que enfrentavam maiores barreiras. A recuperação pode reproduzir vulnerabilidades quando apenas restabelece condições anteriores de desproteção; por isso, participação e distribuição dos benefícios integram a avaliação <span class="citation" data-cites="lacerdaFreitas2024justica">(<a href="../../backmatter/referencias.html#ref-lacerdaFreitas2024justica" role="doc-biblioref">Lacerda; Freitas, 2024</a>)</span>.</p>
+<p>A <a href="#fig-adaptacao-continua-sus" class="quarto-xref">Figura&nbsp;<span>2.5</span></a> organiza ações que podem coexistir e ser revistas. As conexões de retorno mostram como a avaliação deve modificar a preparação e a continuidade do cuidado.</p>
+<div id="fig-adaptacao-continua-sus" class="quarto-float quarto-figure quarto-figure-center anchored" data-print-src="arte-cap2-04-adaptacao-print.png" alt="Quatro cenas ilustram preparação de uma unidade, continuidade do cuidado em território com acesso difícil, acompanhamento e recuperação do acesso e avaliação participativa. Setas pontilhadas retornam da avaliação à preparação e à continuidade. Calor e abastecimento irregular lembram mudanças graduais e eventos recorrentes. As ações podem coexistir.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-adaptacao-continua-sus-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../assets/figures/arte-cap2-04-adaptacao.svg" class="img-fluid figure-img" style="width:100.0%" alt="Quatro cenas ilustram preparação de uma unidade, continuidade do cuidado em território com acesso difícil, acompanhamento e recuperação do acesso e avaliação participativa. Setas pontilhadas retornam da avaliação à preparação e à continuidade. Calor e abastecimento irregular lembram mudanças graduais e eventos recorrentes. As ações podem coexistir.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-adaptacao-continua-sus-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;2.5: Acompanhamento, continuidade do cuidado e adaptação contínua
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte e composição: elaboração própria, com ilustração gerada por inteligência artificial. Licença: a mesma dos textos autorais da obra.</span></p>
+<!--
+ARTE CAP2-04 — Acompanhamento e adaptação contínua
+
+Arte incorporada: assets/figures/arte-cap2-04-adaptacao.svg.
+Versão de impressão: assets/figures/arte-cap2-04-adaptacao-print.png.
+Aquarela original: assets/figures/arte-cap2-04-v1.png.
+Prompt efetivamente utilizado: assets/figures/arte-cap2-04-v1.prompt.txt.
+Referência visual: assets/references/aquarela-grafite-nanquim.png, apresentada à ferramenta na conversa.
+Produção: ferramenta integrada image_gen, em 2 de outubro de 2026. Composição, rótulos e conexões: scripts/build_cap2_art.py 04. Original colorido preservado; versão de impressão em escala de cinza.
+
+Local e função: Final da seção 2.2.1, após as definições de trajetória, continuidade do cuidado, recuperação e adaptação e sua aplicação aos exemplos. Mostrar acompanhamento e revisão como atividades que podem coexistir, preservando a distinção entre reabrir uma unidade e recuperar o acesso.
+
+PROMPT COMPLETO PARA GERAÇÃO:
+
+Ilustração editorial em aquarela tradicional translúcida, combinada com traços finos e espontâneos de lápis grafite e nanquim. Contornos parcialmente abertos, hachuras leves e marcas discretas de rascunho. Textura sutil de papel aquarela, pigmentação irregular e transições suaves. Paleta de verdes naturais, azuis acinzentados, ocres e terracota, com saturação moderada. Preservar áreas de papel branco e bordas irregulares que se dissolvem no fundo. Pessoas com proporções naturais e diversidade de tons de pele. Linguagem visual madura, acolhedora e adequada à divulgação científica para adultos. Usar a imagem de referência fornecida pelo autor para manter o mesmo tratamento de pigmentos, contornos, luz, vegetação e figuras humanas. Preservar contraste legível também em escala de cinza. Manter mãos, dedos, braços e pernas anatomicamente coerentes, com proporções naturais, articulações plausíveis e continuidade entre os segmentos. Evitar dedos extras ou fundidos, membros duplicados, torções impossíveis e mãos ou pés disformes. Preferir gestos simples e poses claras, respeitando a perspectiva, as oclusões e as características de cada personagem. Sem texto, letras, números, logotipos ou marca-d'água: reservar espaços para rótulos acrescentados na diagramação. Evitar fotorrealismo e acabamento tridimensional. Não inventar dados, curvas quantitativas ou mapas de locais reais.
+
+Criar uma composição horizontal, proporção 3:2, com quatro vinhetas dispostas ao redor de um espaço central vazio. Na vinheta superior esquerda, profissionais verificam condições de uma unidade e organizam insumos para preparação. Na superior direita, uma equipe assegura continuidade de cuidado e comunicação durante dificuldades de transporte no território, com atendimento em local seguro. Na inferior direita, uma profissional da atenção primária acompanha uma pessoa em reabilitação e a continuidade de seu tratamento, em uma visita domiciliar simples. Na inferior esquerda, moradores, trabalhadores da saúde e representantes de serviços locais examinam juntos materiais sem escrita em uma mesa para rever as ações. Reservar espaços entre as cenas para conexões de retorno acrescentadas na edição. Em uma faixa lateral discreta, incluir elementos de calor persistente e abastecimento irregular como condições que também exigem acompanhamento, sem impor um desastre súbito como início obrigatório. Não desenhar uma sequência fechada de recuperação, um final universalmente bem-sucedido ou setas automáticas. As pessoas e o território são hipotéticos.
+
+Montagem e revisão: Usar “Preparar”, “Sustentar a continuidade do cuidado”, “Acompanhar e recuperar o acesso” e “Avaliar e adaptar”. No centro, escrever “Acompanhamento do território e dos serviços”. Ligar ações relacionadas e incluir retornos pontilhados da avaliação para preparação e continuidade, sem impor um ciclo fechado. Acrescentar “Ações podem coexistir” e “Reabrir uma unidade não garante recuperar o acesso”. Na faixa lateral, usar “Eventos recorrentes e mudanças graduais”. Junto à avaliação, perguntar “A proteção alcançou quem enfrentava maiores barreiras?”. Não estabelecer prazos universais ou recuperação garantida; o desenho ilustra os conceitos definidos na seção, não uma classificação validada de trajetórias.
+
+Legenda proposta: A adaptação contínua conecta preparação, continuidade do cuidado, acompanhamento e revisão das ações. Eventos recorrentes, mudanças graduais e barreiras persistentes de acesso exigem acompanhamento ao longo do tempo. Esquema conceitual.
+-->
+</section>
+</section>
+<section id="da-informação-à-decisão-no-sus" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="da-informação-à-decisão-no-sus"><span class="header-section-number">2.3</span> Da informação à decisão no SUS</h2>
+<p>Uma decisão precisa definir a ação, quem é responsável por ela, quando deve ocorrer e quais condições permitem executá-la. As informações selecionadas devem esclarecer esses elementos. Na resposta climática, isso envolve articular vigilância, atenção primária, urgência e emergência, assistência farmacêutica, regulação, planejamento e participação social, conforme as responsabilidades de cada área.</p>
+<p>O horizonte da decisão orienta o tipo de informação necessário. Uma previsão para os próximos dias pode apoiar comunicação e preparação imediata. A análise de várias temporadas ajuda a reconhecer sazonalidade, necessidades recorrentes e territórios prioritários. Cenários de longo prazo podem apoiar reforma, localização e dimensionamento de serviços. Essas tarefas se complementam, mas não exigem o mesmo produto nem o mesmo nível de detalhe.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Boa prática: retomar o exemplo da temperatura antes de agir">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Dica</span>Boa prática: retomar o exemplo da temperatura antes de agir
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Considere uma secretaria que recebe uma previsão em grade de temperatura do ar elevada e persistente. Esse produto ajuda a localizar o perigo previsto. Para organizar a resposta, a equipe precisa relacioná-lo à distribuição da população, às condições de moradia e trabalho e ao funcionamento das unidades.</p>
+<p>Retomando a distinção anterior, um mapa de temperatura da superfície pode ajudar a examinar o ambiente construído, mas não substitui diretamente a previsão da temperatura do ar. Comparar os dois exige conhecer grandeza, horário, método e representação espacial; ter a mesma unidade ou apresentar cores semelhantes não os torna equivalentes. Tampouco o valor atribuído à célula descreve a temperatura de cada residência.</p>
+<p>Para planejar busca ativa, a equipe precisa acrescentar informações sobre pessoas e barreiras de proteção. Para preparar unidades, precisa verificar equipes, água, energia, comunicação e fluxos de atendimento. Para avaliar a resposta, precisa acompanhar acesso e necessidades não atendidas, além das consultas registradas. O exemplo é didático: uma informação sobre temperatura inicia a análise, mas não contém todas as respostas.</p>
+</div>
+</div>
+<p>O <a href="#qua-horizontes-sus" class="quarto-xref">Quadro&nbsp;<span>2.1</span></a> relaciona perguntas, informações e ações. A avaliação contínua atravessa todos os horizontes: não constitui uma etapa reservada ao encerramento do evento.</p>
+<div id="qua-horizontes-sus" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-qua figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-qua" id="qua-horizontes-sus-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Quadro&nbsp;2.1: Horizontes de informação para decisões no SUS
+</figcaption>
+<div aria-describedby="qua-horizontes-sus-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Horizonte</th>
+<th>Pergunta da gestão</th>
+<th>Informação necessária</th>
+<th>Exemplo de ação</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Horas a dias</td>
+<td>Há perigo iminente? Quem precisa agir agora?</td>
+<td>Previsão ou alerta; população e serviços expostos; funcionamento atual; protocolo</td>
+<td>Comunicar proteção; verificar unidades críticas; ativar fluxos assistenciais</td>
+</tr>
+<tr class="even">
+<td>Semanas a meses</td>
+<td>Que necessidades e interrupções podem se repetir na temporada?</td>
+<td>Sazonalidade; vigilância de agravos; estoques; equipes; barreiras de acesso</td>
+<td>Organizar equipes, insumos, busca ativa e comunicação</td>
+</tr>
+<tr class="odd">
+<td>Anos</td>
+<td>Onde é necessário reduzir riscos persistentes?</td>
+<td>Séries históricas; desigualdades; infraestrutura; uso do solo; cenários climáticos</td>
+<td>Adaptar unidades; articular melhorias de saneamento; rever localização e padrões construtivos</td>
+</tr>
+<tr class="even">
+<td>Contínuo</td>
+<td>A resposta funcionou e alcançou quem precisava?</td>
+<td>Oportunidade; cobertura; funcionamento; acesso; efeitos; distribuição territorial e social</td>
+<td>Rever limiares, protocolos, prioridades e recursos</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Organizar esse processo a partir da decisão evita reunir indicadores sem saber como serão usados. Uma sequência de trabalho pode incluir:</p>
+<ol type="1">
+<li>Definir a decisão, o prazo e as responsabilidades;</li>
+<li>Descrever o mecanismo de risco e as consequências que se pretende evitar;</li>
+<li>Identificar pessoas, territórios e serviços potencialmente afetados;</li>
+<li>Selecionar dados compatíveis com a pergunta, o espaço e o período;</li>
+<li>Documentar indicadores, limitações e critérios de interpretação;</li>
+<li>Pactuar ações, recursos e canais de comunicação;</li>
+<li>Registrar a execução, acompanhar seus resultados e rever o plano.</li>
+</ol>
+<p>O indicador apoia o protocolo, mas não o substitui. Um limiar só se torna um gatilho de ação quando está associado a responsabilidades e condições de execução. Um alerta pode chegar a muitas pessoas e ainda ter pouco alcance prático se elas não dispõem de água, abrigo, transporte ou possibilidade de interromper o trabalho. Avaliar a resposta exige observar quem recebeu a informação e quem conseguiu se proteger <span class="citation" data-cites="lacerdaFreitas2024justica">(<a href="../../backmatter/referencias.html#ref-lacerdaFreitas2024justica" role="doc-biblioref">Lacerda; Freitas, 2024</a>)</span>.</p>
+<p>A <a href="#fig-horizontes-informacao-sus" class="quarto-xref">Figura&nbsp;<span>2.6</span></a> sintetiza os horizontes de decisão. A faixa transversal de avaliação liga o acompanhamento às ações imediatas, sazonais e de longo prazo.</p>
+<div id="fig-horizontes-informacao-sus" class="quarto-float quarto-figure quarto-figure-center anchored" data-print-src="arte-cap2-05-horizontes-print.png" alt="Três cenas distinguem comunicação e preparação em horas a dias, organização de equipes e insumos em semanas a meses e adaptação dos serviços ao longo de anos. Uma faixa comum conecta avaliação e revisão contínuas aos três horizontes. Cenários representam futuros possíveis, sem probabilidades atribuídas.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-horizontes-informacao-sus-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../assets/figures/arte-cap2-05-horizontes.svg" class="img-fluid figure-img" style="width:100.0%" alt="Três cenas distinguem comunicação e preparação em horas a dias, organização de equipes e insumos em semanas a meses e adaptação dos serviços ao longo de anos. Uma faixa comum conecta avaliação e revisão contínuas aos três horizontes. Cenários representam futuros possíveis, sem probabilidades atribuídas.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-horizontes-informacao-sus-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;2.6: Informação e ação em diferentes horizontes, com avaliação contínua
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte e composição: elaboração própria, com ilustração gerada por inteligência artificial. Licença: a mesma dos textos autorais da obra.</span></p>
+<!--
+ARTE CAP2-05 — Informação e ação em diferentes horizontes
+
+Arte incorporada: assets/figures/arte-cap2-05-horizontes.svg.
+Versão de impressão: assets/figures/arte-cap2-05-horizontes-print.png.
+Aquarela original: assets/figures/arte-cap2-05-v1.png.
+Prompt efetivamente utilizado: assets/figures/arte-cap2-05-v1.prompt.txt.
+Referência visual: assets/references/aquarela-grafite-nanquim.png, apresentada à ferramenta na conversa.
+Produção: ferramenta integrada image_gen, em 2 de outubro de 2026. Composição, rótulos e conexões: scripts/build_cap2_art.py 05. Original colorido preservado; versão de impressão em escala de cinza.
+
+Local e função: Seção 2.3, após a organização do processo decisório e a discussão sobre condições concretas de proteção. Sintetizar os horizontes do quadro e ligar informação, responsabilidade e ação, mantendo a avaliação como atividade transversal.
+
+PROMPT COMPLETO PARA GERAÇÃO:
+
+Ilustração editorial em aquarela tradicional translúcida, combinada com traços finos e espontâneos de lápis grafite e nanquim. Contornos parcialmente abertos, hachuras leves e marcas discretas de rascunho. Textura sutil de papel aquarela, pigmentação irregular e transições suaves. Paleta de verdes naturais, azuis acinzentados, ocres e terracota, com saturação moderada. Preservar áreas de papel branco e bordas irregulares que se dissolvem no fundo. Pessoas com proporções naturais e diversidade de tons de pele. Linguagem visual madura, acolhedora e adequada à divulgação científica para adultos. Usar a imagem de referência fornecida pelo autor para manter o mesmo tratamento de pigmentos, contornos, luz, vegetação e figuras humanas. Preservar contraste legível também em escala de cinza. Manter mãos, dedos, braços e pernas anatomicamente coerentes, com proporções naturais, articulações plausíveis e continuidade entre os segmentos. Evitar dedos extras ou fundidos, membros duplicados, torções impossíveis e mãos ou pés disformes. Preferir gestos simples e poses claras, respeitando a perspectiva, as oclusões e as características de cada personagem. Sem texto, letras, números, logotipos ou marca-d'água: reservar espaços para rótulos acrescentados na diagramação. Evitar fotorrealismo e acabamento tridimensional. Não inventar dados, curvas quantitativas ou mapas de locais reais.
+
+Criar três vinhetas alinhadas horizontalmente, proporção 3:2, com espaço branco equivalente sob cada uma. Na primeira, uma equipe recebe uma informação meteorológica em tela sem conteúdo e organiza comunicação e verificação de uma unidade. Na segunda, profissionais preparam escalas de trabalho e insumos para uma temporada, com calendário inteiramente em branco. Na terceira, profissionais e moradores examinam a adaptação de uma unidade de saúde, com elementos de sombra, ventilação e abastecimento, e duas folhas de planejamento vazias que receberão referências a futuros possíveis na diagramação. Reservar uma faixa contínua sob as três cenas para acompanhamento e revisão e uma margem superior para a pergunta que orienta a decisão. Manter a mesma escala das pessoas e não distribuir as cenas sobre um eixo de tempo proporcional. Não desenhar previsões numéricas, curvas de cenários, datas, probabilidades ou um município real. As alternativas de longo prazo não devem sugerir um futuro único ou a certeza de um resultado.
+
+Montagem e revisão: Acrescentar os pares “Horas a dias — Previsão e funcionamento atual / Comunicar e preparar”; “Semanas a meses — Sazonalidade e capacidade / Organizar equipes e insumos”; “Anos — Séries, infraestrutura e cenários / Adaptar serviços”. Nas folhas da terceira cena, usar “Cenários possíveis”, sem ordem de probabilidade. Acima, perguntar “Que decisão precisa ser tomada e por quem?”. Na faixa transversal, escrever “Contínuo — Avaliar acesso, cobertura e resultados; rever prioridades” e ligá-la aos três horizontes. Acrescentar “Responsabilidades, comunicação, recursos e protocolo”. Não apresentar avaliação como etapa final nem cenário como previsão determinística. A informação meteorológica ilustrada é sobre temperatura do ar; não substituí-la por uma imagem térmica de telhados.
+
+Legenda proposta: A informação necessária muda conforme o horizonte da decisão. Previsões, análises sazonais e cenários de longo prazo apoiam ações distintas, com avaliação contínua e condições concretas de resposta.
+-->
+<section id="ler-indicadores-em-conjunto-sem-transformá-los-em-uma-única-nota" class="level3" data-number="2.3.1">
+<h3 data-number="2.3.1" class="anchored" data-anchor-id="ler-indicadores-em-conjunto-sem-transformá-los-em-uma-única-nota"><span class="header-section-number">2.3.1</span> Ler indicadores em conjunto sem transformá-los em uma única nota</h3>
+<p>Um indicador representa uma dimensão definida do problema. Lê-lo em conjunto com outros permite formular perguntas sobre as relações entre perigo, exposição, vulnerabilidade, efeitos e resposta. Essa articulação não exige somar medidas de significados diferentes. É necessário preservar o que cada uma permite interpretar e explicitar as relações que se pretende investigar <span class="citation" data-cites="corvalan1999links">(<a href="../../backmatter/referencias.html#ref-corvalan1999links" role="doc-biblioref">Corvalán; Kjellström; Smith, 1999</a>)</span>.</p>
+<p>No <a href="#qua-familias-indicadores" class="quarto-xref">Quadro&nbsp;<span>2.2</span></a>, PM2,5 designa o material particulado com diâmetro aerodinâmico igual ou inferior a 2,5 micrômetros. SPI é o Índice Padronizado de Precipitação, e SPEI, o Índice Padronizado de Precipitação-Evapotranspiração, siglas de suas denominações em inglês. As definições e os métodos desses índices serão apresentados nos capítulos temáticos; aqui, interessa localizar sua função na análise.</p>
+<div id="qua-familias-indicadores" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-qua figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-qua" id="qua-familias-indicadores-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Quadro&nbsp;2.2: Dimensões complementares para a leitura dos indicadores
+</figcaption>
+<div aria-describedby="qua-familias-indicadores-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Dimensão</th>
+<th>Exemplos de medida ou indicador</th>
+<th>Pergunta que ajuda a responder</th>
+<th>O que não responde sozinho</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Perigo climático ou ambiental</td>
+<td>Temperatura, precipitação, SPI/SPEI, concentração ambiental de PM2,5</td>
+<td>Que condição ocorreu ou pode ocorrer, com que intensidade e duração?</td>
+<td>Quem esteve exposto e quem sofreu dano</td>
+</tr>
+<tr class="even">
+<td>Exposição e condições de proteção</td>
+<td>População em área potencialmente afetada; PM2,5 ponderado pela população; cobertura de água segura</td>
+<td>Onde pode ocorrer contato e que proteção está disponível?</td>
+<td>Dose individual, exposição efetiva e suscetibilidade de cada pessoa</td>
+</tr>
+<tr class="odd">
+<td>Vulnerabilidade</td>
+<td>Condições de moradia, trabalho e acesso ao cuidado, relacionadas ao perigo analisado</td>
+<td>Que condições podem ampliar danos ou limitar proteção?</td>
+<td>O risco individual ou uma hierarquia universal entre grupos</td>
+</tr>
+<tr class="even">
+<td>Efeito em saúde</td>
+<td>Óbitos, incidência, internações; excesso ou fração atribuível quando estimados por métodos próprios</td>
+<td>Que desfecho foi registrado ou estimado?</td>
+<td>Toda a necessidade de saúde ou atribuição causal sem análise específica</td>
+</tr>
+<tr class="odd">
+<td>Impacto em desastres</td>
+<td>Pessoas afetadas, deslocamentos e interrupções de serviços</td>
+<td>Que consequências foram registradas no evento?</td>
+<td>A extensão de todos os efeitos persistentes ou a frequência do perigo sem registro de desastre</td>
+</tr>
+<tr class="even">
+<td>Resposta e capacidade</td>
+<td>Alcance de alertas; execução de planos; continuidade e recuperação do acesso</td>
+<td>Que recursos existiam, funcionaram e chegaram à população?</td>
+<td>Efetividade apenas pela existência formal da medida</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>As dimensões do quadro podem se sobrepor. Uma interrupção de serviço é uma consequência do desastre e pode tornar-se uma condição que amplia danos posteriores. O enquadramento depende da pergunta, não apenas do nome da variável. Da mesma forma, cobertura de água segura informa uma condição de proteção, mas não comprova a qualidade de toda água efetivamente consumida por cada pessoa.</p>
+<p>Considere novamente o calor. A contagem de dias acima de uma referência descreve frequência; a localização da população aproxima exposição; informações sobre moradia e trabalho ajudam a avaliar proteção; registros de agravos e atendimentos mostram consequências distintas; dados de funcionamento das unidades permitem interpretar a resposta. Se os atendimentos diminuírem, esse conjunto ajuda a investigar se houve menor adoecimento, dificuldade de acesso ou redução da oferta. Nenhuma dessas hipóteses deve ser escolhida apenas pela direção de uma série.</p>
+<p>Na análise de poluição e saúde, a delimitação da área de exposição e o modo de resumir os valores também podem ocultar diferenças internas. Aplicações brasileiras mostram por que a agregação territorial e temporal precisa ser examinada antes de usar uma média para orientar alertas <span class="citation" data-cites="roux2020alerta">(<a href="../../backmatter/referencias.html#ref-roux2020alerta" role="doc-biblioref">Roux et al., 2020</a>)</span>. Em vez de apagar essas diferenças em uma nota única, a leitura conjunta deve torná-las discutíveis e permitir verificar se os dados sustentam a decisão pretendida.</p>
+<p>As fichas retomam essa exigência: registrar conceito, fonte, método, interpretação e limitações permite que outra equipe compreenda a medida e reconheça mudanças de definição. A documentação apresentada no início do capítulo acompanha, portanto, todo o percurso entre referência climática, avaliação de necessidades e decisão.</p>
+<p>A <a href="#fig-leitura-conjunta-indicadores" class="quarto-xref">Figura&nbsp;<span>2.7</span></a> sintetiza as seis dimensões do quadro. Sua disposição lado a lado permite comparar perguntas e limites sem impor uma sequência causal ou uma nota única.</p>
+<div id="fig-leitura-conjunta-indicadores" class="quarto-float quarto-figure quarto-figure-center anchored" data-print-src="arte-cap2-06-indicadores-print.png" alt="Seis cenas com o mesmo destaque representam perigo, exposição e proteção, vulnerabilidade, efeito em saúde, impacto em desastres e resposta e capacidade. Cada dimensão possui uma pergunta própria. A disposição não define uma sequência causal nem soma as medidas em uma nota. Ausência de registro não comprova ausência de dano, e recursos disponíveis não comprovam desempenho.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-leitura-conjunta-indicadores-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../assets/figures/arte-cap2-06-indicadores.svg" class="img-fluid figure-img" style="width:100.0%" alt="Seis cenas com o mesmo destaque representam perigo, exposição e proteção, vulnerabilidade, efeito em saúde, impacto em desastres e resposta e capacidade. Cada dimensão possui uma pergunta própria. A disposição não define uma sequência causal nem soma as medidas em uma nota. Ausência de registro não comprova ausência de dano, e recursos disponíveis não comprovam desempenho.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-leitura-conjunta-indicadores-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;2.7: Seis dimensões complementares para interpretar o risco e a resposta
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte e composição: elaboração própria, com ilustração gerada por inteligência artificial. Licença: a mesma dos textos autorais da obra.</span></p>
+<!--
+ARTE CAP2-06 — Ler em conjunto, preservar o significado
+
+Arte incorporada: assets/figures/arte-cap2-06-indicadores.svg.
+Versão de impressão: assets/figures/arte-cap2-06-indicadores-print.png.
+Aquarela original: assets/figures/arte-cap2-06-v1.png.
+Prompt efetivamente utilizado: assets/figures/arte-cap2-06-v1.prompt.txt.
+Referência visual: assets/references/aquarela-grafite-nanquim.png, apresentada à ferramenta na conversa.
+Produção: ferramenta integrada image_gen, em 2 de outubro de 2026. Composição, rótulos e conexões: scripts/build_cap2_art.py 06. Original colorido preservado; versão de impressão em escala de cinza.
+
+Local e função: Final da seção 2.3.1, após o exemplo de leitura conjunta do calor e a retomada das fichas. Atualizar a prancha para as seis dimensões do quadro revisado, incluindo vulnerabilidade e distinguindo exposição de condições de proteção.
+
+PROMPT COMPLETO PARA GERAÇÃO:
+
+Ilustração editorial em aquarela tradicional translúcida, combinada com traços finos e espontâneos de lápis grafite e nanquim. Contornos parcialmente abertos, hachuras leves e marcas discretas de rascunho. Textura sutil de papel aquarela, pigmentação irregular e transições suaves. Paleta de verdes naturais, azuis acinzentados, ocres e terracota, com saturação moderada. Preservar áreas de papel branco e bordas irregulares que se dissolvem no fundo. Pessoas com proporções naturais e diversidade de tons de pele. Linguagem visual madura, acolhedora e adequada à divulgação científica para adultos. Usar a imagem de referência fornecida pelo autor para manter o mesmo tratamento de pigmentos, contornos, luz, vegetação e figuras humanas. Preservar contraste legível também em escala de cinza. Manter mãos, dedos, braços e pernas anatomicamente coerentes, com proporções naturais, articulações plausíveis e continuidade entre os segmentos. Evitar dedos extras ou fundidos, membros duplicados, torções impossíveis e mãos ou pés disformes. Preferir gestos simples e poses claras, respeitando a perspectiva, as oclusões e as características de cada personagem. Sem texto, letras, números, logotipos ou marca-d'água: reservar espaços para rótulos acrescentados na diagramação. Evitar fotorrealismo e acabamento tridimensional. Não inventar dados, curvas quantitativas ou mapas de locais reais.
+
+Criar seis vinhetas de tamanho equivalente em uma grade de duas colunas e três linhas, proporção 3:2, com espaço branco sob cada cena. Na primeira, mostrar estação meteorológica e nuvens, representando uma condição ambiental. Na segunda, mostrar pessoas, moradias e acesso à água em um bairro hipotético, representando contato potencial e condições de proteção sem comprovar dose individual. Na terceira, mostrar trabalho externo sem sombra e dificuldade de acesso ao cuidado, tornando visíveis condições que podem limitar a proteção, sem reduzir vulnerabilidade à aparência ou identidade das pessoas. Na quarta, uma profissional organiza registros de saúde sem escrita. Na quinta, uma família temporariamente deslocada está ao lado de uma rua com acesso interrompido. Na sexta, profissionais verificam uma unidade em funcionamento e orientam moradores. Manter igual destaque, sem pódio, semáforo, mostradores, porcentagens, barras, pontuações ou uma nota final. Não desenhar setas causais nem uma sequência obrigatória entre as cenas. Reservar uma faixa inferior para a pergunta comum às seis dimensões. Trata-se de uma prancha conceitual, não de um painel com dados observados.
+
+Montagem e revisão: Aplicar “Perigo — Que condição ocorreu ou pode ocorrer?”, “Exposição e proteção — Onde pode ocorrer contato e que proteção existe?”, “Vulnerabilidade — O que pode ampliar danos ou limitar proteção?”, “Efeito em saúde — Que desfecho foi registrado ou estimado?”, “Impacto em desastres — Que consequências ocorreram?” e “Resposta e capacidade — O que existia, funcionou e chegou à população?”. Na faixa inferior, perguntar “O que cada medida mostra e o que deixa de fora?”. Reunir as vinhetas sob “Leitura conjunta, significados preservados”, sem soma ou sequência causal. Indicar que as dimensões podem se sobrepor conforme a pergunta. Existência de recursos não comprova funcionamento; ausência de registros não comprova ausência de dano.
+
+Legenda proposta: Seis dimensões complementares para interpretar o risco e a resposta. A leitura conjunta preserva o significado e os limites de cada medida, sem exigir uma nota única. Prancha conceitual.
+-->
+</section>
+</section>
+<section id="síntese" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="síntese"><span class="header-section-number">2.4</span> Síntese</h2>
+<p>A mudança climática exige preparar o SUS para condições que variam no espaço e no tempo e podem se afastar das referências históricas. Escolher uma referência, interpretar uma previsão ou usar dados em grade são decisões que delimitam o que a informação representa. Elas precisam ser documentadas e relacionadas à pergunta de gestão.</p>
+<p>Os impactos alcançam pessoas e serviços ao mesmo tempo. Necessidade de saúde, procura e atendimento registrado não são equivalentes; temperatura do ar, temperatura da superfície e exposição pessoal também não. Acompanhar trajetórias e avaliar funcionamento e acesso ajuda a evitar que uma medida parcial seja tomada como descrição de todo o problema.</p>
+<p>Planejar a resposta requer combinar informações de perigo, exposição, vulnerabilidade, efeitos e capacidade, preservando seus significados. O acompanhamento deve orientar revisão das ações e verificar quem foi efetivamente protegido. O <a href="02-dados-variaveis-indices-indicadores.html" class="quarto-xref"><span>Capítulo 3</span></a> desenvolve a próxima etapa: como transformar registros e medidas em indicadores com definição, método e interpretação explícitos.</p>
+
+
+</section>
+<section id="bibliography" class="level1 unnumbered">
+<h1 class="unnumbered">Referências</h1>
+<div id="refs" class="references csl-bib-body" data-entry-spacing="1" role="list" style="display: none">
+<div id="ref-barcellos2009clima" class="csl-entry" role="listitem">
+BARCELLOS, Christovam <em>et al.</em> Mudanças climáticas e ambientais e as doenças infecciosas: cenários e incertezas para o Brasil. <strong>Epidemiologia e Serviços de Saúde</strong>, v. 18, n. 3, p. 285–304, 2009. Disponível em: &lt;https://doi.org/<a href="https://doi.org/10.5123/S1679-49742009000300011">10.5123/S1679-49742009000300011</a>&gt;.
+</div>
+<div id="ref-brasil2026adaptasus" class="csl-entry" role="listitem">
+BRASIL. MINISTÉRIO DA SAÚDE. <strong><a href="https://www.gov.br/saude/pt-br/centrais-de-conteudo/publicacoes/svsa/vigilancia-ambiental/plano-setorial-de-saude-adaptasus.pdf">Plano Clima Adaptação: Plano Setorial de Saúde — AdaptaSUS</a></strong>. Brasília, DF: Ministério da Saúde, 2026.
+</div>
+<div id="ref-ipcc2022saude" class="csl-entry" role="listitem">
+CISSÉ, Guéladio <em>et al.</em> <a href="https://doi.org/10.1017/9781009325844.009">Health, Wellbeing, and the Changing Structure of Communities</a>. <em>In</em>: PÖRTNER, Hans-Otto <em>et al.</em> (Orgs). <strong>Climate Change 2022: Impacts, Adaptation and Vulnerability</strong>. Cambridge: Cambridge University Press, 2022. p. 1041–1170.
+</div>
+<div id="ref-corvalan1999links" class="csl-entry" role="listitem">
+CORVALÁN, Carlos F.; KJELLSTRÖM, Tord; SMITH, Kirk R. Health, Environment and Sustainable Development: Identifying Links and Indicators to Promote Action. <strong>Epidemiology</strong>, v. 10, n. 5, p. 656–660, 1999. Disponível em: &lt;https://doi.org/<a href="https://doi.org/10.1097/00001648-199909000-00024">10.1097/00001648-199909000-00024</a>&gt;.
+</div>
+<div id="ref-eaton2024cf" class="csl-entry" role="listitem">
+<span class="nocase">EATON, Brian <em>et al.</em></span> <strong><a href="https://doi.org/10.5281/zenodo.14275599">NetCDF Climate and Forecast (CF) Metadata Conventions</a></strong>. <em>[S.l.]</em>: CF Community, 2024.
+</div>
+<div id="ref-hernan2020causal" class="csl-entry" role="listitem">
+HERNÁN, Miguel A.; ROBINS, James M. <strong><a href="https://miguelhernan.org/whatifbook">Causal inference: what if</a></strong>. Boca Raton: Chapman &amp; Hall/CRC, 2020.
+</div>
+<div id="ref-hersbach2020era5" class="csl-entry" role="listitem">
+<span class="nocase">HERSBACH, Hans <em>et al.</em></span> The ERA5 global reanalysis. <strong>Quarterly Journal of the Royal Meteorological Society</strong>, v. 146, n. 730, p. 1999–2049, 2020. Disponível em: &lt;https://doi.org/<a href="https://doi.org/10.1002/qj.3803">10.1002/qj.3803</a>&gt;.
+</div>
+<div id="ref-lacerdaFreitas2024justica" class="csl-entry" role="listitem">
+LACERDA, Luiz Felipe Barboza; FREITAS, Carlos Machado de. Justiça socioambiental para gestão integral de riscos de desastres. <strong>Em Pauta: teoria social e realidade contemporânea</strong>, v. 22, n. 55, p. 148–159, 2024. Disponível em: &lt;https://doi.org/<a href="https://doi.org/10.12957/rep.2024.79890">10.12957/rep.2024.79890</a>&gt;.
+</div>
+<div id="ref-ipcc2022glossario" class="csl-entry" role="listitem">
+MATTHEWS, J. B. Robin <em>et al.</em> <a href="https://doi.org/10.1017/9781009325844.029">Annex II: Glossary</a>. <em>In</em>: PÖRTNER, Hans-Otto <em>et al.</em> (Orgs). <strong>Climate Change 2022: Impacts, Adaptation and Vulnerability</strong>. Cambridge: Cambridge University Press, 2022. p. 2897–2930.
+</div>
+<div id="ref-nasaTemperaturaSuperficie" class="csl-entry" role="listitem">
+NATIONAL AERONAUTICS AND SPACE ADMINISTRATION. <strong>Land Surface Temperature</strong>. <em>[S.d.]</em>. Disponível em: &lt;<a href="https://science.nasa.gov/earth/earth-observatory/global-maps/land-surface-temperature/">https://science.nasa.gov/earth/earth-observatory/global-maps/land-surface-temperature/</a>&gt;. Acesso em: 2 out. 2026.
+</div>
+<div id="ref-ripsa2026" class="csl-entry" role="listitem">
+ORGANIZAÇÃO PAN-AMERICANA DA SAÚDE. <strong><a href="https://doi.org/10.37774/9789275731659">Indicadores Básicos para a Saúde no Brasil: conceitos e aplicações</a></strong>. 3. ed. Brasília, DF: Organização Pan-Americana da Saúde, 2026.
+</div>
+<div id="ref-roux2020alerta" class="csl-entry" role="listitem">
+ROUX, Emmanuel <em>et al.</em> Toward an Early Warning System for Health Issues Related to Particulate Matter Exposure in Brazil: The Feasibility of Using Global PM2.5 Concentration Forecast Products. <strong>Remote Sensing</strong>, v. 12, n. 24, p. 4074, 2020. Disponível em: &lt;https://doi.org/<a href="https://doi.org/10.3390/rs12244074">10.3390/rs12244074</a>&gt;.
+</div>
+<div id="ref-who2023framework" class="csl-entry" role="listitem">
+WORLD HEALTH ORGANIZATION. <strong><a href="https://www.who.int/publications/i/item/9789240081888">Operational framework for building climate resilient and low carbon health systems</a></strong>. Geneva: World Health Organization, 2023.
+</div>
+<div id="ref-wmo2017normals" class="csl-entry" role="listitem">
+WORLD METEOROLOGICAL ORGANIZATION. <strong><a href="https://wmo.int/wmo-climatological-normals">WMO guidelines on the calculation of climate normals</a></strong>. Geneva: World Meteorological Organization, 2017.
+</div>
+<div id="ref-wmo2023climatological" class="csl-entry" role="listitem">
+WORLD METEOROLOGICAL ORGANIZATION. <strong><a href="https://community.wmo.int/site/knowledge-hub/programmes-and-initiatives/climate-services/climate-data">Guide to climatological practices</a></strong>. Geneva: World Meteorological Organization, 2023.
+</div>
+<div id="ref-xavier2025inundacoes" class="csl-entry" role="listitem">
+XAVIER, Diego Ricardo <em>et al.</em> Climate change and health vulnerabilities: the case of 2024 floods in <span>Rio Grande do Sul, Brazil</span>. <strong>Trends in Health Sciences</strong>, v. 67, n. 1, p. 1–10, 2025. Disponível em: &lt;https://doi.org/<a href="https://doi.org/10.47626/ths-2025-0008">10.47626/ths-2025-0008</a>&gt;.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiada");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiada");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../chapters/part-1/01-clima-ambiente-saude.html" class="pagination-link" aria-label="Clima, ambiente e saúde pública">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Clima, ambiente e saúde pública</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../chapters/part-1/02-dados-variaveis-indices-indicadores.html" class="pagination-link" aria-label="Dos dados aos indicadores: como representar clima, ambiente e saúde">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Dos dados aos indicadores: como representar clima, ambiente e saúde</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/rfsaldanha/dicas/blob/main/chapters/part-1/01b-mudanca-climatica-resposta-sus.qmd" class="toc-action"><i class="bi bi-github"></i>Ver o código fonte</a></li><li><a href="https://github.com/rfsaldanha/dicas/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></div></div></footer></body></html>

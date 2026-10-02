@@ -2,7 +2,7 @@
 
 ## Finalidade
 
-A versão 0.9.0 está preparada para revisão integral. Ela reúne 14 capítulos completos, 62 fichas de indicadores consolidados, 25 registros de fontes, referências em estilo ABNT, quadros, tabelas, 20 diagramas Mermaid numerados e cinco ilustrações vetoriais originais.
+A versão 0.9.0 está preparada para revisão integral. Ela reúne 15 capítulos completos, 62 fichas de indicadores consolidados, 25 registros de fontes, referências em estilo ABNT, quadros, tabelas, 23 diagramas Mermaid numerados, cinco ilustrações vetoriais originais e treze composições em aquarela com rótulos e conexões.
 
 Os artefatos são:
 
@@ -14,10 +14,10 @@ Os artefatos são:
 
 ## Ordem sugerida
 
-1. Avaliar propósito, público e vocabulário nos capítulos 1 a 4.
-2. Revisar cada fenômeno nos capítulos 5 a 10, verificando a síntese dos principais indicadores e as fichas integradas.
-3. Examinar exposição, vulnerabilidade, efeitos e capacidade nos capítulos 11 a 13.
-4. Testar a aplicação dos indicadores nos quatro casos do capítulo 14.
+1. Avaliar propósito, público e vocabulário nos capítulos 1 a 5.
+2. Revisar cada fenômeno nos capítulos 6 a 11, verificando a síntese dos principais indicadores e as fichas integradas.
+3. Examinar exposição, vulnerabilidade, efeitos e capacidade nos capítulos 12 a 14.
+4. Testar a aplicação dos indicadores nos quatro casos do capítulo 15.
 5. Conferir glossário, índices, catálogo de fontes, listas e referências.
 6. Revisar site e PDF como produtos editoriais distintos.
 
@@ -44,7 +44,7 @@ Conferir formato, margens, aberturas, cabeçalhos, fólios, tabelas, fórmulas, 
 
 ## Arte
 
-As ilustrações vetoriais originais devem ser revistas quanto à função, coerência entre desenho, legenda e referência no texto, legibilidade em escala de impressão, contraste, texto alternativo, fonte, autoria e licença. Qualquer gráfico ou mapa futuro deve usar dados reais, identificar período e unidade, citar a fonte e manter um processo de geração reproduzível.
+As ilustrações vetoriais e as composições em aquarela devem ser revistas quanto à função, coerência entre desenho, legenda e referência no texto, legibilidade em escala de impressão, contraste, texto alternativo, fonte, autoria e licença. Nas aquarelas dos capítulos 1 e 2, conferir também os originais coloridos, os prompts arquivados, os rótulos editáveis e as versões de impressão em escala de cinza. As cenas são conceituais, sem dados observados. Qualquer gráfico ou mapa futuro deve usar dados reais, identificar período e unidade, citar a fonte e manter um processo de geração reproduzível.
 
 ## Registro de comentários
 

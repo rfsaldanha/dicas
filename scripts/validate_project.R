@@ -14,8 +14,8 @@ catalog_status <- system2("Rscript", "scripts/build_catalogs.R")
 if (catalog_status != 0L) fail("Falha na validação dos catálogos.")
 
 chapter_files <- sort(list.files("chapters", pattern = "\\.qmd$", recursive = TRUE, full.names = TRUE))
-if (length(chapter_files) != 14L) {
-  fail("Esperados 14 capítulos em chapters/; encontrados ", length(chapter_files), ".")
+if (length(chapter_files) != 15L) {
+  fail("Esperados 15 capítulos em chapters/; encontrados ", length(chapter_files), ".")
 }
 
 required <- c(
@@ -25,12 +25,41 @@ required <- c(
   "frontmatter/apresentacao.qmd", "frontmatter/prefacio.qmd",
   "frontmatter/agradecimentos.qmd", "frontmatter/siglas.qmd",
   "frontmatter/sumario.qmd", "frontmatter/como-usar.qmd",
-  "backmatter/glossario.qmd",
+  "backmatter/referencias.qmd", "backmatter/glossario.qmd",
   "backmatter/indice-indicadores.qmd", "backmatter/indice-fontes.qmd",
   "backmatter/indice-instituicoes.qmd", "backmatter/apendice-metodologico.qmd",
   "backmatter/lista-fichas.qmd", "backmatter/lista-tabelas.qmd",
   "backmatter/lista-figuras.qmd", "indicators/generated-index-alphabetical.qmd",
   "indicators/generated-list.qmd", "scripts/figure_metadata.lua",
+  "assets/figures/arte-cap1-01-v1.png",
+  "assets/figures/arte-cap1-01-v2.png",
+  "assets/references/aquarela-grafite-nanquim.png",
+  "assets/figures/arte-cap1-01-diagrama.svg",
+  "assets/figures/arte-cap1-01-diagrama-print.png",
+  "scripts/build_cap1_art.py",
+  "assets/figures/arte-cap1-02-v1.png",
+  "assets/figures/arte-cap1-02-v1.prompt.txt",
+  "assets/figures/arte-cap1-02-trajetorias.svg",
+  "assets/figures/arte-cap1-02-trajetorias-print.png",
+  "scripts/build_cap1_trajectories.py",
+  "assets/figures/arte-cap1-03-v1.png",
+  "assets/figures/arte-cap1-03-v1.prompt.txt",
+  "assets/figures/arte-cap1-03-exposicao.svg",
+  "assets/figures/arte-cap1-03-exposicao-print.png",
+  "scripts/build_cap1_heat_exposure.py",
+  "scripts/build_cap1_remaining_art.py",
+  "assets/figures/arte-cap1-04-v1.png",
+  "assets/figures/arte-cap1-04-v1.prompt.txt",
+  "assets/figures/arte-cap1-04-dose.svg",
+  "assets/figures/arte-cap1-04-dose-print.png",
+  "assets/figures/arte-cap1-05-v1.png",
+  "assets/figures/arte-cap1-05-v1.prompt.txt",
+  "assets/figures/arte-cap1-05-territorios.svg",
+  "assets/figures/arte-cap1-05-territorios-print.png",
+  "assets/figures/arte-cap1-06-v1.png",
+  "assets/figures/arte-cap1-06-v1.prompt.txt",
+  "assets/figures/arte-cap1-06-justica.svg",
+  "assets/figures/arte-cap1-06-justica-print.png",
   "assets/figures/cadeia-representacao.svg",
   "assets/figures/mudanca-suporte.svg",
   "assets/figures/temperatura-ar-superficie.svg",
@@ -45,10 +74,21 @@ required <- c(
   "docs/relatorio-implementacao.md", "docs/guia-de-revisao.md",
   "docs/relatorio-versao-para-revisao.md"
 )
+chapter_two_art <- c(
+  "01-referencias", "02-cascatas", "07-grades", "03-atendimento",
+  "04-adaptacao", "05-horizontes", "06-indicadores"
+)
+required <- c(required, "scripts/build_cap2_art.py", unlist(lapply(chapter_two_art, function(art) {
+  number <- substr(art, 1L, 2L)
+  paste0("assets/figures/arte-cap2-", c(
+    paste0(number, "-v1.png"), paste0(number, "-v1.prompt.txt"),
+    paste0(art, ".svg"), paste0(art, "-print.png")
+  ))
+}), use.names = FALSE))
 invisible(lapply(required, check_file))
 
 obsolete <- c(
-  "backmatter/referencias.qmd", "frontmatter/folha-rosto.qmd",
+  "frontmatter/folha-rosto.qmd",
   "includes/print-before-body.typ", "print/pretextuais.typ",
   "indicators/generated-index.qmd"
 )
@@ -107,8 +147,8 @@ mermaid_blocks <- unlist(lapply(chapter_files, function(path) {
     paste(lines[seq.int(start, start + relative_end)], collapse = "\n")
   }, character(1L))
 }), use.names = FALSE)
-if (length(mermaid_blocks) != 20L) {
-  fail("Esperados 20 diagramas Mermaid; encontrados ", length(mermaid_blocks), ".")
+if (length(mermaid_blocks) != 23L) {
+  fail("Esperados 23 diagramas Mermaid; encontrados ", length(mermaid_blocks), ".")
 }
 missing_alt <- mermaid_blocks[!grepl("(?m)^%%\\| fig-alt:", mermaid_blocks, perl = TRUE)]
 if (length(missing_alt)) fail("Há diagrama Mermaid sem texto alternativo.")
@@ -194,6 +234,16 @@ if (length(missing_citations)) {
   fail("Citações sem entrada bibliográfica: ", paste(missing_citations, collapse = ", "))
 }
 
+if (anyDuplicated(bib_keys)) fail("Há chaves duplicadas na bibliografia.")
+for (profile in c("_quarto-web.yml", "_quarto-print.yml")) {
+  profile_text <- readLines(profile, warn = FALSE, encoding = "UTF-8")
+  refs_line <- grep("backmatter/referencias.qmd", profile_text, fixed = TRUE)
+  appendix_line <- grep("^[[:space:]]*appendices:", profile_text)
+  if (length(refs_line) != 1L || length(appendix_line) != 1L || refs_line >= appendix_line) {
+    fail("Referências devem aparecer uma vez, antes dos apêndices: ", profile)
+  }
+}
+
 html_root <- "_output/web"
 pdf <- "_output/print/dados-indicadores-clima-ambiente-saude.pdf"
 check_file(file.path(html_root, "index.html"))
@@ -209,11 +259,59 @@ if (!grepl("Temperatura máxima diária", search_index, fixed = TRUE)) {
 }
 
 html_files <- list.files(html_root, pattern = "\\.html$", recursive = TRUE, full.names = TRUE)
+chapter_one_html <- paste(readLines(
+  file.path(html_root, "chapters/part-1/01-clima-ambiente-saude.html"),
+  warn = FALSE, encoding = "UTF-8"
+), collapse = "\n")
+if (!grepl('<img[^>]+src="[^"]*arte-cap1-01-diagrama[.]svg"', chapter_one_html, perl = TRUE)) {
+  fail("A aquarela da Figura 1.1 não foi incorporada ao capítulo 1.")
+}
+if (!grepl('<img[^>]+src="[^"]*arte-cap1-02-trajetorias[.]svg"', chapter_one_html, perl = TRUE)) {
+  fail("A aquarela da Figura 1.2 não foi incorporada ao capítulo 1.")
+}
+if (!grepl('<img[^>]+src="[^"]*arte-cap1-03-exposicao[.]svg"', chapter_one_html, perl = TRUE)) {
+  fail("A aquarela da Figura 1.3 não foi incorporada ao capítulo 1.")
+}
+if (!grepl('<img[^>]+src="[^"]*arte-cap1-04-dose[.]svg"', chapter_one_html, perl = TRUE)) {
+  fail("A aquarela da Figura 1.4 não foi incorporada ao capítulo 1.")
+}
+if (!grepl('<img[^>]+src="[^"]*arte-cap1-05-territorios[.]svg"', chapter_one_html, perl = TRUE)) {
+  fail("A aquarela da Figura 1.5 não foi incorporada ao capítulo 1.")
+}
+if (!grepl('<img[^>]+src="[^"]*arte-cap1-06-justica[.]svg"', chapter_one_html, perl = TRUE)) {
+  fail("A aquarela da Figura 1.6 não foi incorporada ao capítulo 1.")
+}
+chapter_two_html <- paste(readLines(
+  file.path(html_root, "chapters/part-1/01b-mudanca-climatica-resposta-sus.html"),
+  warn = FALSE, encoding = "UTF-8"
+), collapse = "\n")
+for (i in seq_along(chapter_two_art)) {
+  art <- paste0("arte-cap2-", chapter_two_art[[i]], ".svg")
+  check_file(file.path(html_root, "assets/figures", art))
+  image_pattern <- paste0('<img[^>]+src="[^"]*', sub("[.]svg$", "[.]svg", art), '"')
+  if (!grepl(image_pattern, chapter_two_html, perl = TRUE)) {
+    fail("A aquarela da Figura 2.", i, " não foi incorporada ao capítulo 2.")
+  }
+}
+references_html_path <- file.path(html_root, "backmatter/referencias.html")
+check_file(references_html_path)
+references_html <- paste(readLines(references_html_path, warn = FALSE, encoding = "UTF-8"), collapse = "\n")
+missing_entries <- unique(citations)[!vapply(unique(citations), function(key) {
+  grepl(paste0('id="ref-', key, '"'), references_html, fixed = TRUE)
+}, logical(1L))]
+if (length(missing_entries)) fail("Obras citadas ausentes da bibliografia central: ", paste(missing_entries, collapse = ", "))
+
 broken <- character()
 broken_anchors <- character()
 unresolved_html <- character()
 for (path in html_files) {
   html <- paste(readLines(path, warn = FALSE, encoding = "UTF-8"), collapse = "\n")
+  if (!identical(path, references_html_path)) {
+    refs_tags <- regmatches(html, gregexpr('<div[^>]*id="refs"[^>]*>', html, perl = TRUE))[[1L]]
+    if (length(refs_tags) && !identical(refs_tags, "-1") && any(!grepl("display: none", refs_tags, fixed = TRUE))) {
+      fail("Bibliografia visível fora da página central: ", path)
+    }
+  }
   hrefs <- regmatches(html, gregexpr('href="[^"]+"', html, perl = TRUE))[[1L]]
   if (!length(hrefs) || identical(hrefs, "-1")) next
   hrefs <- substring(hrefs, 7L, nchar(hrefs) - 1L)
@@ -261,6 +359,6 @@ if (pdf_status != 0L) fail("O pré-voo do PDF falhou.")
 
 indicator_count <- length(list.files("indicators/includes", pattern = "\\.qmd$"))
 message(
-  "Projeto validado: 14 capítulos; ", indicator_count, " fichas; HTML com ",
+  "Projeto validado: 15 capítulos; ", indicator_count, " fichas; HTML com ",
   length(html_files), " páginas; links e âncoras íntegros; PDF presente."
 )
