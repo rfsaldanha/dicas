@@ -145,6 +145,31 @@ def layout(number, sw, sh):
             label(900, 1920, 'Ações podem coexistir; considerar eventos recorrentes e mudanças graduais.', 40),
             label(900, 2020, 'Setas pontilhadas: revisão da preparação e da continuidade a partir da avaliação.', 38),
         ]
+    elif number == '05':
+        slug, title, width, height = 'horizontes', 'Informação e decisões em diferentes horizontes de planejamento', 1800, 1930
+        desc = ('Três cenas distinguem comunicação e preparação em horas a dias, organização de equipes e insumos em semanas a meses e adaptação dos serviços ao longo de anos. Uma faixa comum conecta avaliação e revisão contínuas aos três horizontes. Cenários representam futuros possíveis, sem probabilidades atribuídas.')
+        parts = [
+            label(900, 70, 'Que decisão precisa ser tomada e por quem?', 51),
+            label(300, 210, 'Horas a dias', 51),
+            label(900, 210, 'Semanas a meses', 51),
+            label(1500, 210, 'Anos', 51),
+            label(300, 295, ['Previsão e', 'funcionamento atual'], 43),
+            label(900, 295, ['Sazonalidade', 'e capacidade'], 43),
+            label(1500, 295, ['Séries, infraestrutura', 'e cenários'], 43),
+            picture('tres-horizontes', (0, 120, sw, 700), 20, 395, 1760, 805),
+            label(300, 1280, ['Comunicar', 'e preparar'], 47),
+            label(900, 1280, ['Organizar equipes', 'e insumos'], 47),
+            label(1500, 1280, 'Adaptar serviços', 47),
+            label(1500, 1360, ['Cenários: futuros possíveis,', 'sem probabilidades atribuídas'], 35, step=45),
+            line('M300 1410 V1470', arrow=False),
+            line('M900 1410 V1470', arrow=False),
+            line('M1500 1430 V1470', arrow=False),
+            box(80, 1485, 1640, 205),
+            label(900, 1555, 'Contínuo', 48, weight='bold'),
+            label(900, 1620, ['Avaliar acesso, cobertura e resultados;', 'rever prioridades em todos os horizontes'], 44),
+            label(900, 1790, 'Responsabilidades, comunicação, recursos e protocolo', 46),
+            label(900, 1885, 'Horizontes articulados; intervalos ilustrativos, sem escala de tempo proporcional.', 38),
+        ]
     else:
         raise SystemExit('Arte ainda não configurada: ' + number)
     return slug, title, width, height, desc, parts
