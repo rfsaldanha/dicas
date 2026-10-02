@@ -80,6 +80,31 @@ def layout(number, sw, sh):
             label(1350, 1885, ['Capacidade operacional', 'reduzida'], 44),
             label(900, 2010, 'Prédio intacto não garante serviço funcionando. Caminhos hipotéticos.', 40),
         ]
+    elif number == '07':
+        slug, title, width, height = 'grades', 'Dados em grade: organização e limites de interpretação', 1800, 1840
+        desc = ('Três cenas distinguem uma estação meteorológica, uma malha sobre um território hipotético e ambientes diversos dentro de uma célula. A malha não pressupõe instrumento em cada célula nem valor idêntico em cada residência. Camadas ilustram momentos distintos, sem temperaturas ou escala quantitativa.')
+        parts = [
+            label(300, 60, ['Observação', 'em um ponto'], 47),
+            label(900, 60, ['Valores organizados', 'em uma malha'], 47),
+            label(1500, 60, ['Ambientes dentro', 'de uma célula'], 47),
+            picture('territorio', (0, 0, sw, 700), 20, 150, 1760, 805),
+            '<rect x="660" y="220" width="480" height="600" fill="white" fill-opacity="0.12" stroke="#333" stroke-width="3"/>',
+        ]
+        for x in range(780, 1140, 120):
+            parts.append(line(f'M{x} 220 V820', arrow=False))
+        for y in range(340, 820, 120):
+            parts.append(line(f'M660 {y} H1140', arrow=False))
+        parts += [
+            '<rect x="900" y="460" width="120" height="120" fill="none" stroke="#222" stroke-width="7"/>',
+            line('M1020 460 L1240 350', dashed=True, arrow=False),
+            label(900, 1025, 'O método de produção varia conforme o produto.', 44),
+            box(130, 1075, 1540, 185),
+            label(900, 1140, ['O valor pode representar um ponto, uma média', 'ou outra operação: conferir os metadados.'], 46),
+            label(900, 1340, 'Momentos distintos de uma mesma variável', 48),
+            picture('camadas-temporais', (0, 715, sw, 230), 30, 1380, 1740, 265),
+            label(900, 1700, 'Célula não é medição em cada residência. Mais zoom não cria observações.', 41),
+            label(900, 1790, 'Território hipotético; cores ilustrativas, sem valores de temperatura.', 39),
+        ]
     else:
         raise SystemExit('Arte ainda não configurada: ' + number)
     return slug, title, width, height, desc, parts
