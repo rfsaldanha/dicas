@@ -1,396 +1,364 @@
 # Fontes de dados e fichas de indicadores {#sec-fontes-fichas}
 
-Uma ficha confiável começa antes da fórmula. O indicador deve possuir especificação verificável em literatura científica, norma técnica ou sistema de monitoramento reconhecido, e os dados precisam representar o conceito declarado. Este capítulo apresenta os requisitos para documentar e atualizar indicadores e fontes.
+Uma ficha confiável começa antes da fórmula. É preciso definir a pergunta, identificar uma medida adequada e verificar se os dados disponíveis permitem produzi-la. O @sec-dados-indicadores apresentou os componentes e as propriedades dos indicadores; o @sec-espaco-tempo discutiu a compatibilidade entre espaço, tempo e qualidade. Este capítulo reúne esses cuidados em um percurso de trabalho: selecionar fontes, documentar o processamento, ler e preencher fichas e manter os resultados ao longo do tempo.
 
-Fontes e fichas cumprem papéis diferentes. A fonte informa de onde vêm registros e estimativas; a referência metodológica define como o indicador é construído; a literatura de aplicação sustenta usos e interpretações; a ficha reúne essas evidências em uma especificação operacional. Uma única página institucional raramente cumpre todas essas funções.
+Fonte, referência metodológica e ficha cumprem funções distintas. A fonte fornece registros ou estimativas; a referência metodológica especifica a medida; a literatura de aplicação sustenta seus usos e limites; a ficha conecta essas informações. Uma página institucional pode ajudar a localizar o dado sem explicar a fórmula, e um artigo que utiliza um indicador pode não ser a publicação que o definiu.
 
-Transparência sobre fonte, método e metadados é requisito de confiança nas estatísticas oficiais [@un2014statistics]. Para dados científicos, os princípios de encontrabilidade, acessibilidade, interoperabilidade e reutilização (FAIR, do inglês *Findable, Accessible, Interoperable and Reusable*) acrescentam encontrabilidade, acessibilidade, interoperabilidade e reutilização [@wilkinson2016fair]. Esses princípios não garantem validade substantiva, mas permitem que outras pessoas encontrem, compreendam e examinem o processo.
+Na produção brasileira sobre indicadores, Jannuzzi ressalta a necessidade de escolher medidas em função da pergunta e da etapa da política pública. Essa orientação ajuda a evitar que a facilidade de acesso a uma base determine, sozinha, o que será acompanhado [@jannuzzi2005indicadores]. A documentação deve permitir que outra equipe compreenda por que a fonte e o método foram escolhidos, reproduza as operações e reconheça os limites do resultado.
 
-A instituição responsável e o recurso utilizado não são a mesma coisa. “OMS (Organização Mundial da Saúde)”, “INMET (Instituto Nacional de Meteorologia)”, “IBGE (Instituto Brasileiro de Geografia e Estatística)” ou “DATASUS (Departamento de Informática do Sistema Único de Saúde)” identificam organizações; uma análise reprodutível precisa nomear a base, produto, sistema, edição, variável, arquivo ou serviço. A citação institucional não substitui a proveniência do dado.
+## Identificar a fonte além do nome da instituição
 
-## O que é uma fonte
+Fonte de dados é o recurso do qual se obtêm os registros ou as estimativas empregados na análise. Ela deve ser descrita em uma cadeia que distingue produção, produto e acesso. Uma rede de estações produz observações; uma base reúne os registros; um portal oferece acesso; uma consulta seleciona uma parte do conteúdo. Essas funções podem estar sob responsabilidade de uma mesma organização ou de várias.
 
-Fonte é o recurso do qual informação é obtida. Pode ser:
+O Instituto Nacional de Meteorologia (INMET) e o Instituto Brasileiro de Geografia e Estatística (IBGE) são instituições. Informar seus nomes é necessário, mas insuficiente para identificar o que foi utilizado. De modo semelhante, citar apenas o Departamento de Informática do Sistema Único de Saúde (DATASUS) não distingue sistemas, tabelas, arquivos e datas de extração. A referência precisa chegar ao produto, à variável e ao recorte efetivamente usados.
 
-- Instrumento ou rede de observação;
-- Sistema administrativo;
-- Pesquisa;
-- Produto de satélite;
-- Reanálise;
-- Previsão ou projeção;
-- Modelo de exposição;
-- Repositório;
-- Painel;
-- Interface de programação de aplicações (API);
-- Tabela ou arquivo publicado.
-
-Uma plataforma pode hospedar muitos produtos. O Climate Data Store, por exemplo, é uma plataforma; ERA5-Land é um produto. O portal do DATASUS dá acesso a sistemas com conceitos e coberturas diferentes. Citar apenas a plataforma impede saber o que foi usado.
-
-::: {.callout-note icon=false title="Conceito-chave: papéis na cadeia do dado"}
-
-Também é necessário distinguir produtor, custodiante, distribuidor e usuário que processa. Uma instituição pode produzir observações; outra pode integrar e publicar; um portal pode apenas distribuir; a equipe local pode agregar e calcular. A autoridade da instituição não se transfere automaticamente a toda transformação posterior. Um cálculo municipal realizado a partir de dados oficiais continua sendo cálculo local, a menos que o produtor o publique ou homologue como estimativa oficial.
-
+::: {.callout-note icon=false title="Conceito-chave: responsabilidades na cadeia do dado"}
+Produtor é quem gera o dado; custodiante é quem responde por sua manutenção; distribuidor oferece o acesso; a equipe usuária seleciona, processa e interpreta. Esses papéis podem se sobrepor. Um cálculo próprio baseado em dados oficiais deve identificar tanto o produtor dos dados quanto a equipe responsável pela transformação e pelo resultado [@w3c2013prov].
 :::
 
-A fonte deve ser identificada no nível que permite reprodução. “Satélite”, “IBGE” ou “dados do SUS (Sistema Único de Saúde)” são categorias, não referências suficientes. Produto, coleção, versão, variável, unidade, período, filtros e arquivo efetivamente usado constituem o mínimo. Quando a fonte muda silenciosamente, preservar a extração bruta ou seu identificador torna-se parte da evidência. As boas práticas para publicação de dados na web tratam metadados, licenças, proveniência, versionamento, identificadores persistentes e formas de acesso como dimensões complementares [@w3c2017dwbp].
-
-O quadro a seguir separa os níveis de documentação.
-
-PM2,5 significa material particulado com diâmetro aerodinâmico igual ou inferior a 2,5 µm.
-
-URL significa localizador uniforme de recursos (*Uniform Resource Locator*).
+O @qua-entidade-recurso organiza os níveis de identificação. Eles são perguntas de documentação, e não uma hierarquia administrativa universal: alguns produtos não pertencem a um programa formal, e uma plataforma pode distribuir bases de diferentes produtores.
 
 ::: {#qua-entidade-recurso}
 
-| Nível | Exemplo genérico | O que registrar |
+| Nível | Pergunta | O que registrar |
 |---|---|---|
-| Instituição | serviço meteorológico ou Ministério da Saúde | nome oficial e responsabilidade |
-| Programa/sistema | vigilância da água ou sistema de mortalidade | finalidade, governança e cobertura |
-| Plataforma | portal de dados ou catálogo | forma de acesso e requisitos |
-| Produto/base | reanálise, conjunto de amostras, microdados | título, edição, período e versão |
-| Variável/recurso | temperatura máxima, PM2,5, óbito | código, unidade, definição e qualidade |
-| Extração | consulta ou arquivo efetivamente usado | URL, data, filtros, hash e script |
+| Instituição responsável | Quem produz, mantém ou distribui? | Nome oficial e papel de cada organização |
+| Programa ou sistema | Para qual finalidade o registro é produzido? | Nome, finalidade, universo e fluxo de produção |
+| Produto ou base | Qual conjunto foi utilizado? | Título, edição, coleção ou versão e cobertura |
+| Variável | Que característica entra no cálculo? | Nome ou código, definição, unidade e códigos de qualidade |
+| Via de acesso | Como o conteúdo foi obtido? | Arquivo, tabela, serviço, catálogo ou painel e endereço |
+| Extração | Que parte do produto foi usada? | Data e hora, filtros, arquivos, parâmetros e identificação da cópia |
 
 Entidade responsável e recurso usado
 
 :::
 
-## Estatuto das fontes e produtos de dados
+A @fig-identificacao-fonte mostra a passagem de uma referência ampla para uma extração identificável. Leia os blocos de cima para baixo: cada pergunta acrescenta informação que o nome da instituição não fornece. As cenas de observação, arquivo e consulta ilustram atividades da cadeia; não representam uma instituição ou base específica. Os papéis podem ser distribuídos entre diferentes organizações.
 
-::: {.callout-note icon=false title="Conceito-chave: fontes primárias e secundárias"}
+![Da instituição à extração que pode ser reconstruída](../../assets/figures/arte-cap5-01-identificacao.svg){#fig-identificacao-fonte .lightbox width="100%" print-src="arte-cap5-01-identificacao-print.png" print-width="120mm" fig-alt="Seis blocos detalham instituição responsável, programa ou sistema, produto e versão, variável, via de acesso e extração datada. Cenas conceituais de observação, arquivo e consulta acompanham as perguntas. As setas indicam detalhamento documental, não subordinação institucional."}
 
-Fonte primária registra ou estima diretamente o fenômeno segundo um sistema de observação ou informação: estação, laboratório, notificação, declaração de óbito, censo ou sensor. Fonte secundária transforma fontes anteriores por integração, modelagem, agregação ou curadoria.
+[Fonte: Elaboração própria; cenas conceituais, sem dados observados. Direção editorial: autor da obra; ilustração: ferramenta integrada image_gen; composição: edição desta obra. Licença dos arquivos autorais: GPL-3.0; fontes citadas mantêm suas licenças. Prompts e originais preservados no repositório.]{.figure-source}
 
+<!--
+ARTE CAP5-01 — Da instituição à extração que pode ser reconstruída
+Finalidade e leitura: Seis blocos detalham instituição responsável, programa ou sistema, produto e versão, variável, via de acesso e extração datada. Cenas conceituais de observação, arquivo e consulta acompanham as perguntas. As setas indicam detalhamento documental, não subordinação institucional.
+Prompt completo:
+Use case: scientific-educational.
+Imagem de referência: usar exclusivamente como referência de estilo, não reproduzir sua cena.
+
+Ilustração editorial em aquarela tradicional translúcida, combinada com traços finos e espontâneos de lápis grafite e nanquim. Contornos parcialmente abertos, hachuras leves e marcas discretas de rascunho. Textura sutil de papel aquarela, pigmentação irregular e transições suaves. Paleta de verdes naturais, azuis acinzentados, ocres e terracota, com saturação moderada. Preservar áreas de papel branco e bordas irregulares que se dissolvem no fundo. Pessoas com proporções naturais e diversidade de tons de pele. Linguagem visual madura, acolhedora e adequada à divulgação científica para adultos. Usar a imagem de referência fornecida pelo autor para manter o mesmo tratamento de pigmentos, contornos, luz, vegetação e figuras humanas. Preservar contraste legível também em escala de cinza. Manter mãos, dedos, braços e pernas anatomicamente coerentes, com proporções naturais, articulações plausíveis e continuidade entre os segmentos. Evitar dedos extras ou fundidos, membros duplicados, torções impossíveis e mãos ou pés disformes. Preferir gestos simples e poses claras, respeitando a perspectiva, as oclusões e as características de cada personagem. Sem texto, letras, números, logotipos ou marca-d'água: reservar espaços para rótulos acrescentados na diagramação. Evitar fotorrealismo e acabamento tridimensional. Não inventar dados, curvas quantitativas ou mapas de locais reais.
+
+Uma cena vertical em proporção 3:4, mostrando uma estação meteorológica simples em terreno aberto no alto, uma pequena sala de documentação com arquivos e pastas totalmente em branco no centro, e embaixo uma profissional diante de computador de tela inteiramente vazia com uma pasta em branco ao lado. Conectar as cenas apenas pela paisagem suave, sem setas, diagramas ou caminhos que imponham sequência. A arte será usada na coluna esquerda de um infográfico de identificação de fontes; a cadeia documental será composta separadamente. Não representar instituições reais, nomes ou números.
+
+Gerar somente a ilustração sem texto e sem setas, em alta resolução adequada à impressão. Não acrescentar bordas rígidas ou decoração.
+Montagem: scripts/build_cap5_art.py 01; rótulos e setas editáveis; SVG colorido para web e PNG em escala de cinza para impressão. Referência: assets/references/aquarela-grafite-nanquim.png, apresentada como prévia de estilo. Ferramenta: image_gen integrada; versão não informada. Geração sequencial: 1 de 3. Legenda: Da instituição à extração que pode ser reconstruída.
+-->
+
+Uma fonte deve ser identificada no nível que permite reconstruir o uso. A data de acesso não substitui a versão: a primeira informa quando houve a consulta; a segunda distingue uma edição do produto. Quando não há versionamento pelo produtor, registre essa limitação, preserve a extração permitida e identifique-a de forma inequívoca. Metadados, proveniência, licenças e identificadores persistentes sustentam a reutilização dos dados [@w3c2017dwbp].
+
+## Reconhecer como o dado foi produzido
+
+A natureza da produção condiciona o que se pode inferir. Medição por instrumento, declaração em entrevista, registro de atendimento e estimativa por modelo podem ser fontes úteis, mas descrevem objetos diferentes. A avaliação começa pela correspondência entre o conteúdo disponível e o conceito do indicador.
+
+::: {.callout-note icon=false title="Conceito-chave: dados primários e secundários"}
+Em uma pesquisa, costuma-se chamar de primários os dados coletados para sua própria finalidade e de secundários aqueles já produzidos para outra finalidade. Na descrição da linhagem, também se distingue o registro de origem dos produtos dele derivados. É necessário explicitar o sentido adotado: dados originais de uma estação podem ser secundários para uma pesquisa que apenas os reutiliza. O rótulo não determina qualidade nem dispensa a descrição da produção.
 :::
 
-“Primária” depende da pergunta. A declaração de óbito é registro primário para o sistema de mortalidade e informação produzida por uma cadeia clínica e administrativa em relação ao evento biológico. A radiância é observação primária do sensor; temperatura de superfície é produto derivado por algoritmo. Reanálise é secundária em relação às observações assimiladas, mas pode ser a fonte operacional diretamente usada por uma análise. O rótulo não substitui a descrição da cadeia [@w3c2013prov].
+Uma observação instrumental depende de instalação, calibração e controle de qualidade. Um produto de sensoriamento remoto depende também do sensor, do algoritmo e da coleção. Uma reanálise combina observações e modelo por assimilação de dados; seus valores são estimativas, e não medições em cada célula da grade [@hersbach2020era5]. Esses aspectos devem aparecer na ficha quando afetarem a interpretação, com os cuidados de suporte e agregação discutidos no @sec-espaco-tempo.
 
-Primária não significa automaticamente melhor. Uma estação pode ter falhas e baixa representatividade. Uma reanálise pode oferecer cobertura espacial coerente e, ainda assim, ser inadequada para extremos locais. A escolha considera finalidade, qualidade, escala e transparência.
+Registros administrativos respondem a finalidades de serviço, gestão ou vigilância. O número registrado pode depender de acesso, cobertura do sistema, critérios de inclusão e práticas de preenchimento. Em inquéritos amostrais, estimativas populacionais dependem do desenho, dos pesos e do tratamento da não resposta. Disponibilidade de microdados não autoriza ignorar essas condições nem tratar todos os registros como observações independentes de uma amostra aleatória simples.
 
-Em vez de hierarquizar fontes por proximidade da coleta, deve-se avaliar adequação ao uso. Observação local favorece validação pontual; produto em grade favorece cobertura; sistema administrativo favorece escala populacional; pesquisa amostral pode medir dimensões ausentes no registro rotineiro. Combinar fontes pode reduzir lacunas e também introduzir incompatibilidades de conceito, calendário e população.
+Lima, Schramm, Coeli e Silva sistematizaram dimensões de qualidade aplicadas aos sistemas de informação em saúde brasileiros, incluindo cobertura, completitude, consistência, confiabilidade, validade e oportunidade [@lima2009qualidade]. A distinção entre cobertura e completitude é especialmente útil: uma base pode ter campos bem preenchidos nos registros recebidos e ainda deixar de captar parte dos eventos de interesse. Uma avaliação deve declarar qual dimensão examinou, para qual variável, território e período; a conclusão não se estende automaticamente à base inteira.
 
+Previsões e projeções exigem documentação adicional. Para uma previsão, guarde a rodada, o momento de emissão, o horizonte e o período de validade. Para uma projeção, identifique cenário, modelos, período de referência e método de regionalização. A previsão recebida antes de um evento e a série consolidada depois dele cumprem funções diferentes; projeções expressam futuros condicionais às hipóteses adotadas [@wmoWho2015heat; @ipcc2022glossario].
 
-Observações resultam de instrumentos, exames, registros ou coleta estruturada. Devem conservar unidade, método, códigos de qualidade e metadados. “Dado observado” não significa ausência de processamento: calibração, validação e consolidação fazem parte da produção [@wmo2023climatological; @who2023dqa].
+Combinar fontes pode ampliar a compreensão, mas exige examinar sua dependência. Dois painéis podem distribuir a mesma base; um produto derivado e sua reanálise de origem compartilham parte da informação. Concordância entre eles não equivale a confirmação independente. Quando os valores divergem, investigue definição, cobertura, período, revisão e processamento antes de escolher uma série [@w3c2013prov].
 
+## Selecionar fontes para uma finalidade definida
 
-Reanálises combinam modelo e observações em um sistema de assimilação mantido ao longo do tempo. Elas oferecem cobertura espaço-temporal, mas são estimativas modeladas. Mudanças na disponibilidade de observações podem afetar a série, e o desempenho varia por variável e região. A documentação do ERA5 (Quinta geração da reanálise atmosférica do Centro Europeu de Previsões Meteorológicas de Médio Prazo), por exemplo, descreve conjuntamente o sistema de assimilação, os fluxos de observações, a resolução, as mudanças de produção e a avaliação do produto [@hersbach2020era5].
+A escolha da fonte começa pela especificação do indicador e pelo uso esperado. Antes de comparar produtos, escreva qual variável é necessária, em que unidade, para quais territórios e períodos e com qual atraso máximo aceitável. Requisitos de uma análise de tendência podem ser diferentes dos de uma rotina de alerta.
 
-
-Previsões partem do estado estimado do sistema e produzem valores futuros com horizonte e rodada. Para vigilância, precisam chegar a tempo e ser verificadas. Arquivar apenas o valor observado depois do evento impede avaliar o desempenho que o gestor realmente recebeu [@wmoWho2015heat; @cdc2024evaluation].
-
-
-Projeções dependem de cenários, modelos e métodos de regionalização. Seu uso é planejamento de médio e longo prazo, não alerta diário. Devem ser apresentadas como intervalos e futuros condicionais, sem falsa precisão municipal. Cenário não é previsão: descreve um futuro plausível sob hipóteses, enquanto projeção é a resposta modelada a essas hipóteses [@ipcc2022glossario].
-
-::: {.callout-note icon=false title="Conceito-chave: fonte de autoridade, produto e via de acesso"}
-
-Fonte de autoridade é a organização ou o sistema responsável pelo conteúdo. Produto é a edição identificável que reúne dados e método. Via de acesso é o meio pelo qual o produto é obtido, como arquivo, API, catálogo ou painel. Citar apenas a instituição omite o produto; citar apenas a URL omite responsabilidade e versão; citar apenas o painel confunde interface com conteúdo.
-
-:::
-
-Uma mesma instituição pode publicar observação, estimativa modelada, previsão e indicador agregado. O nome institucional não torna esses produtos equivalentes. A ficha deve registrar o estatuto de cada valor: observado por instrumento, declarado por pessoa, registrado por serviço, estimado por modelo, previsto para horizonte futuro ou projetado sob cenário. Essa informação limita as inferências permitidas e orienta validação [@w3c2017dwbp; @un2014statistics].
-
-Combinar fontes é justificável quando elas ocupam funções complementares. Estações podem avaliar viés local de uma grade; satélite pode revelar heterogeneidade espacial entre pontos; censo oferece totais; superfície populacional distribui esses totais segundo um modelo; registro de saúde informa utilização; inquérito revela eventos que não chegam ao serviço. A combinação precisa manter os papéis separados. Uma fonte auxiliar não se torna verdade de referência apenas porque preenche lacunas.
-
-Triangulação não é votação entre bases. Concordância aumenta confiança apenas quando erros não são inteiramente compartilhados. Reanálise e produto derivado da mesma reanálise não são evidências independentes; dois painéis podem reproduzir o mesmo banco; bases administrativas podem compartilhar o mesmo cadastro populacional. A linhagem deve ser examinada antes de interpretar convergência. Quando houver divergência, a resposta não é escolher automaticamente a série mais conveniente, mas investigar conceito, período, cobertura, revisão e processamento [@w3c2013prov; @hersbach2020era5].
-
-Para uso operacional, disponibilidade técnica e continuidade institucional entram no desenho. Autenticação, limites de requisição, latência, política de revisão, histórico de versões e possibilidade de exportação determinam se o produto pode sustentar rotina. Um protótipo pode aceitar processo manual; um alerta exige redundância, registro do que foi recebido e plano para indisponibilidade. Esses requisitos devem ser testados antes de o indicador adquirir dependência organizacional [@who2023framework; @wilkinson2016fair].
-
-## Painéis, APIs, repositórios e arquivos
-
-Um painel facilita consulta, mas pode ocultar transformações e alterar retrospectivamente resultados. Uma API permite extração reprodutível quando possui documentação e versionamento. Um arquivo datado pode ser mais fácil de preservar. Nenhuma forma é superior em todos os casos; a publicação deve equilibrar acesso humano e automatizado, persistência, metadados, licenciamento e atualização [@w3c2017dwbp].
-
-::: {.callout-note icon=false title="Conceito-chave: interface, serviço e repositório"}
-
-O painel é uma interface, não necessariamente a fonte de autoridade. Valores podem ser arredondados, filtrados, atualizados ou calculados no navegador. Uma API é um serviço de acesso; sua resposta depende de versão, parâmetros, autenticação, paginação e momento. Um repositório é uma infraestrutura de depósito; pode conter produtos de autores e qualidades distintas. A ficha deve citar o produto e sua responsabilidade, não inferir qualidade a partir da interface.
-
-:::
-
-Formatos também afetam preservação. O formato de valores separados por vírgulas (CSV) é simples, mas pode perder tipos, unidades e codificação; planilha pode conter fórmulas e células mescladas; GeoTIFF preserva informação espacial e exige metadados; serviços web podem desaparecer ou mudar. Arquivo, dicionário, licença e documentação precisam ser preservados em conjunto.
-
-Para cada acesso, registre:
-
-- Endereço oficial;
-- Conjunto ou ponto de acesso;
-- Parâmetros e filtros;
-- Formato;
-- Fuso e codificação;
-- Paginação e limites;
-- Data e hora;
-- Versão;
-- Licença e restrições;
-- Resposta ou arquivo bruto preservado, quando permitido.
-
-::: {.callout-tip title="Regra prática"}
-Se outra equipe não consegue identificar a mesma edição e reconstruir a extração a partir da ficha, a fonte ainda não está suficientemente documentada.
-:::
-
-## Indicadores já calculados
-
-Sistemas oficiais e observatórios frequentemente publicam indicadores prontos. Usá-los pode preservar comparabilidade e reduzir processamento, desde que o metadado seja conhecido. Um valor baixado de painel sem fórmula, denominador, revisão ou cobertura não é auditável [@ripsa2026; @un2014statistics].
-
-Há três opções legítimas: usar o valor publicado; reproduzir o cálculo para auditoria; ou adaptar o método a outra finalidade. Elas produzem estatutos diferentes. A reprodução deve alcançar resultados compatíveis dentro das regras publicadas; divergências precisam ser investigadas. A adaptação deve receber nome e versão próprios, pois muda a comparabilidade.
-
-Recalcular nem sempre aumenta transparência. A equipe local pode não dispor de correções, ponderadores, registros tardios ou parâmetros usados pelo sistema oficial. Por outro lado, valor oficial sem metadados suficientes pode ser inadequado à decisão. A ficha deve registrar a escolha e evitar linguagem que confunda autoria, homologação e responsabilidade.
-
-Antes de recalcular um indicador oficial:
-
-1. Verifique se a estimativa oficial atende à escala e finalidade;
-2. Compare conceito e método;
-3. Identifique revisão e incerteza;
-4. Avalie se a reprodução local é autorizada e necessária;
-5. Diferencie resultado oficial de cálculo próprio.
-
-Uma estimativa própria baseada no metadado do ODS (Objetivo de Desenvolvimento Sustentável) 11.6.2 não deve ser rotulada como valor oficial da OMS. Da mesma forma, adaptar um índice internacional a outro período-base cria uma variante que precisa ser identificada.
-
-## Repertório de indicadores por fenômeno
-
-Cada capítulo temático apresenta, antes das fichas, uma síntese direta dos principais indicadores empregados em saúde pública. Ela organiza o repertório técnico necessário para que o leitor reconheça as medidas, suas diferenças e seus contextos de uso.
-
-O repertório reúne indicadores presentes na literatura científica, na vigilância, em sistemas de alerta, no monitoramento oficial e em marcos internacionais. Cada medida é caracterizada por:
-
-- Que aspecto mede — ocorrência, frequência, duração, intensidade, exposição, efeito ou resposta;
-- Em que população e contexto é usado;
-- Que variáveis e fontes requer;
-- Que relação possui com saúde humana ou saúde pública;
-- Se existe especificação oficial ou artigo metodológico;
-- Se pode ser comparado entre territórios;
-- Quais limitações e controvérsias precisam acompanhar a interpretação.
-
-As fórmulas e regras são sustentadas por fonte metodológica primária ou metadado oficial; páginas de síntese não constituem base única das fichas.
-
-::: {.callout-note icon=false title="Nota técnica: funções das referências"}
-
-Referências cumprem funções diferentes. A referência normativa ou metodológica prova a definição; a referência de validação avalia desempenho; a referência epidemiológica sustenta relação com saúde; a referência operacional documenta uso em vigilância ou gestão. Um artigo que encontra associação não define automaticamente um indicador, e uma norma que define cálculo não demonstra, sozinha, efeito sanitário.
-
-:::
-
-Quando há várias definições consolidadas, o livro não escolhe silenciosamente uma como universal. Ele identifica a família, compara componentes e registra a versão adotada. Essa prática é especialmente importante para ondas de calor, seca, exposição a áreas verdes, vulnerabilidade e resiliência, conceitos cuja operacionalização depende da finalidade.
-
-## Requisitos para integrar o catálogo
-
-Um indicador integra o catálogo quando atende aos requisitos apresentados no quadro a seguir.
-
-::: {#qua-criterios-indicador}
-1. Existência verificável: aparece em metadado oficial, norma técnica, artigo metodológico ou literatura de saúde pública.
-2. Definição explícita: conceito, entradas, fórmula e unidade podem ser descritos.
-3. Uso substantivo: responde a uma dimensão relevante do fenômeno, da exposição, do efeito ou da resposta.
-4. Aplicação sanitária: tem uso documentado ou interpretação defensável para vigilância, pesquisa ou gestão em saúde.
-5. Reprodutibilidade: decisões críticas podem ser registradas e repetidas.
-6. Qualidade avaliável: limitações, cobertura e incerteza podem ser examinadas.
-7. Não redundância: acrescenta significado, não apenas outro nome para a mesma operação.
-8. Responsabilidade editorial: adaptações são rotuladas e não apresentadas como padrão consolidado.
-
-: Requisitos de inclusão de um indicador no catálogo
-:::
-
-Indicadores genéricos inventados para preencher uma lacuna não são incluídos. Uma medida simples pode entrar se for formalmente consolidada — por exemplo, incidência, mortalidade ou concentração média anual do ODS —, mas não apenas porque é fácil calcular.
-
-
-Um candidato é excluído ou adiado quando:
-
-- Não há definição localizável;
-- O nome reúne fórmulas incompatíveis sem possibilidade de separação;
-- A aplicação em saúde é apenas alegada;
-- O método exige dado inexistente sem alternativa validada;
-- O indicador duplica outro sem ganho;
-- A norma aplicável não foi verificada;
-- A comparação produziria falsa precisão.
-
-Adiar não invalida o indicador. Significa que o livro não possui base suficiente para uma ficha completa.
-
-
-“Principal” pode significar mais citado, mais usado operacionalmente, mais comparável ou mais relevante para determinada decisão. O livro não cria uma pontuação universal. A síntese apresenta famílias e contextos.
-
-O caso das ondas de calor ilustra: HWN (Número de ondas de calor) mede número de episódios; HWF (Número total de dias em ondas de calor) mede dias participantes; HWD (Duração máxima das ondas de calor) mede duração máxima; HWM (Magnitude média das ondas de calor) e HWA (Amplitude ou intensidade máxima de onda de calor) medem aspectos da magnitude; WBGT (Temperatura de Globo e Bulbo Úmido) e UTCI (Índice Térmico Universal do Clima) representam estresse térmico por modelos distintos; população exposta combina perigo e demografia. Nenhuma medida substitui todas as outras.
-
-## Estrutura das fichas
-
-As fichas adotam como núcleo os 16 campos da Ficha de Qualificação do Indicador (FQI) revistos pela RIPSA (Rede Interagencial de Informações para a Saúde) e publicados na terceira edição do *Livro Verde* [@ripsa2026]. O núcleo é complementado por campos necessários a clima e ambiente.
-
-A ficha funciona como contrato semântico e metodológico. Semântico, porque fixa o que o nome significa e o que não significa. Metodológico, porque especifica entradas, regras, saídas e controles. Operacional, porque identifica fonte, atualização, responsabilidades e condições de uso. Alterar um desses elementos pode criar nova versão mesmo quando o título permanece igual.
-
-Uma boa ficha permite três testes. No teste de identidade, duas equipes reconhecem se estão falando da mesma medida. No teste de reprodução, uma equipe independente reconstrói o resultado com os dados e regras indicados. No teste de interpretação, leitores chegam às mesmas conclusões permitidas e evitam as conclusões proibidas. Reprodutibilidade computacional sem identidade conceitual apenas repete o mesmo erro com precisão.
-
-Para uma equipe multidisciplinar, a ficha também funciona como instrumento de pactuação. Geografia pode revisar suporte e agregação; epidemiologia, desfecho, denominador e interpretação; especialistas ambientais, a correspondência entre medida e fenômeno; tecnologia da informação, acesso, formato, processamento e atualização; gestão, o vínculo com decisões. A ficha só está pronta para uso operacional quando essas leituras permanecem coerentes entre si.
-
-::: {#qua-blocos-ficha}
-
-| Bloco | Campos principais | Finalidade |
-|---|---|---|
-| Identificação | código, título, tema, dimensão, referência metodológica | localizar e provar consolidação |
-| Significado | conceito, objetivo, interpretação, usos | explicar o que mede |
-| Cálculo | método, fórmula, numerador, denominador e unidade | permitir reprodução |
-| Recortes | variáveis, categorias, granularidade e território | delimitar análise |
-| Tempo e espaço | resolução original, período-base, limiar e defasagem | evitar incompatibilidades |
-| Fontes | recursos, acesso, formatos e processamento | preservar proveniência |
-| Qualidade | incerteza, comparabilidade, limitações e notas | orientar uso responsável |
-| Saúde e gestão | relação com desfechos e aplicação | conectar indicador a decisões |
-| Referências | especificação e literatura de aplicação | sustentar a ficha |
-
-Blocos das fichas de indicadores
-
-:::
-
-
-O núcleo contém título, conceituação, interpretação, usos, limitações, fontes, método, categorias de análise, dados estatísticos e comentários. A forma estruturada facilita revisão e intercâmbio. Campos não aplicáveis são identificados, não preenchidos com conteúdo fictício.
-
-
-Dados climáticos e ambientais exigem:
-
-- Resolução espacial original;
-- Suporte e método de agregação;
-- Resolução temporal;
-- Período de referência;
-- Limiar e regra de sequência;
-- Fuso e calendário;
-- Qualidade e incerteza do produto;
-- Necessidade de processamento;
-- Relação com desfechos de saúde;
-- Defasagens;
-- Validação para uso operacional.
-
-“Granularidade” registra a desagregação recomendada da saída. “Resolução espacial original” registra o suporte nativo da entrada. Confundi-las produz interpretações erradas.
-
-## Integração editorial e referências
-
-As fichas não formam uma parte separada. Elas aparecem no capítulo do fenômeno, depois de:
-
-1. Definição e mecanismos;
-2. Impactos sobre a saúde humana;
-3. Impactos sobre a saúde pública;
-4. Apresentação dos principais indicadores usados em saúde pública;
-5. Comparação e seleção.
-
-Essa ordem impede que a fórmula apareça sem contexto. O índice pós-textual permite localizar uma ficha sem removê-la de seu campo substantivo.
-
-O conteúdo estruturado é mantido em `indicators/data/` e transformado em trechos incorporados pelo processo de publicação. A fonte única reduz divergência entre capítulo e índice. Alterações devem ocorrer no dado estruturado, nunca no arquivo gerado.
-
-
-As citações no texto usam chaves ligadas ao arquivo bibliográfico. A lista final é formatada segundo estilo ABNT (Associação Brasileira de Normas Técnicas). Para cada referência, são verificados autoria, título, edição, local, editora ou periódico, ano, identificador de objeto digital (DOI), URL e data de acesso quando aplicável.
-
-Uma URL não substitui referência bibliográfica. DOI é preferido quando existe. Documentos institucionais usam a entidade responsável como autoria, evitando abreviações inconsistentes.
-
-A URL de acesso e a referência metodológica também não são a mesma coisa. O endereço da API permite obter dados; o manual ou artigo define seu conteúdo; a página de versão informa mudanças; a literatura independente discute validade e aplicações. Quando todos apontam para a página inicial de uma instituição, perde-se a possibilidade de verificar cada afirmação.
-
-Referências devem aparecer junto ao conceito que sustentam, e não apenas acumuladas ao final de uma seção. Uma citação pode apoiar definição, método ou evidência de efeito; o texto precisa deixar claro qual. Para documentos atualizados continuamente, registra-se data de acesso. Para versões estáveis, DOI, Número Padrão Internacional de Livro (ISBN, do inglês *International Standard Book Number*), edição ou identificador do relatório são preferíveis.
-
-Na ficha, a seção de referências metodológicas identifica a origem da definição. A bibliografia completa aparece nos elementos pós-textuais, evitando listas duplicadas com formatação divergente.
-
-## Critérios para seleção de fontes de dados
-
-Depois de selecionar o indicador, as fontes candidatas são avaliadas segundo os critérios do quadro a seguir.
+O @qua-criterios-fonte orienta essa avaliação. Os critérios devem ser aplicados à edição e ao recorte pretendidos; reputação institucional e aparência do portal não bastam para estabelecer adequação.
 
 ::: {#qua-criterios-fonte}
 
-| Critério | Pergunta |
+| Critério | Pergunta de avaliação |
 |---|---|
-| Autoridade | Quem produz, mantém e responde pelo recurso? |
-| Adequação conceitual | A variável corresponde à especificação do indicador? |
-| Cobertura | Espaço, tempo e população atendem à finalidade? |
-| Qualidade | Há controle, validação, incerteza e metadados? |
-| Atualização | A latência é compatível com a decisão? |
-| Estabilidade | URL, versão e histórico são preserváveis? |
-| Interoperabilidade | Formato, códigos e unidades podem ser integrados? |
-| Licença e ética | O uso, armazenamento e compartilhamento são permitidos? |
-| Sustentabilidade | A fonte tem manutenção e governança identificáveis? |
+| Responsabilidade | Quem produz, mantém e responde pelo recurso? |
+| Correspondência conceitual | A variável representa o que a definição do indicador exige? |
+| Cobertura e suporte | Espaço, tempo e população atendem à finalidade? |
+| Qualidade | Há documentação, controles e avaliação no contexto de uso? |
+| Oportunidade | O atraso de disponibilização permite a decisão prevista? |
+| Identificação e preservação | É possível reconhecer a edição e reconstruir a extração? |
+| Integração | Unidades, códigos, calendários e formatos são compatíveis ou conversíveis? |
+| Condições de uso | O acesso, o processamento e o compartilhamento pretendidos são permitidos? |
+| Continuidade | Há atualização, responsáveis e informação sobre mudanças? |
 
 Critérios para selecionar a fonte de cálculo
 
 :::
 
-A pontuação automática pode ocultar compensações indevidas. Autoridade não corrige escala inadequada; cobertura não corrige definição errada. Critérios essenciais funcionam como requisitos, e não como pontos intercambiáveis.
+A seleção deve separar requisitos indispensáveis de vantagens desejáveis. Correspondência conceitual, cobertura suficiente para o uso e condições de acesso precisam ser atendidas. Entre as fontes elegíveis, podem-se comparar atraso, resolução, estabilidade e custo de manutenção. Uma soma de pontos não deve permitir que facilidade de acesso compense uma variável incompatível.
 
-A seleção deve ocorrer em duas etapas. Primeiro aplicam-se requisitos eliminatórios: correspondência conceitual, legalidade, cobertura mínima, metadados e possibilidade de identificar versão. Depois se comparam vantagens entre fontes elegíveis: resolução, latência, estabilidade, custo e facilidade de integração. Esse processo evita que uma soma de pontos compense falha fatal.
+A @fig-selecao-fontes apresenta essa sequência. Primeiro define-se a pergunta e verificam-se os requisitos; uma fonte incompatível exige procurar outra opção ou rever a pergunta, com justificativa. A comparação de vantagens só ocorre entre alternativas elegíveis. O retorno lateral representa revisão da escolha, e não autorização para flexibilizar critérios apenas porque o resultado de uma fonte parece conveniente.
 
-Fontes podem ser combinadas quando ocupam funções diferentes. Estação pode validar produto em grade; censo fornece totais e superfície modelada distribui população; observação recente orienta resposta e série consolidada sustenta avaliação. A combinação precisa declarar qual fonte domina em caso de conflito e como incertezas e revisões se propagam.
+![Selecionar a fonte conforme a pergunta e os requisitos de uso](../../assets/figures/arte-cap5-02-selecao.svg){#fig-selecao-fontes .lightbox width="100%" print-src="arte-cap5-02-selecao-print.png" print-width="120mm" fig-alt="Fluxo parte da pergunta e dos requisitos de uso, examina fontes candidatas e separa opções incompatíveis das elegíveis. Apenas as elegíveis passam à comparação de vantagens e à escolha documentada. A revisão da pergunta ou a busca de outra fonte retorna ao início."}
 
-Os critérios também devem considerar continuidade institucional. Uma prova de conceito pode usar produto experimental; um painel público exige manutenção, documentação de mudança, canal de suporte, plano de contingência e capacidade de recálculo. Sustentabilidade não é prestígio da instituição: é a possibilidade concreta de manter o indicador no ciclo decisório [@un2014statistics; @wilkinson2016fair].
+[Fonte: Elaboração própria; cenas conceituais, sem dados observados. Direção editorial: autor da obra; ilustração: ferramenta integrada image_gen; composição: edição desta obra. Licença dos arquivos autorais: GPL-3.0; fontes citadas mantêm suas licenças. Prompts e originais preservados no repositório.]{.figure-source}
 
-A seleção final deve registrar não apenas por que uma fonte foi escolhida, mas também por que alternativas plausíveis foram rejeitadas. Esse registro evita que a decisão seja reconstruída depois do resultado. Motivos aceitáveis incluem incompatibilidade conceitual, cobertura insuficiente, ausência de versão identificável, restrição legal, latência excessiva ou desempenho inadequado na validação. Conveniência e familiaridade podem influenciar custo, mas não substituem correspondência com o indicador.
+<!--
+ARTE CAP5-02 — Selecionar a fonte conforme a pergunta e os requisitos de uso
+Finalidade e leitura: Fluxo parte da pergunta e dos requisitos de uso, examina fontes candidatas e separa opções incompatíveis das elegíveis. Apenas as elegíveis passam à comparação de vantagens e à escolha documentada. A revisão da pergunta ou a busca de outra fonte retorna ao início.
+Prompt completo:
+Use case: scientific-educational.
+Imagem de referência: usar exclusivamente como referência de estilo, não reproduzir sua cena.
 
-Quando duas fontes elegíveis oferecem vantagens diferentes, a decisão pode ser modular. Uma série consolidada sustenta tendência; outra, mais oportuna, sustenta situação recente; uma observação local verifica extremos; um produto em grade cobre o território. O painel deve mostrar a função de cada uma e impedir emendas silenciosas. Se a fonte muda no meio da série, período de sobreposição, comparação e regra de transição precisam ser planejados.
+Ilustração editorial em aquarela tradicional translúcida, combinada com traços finos e espontâneos de lápis grafite e nanquim. Contornos parcialmente abertos, hachuras leves e marcas discretas de rascunho. Textura sutil de papel aquarela, pigmentação irregular e transições suaves. Paleta de verdes naturais, azuis acinzentados, ocres e terracota, com saturação moderada. Preservar áreas de papel branco e bordas irregulares que se dissolvem no fundo. Pessoas com proporções naturais e diversidade de tons de pele. Linguagem visual madura, acolhedora e adequada à divulgação científica para adultos. Usar a imagem de referência fornecida pelo autor para manter o mesmo tratamento de pigmentos, contornos, luz, vegetação e figuras humanas. Preservar contraste legível também em escala de cinza. Manter mãos, dedos, braços e pernas anatomicamente coerentes, com proporções naturais, articulações plausíveis e continuidade entre os segmentos. Evitar dedos extras ou fundidos, membros duplicados, torções impossíveis e mãos ou pés disformes. Preferir gestos simples e poses claras, respeitando a perspectiva, as oclusões e as características de cada personagem. Sem texto, letras, números, logotipos ou marca-d'água: reservar espaços para rótulos acrescentados na diagramação. Evitar fotorrealismo e acabamento tridimensional. Não inventar dados, curvas quantitativas ou mapas de locais reais.
 
-A ficha também deve antecipar manutenção. É necessário saber quem acompanha mudanças de versão, quem verifica falhas, quanto tempo é aceitável ficar sem atualização, como valores corrigidos substituem preliminares e quais produtos dependentes precisam ser recalculados. Sem essa rotina, proveniência descreve o passado, mas não protege a continuidade futura [@un2014statistics; @w3c2017dwbp].
+Cena única vertical 3:4: três profissionais adultos brasileiros de tons de pele diferentes, em uma mesa com três pastas em branco e um mapa inteiramente abstrato sem inscrições nem divisões geográficas reconhecíveis, discutem documentação. Ao fundo, discretamente, uma janela mostra uma estação ambiental e vegetação. Gestos simples: mãos pousadas ou segurando folha vazia. A cena representa avaliação de adequação de fontes, não aprovação, competição ou classificação. Não desenhar balança, troféu, semáforo, marca de certo ou errado, números ou gráficos. Coluna direita da composição final receberá um fluxo editorial; gerar apenas a ilustração.
 
-## Proveniência e processamento
+Gerar somente a ilustração sem texto e sem setas, em alta resolução adequada à impressão. Não acrescentar bordas rígidas ou decoração.
+Montagem: scripts/build_cap5_art.py 02; rótulos e setas editáveis; SVG colorido para web e PNG em escala de cinza para impressão. Referência: assets/references/aquarela-grafite-nanquim.png, apresentada como prévia de estilo. Ferramenta: image_gen integrada; versão não informada. Geração sequencial: 2 de 3. Legenda: Selecionar a fonte conforme a pergunta e os requisitos de uso.
+-->
 
-O fluxo de um indicador deve ser representável como:
+Considere uma equipe que procura uma série de temperatura do ar para acompanhar condições térmicas relevantes à vigilância. Uma imagem de temperatura da superfície não substitui essa variável apenas por apresentar maior detalhe espacial. Uma grade pode ampliar a cobertura territorial, mas precisa de avaliação compatível com o uso; uma estação oferece observação local, sem representar automaticamente todo o município. A escolha exige registrar essas diferenças e justificar o método de atribuição territorial [@wmo2023climatological; @hersbach2020era5].
 
-```{mermaid}
-%%| label: fig-proveniencia
-%%| fig-cap: "Cadeia mínima de proveniência de um indicador"
-%%| fig-alt: "Fluxo da fonte e do produto original para extração, transformação, cálculo, validação, publicação e decisão, com documentação em todas as etapas."
-%%{init: {"htmlLabels": false, "flowchart": {"htmlLabels": false}}}%%
-flowchart TD
-  F[Fonte e versão] --> E[Extração datada]
-  E --> B[Dados brutos preservados]
-  B --> Q[Qualidade e harmonização]
-  Q --> C[Cálculo especificado]
-  C --> V[Validação]
-  V --> P[Publicação e uso]
-  P --> R[Revisão]
-  R --> F
-```
+Combinações devem definir a função de cada entrada: fonte de cálculo, referência de comparação, informação auxiliar ou alternativa de contingência. Uma série consolidada pode apoiar tendências e outra, mais oportuna, acompanhar a situação recente. Elas devem permanecer identificadas. Para mudar a fonte no meio de uma série, planeje a comparação no período de sobreposição, quando disponível, e documente os efeitos sobre a comparabilidade.
 
-Cada seta corresponde a uma transformação ou decisão. Scripts, parâmetros e ambiente computacional integram a proveniência. No modelo PROV (Modelo de proveniência do Consórcio World Wide Web), entidades, atividades e agentes permitem representar o que foi usado, qual transformação ocorreu e quem assumiu determinado papel [@w3c2013prov]. Os princípios FAIR reforçam que dados devem ser encontráveis, acessíveis sob condições claras, interoperáveis e reutilizáveis [@wilkinson2016fair].
+Registre também por que alternativas plausíveis foram descartadas. Incompatibilidade conceitual, cobertura insuficiente, atraso excessivo ou falta de documentação são razões verificáveis. Se nenhuma fonte atender aos requisitos, a ficha deve informar a limitação; preencher a lacuna com um valor sem sustentação não resolve a ausência de dados.
 
-Proveniência possui dois sentidos complementares: linhagem, que descreve de onde cada elemento veio e como foi transformado; e responsabilidade, que identifica quem produziu, revisou e autorizou a publicação. Um script reproduz transformação, mas não justifica seleção de fonte ou limiar. Uma aprovação institucional demonstra governança, mas não substitui código e metadados.
+## Acesso, preservação e proveniência {#sec-proveniencia-fichas}
 
-O conjunto mínimo preservável inclui entrada bruta permitida, manifesto de arquivos, dicionário, parâmetros, código, versões de dependências, registros de validação e saída publicada. Para fontes que mudam continuamente, hash, data de extração e cópia controlada ajudam a reconstruir o estado usado. Restrições de acesso devem ser documentadas sem expor dados protegidos.
+### Painéis, serviços e arquivos
 
-## Validação, atualização e uso das fichas
+O painel é uma interface de consulta; pode arredondar valores, aplicar filtros e ocultar etapas do cálculo. Uma interface de programação de aplicações (API) permite automatizar consultas, mas sua resposta depende de parâmetros, paginação, versão e momento do acesso. Um repositório reúne depósitos cuja autoria e documentação precisam ser examinadas individualmente. Um arquivo datado pode ser mais fácil de preservar, mas continua a exigir dicionário e identificação de origem [@w3c2017dwbp].
 
-Antes da publicação, cada ficha passa por quatro leituras:
+A transparência envolve tanto os dados quanto as condições de acesso. Os princípios FAIR, do inglês *Findable, Accessible, Interoperable and Reusable*, orientam encontrabilidade, acessibilidade, interoperabilidade e reutilização. Acessibilidade pode incluir procedimentos de autenticação e autorização; não significa que todo dado deva ser aberto. Esses princípios favorecem a reutilização, mas não certificam a validade de uma medida para qualquer finalidade [@wilkinson2016fair].
 
-1. Substantiva — o conceito corresponde ao fenômeno;
-2. Metodológica — a fórmula reproduz a especificação;
-3. Sanitária — usos e efeitos não excedem a evidência;
-4. Operacional — fonte, atualização e responsabilidade são realistas.
+Para documentar uma extração, registre:
 
-As leituras não são independentes. Fórmula reproduzida corretamente pode calcular conceito inadequado; evidência sanitária robusta pode ser aplicada a exposição mal representada; fonte tecnicamente excelente pode chegar tarde. A validação termina apenas quando conceito, cálculo, fonte e uso permanecem coerentes.
+- Produto, edição ou versão e endereço de acesso, também chamado URL (*Uniform Resource Locator*);
+- Arquivos ou consultas, variáveis, filtros, parâmetros e ordenação quando relevante;
+- Data e hora da extração, com fuso, e período a que os dados se referem;
+- Formato, codificação de caracteres, unidades, calendário e dicionário de campos;
+- Paginação, limites do serviço, falhas e verificações de que a extração foi concluída;
+- Condições de uso e local de preservação da cópia, quando permitido;
+- Versão do código e das ferramentas usadas para obter e preparar os dados.
 
-Para dados rotineiros, completude, oportunidade, consistência interna, concordância com registros de origem e consistência externa devem ser examinadas com métricas e inspeção do processo [@who2023dqa]. Para índices compostos, acrescentam-se incerteza e sensibilidade a normalização, pesos e agregação [@oecd2008composite].
+O formato também requer cuidado. Um arquivo de valores separados por vírgulas (CSV) normalmente não descreve, por si só, tipos e unidades. Códigos territoriais podem perder zeros à esquerda ao serem lidos como números. Datas ambíguas podem ser interpretadas em ordem incorreta, e códigos de ausência podem ser confundidos com observações. Preserve o original e faça conversões em uma cópia de trabalho, com regras explícitas.
 
-Também são executadas validações automáticas:
+Uma contribuição brasileira para essa etapa é o pacote `microdatasus`, apresentado por Saldanha, Bastos e Barcellos para download e pré-processamento de microdados distribuídos pelo DATASUS [@saldanha2019microdatasus]. Ao usar uma ferramenta desse tipo, cite tanto a base quanto o software. Registre a versão empregada e as transformações realizadas: automatizar acesso e recodificação não decide qual população, desfecho ou recorte é adequado à pergunta.
 
-- Código único;
-- Presença de campos obrigatórios;
-- Fonte cadastrada;
-- Referência existente;
-- Links e âncoras;
-- Fórmula renderizável;
-- Ausência de pendências não autorizadas.
+::: {.callout-tip icon=false title="Boa prática: preservar a extração verificável"}
+Guarde, quando permitido, os arquivos originais, o dicionário e um manifesto que relacione nomes, origem, data de obtenção e identificadores. Uma soma de verificação (*hash*) ajuda a detectar se o conteúdo de um arquivo mudou; não demonstra a qualidade dos dados nem substitui a identificação da fonte. Credenciais e dados protegidos devem permanecer fora da documentação pública.
+:::
 
+### Reconstruir o caminho até o resultado
 
-Uma ficha muda quando a especificação, fonte, norma ou uso muda. A revisão deve registrar:
+Proveniência é o registro de como um resultado foi produzido: quais entradas foram usadas, quais operações ocorreram e quem assumiu cada responsabilidade. O modelo PROV do Consórcio World Wide Web organiza essa descrição em entidades, atividades e agentes [@w3c2013prov]. Na prática, é preciso conectar arquivo de origem, extração, tratamento, cálculo, verificações e publicação.
 
-- Campo alterado;
-- Motivo;
-- Referência;
-- Impacto na série;
-- Necessidade de recálculo;
-- Compatibilidade com versões anteriores.
+A @fig-proveniencia representa esse percurso. A coluna de etapas permite acompanhar o resultado desde a versão da fonte até a revisão; a documentação registra o que foi utilizado e decidido em cada passagem. O retorno ao início indica que atualizações podem exigir nova extração e recálculo. A sequência não transforma uma verificação de software em validação científica: a adequação do conceito e da interpretação precisa ser examinada durante todo o trabalho.
 
-Mudança silenciosa de fórmula é inaceitável. Se a revisão rompe comparabilidade, cria-se versão identificada e preserva-se a anterior.
+![Cadeia mínima de proveniência de um indicador](../../assets/figures/arte-cap5-03-proveniencia.svg){#fig-proveniencia .lightbox width="100%" print-src="arte-cap5-03-proveniencia-print.png" print-width="120mm" fig-alt="Oito etapas ligam fonte e versão, extração datada, originais preservados, tratamento e qualidade, cálculo, validação, publicação e uso, e revisão. Uma faixa indica a documentação de todas as etapas e uma seta retorna da revisão à fonte."}
 
-Atualização de dados e atualização de método são eventos distintos. Novos meses podem entrar sem alterar a definição; nova malha, população, algoritmo ou norma pode exigir recálculo de toda a série. O histórico deve indicar se o valor mudou porque o mundo mudou, porque chegaram registros atrasados ou porque a mensuração foi revisada.
+[Fonte: Elaboração própria; cenas conceituais, sem dados observados. Direção editorial: autor da obra; ilustração: ferramenta integrada image_gen; composição: edição desta obra. Licença dos arquivos autorais: GPL-3.0; fontes citadas mantêm suas licenças. Prompts e originais preservados no repositório.]{.figure-source}
 
+<!--
+ARTE CAP5-03 — Cadeia mínima de proveniência de um indicador
+Finalidade e leitura: Oito etapas ligam fonte e versão, extração datada, originais preservados, tratamento e qualidade, cálculo, validação, publicação e uso, e revisão. Uma faixa indica a documentação de todas as etapas e uma seta retorna da revisão à fonte.
+Prompt completo:
+Use case: scientific-educational.
+Imagem de referência: usar exclusivamente como referência de estilo, não reproduzir sua cena.
 
-Para uma pergunta de gestão:
+Ilustração editorial em aquarela tradicional translúcida, combinada com traços finos e espontâneos de lápis grafite e nanquim. Contornos parcialmente abertos, hachuras leves e marcas discretas de rascunho. Textura sutil de papel aquarela, pigmentação irregular e transições suaves. Paleta de verdes naturais, azuis acinzentados, ocres e terracota, com saturação moderada. Preservar áreas de papel branco e bordas irregulares que se dissolvem no fundo. Pessoas com proporções naturais e diversidade de tons de pele. Linguagem visual madura, acolhedora e adequada à divulgação científica para adultos. Usar a imagem de referência fornecida pelo autor para manter o mesmo tratamento de pigmentos, contornos, luz, vegetação e figuras humanas. Preservar contraste legível também em escala de cinza. Manter mãos, dedos, braços e pernas anatomicamente coerentes, com proporções naturais, articulações plausíveis e continuidade entre os segmentos. Evitar dedos extras ou fundidos, membros duplicados, torções impossíveis e mãos ou pés disformes. Preferir gestos simples e poses claras, respeitando a perspectiva, as oclusões e as características de cada personagem. Sem texto, letras, números, logotipos ou marca-d'água: reservar espaços para rótulos acrescentados na diagramação. Evitar fotorrealismo e acabamento tridimensional. Não inventar dados, curvas quantitativas ou mapas de locais reais.
 
-1. Consulte a síntese dos principais indicadores do fenômeno;
-2. Identifique a dimensão necessária;
-3. Escolha a ficha correspondente;
-4. Leia conceito e limitações antes da fórmula;
-5. Confirme fonte e período;
-6. Verifique escala, defasagem e incerteza;
-7. Conecte o resultado a um protocolo de decisão;
-8. Registre a versão utilizada.
+Cena única vertical 3:4: mesa de trabalho vista em perspectiva suave, com um arquivo físico de pastas sem inscrições ao fundo, um computador com tela completamente vazia ao centro e uma profissional conferindo duas folhas completamente em branco. Pequena estação ambiental visível pela janela, relacionando documentação à observação. Representar preservação de originais, trabalho de processamento e revisão como atividades humanas plausíveis, sem desenhar etapas, flechas, selos, aprovação, números ou gráficos. A imagem ficará à esquerda de um fluxo com textos editáveis. Muito espaço branco e objetos simples.
 
-A [lista de fichas](../../backmatter/lista-fichas.qmd) e o [índice de fontes](../../backmatter/indice-fontes.qmd) são instrumentos de navegação. A interpretação completa permanece no capítulo.
+Gerar somente a ilustração sem texto e sem setas, em alta resolução adequada à impressão. Não acrescentar bordas rígidas ou decoração.
+Montagem: scripts/build_cap5_art.py 03; rótulos e setas editáveis; SVG colorido para web e PNG em escala de cinza para impressão. Referência: assets/references/aquarela-grafite-nanquim.png, apresentada como prévia de estilo. Ferramenta: image_gen integrada; versão não informada. Geração sequencial: 3 de 3. Legenda: Cadeia mínima de proveniência de um indicador.
+-->
+
+Além de guardar o código, documente as decisões que ele executa. Seleção de estações, retirada de registros, tratamento de ausências, definição de limiar, uso de pesos e agregação territorial modificam o resultado. Uma justificativa deve permitir entender a escolha, enquanto o código permite reproduzir a operação. A equipe deve conseguir identificar os dados descartados ou transformados e a razão de cada tratamento.
+
+O conjunto preservado deve reunir entradas permitidas, manifesto, dicionários, parâmetros, código, versões das dependências, registros das verificações e saída publicada. Quando não for possível redistribuir a entrada, documente o procedimento legítimo de acesso e as restrições à reprodução. Separar arquivo original, base preparada e resultado evita que uma correção elimine a evidência do estado anterior.
+
+## Usar indicadores publicados ou calcular uma variante
+
+Sistemas oficiais e observatórios também fornecem indicadores prontos. Utilizá-los pode preservar comparabilidade e reduzir processamento, desde que sejam conhecidos definição, método, universo, versão e limitações. Recalcular não é necessariamente melhor: a equipe local pode não ter acesso aos ajustes, pesos ou registros considerados na publicação [@ripsa2026; @un2014statistics].
+
+Há três situações que precisam ser identificadas na ficha:
+
+1. Uso do valor publicado: selecionam-se indicador, edição, território e período, preservando sua definição e atribuindo o resultado ao produtor.
+2. Reprodução do método: executam-se as regras publicadas para conferir ou obter o resultado; a equipe documenta entradas, diferenças e verificações.
+3. Adaptação: alteram-se componentes, população, período de referência ou outra regra substantiva; a variante recebe identificação e justificativa próprias.
+
+No caso da concentração média anual de material particulado com diâmetro aerodinâmico igual ou inferior a 2,5 µm (PM2,5), a ficha AMB-AR-01 trata do indicador 11.6.2 dos Objetivos de Desenvolvimento Sustentável (ODS). Uma média de monitor local e uma média populacional obtida por modelo não são valores intercambiáveis. Uma estimativa própria não deve ser atribuída à Organização Mundial da Saúde (OMS), agência custodiante do indicador, apenas porque usa uma fórmula semelhante [@who2026pm25].
+
+Antes de adotar ou reproduzir um resultado, compare conceito, unidade, população, suporte espacial, período e edição. Em caso de divergência, investigue também arredondamento, critérios de inclusão, atualizações e revisões. A identificação de cálculo próprio deve acompanhar o valor, a ficha e a visualização em que ele aparece.
+
+## Do repertório temático às fichas do catálogo
+
+Os capítulos temáticos apresentam mecanismos, relações com a saúde e um repertório de indicadores antes das fichas. Esse repertório permite distinguir medidas de ocorrência, frequência, duração, intensidade, exposição, efeitos e resposta. A seleção não procura um indicador capaz de resumir todas essas dimensões: busca medidas cujo significado corresponda à pergunta [@jannuzzi2005indicadores].
+
+Para ondas de calor, por exemplo, contar episódios, somar dias participantes e identificar a duração máxima responde a perguntas diferentes. Uma medida de estresse térmico ou de população exposta acrescenta outras informações. As definições e especificações de cada família são apresentadas no @sec-temperatura; aqui, interessa reconhecer que proximidade temática não implica equivalência metodológica.
+
+::: {.callout-note icon=false title="Nota técnica: o que cada referência sustenta"}
+A referência metodológica define a medida e seu cálculo; a documentação da fonte descreve os dados de entrada; estudos de validação examinam desempenho; a literatura epidemiológica sustenta interpretações sobre saúde; documentos operacionais registram usos em vigilância ou gestão. Um estudo de associação não estabelece sozinho um protocolo, e a documentação de uma fórmula não demonstra seus efeitos sanitários.
+:::
+
+O @qua-criterios-indicador explicita os requisitos de inclusão no catálogo. Eles orientam a seleção editorial; não constituem uma certificação emitida pelas instituições citadas.
+
+::: {#qua-criterios-indicador}
+
+| Requisito | Evidência necessária |
+|---|---|
+| Existência verificável | Definição localizável em metadado oficial, norma ou literatura científica |
+| Especificação explícita | Conceito, entradas, método, unidade e regras de inclusão descritos |
+| Relevância | Dimensão e finalidade de uso identificadas |
+| Aplicação sanitária | Uso documentado ou interpretação fundamentada para pesquisa, vigilância ou gestão |
+| Reprodução possível | Dados e decisões críticas identificáveis, com condições de acesso declaradas |
+| Qualidade avaliável | Cobertura, limitações e fontes de incerteza passíveis de exame |
+| Contribuição própria | Significado que não apenas duplica outra medida |
+| Adaptações transparentes | Variantes distinguidas da especificação de origem |
+
+Requisitos de inclusão de um indicador no catálogo
+
+:::
+
+Quando não se encontra definição suficiente, quando o mesmo nome reúne métodos incompatíveis ou quando a aplicação depende de dados indisponíveis sem alternativa validada, a inclusão deve ser adiada ou delimitada. Isso não invalida a proposta; explicita que ainda não há sustentação para uma ficha completa. O livro não cria indicadores para preencher espaços do catálogo nem inventa resultados para ilustrar sua aplicação.
+
+## A ficha de qualificação da RIPSA e sua contribuição para este livro {#sec-ficha-ripsa}
+
+A Rede Interagencial de Informações para a Saúde (RIPSA) articula instituições produtoras e usuárias de informações para a saúde no Brasil. Sua Ficha de Qualificação do Indicador (FQI) organiza a documentação que acompanha cada medida: ajuda o leitor a reconhecer o que está sendo representado e a equipe a reproduzir o cálculo e avaliar os usos possíveis. A terceira edição de *Indicadores Básicos para a Saúde no Brasil*, conhecida como *Livro Verde*, apresenta a versão com 16 campos [@ripsa2026, p. 27–28].
+
+A FQI da RIPSA serviu de inspiração e referência estrutural para as fichas deste livro. Sua contribuição central é reunir o número e as condições de sua interpretação em uma mesma documentação. Uma fórmula isolada não informa, por exemplo, quais registros podem entrar no cálculo, quando uma comparação deixa de ser válida ou quem deve acompanhar a atualização.
+
+O @qua-campos-fqi-ripsa apresenta os campos e sua função. Trata-se de uma síntese explicativa da estrutura de 2026, não de uma ficha oficial preenchida nem de um novo indicador da Rede.
+
+::: {#qua-campos-fqi-ripsa}
+
+| Campo da FQI | Função na leitura do indicador |
+|---|---|
+| Código da RIPSA | Identificar a medida no catálogo da Rede. |
+| Título completo | Nomear precisamente o que é mensurado. |
+| Título resumido | Permitir identificação em apresentações compactas. |
+| Conceito | Delimitar a dimensão representada. |
+| Interpretação | Orientar a leitura do resultado. |
+| Usos | Indicar finalidades de aplicação. |
+| Limitações | Registrar restrições e cuidados. |
+| Fontes de dados | Identificar as bases de entrada. |
+| Fórmula de cálculo | Expressar a operação matemática. |
+| Método de cálculo | Explicar os procedimentos de produção. |
+| Variáveis e categorias de análise | Definir os recortes analíticos. |
+| Granularidade | Especificar a desagregação territorial recomendada. |
+| Periodicidade de atualização | Informar a frequência de renovação. |
+| Responsabilidade gerencial | Identificar a gestão do acompanhamento. |
+| Notas | Acrescentar esclarecimentos. |
+| Análise descritiva do indicador | Contextualizar o comportamento e sua apresentação. |
+
+Campos da Ficha de Qualificação do Indicador da RIPSA: síntese explicativa a partir da edição de 2026 [@ripsa2026, p. 27–28]
+
+:::
+
+Para ler uma ficha, convém confrontar campos que parecem próximos. Retomando o exemplo didático do @sec-dados-indicadores — número anual de dias com temperatura máxima do ar acima de um limiar $L$ justificado para a aplicação —, o conceito é a frequência de dias que atendem ao critério; a interpretação explica o que significa uma contagem maior. O uso pode ser acompanhar a frequência ao longo do tempo; a limitação lembra que essa contagem não demonstra adoecimento. A fórmula expressa a soma dos dias elegíveis que ultrapassam $L$, enquanto o método deve especificar seleção da série, cobertura mínima, controle de qualidade e tratamento de ausências. São perguntas complementares, não campos intercambiáveis.
+
+A @fig-ficha-ripsa-livro agrupa a documentação em cinco blocos para facilitar sua leitura. Os blocos são uma organização didática deste livro, não uma classificação oficial adicional da RIPSA. A seta de inspiração indica a origem metodológica; a faixa inferior mostra as informações acrescentadas para representar clima, ambiente e suas relações com a saúde.
+
+![Da ficha de qualificação da RIPSA às fichas deste livro](../../assets/figures/arte-cap3-05-ficha.svg){#fig-ficha-ripsa-livro .lightbox width="100%" print-src="arte-cap3-05-ficha-print.png" print-width="120mm" fig-alt="Organograma editorial: a ficha da RIPSA inspira a ficha do livro. Cinco blocos organizam identificação, significado, cálculo, recortes e gestão e comunicação. Uma faixa apresenta as extensões de clima, ambiente e saúde. Os códigos e as adaptações são próprios do livro."}
+
+[Fonte: Organização didática própria inspirada na FQI da RIPSA (Organização Pan-Americana da Saúde, 2026, p. 27–28). Direção editorial: autor da obra; ilustração: ferramenta integrada image_gen; composição e revisão: edição desta obra. Licença dos arquivos autorais: GPL-3.0; fontes citadas mantêm suas licenças. Prompts e originais preservados no repositório.]{.figure-source}
+
+<!--
+ARTE CAP3-05 (transferida ao capítulo 5; arquivos e identificador preservados) — Da ficha de qualificação da RIPSA às fichas deste livro
+Finalidade e leitura: Organograma editorial: a ficha da RIPSA inspira a ficha do livro. Cinco blocos organizam identificação, significado, cálculo, recortes e gestão e comunicação. Uma faixa apresenta as extensões de clima, ambiente e saúde. Os códigos e as adaptações são próprios do livro.
+Prompt completo:
+Use case: scientific-educational.
+Imagem de referência: usar exclusivamente como referência de estilo, não reproduzir sua cena.
+
+Ilustração editorial em aquarela tradicional translúcida, combinada com traços finos e espontâneos de lápis grafite e nanquim. Contornos parcialmente abertos, hachuras leves e marcas discretas de rascunho. Textura sutil de papel aquarela, pigmentação irregular e transições suaves. Paleta de verdes naturais, azuis acinzentados, ocres e terracota, com saturação moderada. Preservar áreas de papel branco e bordas irregulares que se dissolvem no fundo. Pessoas com proporções naturais e diversidade de tons de pele. Linguagem visual madura, acolhedora e adequada à divulgação científica para adultos. Usar a imagem de referência fornecida pelo autor para manter o mesmo tratamento de pigmentos, contornos, luz, vegetação e figuras humanas. Preservar contraste legível também em escala de cinza. Manter mãos, dedos, braços e pernas anatomicamente coerentes, com proporções naturais, articulações plausíveis e continuidade entre os segmentos. Evitar dedos extras ou fundidos, membros duplicados, torções impossíveis e mãos ou pés disformes. Preferir gestos simples e poses claras, respeitando a perspectiva, as oclusões e as características de cada personagem. Sem texto, letras, números, logotipos ou marca-d'água: reservar espaços para rótulos acrescentados na diagramação. Evitar fotorrealismo e acabamento tridimensional. Não inventar dados, curvas quantitativas ou mapas de locais reais.
+
+Uma cena vertical em proporção 3:4: duas profissionais adultas de uma equipe multidisciplinar sentadas a uma mesa, examinando uma ficha grande inteiramente em branco. Ao fundo, de forma discreta, janela mostra árvores, céu e telhados de um bairro. Sobre a mesa, lupa simples e folhas em branco sugerem revisão de definições e métodos. Foco na leitura compartilhada, sem retrato de instituições, sem logotipo da RIPSA, OPAS ou SUS, sem livros com letras, sem carimbos de aprovação e sem dados. A cena ficará na coluna esquerda de um organograma cujos blocos serão compostos em SVG. Deixar margens brancas e evitar detalhes nas mãos.
+
+Gerar somente a ilustração sem texto e sem setas, em alta resolução adequada à impressão. Não acrescentar bordas rígidas ou decoração.
+Montagem: scripts/build_cap3_art.py 05; rótulos e setas editáveis; SVG colorido para web e PNG em escala de cinza para impressão. Referência: assets/references/aquarela-grafite-nanquim.png, apresentada à ferramenta como prévia de estilo. Legenda: Da ficha de qualificação da RIPSA às fichas deste livro.
+-->
+
+Nas fichas deste livro, o código é um identificador editorial próprio: não corresponde a um código oficial da RIPSA e não implica inclusão no catálogo da Rede. O núcleo é adaptado e ampliado com resolução espacial e temporal, período e limiar de referência, acesso e processamento, qualidade e incerteza, comparabilidade, defasagens e aplicação na gestão. Granularidade descreve a desagregação recomendada do resultado; resolução espacial original descreve o suporte do dado de entrada. A disponibilidade de uma malha fina não garante que o indicador seja válido em qualquer recorte pequeno.
+
+Também é necessário distinguir documentar uma análise de apresentar resultados. A FQI oficial prevê uma análise descritiva contextualizada. As fichas deste livro orientam quais distribuições, recortes e verificações devem acompanhar o indicador; resultados dependentes de território e período só podem ser apresentados quando houver dados identificados e análise realizada. Preencher a ficha não certifica a qualidade da base nem transforma o indicador em protocolo operacional.
+
+### Organizar os campos sem repetir informações
+
+A ficha deve permitir três verificações: identidade, reprodução e interpretação. Na primeira, duas equipes reconhecem se estão tratando da mesma medida. Na segunda, conseguem reconstruir o cálculo com as entradas e regras documentadas. Na terceira, identificam as conclusões sustentadas e as que ultrapassariam o indicador. A presença dos campos, por si só, não garante esses resultados.
+
+O @qua-blocos-ficha detalha a organização funcional das fichas da obra. Esses blocos ampliam a apresentação didática da @fig-ficha-ripsa-livro e ajudam a localizar informações; não substituem os campos da FQI nem criam uma classificação oficial da RIPSA.
+
+::: {#qua-blocos-ficha}
+
+| Bloco | Conteúdo | Pergunta que deve responder |
+|---|---|---|
+| Identificação | Código editorial, títulos, tema e referência metodológica | Qual medida está sendo usada? |
+| Significado | Conceito, objetivo, interpretação e usos | O que representa e para que serve? |
+| Cálculo | Fórmula, método, entradas, unidade e regras de inclusão | Como se chega ao resultado? |
+| Recortes | Variáveis, categorias, território e granularidade | Para quais unidades e grupos se pode analisar? |
+| Tempo e espaço | Resoluções originais, suporte, agregação, período e limiares | Quais compatibilizações são necessárias? |
+| Fontes | Produto, edição, acesso e processamento | De onde vieram os dados? |
+| Qualidade | Cobertura, incerteza, comparabilidade e limitações | O que restringe a leitura do resultado? |
+| Saúde e gestão | Relação com desfechos, defasagens e aplicação | Como o resultado pode apoiar a ação? |
+| Manutenção e comunicação | Atualização, responsabilidades, notas e análise descritiva | Quem acompanha e como apresenta o indicador? |
+| Referências | Especificação, documentação e literatura de aplicação | Que evidência sustenta cada parte da ficha? |
+
+Blocos das fichas de indicadores
+
+:::
+
+Campos não aplicáveis precisam ser distinguidos de informação desconhecida. Uma contagem pode não ter denominador; isso deve ser indicado, sem criar um denominador artificial. Uma fonte cuja incerteza não foi quantificada tem uma limitação a registrar, não uma incerteza nula. Expressões como “não informado pelo produtor” e “não aplicável a esta medida” descrevem situações diferentes.
+
+Para clima e ambiente, a ficha precisa explicitar ainda o suporte da entrada, o método de agregação, o período de referência e as regras de limiar ou sequência quando existirem. Fuso, calendário, ausências e defasagens podem alterar o cálculo e o uso. Remeter ao manual é útil, mas as escolhas adotadas na aplicação devem estar identificadas na própria ficha ou em documentação vinculada.
+
+### Ler uma ficha junto das fontes
+
+A leitura pode começar por quatro perguntas: o conceito corresponde ao problema; os usos incluem a finalidade pretendida; as limitações permitem aquela comparação; e as fontes atendem ao recorte necessário? Só então convém examinar a fórmula e o processamento. Essa ordem evita que a possibilidade de executar uma operação seja confundida com sua adequação.
+
+Considere novamente a ficha AMB-AR-01. Sua resolução temporal anual orienta análises de exposição de longo prazo; não informa, sozinha, a intensidade de um episódio diário de fumaça. A ponderação populacional exige identificar também a população de referência. Mudar essa entrada pode alterar a síntese mesmo sem mudança na superfície de concentração. Esse exercício de leitura relaciona conceito, método, tempo e limitações sem atribuir resultados a um território inexistente [@who2026pm25].
+
+As fontes devem ser consultadas em conjunto com as referências metodológicas. Endereço de download, manual, artigo de definição e estudo de aplicação podem ser documentos diferentes. Registre autoria, título, edição e ano; acrescente identificador de objeto digital (DOI), endereço e data de acesso quando cabíveis. Uma página inicial institucional não substitui a referência específica que sustenta a afirmação.
+
+## Validar, atualizar e manter a interpretação
+
+Antes de publicar ou usar uma ficha em uma rotina, recomenda-se revisão de quatro aspectos: correspondência entre conceito e fenômeno; coerência do cálculo; sustentação das interpretações sanitárias; e viabilidade de acesso, atualização e resposta. Esses aspectos se relacionam: uma fórmula correta pode usar uma variável inadequada, e uma estimativa válida pode chegar tarde para a decisão.
+
+A revisão é favorecida por colaboração entre áreas. Especialistas ambientais examinam a medida do fenômeno; epidemiologia verifica desfechos, populações e inferências; geografia revisa suporte e agregação; a equipe de dados examina acesso, processamento e rastreabilidade; a gestão define responsabilidades e condições de uso. A divisão deve ser ajustada à equipe disponível, com responsabilidades explícitas.
+
+Verificações automáticas ajudam a detectar campos ausentes, identificadores duplicados, referências inexistentes, unidades incompatíveis e falhas de processamento. Elas precisam ser acompanhadas de análise dos dados: cobertura, completitude, consistência, duplicidade e oportunidade, conforme o sistema e a finalidade [@lima2009qualidade; @who2023dqa]. Para índices compostos, também se avalia a sensibilidade a normalização, pesos e agregação [@oecd2008composite].
+
+### Distinguir atualização de dados e revisão de método
+
+Uma nova observação pode ampliar a série sem alterar a definição. A chegada de registros atrasados pode corrigir períodos anteriores. Já mudanças de algoritmo, população de referência, malha territorial ou critério de inclusão podem exigir recálculo e comprometer comparações entre versões. O histórico deve permitir distinguir essas situações.
+
+Cada revisão deve registrar:
+
+- Data, responsável e versão da ficha ou do produto;
+- Campos, fontes ou procedimentos alterados;
+- Motivo e documentação que sustentam a mudança;
+- Períodos, territórios e resultados afetados;
+- Necessidade de recálculo e compatibilidade com a versão anterior;
+- Forma de comunicar a alteração aos usuários.
+
+A substituição silenciosa de valores impede avaliar se a mudança decorre do fenômeno, de registros adicionais ou da mensuração. Preserve versões anteriores quando permitido e mantenha uma nota de revisão ligada ao resultado atualizado [@w3c2017dwbp]. A rotina também deve prever quem acompanha a disponibilidade da fonte, como identifica atrasos e como sinaliza uma interrupção.
+
+::: {.callout-warning icon=false title="Atenção: ausência de atualização não é estabilidade"}
+Um painel que mantém o último valor não demonstra que a situação permaneceu igual. Exiba o período de referência e a data da última atualização bem-sucedida. Se a fonte atrasar ou falhar, comunique a condição; não substitua o dado ausente por zero nem apresente um valor antigo como atual.
+:::
+
+## Consultar as fichas e preparar o uso
+
+As fichas aparecem nos capítulos temáticos, depois da explicação dos fenômenos e do repertório de medidas. A [lista de fichas](../../backmatter/lista-fichas.qmd) e o [índice de fontes](../../backmatter/indice-fontes.qmd) facilitam a localização, mas a interpretação depende também do contexto apresentado no capítulo.
+
+Para uma aplicação, selecione a dimensão necessária, leia conceito e limitações, confira fontes e versão e avalie se o recorte espacial e temporal atende à pergunta. Depois, documente os procedimentos, examine a qualidade e vincule o resultado a responsabilidades de acompanhamento. Um indicador adequado ao monitoramento não se transforma automaticamente em gatilho de alerta: esse uso requer critérios e procedimentos próprios, discutidos no @sec-indicador-decisao.
 
 ## Síntese
 
-O livro não começa com uma lista arbitrária de métricas. Para cada fenômeno, identifica-se o repertório usado em saúde pública, localizam-se especificações, comparam-se significados e selecionam-se indicadores reprodutíveis. Só então são redigidas as fichas.
+Uma fonte está suficientemente documentada quando se consegue identificar o produto, reconhecer a edição e reconstruir a extração e o processamento. Uma ficha é útil quando conecta essa evidência ao conceito, ao cálculo, às limitações e à finalidade do indicador. A inspiração da RIPSA oferece uma estrutura comum; as extensões de clima e ambiente tornam explícitas as escolhas de suporte, tempo, referência e incerteza.
 
-Fonte qualificada é recurso identificado, versionado e adequado ao indicador. Ficha completa conecta definição, cálculo, qualidade, saúde e gestão. Integrada ao capítulo, ela permanece vinculada aos mecanismos e impactos que dão sentido ao número.
+A qualidade desse conjunto depende também da manutenção. Saber quem verifica uma mudança, quais resultados precisam ser recalculados e como a revisão será comunicada é parte do uso responsável da informação, desde a primeira publicação até as atualizações seguintes.

@@ -227,6 +227,17 @@ $endif$
 
 #show: body => dicas-book(body)
 
+// O Orange Book usa "1." nos títulos de capítulo. Nas remissões, o ponto
+// pertence à frase, não ao número: evita "Capítulo 6.." sem mudar os títulos.
+#show ref: it => {
+  if it.element != none and it.element.func() == heading and it.element.level == 1 {
+    show regex("\\.$$"): none
+    it
+  } else {
+    it
+  }
+}
+
 // O modelo trata as partes como títulos de nível 1 sem numeração. Esta regra
 // substitui apenas essas cinco aberturas; os demais títulos continuam sendo
 // compostos normalmente pelo Orange Book.
@@ -248,7 +259,7 @@ $endif$
 // o miolo for repaginado; o conteúdo dessas páginas permanece deliberadamente
 // sem cabeçalho e sem fólio.
 #let dicas-intentional-blank-pages = (
-  72, 114, 228, 328, 330, 352, 390, 428, 448, 450, 458, 480,
+  132, 246, 346, 348, 370, 408, 446, 466, 468, 476, 498,
 )
 
 #set page(
@@ -288,6 +299,12 @@ $endif$
           sections-before.last().body
         } else {
           current-chapter.body
+        }
+        // O título integral permanece no texto; abreviação apenas no cabeçalho.
+        let running-title = if running-title == [O que os dados permitem concluir: correlação, causalidade e atribuição] {
+          [Correlação, causalidade e atribuição]
+        } else {
+          running-title
         }
 
         box(

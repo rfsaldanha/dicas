@@ -85,6 +85,50 @@ required <- c(required, "scripts/build_cap2_art.py", unlist(lapply(chapter_two_a
     paste0(art, ".svg"), paste0(art, "-print.png")
   ))
 }), use.names = FALSE))
+chapter_three_art <- c(
+  "01-cadeia", "02-tempo", "03-proxy", "04-indice",
+  "05-ficha", "06-denominador", "07-unidades", "08-risco"
+)
+chapter_three_ids <- c(
+  "fig-cadeia-representacao", "fig-escala-temporal", "fig-proxy-limites",
+  "fig-indice-componentes", "fig-ficha-ripsa-livro", "fig-numerador-denominador",
+  "fig-observacao-analise-populacao", "fig-indicadores-cadeia-risco"
+)
+required <- c(required, "scripts/build_cap3_art.py", "assets/figures/arte-cap3-manifest.json",
+  unlist(lapply(chapter_three_art, function(art) {
+    number <- substr(art, 1L, 2L)
+    paste0("assets/figures/arte-cap3-", c(
+      paste0(number, "-v1.png"), paste0(number, "-v1.prompt.txt"),
+      paste0(art, ".svg"), paste0(art, "-print.png")
+    ))
+  }), use.names = FALSE))
+chapter_four_art <- c(
+  "01-suporte", "02-zoneamento", "03-tempos", "04-previsao",
+  "05-qualidade", "06-ausencias", "07-interpretacao"
+)
+chapter_four_ids <- c(
+  "fig-suporte-localizacao", "fig-escala-zoneamento", "fig-tempos-dado",
+  "fig-tempos-previsao", "fig-qualidade-uso", "fig-ausencia-zero",
+  "fig-compatibilizacao-inferencia"
+)
+required <- c(required, "scripts/build_cap4_art.py", "assets/figures/arte-cap4-manifest.json",
+  unlist(lapply(chapter_four_art, function(art) {
+    number <- substr(art, 1L, 2L)
+    paste0("assets/figures/arte-cap4-", c(
+      paste0(number, "-v1.png"), paste0(number, "-v1.prompt.txt"),
+      paste0(art, ".svg"), paste0(art, "-print.png")
+    ))
+  }), use.names = FALSE))
+chapter_five_art <- c("01-identificacao", "02-selecao", "03-proveniencia")
+chapter_five_ids <- c("fig-identificacao-fonte", "fig-selecao-fontes", "fig-proveniencia")
+required <- c(required, "scripts/build_cap5_art.py", "assets/figures/arte-cap5-manifest.json",
+  unlist(lapply(chapter_five_art, function(art) {
+    number <- substr(art, 1L, 2L)
+    paste0("assets/figures/arte-cap5-", c(
+      paste0(number, "-v1.png"), paste0(number, "-v1.prompt.txt"),
+      paste0(art, ".svg"), paste0(art, "-print.png")
+    ))
+  }), use.names = FALSE))
 invisible(lapply(required, check_file))
 
 obsolete <- c(
@@ -147,8 +191,8 @@ mermaid_blocks <- unlist(lapply(chapter_files, function(path) {
     paste(lines[seq.int(start, start + relative_end)], collapse = "\n")
   }, character(1L))
 }), use.names = FALSE)
-if (length(mermaid_blocks) != 23L) {
-  fail("Esperados 23 diagramas Mermaid; encontrados ", length(mermaid_blocks), ".")
+if (length(mermaid_blocks) != 17L) {
+  fail("Esperados 17 diagramas Mermaid; encontrados ", length(mermaid_blocks), ".")
 }
 missing_alt <- mermaid_blocks[!grepl("(?m)^%%\\| fig-alt:", mermaid_blocks, perl = TRUE)]
 if (length(missing_alt)) fail("Há diagrama Mermaid sem texto alternativo.")
@@ -159,7 +203,9 @@ if (length(framebox_lines)) {
 }
 
 illustration_paths <- c(
-  "assets/figures/cadeia-representacao.svg",
+  paste0("assets/figures/arte-cap5-", chapter_five_art, ".svg"),
+  paste0("assets/figures/arte-cap4-", chapter_four_art, ".svg"),
+  paste0("assets/figures/arte-cap3-", chapter_three_art, ".svg"),
   "assets/figures/mudanca-suporte.svg",
   "assets/figures/temperatura-ar-superficie.svg",
   "assets/figures/residencia-presenca-exposicao.svg",
@@ -194,6 +240,23 @@ if (any(!is.finite(real_map$temperature_c)) ||
 if (!grepl("CAMS/ECMWF", source_text, fixed = TRUE) ||
     !grepl("Grade Estatística 2022", source_text, fixed = TRUE)) {
   fail("Fontes do mapa real não foram declaradas no capítulo.")
+}
+
+real_map_metadata <- yaml::read_yaml("data-raw/figures/mudanca-suporte-rj.yml")
+if (any(!is.finite(real_map$area_km2)) || any(real_map$area_km2 < 0) ||
+    any(!is.finite(real_map$population)) || any(real_map$population < 0)) {
+  fail("Ponderadores inválidos no exemplo real de mudança de suporte.")
+}
+recomputed <- c(
+  weighted.mean(real_map$temperature_c, real_map$area_km2),
+  weighted.mean(real_map$temperature_c, real_map$population),
+  max(real_map$temperature_c)
+)
+documented <- unlist(real_map_metadata[c(
+  "area_weighted_mean_c", "population_weighted_mean_c", "territorial_maximum_c"
+)])
+if (length(documented) != 3L || any(abs(recomputed - documented) > 1e-4)) {
+  fail("Resultados documentados não correspondem aos dados do exemplo real.")
 }
 
 read_table_column <- function(path, column) {
@@ -293,6 +356,89 @@ for (i in seq_along(chapter_two_art)) {
     fail("A aquarela da Figura 2.", i, " não foi incorporada ao capítulo 2.")
   }
 }
+chapter_three_path <- "chapters/part-1/02-dados-variaveis-indices-indicadores.qmd"
+chapter_three_source <- paste(readLines(chapter_three_path, warn = FALSE, encoding = "UTF-8"), collapse = "\n")
+chapter_three_html <- paste(readLines(
+  file.path(html_root, sub("[.]qmd$", ".html", chapter_three_path)),
+  warn = FALSE, encoding = "UTF-8"
+), collapse = "\n")
+figure_list <- paste(readLines("backmatter/lista-figuras.qmd", warn = FALSE, encoding = "UTF-8"), collapse = "\n")
+# A arte 05-ficha foi transferida ao capítulo 5, preservando o arquivo original.
+for (i in which(chapter_three_ids != "fig-ficha-ripsa-livro")) {
+  figure_number <- if (i > 5L) i - 1L else i
+  art <- paste0("arte-cap3-", chapter_three_art[[i]], ".svg")
+  id <- chapter_three_ids[[i]]
+  check_file(file.path(html_root, "assets/figures", art))
+  if (!grepl(paste0('id="', id, '"'), chapter_three_html, fixed = TRUE) ||
+      !grepl(paste0("Figura&nbsp;3.", figure_number, ":"), chapter_three_html, fixed = TRUE)) {
+    fail("Figura do capítulo 3 ausente ou com numeração incorreta: ", id)
+  }
+  if (!grepl(paste0("@", id), chapter_three_source, fixed = TRUE) ||
+      !grepl(paste0("@", id), figure_list, fixed = TRUE)) {
+    fail("Figura do capítulo 3 sem chamada ou ausente da lista: ", id)
+  }
+}
+if (grepl("ARTE CAP3-", gsub("(?s)<!--.*?-->", "", chapter_three_html, perl = TRUE), fixed = TRUE)) {
+  fail("Instruções de produção do capítulo 3 aparecem no conteúdo renderizado.")
+}
+
+chapter_four_path <- "chapters/part-1/03-espaco-tempo-qualidade.qmd"
+chapter_four_source <- paste(readLines(chapter_four_path, warn = FALSE, encoding = "UTF-8"), collapse = "\n")
+chapter_four_html <- paste(readLines(
+  file.path(html_root, sub("[.]qmd$", ".html", chapter_four_path)),
+  warn = FALSE, encoding = "UTF-8"
+), collapse = "\n")
+# O mapa empírico permanece na posição 4.2, entre as duas primeiras artes.
+chapter_four_numbers <- c(1L, 3L, 4L, 5L, 6L, 7L, 8L)
+for (i in seq_along(chapter_four_art)) {
+  art <- paste0("arte-cap4-", chapter_four_art[[i]], ".svg")
+  id <- chapter_four_ids[[i]]
+  check_file(file.path(html_root, "assets/figures", art))
+  if (!grepl(paste0('id="', id, '"'), chapter_four_html, fixed = TRUE) ||
+      !grepl(paste0("Figura&nbsp;4.", chapter_four_numbers[[i]], ":"), chapter_four_html, fixed = TRUE)) {
+    fail("Figura do capítulo 4 ausente ou com numeração incorreta: ", id)
+  }
+  if (!grepl(paste0("@", id), chapter_four_source, fixed = TRUE) ||
+      !grepl(paste0("@", id), figure_list, fixed = TRUE)) {
+    fail("Figura do capítulo 4 sem chamada ou ausente da lista: ", id)
+  }
+}
+if (!grepl('id="fig-mudanca-suporte"', chapter_four_html, fixed = TRUE) ||
+    !grepl("Figura&nbsp;4.2:", chapter_four_html, fixed = TRUE)) {
+  fail("O mapa empírico do capítulo 4 está ausente ou foi renumerado incorretamente.")
+}
+if (grepl("ARTE CAP4-", gsub("(?s)<!--.*?-->", "", chapter_four_html, perl = TRUE), fixed = TRUE)) {
+  fail("Instruções de produção do capítulo 4 aparecem no conteúdo renderizado.")
+}
+
+chapter_five_path <- "chapters/part-1/04-fontes-fichas.qmd"
+chapter_five_source <- paste(readLines(chapter_five_path, warn = FALSE, encoding = "UTF-8"), collapse = "\n")
+chapter_five_html <- paste(readLines(
+  file.path(html_root, sub("[.]qmd$", ".html", chapter_five_path)),
+  warn = FALSE, encoding = "UTF-8"
+), collapse = "\n")
+chapter_five_assets <- c(paste0("arte-cap5-", chapter_five_art, ".svg"), "arte-cap3-05-ficha.svg")
+for (i in seq_along(chapter_five_assets)) {
+  art <- chapter_five_assets[[i]]
+  id <- c(chapter_five_ids, "fig-ficha-ripsa-livro")[[i]]
+  check_file(file.path(html_root, "assets/figures", art))
+  if (!grepl(paste0('id="', id, '"'), chapter_five_html, fixed = TRUE) ||
+      !grepl(paste0("Figura&nbsp;5.", i, ":"), chapter_five_html, fixed = TRUE) ||
+      !grepl(paste0("@", id), chapter_five_source, fixed = TRUE) ||
+      !grepl(paste0("@", id), figure_list, fixed = TRUE)) {
+    fail("Figura do capítulo 5 ausente, sem chamada ou com numeração incorreta: ", id)
+  }
+}
+for (id in c("sec-ficha-ripsa", "qua-campos-fqi-ripsa", "fig-ficha-ripsa-livro")) {
+  if (grepl(paste0("{#", id), chapter_three_source, fixed = TRUE) ||
+      !grepl(paste0('id="', id, '"'), chapter_five_html, fixed = TRUE)) {
+    fail("Transferência da seção RIPSA incompleta: ", id)
+  }
+}
+if (grepl("ARTE CAP5-", gsub("(?s)<!--.*?-->", "", chapter_five_html, perl = TRUE), fixed = TRUE)) {
+  fail("Instruções de produção do capítulo 5 aparecem no conteúdo renderizado.")
+}
+
 references_html_path <- file.path(html_root, "backmatter/referencias.html")
 check_file(references_html_path)
 references_html <- paste(readLines(references_html_path, warn = FALSE, encoding = "UTF-8"), collapse = "\n")
@@ -312,7 +458,10 @@ for (path in html_files) {
       fail("Bibliografia visível fora da página central: ", path)
     }
   }
-  hrefs <- regmatches(html, gregexpr('href="[^"]+"', html, perl = TRUE))[[1L]]
+  # Scripts da galeria contêm templates de links; não são âncoras do documento.
+  link_html <- gsub("(?is)<script\\b[^>]*>.*?</script\\s*>", "", html, perl = TRUE)
+  link_html <- gsub("(?s)<!--.*?-->", "", link_html, perl = TRUE)
+  hrefs <- regmatches(link_html, gregexpr('href="[^"]+"', link_html, perl = TRUE))[[1L]]
   if (!length(hrefs) || identical(hrefs, "-1")) next
   hrefs <- substring(hrefs, 7L, nchar(hrefs) - 1L)
   local <- hrefs[
