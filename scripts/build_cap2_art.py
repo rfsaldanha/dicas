@@ -105,6 +105,23 @@ def layout(number, sw, sh):
             label(900, 1700, 'Célula não é medição em cada residência. Mais zoom não cria observações.', 41),
             label(900, 1790, 'Território hipotético; cores ilustrativas, sem valores de temperatura.', 39),
         ]
+    elif number == '03':
+        slug, title, width, height = 'atendimento', 'Necessidade, acesso e oferta condicionam o atendimento observado', 1800, 1900
+        desc = ('Três cenas hipotéticas mostram procura por cuidado, acesso e oferta interrompidos e necessidades diversas após deslocamento. Precisar de cuidado, conseguir procurá-lo e ter atendimento registrado são situações diferentes. Menos consultas não comprovam menor adoecimento.')
+        parts = [
+            label(300, 65, ['Necessidade e procura', 'por cuidado'], 47),
+            label(900, 65, ['Oferta e acesso', 'comprometidos'], 47),
+            label(1500, 65, ['Mudança do perfil', 'de necessidade'], 47),
+            picture('pressoes-sobre-rede', (0, 0, sw, 745), 20, 170, 1760, 855),
+            label(300, 1100, ['Precisar de cuidado', 'Conseguir procurá-lo', 'Ter atendimento registrado'], 38, step=67),
+            label(900, 1120, ['O serviço funciona?', 'A população consegue chegar?'], 38, step=85),
+            label(1500, 1120, ['Retomar tratamentos', 'Acolher pessoas deslocadas'], 38, step=85),
+            picture('registro', (0, 755, sw, 269), 30, 1350, 1740, 305),
+            label(1170, 1460, ['Os registros dependem do cuidado', 'que conseguiu ocorrer.'], 46),
+            box(100, 1700, 1600, 110),
+            label(900, 1770, 'Menos consultas não comprovam menor adoecimento.', 48),
+            label(900, 1860, 'Situações didáticas; sem contagens ou resultados atribuídos a um desastre real.', 38),
+        ]
     else:
         raise SystemExit('Arte ainda não configurada: ' + number)
     return slug, title, width, height, desc, parts
