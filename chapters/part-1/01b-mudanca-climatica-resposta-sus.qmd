@@ -3,7 +3,7 @@
 <!--
 DIREÇÃO DE ARTE — CAPÍTULO 2
 
-As sete marcações ARTE CAP2-01 a ARTE CAP2-07 indicam locais de produção de arte. Cada comentário contém função, prompt completo, montagem e legenda proposta. São orientações editoriais; não integram o texto renderizado nem a numeração das figuras. Os códigos de produção foram preservados; CAP2-07 foi acrescentado na seção sobre dados em grade.
+As sete marcações ARTE CAP2-01 a ARTE CAP2-07 documentam as artes incorporadas como Figuras 2.1 a 2.7. Cada comentário preserva função, prompt, montagem e legenda proposta, além dos caminhos dos arquivos produzidos. Os comentários não integram o texto renderizado. Os códigos de produção foram preservados; CAP2-07 corresponde à Figura 2.3, sobre dados em grade.
 
 Padrão visual comum: aquarela tradicional translúcida, traços finos e espontâneos de lápis grafite e nanquim, contornos parcialmente abertos, hachuras leves e pigmentação irregular. Usar verdes naturais, azuis acinzentados, ocres e terracota com saturação moderada, preservando o branco do papel. Os sete prompts repetem integralmente o parágrafo de direção de arte do capítulo 1. A especificação permanente está em docs/guia-editorial.md.
 
@@ -11,9 +11,9 @@ Referência visual da série: assets/references/aquarela-grafite-nanquim.png, fo
 
 Ordem no texto:
 
-1. ARTE CAP2-01: Duas referências, perguntas diferentes — redesenho em aquarela do diagrama vetorial incorporado.
+1. ARTE CAP2-01: Duas referências, perguntas diferentes — composição em aquarela das duas finalidades de referência climática.
 2. ARTE CAP2-02: Eventos combinados e efeitos em cascata — diagrama em dois painéis.
-3. ARTE CAP2-07: Dados em grade: organização e limites de interpretação — novo esquema espacial.
+3. ARTE CAP2-07: Dados em grade: organização e limites de interpretação — esquema espacial e temporal.
 4. ARTE CAP2-03: Necessidade de cuidado, oferta e atendimento observado — infográfico conceitual.
 5. ARTE CAP2-04: Acompanhamento e adaptação contínua — diagrama de ações e revisão.
 6. ARTE CAP2-05: Informação e ação em diferentes horizontes — prancha de síntese.
@@ -56,7 +56,7 @@ Prompt efetivamente utilizado: assets/figures/arte-cap2-01-v1.prompt.txt.
 Referência visual: assets/references/aquarela-grafite-nanquim.png, apresentada à ferramenta na conversa.
 Produção: ferramenta integrada image_gen, em 2 de outubro de 2026. Composição, rótulos e conexões: scripts/build_cap2_art.py 01. Original colorido preservado; versão de impressão em escala de cinza.
 
-Local e função: Seção 2.1, junto ao diagrama de referências climáticas e à sua explicação. Planejar o redesenho em aquarela de `fig-referencias-climaticas-sus`, preservando o identificador e as relações do SVG já incorporado em assets/figures/referencias-climaticas-sus.svg. A figura compara finalidades de uso; não apresenta séries climáticas observadas.
+Local e função: Seção 2.1, junto ao diagrama de referências climáticas e à sua explicação. Redesenho em aquarela de `fig-referencias-climaticas-sus`, preservando o identificador e as relações do diagrama original, arquivado em assets/figures/referencias-climaticas-sus.svg. A figura compara finalidades de uso; não apresenta séries climáticas observadas.
 
 PROMPT COMPLETO PARA GERAÇÃO:
 
@@ -356,8 +356,21 @@ Na análise de poluição e saúde, a delimitação da área de exposição e o 
 
 As fichas retomam essa exigência: registrar conceito, fonte, método, interpretação e limitações permite que outra equipe compreenda a medida e reconheça mudanças de definição. A documentação apresentada no início do capítulo acompanha, portanto, todo o percurso entre referência climática, avaliação de necessidades e decisão.
 
+A @fig-leitura-conjunta-indicadores sintetiza as seis dimensões do quadro. Sua disposição lado a lado permite comparar perguntas e limites sem impor uma sequência causal ou uma nota única.
+
+![Seis dimensões complementares para interpretar o risco e a resposta](../../assets/figures/arte-cap2-06-indicadores.svg){#fig-leitura-conjunta-indicadores width="100%" print-src="arte-cap2-06-indicadores-print.png" fig-alt="Seis cenas com o mesmo destaque representam perigo, exposição e proteção, vulnerabilidade, efeito em saúde, impacto em desastres e resposta e capacidade. Cada dimensão possui uma pergunta própria. A disposição não define uma sequência causal nem soma as medidas em uma nota. Ausência de registro não comprova ausência de dano, e recursos disponíveis não comprovam desempenho."}
+
+[Fonte e composição: elaboração própria, com ilustração gerada por inteligência artificial. Licença: a mesma dos textos autorais da obra.]{.figure-source}
+
 <!--
 ARTE CAP2-06 — Ler em conjunto, preservar o significado
+
+Arte incorporada: assets/figures/arte-cap2-06-indicadores.svg.
+Versão de impressão: assets/figures/arte-cap2-06-indicadores-print.png.
+Aquarela original: assets/figures/arte-cap2-06-v1.png.
+Prompt efetivamente utilizado: assets/figures/arte-cap2-06-v1.prompt.txt.
+Referência visual: assets/references/aquarela-grafite-nanquim.png, apresentada à ferramenta na conversa.
+Produção: ferramenta integrada image_gen, em 2 de outubro de 2026. Composição, rótulos e conexões: scripts/build_cap2_art.py 06. Original colorido preservado; versão de impressão em escala de cinza.
 
 Local e função: Final da seção 2.3.1, após o exemplo de leitura conjunta do calor e a retomada das fichas. Atualizar a prancha para as seis dimensões do quadro revisado, incluindo vulnerabilidade e distinguindo exposição de condições de proteção.
 

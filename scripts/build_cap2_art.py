@@ -170,6 +170,28 @@ def layout(number, sw, sh):
             label(900, 1790, 'Responsabilidades, comunicação, recursos e protocolo', 46),
             label(900, 1885, 'Horizontes articulados; intervalos ilustrativos, sem escala de tempo proporcional.', 38),
         ]
+    elif number == '06':
+        slug, title, width, height = 'indicadores', 'Seis dimensões complementares para interpretar o risco e a resposta', 1800, 2310
+        desc = ('Seis cenas com o mesmo destaque representam perigo, exposição e proteção, vulnerabilidade, efeito em saúde, impacto em desastres e resposta e capacidade. Cada dimensão possui uma pergunta própria. A disposição não define uma sequência causal nem soma as medidas em uma nota. Ausência de registro não comprova ausência de dano, e recursos disponíveis não comprovam desempenho.')
+        parts = []
+        scenes = [
+            ('perigo', (0, 0, 768, 348), 450, 65, 'Perigo', ['Que condição ocorreu', 'ou pode ocorrer?']),
+            ('exposicao', (768, 0, 768, 348), 1350, 65, 'Exposição e proteção', ['Onde pode ocorrer contato', 'e que proteção existe?']),
+            ('vulnerabilidade', (0, 350, 768, 318), 450, 725, 'Vulnerabilidade', ['O que pode ampliar danos', 'ou limitar proteção?']),
+            ('saude', (768, 350, 768, 318), 1350, 725, 'Efeito em saúde', ['Que desfecho foi registrado', 'ou estimado?']),
+            ('impacto', (0, 670, 768, 354), 450, 1385, 'Impacto em desastres', ['Que consequências ocorreram?']),
+            ('resposta', (768, 670, 768, 354), 1350, 1385, 'Resposta e capacidade', ['O que existia, funcionou', 'e chegou à população?']),
+        ]
+        for name, crop, x, y, heading, question in scenes:
+            parts += [label(x, y, heading, 50),
+                      picture(name, crop, x - 415, y + 65, 830, 400),
+                      label(x, y + 530, question, 44)]
+        parts += [
+            box(80, 2040, 1640, 110),
+            label(900, 2110, 'O que cada medida mostra e o que deixa de fora?', 49),
+            label(900, 2210, 'Leitura conjunta, significados preservados', 46),
+            label(900, 2280, 'Dimensões podem se sobrepor. Cenas conceituais, sem dados observados.', 39),
+        ]
     else:
         raise SystemExit('Arte ainda não configurada: ' + number)
     return slug, title, width, height, desc, parts
