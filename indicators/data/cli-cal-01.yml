@@ -20,42 +20,44 @@ limitacoes:
 dimensoes:
   - perigo
   - exposição
-metodo_calculo: Calcular o percentil 90 de TX por dia do calendário em janela móvel de cinco dias no período-base. Identificar todas as sequências anuais de seis ou mais dias consecutivos com TX acima do limiar e somar os dias pertencentes a essas sequências.
+metodo_calculo: "Usar os mesmos limiares e bootstrap de CLI-TEM-01. Detectar sequências de pelo menos seis dias consecutivos com TX > P90 na série contínua, incluindo os cinco dias anteriores e posteriores ao ano; contar somente os dias pertencentes ao ano de saída. Ausência de evento em ano válido resulta em zero. Aplicar a média por área somente depois do cálculo por célula."
 formula_calculo: 'WSDI_j = \sum_{i \in j} I\{i \text{ pertence a sequência } \geq 6 \text{ dias com } TX_{ij} > TX^{90}_{in}\}'
 numerador: Não se aplica; trata-se de contagem de dias qualificados.
 denominador: Não se aplica.
 unidade_medida: Dias por ano.
 variaveis_categorias_analise: Temperatura máxima diária; percentil 90; período-base; ano; estação ou célula de grade.
-granularidade: Ponto de estação ou célula de grade; agregação territorial deve preservar a regra de sequência e documentar suporte.
-unidade_territorial: Estação meteorológica, célula de grade ou território derivado.
-resolucao_espacial_original: A da estação ou produto em grade utilizado.
-resolucao_temporal: Entrada diária; saída anual.
-periodo_referencia: O padrão clássico ETCCDI usa 1961–1990; qualquer alteração deve ser declarada.
-limiar_referencia: TX acima do percentil 90 do dia do calendário por pelo menos seis dias consecutivos.
-fontes_dados:
-  - id: inmet
-    papel: observação diária em estação
-  - id: era5-land
-    papel: reanálise em grade, condicionada à validação
+granularidade: "Calcular o indicador em cada célula antes da média municipal ponderada pela área; manter produto, célula, ano e código IBGE de sete dígitos."
+unidade_territorial: "Célula de grade; município como síntese ponderada pela área de interseção."
+resolucao_espacial_original: "ERA5-Land: grade de 0,1°; malha municipal IBGE 2022 como recorte fixo."
+resolucao_temporal: "Entradas horárias; extremos diários em 00–23 UTC; saída anual, salvo estação quente ou produto explicitados."
+periodo_referencia: "1961–1990."
+limiar_referencia: "TX > P90, janela centrada de cinco dias, quantil tipo 8; sequências de pelo menos seis dias."
+fontes_dados: [{"id": "era5-land", "papel": "ERA5-Land hourly data, reanalysis-era5-land: 2m_temperature; 2m_dewpoint_temperature e vento a 10 m quando requeridos"}, {"id": "inmet", "papel": "Validação local e séries observadas separadas da reanálise"}]
 responsabilidade_gerencial: Serviço climático produtor e instituição de saúde usuária devem pactuar versão, atualização, interpretação e eventual emprego operacional.
-cobertura_geografica: A da rede ou produto escolhido.
-periodo_disponivel: Condicionado à existência de série diária longa e homogênea.
-periodicidade_atualizacao: Anual; cálculos provisórios sazonais devem ser identificados como tais.
-forma_acesso: Cálculo sobre série diária de temperatura máxima.
-url_persistente: https://www.climdex.org/learn/indices/
-formatos: Tabela anual por estação ou arquivo multidimensional por célula de grade.
-disponibilidade:
-  - requer processamento climatológico
-necessidade_processamento: Controle de qualidade, percentis, bootstrap na base, detecção de sequências e soma anual.
-qualidade_incerteza: Documentar falhas que interrompam artificialmente sequências, homogeneidade da série, período-base, bootstrap, viés de reanálise e agregação.
-comparabilidade: Exige a mesma definição ETCCDI, período-base, calendário, completude e fonte harmonizada.
+cobertura_geografica: "Todos os municípios brasileiros no domínio da grade. Não representa diretamente a exposição individual ou o microclima de cada bairro."
+periodo_disponivel: "1950–presente; publicar anos completos até 2025 e identificar 2026 como parcial. A janela inicial utilizável depende dos antecedentes exigidos pela medida."
+periodicidade_atualizacao: "Anual, após completar e verificar o último ano de entrada."
+forma_acesso: "API do Climate Data Store, dataset reanalysis-era5-land, product_type=reanalysis, todas as 24 horas UTC; download NetCDF ou GRIB por mês e recorte espacial."
+url_persistente: "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land"
+formatos: "NetCDF ou GRIB de entrada; CSV/Parquet para séries municipais."
+disponibilidade: ["Calculável com dados abertos"]
+necessidade_processamento: "Converter kelvin para °C; obter TX e TN como máximo e mínimo das 24 temperaturas horárias válidas de cada dia UTC. Calcular a medida por célula e, depois, sua média municipal por área. Esta TX não é a máxima instantânea de termômetro."
+qualidade_incerteza: "Dia com menos de 24 horas válidas na grade é ausente. Nas sínteses anuais, mais de 15 dias ausentes, ou mais de três em qualquer mês, invalidam o ano; falhas não recebem zero e não unem sequências. Exigir 90% dos dados do período-base e registrar a cobertura. Sínteses municipais exigem ao menos 90% de área válida; informar essa fração. Critérios de cobertura são escolhas editoriais deste protocolo."
+comparabilidade: "Fixar versão, calendário UTC, período-base e limites municipais de 2022. Não emendar estação e reanálise. Médias municipais de contagens podem ser fracionárias e não contam episódios sincrônicos do município."
 relacao_saude: Períodos persistentes de calor podem elevar morbidade, mortalidade e pressão sobre serviços. Para vigilância operacional, a OMS e a OMM recomendam que gatilhos de alerta sejam relacionados a efeitos locais sobre a saúde, não apenas importados de um índice climático.
 defasagens_temporais: WSDI anual serve a monitoramento climático. Avaliações de efeitos agudos devem conservar início, fim e série diária, examinando defasagens compatíveis com cada desfecho.
 aplicacao_gestao: Avaliar evolução da persistência do calor e subsidiar planos calor–saúde. Não utilizar WSDI isoladamente como gatilho sem validação epidemiológica e previsão tempestiva.
-notas: A ficha distingue o WSDI consolidado de definições locais de onda de calor. Medidas auxiliares de número, duração máxima e intensidade dos episódios devem ser rotuladas separadamente.
+notas: "Protocolo municipal do livro. Reproduzir o método internacional na célula; a agregação municipal por área é uma adaptação explícita. A série nacional ainda não foi produzida."
 analise_descritiva: Mostrar distribuição anual, anos sem períodos qualificados, duração total e, como medidas auxiliares, número de sequências e duração máxima. Relatar alterações de cobertura.
 referencias:
   - "[@climdex2024]"
   - "[@zhang2005]"
   - "[@wmoWho2015heat]"
   - "[@who2026heat]"
+protocolo_versao: "2026-10-03"
+situacao_calculo: "abertos"
+dependencia_dados_locais: "Opcional para validação"
+automacao: "Condicionada"
+condicoes_automacao: "Cadastro gratuito e credencial CDS; download das variáveis e processamento conforme a ficha."
+evidencia_verificacao: "Documentação verificada"
+detalhe_verificacao: "Produto e método documentados; série municipal completa ainda não produzida."

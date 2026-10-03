@@ -5,7 +5,7 @@
 [Título resumido:]{.field-label} UTCI \
 [Tema:]{.field-label} Temperatura e condições térmicas \
 [Dimensão:]{.field-label} perigo; exposição \
-[Disponibilidade:]{.field-label} [requer processamento meteorológico]{.availability}
+[Disponibilidade:]{.field-label} [Calculável com dados abertos]{.availability}
 :::
 
 ### Identificação e fundamento {.unnumbered .ficha-section}
@@ -41,12 +41,11 @@ Para calor, 26–32 °C indica estresse moderado; acima de 32 até 38 °C, forte
 
 ### Fontes de dados {.unnumbered .ficha-section}
 
-- ERA5-HEAT — índices de conforto térmico derivados do ERA5 — UTCI e temperatura radiante média horárias já derivadas do ERA5 ([cadastro](../../backmatter/indice-fontes.qmd#era5-heat))
-- Instituto Nacional de Meteorologia — observações meteorológicas para validação das entradas ou de aplicações locais ([cadastro](../../backmatter/indice-fontes.qmd#inmet))
+- ERA5-HEAT v1.1 — UTCI histórico — ERA5-HEAT v1.1, derived-utci-historical: universal_thermal_climate_index ([cadastro](../../backmatter/indice-fontes.qmd#era5-heat))
 
 ### Método de cálculo {.unnumbered .ficha-section}
 
-Usar a implementação oficial do UTCI com temperatura do ar, diferença entre temperatura radiante média e temperatura do ar, pressão de vapor ou umidade relativa e vento a 10 m. Para séries globais, usar o UTCI horário do ERA5-HEAT, registrando versão. Classificar cada valor pela escala UTCI e agregar horas ou dias conforme a pergunta.
+Baixar UTCI já calculado pelo ERA5-HEAT v1.1; converter kelvin para °C subtraindo 273,15. Obter máximo diário com 24 horas válidas e média anual desses máximos; aplicar depois média municipal por área. Não recalcular o polinômio UTCI com temperatura média radiante arbitrária.
 
 $$
 UTCI=T_a+Offset(T_a,T_{mrt}-T_a,v_{10},p_a)
@@ -61,13 +60,13 @@ $$
 
 [Variáveis e categorias de análise.]{.field-label} Temperatura do ar; temperatura radiante média; vento a 10 m; pressão de vapor ou umidade relativa; dez categorias de estresse térmico.
 
-[Granularidade.]{.field-label} Valor horário por ponto ou célula; resumo diário, sazonal, anual ou territorial.
+[Granularidade.]{.field-label} Calcular o indicador em cada célula antes da média municipal ponderada pela área; manter produto, célula, ano e código IBGE de sete dígitos.
 
-[Periodicidade de atualização.]{.field-label} O conjunto histórico é estendido conforme o ERA5; verificar latência e versão.
+[Periodicidade de atualização.]{.field-label} Anual, após completar e verificar o último ano de entrada.
 
 [Responsabilidade gerencial.]{.field-label} Serviço meteorológico ou equipe de saúde ambiental ou do trabalhador responsável pela medição, com autoridade de saúde responsável pelo protocolo de uso.
 
-[Notas.]{.field-label} O valor é uma temperatura ou índice equivalente, não a temperatura corporal nem uma medição direta de risco individual. Categorias operacionais de outro país não constituem automaticamente limiares de alerta no Brasil.
+[Notas.]{.field-label} Usar o produto consolidado v1.1 e arquivar a requisição CDS. O suporte nativo de 0,25° deve acompanhar todo resultado municipal.
 
 [Análise descritiva do indicador.]{.field-label} Apresentar máximos e mínimos, horas ou dias em cada categoria, mapas, população exposta e incerteza; comparar com temperatura do ar para evidenciar o papel de vento, umidade e radiação.
 
@@ -76,13 +75,13 @@ $$
 ### Campos complementares para clima, ambiente e saúde {.unnumbered .ficha-section}
 
 ::: {.indicator-card}
-[Unidade territorial.]{.field-label} Ponto de observação, célula de grade ou território obtido por agregação explícita.
+[Unidade territorial.]{.field-label} Célula de grade; município como síntese ponderada pela área de interseção.
 
-[Resolução espacial original.]{.field-label} 0,25° na distribuição regular do ERA5-HEAT; aplicações locais podem ter outra resolução, que deve ser declarada.
+[Resolução espacial original.]{.field-label} 0,25°, nativa do ERA5-HEAT v1.1.
 
-[Resolução temporal.]{.field-label} Horária na entrada; saída horária ou agregada.
+[Resolução temporal.]{.field-label} Horária; máximo diário e média anual dos máximos diários.
 
-[Período de referência.]{.field-label} Não exige climatologia para a categoria; anomalias e contagens comparativas devem declarar o período-base.
+[Período de referência.]{.field-label} Não usa período-base para calcular UTCI.
 
 [Limiar ou valor de referência.]{.field-label} Calor moderado 26–32 °C; forte >32–38 °C; muito forte >38–46 °C; extremo >46 °C.
 
@@ -90,25 +89,37 @@ $$
 
 ### Disponibilidade e acesso {.unnumbered .ficha-section}
 
-[Cobertura geográfica.]{.field-label} A da fonte meteorológica ou do levantamento microambiental selecionado.
+[Protocolo verificado em.]{.field-label} 2026-10-03
 
-[Período disponível.]{.field-label} Desde 1940 até próximo do presente no ERA5-HEAT, conforme a versão consultada.
+[Dependência de dados locais.]{.field-label} Opcional para validação
 
-[Periodicidade de atualização.]{.field-label} O conjunto histórico é estendido conforme o ERA5; verificar latência e versão.
+[Automação.]{.field-label} Condicionada
 
-[Forma de acesso.]{.field-label} Obtenção pelo Copernicus Climate Data Store ou cálculo com a implementação oficial do UTCI.
+[Requisitos para o cálculo.]{.field-label} Cadastro gratuito e credencial CDS; download das variáveis e processamento conforme a ficha.
 
-[URL ou identificador persistente.]{.field-label} https://doi.org/10.24381/cds.553b7518
+[Nível de evidência.]{.field-label} Documentação verificada
 
-[Formato dos arquivos.]{.field-label} NetCDF para grade; NetCDF ou CSV no produto de séries temporais.
+[Alcance da verificação.]{.field-label} Produto e método documentados; série municipal completa ainda não produzida.
 
-[Necessidade de processamento.]{.field-label} Selecionar versão e fluxo, converter kelvin para Celsius quando necessário, classificar valores, tratar horários e agregar sem ocultar extremos.
+[Cobertura geográfica.]{.field-label} Todos os municípios brasileiros no domínio da grade. Não representa diretamente a exposição individual ou o microclima de cada bairro.
+
+[Período disponível.]{.field-label} 1940–presente; anos completos até 2025.
+
+[Periodicidade de atualização.]{.field-label} Anual, após completar e verificar o último ano de entrada.
+
+[Forma de acesso.]{.field-label} API CDS, dataset derived-utci-historical, variable=universal_thermal_climate_index, version=1_1, product_type=consolidated_dataset, todas as horas disponíveis.
+
+[URL ou identificador persistente.]{.field-label} https://cds.climate.copernicus.eu/datasets/derived-utci-historical
+
+[Formato dos arquivos.]{.field-label} NetCDF ou GRIB de entrada; CSV/Parquet para séries municipais.
+
+[Necessidade de processamento.]{.field-label} Converter kelvin para °C; obter TX e TN como máximo e mínimo das 24 temperaturas horárias válidas de cada dia UTC. Calcular a medida por célula e, depois, sua média municipal por área. Esta TX não é a máxima instantânea de termômetro.
 
 ### Qualidade, comparação e saúde {.unnumbered .ficha-section}
 
-[Qualidade e incerteza.]{.field-label} Verificar unidades, altura e abrigo dos sensores, sincronização das variáveis, dados ausentes, domínio de validade da fórmula, representatividade espacial e diferença entre valor medido e modelado.
+[Qualidade e incerteza.]{.field-label} Dia com menos de 24 horas válidas na grade é ausente. Nas sínteses anuais, mais de 15 dias ausentes, ou mais de três em qualquer mês, invalidam o ano; falhas não recebem zero e não unem sequências. Exigir 90% dos dados do período-base e registrar a cobertura. Sínteses municipais exigem ao menos 90% de área válida; informar essa fração. Critérios de cobertura são escolhas editoriais deste protocolo.
 
-[Possibilidade de comparação.]{.field-label} Manter fórmula, versão, entradas, unidades, altura do vento, tratamento da radiação, resolução temporal e regra de agregação; índices diferentes não são conversíveis por uma escala comum.
+[Possibilidade de comparação.]{.field-label} Fixar versão, calendário UTC, período-base e limites municipais de 2022. Não emendar estação e reanálise. Médias municipais de contagens podem ser fracionárias e não contam episódios sincrônicos do município.
 
 [Relação com desfechos de saúde.]{.field-label} As categorias derivam de respostas termofisiológicas modeladas e o índice é aplicado a alertas e avaliação de estresse térmico humano, não a diagnóstico individual.
 

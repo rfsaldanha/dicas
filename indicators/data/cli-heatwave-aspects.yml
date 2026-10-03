@@ -35,19 +35,47 @@ common: &heatwave_common
 indicators:
   - <<: *heatwave_common
     codigo: CLI-CAL-02
-    titulo_completo: Ocorrência de onda de calor
-    titulo_resumido: Ocorrência de onda de calor
+    titulo_completo: "Ocorrência de ondas de calor TX90 e proporção da área municipal atingida"
+    titulo_resumido: "Ocorrência de ondas TX90"
     conceito: Indicador binário de presença de pelo menos um episódio de onda de calor no local e período, segundo uma definição térmica publicada e integralmente declarada.
     objetivo: Identificar temporadas, meses ou territórios com ao menos um episódio qualificado.
-    interpretacao: Valor 1 indica uma ou mais ondas; valor 0 indica que nenhuma sequência atendeu à definição. O indicador não informa quantas ondas ocorreram nem sua duração ou intensidade.
+    interpretacao: "Na célula indica presença de evento. No município expressa a parcela da área que teve ao menos um evento, mesmo que as datas sejam diferentes."
     usos: [Delimitar períodos expostos em estudos de saúde., Comparar proporção de territórios com ocorrência., Apoiar avaliação de temporadas e cobertura de alertas.]
     limitacoes: [Reduz múltiplos aspectos a presença/ausência., É sensível à definição e à falha de dados., Não expressa carga populacional.]
-    metodo_calculo: Detectar episódios conforme variável, limiar e duração definidos. Atribuir 1 quando o número de episódios no período for maior ou igual a um e 0 nos demais casos.
-    formula_calculo: 'O_j = I(HWN_j \geq 1)'
+    metodo_calculo: "Detectar os eventos TX90 pelo protocolo desta família. Na célula, atribuir 1 se HWN ≥ 1, ou 0 em temporada válida sem evento. No município, calcular 100 vezes a soma das áreas de células com ocorrência, dividida pela área válida; exigir cobertura ≥90%."
+    formula_calculo: "O_g=I(HWN_g\\geq1),\\qquad O_m=100\\frac{\\sum_g a_{gm}O_g}{\\sum_g a_{gm}}"
     numerador: Não se aplica.
     denominador: Não se aplica.
-    unidade_medida: Indicador binário (0 ou 1); em agregações, percentual de unidades com ocorrência.
+    unidade_medida: "0/1 por célula; % de área na síntese municipal."
     analise_descritiva: Apresentar ocorrência com HWN, HWF e intensidade para evitar que temporadas muito diferentes pareçam iguais.
+    fontes_dados: [{"id": "era5-land", "papel": "ERA5-Land hourly data, reanalysis-era5-land: 2m_temperature; 2m_dewpoint_temperature e vento a 10 m quando requeridos"}, {"id": "inmet", "papel": "Validação local e séries observadas separadas da reanálise"}]
+    resolucao_espacial_original: "ERA5-Land: grade de 0,1°; malha municipal IBGE 2022 como recorte fixo."
+    unidade_territorial: "Célula de grade; município como síntese ponderada pela área de interseção."
+    granularidade: "Calcular o indicador em cada célula antes da média municipal ponderada pela área; manter produto, célula, ano e código IBGE de sete dígitos."
+    cobertura_geografica: "Todos os municípios brasileiros no domínio da grade. Não representa diretamente a exposição individual ou o microclima de cada bairro."
+    periodo_disponivel: "1950–presente; publicar anos completos até 2025 e identificar 2026 como parcial. A janela inicial utilizável depende dos antecedentes exigidos pela medida."
+    periodo_referencia: "1961–1990; P90 de TX por dia do calendário em janela centrada de 15 dias, quantil tipo 8."
+    resolucao_temporal: "Estação quente: novembro–março no hemisfério sul; maio–setembro no norte. Identificar a temporada pelas datas de início e fim e pela latitude da célula."
+    periodicidade_atualizacao: "Anual, após completar e verificar o último ano de entrada."
+    forma_acesso: "API do Climate Data Store, dataset reanalysis-era5-land, product_type=reanalysis, todas as 24 horas UTC; download NetCDF ou GRIB por mês e recorte espacial."
+    url_persistente: "https://github.com/ARCCSS-extremes/climpact2/blob/master/ancillary/climpact2.etsci-functions.r"
+    formatos: "NetCDF ou GRIB de entrada; CSV/Parquet para séries municipais."
+    necessidade_processamento: "Converter kelvin para °C; obter TX e TN como máximo e mínimo das 24 temperaturas horárias válidas de cada dia UTC. Calcular a medida por célula e, depois, sua média municipal por área. Esta TX não é a máxima instantânea de termômetro."
+    qualidade_incerteza: "Dia com menos de 24 horas válidas na grade é ausente. Nas sínteses anuais, mais de 15 dias ausentes, ou mais de três em qualquer mês, invalidam o ano; falhas não recebem zero e não unem sequências. Exigir 90% dos dados do período-base e registrar a cobertura. Sínteses municipais exigem ao menos 90% de área válida; informar essa fração. Critérios de cobertura são escolhas editoriais deste protocolo."
+    comparabilidade: "Fixar versão, calendário UTC, período-base e limites municipais de 2022. Não emendar estação e reanálise. Médias municipais de contagens podem ser fracionárias e não contam episódios sincrônicos do município."
+    notas: "Reproduzir as regras de fronteira e calendário de climdex.hw/Climpact2, inclusive remoção de 29/02, eventos que alcançam a estação e extensão de até 14 dias após seu término. Baixar também os 90 dias anteriores e posteriores; arquivar o hash da implementação usada. Sem evento: HWN=HWF=0; HWD, HWMD, HWM e HWA ausentes por não aplicação. As estatísticas municipais são médias por área, exceto ocorrência (percentual de área)."
+    protocolo_versao: "2026-10-03"
+    situacao_calculo: "abertos"
+    disponibilidade: ["Calculável com dados abertos"]
+    dependencia_dados_locais: "Opcional para validação"
+    automacao: "Condicionada"
+    condicoes_automacao: "Cadastro gratuito e credencial CDS; download das variáveis e processamento conforme a ficha."
+    evidencia_verificacao: "Documentação verificada"
+    detalhe_verificacao: "Produto e método documentados; série municipal completa ainda não produzida."
+    referencia_metodologica: "Perkins e Alexander (2013), família TX90, com implementação de referência climdex.hw do Climpact2. HWMD é uma medida derivada de HWF/HWN."
+    limiar_referencia: "TX > P90 durante pelo menos três dias consecutivos. Não misturar TX90, TN90 e EHF."
+    referencias: ["[@perkins2013heatwaves]", "[@climpact2026]"]
+
 
   - <<: *heatwave_common
     codigo: CLI-CAL-03
@@ -58,12 +86,40 @@ indicators:
     interpretacao: Valor maior indica mais episódios; não implica maior número total de dias nem maior intensidade.
     usos: [Comparar frequência entre temporadas., Avaliar recorrência de ativações operacionais., Descrever exposição repetida em análises de saúde.]
     limitacoes: [Uma falha pode dividir um episódio em dois., Eventos de fronteira exigem regra de atribuição., Não distingue ondas curtas e longas.]
-    metodo_calculo: Identificar todas as sequências que atendem à definição e contar seus inícios dentro da estação ou período, aplicando regra documentada para eventos que cruzam fronteiras.
+    metodo_calculo: "Contar os eventos distintos TX90 atribuídos à estação quente por climdex.hw, com as regras de fronteira desta família; produzir HWN por célula e a média municipal por área."
     formula_calculo: 'HWN_j = \sum_{e \in j} 1(e \text{ atende à definição})'
     numerador: Não se aplica.
     denominador: Não se aplica.
     unidade_medida: Episódios por período.
     analise_descritiva: Mostrar HWN junto da distribuição das durações, HWF, HWM e HWA.
+    fontes_dados: [{"id": "era5-land", "papel": "ERA5-Land hourly data, reanalysis-era5-land: 2m_temperature; 2m_dewpoint_temperature e vento a 10 m quando requeridos"}, {"id": "inmet", "papel": "Validação local e séries observadas separadas da reanálise"}]
+    resolucao_espacial_original: "ERA5-Land: grade de 0,1°; malha municipal IBGE 2022 como recorte fixo."
+    unidade_territorial: "Célula de grade; município como síntese ponderada pela área de interseção."
+    granularidade: "Calcular o indicador em cada célula antes da média municipal ponderada pela área; manter produto, célula, ano e código IBGE de sete dígitos."
+    cobertura_geografica: "Todos os municípios brasileiros no domínio da grade. Não representa diretamente a exposição individual ou o microclima de cada bairro."
+    periodo_disponivel: "1950–presente; publicar anos completos até 2025 e identificar 2026 como parcial. A janela inicial utilizável depende dos antecedentes exigidos pela medida."
+    periodo_referencia: "1961–1990; P90 de TX por dia do calendário em janela centrada de 15 dias, quantil tipo 8."
+    resolucao_temporal: "Estação quente: novembro–março no hemisfério sul; maio–setembro no norte. Identificar a temporada pelas datas de início e fim e pela latitude da célula."
+    periodicidade_atualizacao: "Anual, após completar e verificar o último ano de entrada."
+    forma_acesso: "API do Climate Data Store, dataset reanalysis-era5-land, product_type=reanalysis, todas as 24 horas UTC; download NetCDF ou GRIB por mês e recorte espacial."
+    url_persistente: "https://github.com/ARCCSS-extremes/climpact2/blob/master/ancillary/climpact2.etsci-functions.r"
+    formatos: "NetCDF ou GRIB de entrada; CSV/Parquet para séries municipais."
+    necessidade_processamento: "Converter kelvin para °C; obter TX e TN como máximo e mínimo das 24 temperaturas horárias válidas de cada dia UTC. Calcular a medida por célula e, depois, sua média municipal por área. Esta TX não é a máxima instantânea de termômetro."
+    qualidade_incerteza: "Dia com menos de 24 horas válidas na grade é ausente. Nas sínteses anuais, mais de 15 dias ausentes, ou mais de três em qualquer mês, invalidam o ano; falhas não recebem zero e não unem sequências. Exigir 90% dos dados do período-base e registrar a cobertura. Sínteses municipais exigem ao menos 90% de área válida; informar essa fração. Critérios de cobertura são escolhas editoriais deste protocolo."
+    comparabilidade: "Fixar versão, calendário UTC, período-base e limites municipais de 2022. Não emendar estação e reanálise. Médias municipais de contagens podem ser fracionárias e não contam episódios sincrônicos do município."
+    notas: "Reproduzir as regras de fronteira e calendário de climdex.hw/Climpact2, inclusive remoção de 29/02, eventos que alcançam a estação e extensão de até 14 dias após seu término. Baixar também os 90 dias anteriores e posteriores; arquivar o hash da implementação usada. Sem evento: HWN=HWF=0; HWD, HWMD, HWM e HWA ausentes por não aplicação. As estatísticas municipais são médias por área, exceto ocorrência (percentual de área)."
+    protocolo_versao: "2026-10-03"
+    situacao_calculo: "abertos"
+    disponibilidade: ["Calculável com dados abertos"]
+    dependencia_dados_locais: "Opcional para validação"
+    automacao: "Condicionada"
+    condicoes_automacao: "Cadastro gratuito e credencial CDS; download das variáveis e processamento conforme a ficha."
+    evidencia_verificacao: "Documentação verificada"
+    detalhe_verificacao: "Produto e método documentados; série municipal completa ainda não produzida."
+    referencia_metodologica: "Perkins e Alexander (2013), família TX90, com implementação de referência climdex.hw do Climpact2. HWMD é uma medida derivada de HWF/HWN."
+    limiar_referencia: "TX > P90 durante pelo menos três dias consecutivos. Não misturar TX90, TN90 e EHF."
+    referencias: ["[@perkins2013heatwaves]", "[@climpact2026]"]
+
 
   - <<: *heatwave_common
     codigo: CLI-CAL-04
@@ -74,12 +130,40 @@ indicators:
     interpretacao: Valor maior indica mais dias participantes, independentemente de estarem concentrados em uma ou várias ondas.
     usos: [Medir carga sazonal de exposição., Calcular pessoas-dia expostas., Comparar temporadas com a mesma definição.]
     limitacoes: [Não informa número de eventos., Pode ser igual para uma onda longa e várias curtas., Depende da regra para dias e eventos de fronteira.]
-    metodo_calculo: Após detectar episódios, marcar cada dia participante uma única vez e somar as marcas no período.
+    metodo_calculo: "Somar as durações dos eventos TX90 atribuídos à estação quente por climdex.hw; cada dia é contado uma vez. Conservar os dias adicionais que a implementação atribui a eventos de fronteira; não truncar silenciosamente ao último dia da estação."
     formula_calculo: 'HWF_j = \sum_{d \in j} I(d \text{ pertence a uma onda})'
     numerador: Não se aplica.
     denominador: Não se aplica.
     unidade_medida: Dias por período.
     analise_descritiva: Apresentar HWF com HWN e HWD; ao combinar com população, identificar a nova medida como exposição populacional.
+    fontes_dados: [{"id": "era5-land", "papel": "ERA5-Land hourly data, reanalysis-era5-land: 2m_temperature; 2m_dewpoint_temperature e vento a 10 m quando requeridos"}, {"id": "inmet", "papel": "Validação local e séries observadas separadas da reanálise"}]
+    resolucao_espacial_original: "ERA5-Land: grade de 0,1°; malha municipal IBGE 2022 como recorte fixo."
+    unidade_territorial: "Célula de grade; município como síntese ponderada pela área de interseção."
+    granularidade: "Calcular o indicador em cada célula antes da média municipal ponderada pela área; manter produto, célula, ano e código IBGE de sete dígitos."
+    cobertura_geografica: "Todos os municípios brasileiros no domínio da grade. Não representa diretamente a exposição individual ou o microclima de cada bairro."
+    periodo_disponivel: "1950–presente; publicar anos completos até 2025 e identificar 2026 como parcial. A janela inicial utilizável depende dos antecedentes exigidos pela medida."
+    periodo_referencia: "1961–1990; P90 de TX por dia do calendário em janela centrada de 15 dias, quantil tipo 8."
+    resolucao_temporal: "Estação quente: novembro–março no hemisfério sul; maio–setembro no norte. Identificar a temporada pelas datas de início e fim e pela latitude da célula."
+    periodicidade_atualizacao: "Anual, após completar e verificar o último ano de entrada."
+    forma_acesso: "API do Climate Data Store, dataset reanalysis-era5-land, product_type=reanalysis, todas as 24 horas UTC; download NetCDF ou GRIB por mês e recorte espacial."
+    url_persistente: "https://github.com/ARCCSS-extremes/climpact2/blob/master/ancillary/climpact2.etsci-functions.r"
+    formatos: "NetCDF ou GRIB de entrada; CSV/Parquet para séries municipais."
+    necessidade_processamento: "Converter kelvin para °C; obter TX e TN como máximo e mínimo das 24 temperaturas horárias válidas de cada dia UTC. Calcular a medida por célula e, depois, sua média municipal por área. Esta TX não é a máxima instantânea de termômetro."
+    qualidade_incerteza: "Dia com menos de 24 horas válidas na grade é ausente. Nas sínteses anuais, mais de 15 dias ausentes, ou mais de três em qualquer mês, invalidam o ano; falhas não recebem zero e não unem sequências. Exigir 90% dos dados do período-base e registrar a cobertura. Sínteses municipais exigem ao menos 90% de área válida; informar essa fração. Critérios de cobertura são escolhas editoriais deste protocolo."
+    comparabilidade: "Fixar versão, calendário UTC, período-base e limites municipais de 2022. Não emendar estação e reanálise. Médias municipais de contagens podem ser fracionárias e não contam episódios sincrônicos do município."
+    notas: "Reproduzir as regras de fronteira e calendário de climdex.hw/Climpact2, inclusive remoção de 29/02, eventos que alcançam a estação e extensão de até 14 dias após seu término. Baixar também os 90 dias anteriores e posteriores; arquivar o hash da implementação usada. Sem evento: HWN=HWF=0; HWD, HWMD, HWM e HWA ausentes por não aplicação. As estatísticas municipais são médias por área, exceto ocorrência (percentual de área)."
+    protocolo_versao: "2026-10-03"
+    situacao_calculo: "abertos"
+    disponibilidade: ["Calculável com dados abertos"]
+    dependencia_dados_locais: "Opcional para validação"
+    automacao: "Condicionada"
+    condicoes_automacao: "Cadastro gratuito e credencial CDS; download das variáveis e processamento conforme a ficha."
+    evidencia_verificacao: "Documentação verificada"
+    detalhe_verificacao: "Produto e método documentados; série municipal completa ainda não produzida."
+    referencia_metodologica: "Perkins e Alexander (2013), família TX90, com implementação de referência climdex.hw do Climpact2. HWMD é uma medida derivada de HWF/HWN."
+    limiar_referencia: "TX > P90 durante pelo menos três dias consecutivos. Não misturar TX90, TN90 e EHF."
+    referencias: ["[@perkins2013heatwaves]", "[@climpact2026]"]
+
 
   - <<: *heatwave_common
     codigo: CLI-CAL-05
@@ -90,12 +174,40 @@ indicators:
     interpretacao: Valor maior indica uma sequência máxima mais longa; não informa duração das demais ondas nem intensidade.
     usos: [Avaliar capacidade de resposta a episódios prolongados., Estudar efeitos cumulativos e continuidade assistencial., Comparar a maior persistência entre temporadas.]
     limitacoes: [Ignora todos os eventos exceto o mais longo., Falhas quebram sequências., Temporadas sem onda exigem convenção explícita.]
-    metodo_calculo: Calcular a duração em dias de cada episódio e selecionar o máximo; atribuir zero quando não houver episódio, distinguindo zero de dado ausente.
+    metodo_calculo: "Obter o máximo das durações dos eventos TX90 da estação. Sem evento, registrar ausente por não aplicação e publicar HWN=0; não confundir com falha de dados."
     formula_calculo: 'HWD_j = \max_{e \in j}(D_e)'
     numerador: Não se aplica.
     denominador: Não se aplica.
     unidade_medida: Dias.
     analise_descritiva: Apresentar o evento correspondente, datas, HWM/HWA e distribuição das demais durações.
+    fontes_dados: [{"id": "era5-land", "papel": "ERA5-Land hourly data, reanalysis-era5-land: 2m_temperature; 2m_dewpoint_temperature e vento a 10 m quando requeridos"}, {"id": "inmet", "papel": "Validação local e séries observadas separadas da reanálise"}]
+    resolucao_espacial_original: "ERA5-Land: grade de 0,1°; malha municipal IBGE 2022 como recorte fixo."
+    unidade_territorial: "Célula de grade; município como síntese ponderada pela área de interseção."
+    granularidade: "Calcular o indicador em cada célula antes da média municipal ponderada pela área; manter produto, célula, ano e código IBGE de sete dígitos."
+    cobertura_geografica: "Todos os municípios brasileiros no domínio da grade. Não representa diretamente a exposição individual ou o microclima de cada bairro."
+    periodo_disponivel: "1950–presente; publicar anos completos até 2025 e identificar 2026 como parcial. A janela inicial utilizável depende dos antecedentes exigidos pela medida."
+    periodo_referencia: "1961–1990; P90 de TX por dia do calendário em janela centrada de 15 dias, quantil tipo 8."
+    resolucao_temporal: "Estação quente: novembro–março no hemisfério sul; maio–setembro no norte. Identificar a temporada pelas datas de início e fim e pela latitude da célula."
+    periodicidade_atualizacao: "Anual, após completar e verificar o último ano de entrada."
+    forma_acesso: "API do Climate Data Store, dataset reanalysis-era5-land, product_type=reanalysis, todas as 24 horas UTC; download NetCDF ou GRIB por mês e recorte espacial."
+    url_persistente: "https://github.com/ARCCSS-extremes/climpact2/blob/master/ancillary/climpact2.etsci-functions.r"
+    formatos: "NetCDF ou GRIB de entrada; CSV/Parquet para séries municipais."
+    necessidade_processamento: "Converter kelvin para °C; obter TX e TN como máximo e mínimo das 24 temperaturas horárias válidas de cada dia UTC. Calcular a medida por célula e, depois, sua média municipal por área. Esta TX não é a máxima instantânea de termômetro."
+    qualidade_incerteza: "Dia com menos de 24 horas válidas na grade é ausente. Nas sínteses anuais, mais de 15 dias ausentes, ou mais de três em qualquer mês, invalidam o ano; falhas não recebem zero e não unem sequências. Exigir 90% dos dados do período-base e registrar a cobertura. Sínteses municipais exigem ao menos 90% de área válida; informar essa fração. Critérios de cobertura são escolhas editoriais deste protocolo."
+    comparabilidade: "Fixar versão, calendário UTC, período-base e limites municipais de 2022. Não emendar estação e reanálise. Médias municipais de contagens podem ser fracionárias e não contam episódios sincrônicos do município."
+    notas: "Reproduzir as regras de fronteira e calendário de climdex.hw/Climpact2, inclusive remoção de 29/02, eventos que alcançam a estação e extensão de até 14 dias após seu término. Baixar também os 90 dias anteriores e posteriores; arquivar o hash da implementação usada. Sem evento: HWN=HWF=0; HWD, HWMD, HWM e HWA ausentes por não aplicação. As estatísticas municipais são médias por área, exceto ocorrência (percentual de área)."
+    protocolo_versao: "2026-10-03"
+    situacao_calculo: "abertos"
+    disponibilidade: ["Calculável com dados abertos"]
+    dependencia_dados_locais: "Opcional para validação"
+    automacao: "Condicionada"
+    condicoes_automacao: "Cadastro gratuito e credencial CDS; download das variáveis e processamento conforme a ficha."
+    evidencia_verificacao: "Documentação verificada"
+    detalhe_verificacao: "Produto e método documentados; série municipal completa ainda não produzida."
+    referencia_metodologica: "Perkins e Alexander (2013), família TX90, com implementação de referência climdex.hw do Climpact2. HWMD é uma medida derivada de HWF/HWN."
+    limiar_referencia: "TX > P90 durante pelo menos três dias consecutivos. Não misturar TX90, TN90 e EHF."
+    referencias: ["[@perkins2013heatwaves]", "[@climpact2026]"]
+
 
   - <<: *heatwave_common
     codigo: CLI-CAL-06
@@ -106,41 +218,124 @@ indicators:
     interpretacao: Valor maior indica episódios em média mais longos. A média pode ocultar distribuição assimétrica.
     usos: [Comparar duração típica entre temporadas., Complementar HWD e HWN., Planejar duração média de ações quando validado operacionalmente.]
     limitacoes: [Indefinido quando HWN é zero., Instável com poucos episódios., Não mostra extremos nem intensidade.]
-    metodo_calculo: Somar as durações dos episódios e dividir por HWN. Quando não houver episódios, apresentar “não se aplica” e HWN igual a zero, não duração zero.
+    metodo_calculo: "Dividir HWF por HWN usando exatamente o mesmo catálogo TX90 da estação. Quando HWN=0, o resultado é ausente por não aplicação. A média municipal deve informar a fração da área com evento."
     formula_calculo: 'HWMD_j = \frac{\sum_{e=1}^{HWN_j}D_e}{HWN_j}, \quad HWN_j>0'
     numerador: Soma da duração de todos os episódios.
     denominador: Número de ondas de calor (HWN).
     unidade_medida: Dias por episódio.
     analise_descritiva: Apresentar média, mediana, intervalo e número de eventos; não divulgar média sem HWN.
+    fontes_dados: [{"id": "era5-land", "papel": "ERA5-Land hourly data, reanalysis-era5-land: 2m_temperature; 2m_dewpoint_temperature e vento a 10 m quando requeridos"}, {"id": "inmet", "papel": "Validação local e séries observadas separadas da reanálise"}]
+    resolucao_espacial_original: "ERA5-Land: grade de 0,1°; malha municipal IBGE 2022 como recorte fixo."
+    unidade_territorial: "Célula de grade; município como síntese ponderada pela área de interseção."
+    granularidade: "Calcular o indicador em cada célula antes da média municipal ponderada pela área; manter produto, célula, ano e código IBGE de sete dígitos."
+    cobertura_geografica: "Todos os municípios brasileiros no domínio da grade. Não representa diretamente a exposição individual ou o microclima de cada bairro."
+    periodo_disponivel: "1950–presente; publicar anos completos até 2025 e identificar 2026 como parcial. A janela inicial utilizável depende dos antecedentes exigidos pela medida."
+    periodo_referencia: "1961–1990; P90 de TX por dia do calendário em janela centrada de 15 dias, quantil tipo 8."
+    resolucao_temporal: "Estação quente: novembro–março no hemisfério sul; maio–setembro no norte. Identificar a temporada pelas datas de início e fim e pela latitude da célula."
+    periodicidade_atualizacao: "Anual, após completar e verificar o último ano de entrada."
+    forma_acesso: "API do Climate Data Store, dataset reanalysis-era5-land, product_type=reanalysis, todas as 24 horas UTC; download NetCDF ou GRIB por mês e recorte espacial."
+    url_persistente: "https://github.com/ARCCSS-extremes/climpact2/blob/master/ancillary/climpact2.etsci-functions.r"
+    formatos: "NetCDF ou GRIB de entrada; CSV/Parquet para séries municipais."
+    necessidade_processamento: "Converter kelvin para °C; obter TX e TN como máximo e mínimo das 24 temperaturas horárias válidas de cada dia UTC. Calcular a medida por célula e, depois, sua média municipal por área. Esta TX não é a máxima instantânea de termômetro."
+    qualidade_incerteza: "Dia com menos de 24 horas válidas na grade é ausente. Nas sínteses anuais, mais de 15 dias ausentes, ou mais de três em qualquer mês, invalidam o ano; falhas não recebem zero e não unem sequências. Exigir 90% dos dados do período-base e registrar a cobertura. Sínteses municipais exigem ao menos 90% de área válida; informar essa fração. Critérios de cobertura são escolhas editoriais deste protocolo."
+    comparabilidade: "Fixar versão, calendário UTC, período-base e limites municipais de 2022. Não emendar estação e reanálise. Médias municipais de contagens podem ser fracionárias e não contam episódios sincrônicos do município."
+    notas: "Reproduzir as regras de fronteira e calendário de climdex.hw/Climpact2, inclusive remoção de 29/02, eventos que alcançam a estação e extensão de até 14 dias após seu término. Baixar também os 90 dias anteriores e posteriores; arquivar o hash da implementação usada. Sem evento: HWN=HWF=0; HWD, HWMD, HWM e HWA ausentes por não aplicação. As estatísticas municipais são médias por área, exceto ocorrência (percentual de área)."
+    protocolo_versao: "2026-10-03"
+    situacao_calculo: "abertos"
+    disponibilidade: ["Calculável com dados abertos"]
+    dependencia_dados_locais: "Opcional para validação"
+    automacao: "Condicionada"
+    condicoes_automacao: "Cadastro gratuito e credencial CDS; download das variáveis e processamento conforme a ficha."
+    evidencia_verificacao: "Documentação verificada"
+    detalhe_verificacao: "Produto e método documentados; série municipal completa ainda não produzida."
+    referencia_metodologica: "Perkins e Alexander (2013), família TX90, com implementação de referência climdex.hw do Climpact2. HWMD é uma medida derivada de HWF/HWN."
+    limiar_referencia: "TX > P90 durante pelo menos três dias consecutivos. Não misturar TX90, TN90 e EHF."
+    referencias: ["[@perkins2013heatwaves]", "[@climpact2026]"]
+
 
   - <<: *heatwave_common
     codigo: CLI-CAL-07
-    titulo_completo: Magnitude ou intensidade média das ondas de calor (HWM/HWI)
+    titulo_completo: "Magnitude média das ondas de calor TX90 (HWM)"
     titulo_resumido: Magnitude média — HWM
-    conceito: Média da medida térmica ou da magnitude normalizada nos dias pertencentes às ondas de calor, segundo a estrutura e a definição adotadas.
+    conceito: "Média, com pesos iguais entre eventos, das temperaturas máximas médias de cada onda TX90 da estação."
     objetivo: Quantificar o nível médio do calor durante os episódios.
-    interpretacao: Valor maior indica maior magnitude média segundo a escala escolhida. Temperatura absoluta, excesso ao limiar e magnitude normalizada não são intercambiáveis.
+    interpretacao: "Temperatura máxima média de uma onda típica, dando o mesmo peso a cada evento."
     usos: [Comparar intensidade média de temporadas., Caracterizar exposição térmica nos dias de onda., Relacionar gradiente de intensidade a desfechos.]
-    limitacoes: [O nome HWM/HWI é usado com fórmulas distintas., A média atenua picos., Unidade depende da medida de magnitude.]
-    metodo_calculo: Definir a magnitude diária — temperatura, excesso ao limiar, EHF ou escala normalizada — e calcular a média em todos os dias participantes, mantendo a especificação original.
-    formula_calculo: 'HWM_j = \frac{1}{HWF_j}\sum_{d \in HW_j} M_d'
-    numerador: Soma das magnitudes diárias nos dias de onda.
-    denominador: Número total de dias em ondas (HWF).
-    unidade_medida: A da magnitude diária; frequentemente °C, °C acima do limiar ou unidade normalizada.
+    limitacoes: ["Não equivale à média de todos os dias de onda ponderada por duração.", "Não usar HWI como sinônimo sem especificar sua fórmula."]
+    metodo_calculo: "Para cada onda, calcular a média das TX de seus dias. Calcular a média aritmética dessas médias entre os eventos, sem ponderar pela duração. Sem evento, resultado não aplicável. Agregar por área apenas depois do cálculo na célula."
+    formula_calculo: "HWM=\\frac{1}{HWN}\\sum_{e=1}^{HWN}\\left(\\frac{1}{D_e}\\sum_{d\\in e}TX_d\\right)"
+    numerador: "Soma das temperaturas máximas médias dos eventos TX90."
+    denominador: "HWN, número de eventos."
+    unidade_medida: "°C."
     analise_descritiva: Declarar a variante de HWM/HWI, apresentar distribuição diária e nunca comparar unidades diferentes.
+    fontes_dados: [{"id": "era5-land", "papel": "ERA5-Land hourly data, reanalysis-era5-land: 2m_temperature; 2m_dewpoint_temperature e vento a 10 m quando requeridos"}, {"id": "inmet", "papel": "Validação local e séries observadas separadas da reanálise"}]
+    resolucao_espacial_original: "ERA5-Land: grade de 0,1°; malha municipal IBGE 2022 como recorte fixo."
+    unidade_territorial: "Célula de grade; município como síntese ponderada pela área de interseção."
+    granularidade: "Calcular o indicador em cada célula antes da média municipal ponderada pela área; manter produto, célula, ano e código IBGE de sete dígitos."
+    cobertura_geografica: "Todos os municípios brasileiros no domínio da grade. Não representa diretamente a exposição individual ou o microclima de cada bairro."
+    periodo_disponivel: "1950–presente; publicar anos completos até 2025 e identificar 2026 como parcial. A janela inicial utilizável depende dos antecedentes exigidos pela medida."
+    periodo_referencia: "1961–1990; P90 de TX por dia do calendário em janela centrada de 15 dias, quantil tipo 8."
+    resolucao_temporal: "Estação quente: novembro–março no hemisfério sul; maio–setembro no norte. Identificar a temporada pelas datas de início e fim e pela latitude da célula."
+    periodicidade_atualizacao: "Anual, após completar e verificar o último ano de entrada."
+    forma_acesso: "API do Climate Data Store, dataset reanalysis-era5-land, product_type=reanalysis, todas as 24 horas UTC; download NetCDF ou GRIB por mês e recorte espacial."
+    url_persistente: "https://github.com/ARCCSS-extremes/climpact2/blob/master/ancillary/climpact2.etsci-functions.r"
+    formatos: "NetCDF ou GRIB de entrada; CSV/Parquet para séries municipais."
+    necessidade_processamento: "Converter kelvin para °C; obter TX e TN como máximo e mínimo das 24 temperaturas horárias válidas de cada dia UTC. Calcular a medida por célula e, depois, sua média municipal por área. Esta TX não é a máxima instantânea de termômetro."
+    qualidade_incerteza: "Dia com menos de 24 horas válidas na grade é ausente. Nas sínteses anuais, mais de 15 dias ausentes, ou mais de três em qualquer mês, invalidam o ano; falhas não recebem zero e não unem sequências. Exigir 90% dos dados do período-base e registrar a cobertura. Sínteses municipais exigem ao menos 90% de área válida; informar essa fração. Critérios de cobertura são escolhas editoriais deste protocolo."
+    comparabilidade: "Fixar versão, calendário UTC, período-base e limites municipais de 2022. Não emendar estação e reanálise. Médias municipais de contagens podem ser fracionárias e não contam episódios sincrônicos do município."
+    notas: "Reproduzir as regras de fronteira e calendário de climdex.hw/Climpact2, inclusive remoção de 29/02, eventos que alcançam a estação e extensão de até 14 dias após seu término. Baixar também os 90 dias anteriores e posteriores; arquivar o hash da implementação usada. Sem evento: HWN=HWF=0; HWD, HWMD, HWM e HWA ausentes por não aplicação. As estatísticas municipais são médias por área, exceto ocorrência (percentual de área)."
+    protocolo_versao: "2026-10-03"
+    situacao_calculo: "abertos"
+    disponibilidade: ["Calculável com dados abertos"]
+    dependencia_dados_locais: "Opcional para validação"
+    automacao: "Condicionada"
+    condicoes_automacao: "Cadastro gratuito e credencial CDS; download das variáveis e processamento conforme a ficha."
+    evidencia_verificacao: "Documentação verificada"
+    detalhe_verificacao: "Produto e método documentados; série municipal completa ainda não produzida."
+    referencia_metodologica: "Perkins e Alexander (2013), família TX90, com implementação de referência climdex.hw do Climpact2. HWMD é uma medida derivada de HWF/HWN."
+    limiar_referencia: "TX > P90 durante pelo menos três dias consecutivos. Não misturar TX90, TN90 e EHF."
+    referencias: ["[@perkins2013heatwaves]", "[@climpact2026]"]
+
 
   - <<: *heatwave_common
     codigo: CLI-CAL-08
-    titulo_completo: Amplitude ou intensidade máxima das ondas de calor (HWA)
+    titulo_completo: "Amplitude da onda de calor TX90 de maior magnitude média (HWA)"
     titulo_resumido: Amplitude máxima — HWA
-    conceito: Maior magnitude diária observada no episódio mais intenso ou, conforme a especificação, em qualquer dia de onda do período.
+    conceito: "Maior TX dentro da onda que apresenta a maior TX média da estação."
     objetivo: Representar o pico térmico das ondas de calor.
-    interpretacao: Valor maior indica pico mais intenso; não representa persistência nem carga acumulada.
+    interpretacao: "Pico da onda de maior média; pode diferir do maior valor de todos os dias em ondas."
     usos: [Caracterizar o pior momento da temporada., Avaliar demanda de pico e comunicação., Comparar máximos sob método comum.]
     limitacoes: [Muito sensível a erro isolado., Há variantes quanto ao evento de referência., Não descreve duração.]
-    metodo_calculo: Calcular magnitude diária segundo a definição e selecionar o máximo, declarando se HWA corresponde ao maior dia de qualquer onda ou ao pico da onda de maior magnitude média.
-    formula_calculo: 'HWA_j = \max_{d \in HW_j}(M_d)'
+    metodo_calculo: "Calcular a TX média de cada evento TX90; selecionar o evento com maior média e, dentro dele, a maior TX. Em empate entre médias, selecionar o primeiro evento cronológico. Sem evento, resultado não aplicável."
+    formula_calculo: "e^*=\\arg\\max_e\\overline{TX}_e,\\qquad HWA=\\max_{d\\in e^*}TX_d"
     numerador: Não se aplica.
     denominador: Não se aplica.
-    unidade_medida: A da magnitude diária.
+    unidade_medida: "°C."
     analise_descritiva: Informar data, evento, qualidade do dado, HWD e HWM; validar o pico antes da publicação.
+    fontes_dados: [{"id": "era5-land", "papel": "ERA5-Land hourly data, reanalysis-era5-land: 2m_temperature; 2m_dewpoint_temperature e vento a 10 m quando requeridos"}, {"id": "inmet", "papel": "Validação local e séries observadas separadas da reanálise"}]
+    resolucao_espacial_original: "ERA5-Land: grade de 0,1°; malha municipal IBGE 2022 como recorte fixo."
+    unidade_territorial: "Célula de grade; município como síntese ponderada pela área de interseção."
+    granularidade: "Calcular o indicador em cada célula antes da média municipal ponderada pela área; manter produto, célula, ano e código IBGE de sete dígitos."
+    cobertura_geografica: "Todos os municípios brasileiros no domínio da grade. Não representa diretamente a exposição individual ou o microclima de cada bairro."
+    periodo_disponivel: "1950–presente; publicar anos completos até 2025 e identificar 2026 como parcial. A janela inicial utilizável depende dos antecedentes exigidos pela medida."
+    periodo_referencia: "1961–1990; P90 de TX por dia do calendário em janela centrada de 15 dias, quantil tipo 8."
+    resolucao_temporal: "Estação quente: novembro–março no hemisfério sul; maio–setembro no norte. Identificar a temporada pelas datas de início e fim e pela latitude da célula."
+    periodicidade_atualizacao: "Anual, após completar e verificar o último ano de entrada."
+    forma_acesso: "API do Climate Data Store, dataset reanalysis-era5-land, product_type=reanalysis, todas as 24 horas UTC; download NetCDF ou GRIB por mês e recorte espacial."
+    url_persistente: "https://github.com/ARCCSS-extremes/climpact2/blob/master/ancillary/climpact2.etsci-functions.r"
+    formatos: "NetCDF ou GRIB de entrada; CSV/Parquet para séries municipais."
+    necessidade_processamento: "Converter kelvin para °C; obter TX e TN como máximo e mínimo das 24 temperaturas horárias válidas de cada dia UTC. Calcular a medida por célula e, depois, sua média municipal por área. Esta TX não é a máxima instantânea de termômetro."
+    qualidade_incerteza: "Dia com menos de 24 horas válidas na grade é ausente. Nas sínteses anuais, mais de 15 dias ausentes, ou mais de três em qualquer mês, invalidam o ano; falhas não recebem zero e não unem sequências. Exigir 90% dos dados do período-base e registrar a cobertura. Sínteses municipais exigem ao menos 90% de área válida; informar essa fração. Critérios de cobertura são escolhas editoriais deste protocolo."
+    comparabilidade: "Fixar versão, calendário UTC, período-base e limites municipais de 2022. Não emendar estação e reanálise. Médias municipais de contagens podem ser fracionárias e não contam episódios sincrônicos do município."
+    notas: "Reproduzir as regras de fronteira e calendário de climdex.hw/Climpact2, inclusive remoção de 29/02, eventos que alcançam a estação e extensão de até 14 dias após seu término. Baixar também os 90 dias anteriores e posteriores; arquivar o hash da implementação usada. Sem evento: HWN=HWF=0; HWD, HWMD, HWM e HWA ausentes por não aplicação. As estatísticas municipais são médias por área, exceto ocorrência (percentual de área)."
+    protocolo_versao: "2026-10-03"
+    situacao_calculo: "abertos"
+    disponibilidade: ["Calculável com dados abertos"]
+    dependencia_dados_locais: "Opcional para validação"
+    automacao: "Condicionada"
+    condicoes_automacao: "Cadastro gratuito e credencial CDS; download das variáveis e processamento conforme a ficha."
+    evidencia_verificacao: "Documentação verificada"
+    detalhe_verificacao: "Produto e método documentados; série municipal completa ainda não produzida."
+    referencia_metodologica: "Perkins e Alexander (2013), família TX90, com implementação de referência climdex.hw do Climpact2. HWMD é uma medida derivada de HWF/HWN."
+    limiar_referencia: "TX > P90 durante pelo menos três dias consecutivos. Não misturar TX90, TN90 e EHF."
+    referencias: ["[@perkins2013heatwaves]", "[@climpact2026]"]

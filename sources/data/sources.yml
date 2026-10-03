@@ -110,22 +110,23 @@
   cobertura_geografica: Global.
   resolucao_espacial: Grade regular de 0,1° por 0,1°; resolução nativa aproximada de 9 km.
   resolucao_temporal: Horária no conjunto consultado.
-  periodo_disponivel: Desde 1950 até o presente, conforme o catálogo consultado; verificar latência e versão.
+  periodo_disponivel: "1950–presente; distinguir ERA5-Land consolidado e atualizações preliminares."
   atualizacao: Diária.
   acesso: Climate Data Store.
   url: https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land
-  api: Climate Data Store API; o catálogo também publica metadados STAC.
+  api: "https://cds.climate.copernicus.eu/api"
   formatos: [GRIB no produto em grade, NetCDF e CSV no produto de séries por ponto]
-  licenca: CC BY para a versão do conjunto consultada; registrar DOI 10.24381/cds.e2161bac e a data de extração.
-  cadastro: Conta no Climate Data Store e aceitação dos termos podem ser necessárias para solicitar arquivos.
+  licenca: "CC BY 4.0, conforme termos atuais do produto; arquivar a licença aceita no CDS."
+  cadastro: "Cadastro gratuito no CDS, aceite da licença e credencial da API."
   custos: A documentação consultada descreve acesso gratuito ao ERA5.
   limitacoes: Reanálise modelada; documentar viés, versão, agregação e diferença em relação a estações.
-  ultima_verificacao: 2026-07-28
+  ultima_verificacao: "2026-10-03"
   indicadores: [CLI-TEM-01, CLI-CAL-01]
+
 
 - id: era5-heat
   tipo_registro: produto
-  nome: ERA5-HEAT — índices de conforto térmico derivados do ERA5
+  nome: "ERA5-HEAT v1.1 — UTCI histórico"
   sigla: ERA5-HEAT
   instituicao: Copernicus Climate Change Service
   descricao: Produto global horário de temperatura radiante média e Índice Térmico Universal do Clima, calculado com variáveis do ERA5 e modelos de termorregulação e vestimenta.
@@ -133,20 +134,21 @@
   temas: [temperatura, estresse térmico, biometeorologia, reanálise]
   variaveis: [temperatura radiante média, UTCI]
   cobertura_geografica: Global, exceto Antártica no produto de séries temporais, de 90°N a 60°S.
-  resolucao_espacial: Grade regular de 0,25°.
-  resolucao_temporal: Horária; o catálogo também oferece estatísticas agregadas no produto em grade.
-  periodo_disponivel: Desde janeiro de 1940 até próximo do presente.
+  resolucao_espacial: "0,25°"
+  resolucao_temporal: "Horária"
+  periodo_disponivel: "1940–presente, versão 1.1."
   atualizacao: Extensão regular conforme disponibilidade do ERA5; o produto de séries temporais informa atualização diária com cerca de cinco dias de latência.
   acesso: Climate Data Store, por interface e API.
-  url: https://cds.climate.copernicus.eu/datasets/derived-utci-historical
-  api: Climate Data Store API.
+  url: "https://cds.climate.copernicus.eu/datasets/derived-utci-historical"
+  api: "https://cds.climate.copernicus.eu/api"
   formatos: [NetCDF, CSV no produto de séries temporais]
-  licenca: Licença de produtos Copernicus indicada no conjunto; registrar a versão aplicável.
+  licenca: "Licença Copernicus do produto ERA5-HEAT; conservar os termos aceitos e atribuir o produto derivado."
   cadastro: Conta do Climate Data Store e aceitação dos termos podem ser necessárias para obter arquivos.
   custos: Acesso público sem cobrança pelo conjunto.
   limitacoes: Reanálise modelada em grade; não representa sombra, materiais e ventilação em microescala urbana ou ocupacional; validar para a aplicação local.
-  ultima_verificacao: 2026-07-28
+  ultima_verificacao: "2026-10-03"
   indicadores: [CLI-EST-04]
+
 
 - id: cams
   tipo_registro: serviço
@@ -622,3 +624,51 @@
   limitacoes: A estrutura requer adaptação ao contexto, definição do universo avaliado e verificação documental ou funcional; percentuais não devem ser interpretados como cobertura nacional quando a amostra não for representativa.
   ultima_verificacao: 2026-07-28
   indicadores: [RES-GOV-01, RES-RIS-01, RES-ALR-01, RES-WAT-01, RES-ENE-01, RES-PLA-01, RES-INF-01]
+
+- id: "berkeley-earth-daily"
+  tipo_registro: "produto"
+  nome: "Berkeley Earth — temperatura diária em grade"
+  instituicao: "Berkeley Earth"
+  descricao: "Produto interpolado usado na reprodução do agrupamento espacial de Skinner et al.; fixar edição e arquivos."
+  recursos_relacionados: ["Berkeley Earth — temperatura diária em grade"]
+  temas: ["Indicadores da Parte II"]
+  variaveis: ["TX"]
+  cobertura_geografica: "Brasil no domínio do produto; cobertura efetiva descrita nas fichas."
+  resolucao_espacial: "1°"
+  resolucao_temporal: "Diária"
+  periodo_disponivel: "1980–2019 no protocolo desta ficha"
+  atualizacao: "Por edição do produto; congelar versão e data da extração."
+  acesso: "Download programático dos arquivos públicos identificados no catálogo."
+  url: "https://berkeleyearth.org/data/"
+  api: "https://berkeleyearth.org/data/"
+  formatos: ["Arquivos digitais descritos no produto"]
+  licenca: "Dados com atribuição requerida; conservar os termos da edição e a licença do código Zenodo separadamente."
+  cadastro: "Não exigido para download público."
+  custos: "Consulta e dados públicos sem cobrança; processamento e armazenamento por conta do usuário."
+  limitacoes: "Verificar cobertura, qualidade, versão e valores ausentes antes da agregação."
+  ultima_verificacao: "2026-10-03"
+  indicadores: ["CLI-EXP-01"]
+
+- id: "worldpop-age"
+  tipo_registro: "produto"
+  nome: "WorldPop Global1 — Age/Sex Structures, Brasil"
+  instituicao: "WorldPop, University of Southampton"
+  descricao: "Grades anuais de contagem populacional por sexo e idade; versão unconstrained Global1."
+  recursos_relacionados: ["WorldPop Global1 — Age/Sex Structures, Brasil"]
+  temas: ["Indicadores da Parte II"]
+  variaveis: ["População por idade e sexo"]
+  cobertura_geografica: "Brasil no domínio do produto; cobertura efetiva descrita nas fichas."
+  resolucao_espacial: "100 m nominal"
+  resolucao_temporal: "Anual"
+  periodo_disponivel: "2000–2020"
+  atualizacao: "Por edição do produto; congelar versão e data da extração."
+  acesso: "Download programático dos arquivos públicos identificados no catálogo."
+  url: "https://hub.worldpop.org/Global1_2000-2020_AgeSexStructures"
+  api: "https://hub.worldpop.org/Global1_2000-2020_AgeSexStructures"
+  formatos: ["GeoTIFF"]
+  licenca: "CC BY 4.0; citar produto, ano e versão."
+  cadastro: "Não exigido para download público."
+  custos: "Consulta e dados públicos sem cobrança; processamento e armazenamento por conta do usuário."
+  limitacoes: "Verificar cobertura, qualidade, versão e valores ausentes antes da agregação."
+  ultima_verificacao: "2026-10-03"
+  indicadores: ["CLI-EXP-02"]

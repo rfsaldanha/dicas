@@ -1,16 +1,16 @@
-## Ficha do indicador: Ocorrência de onda de calor {#sec-cli-cal-02 .ficha-title}
+## Ficha do indicador: Ocorrência de ondas de calor TX90 e proporção da área municipal atingida {#sec-cli-cal-02 .ficha-title}
 
 ::: {.indicator-card}
 [Código:]{.field-label} CLI-CAL-02 \
-[Título resumido:]{.field-label} Ocorrência de onda de calor \
+[Título resumido:]{.field-label} Ocorrência de ondas TX90 \
 [Tema:]{.field-label} Temperatura e condições térmicas \
 [Dimensão:]{.field-label} perigo; exposição \
-[Disponibilidade:]{.field-label} [requer processamento climatológico]{.availability}
+[Disponibilidade:]{.field-label} [Calculável com dados abertos]{.availability}
 :::
 
 ### Identificação e fundamento {.unnumbered .ficha-section}
 
-[Base de consolidação.]{.field-label} Estrutura multiaspecto de ondas de calor proposta por Perkins e Alexander (2013), aplicada a episódios definidos por temperatura máxima, temperatura mínima ou EHF.
+[Base de consolidação.]{.field-label} Perkins e Alexander (2013), família TX90, com implementação de referência climdex.hw do Climpact2. HWMD é uma medida derivada de HWF/HWN.
 
 ::: {.callout-note icon=false title="Conceito-chave"}
 Indicador binário de presença de pelo menos um episódio de onda de calor no local e período, segundo uma definição térmica publicada e integralmente declarada.
@@ -22,7 +22,7 @@ Identificar temporadas, meses ou territórios com ao menos um episódio qualific
 
 ### Interpretação {.unnumbered .ficha-section}
 
-Valor 1 indica uma ou mais ondas; valor 0 indica que nenhuma sequência atendeu à definição. O indicador não informa quantas ondas ocorreram nem sua duração ou intensidade.
+Na célula indica presença de evento. No município expressa a parcela da área que teve ao menos um evento, mesmo que as datas sejam diferentes.
 
 ### Usos {.unnumbered .ficha-section}
 
@@ -38,15 +38,15 @@ Valor 1 indica uma ou mais ondas; valor 0 indica que nenhuma sequência atendeu 
 
 ### Fontes de dados {.unnumbered .ficha-section}
 
-- Instituto Nacional de Meteorologia — observações diárias de temperatura em estação ([cadastro](../../backmatter/indice-fontes.qmd#inmet))
-- ERA5-Land — reanálise em grade quando validada para a finalidade ([cadastro](../../backmatter/indice-fontes.qmd#era5-land))
+- ERA5-Land — ERA5-Land hourly data, reanalysis-era5-land: 2m_temperature; 2m_dewpoint_temperature e vento a 10 m quando requeridos ([cadastro](../../backmatter/indice-fontes.qmd#era5-land))
+- Instituto Nacional de Meteorologia — Validação local e séries observadas separadas da reanálise ([cadastro](../../backmatter/indice-fontes.qmd#inmet))
 
 ### Método de cálculo {.unnumbered .ficha-section}
 
-Detectar episódios conforme variável, limiar e duração definidos. Atribuir 1 quando o número de episódios no período for maior ou igual a um e 0 nos demais casos.
+Detectar os eventos TX90 pelo protocolo desta família. Na célula, atribuir 1 se HWN ≥ 1, ou 0 em temporada válida sem evento. No município, calcular 100 vezes a soma das áreas de células com ocorrência, dividida pela área válida; exigir cobertura ≥90%.
 
 $$
-O_j = I(HWN_j \geq 1)
+O_g=I(HWN_g\geq1),\qquad O_m=100\frac{\sum_g a_{gm}O_g}{\sum_g a_{gm}}
 $$
 
 ::: {.indicator-card}
@@ -54,17 +54,17 @@ $$
 
 [Denominador.]{.field-label} Não se aplica.
 
-[Unidade de medida.]{.field-label} Indicador binário (0 ou 1); em agregações, percentual de unidades com ocorrência.
+[Unidade de medida.]{.field-label} 0/1 por célula; % de área na síntese municipal.
 
 [Variáveis e categorias de análise.]{.field-label} Definição térmica; estação quente; local; estação meteorológica ou célula; faixa etária e outros estratos apenas quando combinados com dados populacionais ou de saúde.
 
-[Granularidade.]{.field-label} Estação ou célula de grade; sínteses territoriais exigem regra explícita de agregação.
+[Granularidade.]{.field-label} Calcular o indicador em cada célula antes da média municipal ponderada pela área; manter produto, célula, ano e código IBGE de sete dígitos.
 
-[Periodicidade de atualização.]{.field-label} Sazonal ou anual para monitoramento; versões operacionais podem ser atualizadas diariamente com previsão, sob protocolo distinto.
+[Periodicidade de atualização.]{.field-label} Anual, após completar e verificar o último ano de entrada.
 
 [Responsabilidade gerencial.]{.field-label} Serviço meteorológico ou climático produtor e instituição de saúde usuária devem pactuar definição, calendário, atualização e interpretação.
 
-[Notas.]{.field-label} A estrutura multiaspecto separa propriedades que não devem ser usadas como sinônimos. A definição do episódio precede o cálculo de qualquer aspecto.
+[Notas.]{.field-label} Reproduzir as regras de fronteira e calendário de climdex.hw/Climpact2, inclusive remoção de 29/02, eventos que alcançam a estação e extensão de até 14 dias após seu término. Baixar também os 90 dias anteriores e posteriores; arquivar o hash da implementação usada. Sem evento: HWN=HWF=0; HWD, HWMD, HWM e HWA ausentes por não aplicação. As estatísticas municipais são médias por área, exceto ocorrência (percentual de área).
 
 [Análise descritiva do indicador.]{.field-label} Apresentar ocorrência com HWN, HWF e intensidade para evitar que temporadas muito diferentes pareçam iguais.
 
@@ -73,39 +73,51 @@ $$
 ### Campos complementares para clima, ambiente e saúde {.unnumbered .ficha-section}
 
 ::: {.indicator-card}
-[Unidade territorial.]{.field-label} Estação meteorológica, célula de grade ou território derivado.
+[Unidade territorial.]{.field-label} Célula de grade; município como síntese ponderada pela área de interseção.
 
-[Resolução espacial original.]{.field-label} A da fonte meteorológica; não atribuir automaticamente um ponto a todo o município.
+[Resolução espacial original.]{.field-label} ERA5-Land: grade de 0,1°; malha municipal IBGE 2022 como recorte fixo.
 
-[Resolução temporal.]{.field-label} Entrada diária; saída por estação quente ou ano, preservando o calendário do hemisfério e a regra para episódios que cruzam limites.
+[Resolução temporal.]{.field-label} Estação quente: novembro–março no hemisfério sul; maio–setembro no norte. Identificar a temporada pelas datas de início e fim e pela latitude da célula.
 
-[Período de referência.]{.field-label} Período-base usado para estimar percentis e normalizar magnitudes; deve ser fixo e comum às comparações.
+[Período de referência.]{.field-label} 1961–1990; P90 de TX por dia do calendário em janela centrada de 15 dias, quantil tipo 8.
 
-[Limiar ou valor de referência.]{.field-label} Pelo menos três dias consecutivos acima do percentil 90 de TX, acima do percentil 90 de TN ou com EHF positivo, conforme a definição escolhida; não misturar definições numa mesma série.
+[Limiar ou valor de referência.]{.field-label} TX > P90 durante pelo menos três dias consecutivos. Não misturar TX90, TN90 e EHF.
 
 :::
 
 ### Disponibilidade e acesso {.unnumbered .ficha-section}
 
-[Cobertura geográfica.]{.field-label} Determinada pela rede ou produto; a cobertura analítica depende também da completude da série.
+[Protocolo verificado em.]{.field-label} 2026-10-03
 
-[Período disponível.]{.field-label} O da fonte selecionada, com extensão suficiente para período-base e análise.
+[Dependência de dados locais.]{.field-label} Opcional para validação
 
-[Periodicidade de atualização.]{.field-label} Sazonal ou anual para monitoramento; versões operacionais podem ser atualizadas diariamente com previsão, sob protocolo distinto.
+[Automação.]{.field-label} Condicionada
 
-[Forma de acesso.]{.field-label} Cálculo reprodutível sobre séries diárias de temperatura máxima, mínima ou média.
+[Requisitos para o cálculo.]{.field-label} Cadastro gratuito e credencial CDS; download das variáveis e processamento conforme a ficha.
 
-[URL ou identificador persistente.]{.field-label} https://doi.org/10.1175/JCLI-D-12-00383.1
+[Nível de evidência.]{.field-label} Documentação verificada
 
-[Formato dos arquivos.]{.field-label} Tabela diária por estação ou arquivo multidimensional por célula, com códigos de qualidade e metadados.
+[Alcance da verificação.]{.field-label} Produto e método documentados; série municipal completa ainda não produzida.
 
-[Necessidade de processamento.]{.field-label} Controle de qualidade, cálculo do limiar, detecção de sequências, identificação de eventos e síntese do aspecto específico.
+[Cobertura geográfica.]{.field-label} Todos os municípios brasileiros no domínio da grade. Não representa diretamente a exposição individual ou o microclima de cada bairro.
+
+[Período disponível.]{.field-label} 1950–presente; publicar anos completos até 2025 e identificar 2026 como parcial. A janela inicial utilizável depende dos antecedentes exigidos pela medida.
+
+[Periodicidade de atualização.]{.field-label} Anual, após completar e verificar o último ano de entrada.
+
+[Forma de acesso.]{.field-label} API do Climate Data Store, dataset reanalysis-era5-land, product_type=reanalysis, todas as 24 horas UTC; download NetCDF ou GRIB por mês e recorte espacial.
+
+[URL ou identificador persistente.]{.field-label} https://github.com/ARCCSS-extremes/climpact2/blob/master/ancillary/climpact2.etsci-functions.r
+
+[Formato dos arquivos.]{.field-label} NetCDF ou GRIB de entrada; CSV/Parquet para séries municipais.
+
+[Necessidade de processamento.]{.field-label} Converter kelvin para °C; obter TX e TN como máximo e mínimo das 24 temperaturas horárias válidas de cada dia UTC. Calcular a medida por célula e, depois, sua média municipal por área. Esta TX não é a máxima instantânea de termômetro.
 
 ### Qualidade, comparação e saúde {.unnumbered .ficha-section}
 
-[Qualidade e incerteza.]{.field-label} Relatar fonte, falhas que criem ou interrompam sequências, período-base, algoritmo de percentil, definição da estação, viés de grades e sensibilidade à definição.
+[Qualidade e incerteza.]{.field-label} Dia com menos de 24 horas válidas na grade é ausente. Nas sínteses anuais, mais de 15 dias ausentes, ou mais de três em qualquer mês, invalidam o ano; falhas não recebem zero e não unem sequências. Exigir 90% dos dados do período-base e registrar a cobertura. Sínteses municipais exigem ao menos 90% de área válida; informar essa fração. Critérios de cobertura são escolhas editoriais deste protocolo.
 
-[Possibilidade de comparação.]{.field-label} Exige a mesma variável térmica, limiar, período-base, duração mínima, estação, calendário, completude e tratamento de eventos de fronteira.
+[Possibilidade de comparação.]{.field-label} Fixar versão, calendário UTC, período-base e limites municipais de 2022. Não emendar estação e reanálise. Médias municipais de contagens podem ser fracionárias e não contam episódios sincrônicos do município.
 
 [Relação com desfechos de saúde.]{.field-label} Ondas de calor estão associadas a aumento de morbidade, mortalidade e demanda de serviços. A magnitude da associação varia com definição, clima, população, desfecho e adaptação.
 
@@ -116,5 +128,4 @@ $$
 ### Referências metodológicas {.unnumbered .ficha-section}
 
 - [@perkins2013heatwaves]
-- [@nawaro2023]
-- [@wmoWho2015heat]
+- [@climpact2026]

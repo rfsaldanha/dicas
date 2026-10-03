@@ -15,7 +15,7 @@ Séries subdiárias permitem calcular médias, máximas e mínimas diárias. Par
 - A estação e seus metadados;
 - Mudanças de instrumento ou localização.
 
-Temperatura máxima diária é uma variável de entrada de vários indicadores consolidados. Neste livro ela não recebe ficha autônoma: a ficha é reservada à medida que tem definição metodológica publicada e finalidade interpretativa definida.
+Temperatura máxima diária é uma variável de entrada de vários indicadores consolidados. Sua máxima anual recebe a ficha TXx (CLI-TEM-02), enquanto TX90p descreve frequência relativa; as duas medidas têm significados distintos.
 
 ## Temperatura da superfície
 
@@ -220,7 +220,21 @@ Indicadores de temperatura e ondas de calor usados em saúde pública (conclusã
 
 As fichas são apresentadas por indicador, e não como uma ficha genérica de “onda de calor”. As duas primeiras documentam TX90p e WSDI; as fichas subsequentes cobrem as demais famílias selecionadas. Nenhuma substitui um limiar calor–saúde validado localmente.
 
+## Protocolo de cálculo e disponibilidade
+
+As fichas deste capítulo fixam produto, variável, período-base, calendário e agregação. **Calculável com dados abertos** identifica as medidas com entradas públicas especificadas; o acesso ao CDS exige cadastro gratuito. **Depende de dados locais** identifica o IBUTG (CLI-EST-05), que exige medições instrumentais no posto de trabalho. Nenhuma leitura de estação representa automaticamente todo o município. A substituição da observação por reanálise deve originar outra série, identificada pelo produto.
+
+A série climática principal usa ERA5-Land horário, desde 1950, com TX/TN obtidas em dias UTC completos. Salvo exceção expressa, o índice é calculado primeiro na célula e depois agregado pela área de interseção com a malha municipal IBGE 2022. As médias municipais de contagens podem ser fracionárias. UTCI usa ERA5-HEAT v1.1, a extensão regional usa o produto e o algoritmo de Skinner et al., e pessoas-dia usa WorldPop por idade. As fichas registram essas exceções e seus históricos próprios.
+
+TX90p, TN90p, WSDI e o novo CSDI usam a base 1961–1990. HWMId e ondas compostas usam 1981–2010; pessoas-dia segue 1986–2005. Esses períodos não devem ser trocados silenciosamente. A família CLI-CAL-02 a CLI-CAL-08 usa exclusivamente ondas TX90: HWM é a média das médias dos eventos e HWA é o pico do evento de maior média. O CEHWI diário tem unidade °C; sua soma no evento tem unidade °C·dia.
+
+Os rótulos descrevem a viabilidade do cálculo, não a existência de uma série nacional já calculada. Cada ficha informa separadamente a dependência local, os requisitos de automação e o alcance da verificação. Nos dados em grade, a falta de uma estação local não impede o cálculo, mas limita sua validação e interpretação em escala fina.
+
 {{< include ../../indicators/includes/cli-tem-01.qmd >}}
+
+{{< include ../../indicators/includes/cli-tem-02.qmd >}}
+
+{{< include ../../indicators/includes/cli-fri-01.qmd >}}
 
 {{< include ../../indicators/includes/cli-cal-01.qmd >}}
 

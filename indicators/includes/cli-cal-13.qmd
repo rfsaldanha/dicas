@@ -1,11 +1,11 @@
-## Ficha do indicador: Índice Cumulativo de Excesso de Calor em Ondas de Calor (CEHWI) {#sec-cli-cal-13 .ficha-title}
+## Ficha do indicador: Intensidade excedente diária e acumulada de ondas de calor (CEHWI) {#sec-cli-cal-13 .ficha-title}
 
 ::: {.indicator-card}
 [Código:]{.field-label} CLI-CAL-13 \
 [Título resumido:]{.field-label} Excesso acumulado — CEHWI \
 [Tema:]{.field-label} Temperatura e condições térmicas \
 [Dimensão:]{.field-label} perigo; exposição \
-[Disponibilidade:]{.field-label} [requer processamento climatológico]{.availability}
+[Disponibilidade:]{.field-label} [Calculável com dados abertos]{.availability}
 :::
 
 ### Identificação e fundamento {.unnumbered .ficha-section}
@@ -40,15 +40,15 @@ Valor diário maior indica excesso médio mais elevado entre as horas acima do l
 
 ### Fontes de dados {.unnumbered .ficha-section}
 
-- Instituto Nacional de Meteorologia — temperaturas máxima, mínima e, quando necessário, horária ([cadastro](../../backmatter/indice-fontes.qmd#inmet))
-- ERA5-Land — temperatura horária em grade, condicionada à validação ([cadastro](../../backmatter/indice-fontes.qmd#era5-land))
+- ERA5-Land — ERA5-Land hourly data, reanalysis-era5-land: 2m_temperature; 2m_dewpoint_temperature e vento a 10 m quando requeridos ([cadastro](../../backmatter/indice-fontes.qmd#era5-land))
+- Instituto Nacional de Meteorologia — Validação local e séries observadas separadas da reanálise ([cadastro](../../backmatter/indice-fontes.qmd#inmet))
 
 ### Método de cálculo {.unnumbered .ficha-section}
 
-Classificar ondas como diurnas, noturnas ou compostas. Dividir o dia em noite, dia e entardecer conforme nascer e pôr do sol. Para cada hora do período pertinente, subtrair o limiar diário local — TX90 para onda diurna, TN90 para noturna e Tmean90 para composta —, manter apenas diferenças positivas, somá-las e dividir pelo número de horas com excesso. Somar os valores diários quando a finalidade for representar o episódio.
+Reconstituir dias em hora solar local (UTC+longitude/15), por interpolação linear horária, e o nascer/pôr do sol pela geometria solar da latitude e data. Para onda diurna usar horas entre nascer e pôr do sol e limiar P90(TX); noturna, horas fora desse intervalo e P90(TN); composta, 24 horas e P90(Tmédia). Em cada dia de onda, somar apenas excessos horários positivos e dividir pelo número de horas com excesso: esta é a intensidade diária em °C. Somar as intensidades diárias de um evento para a intensidade acumulada em °C·dia; publicar o máximo anual desta última por tipo e por ano de início do evento. Se não houver hora excedente em um dia de onda, registrar não aplicável, sem dividir por zero; sem evento anual, zero.
 
 $$
-CEHWI_{ig}=\frac{\sum_{j=1}^{N_{ig}}(t_{jg}-Thr_{ig})I(t_{jg}>Thr_{ig})}{n_{ig}}
+CEHWI_{d,k}=\frac{\sum_{h\in H_{d,k}}\max(0,T_h-L_{d,k})}{\sum_{h\in H_{d,k}}I(T_h>L_{d,k})},\qquad CEHWI_{e,k}=\sum_{d\in e}CEHWI_{d,k}
 $$
 
 ::: {.indicator-card}
@@ -56,17 +56,17 @@ $$
 
 [Denominador.]{.field-label} Número de horas do período da onda em que a temperatura excede o limiar.
 
-[Unidade de medida.]{.field-label} Grau Celsius (°C) por dia; soma de °C-dia quando acumulado no episódio, conforme especificação declarada.
+[Unidade de medida.]{.field-label} °C na intensidade diária; °C·dia na intensidade acumulada do evento.
 
 [Variáveis e categorias de análise.]{.field-label} Temperatura horária; TX, TN e temperatura média; nascer e pôr do sol; tipo de onda; episódio; cidade.
 
-[Granularidade.]{.field-label} Valor diário por tipo de onda e soma por episódio.
+[Granularidade.]{.field-label} Calcular o indicador em cada célula antes da média municipal ponderada pela área; manter produto, célula, ano e código IBGE de sete dígitos.
 
-[Periodicidade de atualização.]{.field-label} Diária em aplicação operacional ou por estudo epidemiológico.
+[Periodicidade de atualização.]{.field-label} Anual, após completar e verificar o último ano de entrada.
 
 [Responsabilidade gerencial.]{.field-label} Serviço meteorológico ou climático responsável pela exposição e autoridade de saúde responsável por validar o uso.
 
-[Notas.]{.field-label} As definições publicadas abaixo são reproduzidas para comparabilidade. Seu uso como gatilho operacional depende de validação com desfechos locais.
+[Notas.]{.field-label} A discretização horária e o resumo municipal são especificações operacionais do livro baseadas em Liu et al.; não confundir média de excesso com soma de graus-hora. Não combinar esta variante solar com séries calculadas em dias UTC.
 
 [Análise descritiva do indicador.]{.field-label} Mostrar distribuição do CEHWI por tipo de onda, trajetória diária, total por episódio, percentis locais e curvas exposição–resposta com intervalos de incerteza.
 
@@ -75,39 +75,51 @@ $$
 ### Campos complementares para clima, ambiente e saúde {.unnumbered .ficha-section}
 
 ::: {.indicator-card}
-[Unidade territorial.]{.field-label} Estação meteorológica, célula de grade ou território derivado.
+[Unidade territorial.]{.field-label} Célula de grade; município como síntese ponderada pela área de interseção.
 
-[Resolução espacial original.]{.field-label} A da série meteorológica; a atribuição territorial exige método explícito.
+[Resolução espacial original.]{.field-label} ERA5-Land: grade de 0,1°; malha municipal IBGE 2022 como recorte fixo.
 
-[Resolução temporal.]{.field-label} Entrada horária; saída diária e por episódio.
+[Resolução temporal.]{.field-label} Horária em hora solar local; saída diária, por evento e máximo anual por tipo.
 
-[Período de referência.]{.field-label} 1981–2010 e janela móvel de 15 dias na aplicação publicada.
+[Período de referência.]{.field-label} 1981–2010; P90 de TX, TN e temperatura média diária em janelas centradas de 15 dias, quantil tipo 8.
 
-[Limiar ou valor de referência.]{.field-label} Percentil 90 diário local de TX, TN ou temperatura média, conforme o tipo de onda.
+[Limiar ou valor de referência.]{.field-label} Pelo menos dois dias de TX≥P90 para ondas diurnas, TN≥P90 para noturnas, ou ambas para compostas; tipos devem ser publicados separadamente.
 
 :::
 
 ### Disponibilidade e acesso {.unnumbered .ficha-section}
 
-[Cobertura geográfica.]{.field-label} A da fonte meteorológica selecionada.
+[Protocolo verificado em.]{.field-label} 2026-10-03
 
-[Período disponível.]{.field-label} O da fonte horária, incluindo período-base adequado.
+[Dependência de dados locais.]{.field-label} Opcional para validação
 
-[Periodicidade de atualização.]{.field-label} Diária em aplicação operacional ou por estudo epidemiológico.
+[Automação.]{.field-label} Condicionada
 
-[Forma de acesso.]{.field-label} Cálculo sobre temperatura horária e efemérides locais, com código e parâmetros versionados.
+[Requisitos para o cálculo.]{.field-label} Cadastro gratuito e credencial CDS; download das variáveis e processamento conforme a ficha.
 
-[URL ou identificador persistente.]{.field-label} https://doi.org/10.1038/s41467-025-56067-7
+[Nível de evidência.]{.field-label} Documentação verificada
 
-[Formato dos arquivos.]{.field-label} Tabela horária de entrada e tabela diária/por episódio de saída.
+[Alcance da verificação.]{.field-label} Produto e método documentados; série municipal completa ainda não produzida.
 
-[Necessidade de processamento.]{.field-label} Reconstruir TX, TN e média, calcular percentis, classificar ondas e períodos do dia, calcular excessos horários e acumular.
+[Cobertura geográfica.]{.field-label} Todos os municípios brasileiros no domínio da grade. Não representa diretamente a exposição individual ou o microclima de cada bairro.
+
+[Período disponível.]{.field-label} 1950–presente; publicar anos completos até 2025 e identificar 2026 como parcial. A janela inicial utilizável depende dos antecedentes exigidos pela medida.
+
+[Periodicidade de atualização.]{.field-label} Anual, após completar e verificar o último ano de entrada.
+
+[Forma de acesso.]{.field-label} API do Climate Data Store, dataset reanalysis-era5-land, product_type=reanalysis, todas as 24 horas UTC; download NetCDF ou GRIB por mês e recorte espacial.
+
+[URL ou identificador persistente.]{.field-label} https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land
+
+[Formato dos arquivos.]{.field-label} NetCDF ou GRIB de entrada; CSV/Parquet para séries municipais.
+
+[Necessidade de processamento.]{.field-label} Converter kelvin para °C; obter TX e TN como máximo e mínimo das 24 temperaturas horárias válidas de cada dia UTC. Calcular a medida por célula e, depois, sua média municipal por área. Esta TX não é a máxima instantânea de termômetro.
 
 ### Qualidade, comparação e saúde {.unnumbered .ficha-section}
 
-[Qualidade e incerteza.]{.field-label} Relatar falhas, homogeneidade, período-base, algoritmo de percentil, definição temporal de dia e noite, viés de produtos em grade e sensibilidade aos parâmetros.
+[Qualidade e incerteza.]{.field-label} Dia com menos de 24 horas válidas na grade é ausente. Nas sínteses anuais, mais de 15 dias ausentes, ou mais de três em qualquer mês, invalidam o ano; falhas não recebem zero e não unem sequências. Exigir 90% dos dados do período-base e registrar a cobertura. Sínteses municipais exigem ao menos 90% de área válida; informar essa fração. Critérios de cobertura são escolhas editoriais deste protocolo.
 
-[Possibilidade de comparação.]{.field-label} Manter variável, período-base, janela do calendário, duração mínima, fonte, resolução e regra de agregação; classificações distintas não são intercambiáveis.
+[Possibilidade de comparação.]{.field-label} Fixar versão, calendário UTC, período-base e limites municipais de 2022. Não emendar estação e reanálise. Médias municipais de contagens podem ser fracionárias e não contam episódios sincrônicos do município.
 
 [Relação com desfechos de saúde.]{.field-label} A mínima elevada indica ausência de resfriamento noturno. Episódios compostos combinam calor diurno e noturno, condição associada a maior risco de mortalidade em estudos multicêntricos.
 

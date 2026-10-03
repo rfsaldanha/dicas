@@ -1,11 +1,11 @@
-## Ficha do indicador: Extensão espacial diária contígua da onda de calor {#sec-cli-exp-01 .ficha-title}
+## Ficha do indicador: Extensão regional máxima de ondas de calor que interceptam o município {#sec-cli-exp-01 .ficha-title}
 
 ::: {.indicator-card}
 [Código:]{.field-label} CLI-EXP-01 \
-[Título resumido:]{.field-label} Extensão contígua da onda de calor \
+[Título resumido:]{.field-label} Extensão regional das ondas de calor \
 [Tema:]{.field-label} Temperatura e condições térmicas \
 [Dimensão:]{.field-label} perigo; exposição \
-[Disponibilidade:]{.field-label} [requer processamento geoespacial]{.availability}
+[Disponibilidade:]{.field-label} [Calculável com dados abertos]{.availability}
 :::
 
 ### Identificação e fundamento {.unnumbered .ficha-section}
@@ -22,7 +22,7 @@ Medir o tamanho territorial de episódios de calor espacialmente coerentes.
 
 ### Interpretação {.unnumbered .ficha-section}
 
-Valor maior indica uma onda simultaneamente mais extensa. Pode-se relatar a maior área diária do episódio, a trajetória diária e a proporção do território afetada.
+Quanto maior o valor, mais extenso foi o evento regional que interceptou o município; não é a área afetada dentro dele.
 
 ### Usos {.unnumbered .ficha-section}
 
@@ -40,33 +40,32 @@ Valor maior indica uma onda simultaneamente mais extensa. Pode-se relatar a maio
 
 ### Fontes de dados {.unnumbered .ficha-section}
 
-- ERA5-Land — temperatura diária em grade para identificar células em onda de calor ([cadastro](../../backmatter/indice-fontes.qmd#era5-land))
-- Instituto Nacional de Meteorologia — observações para avaliar o campo de temperatura e seus extremos ([cadastro](../../backmatter/indice-fontes.qmd#inmet))
+- Berkeley Earth — temperatura diária em grade — Temperatura diária interpolada em grade de 1°; protocolo e código de Skinner et al. ([cadastro](../../backmatter/indice-fontes.qmd#berkeley-earth-daily))
 
 ### Método de cálculo {.unnumbered .ficha-section}
 
-Em cada célula terrestre, identificar dias de onda segundo uma definição fixa. Para cada dia, criar grade binária e rotular os componentes conexos com vizinhança de oito direções, conforme o método publicado. Somar a área geodésica das células de cada componente. Para cada episódio, registrar a extensão máxima diária e a série de extensões; para um território, pode-se dividir a área afetada pela área elegível.
+Reproduzir a máscara diária e o agrupamento global do código arquivado em Zenodo 16595017. Unir grupos próximos conforme o algoritmo publicado, sem somar à área as células intermediárias que não atendem ao limiar. A área diária de cada componente é a soma das áreas das suas células efetivamente em onda. Para cada município e dia, selecionar a maior área regional dos componentes que o interceptam; no ano, selecionar o máximo diário. Sem interseção em ano válido, zero. Esta atribuição municipal é uma adaptação explícita do livro.
 
 $$
-A_{c,d}=\sum_{g\in C_{c,d}}area(g),\qquad A^{max}_e=\max_{d\in e}A_{c,d}
+A_{c,d}=\sum_{g\in c,\,HW_{g,d}=1}a_g,\qquad A_{m,y}=\max_{d\in y,\,c:\,c\cap m\ne\varnothing} A_{c,d}
 $$
 
 ::: {.indicator-card}
 [Numerador.]{.field-label} Soma da área das células pertencentes ao componente contíguo no dia.
 
-[Denominador.]{.field-label} Área total elegível do território apenas quando expresso como proporção.
+[Denominador.]{.field-label} Não se aplica; área absoluta do evento regional.
 
-[Unidade de medida.]{.field-label} Quilômetro quadrado (km²) e, opcionalmente, percentual do território.
+[Unidade de medida.]{.field-label} km² de extensão regional.
 
 [Variáveis e categorias de análise.]{.field-label} Célula em onda ou não; componente; data; episódio; área da célula; território.
 
-[Granularidade.]{.field-label} Componente espacial por dia; resumo por episódio, estação ou ano.
+[Granularidade.]{.field-label} Componente espacial regional por dia; município como localização interceptada.
 
-[Periodicidade de atualização.]{.field-label} Diária em monitoramento ou anual em avaliação climatológica.
+[Periodicidade de atualização.]{.field-label} Anual, após completar e verificar o último ano de entrada.
 
 [Responsabilidade gerencial.]{.field-label} Serviço meteorológico ou climático responsável pelo perigo, instituição estatística responsável pela população e autoridade de saúde responsável pelo uso.
 
-[Notas.]{.field-label} Extensão e exposição populacional não medem vulnerabilidade nem dano. O mesmo valor pode envolver populações, duração, intensidade e capacidades de proteção muito diferentes.
+[Notas.]{.field-label} A extensão pode exceder a área municipal, pois descreve o evento regional. Não é área municipal afetada nem medida de população exposta.
 
 [Análise descritiva do indicador.]{.field-label} Apresentar mapa e trajetória da extensão, maior área diária, proporção do território, intensidade e duração correspondentes e sensibilidade à grade e conectividade.
 
@@ -75,39 +74,51 @@ $$
 ### Campos complementares para clima, ambiente e saúde {.unnumbered .ficha-section}
 
 ::: {.indicator-card}
-[Unidade territorial.]{.field-label} Componente contíguo de células e território de referência.
+[Unidade territorial.]{.field-label} Componente regional e município interceptado; a extensão não é limitada à área municipal.
 
-[Resolução espacial original.]{.field-label} A da grade térmica; o método publicado usou grade global e vizinhança de oito direções.
+[Resolução espacial original.]{.field-label} 1° na reprodução de Skinner et al.; área esférica da célula.
 
-[Resolução temporal.]{.field-label} Entrada diária; saída diária e por episódio.
+[Resolução temporal.]{.field-label} Diária e máximo anual.
 
-[Período de referência.]{.field-label} O período-base da definição de onda de calor; no método publicado, 1980–2019 para percentis do calendário.
+[Período de referência.]{.field-label} 1980–2019; P90 por dia do calendário em janela centrada de 15 dias, conforme código publicado.
 
-[Limiar ou valor de referência.]{.field-label} No método publicado, TX ou TN acima do percentil 90 do calendário por pelo menos três dias consecutivos; outra definição caracteriza adaptação.
+[Limiar ou valor de referência.]{.field-label} TX>P90 por pelo menos três dias; conectividade de oito vizinhos e união de componentes separados por até quatro células sem calor conforme código publicado.
 
 :::
 
 ### Disponibilidade e acesso {.unnumbered .ficha-section}
 
-[Cobertura geográfica.]{.field-label} Território de análise coberto simultaneamente pelas superfícies de calor e pelos dados populacionais, quando aplicável.
+[Protocolo verificado em.]{.field-label} 2026-10-03
 
-[Período disponível.]{.field-label} O período da grade térmica, incluindo o período-base.
+[Dependência de dados locais.]{.field-label} Opcional para validação
 
-[Periodicidade de atualização.]{.field-label} Diária em monitoramento ou anual em avaliação climatológica.
+[Automação.]{.field-label} Condicionada
 
-[Forma de acesso.]{.field-label} Processamento geoespacial de grade diária com área de célula e algoritmo de componentes conexos versionado.
+[Requisitos para o cálculo.]{.field-label} Download do produto diário Berkeley Earth e reprodução do código arquivado; processamento global da conectividade.
 
-[URL ou identificador persistente.]{.field-label} https://doi.org/10.1038/s43247-025-02661-y
+[Nível de evidência.]{.field-label} Documentação verificada
 
-[Formato dos arquivos.]{.field-label} Raster diário de classificação e tabela de componentes e episódios.
+[Alcance da verificação.]{.field-label} Produto e método documentados; série municipal completa ainda não produzida.
 
-[Necessidade de processamento.]{.field-label} Controle de qualidade, percentis, detecção temporal, rotulação espacial, cálculo geodésico de área e agregação por episódio.
+[Cobertura geográfica.]{.field-label} Municípios brasileiros interceptados por componentes do domínio global válido.
+
+[Período disponível.]{.field-label} 1980–2019 na reprodução do estudo; não prolongar sem verificar versão, cobertura e compatibilidade.
+
+[Periodicidade de atualização.]{.field-label} Anual, após completar e verificar o último ano de entrada.
+
+[Forma de acesso.]{.field-label} Downloads públicos Berkeley Earth e código arquivado em Zenodo 16595017; conservar a versão e os arquivos utilizados.
+
+[URL ou identificador persistente.]{.field-label} https://zenodo.org/records/16595017
+
+[Formato dos arquivos.]{.field-label} NetCDF da temperatura e saídas tabulares do agrupamento.
+
+[Necessidade de processamento.]{.field-label} Executar o agrupamento em domínio global, não apenas no recorte municipal ou brasileiro; calcular a área das células e cruzar as máscaras com municípios.
 
 ### Qualidade, comparação e saúde {.unnumbered .ficha-section}
 
-[Qualidade e incerteza.]{.field-label} Documentar definição da onda, período-base, grade, conectividade, área real das células, máscara de terra, fonte e ano da população, imputações, mobilidade não observada e propagação de incerteza.
+[Qualidade e incerteza.]{.field-label} Dia com menos de 24 horas válidas na grade é ausente. Nas sínteses anuais, mais de 15 dias ausentes, ou mais de três em qualquer mês, invalidam o ano; falhas não recebem zero e não unem sequências. Exigir 90% dos dados do período-base e registrar a cobertura. Sínteses municipais exigem ao menos 90% de área válida; informar essa fração. Critérios de cobertura são escolhas editoriais deste protocolo.
 
-[Possibilidade de comparação.]{.field-label} Manter definição térmica, período-base, resolução, projeção, vizinhança espacial, população de referência e agregação temporal; mudanças metodológicas interrompem comparabilidade direta.
+[Possibilidade de comparação.]{.field-label} Fixar versão, calendário UTC, período-base e limites municipais de 2022. Não emendar estação e reanálise. Médias municipais de contagens podem ser fracionárias e não contam episódios sincrônicos do município.
 
 [Relação com desfechos de saúde.]{.field-label} Episódios extensos podem expor simultaneamente múltiplas populações e pressionar redes de energia, água, emergência e saúde, mas a extensão não estima sozinha a carga sanitária.
 
@@ -118,3 +129,4 @@ $$
 ### Referências metodológicas {.unnumbered .ficha-section}
 
 - [@skinner2025extent]
+- [@skinner2025code]
