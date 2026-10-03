@@ -1,11 +1,11 @@
-## Ficha do indicador: Proporção de amostras de água para consumo humano com ausência de Escherichia coli {#sec-san-agu-02 .ficha-title}
+## Ficha do indicador: Proporção de amostras de rotina de SAA na distribuição com ausência de E. coli {#sec-san-agu-02 .ficha-title}
 
 ::: {.indicator-card}
 [Código:]{.field-label} SAN-AGU-02 \
 [Título resumido:]{.field-label} Amostras sem E. coli \
 [Tema:]{.field-label} Água, saneamento e qualidade ambiental \
 [Dimensão:]{.field-label} exposição; vulnerabilidade; resposta \
-[Disponibilidade:]{.field-label} [disponível em dados administrativos]{.availability}
+[Disponibilidade:]{.field-label} [Calculável com dados locais centralizados]{.availability}
 :::
 
 ### Identificação e fundamento {.unnumbered .ficha-section}
@@ -39,32 +39,32 @@ Valor próximo de 100% indica maior proporção de resultados conformes. Uma amo
 
 ### Fontes de dados {.unnumbered .ficha-section}
 
-- Programa Nacional de Vigilância da Qualidade da Água para Consumo Humano — registros de vigilância e controle no Sisagua ([cadastro](../../backmatter/indice-fontes.qmd#vigiagua))
+- Sisagua — Vigilância de parâmetros básicos — Sisagua — Vigilância de parâmetros básicos; CSV anual e dicionário oficial ([cadastro](../../backmatter/indice-fontes.qmd#sisagua-vigilancia))
 
 ### Método de cálculo {.unnumbered .ficha-section}
 
-Selecionar amostras válidas no período, forma de abastecimento, origem institucional e ponto de coleta definidos; contar as com ausência de E. coli em 100 mL e dividir pelo total analisado.
+Aplicar o recorte e a desduplicação descritos nesta ficha. Selecionar PARAMETRO correspondente a Escherichia coli no dicionário. Contar como conforme somente resultado qualitativo de ausência em 100 mL; presença é não conforme. Valores quantitativos somente entram quando unidade, método e volume de 100 mL permitirem conversão inequívoca a presença/ausência; resultado ambíguo ou sem volume sai do denominador e tem contagem separada. Calcular 100×n_ausentes/n_resultados_classificáveis, por município e ano de coleta. Sem resultado classificável, ausente.
 
 $$
 P_{E.coli\ ausente}=100\times\frac{N_{amostras\ sem\ E.coli}}{N_{amostras\ válidas\ analisadas}}
 $$
 
 ::: {.indicator-card}
-[Numerador.]{.field-label} Número de amostras válidas com ausência de E. coli em 100 mL.
+[Numerador.]{.field-label} Amostras classificáveis sem E. coli em 100 mL no recorte.
 
-[Denominador.]{.field-label} Total de amostras válidas analisadas para E. coli no universo.
+[Denominador.]{.field-label} Amostras com resultado de E. coli classificável no mesmo recorte.
 
 [Unidade de medida.]{.field-label} Percentual (%).
 
-[Variáveis e categorias de análise.]{.field-label} Resultado; ponto; SAA, SAC ou SAI; vigilância ou controle; município; mês; laboratório.
+[Variáveis e categorias de análise.]{.field-label} Campos de identificação, DT_COLETA, PARAMETRO, RESULTADO, método/volume e filtros de amostragem.
 
-[Granularidade.]{.field-label} Amostra e resumo por forma de abastecimento, município e período.
+[Granularidade.]{.field-label} Resultado de parâmetro por amostra; soma de numeradores e denominadores por município e ano de DT_COLETA.
 
-[Periodicidade de atualização.]{.field-label} Contínua no sistema; arquivos públicos por competência.
+[Periodicidade de atualização.]{.field-label} Anual, mantendo data de extração porque registros podem ser incluídos ou retificados posteriormente.
 
 [Responsabilidade gerencial.]{.field-label} Titulares e prestadores de saneamento, autoridades reguladoras e setor saúde, conforme a competência de cada indicador.
 
-[Notas.]{.field-label} Indicadores de cobertura, qualidade da água e desempenho da vigilância respondem a perguntas diferentes e devem ser apresentados em conjunto.
+[Notas.]{.field-label} O indicador descreve as amostras registradas, não o atendimento integral ao padrão de potabilidade nem a cobertura populacional de água segura. Não confundir ausência de resultado com ausência do contaminante.
 
 [Análise descritiva do indicador.]{.field-label} Mostrar número de amostras, proporção conforme, positivos por ponto e forma, cobertura do plano e tendência.
 
@@ -73,13 +73,13 @@ $$
 ### Campos complementares para clima, ambiente e saúde {.unnumbered .ficha-section}
 
 ::: {.indicator-card}
-[Unidade territorial.]{.field-label} Ponto de coleta, forma de abastecimento e município.
+[Unidade territorial.]{.field-label} Município da coleta, com código IBGE de sete dígitos após correspondência oficial.
 
-[Resolução espacial original.]{.field-label} Coordenada/endereço do ponto quando disponível.
+[Resolução espacial original.]{.field-label} Ponto de coleta; não representa aleatoriamente todos os domicílios ou habitantes.
 
-[Resolução temporal.]{.field-label} Data da coleta; resumo mensal, trimestral ou anual.
+[Resolução temporal.]{.field-label} Amostra datada; síntese anual, com contagens mensais auxiliares.
 
-[Período de referência.]{.field-label} Período de monitoramento e norma de potabilidade vigente.
+[Período de referência.]{.field-label} Ano de DT_COLETA; limites fixados da Portaria GM/MS 888/2021 para comparação retrospectiva, explicitamente identificada.
 
 [Limiar ou valor de referência.]{.field-label} Ausência de E. coli em 100 mL.
 
@@ -87,25 +87,37 @@ $$
 
 ### Disponibilidade e acesso {.unnumbered .ficha-section}
 
-[Cobertura geográfica.]{.field-label} Brasil, condicionada à alimentação e execução dos planos.
+[Protocolo verificado em.]{.field-label} 2026-10-03
 
-[Período disponível.]{.field-label} Bases públicas de vigilância a partir de 2014 no conjunto consultado.
+[Dependência de dados locais.]{.field-label} Necessária: coleta e análise locais registradas no Sisagua
 
-[Periodicidade de atualização.]{.field-label} Contínua no sistema; arquivos públicos por competência.
+[Automação.]{.field-label} Viável
 
-[Forma de acesso.]{.field-label} Sisagua, painéis Vigiagua e Portal de Dados Abertos do SUS.
+[Requisitos para o cálculo.]{.field-label} CSV público, dicionário, filtro de rotina/SAA/distribuição e tabela oficial de códigos municipais.
+
+[Nível de evidência.]{.field-label} Acesso testado
+
+[Alcance da verificação.]{.field-label} Arquivo CSV, unidades, datas e código municipal acessados. Foram inspecionados resultados químicos de uma amostra do arquivo de 2014; ela não comprova cobertura nacional ou histórico completo.
+
+[Cobertura geográfica.]{.field-label} Municípios com amostras de rotina informadas ao Sisagua; cobertura depende da vigilância local.
+
+[Período disponível.]{.field-label} 2014–2025 completos no catálogo; 2026 parcial na data da verificação.
+
+[Periodicidade de atualização.]{.field-label} Anual, mantendo data de extração porque registros podem ser incluídos ou retificados posteriormente.
+
+[Forma de acesso.]{.field-label} Download HTTP dos ZIP CSV anuais listados em sisagua-vigilancia-parametros-basicos; exemplo 2014: https://s3.sa-east-1.amazonaws.com/ckan.saude.gov.br/SISAGUA/vigilancia_parametros_basicos_2014_csv.zip. Ler separador ponto e vírgula, codificação Latin-1 nos arquivos testados e vírgula decimal; confirmar o esquema em cada edição.
 
 [URL ou identificador persistente.]{.field-label} https://dadosabertos.saude.gov.br/dataset/sisagua-vigilancia-parametros-basicos
 
-[Formato dos arquivos.]{.field-label} CSV e painéis.
+[Formato dos arquivos.]{.field-label} CSV em ZIP; dicionário ODT; preservar campos originais e códigos.
 
-[Necessidade de processamento.]{.field-label} Deduplicar, filtrar resultados válidos, harmonizar categorias e calcular com denominador explícito.
+[Necessidade de processamento.]{.field-label} Descompactar, padronizar codificação e números; filtrar o recorte; usar chave município/solução/NU_AMOSTRA/DT_COLETA/HR_COLETA/PARAMETRO. Remover duplicatas exatas; em revisões, manter maior DT_INCLUSAO_REGISTRO; empate conflitante é ausente. Classificar resultados válidos e somar contagens, sem média simples de percentuais mensais.
 
 ### Qualidade, comparação e saúde {.unnumbered .ficha-section}
 
-[Qualidade e incerteza.]{.field-label} Relatar fonte, cobertura, população de referência, dados ausentes, plano amostral, qualidade laboratorial, regras de classificação e revisão.
+[Qualidade e incerteza.]{.field-label} Filtrar TP_MOTIVO_COLETA=Rotina, TP_ABASTECIMENTO=SAA e TP_PROCEDENCIA_COLETA=SISTEMA DE DISTRIBUIÇÃO, normalizando caixa e espaços. TP_PONTO_COLETA descreve outro atributo e não substitui esse filtro. O código CO_MUNICIPIO_IBGE de seis dígitos requer tabela oficial de correspondência para sete, sem acrescentar zero. Não exigir ANALISE_REALIZADA=SIM: o campo contém categorias como EM_CAMPO e EM_LABORATORIO. Denominador zero produz ausente. Publicar número de amostras e cobertura temporal, sem interpretar o percentual como população atendida.
 
-[Possibilidade de comparação.]{.field-label} Manter definição de serviço, população, forma de abastecimento, ponto de coleta, parâmetro, padrão vigente, período e método.
+[Possibilidade de comparação.]{.field-label} Manter módulo Vigilância, motivo Rotina, SAA, procedência distribuição, parâmetro e tabela fixa 888/2021. SAC, SAI, surtos, saídas de tratamento e outros recortes são séries distintas.
 
 [Relação com desfechos de saúde.]{.field-label} Água segura, saneamento e higiene reduzem exposição a patógenos e substâncias químicas e sustentam alimentação, cuidado, dignidade e funcionamento dos serviços de saúde.
 

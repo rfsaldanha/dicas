@@ -1,11 +1,11 @@
-## Ficha do indicador: Proporção de amostras de turbidez em conformidade com o padrão de potabilidade {#sec-san-agu-04 .ficha-title}
+## Ficha do indicador: Proporção de amostras de rotina de SAA na distribuição com turbidez até 5 uT {#sec-san-agu-04 .ficha-title}
 
 ::: {.indicator-card}
 [Código:]{.field-label} SAN-AGU-04 \
 [Título resumido:]{.field-label} Turbidez conforme \
 [Tema:]{.field-label} Água, saneamento e qualidade ambiental \
 [Dimensão:]{.field-label} exposição; vulnerabilidade; resposta \
-[Disponibilidade:]{.field-label} [disponível em dados administrativos]{.availability}
+[Disponibilidade:]{.field-label} [Calculável com dados locais centralizados]{.availability}
 :::
 
 ### Identificação e fundamento {.unnumbered .ficha-section}
@@ -40,32 +40,32 @@ Valor maior indica maior conformidade entre amostras. A interpretação deve sep
 
 ### Fontes de dados {.unnumbered .ficha-section}
 
-- Programa Nacional de Vigilância da Qualidade da Água para Consumo Humano — resultados de turbidez no Sisagua ([cadastro](../../backmatter/indice-fontes.qmd#vigiagua))
+- Sisagua — Vigilância de parâmetros básicos — Sisagua — Vigilância de parâmetros básicos; CSV anual e dicionário oficial ([cadastro](../../backmatter/indice-fontes.qmd#sisagua-vigilancia))
 
 ### Método de cálculo {.unnumbered .ficha-section}
 
-Classificar cada resultado válido segundo o valor máximo permitido aplicável à tecnologia e ao ponto na norma vigente; dividir resultados conformes pelo total analisado no universo homogêneo.
+Após filtros e desduplicação, selecionar PARAMETRO=Turbidez (uT). Converter vírgula decimal; resultados negativos ou não finitos são inválidos. Classificar como conforme todo resultado entre 0 e 5 uT, inclusive. Para resultados censurados, classificar somente quando todo o intervalo permitir decisão inequívoca; indeterminados saem do denominador e têm contagem separada. Calcular 100×n_conformes/n_classificáveis por município e ano de coleta.
 
 $$
-P_{turbidez\ conforme}=100\times\frac{N_{resultados\leq VMP_{aplicável}}}{N_{resultados\ válidos}}
+P_{turb}=100\frac{N(0\leq turbidez\leq5\;\mathrm{uT})}{N(turbidez\ \mathrm{classificável})}
 $$
 
 ::: {.indicator-card}
-[Numerador.]{.field-label} Resultados válidos de turbidez iguais ou inferiores ao valor máximo aplicável.
+[Numerador.]{.field-label} Resultados classificáveis com turbidez≤5 uT no recorte.
 
-[Denominador.]{.field-label} Total de resultados válidos no mesmo universo tecnológico e operacional.
+[Denominador.]{.field-label} Resultados classificáveis de turbidez no recorte.
 
 [Unidade de medida.]{.field-label} Percentual (%); valor original em unidade de turbidez.
 
-[Variáveis e categorias de análise.]{.field-label} Turbidez; etapa; tecnologia; ponto; forma de abastecimento; data; município.
+[Variáveis e categorias de análise.]{.field-label} Identificação da amostra, procedência, parâmetro Turbidez (uT), resultado, censura e ano de coleta.
 
-[Granularidade.]{.field-label} Amostra e resumo por etapa, sistema/solução, município e período.
+[Granularidade.]{.field-label} Resultado de parâmetro por amostra; soma de numeradores e denominadores por município e ano de DT_COLETA.
 
-[Periodicidade de atualização.]{.field-label} Contínua e por publicação de arquivos.
+[Periodicidade de atualização.]{.field-label} Anual, mantendo data de extração porque registros podem ser incluídos ou retificados posteriormente.
 
 [Responsabilidade gerencial.]{.field-label} Titulares e prestadores de saneamento, autoridades reguladoras e setor saúde, conforme a competência de cada indicador.
 
-[Notas.]{.field-label} Indicadores de cobertura, qualidade da água e desempenho da vigilância respondem a perguntas diferentes e devem ser apresentados em conjunto.
+[Notas.]{.field-label} O indicador descreve as amostras registradas, não o atendimento integral ao padrão de potabilidade nem a cobertura populacional de água segura. Não confundir ausência de resultado com ausência do contaminante.
 
 [Análise descritiva do indicador.]{.field-label} Apresentar conformidade por etapa e tecnologia, distribuição dos valores, extremos, cobertura amostral e relação temporal com eventos.
 
@@ -74,39 +74,51 @@ $$
 ### Campos complementares para clima, ambiente e saúde {.unnumbered .ficha-section}
 
 ::: {.indicator-card}
-[Unidade territorial.]{.field-label} Ponto de coleta e forma de abastecimento.
+[Unidade territorial.]{.field-label} Município da coleta, com código IBGE de sete dígitos após correspondência oficial.
 
-[Resolução espacial original.]{.field-label} Ponto de coleta.
+[Resolução espacial original.]{.field-label} Ponto de coleta; não representa aleatoriamente todos os domicílios ou habitantes.
 
-[Resolução temporal.]{.field-label} Momento da coleta; resumo periódico.
+[Resolução temporal.]{.field-label} Amostra datada; síntese anual, com contagens mensais auxiliares.
 
-[Período de referência.]{.field-label} Período de monitoramento e norma vigente.
+[Período de referência.]{.field-label} Ano de DT_COLETA; limites fixados da Portaria GM/MS 888/2021 para comparação retrospectiva, explicitamente identificada.
 
-[Limiar ou valor de referência.]{.field-label} Valor máximo permitido correspondente à tecnologia, etapa e ponto segundo a Portaria GM/MS nº 888/2021; não aplicar um único limiar a todos os registros.
+[Limiar ou valor de referência.]{.field-label} Máximo de 5 uT em sistema de distribuição. Limites mais restritivos de saída da filtração não pertencem a esta série.
 
 :::
 
 ### Disponibilidade e acesso {.unnumbered .ficha-section}
 
-[Cobertura geográfica.]{.field-label} Brasil, condicionada ao monitoramento.
+[Protocolo verificado em.]{.field-label} 2026-10-03
 
-[Período disponível.]{.field-label} Conforme Sisagua e arquivos públicos.
+[Dependência de dados locais.]{.field-label} Necessária: coleta e análise locais registradas no Sisagua
 
-[Periodicidade de atualização.]{.field-label} Contínua e por publicação de arquivos.
+[Automação.]{.field-label} Viável
 
-[Forma de acesso.]{.field-label} Sisagua, painéis e dados abertos.
+[Requisitos para o cálculo.]{.field-label} CSV público, dicionário, filtro de rotina/SAA/distribuição e tabela oficial de códigos municipais.
+
+[Nível de evidência.]{.field-label} Acesso e cálculo testados
+
+[Alcance da verificação.]{.field-label} Recorte Rotina/SAA/distribuição, chaves, vírgula decimal e contagem de conformidade testados em amostra parcial do CSV de 2014: 13.351 resultados numéricos de cloro e 15.553 de turbidez. Não é série municipal completa nem estimativa nacional.
+
+[Cobertura geográfica.]{.field-label} Municípios com amostras de rotina informadas ao Sisagua; cobertura depende da vigilância local.
+
+[Período disponível.]{.field-label} 2014–2025 completos no catálogo; 2026 parcial na data da verificação.
+
+[Periodicidade de atualização.]{.field-label} Anual, mantendo data de extração porque registros podem ser incluídos ou retificados posteriormente.
+
+[Forma de acesso.]{.field-label} Download HTTP dos ZIP CSV anuais listados em sisagua-vigilancia-parametros-basicos; exemplo 2014: https://s3.sa-east-1.amazonaws.com/ckan.saude.gov.br/SISAGUA/vigilancia_parametros_basicos_2014_csv.zip. Ler separador ponto e vírgula, codificação Latin-1 nos arquivos testados e vírgula decimal; confirmar o esquema em cada edição.
 
 [URL ou identificador persistente.]{.field-label} https://dadosabertos.saude.gov.br/dataset/sisagua-vigilancia-parametros-basicos
 
-[Formato dos arquivos.]{.field-label} CSV, painel e relatórios.
+[Formato dos arquivos.]{.field-label} CSV em ZIP; dicionário ODT; preservar campos originais e códigos.
 
-[Necessidade de processamento.]{.field-label} Harmonizar etapa, tecnologia e unidade, aplicar VMP correspondente e calcular execução do plano e conformidade.
+[Necessidade de processamento.]{.field-label} Descompactar, padronizar codificação e números; filtrar o recorte; usar chave município/solução/NU_AMOSTRA/DT_COLETA/HR_COLETA/PARAMETRO. Remover duplicatas exatas; em revisões, manter maior DT_INCLUSAO_REGISTRO; empate conflitante é ausente. Classificar resultados válidos e somar contagens, sem média simples de percentuais mensais.
 
 ### Qualidade, comparação e saúde {.unnumbered .ficha-section}
 
-[Qualidade e incerteza.]{.field-label} Relatar fonte, cobertura, população de referência, dados ausentes, plano amostral, qualidade laboratorial, regras de classificação e revisão.
+[Qualidade e incerteza.]{.field-label} Filtrar TP_MOTIVO_COLETA=Rotina, TP_ABASTECIMENTO=SAA e TP_PROCEDENCIA_COLETA=SISTEMA DE DISTRIBUIÇÃO, normalizando caixa e espaços. TP_PONTO_COLETA descreve outro atributo e não substitui esse filtro. O código CO_MUNICIPIO_IBGE de seis dígitos requer tabela oficial de correspondência para sete, sem acrescentar zero. Não exigir ANALISE_REALIZADA=SIM: o campo contém categorias como EM_CAMPO e EM_LABORATORIO. Denominador zero produz ausente. Publicar número de amostras e cobertura temporal, sem interpretar o percentual como população atendida.
 
-[Possibilidade de comparação.]{.field-label} Manter definição de serviço, população, forma de abastecimento, ponto de coleta, parâmetro, padrão vigente, período e método.
+[Possibilidade de comparação.]{.field-label} Manter módulo Vigilância, motivo Rotina, SAA, procedência distribuição, parâmetro e tabela fixa 888/2021. SAC, SAI, surtos, saídas de tratamento e outros recortes são séries distintas.
 
 [Relação com desfechos de saúde.]{.field-label} Água segura, saneamento e higiene reduzem exposição a patógenos e substâncias químicas e sustentam alimentação, cuidado, dignidade e funcionamento dos serviços de saúde.
 
