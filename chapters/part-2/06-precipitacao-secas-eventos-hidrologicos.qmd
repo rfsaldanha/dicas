@@ -28,7 +28,7 @@ O acumulado mensal descreve volume, mas oculta distribuição. Cem milímetros p
 
 ### Chuvas intensas
 
-Chuva intensa pode ser definida por um limiar absoluto, por percentil local ou por máximo no período. Rx1day (Maior precipitação em um dia) registra a maior acumulação diária; Rx5day (Maior precipitação acumulada em cinco dias consecutivos), a maior soma em cinco dias; R95pTOT soma a chuva ocorrida em dias acima do percentil 95 dos dias úmidos. Esses indicadores descrevem aspectos diferentes [@climdex2024].
+Chuva intensa pode ser definida por um limiar absoluto, por percentil local ou por máximo no período. Rx1day (Maior precipitação em um dia) registra a maior acumulação diária; Rx5day (Maior precipitação acumulada em cinco dias consecutivos), a maior soma em cinco dias; R95p soma a chuva ocorrida em dias acima do percentil 95 dos dias úmidos. Esses indicadores descrevem aspectos diferentes [@climdex2024].
 
 Extremos subdiários são decisivos em pequenas bacias e áreas urbanas. Um máximo diário pode esconder 50 mm concentrados em trinta minutos. Quando a pergunta envolve enxurrada, alagamento rápido ou capacidade de drenagem, dados de dez minutos, horários ou curvas intensidade–duração–frequência são mais adequados que um total diário isolado [@wmo2023climatological; @cemaden2016enxurrada].
 
@@ -142,7 +142,7 @@ O indicador meteorológico informa uma parte da situação. A decisão sanitári
 
 O [INMET (Instituto Nacional de Meteorologia)](../../backmatter/indice-fontes.qmd#inmet) fornece observações meteorológicas por estações. O [CEMADEN (Centro Nacional de Monitoramento e Alertas de Desastres Naturais)](../../backmatter/indice-fontes.qmd#cemaden) opera redes pluviométricas e hidrológicas voltadas ao monitoramento de risco; a documentação consultada informa dados pluviométricos brutos e registro em UTC (Tempo Universal Coordenado), o que exige controle antes do uso. [ERA5-Land](../../backmatter/indice-fontes.qmd#era5-land) oferece campo em grade de reanálise e não substitui uma observação local.
 
-Registros de ocorrência, pessoas afetadas, danos e resposta são discutidos no capítulo 11. Para cada análise, mantenha separados:
+Registros de ocorrência, pessoas afetadas, danos e resposta são discutidos no @sec-desastres. Para cada análise, mantenha separados:
 
 1. Dado de precipitação;
 2. Medida hidrológica ou geomorfológica;
@@ -167,7 +167,7 @@ Os indicadores consolidados apresentados neste capítulo cobrem pico diário, ac
 |---|---|---|---|
 | Rx1day | pico diário | episódios agudos, séries temporais e contexto de alertas | pode ocultar intensidade subdiária |
 | Rx5day | acumulação em cinco dias | persistência, saturação e processos de resposta mais lenta | janela pode não coincidir com a bacia |
-| R95pTOT | volume em dias muito úmidos | concentração da chuva em extremos | depende do período-base |
+| R95p | volume em dias muito úmidos | concentração da chuva em extremos | depende do período-base |
 | CDD | maior sequência sem dia úmido | persistência seca e contexto de água, alimento, poeira e fogo | não é seca completa |
 | CWD | maior sequência de dias úmidos | umidade persistente, vetores e interrupções | não informa intensidade |
 | SPI | déficit ou excesso padronizado em várias escalas | seca meteorológica, vigilância e estudos de efeitos | não inclui evapotranspiração nem impacto social |
@@ -175,6 +175,16 @@ Os indicadores consolidados apresentados neste capítulo cobrem pico diário, ac
 Indicadores de precipitação e seca usados em saúde pública
 
 :::
+
+## Protocolo de cálculo e disponibilidade
+
+As sete fichas têm o rótulo **Calculável com dados abertos**. A produção principal usa precipitação ERA5-Land desde 1950, com cadastro gratuito no CDS. CHIRPS v3 daily RNL final oferece uma série alternativa desde 1981; sua desagregação diária incorpora ERA5. Produto, versão e base devem acompanhar os valores, sem emendar as duas séries [@chirps2026v3]. Pluviômetros locais permanecem úteis para validação e para séries observadas independentes.
+
+No ERA5-Land, o registro de precipitação das 00 UTC de um dia contém o acumulado das 24 horas anteriores: o valor pertence ao dia anterior e deve ser convertido de metros para milímetros. Somar diretamente os acumulados horários superestima a chuva. Para Rx1day, Rx5day, R95p, CDD, CWD e PRCPTOT, calcular primeiro por célula e depois ponderar pela área municipal IBGE 2022. No SPI-3, agregar espacialmente a precipitação antes das somas mensais e do ajuste probabilístico.
+
+A ficha CLI-PRC-03 passa a usar o nome R95p, em mm. R95pTOT, em %, é uma medida derivada distinta: 100 vezes R95p dividido por PRCPTOT. A nova ficha CLI-PRC-06 especifica esse denominador. CDD e CWD usam a variante anual truncada em 31 de dezembro, explicitamente identificada. Falhas não são dias secos e podem transformar durações observadas em limites inferiores.
+
+O SPI deixa de ter escala e ajuste em aberto: esta edição adota SPI-3, gama de dois parâmetros por máxima verossimilhança, ajuste separado por mês e base 1961–1990. No SPI-3 com CHIRPS, a base é 1982–2011: janeiro e fevereiro de 1981 não têm todos os antecedentes necessários. Para R95p, a base CHIRPS permanece 1981–2010. A ficha exige os 30 acumulados completos de cada mês de término, incluindo antecedentes ao início da base.
 
 {{< include ../../indicators/includes/cli-prc-01.qmd >}}
 
@@ -187,6 +197,8 @@ Indicadores de precipitação e seca usados em saúde pública
 {{< include ../../indicators/includes/cli-prc-05.qmd >}}
 
 {{< include ../../indicators/includes/cli-sec-01.qmd >}}
+
+{{< include ../../indicators/includes/cli-prc-06.qmd >}}
 
 ## Aplicação na gestão
 
@@ -209,4 +221,4 @@ flowchart TD
 
 ## Síntese
 
-Precipitação é um perigo meteorológico; inundação e movimento de massa são processos; exposição descreve quem e o que se encontra na área atingida; desastre e efeito sanitário dependem das consequências. Rx1day, Rx5day, R95pTOT, CDD, CWD e SPI oferecem medidas consolidadas para aspectos específicos. Seu uso em saúde pública requer ligá-los ao mecanismo, ao território, às defasagens e à capacidade de resposta.
+Precipitação é um perigo meteorológico; inundação e movimento de massa são processos; exposição descreve quem e o que se encontra na área atingida; desastre e efeito sanitário dependem das consequências. Rx1day, Rx5day, R95p, CDD, CWD e SPI oferecem medidas consolidadas para aspectos específicos. Seu uso em saúde pública requer ligá-los ao mecanismo, ao território, às defasagens e à capacidade de resposta.
