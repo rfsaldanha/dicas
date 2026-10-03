@@ -865,3 +865,99 @@
   limitacoes: "Verificar cobertura, qualidade, versão e valores ausentes antes da agregação."
   ultima_verificacao: "2026-10-03"
   indicadores: ["SAN-AGU-05", "SAN-ESG-02", "SAN-ESG-03"]
+
+- id: "landsat-c2-l2"
+  tipo_registro: "produto"
+  nome: "Landsat Collection 2 Level-2 — reflectância de superfície"
+  instituicao: "USGS; catálogo público Microsoft Planetary Computer"
+  descricao: "Imagens TM/ETM+/OLI com reflectância de superfície, QA_PIXEL e QA_RADSAT; acesso STAC/COG."
+  recursos_relacionados: ["Landsat Collection 2 Level-2 — reflectância de superfície"]
+  temas: ["Indicadores da Parte II"]
+  variaveis: ["Vermelho", "Infravermelho próximo", "Qualidade de pixel", "Saturação"]
+  cobertura_geografica: "Brasil no domínio do produto; cobertura efetiva descrita nas fichas."
+  resolucao_espacial: "30 m"
+  resolucao_temporal: "Por passagem"
+  periodo_disponivel: "Desde 1982, condicionado a missão e cobertura"
+  atualizacao: "Por edição do produto; congelar versão e data da extração."
+  acesso: "Download programático dos arquivos públicos identificados no catálogo."
+  url: "https://planetarycomputer.microsoft.com/dataset/landsat-c2-l2"
+  api: "https://planetarycomputer.microsoft.com/api/stac/v1/search"
+  formatos: ["COG/GeoTIFF", "STAC JSON"]
+  licenca: "Dados Landsat de domínio público USGS; atribuir USGS e o produto. O serviço de acesso possui termos próprios."
+  cadastro: "Consulta STAC pública; assinar URLs temporárias dos assets pelo serviço gratuito."
+  custos: "Consulta e dados públicos sem cobrança; processamento e armazenamento por conta do usuário."
+  limitacoes: "Verificar cobertura, qualidade, versão e valores ausentes antes da agregação."
+  ultima_verificacao: "2026-10-03"
+  indicadores: ["AMB-VEG-01"]
+
+- id: "ghs-smod-r2023a"
+  tipo_registro: "produto"
+  nome: "GHS-SMOD R2023A — época 2020"
+  instituicao: "Comissão Europeia, Joint Research Centre"
+  descricao: "Classificação do grau de urbanização; classe 30 identifica centros urbanos no recorte fixo desta implementação."
+  recursos_relacionados: ["GHS-SMOD R2023A — época 2020"]
+  temas: ["Indicadores da Parte II"]
+  variaveis: ["Classe de assentamento"]
+  cobertura_geografica: "Brasil no domínio do produto; cobertura efetiva descrita nas fichas."
+  resolucao_espacial: "1 km"
+  resolucao_temporal: "Época fixa"
+  periodo_disponivel: "2020 na máscara adotada"
+  atualizacao: "Por edição do produto; congelar versão e data da extração."
+  acesso: "Download programático dos arquivos públicos identificados no catálogo."
+  url: "https://human-settlement.emergency.copernicus.eu/ghs_smod2023.php"
+  api: "https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/GHSL/GHS_SMOD_GLOBE_R2023A/"
+  formatos: ["GeoTIFF"]
+  licenca: "Política de reutilização da Comissão Europeia com atribuição; conservar os termos do produto."
+  cadastro: "Não exigido para download público."
+  custos: "Consulta e dados públicos sem cobrança; processamento e armazenamento por conta do usuário."
+  limitacoes: "Verificar cobertura, qualidade, versão e valores ausentes antes da agregação."
+  ultima_verificacao: "2026-10-03"
+  indicadores: ["AMB-URB-01", "AMB-URB-02"]
+
+- id: "cadastro-espacos-publicos"
+  tipo_registro: "cadastro provisório"
+  nome: "Cadastro municipal datado de espaços públicos, verdes e ruas"
+  instituicao: "Órgão municipal responsável pelo patrimônio e planejamento urbano"
+  descricao: "Entrada local exigida: geometria, área, acesso público e gratuito, validade, entradas e rede caminhável quando aplicável. Não foi demonstrado um cadastro nacional histórico completo."
+  recursos_relacionados: ["Cadastro municipal datado de espaços públicos, verdes e ruas"]
+  temas: ["Indicadores da Parte II"]
+  variaveis: ["Polígonos", "Acesso público", "Validade", "Entradas", "Ruas e larguras", "Rede caminhável"]
+  cobertura_geografica: "Brasil no domínio do produto; cobertura efetiva descrita nas fichas."
+  resolucao_espacial: "Vetor local"
+  resolucao_temporal: "Por revisão"
+  periodo_disponivel: "Conforme as versões históricas do cadastro local"
+  atualizacao: "Por edição do produto; congelar versão e data da extração."
+  acesso: "Exportação local, condicionada à existência e disponibilização do cadastro."
+  url: "https://unstats.un.org/sdgs/metadata/files/Metadata-11-07-01.pdf"
+  api: "Sem endpoint nacional demonstrado; requer exportação GeoPackage/GeoJSON local."
+  formatos: ["GeoPackage", "GeoJSON", "CSV"]
+  licenca: "Depende do cadastro municipal e de seus termos; disponibilizar indicadores agregados e documentar permissões para redistribuir geometrias."
+  cadastro: "Conforme o município."
+  custos: "Consulta e dados públicos sem cobrança; processamento e armazenamento por conta do usuário."
+  limitacoes: "Verificar cobertura, qualidade, versão e valores ausentes antes da agregação."
+  ultima_verificacao: "2026-10-03"
+  indicadores: ["AMB-URB-01", "AMB-URB-02"]
+
+- id: "yceo-uhi-v4"
+  tipo_registro: "produto"
+  nome: "YCEO Surface Urban Heat Islands — Yearly Pixel v4"
+  instituicao: "Yale Center for Earth Observation"
+  descricao: "Produto anual de intensidade de ilha de calor de superfície, com bandas diurna e noturna."
+  recursos_relacionados: ["YCEO Surface Urban Heat Islands — Yearly Pixel v4"]
+  temas: ["Indicadores da Parte II"]
+  variaveis: ["Daytime", "Nighttime"]
+  cobertura_geografica: "Brasil no domínio do produto; cobertura efetiva descrita nas fichas."
+  resolucao_espacial: "300 m nominal"
+  resolucao_temporal: "Anual"
+  periodo_disponivel: "2003–2018"
+  atualizacao: "Por edição do produto; congelar versão e data da extração."
+  acesso: "Download programático dos arquivos públicos identificados no catálogo."
+  url: "https://developers.google.com/earth-engine/datasets/catalog/YALE_YCEO_UHI_UHI_yearly_pixel_v4"
+  api: "YALE/YCEO/UHI/UHI_yearly_pixel/v4"
+  formatos: ["Earth Engine ImageCollection", "GeoTIFF/CSV exportado"]
+  licenca: "CC BY 4.0 conforme catálogo; citar produtores e versão."
+  cadastro: "Conta e projeto Google Earth Engine elegíveis para acesso gratuito."
+  custos: "Consulta e dados públicos sem cobrança; processamento e armazenamento por conta do usuário."
+  limitacoes: "Verificar cobertura, qualidade, versão e valores ausentes antes da agregação."
+  ultima_verificacao: "2026-10-03"
+  indicadores: ["AMB-URB-03"]

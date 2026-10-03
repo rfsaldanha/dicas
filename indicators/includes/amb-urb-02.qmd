@@ -1,11 +1,11 @@
-## Ficha do indicador: Proporção da população urbana residente a até 300 metros de espaço verde acessível com pelo menos 1 hectare {#sec-amb-urb-02 .ficha-title}
+## Ficha do indicador: Proporção da população urbana a até 300 m lineares de espaço verde público com pelo menos 1 ha {#sec-amb-urb-02 .ficha-title}
 
 ::: {.indicator-card}
 [Código:]{.field-label} AMB-URB-02 \
-[Título resumido:]{.field-label} Acesso próximo a espaço verde \
+[Título resumido:]{.field-label} Proximidade de verde público — 300 m lineares \
 [Tema:]{.field-label} Uso e cobertura da terra, vegetação e ambiente urbano \
 [Dimensão:]{.field-label} exposição; vulnerabilidade; resposta \
-[Disponibilidade:]{.field-label} [requer processamento de rede e população]{.availability}
+[Disponibilidade:]{.field-label} [Depende de dados locais]{.availability}
 :::
 
 ### Identificação e fundamento {.unnumbered .ficha-section}
@@ -13,7 +13,7 @@
 [Base de consolidação.]{.field-label} Indicador de acessibilidade a espaço verde detalhado no relatório da OMS Europa sobre espaços verdes urbanos e saúde.
 
 ::: {.callout-note icon=false title="Conceito-chave"}
-Percentual da população urbana cujo local de residência está dentro de uma área de acesso de 300 m à entrada ou limite acessível de espaço verde com área mínima de 1 ha.
+Percentual da população urbana estimada em grade a até 300 m de distância euclidiana do limite de espaço verde público contínuo de pelo menos 1 ha.
 :::
 
 ### Objetivo {.unnumbered .ficha-section}
@@ -22,7 +22,7 @@ Medir proximidade residencial a espaço verde de porte mínimo por critério rep
 
 ### Interpretação {.unnumbered .ficha-section}
 
-Valor maior indica maior cobertura potencial de proximidade. Não comprova acesso real, qualidade, segurança, gratuidade ou uso.
+Representa proximidade geométrica a verde público, não percurso real, uso ou qualidade. O requisito de acesso público depende de verificação local.
 
 ### Usos {.unnumbered .ficha-section}
 
@@ -39,16 +39,17 @@ Valor maior indica maior cobertura potencial de proximidade. Não comprova acess
 
 ### Fontes de dados {.unnumbered .ficha-section}
 
-- MapBiomas Brasil — apoio à identificação de cobertura vegetal ([cadastro](../../backmatter/indice-fontes.qmd#mapbiomas))
-- Landsat — verificação de vegetação e atualização ([cadastro](../../backmatter/indice-fontes.qmd#landsat))
-- Instituto Brasileiro de Geografia e Estatística — população, malha e rede/endereço quando disponíveis ([cadastro](../../backmatter/indice-fontes.qmd#ibge))
+- Cadastro municipal datado de espaços públicos, verdes e ruas — Cadastro local datado de espaços, acesso público, ruas e entradas, com verificação de campo ([cadastro](../../backmatter/indice-fontes.qmd#cadastro-espacos-publicos))
+- GHS-SMOD R2023A — época 2020 — Máscara urbana fixa: classe 30 da época 2020 ([cadastro](../../backmatter/indice-fontes.qmd#ghs-smod-r2023a))
+- GHS-POP R2023A — população, 100 m — População por célula interpolada para o ano do cadastro ([cadastro](../../backmatter/indice-fontes.qmd#ghs-pop-r2023a))
+- Instituto Brasileiro de Geografia e Estatística — Malha municipal 2022 ([cadastro](../../backmatter/indice-fontes.qmd#ibge))
 
 ### Método de cálculo {.unnumbered .ficha-section}
 
-Selecionar espaços verdes de pelo menos 1 ha com acesso público, construir área de serviço de 300 m pela rede caminhável — ou área linear de entorno claramente identificada —, intersectar com população e dividir a população coberta pela urbana total.
+Selecionar no cadastro local espaços verdes contínuos com acesso público gratuito verificado e área geodésica total≥10.000 m², medida antes de qualquer recorte municipal. Construir círculos/zonas de distância geodésica equivalente a 300 m do limite dos polígonos, incluindo espaços fora do município, e unir todas as zonas. Intersectar essa união com U=município IBGE 2022∩GHS-SMOD 2020 classe 30. Calcular a população coberta mediante frações de interseção das células GHS-POP, interpoladas para o ano do cadastro; dividir pela população total de U e multiplicar por 100. Contar cada fragmento populacional uma única vez. Sem população em U, resultado não aplicável; sem cadastro completo, ausente.
 
 $$
-P_{verde300}=100\times\frac{\sum_g Pop_g I(g\ acessa\ verde_{\geq1ha}\ em\leq300m)}{\sum_g Pop_g}
+P_{verde300}=100\frac{Pop\left[U\cap\bigcup_{e:\,area(e)\geq10\,000\,m^2}B_{300m}(e)\right]}{Pop(U)}
 $$
 
 ::: {.indicator-card}
@@ -58,15 +59,15 @@ $$
 
 [Unidade de medida.]{.field-label} Percentual (%).
 
-[Variáveis e categorias de análise.]{.field-label} Espaço verde; área; acesso; rede; distância; população; idade; renda; raça/cor; deficiência.
+[Variáveis e categorias de análise.]{.field-label} Polígono de verde, acesso público confirmado, área, validade, distância linear, população, U e município.
 
-[Granularidade.]{.field-label} Entrada ou polígono de espaço, segmento de rede e célula/setor populacional.
+[Granularidade.]{.field-label} Polígono de espaço verde, zonas de proximidade unidas e fragmentos de células populacionais.
 
-[Periodicidade de atualização.]{.field-label} Anual ou por revisão do plano urbano.
+[Periodicidade de atualização.]{.field-label} Por revisão anual documentada do cadastro ou por nova rodada de levantamento.
 
 [Responsabilidade gerencial.]{.field-label} Planejamento urbano e ambiental produz intervenções e cadastros; saúde interpreta exposições e desigualdades; geoinformação mantém métodos.
 
-[Notas.]{.field-label} Verdor espectral, cobertura vegetal, espaço público acessível e uso efetivo são dimensões diferentes.
+[Notas.]{.field-label} A definição foi fixada na variante de distância linear. Barreiras, entradas e trajetos reais podem reduzir o acesso efetivo; uma variante por rede caminhável seria outro indicador e não deve substituir esta série silenciosamente.
 
 [Análise descritiva do indicador.]{.field-label} Mostrar cobertura total e por grupos, bairros sem acesso, distância média e sensibilidade a limiar e método.
 
@@ -75,39 +76,51 @@ $$
 ### Campos complementares para clima, ambiente e saúde {.unnumbered .ficha-section}
 
 ::: {.indicator-card}
-[Unidade territorial.]{.field-label} Domicílio ou ponto, zona urbana, bairro, setor censitário ou cidade.
+[Unidade territorial.]{.field-label} Interseção municipal IBGE 2022 com centros urbanos GHS-SMOD 2020, classe 30.
 
-[Resolução espacial original.]{.field-label} A dos cadastros e da superfície populacional.
+[Resolução espacial original.]{.field-label} Cadastro vetorial local; GHS-SMOD 1 km; GHS-POP 100 m.
 
-[Resolução temporal.]{.field-label} Atualização periódica.
+[Resolução temporal.]{.field-label} Ano da versão do cadastro; não fabricar série anual sem versões históricas.
 
-[Período de referência.]{.field-label} Mesmo ano ou anos compatíveis para espaço, rede e população.
+[Período de referência.]{.field-label} Máscara urbana fixa de 2020; cadastro e população referidos ao ano de análise.
 
-[Limiar ou valor de referência.]{.field-label} Espaço verde acessível ≥1 ha e distância ≤300 m, segundo a aplicação metodológica declarada.
+[Limiar ou valor de referência.]{.field-label} Espaço verde público contínuo≥1 ha; distância linear ao limite≤300 m. Não usa rede caminhável.
 
 :::
 
 ### Disponibilidade e acesso {.unnumbered .ficha-section}
 
-[Cobertura geográfica.]{.field-label} Áreas urbanas com cadastro e população detalhados.
+[Protocolo verificado em.]{.field-label} 2026-10-03
 
-[Período disponível.]{.field-label} Conforme fontes locais.
+[Dependência de dados locais.]{.field-label} Necessária
 
-[Periodicidade de atualização.]{.field-label} Anual ou por revisão do plano urbano.
+[Automação.]{.field-label} Condicionada
 
-[Forma de acesso.]{.field-label} Cadastros municipais, dados de cobertura e população.
+[Requisitos para o cálculo.]{.field-label} Inventário completo e datado de polígonos verdes com área e acesso público verificados; esta variante usa distância linear, sem exigir rede caminhável.
+
+[Nível de evidência.]{.field-label} Documentação verificada
+
+[Alcance da verificação.]{.field-label} Produto e método documentados; série municipal completa ainda não produzida.
+
+[Cobertura geográfica.]{.field-label} Municípios com cadastro suficiente e interseção com classe 30; ausência de centro urbano nesse recorte é não aplicação, não zero.
+
+[Período disponível.]{.field-label} Somente anos com cadastros históricos de acesso público verificável. OpenStreetMap atual não reconstrói retrospectivamente a situação de todos os anos.
+
+[Periodicidade de atualização.]{.field-label} Por revisão anual documentada do cadastro ou por nova rodada de levantamento.
+
+[Forma de acesso.]{.field-label} Cadastro local datado de polígonos verdes, área e acesso público; downloads GHS-SMOD/GHS-POP e malha IBGE 2022. Rede de caminhos não integra esta variante linear.
 
 [URL ou identificador persistente.]{.field-label} https://www.who.int/europe/publications/i/item/WHO-EURO-2016-3352-43111-60341
 
-[Formato dos arquivos.]{.field-label} Vetor geoespacial, raster populacional e tabela.
+[Formato dos arquivos.]{.field-label} GeoPackage/GeoJSON e tabelas de atributos; GeoTIFF SMOD/POP.
 
-[Necessidade de processamento.]{.field-label} Validar espaços e entradas, construir rede/área, interpolar população e testar sensibilidades.
+[Necessidade de processamento.]{.field-label} Validar acesso e área total do espaço, construir zonas de distância de 300 m, unir geometrias e intersectar conservativamente com população e recorte urbano.
 
 ### Qualidade, comparação e saúde {.unnumbered .ficha-section}
 
-[Qualidade e incerteza.]{.field-label} Relatar sensor, produto, data, nuvens, resolução, classificação, delimitação urbana, população, área de entorno, erros posicionais e análise de sensibilidade.
+[Qualidade e incerteza.]{.field-label} Cadastro incompleto ou acesso desconhecido não permite afirmar cobertura total. Não inferir propriedade ou acesso público de NDVI, cobertura florestal ou presença de polígono em mapa colaborativo. Sem área urbana elegível, resultado não aplicável.
 
-[Possibilidade de comparação.]{.field-label} Manter produto, estação, composição temporal, resolução, definição de verde, limite urbano, população e parâmetros espaciais.
+[Possibilidade de comparação.]{.field-label} Mesmo recorte urbano, inventário, definição de acesso, geometria e versão populacional. A classe 30 restringe esta adaptação a centros urbanos e não representa todo núcleo urbano brasileiro.
 
 [Relação com desfechos de saúde.]{.field-label} Vegetação e espaços verdes podem influenciar atividade física, contato social, restauração, calor, ruído e poluição, mas efeitos dependem de acesso, qualidade, segurança e contexto.
 

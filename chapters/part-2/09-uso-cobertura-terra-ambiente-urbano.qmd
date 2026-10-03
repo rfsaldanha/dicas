@@ -155,6 +155,21 @@ Indicadores de vegetação e ambiente urbano usados em saúde pública
 
 As fichas cobrem medidas com especificação consolidada. Cobertura de copa, impermeabilização e fragmentação devem ser documentadas quando um produto e um protocolo concretos forem adotados; não se propõem versões genéricas.
 
+## Protocolo de cálculo e disponibilidade
+
+| Ficha | Rótulo | Especificação adotada |
+|---|---|---|
+| AMB-VEG-01 | Calculável com dados abertos | Landsat C2 L2; mediana anual; entorno de 300 m de centros populacionais GHS-POP |
+| AMB-URB-01 | Depende de dados locais | Cadastro datado de espaços e ruas públicos; área e acesso de 400 m publicados separadamente |
+| AMB-URB-02 | Depende de dados locais | Verde público contínuo≥1 ha; proximidade linear≤300 m |
+| AMB-URB-03 | Calculável com dados abertos | YCEO v4, 2003–2018; SUHII diurna e noturna separadas |
+
+O NDVI passa a ser denominado “do entorno residencial estimado em grade”: o centro de uma célula populacional não é um endereço residencial observado. O protocolo fixa sensor/produto, escala de reflectância, máscaras, composição anual, raio e cobertura mínima. Vegetação detectada não prova acesso público.
+
+As duas medidas de espaço público mantêm a dependência local. A adaptação municipal usa a interseção com centros urbanos GHS-SMOD 2020, classe 30, e informa não aplicação onde esse recorte não existe. Na ficha AMB-URB-01, a proporção territorial de espaços e ruas e a proporção populacional com percurso de 400 m são saídas distintas. Na AMB-URB-02, a variante é de distância linear ao espaço verde; ela não deve ser confundida com distância caminhável até uma entrada.
+
+A ilha de calor de superfície usa um produto histórico fechado, com referência térmica definida pelos produtores. O período 2003–2018 e a cobertura dos aglomerados são limites efetivos da série escolhida; não serão estendidos por troca silenciosa de sensor ou de entorno rural [@yceo2026uhi].
+
 {{< include ../../indicators/includes/amb-veg-01.qmd >}}
 
 {{< include ../../indicators/includes/amb-urb-01.qmd >}}

@@ -1,19 +1,19 @@
-## Ficha do indicador: Parcela média da área construída da cidade que corresponde a espaço aberto para uso público (ODS 11.7.1) {#sec-amb-urb-01 .ficha-title}
+## Ficha do indicador: Parcela da área urbana de referência ocupada por espaços abertos e ruas de uso público {#sec-amb-urb-01 .ficha-title}
 
 ::: {.indicator-card}
 [Código:]{.field-label} AMB-URB-01 \
-[Título resumido:]{.field-label} Espaço público aberto — ODS 11.7.1 \
+[Título resumido:]{.field-label} Espaço público aberto — adaptação do ODS 11.7.1 \
 [Tema:]{.field-label} Uso e cobertura da terra, vegetação e ambiente urbano \
 [Dimensão:]{.field-label} exposição; vulnerabilidade; resposta \
-[Disponibilidade:]{.field-label} [requer cadastro e processamento geoespacial]{.availability}
+[Disponibilidade:]{.field-label} [Depende de dados locais]{.availability}
 :::
 
 ### Identificação e fundamento {.unnumbered .ficha-section}
 
-[Base de consolidação.]{.field-label} Indicador ODS 11.7.1 sob custódia do Programa das Nações Unidas para os Assentamentos Humanos.
+[Base de consolidação.]{.field-label} Metadado ODS 11.7.1/UN-Habitat; adaptação municipal com recorte fixo GHS-SMOD 2020 classe 30. A área e o acesso populacional são medidas separadas.
 
 ::: {.callout-note icon=false title="Conceito-chave"}
-O indicador reúne duas séries complementares. A primeira mede a parcela da área construída da cidade destinada a espaços públicos, compreendendo espaços públicos abertos verificados e áreas destinadas a ruas. A segunda mede a parcela da população urbana com acesso conveniente a espaços públicos abertos.
+Percentual da área urbana de referência ocupado pela união de espaços abertos públicos e ruas públicas; acompanhado, separadamente, do percentual populacional com percurso caminhável de até 400 m a um espaço aberto.
 :::
 
 ### Objetivo {.unnumbered .ficha-section}
@@ -22,7 +22,7 @@ Monitorar a oferta territorial de espaços públicos e o acesso universal a espa
 
 ### Interpretação {.unnumbered .ficha-section}
 
-Na série territorial, valor maior indica maior parcela da cidade destinada a espaços públicos abertos e ruas. Na série de acesso, valor maior indica maior parcela da população situada a até 400 m caminháveis de um espaço público aberto. Nenhuma das séries informa automaticamente qualidade, vegetação, segurança ou uso efetivo.
+A parcela territorial informa disponibilidade de espaço público no recorte; acesso_400m informa proximidade por percurso. Valores iguais não significam mesma qualidade, segurança ou uso efetivo.
 
 ### Usos {.unnumbered .ficha-section}
 
@@ -41,39 +41,35 @@ Na série territorial, valor maior indica maior parcela da cidade destinada a es
 
 ### Fontes de dados {.unnumbered .ficha-section}
 
-- Programa de Indicadores Urbanos do UN-Habitat — metadados oficiais, delimitação urbana e protocolo de cálculo do ODS 11.7.1 ([cadastro](../../backmatter/indice-fontes.qmd#unhabitat-urban))
-- MapBiomas Brasil — apoio à delimitação de cobertura e área urbana, sem substituir a verificação dos espaços públicos ([cadastro](../../backmatter/indice-fontes.qmd#mapbiomas))
-- Instituto Brasileiro de Geografia e Estatística — limites, população e desagregações ([cadastro](../../backmatter/indice-fontes.qmd#ibge))
+- Cadastro municipal datado de espaços públicos, verdes e ruas — Cadastro local datado de espaços, acesso público, ruas e entradas, com verificação de campo ([cadastro](../../backmatter/indice-fontes.qmd#cadastro-espacos-publicos))
+- GHS-SMOD R2023A — época 2020 — Máscara urbana fixa: classe 30 da época 2020 ([cadastro](../../backmatter/indice-fontes.qmd#ghs-smod-r2023a))
+- GHS-POP R2023A — população, 100 m — População por célula interpolada para o ano do cadastro ([cadastro](../../backmatter/indice-fontes.qmd#ghs-pop-r2023a))
+- Instituto Brasileiro de Geografia e Estatística — Malha municipal 2022 ([cadastro](../../backmatter/indice-fontes.qmd#ibge))
 
 ### Método de cálculo {.unnumbered .ficha-section}
 
-Delimitar a cidade ou área urbana pelo protocolo ODS; identificar e verificar os espaços públicos abertos; estimar a área total destinada a ruas; somar as duas áreas e dividi-las pela área total delimitada. Calcular separadamente a população que alcança um espaço público aberto por percurso caminhável de até 400 m, dividindo-a pela população urbana total e desagregando o resultado por sexo, idade e deficiência.
+Definir U como município IBGE 2022 intersectado com classe 30 de GHS-SMOD 2020. Selecionar espaços abertos com acesso público gratuito comprovado na data e ruas públicas delimitadas em polígonos; quando houver apenas eixos, construir polígonos usando a largura medida de cada trecho, sem imputar largura padrão. Calcular 100×área[U∩união(espaços,ruas)]/área(U), contabilizando sobreposições uma única vez. Publicar adicionalmente, em coluna de nome e unidade próprios, acesso_400m: porcentagem da população de U a até 400 m de percurso caminhável de uma entrada de espaço aberto público. Usar rede com barreiras, passagens e entradas datadas, admitindo trajetos e destinos fora do município; unir áreas atendidas antes de intersectar a população. Não usar ruas isoladamente como destinos de acesso. Não havendo rede/entradas, acesso_400m é ausente, mesmo que a parcela territorial seja calculável.
 
 $$
-\begin{aligned}
-ODS11.7.1_{área}
-  &=100\times\frac{A_{espaços\ públicos\ abertos}+A_{ruas}}{A_{cidade}},\\
-ODS11.7.1_{acesso}
-  &=100\times\frac{Pop_{\leq 400\,m\ caminháveis}}{Pop_{urbana}}.
-\end{aligned}
+P_{area}=100\frac{area[U\cap(E\cup R)]}{area(U)},\qquad P_{acesso400}=100\frac{Pop[U\cap A_{rede,400}(E)]}{Pop(U)}
 $$
 
 ::: {.indicator-card}
-[Numerador.]{.field-label} Na série territorial, soma da área dos espaços públicos abertos verificados com a área destinada a ruas; na série de acesso, população urbana a até 400 m caminháveis de um espaço público aberto.
+[Numerador.]{.field-label} Medida territorial: área da união de espaços abertos e ruas públicas dentro de U. Medida de acesso: população urbana atendida por percurso≤400 m.
 
-[Denominador.]{.field-label} Na série territorial, área total da cidade ou área urbana delimitada; na série de acesso, população urbana total da mesma área.
+[Denominador.]{.field-label} Medida territorial: área de U. Medida de acesso: população de U.
 
-[Unidade de medida.]{.field-label} Percentual (%).
+[Unidade de medida.]{.field-label} % de área e, separadamente, % de população.
 
-[Variáveis e categorias de análise.]{.field-label} Limite da cidade; espaço público aberto verificado; área destinada a ruas; rede caminhável; distância de 400 m; população; sexo; idade; deficiência.
+[Variáveis e categorias de análise.]{.field-label} Espaço, acesso gratuito, validade, geometria, rua/largura, entrada, rede/barreiras, população, U e município.
 
-[Granularidade.]{.field-label} Polígono de espaço, área de ruas, segmento de rede, unidade populacional e cidade.
+[Granularidade.]{.field-label} Polígonos de espaços e ruas; entradas/rede caminhável para acesso; saída municipal por ano de cadastro.
 
-[Periodicidade de atualização.]{.field-label} Por ciclo de monitoramento ODS ou planejamento urbano.
+[Periodicidade de atualização.]{.field-label} Por revisão anual documentada do cadastro ou por nova rodada de levantamento.
 
 [Responsabilidade gerencial.]{.field-label} Planejamento urbano e ambiental produz intervenções e cadastros; saúde interpreta exposições e desigualdades; geoinformação mantém métodos.
 
-[Notas.]{.field-label} Verdor espectral, cobertura vegetal, espaço público acessível e uso efetivo são dimensões diferentes.
+[Notas.]{.field-label} Adaptação municipal explicitamente restrita ao recorte GHS-SMOD. O cálculo depende de registros locais; a existência de imagens abertas não resolve o atributo de acesso público.
 
 [Análise descritiva do indicador.]{.field-label} Apresentar separadamente a parcela territorial de espaços públicos e a parcela populacional com acesso; detalhar os componentes espaço aberto e ruas, desagregar acesso por grupo e mostrar a distribuição intraurbana.
 
@@ -82,39 +78,51 @@ $$
 ### Campos complementares para clima, ambiente e saúde {.unnumbered .ficha-section}
 
 ::: {.indicator-card}
-[Unidade territorial.]{.field-label} Domicílio ou ponto, zona urbana, bairro, setor censitário ou cidade.
+[Unidade territorial.]{.field-label} Interseção municipal IBGE 2022 com centros urbanos GHS-SMOD 2020, classe 30.
 
-[Resolução espacial original.]{.field-label} A dos cadastros e imagens usados na delimitação.
+[Resolução espacial original.]{.field-label} Cadastro vetorial local; GHS-SMOD 1 km; GHS-POP 100 m.
 
-[Resolução temporal.]{.field-label} Atualização periódica por edição.
+[Resolução temporal.]{.field-label} Ano da versão do cadastro; não fabricar série anual sem versões históricas.
 
-[Período de referência.]{.field-label} Ano dos cadastros, imagens e população.
+[Período de referência.]{.field-label} Máscara urbana fixa de 2020; cadastro e população referidos ao ano de análise.
 
-[Limiar ou valor de referência.]{.field-label} Não há limiar sanitário universal; monitorar nível, distribuição e acesso.
+[Limiar ou valor de referência.]{.field-label} Área: acesso público gratuito comprovado. Acesso populacional: percurso caminhável≤400 m até entrada de espaço aberto.
 
 :::
 
 ### Disponibilidade e acesso {.unnumbered .ficha-section}
 
-[Cobertura geográfica.]{.field-label} Cidades com dados suficientes; estimativa oficial deve seguir o metadado ODS.
+[Protocolo verificado em.]{.field-label} 2026-10-03
 
-[Período disponível.]{.field-label} Conforme cadastros e imagens.
+[Dependência de dados locais.]{.field-label} Necessária
 
-[Periodicidade de atualização.]{.field-label} Por ciclo de monitoramento ODS ou planejamento urbano.
+[Automação.]{.field-label} Condicionada
 
-[Forma de acesso.]{.field-label} Dados municipais, IBGE, sensoriamento e plataforma ODS.
+[Requisitos para o cálculo.]{.field-label} Inventário local completo, datado e validado de acesso público, mais população e máscara urbana; rede caminhável e entradas para a medida de 400 m.
+
+[Nível de evidência.]{.field-label} Documentação verificada
+
+[Alcance da verificação.]{.field-label} Produto e método documentados; série municipal completa ainda não produzida.
+
+[Cobertura geográfica.]{.field-label} Municípios com cadastro suficiente e interseção com classe 30; ausência de centro urbano nesse recorte é não aplicação, não zero.
+
+[Período disponível.]{.field-label} Somente anos com cadastros históricos de acesso público verificável. OpenStreetMap atual não reconstrói retrospectivamente a situação de todos os anos.
+
+[Periodicidade de atualização.]{.field-label} Por revisão anual documentada do cadastro ou por nova rodada de levantamento.
+
+[Forma de acesso.]{.field-label} Exportação local GeoPackage/GeoJSON: id do espaço, geometria, acesso público e gratuito confirmado, início/fim de validade e entradas; ruas como polígonos ou eixos com largura observada. Rede caminhável datada é obrigatória para a medida de acesso de 400 m.
 
 [URL ou identificador persistente.]{.field-label} https://unstats.un.org/sdgs/metadata/files/Metadata-11-07-01.pdf
 
-[Formato dos arquivos.]{.field-label} Vetores geoespaciais, tabelas e relatórios.
+[Formato dos arquivos.]{.field-label} GeoPackage/GeoJSON e tabelas de atributos; GeoTIFF SMOD/POP.
 
-[Necessidade de processamento.]{.field-label} Delimitar a área urbana, validar espaços públicos, estimar a área de ruas, construir percursos caminháveis de 400 m, interpolar ou agregar a população e documentar omissões.
+[Necessidade de processamento.]{.field-label} Validar acesso e datas; unir polígonos para evitar duplicação; intersectar com área urbana fixa; calcular distâncias/rotas quando exigidas e repartir contagens populacionais por área.
 
 ### Qualidade, comparação e saúde {.unnumbered .ficha-section}
 
-[Qualidade e incerteza.]{.field-label} Relatar sensor, produto, data, nuvens, resolução, classificação, delimitação urbana, população, área de entorno, erros posicionais e análise de sensibilidade.
+[Qualidade e incerteza.]{.field-label} Cadastro incompleto ou acesso desconhecido não permite afirmar cobertura total. Não inferir propriedade ou acesso público de NDVI, cobertura florestal ou presença de polígono em mapa colaborativo. Sem área urbana elegível, resultado não aplicável.
 
-[Possibilidade de comparação.]{.field-label} Manter produto, estação, composição temporal, resolução, definição de verde, limite urbano, população e parâmetros espaciais.
+[Possibilidade de comparação.]{.field-label} Mesmo recorte urbano, inventário, definição de acesso, geometria e versão populacional. A classe 30 restringe esta adaptação a centros urbanos e não representa todo núcleo urbano brasileiro.
 
 [Relação com desfechos de saúde.]{.field-label} Vegetação e espaços verdes podem influenciar atividade física, contato social, restauração, calor, ruído e poluição, mas efeitos dependem de acesso, qualidade, segurança e contexto.
 
