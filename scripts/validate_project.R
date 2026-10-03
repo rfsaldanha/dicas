@@ -78,6 +78,19 @@ chapter_two_art <- c(
   "01-referencias", "02-cascatas", "07-grades", "03-atendimento",
   "04-adaptacao", "05-horizontes", "06-indicadores"
 )
+urban_art <- c(
+  paste0("1-", sprintf("%02d", 2:6)),
+  paste0("2-", sprintf("%02d", 1:7)),
+  paste0("3-", sprintf("%02d", 1:8)),
+  paste0("4-", sprintf("%02d", 1:7)),
+  paste0("5-", sprintf("%02d", 1:3))
+)
+required <- c(required, "scripts/render_figure.py",
+  "assets/figures/arte-cap1-01-v3.png",
+  "assets/figures/arte-cap1-01-v3.prompt.txt",
+  "assets/figures/arte-cap4-02-v2-refinamento.prompt.txt",
+  paste0("assets/figures/arte-cap", urban_art, "-v2.png"),
+  paste0("assets/figures/arte-cap", urban_art, "-v2.prompt.txt"))
 required <- c(required, "scripts/build_cap2_art.py", unlist(lapply(chapter_two_art, function(art) {
   number <- substr(art, 1L, 2L)
   paste0("assets/figures/arte-cap2-", c(

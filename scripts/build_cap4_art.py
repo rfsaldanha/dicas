@@ -5,14 +5,14 @@ Uso: python3 scripts/build_cap4_art.py [01 ... 07]
 As aquarelas são originais gerados sequencialmente; não contêm dados observados.
 """
 from pathlib import Path
+from figure_style import write_svg
+from render_figure import export_print
 from xml.sax.saxutils import escape
 import base64
 import hashlib
 import json
 import struct
-import subprocess
 import sys
-import tempfile
 
 ROOT = Path(__file__).resolve().parent.parent
 ART = ROOT / 'assets/figures'
@@ -67,7 +67,7 @@ def layout(number, sw, sh):
             y = 30 + i * 550
             x, top, w, h = pic('suporte-'+str(i), (0, .18, 1, .76), 30, y, 1020, 465)
             if i == 0:
-                for px, py in [(.255, .48), (.79, .66)]:
+                for px, py in [(.265, .48), (.81, .655)]:
                     p.append(f'<circle cx="{x+px*w}" cy="{top+py*h}" r="16" fill="white" stroke="{INK}" stroke-width="6"/>')
             elif i == 1:
                 for j in range(5):
@@ -215,23 +215,23 @@ def compose(a):
     metadata=json.dumps({
         'tool':'image_gen','tool_version':a['tool_version'],'prompt':a['prompt'],
         'reference':a['reference'],'reference_delivery':a['reference_delivery'],
+        'previous_source':a.get('previous_source'),
+        'refinement_prompt':a.get('refinement_prompt'),
+        'print_renderer':'Chromium e ImageMagick; fontes e raster incorporados verificados',
         'sha256_original':hashlib.sha256(data).hexdigest(),
         'interventions':'Inspeção visual; disposição e recorte de vinhetas; limites, conexões e rótulos em SVG; exportação em cinza.',
         'license':a['license'],'reproduce':'python3 scripts/build_cap4_art.py '+a['number'],
         'maximum_print_width_mm':120,'placements':placements},ensure_ascii=False)
     encoded=base64.b64encode(data).decode('ascii')
     svg=ART/a['svg'];out=ART/a['print']
-    svg.write_text(f'''<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img" aria-labelledby="title desc">
+    write_svg(svg, f'''<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img" aria-labelledby="title desc">
 <title id="title">{escape(a['title'])}</title><desc id="desc">{escape(a['alt'])}</desc>
 <metadata>{escape(metadata)}</metadata>
 <defs><image id="aquarela" width="{sw}" height="{sh}" xlink:href="data:image/png;base64,{encoded}"/>
 <marker id="arrow" markerWidth="16" markerHeight="14" refX="14" refY="7" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L16 7 L0 14 Z" fill="#4c5553"/></marker></defs>
 <rect width="{width}" height="{height}" fill="white"/>
 <g font-family="Libertinus Serif, Georgia, serif" fill="{INK}">'''+ '\n'.join(parts)+'</g></svg>\n')
-    with tempfile.TemporaryDirectory(prefix='dicas-cap4-art-') as folder:
-        rgba=Path(folder)/'composicao.png'
-        subprocess.run(['inkscape',str(svg),'--export-type=png','--export-width=2400','--export-filename='+str(rgba)],check=True,stdout=subprocess.DEVNULL)
-        subprocess.run(['convert',str(rgba),'-background','white','-alpha','remove','-alpha','off','-colorspace','Gray','-depth','8','-units','PixelsPerInch','-density','508','-define','png:color-type=0',str(out)],check=True)
+    export_print(svg, out, width=2400)
     print(svg.relative_to(ROOT),flush=True)
 
 

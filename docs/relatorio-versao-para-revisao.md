@@ -4,14 +4,14 @@
 
 - Versão editorial: 0.9.0 — revisão completa.
 - Data de consolidação: 5 de agosto de 2026.
-- Conteúdo: 14 capítulos em quatro partes.
+- Conteúdo: 15 capítulos em três partes.
 - Fichas integradas: 62.
 - Fontes cadastradas: 25.
 - Artefatos: `_output/web/index.html` e `_output/print/dados-indicadores-clima-ambiente-saude.pdf`.
 
 ## Escopo
 
-A Parte I estabelece relações entre clima, ambiente e saúde, conceitos de mensuração, espaço, tempo, qualidade e documentação. A Parte II apresenta temperatura e calor, precipitação e seca, qualidade do ar e fumaça, água e saneamento, uso da terra e ambiente urbano, e desastres. A Parte III integra exposição, vulnerabilidade, efeitos em saúde e resiliência do sistema. A Parte IV converte indicadores em fluxos decisórios e quatro estudos de caso.
+A Parte I estabelece relações entre clima, ambiente e saúde, conceitos de mensuração, espaço, tempo, qualidade e documentação; encerra-se com “Do indicador à decisão pública”, que converte indicadores em fluxos decisórios e quatro estudos de caso. A Parte II apresenta temperatura e calor, precipitação e seca, qualidade do ar e fumaça, água e saneamento, uso da terra e ambiente urbano, e desastres. A Parte III integra exposição, vulnerabilidade, efeitos em saúde e resiliência do sistema.
 
 Para cada fenômeno, o texto apresenta diretamente os principais indicadores usados em saúde pública. As fichas completas permanecem dentro do capítulo. Não são propostos indicadores genéricos nem uma seção autônoma de fichas.
 
@@ -35,12 +35,14 @@ O site possui 30 páginas, navegação, busca, fichas incorporadas, fórmulas, d
 
 Na compilação consolidada de 5 de agosto de 2026, o PDF possui 492 páginas e permanece dentro da meta editorial de 400–500 páginas.
 
+Na recompilação após a reorganização em três partes, com “Do indicador à decisão pública” no capítulo 6, o PDF possui 528 páginas e passa no pré-voo de impressão. O site contém 32 páginas, com os caminhos e identificadores anteriores preservados.
+
 ## Validação
 
 O fluxo cobre:
 
 - Validação dos 62 indicadores e 25 fontes;
-- Presença e ordem dos 14 capítulos;
+- Presença e ordem dos 15 capítulos;
 - Chaves bibliográficas;
 - HTML, busca, links e âncoras;
 - Referências cruzadas;

@@ -6,6 +6,8 @@ O identificador `dicas` foi mantido: não havia arquivo, pacote ou configuraçã
 
 Os 15 capítulos e os elementos pré-textuais em QMD são compartilhados entre as duas saídas. A extensão Typst acrescenta apenas folha de rosto, verso editorial, paginação e composição gráfica próprias da edição impressa.
 
+A organização editorial tem três partes: fundamentos e métodos (capítulos 1–6), dados e indicadores temáticos (7–12) e indicadores integrados de clima, ambiente e saúde (13–15). “Do indicador à decisão pública” encerra a Parte I como capítulo 6. Seu caminho histórico em `chapters/part-4/` é preservado para manter os links; a vinculação às partes e a numeração são definidas nos perfis Quarto.
+
 ## Perfis
 
 - Arquivo `_quarto.yml`: metadados, referências cruzadas e pré-render.
@@ -27,14 +29,14 @@ O formato local estende o modelo Typst com folha de rosto, verso editorial, pagi
 - 160 × 230 mm;
 - 25 mm internos e 18 mm externos;
 - 20 mm superiores e 22 mm inferiores;
-- Libertinus Serif, 10,5 pt;
+- Libertinus Serif, 10,5 pt, entrelinha de 14 pt; Source Sans 3 em rubricas e campos;
 - Capítulos em página ímpar;
 - Fólio em cabeçalho após as páginas iniciais;
 - Pré-textuais sem fólio, abertos em páginas ímpares;
 - Espaço de 80 mm reservado para a ficha catalográfica;
 - Fechamento do miolo em múltiplo de quatro páginas.
 
-A composição pré-textual segue a arquitetura de `sis_pdf`, adaptada aos conteúdos e metadados disponíveis neste projeto. A ficha catalográfica permanece vazia até a atribuição formal de seus dados.
+A composição usa o modelo Typst local e a identidade “Território, evidência e cuidado”, documentada no guia editorial. Fontes estão versionadas em `assets/fonts`; a folha de rosto é monocromática e a capa frontal colorida é um artefato separado. A ficha catalográfica permanece vazia até a atribuição formal de seus dados. Páginas vazias são reconhecidas por marcas de fim de seção, e o complemento do último caderno é calculado automaticamente.
 
 ## Geração e validação
 

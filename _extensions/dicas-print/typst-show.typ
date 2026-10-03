@@ -1,4 +1,3 @@
-#import "@preview/orange-book:0.7.1": book
 
 // O sumário deste projeto já ocupa uma posição editorial explícita entre os
 // elementos pré-textuais. Suprime apenas o sumário automático do modelo.
@@ -46,61 +45,50 @@
   ]
 ]
 
-// Callouts em escala de cinza, com a mesma estrutura compacta do projeto de
-// referência e sem transportar as cores semânticas do site para o impresso.
+// A rubrica textual distingue o tipo de box também na impressão monocromática.
 #let callout(
   body: [],
   title: "Destaque",
-  background_color: rgb("#dddddd"),
+  background_color: rgb("#f5f5f5"),
   icon: none,
   icon_color: black,
   body_background_color: white,
-) = {
-  let print_header = rgb("#dddddd")
-  let print_stroke = black
-  let print_body = white
-  block(
-    breakable: false,
-    fill: print_header,
-    stroke: (paint: print_stroke, thickness: 0.5pt, cap: "round"),
-    width: 100%,
-    radius: 2pt,
-    block(
-      inset: 1pt,
-      width: 100%,
-      below: 0pt,
-      block(
-        fill: print_header,
-        width: 100%,
-        inset: (x: 8pt, top: 10pt, bottom: 6pt),
-      )[#if icon != none [#text(print_stroke, weight: 900)[#icon] ]#title] +
-      if body != [] {
-        block(
-          inset: 1pt,
-          width: 100%,
-          block(fill: print_body, width: 100%, inset: 8pt)[
-            #set par(first-line-indent: 0pt, spacing: 0.5em)
-            #body
-          ],
-        )
-      },
-    ),
-  )
-}
+) = block(
+  breakable: true,
+  width: 100%,
+  inset: (left: 10pt, right: 9pt, y: 9pt),
+  fill: luma(247),
+  stroke: (left: 0.8pt + luma(80)),
+  above: 10pt,
+  below: 10pt,
+)[
+  #set par(first-line-indent: 0pt, spacing: 0.5em)
+  #block(below: 5pt, sticky: true)[
+    #text(font: "Source Sans 3", size: 10pt, weight: "semibold", title)
+  ]
+  #body
+]
 
-// Complementa a folha de rosto sem criar elementos junto à linha de corte.
-#set page(background: context {
-  let page-number = counter(page).get().first()
-  if page-number == 1 {
-    place(bottom + center, dy: -18mm)[
-      #set text(size: 10.5pt)
-      #set par(first-line-indent: 0pt, leading: 0.35em)
-      #align(center)[Brasil\
-      Edição do autor\
-      2026]
+// Folha de rosto e verso são páginas próprias; a capa colorida é separada.
+#let dicas-title-page() = page(margin: 0mm, header: none, footer: none)[
+  #place(top + left, dx: 25mm, dy: 30mm)[
+    #block(width: 117mm)[
+      #set text(font: "Libertinus Serif", size: 25pt, weight: "regular", fill: black)
+      #set par(justify: false, leading: 5pt)
+      Dados e Indicadores \
+      de Clima e Ambiente \
+      para a Saúde
+      #v(12mm)
+      #text(font: "Source Sans 3", size: 11pt)[$for(by-author)$$it.name.literal$$sep$, $endfor$]
     ]
-  }
-})
+  ]
+  #place(bottom + left, dx: 25mm, dy: -24mm)[
+    #set text(font: "Source Sans 3", size: 9pt)
+    #set par(justify: false, leading: 3pt)
+    Brasil · Edição do autor \
+    2026
+  ]
+]
 
 // Aberturas de parte: composição própria, em escala de cinza, com forte
 // contraste entre o algarismo romano, a rubrica editorial e o título. A
@@ -120,115 +108,60 @@
 
 #let dicas-part-opening(it) = {
   pagebreak(to: "odd")
-  dicas-part-counter.step()
-
+  let full-title = content-to-string(it.body)
+  let is-part = full-title.starts-with("Parte ")
+  if is-part { dicas-part-counter.step() }
   context {
-    let full-title = content-to-string(it.body)
-    let short-title = if full-title.starts-with("Parte ") {
-      full-title.replace(
-        regex("^Parte\s+[IVXLCDM]+\s+[-–—]+\s+"),
-        "",
-      )
-    } else {
-      full-title
-    }
-    let part-number = dicas-part-counter.get().first()
-    let roman = numbering("I", part-number)
-
-    set par(justify: false, first-line-indent: 0pt, leading: 0.66em)
-
+    let short-title = if is-part {
+      full-title.replace(regex("^Parte\s+[IVXLCDM]+\s+[-–—]+\s+"), "")
+    } else { full-title }
+    set par(justify: false, first-line-indent: 0pt, leading: 5pt)
     block(width: 100%, height: 100%, breakable: false)[
-      #place(top + left, dy: 10mm)[
+      #place(top + left, dy: 30mm)[
         #block(width: 100%)[
-          #grid(
-            columns: (5mm, 1fr, auto),
-            column-gutter: 5mm,
-            align: (left + top, left + bottom, right + top),
-            rect(width: 5mm, height: 34mm, fill: black),
-            [
-              #text(size: 9pt, weight: "bold", tracking: 0.16em)[PARTE]
-              #v(2mm)
-              #line(length: 32mm, stroke: 0.7pt + black)
-            ],
-            text(size: 62pt, weight: "bold", fill: luma(205), roman),
-          )
+          #text(font: "Source Sans 3", size: 10pt, tracking: 0.06em)[
+            #if is-part {
+              [PARTE #numbering("I", dicas-part-counter.get().first())]
+            } else { [CONSULTA E REFERÊNCIAS] }
+          ]
+          #v(7mm)
+          #line(length: 28mm, stroke: 0.5pt + luma(90))
+          #v(8mm)
+          #text(font: "Libertinus Serif", size: 25pt, weight: "regular", short-title)
         ]
       ]
-
-      #place(top + left, dy: 57mm)[
-        #block(
-          width: 100%,
-          inset: (top: 8mm),
-          stroke: (top: 1.4pt + black),
-        )[
-          #text(size: 25pt, weight: "bold", short-title)
-        ]
-      ]
-
-      #place(bottom + left, dy: -4mm)[
-        #block(
-          width: 100%,
-          inset: (top: 4mm),
-          stroke: (top: 0.5pt + black),
-        )[
-          #grid(
-            columns: (1fr, auto),
-            column-gutter: 6mm,
-            align: (left + horizon, right + horizon),
-            text(size: 7.5pt, tracking: 0.06em)[
-              DADOS E INDICADORES DE CLIMA E AMBIENTE PARA A SAÚDE
-            ],
-            text(size: 8pt, weight: "bold")[PARTE #roman],
-          )
+      #place(bottom + left, dy: -6mm)[
+        #text(font: "Source Sans 3", size: 8pt, fill: luma(70))[
+          Dados e Indicadores de Clima e Ambiente para a Saúde
         ]
       ]
     ]
   }
 }
 
-#let dicas-book = book.with(
-$if(title)$
-  title: [$title$],
-$endif$
-$if(subtitle)$
-  subtitle: [$subtitle$],
-$endif$
-$if(by-author)$
-  author: "$for(by-author)$$it.name.literal$$sep$, $endfor$",
-$endif$
-$if(date)$
-  date: "$date$",
-$endif$
-$if(lang)$
-  lang: "$lang$",
-$endif$
-  width: 160mm,
-  height: 230mm,
-  margin: (
-    inside: 25mm,
-    outside: 18mm,
-    top: 20mm,
-    bottom: 22mm,
-  ),
-  main-color: black,
-  copyright: copyright-page,
-  supplement-chapter: "Capítulo",
-  supplement-part: "Parte",
-$if(fontsize)$
-  font-size: $fontsize$,
-$endif$
-  first-line-indent: true,
-  heading-style: 1,
-  padded-heading-number: false,
-$if(toc-depth)$
-  outline-depth: $toc-depth$,
-$endif$
-)
+// Composição local: uma única camada controla título, entrelinha e aberturas.
+#let dicas-book(body) = {
+  set document(
+    title: "$title$",
+    author: "$for(by-author)$$it.name.literal$$sep$, $endfor$",
+  )
+  set text(font: "Libertinus Serif", size: 10.5pt, fill: black, lang: "pt")
+  set par(justify: true, first-line-indent: 1em, leading: 6.125pt, spacing: 0.65em)
+  set heading(numbering: "1.1", supplement: "Capítulo")
+  set figure(numbering: num => numbering("1.1", counter(heading).get().first(), num))
+  set math.equation(numbering: num => numbering("(1.1)", counter(heading).get().first(), num))
+  show terms: set par(first-line-indent: 0pt)
+  show figure: set align(center)
+  show figure: set block(spacing: 10pt)
+  show figure.where(caption: none): set figure(outlined: false)
+  dicas-title-page()
+  page(header: none, footer: none)[#align(bottom, copyright-page)]
+  body
+}
 
 #show: body => dicas-book(body)
 
-// O Orange Book usa "1." nos títulos de capítulo. Nas remissões, o ponto
-// pertence à frase, não ao número: evita "Capítulo 6.." sem mudar os títulos.
+// Nas remissões, o ponto pertence à frase, não ao número do capítulo.
 #show ref: it => {
   if it.element != none and it.element.func() == heading and it.element.level == 1 {
     show regex("\\.$$"): none
@@ -238,33 +171,59 @@ $endif$
   }
 }
 
-// O modelo trata as partes como títulos de nível 1 sem numeração. Esta regra
-// substitui apenas essas cinco aberturas; os demais títulos continuam sendo
-// compostos normalmente pelo Orange Book.
-#show heading.where(level: 1, numbering: none): it => {
+// Mantém os headings originais como destinos de sumário e referências,
+// alterando somente sua apresentação. Reinicia os contadores como o modelo.
+#show heading: it => {
   let value = content-to-string(it.body)
-  if value == "Apêndices" {
-    none
-  } else if dicas-is-part-title(it.body) {
-    dicas-part-opening(it)
+  if it.level == 1 {
+    if value == "Apêndices" { none }
+    else if dicas-is-part-title(it.body) { dicas-part-opening(it) }
+    else {
+      pagebreak(to: "odd")
+      counter(figure.where(kind: image)).update(0)
+      counter(figure.where(kind: table)).update(0)
+      counter(math.equation).update(0)
+      block(width: 100%, above: 8mm, below: 10mm, sticky: true)[
+        #set par(justify: false, first-line-indent: 0pt, leading: 5pt)
+        #if it.numbering != none {
+          block(below: 5mm)[
+            #text(font: "Source Sans 3", size: 9pt, tracking: 0.06em)[
+              CAPÍTULO #context counter(heading).display("1")
+            ]
+          ]
+        }
+        #text(font: "Libertinus Serif", size: 25pt, weight: "regular", it.body)
+      ]
+    }
   } else {
-    it
+    block(above: if it.level == 2 { 14pt } else { 10pt }, below: 6pt, sticky: true)[
+      #set par(justify: false, first-line-indent: 0pt, leading: 3pt)
+      #set text(
+        font: if it.level == 2 { "Libertinus Serif" } else { "Source Sans 3" },
+        size: if it.level == 2 { 15pt } else { 10.5pt },
+        weight: if it.level == 2 { "regular" } else { "semibold" },
+      )
+      #if it.numbering != none [#context counter(heading).display(it.numbering) #h(0.3em)]
+      #it.body
+    ]
   }
 }
 
-
-// Fólios e títulos correntes seguem o padrão do volume de referência:
-// abertura no rodapé; demais páginas no cabeçalho, junto ao título corrente.
-// A relação corresponde aos versos vazios da prova final e deve ser revista se
-// o miolo for repaginado; o conteúdo dessas páginas permanece deliberadamente
-// sem cabeçalho e sem fólio.
-#let dicas-intentional-blank-pages = (
-  132, 246, 346, 348, 370, 408, 446, 466, 468, 476, 498,
-)
+// Marcas invisíveis de fim de seção identificam os versos vazios, mesmo
+// depois de uma repaginação. Inseridas pelo filtro indicator-cards.lua.
+#let dicas-is-blank-page(page-number) = {
+  let ends = query(metadata.where(value: "dicas-section-end"))
+  let starts = query(heading.where(level: 1))
+  ends.any(it => {
+    let end-page = it.location().page()
+    let next = starts.filter(h => h.location().page() > end-page)
+    next != () and end-page < page-number and page-number < next.first().location().page()
+  })
+}
 
 #set page(
   header: context {
-    set text(size: 9pt)
+    set text(font: "Source Sans 3", size: 8.5pt)
     let page-number = counter(page).at(here()).first()
     let chapter-headings = query(heading.where(level: 1))
     let chapter-opening = chapter-headings.any(
@@ -273,7 +232,7 @@ $endif$
     let part-opening = chapter-headings.any(
       it => it.location().page() == page-number and dicas-is-part-title(it.body)
     )
-    let intentional-blank = dicas-intentional-blank-pages.contains(page-number)
+    let intentional-blank = dicas-is-blank-page(page-number)
     let after-part-opening = chapter-headings.any(
       it => it.location().page() + 1 == page-number and dicas-is-part-title(it.body)
     )
@@ -327,7 +286,7 @@ $endif$
               align: (left + horizon, right + horizon),
               column-gutter: 0.4em,
               numbering("1", page-number),
-              align(right, text(size: 8.5pt, weight: "bold", running-title)),
+              align(right, text(size: 8.5pt, running-title)),
             )
           }
         ]
@@ -343,7 +302,7 @@ $endif$
     let part-opening = chapter-headings.any(
       it => it.location().page() == page-number and dicas-is-part-title(it.body)
     )
-    let intentional-blank = dicas-intentional-blank-pages.contains(page-number)
+    let intentional-blank = dicas-is-blank-page(page-number)
     let textual-headings = chapter-headings.filter(it => it.body == [Clima, ambiente e saúde pública])
     let textual-start = if textual-headings == () {
       1
@@ -356,7 +315,15 @@ $endif$
   },
 )
 
-#set par(spacing: 0.65em)
+// Topo de 7,875 pt + distância de 6,125 pt entre caixas = entrelinha de 14 pt.
+// Conferida entre as origens de linhas consecutivas no PDF renderizado.
+#set text(font: "Libertinus Serif", size: 10.5pt, fill: black, top-edge: 0.75em, bottom-edge: 0.25em)
+#set par(leading: 6.125pt, spacing: 0.65em)
+#show figure.caption: set text(font: "Libertinus Serif", size: 9pt)
+#show figure.caption: set par(justify: false, first-line-indent: 0pt, leading: 3pt)
+#show figure.caption: it => block(width: 100%)[#align(left, it)]
+#set figure(gap: 6pt)
+#show table.cell.where(y: 0): set text(font: "Source Sans 3", weight: "semibold")
 // Mermaid's SVG serializer emits a lowercase `viewbox` attribute. SVG attribute
 // names are case-sensitive, so Typst otherwise ignores the view box and clips
 // diagrams to their nominal canvas. Normalize the attribute while embedding the

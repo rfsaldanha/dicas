@@ -2,6 +2,10 @@
 
 Livro técnico em Quarto sobre dados e indicadores aplicáveis à vigilância, ao planejamento e à gestão pública. O projeto produz uma versão digital responsiva e um PDF de 160 × 230 mm preparado para revisão editorial.
 
+A identidade visual “Território, evidência e cuidado” integra capa colorida, miolo em cinza e web. A direção de arte e as regras de composição estão no [guia editorial](docs/guia-editorial.md). A capa frontal é gerada com `make cover`; fontes e ilustrações são mantidas no próprio projeto.
+
+Consulte a [prova visual reunida](_output/proofs/identidade-visual.pdf) e o [registro das verificações](docs/relatorio-identidade-visual.md).
+
 O público principal inclui profissionais de secretarias de saúde, vigilância em saúde ambiental, epidemiologia, planejamento, pesquisa e ensino em saúde coletiva.
 
 ## Estado do projeto
@@ -14,7 +18,7 @@ Comece pelo [guia de revisão](docs/guia-de-revisao.md) e consulte o [relatório
 
 - Arquivo `_quarto.yml`: metadados centrais e configuração compartilhada.
 - Arquivos `_quarto-web.yml` e `_quarto-print.yml`: ordem do livro e configuração de cada saída.
-- Diretório `chapters/`: 15 capítulos organizados em quatro partes.
+- Diretório `chapters/`: 15 capítulos organizados em três partes; a Parte I termina com “Do indicador à decisão pública”, no capítulo 6. Os caminhos históricos são preservados, e os perfis Quarto definem a organização editorial.
 - Diretórios `frontmatter/` e `backmatter/`: elementos pré e pós-textuais compartilhados.
 - Diretório `frontmatter/`: fonte única dos elementos pré-textuais das duas edições.
 - Diretório `indicators/data/`: fichas estruturadas em YAML.

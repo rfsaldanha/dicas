@@ -16,8 +16,8 @@ local function ficha_title(header)
 #v(4mm)
 #block(
   width: 100%,
-  height: 2pt,
-  fill: black,
+  height: 0.5pt,
+  fill: luma(90),
   sticky: true,
 )[]
 #v(2mm)
@@ -34,7 +34,7 @@ local function field_label(span)
     pandoc.Pandoc({pandoc.Plain(span.content)}),
     "typst"
   ):gsub("^%s+", ""):gsub("%s+$", "")
-  return pandoc.RawInline("typst", "#smallcaps[" .. label .. "]")
+  return pandoc.RawInline("typst", '#text(font: "Source Sans 3", weight: "semibold")[' .. label .. "]")
 end
 
 local function indicator_card(div)
@@ -48,9 +48,8 @@ local function indicator_card(div)
   width: 100%,
   breakable: true,
   inset: (x: 9pt, y: 7pt),
-  fill: rgb("#f4f4f4"),
-  stroke: 0.5pt + rgb("#909090"),
-  radius: 2pt,
+  fill: luma(249),
+  stroke: (top: 0.4pt + luma(160), bottom: 0.4pt + luma(160)),
 )[
   #set par(first-line-indent: 0pt, spacing: 0.45em, justify: false)
 ]] .. body .. [[
@@ -71,8 +70,7 @@ local function framebox(div)
   breakable: false,
   inset: (x: 10pt, y: 9pt),
   fill: rgb("#fafafa"),
-  stroke: 0.7pt + black,
-  radius: 1.5pt,
+  stroke: (top: 0.5pt + luma(90), bottom: 0.5pt + luma(90)),
 )[
   #set text(size: 9pt)
   #set par(first-line-indent: 0pt, spacing: 0.5em, justify: false)
@@ -82,9 +80,17 @@ local function framebox(div)
   return pandoc.RawBlock("typst", rendered)
 end
 
+local function section_end(header)
+  if not quarto.doc.is_format("typst") or header.level ~= 1 then
+    return nil
+  end
+  return {pandoc.RawBlock("typst", '#metadata("dicas-section-end")'), header}
+end
+
 return {
   { Span = field_label },
   { Header = ficha_title },
+  { Header = section_end },
   { Div = function(div)
       return indicator_card(div) or framebox(div)
     end },

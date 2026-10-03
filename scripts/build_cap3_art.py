@@ -5,13 +5,13 @@ Uso: python3 scripts/build_cap3_art.py [01 ... 08]
 Originais e prompts: assets/figures/arte-cap3-*. O manifesto preserva a ordem.
 """
 from pathlib import Path
+from figure_style import write_svg
+from render_figure import export_print
 from xml.sax.saxutils import escape
 import base64
 import json
 import struct
-import subprocess
 import sys
-import tempfile
 
 ROOT = Path(__file__).resolve().parent.parent
 ART = ROOT / 'assets/figures'
@@ -182,21 +182,18 @@ def compose(a):
     sw,sh=struct.unpack('>II',data[16:24]);width,height,parts=layout(a['number'],sw,sh)
     encoded=base64.b64encode(data).decode('ascii')
     metadata=(f"Elaboração para esta obra. Ferramenta integrada image_gen; versão não informada. "
-              f"Prompt: {a['prompt']}. Referência: aquarela-grafite-nanquim.png, apresentada como prévia de estilo. "
-              f"Intervenções editoriais: seleção e revisão da arte, disposição de vinhetas, rótulos e setas em SVG, exportação em escala de cinza. "
+              f"Prompt: {a['prompt']}. Referência: aquarela-grafite-nanquim.png, fornecida junto do original à ferramenta de edição. "
+              f"Intervenções editoriais: seleção e revisão da arte, disposição de vinhetas, rótulos e setas em SVG, exportação em escala de cinza com Chromium e ImageMagick. "
               f"Reprodução da montagem: python3 scripts/build_cap3_art.py {a['number']}. Arquivos autorais: GPL-3.0; fontes mantêm suas licenças.")
     svg=ART/a['svg'];out=ART/a['print']
-    svg.write_text(f'''<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img" aria-labelledby="title desc">
+    write_svg(svg, f'''<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img" aria-labelledby="title desc">
 <title id="title">{escape(a['title'])}</title><desc id="desc">{escape(a['alt'])}</desc>
 <metadata>{escape(metadata)}</metadata>
 <defs><image id="aquarela" width="{sw}" height="{sh}" xlink:href="data:image/png;base64,{encoded}"/>
 <marker id="arrow" markerWidth="16" markerHeight="14" refX="14" refY="7" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L16 7 L0 14 Z" fill="#4c5553"/></marker></defs>
 <rect width="{width}" height="{height}" fill="white"/>
 <g font-family="Libertinus Serif, Georgia, serif" fill="#303b36">'''+ '\n'.join(parts)+'</g></svg>\n')
-    with tempfile.TemporaryDirectory(prefix='dicas-cap3-art-') as folder:
-        rgba=Path(folder)/'composicao.png'
-        subprocess.run(['inkscape',str(svg),'--export-type=png','--export-width=2700','--export-filename='+str(rgba)],check=True,stdout=subprocess.DEVNULL)
-        subprocess.run(['convert',str(rgba),'-background','white','-alpha','remove','-alpha','off','-colorspace','Gray','-depth','8','-define','png:color-type=0',str(out)],check=True)
+    export_print(svg, out)
     print(svg.relative_to(ROOT),flush=True)
 
 

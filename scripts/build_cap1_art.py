@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 """Compõe a aquarela existente com rótulos vetoriais e exporta o miolo em cinza."""
 from pathlib import Path
+from figure_style import write_svg
+from render_figure import export_print
 import base64
-import subprocess
-import tempfile
 from xml.sax.saxutils import escape
 
 ROOT = Path(__file__).resolve().parent.parent
 ART = ROOT / 'assets/figures'
-SOURCE = ART / 'arte-cap1-01-v2.png'
+SOURCE = ART / 'arte-cap1-01-v3.png'
 SVG = ART / 'arte-cap1-01-diagrama.svg'
 PRINT = ART / 'arte-cap1-01-diagrama-print.png'
 
@@ -24,8 +24,8 @@ def card(key, top, lines):
 encoded = base64.b64encode(SOURCE.read_bytes()).decode('ascii')
 parts = [f'''<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1500" height="1400" viewBox="0 0 1500 1400" role="img" aria-labelledby="title desc">
 <title id="title">Do fenômeno ambiental à ação em saúde</title>
-<desc id="desc">Diagrama ilustrado por cinco cenas hipotéticas em aquarela. Perigo e condições de vulnerabilidade e proteção se relacionam à exposição; exposição leva a efeitos; efeitos orientam vigilância e resposta. Duas setas pontilhadas representam a ação sobre exposição e proteção.</desc>
-<metadata>Composição editorial para Dados e Indicadores de Clima e Ambiente para a Saúde. Aquarela: ferramenta integrada image_gen; prompt em arte-cap1-01-v2.prompt.txt. Referência visual: assets/references/aquarela-grafite-nanquim.png, fornecida pelo autor. Montagem: scripts/build_cap1_art.py. Licença: a mesma dos textos autorais da obra.</metadata>
+<desc id="desc">Cinco cenas hipotéticas em aquarela ilustram perigo, exposição, efeitos, resposta e proteção. As setas ligam perigo e proteção à exposição, exposição a efeitos e efeitos à resposta. Duas setas pontilhadas indicam a ação sobre exposição e proteção. As cenas se passam em bairro urbano com prédios residenciais, casas, comércio, calçadas e arborização.</desc>
+<metadata>Composição editorial para Dados e Indicadores de Clima e Ambiente para a Saúde. Aquarela: ferramenta integrada image_gen; prompt em arte-cap1-01-v3.prompt.txt. Referência visual: assets/references/aquarela-grafite-nanquim.png, fornecida pelo autor. Montagem: scripts/build_cap1_art.py. Licença: a mesma dos textos autorais da obra.</metadata>
 <defs><marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L10 4 L0 8 Z" fill="#555"/></marker></defs>
 <rect width="1500" height="1400" fill="white"/>
 <image x="560" y="65" width="930" height="1162.14" preserveAspectRatio="xMidYMid meet" xlink:href="data:image/png;base64,{encoded}"/>
@@ -50,11 +50,7 @@ parts += [
     text_lines(1040, 1330, ['Cenas hipotéticas', 'para leitura dos componentes'], size=30),
     '</g></svg>'
 ]
-SVG.write_text('\n'.join(parts))
-with tempfile.TemporaryDirectory(prefix='dicas-cap1-arte-') as folder:
-    rgba = Path(folder) / 'composicao.png'
-    subprocess.run(['inkscape', str(SVG), '--export-type=png', '--export-width=2400', '--export-filename='+str(rgba)], check=True)
-    # Conversão técnica para o perfil de impressão; conserva o original colorido.
-    subprocess.run(['convert', str(rgba), '-background', 'white', '-alpha', 'remove', '-alpha', 'off', '-colorspace', 'Gray', '-depth', '8', '-define', 'png:color-type=0', str(PRINT)], check=True)
+write_svg(SVG, '\n'.join(parts))
+export_print(SVG, PRINT)
 print(SVG.relative_to(ROOT))
 print(PRINT.relative_to(ROOT))

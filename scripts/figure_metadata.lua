@@ -14,7 +14,7 @@ local function print_source_note(value)
   return pandoc.RawBlock(
     "typst",
     "#block(above: 2pt, below: 5pt)[" ..
-      "#set text(size: 8.5pt, fill: luma(55)); " ..
+      "#set text(font: \"Source Sans 3\", size: 8.5pt, fill: luma(55)); " ..
       "#set par(first-line-indent: 0pt, leading: 0.25em, spacing: 0pt); " ..
       typst_escape(value) ..
     "]"

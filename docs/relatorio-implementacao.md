@@ -2,14 +2,14 @@
 
 ## Entrega consolidada
 
-O repositório contém um Quarto Book completo com 14 capítulos em quatro partes, elementos pré e pós-textuais, 62 fichas integradas aos capítulos, 25 fontes cadastradas, bibliografia, identidade web, formato Typst e validadores.
+O repositório contém um Quarto Book completo com 15 capítulos em três partes, elementos pré e pós-textuais, 62 fichas integradas aos capítulos, 25 fontes cadastradas, bibliografia, identidade web, formato Typst e validadores. “Do indicador à decisão pública” é o capítulo 6 e encerra a Parte I.
 
 Os capítulos apresentam fundamentos, fenômenos climáticos e ambientais, impactos sobre a saúde e a saúde pública, indicadores consolidados e aplicações na gestão. A seleção técnica é refletida diretamente na exposição de cada fenômeno e nas fichas integradas ao capítulo correspondente.
 
 ## Arquivos principais
 
 - Arquivos `_quarto.yml`, `_quarto-web.yml` e `_quarto-print.yml`;
-- 14 capítulos em `chapters/`;
+- 15 capítulos em `chapters/`;
 - Elementos editoriais em `frontmatter/` e `backmatter/`;
 - Metadados das fichas em `indicators/data/`;
 - Trechos gerados em `indicators/includes/`;
@@ -38,7 +38,7 @@ quarto render --profile print
 Rscript scripts/validate_project.R
 ```
 
-O PDF validado possui formato 160 × 230 mm, paginação dentro da faixa editorial de 400–500 páginas, fontes incorporadas e referências cruzadas resolvidas. O validador também confere 14 capítulos, 62 fichas, arquivos HTML, busca, links e âncoras.
+O PDF recompilado após a reorganização em três partes possui 528 páginas, formato 160 × 230 mm, fechamento em cadernos de quatro páginas, fontes incorporadas e referências cruzadas resolvidas. O validador também confere 15 capítulos, 62 fichas, arquivos HTML, busca, links e âncoras.
 
 ## Estado editorial
 

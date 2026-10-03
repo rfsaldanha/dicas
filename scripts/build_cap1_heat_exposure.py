@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 """Compõe as quatro vinhetas de exposição ao calor com rótulos editáveis."""
 from pathlib import Path
+from figure_style import write_svg
+from render_figure import export_print
 import base64
-import subprocess
-import tempfile
 from xml.sax.saxutils import escape
 
 ROOT = Path(__file__).resolve().parent.parent
 ART = ROOT / 'assets/figures'
-SOURCE = ART / 'arte-cap1-03-v1.png'
+SOURCE = ART / 'arte-cap1-03-v2.png'
 SVG = ART / 'arte-cap1-03-exposicao.svg'
 PRINT = ART / 'arte-cap1-03-exposicao-print.png'
 
@@ -22,8 +22,8 @@ def label(x, y, lines, size=46, step=50):
 encoded = base64.b64encode(SOURCE.read_bytes()).decode('ascii')
 parts = [f'''<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1800" height="1390" viewBox="0 0 1800 1390" role="img" aria-labelledby="title desc">
 <title id="title">Uma pessoa, diferentes condições térmicas</title>
-<desc id="desc">Quatro vinhetas acompanham a mesma mulher: saída de casa pela manhã, caminhada sob sol intenso, trabalho físico e pausa à sombra com água, e repouso em casa à noite com calor retido. A estação meteorológica mede em um ponto, enquanto a exposição depende dos ambientes, períodos, duração, atividade e proteção ao longo do percurso. A sequência é didática, sem duração medida.</desc>
-<metadata>Elaboração para esta obra. Ilustração: ferramenta integrada image_gen. Prompt: arte-cap1-03-v1.prompt.txt. Referência visual: aquarela-grafite-nanquim.png, fornecida pelo autor. Montagem: scripts/build_cap1_heat_exposure.py. Licença: a mesma dos textos autorais da obra.</metadata>
+<desc id="desc">Quatro vinhetas em bairro urbano misto, com edifícios, casas, calçadas e praça, acompanham a mesma mulher: saída de casa pela manhã, caminhada sob sol intenso, trabalho físico e pausa à sombra com água, e repouso em casa à noite com calor retido. A estação meteorológica mede em um ponto, enquanto a exposição depende dos ambientes, períodos, duração, atividade e proteção ao longo do percurso. A sequência é didática, sem duração medida.</desc>
+<metadata>Elaboração para esta obra. Ilustração: ferramenta integrada image_gen. Prompt: arte-cap1-03-v2.prompt.txt. Referência visual: aquarela-grafite-nanquim.png, fornecida pelo autor. Montagem: scripts/build_cap1_heat_exposure.py. Licença: a mesma dos textos autorais da obra.</metadata>
 <defs><marker id="arrow" markerWidth="11" markerHeight="9" refX="10" refY="4.5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L11 4.5 L0 9 Z" fill="#555"/></marker></defs>
 <rect width="1800" height="1390" fill="white"/>
 <image x="20" y="160" width="1760" height="880" preserveAspectRatio="xMidYMid meet" xlink:href="data:image/png;base64,{encoded}"/>
@@ -44,13 +44,7 @@ parts += [
     label(900, 1350, ['Sequência didática; as larguras não representam durações medidas.'], size=36),
     '</g></svg>'
 ]
-SVG.write_text('\n'.join(parts))
-with tempfile.TemporaryDirectory(prefix='dicas-calor-') as folder:
-    rgba = Path(folder) / 'composicao.png'
-    subprocess.run(['inkscape', str(SVG), '--export-type=png', '--export-width=2700',
-                    '--export-filename='+str(rgba)], check=True)
-    subprocess.run(['convert', str(rgba), '-background', 'white', '-alpha', 'remove',
-                    '-alpha', 'off', '-colorspace', 'Gray', '-depth', '8',
-                    '-define', 'png:color-type=0', str(PRINT)], check=True)
+write_svg(SVG, '\n'.join(parts))
+export_print(SVG, PRINT)
 print(SVG.relative_to(ROOT))
 print(PRINT.relative_to(ROOT))

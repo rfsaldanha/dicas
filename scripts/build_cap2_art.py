@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """Compõe as sete aquarelas do capítulo 2 com textos e relações editáveis."""
 from pathlib import Path
+from figure_style import write_svg
+from render_figure import export_print
 from xml.sax.saxutils import escape
 import base64
 import struct
-import subprocess
 import sys
-import tempfile
 
 ROOT = Path(__file__).resolve().parent.parent
 ART = ROOT / 'assets/figures'
@@ -40,9 +40,13 @@ def box(x, y, w, h):
 def layout(number, sw, sh):
     if number == '01':
         slug, title, width, height = 'referencias', 'Duas finalidades para escolher a referência climática', 1800, 1810
-        desc = ('Duas equipes ilustram a comparação com uma base histórica fixa e o planejamento com uma normal recente. '
-                'Ambas exigem documentar período e método e avaliar exposição, vulnerabilidade e capacidade de resposta. '
-                'Referência estatística não é limite de segurança. Cenas conceituais, sem dados observados.')
+        desc = (
+            'Duas equipes ilustram a comparação com uma base histórica fixa e o planejamento com uma '
+            'normal recente. Ambas exigem documentar período e método e avaliar exposição, '
+            'vulnerabilidade e capacidade de resposta. Referência estatística não é limite de '
+            'segurança. Cenas conceituais, sem dados observados. As equipes trabalham junto a bairros '
+            'com prédios, casas e arborização; as estações ficam em áreas abertas.'
+        )
         parts = [
             label(900, 65, 'Séries climáticas documentadas', 52),
             line('M900 95 V120 H450 V150'), line('M900 120 H1350 V150'),
@@ -62,7 +66,7 @@ def layout(number, sw, sh):
         ]
     elif number == '02':
         slug, title, width, height = 'cascatas', 'Eventos combinados e efeitos em cascata', 1800, 2070
-        desc = ('À esquerda, calor e fumaça atingem um bairro hipotético ao mesmo tempo. À direita, uma inundação se ramifica em interrupção de acesso e falha de energia, comprometendo chegada de equipes e insumos, equipamentos e comunicação. Os caminhos convergem na redução da capacidade operacional de uma unidade com prédio intacto.')
+        desc = ('À esquerda, calor e fumaça atingem um bairro urbano hipotético, com edifícios, casas e comércio, ao mesmo tempo. À direita, uma inundação se ramifica em interrupção de acesso e falha de energia, comprometendo chegada de equipes e insumos, equipamentos e comunicação. Os caminhos convergem na redução da capacidade operacional de uma unidade com prédio intacto.')
         parts = [
             label(450, 65, 'Eventos combinados', 54), label(1350, 65, 'Efeitos em cascata', 54),
             picture('dois-paineis', (0, 0, sw, sh), 20, 110, 1760, 1174),
@@ -82,12 +86,12 @@ def layout(number, sw, sh):
         ]
     elif number == '07':
         slug, title, width, height = 'grades', 'Dados em grade: organização e limites de interpretação', 1800, 1840
-        desc = ('Três cenas distinguem uma estação meteorológica, uma malha sobre um território hipotético e ambientes diversos dentro de uma célula. A malha não pressupõe instrumento em cada célula nem valor idêntico em cada residência. Camadas ilustram momentos distintos, sem temperaturas ou escala quantitativa.')
+        desc = ('Três cenas distinguem uma estação meteorológica, uma malha sobre um território hipotético com prédios, casas, quadras e áreas verdes e ambientes diversos dentro de uma célula. A malha não pressupõe instrumento em cada célula nem valor idêntico em cada residência. Camadas ilustram momentos distintos, sem temperaturas ou escala quantitativa.')
         parts = [
             label(300, 60, ['Observação', 'em um ponto'], 47),
             label(900, 60, ['Valores organizados', 'em uma malha'], 47),
             label(1500, 60, ['Ambientes dentro', 'de uma célula'], 47),
-            picture('territorio', (0, 0, sw, 700), 20, 150, 1760, 805),
+            picture('territorio', (0, 0, sw, 715), 20, 150, 1760, 805),
             '<rect x="660" y="220" width="480" height="600" fill="white" fill-opacity="0.12" stroke="#333" stroke-width="3"/>',
         ]
         for x in range(780, 1140, 120):
@@ -107,7 +111,13 @@ def layout(number, sw, sh):
         ]
     elif number == '03':
         slug, title, width, height = 'atendimento', 'Necessidade, acesso e oferta condicionam o atendimento observado', 1800, 1900
-        desc = ('Três cenas hipotéticas mostram procura por cuidado, acesso e oferta interrompidos e necessidades diversas após deslocamento. Precisar de cuidado, conseguir procurá-lo e ter atendimento registrado são situações diferentes. Menos consultas não comprovam menor adoecimento.')
+        desc = (
+            'Três cenas hipotéticas mostram procura por cuidado, acesso e oferta interrompidos e '
+            'necessidades diversas após deslocamento. Precisar de cuidado, conseguir procurá-lo e ter '
+            'atendimento registrado são situações diferentes. Menos consultas não comprovam menor '
+            'adoecimento. Unidades de saúde, prédios residenciais, comércio e vias de um bairro urbano '
+            'compõem os cenários.'
+        )
         parts = [
             label(300, 65, ['Necessidade e procura', 'por cuidado'], 47),
             label(900, 65, ['Oferta e acesso', 'comprometidos'], 47),
@@ -124,7 +134,14 @@ def layout(number, sw, sh):
         ]
     elif number == '04':
         slug, title, width, height = 'adaptacao', 'Acompanhamento, continuidade do cuidado e adaptação contínua', 1800, 2070
-        desc = ('Quatro cenas ilustram preparação de uma unidade, continuidade do cuidado em território com acesso difícil, acompanhamento e recuperação do acesso e avaliação participativa. Setas pontilhadas retornam da avaliação à preparação e à continuidade. Calor e abastecimento irregular lembram mudanças graduais e eventos recorrentes. As ações podem coexistir.')
+        desc = (
+            'Quatro cenas ilustram preparação de uma unidade, continuidade do cuidado em território com '
+            'acesso difícil, acompanhamento e recuperação do acesso e avaliação participativa. Setas '
+            'pontilhadas retornam da avaliação à preparação e à continuidade. Calor e abastecimento '
+            'irregular lembram mudanças graduais e eventos recorrentes. As ações podem coexistir. As '
+            'ações ocorrem em bairro urbano com edifícios, casas, vias, unidade de saúde e acesso '
+            'residencial.'
+        )
         parts = [
             label(625, 85, 'Preparar', 52),
             label(1400, 65, ['Sustentar a continuidade', 'do cuidado'], 46),
@@ -147,7 +164,13 @@ def layout(number, sw, sh):
         ]
     elif number == '05':
         slug, title, width, height = 'horizontes', 'Informação e decisões em diferentes horizontes de planejamento', 1800, 1930
-        desc = ('Três cenas distinguem comunicação e preparação em horas a dias, organização de equipes e insumos em semanas a meses e adaptação dos serviços ao longo de anos. Uma faixa comum conecta avaliação e revisão contínuas aos três horizontes. Cenários representam futuros possíveis, sem probabilidades atribuídas.')
+        desc = (
+            'Três cenas distinguem comunicação e preparação em horas a dias, organização de equipes e '
+            'insumos em semanas a meses e adaptação dos serviços ao longo de anos. Uma faixa comum '
+            'conecta avaliação e revisão contínuas aos três horizontes. Cenários representam futuros '
+            'possíveis, sem probabilidades atribuídas. Prédios e quadras urbanas aparecem nas janelas e '
+            'ao redor da unidade de saúde.'
+        )
         parts = [
             label(900, 70, 'Que decisão precisa ser tomada e por quem?', 51),
             label(300, 210, 'Horas a dias', 51),
@@ -172,7 +195,14 @@ def layout(number, sw, sh):
         ]
     elif number == '06':
         slug, title, width, height = 'indicadores', 'Seis dimensões complementares para interpretar o risco e a resposta', 1800, 2310
-        desc = ('Seis cenas com o mesmo destaque representam perigo, exposição e proteção, vulnerabilidade, efeito em saúde, impacto em desastres e resposta e capacidade. Cada dimensão possui uma pergunta própria. A disposição não define uma sequência causal nem soma as medidas em uma nota. Ausência de registro não comprova ausência de dano, e recursos disponíveis não comprovam desempenho.')
+        desc = (
+            'Seis cenas com o mesmo destaque representam perigo, exposição e proteção, vulnerabilidade, '
+            'efeito em saúde, impacto em desastres e resposta e capacidade. Cada dimensão possui uma '
+            'pergunta própria. A disposição não define uma sequência causal nem soma as medidas em uma '
+            'nota. Ausência de registro não comprova ausência de dano, e recursos disponíveis não '
+            'comprovam desempenho. As cenas incluem prédios, casas, ruas e serviços urbanos; a estação '
+            'permanece em terreno aberto.'
+        )
         parts = []
         scenes = [
             ('perigo', (0, 0, 768, 348), 450, 65, 'Perigo', ['Que condição ocorreu', 'ou pode ocorrer?']),
@@ -198,7 +228,8 @@ def layout(number, sw, sh):
 
 
 def compose(number):
-    source = ART / f'arte-cap2-{number}-v1.png'
+    version = 'v2'
+    source = ART / f'arte-cap2-{number}-{version}.png'
     data = source.read_bytes()
     assert data[:8] == b'\x89PNG\r\n\x1a\n'
     sw, sh = struct.unpack('>II', data[16:24])
@@ -208,15 +239,12 @@ def compose(number):
     out = ART / f'arte-cap2-{number}-{slug}-print.png'
     document = f'''<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img" aria-labelledby="title desc">
 <title id="title">{escape(title)}</title><desc id="desc">{escape(desc)}</desc>
-<metadata>Elaboração para esta obra. Ilustração: ferramenta integrada image_gen. Prompt: arte-cap2-{number}-v1.prompt.txt. Referência visual: aquarela-grafite-nanquim.png, fornecida pelo autor e apresentada na conversa. Montagem: scripts/build_cap2_art.py {number}. Licença: a mesma dos textos autorais da obra.</metadata>
+<metadata>Elaboração para esta obra. Ilustração: ferramenta integrada image_gen. Prompt: arte-cap2-{number}-{version}.prompt.txt. Referência visual: aquarela-grafite-nanquim.png, fornecida pelo autor e apresentada na conversa. Montagem: scripts/build_cap2_art.py {number}. Licença: a mesma dos textos autorais da obra.</metadata>
 <defs><image id="aquarela" width="{sw}" height="{sh}" xlink:href="data:image/png;base64,{encoded}"/><marker id="arrow" markerWidth="16" markerHeight="14" refX="14" refY="7" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L16 7 L0 14 Z" fill="#555"/></marker></defs>
 <rect width="{width}" height="{height}" fill="white"/>
 <g font-family="Libertinus Serif, Georgia, serif" fill="#353535">'''
-    svg.write_text(document + '\n'.join(parts) + '</g></svg>\n')
-    with tempfile.TemporaryDirectory(prefix='dicas-cap2-art-') as folder:
-        rgba = Path(folder) / 'composicao.png'
-        subprocess.run(['inkscape', str(svg), '--export-type=png', '--export-width=2700', '--export-filename=' + str(rgba)], check=True)
-        subprocess.run(['convert', str(rgba), '-background', 'white', '-alpha', 'remove', '-alpha', 'off', '-colorspace', 'Gray', '-depth', '8', '-define', 'png:color-type=0', str(out)], check=True)
+    write_svg(svg, document + '\n'.join(parts) + '</g></svg>\n')
+    export_print(svg, out)
     print(svg.relative_to(ROOT))
     print(out.relative_to(ROOT))
 

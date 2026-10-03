@@ -78,7 +78,7 @@ local function add_grid_rule(typst, compact)
   local table_start = "#table(\n"
     .. "  stroke: 0.35pt + rgb(\"#999999\"),\n"
     .. "  fill: (x, y) => if y == 0 {\n"
-    .. "    rgb(\"#dedede\")\n"
+    .. "    rgb(\"#eeeeee\")\n"
     .. "  } else if calc.odd(y) {\n"
     .. "    rgb(\"#f6f6f6\")\n"
     .. "  } else {\n"

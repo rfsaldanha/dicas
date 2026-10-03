@@ -69,6 +69,54 @@ Use negrito apenas quando houver uma função editorial que não possa ser expre
 
 Nos callouts, use a rubrica correspondente à taxonomia acima. Conceitos e definições centrais devem aparecer, de preferência, em callouts intitulados “Conceito-chave” ou “Conceito-chave: assunto”.
 
+## Identidade visual: Território, evidência e cuidado
+
+A obra adota a linguagem de um atlas de campo em saúde pública: tipografia de livro, espaço branco, filetes finos e aquarelas que relacionam condições ambientais, território e cuidado. Capa e web usam cor; o miolo permanece monocromático, no formato de 160 × 230 mm, com margens de 25 mm internas, 18 mm externas, 20 mm superiores e 22 mm inferiores.
+
+### Paleta
+
+| Cor | Código web e capa | Uso |
+|---|---|---|
+| Branco de papel | `#FFFFFF` | Fundo de leitura e continuidade das bordas das aquarelas |
+| Grafite esverdeado | `#303B36` | Texto e títulos |
+| Verde de vegetação | `#536B50` | Identidade, capa, links e navegação |
+| Azul acinzentado | `#597482` | Conceitos e destaques secundários |
+| Terracota | `#AE6B50` | Filetes e chamadas de atenção |
+| Areia clara | `#F3F0E8` | Navegação e superfícies auxiliares |
+
+Usar branco como superfície predominante. A textura pertence às ilustrações, sem aplicação atrás do texto. A cor deve acompanhar uma rubrica, um rótulo ou uma forma; não pode ser a única distinção. Tons de atenção em texto usam a variante mais escura `#985739`. No modo escuro, usar fundo `#202823`, texto `#EEEAE1`, verde `#B8C9AE`, azul `#B2C7D0` e terracota `#E1B296`; as aquarelas continuam sobre branco, sem inversão ou filtros.
+
+### Tipografia e hierarquia
+
+| Elemento | Impressão | Web |
+|---|---|---|
+| Texto corrido | Libertinus Serif, 10,5 pt, entrelinha de 14 pt | Libertinus Serif, 19 px, entrelinha de 1,6 |
+| Título de capítulo | Libertinus Serif, 25 pt | Libertinus Serif, 2,25 rem; 2 rem em tela estreita |
+| Seções | Libertinus Serif, 15 pt | Libertinus Serif, 1,65 rem |
+| Rubricas, campos e navegação | Source Sans 3 | Source Sans 3 |
+| Legendas e tabelas | 9 pt | 0,95 rem |
+| Fonte da figura | Source Sans 3, 8,5 pt | Source Sans 3, 0,85 rem |
+
+As fontes estão incorporadas ao projeto em `assets/fonts`, com versões, licenças e hashes registrados. A edição web serve WOFF2 localmente; a impressão usa OTF. Os SVGs da série de aquarelas contêm sua própria fonte, pois uma imagem SVG externa não herda a tipografia da página HTML.
+
+Na impressão, colocar a rubrica “CAPÍTULO” e o número acima do título. Na web, manter número e título na mesma linha tipográfica, formando um único cabeçalho; o número não deve aparecer isolado. Aberturas de parte usam algarismo romano, título e um filete de 0,5 pt, com espaço generoso. Os cabeçalhos correntes são discretos e as páginas deliberadamente vazias não recebem fólio.
+
+### Capa e abertura web
+
+A capa frontal usa fundo branco, título verde alinhado à esquerda em três linhas — “Dados e Indicadores”, “de Clima e Ambiente”, “para a Saúde” — em Libertinus Serif 28 pt, entrelinha de 32 pt. A cena contínua ocupa a metade inferior; o autor aparece no rodapé em Source Sans 3, 11 pt. A composição editável está em `assets/cover/capa.typ`; prompt, referência, ferramenta e intervenções da ilustração constam no mesmo diretório. A largura de uso da arte é 128 mm, equivalente a 304,8 ppi no original de 1536 pixels.
+
+A página inicial retoma título, autoria e cena da capa. A coluna de leitura usa 672 px no grid nativo do Quarto, aproximadamente 76 caracteres na tipografia adotada; links no texto são sublinhados e controles têm foco visível. Figuras usam `column-page-right` apenas na web: ocupam também a margem direita, com recolhimento automático do índice lateral nas regiões de sobreposição. As legendas permanecem abaixo da figura. No celular, as figuras retornam à largura disponível; fórmulas e tabelas extensas podem rolar dentro da coluna.
+
+### Fichas, quadros e figuras
+
+Fichas usam cabeçalho com filete, código e metadados bem localizados, rótulos em Source Sans 3 e blocos separados por espaço. Usar fundos muito claros e evitar molduras pesadas. Boxes mantêm a rubrica explícita — Conceito-chave, Boa prática, Atenção ou Nota técnica — também no miolo em cinza.
+
+Tabelas estatísticas usam filetes horizontais; quadros textuais mantêm grade fechada com cabeçalho leve. Figuras têm legendas alinhadas à esquerda e notas de fonte separadas. As conexões dos diagramas são finas e regulares; espessuras, tracejados e caixas com significado conceitual devem ser preservados. Não enquadrar as bordas orgânicas das aquarelas com molduras adicionais.
+
+### Prova visual
+
+Conferir capa, abertura de parte, abertura de capítulo, figura e ficha extensa em tamanho real; revisar também a página inicial e uma ficha em desktop e celular, nos dois temas. Verificar incorporação das fontes, entrelinha efetiva, contraste, foco de teclado, rolagem das fórmulas e tabelas, referências cruzadas e ausência de fólio nas páginas vazias. O fechamento do miolo em múltiplos de quatro páginas é automático.
+
 ## Recursos visuais
 
 Toda figura deve ter função, legenda, fonte, autoria, licença e texto alternativo. Elementos generativos de IA podem ser usados quando forem adequados à função editorial, desde que recebam direção de arte, revisão humana e tratamento coerente com o padrão técnico da obra, sem aparência genérica ou artificiosamente produzida. Não usar imagem meramente decorativa. Tabelas devem permanecer legíveis no celular e no miolo de 160 × 230 mm.
@@ -102,6 +150,12 @@ Manter mãos, dedos, braços e pernas anatomicamente coerentes, com proporções
 A paleta é uma convenção editorial qualitativa. Cores, intensidades de aguada, tamanhos de personagens e larguras de caminhos não representam magnitudes observadas. Gráficos e mapas construídos com dados mantêm escalas, geometrias, símbolos e legendas tecnicamente adequados; a aquarela pode compor elementos de apoio, sem deformar a informação.
 
 ### Prompts e continuidade entre capítulos
+
+Representar a diversidade dos territórios brasileiros ao longo da série: áreas rurais, pequenas cidades, periferias e bairros urbanos densos. Nas cenas urbanas, integrar edifícios residenciais e comerciais, construções de diferentes portes, calçadas, vias pavimentadas, serviços e áreas verdes aos planos principais, com presença legível no tamanho de publicação. Distribuir contextos urbanos entre situações de exposição e de proteção, evitando associar automaticamente prédios a risco ou paisagens rurais a condições favoráveis. Preservar a função científica de cada figura e o espaço necessário aos rótulos; as paisagens permanecem hipotéticas.
+
+Em cenas internas, usar as vistas das janelas e a arquitetura dos serviços para situar o contexto urbano, preservando o foco em pessoas, instrumentos e documentos. Manter áreas abertas ao redor das estações meteorológicas. Não acrescentar construções que possam ser interpretadas como contagens de estabelecimentos, nem alterar o estado de equipamentos, amostras e registros para acomodar a paisagem.
+
+Nas revisões de paisagem, preservar o original e seu prompt e salvar a nova arte e o prompt efetivamente utilizado em arquivos versionados. Atualizar a fonte nos montadores e manifestos, os créditos e os textos alternativos, mantendo os identificadores e os nomes das composições publicadas. Conferir a correspondência entre vistas do mesmo bairro e reutilizar o mesmo raster nos painéis que comparam suportes, escalas ou zoneamentos.
 
 Cada prompt deve conter o padrão visual completo, seguido de função conceitual, composição, proporção e elementos obrigatórios da cena. Os seis comentários de arte do capítulo 1 usam o mesmo parágrafo de direção de arte. Manter esse parágrafo idêntico nas próximas solicitações e alterar apenas a parte específica de cada imagem.
 

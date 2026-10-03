@@ -14,10 +14,10 @@ Os artefatos são:
 
 ## Ordem sugerida
 
-1. Avaliar propósito, público e vocabulário nos capítulos 1 a 5.
-2. Revisar cada fenômeno nos capítulos 6 a 11, verificando a síntese dos principais indicadores e as fichas integradas.
-3. Examinar exposição, vulnerabilidade, efeitos e capacidade nos capítulos 12 a 14.
-4. Testar a aplicação dos indicadores nos quatro casos do capítulo 15.
+1. Avaliar propósito, público, vocabulário e roteiro de aplicação nos capítulos 1 a 6, que compõem a Parte I.
+2. Revisar cada fenômeno nos capítulos 7 a 12, verificando a síntese dos principais indicadores e as fichas integradas.
+3. Examinar exposição, vulnerabilidade, efeitos e capacidade nos capítulos 13 a 15.
+4. Retomar os quatro casos do capítulo 6 para testar a aplicação dos indicadores após a revisão dos capítulos temáticos e integrados.
 5. Conferir glossário, índices, catálogo de fontes, listas e referências.
 6. Revisar site e PDF como produtos editoriais distintos.
 

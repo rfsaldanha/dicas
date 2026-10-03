@@ -1,5 +1,8 @@
 project:
   output-dir: _output/web
+  resources:
+    - assets/fonts/*.woff2
+    - assets/fonts/LICENSE-*.txt
 
 book:
   chapters:
@@ -19,6 +22,7 @@ book:
         - chapters/part-1/02-dados-variaveis-indices-indicadores.qmd
         - chapters/part-1/03-espaco-tempo-qualidade.qmd
         - chapters/part-1/04-fontes-fichas.qmd
+        - chapters/part-4/14-indicador-decisao.qmd
     - part: "Parte II — Dados e indicadores temáticos"
       chapters:
         - chapters/part-2/05-temperatura-condicoes-termicas.qmd
@@ -32,9 +36,6 @@ book:
         - chapters/part-3/11-exposicao-vulnerabilidade.qmd
         - chapters/part-3/12-efeitos-saude.qmd
         - chapters/part-3/13-resposta-adaptacao-resiliencia.qmd
-    - part: "Parte IV — Aplicação na vigilância e na gestão pública"
-      chapters:
-        - chapters/part-4/14-indicador-decisao.qmd
     - part: "Elementos pós-textuais"
       chapters:
         - backmatter/glossario.qmd
@@ -51,9 +52,15 @@ book:
 format:
   html:
     theme:
-      light: journal
-      dark: darkly
+      light: [default, styles/web/theme.scss]
+      dark: [default, styles/web/theme-dark.scss]
     css: styles/web/styles.css
+    fig-column: page-right
+    grid:
+      body-width: 672px
+      sidebar-width: 260px
+      margin-width: 220px
+      gutter-width: 1.5rem
     toc: true
     toc-depth: 3
     code-copy: true

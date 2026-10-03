@@ -1,12 +1,16 @@
-.PHONY: all web print validate links figures-real catalogs clean
+.PHONY: all web print cover validate links figures-real catalogs clean
 
-all: web print validate
+all: web print cover validate
 
 web:
 	quarto render --profile web
 
 print:
 	quarto render --profile print
+
+cover:
+	mkdir -p _output/cover
+	quarto typst compile --root . --font-path assets/fonts assets/cover/capa.typ _output/cover/capa.pdf
 
 validate:
 	Rscript scripts/validate_project.R
