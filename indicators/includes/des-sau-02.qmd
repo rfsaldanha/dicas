@@ -5,15 +5,15 @@
 [Título resumido:]{.field-label} Interrupções de serviços de saúde \
 [Tema:]{.field-label} Eventos meteorológicos severos e desastres \
 [Dimensão:]{.field-label} efeito; resposta; exposição \
-[Disponibilidade:]{.field-label} [requer integração intersetorial]{.availability}
+[Disponibilidade:]{.field-label} [Depende de dados locais]{.availability}
 :::
 
 ### Identificação e fundamento {.unnumbered .ficha-section}
 
-[Base de consolidação.]{.field-label} Componente de interrupção de serviços de saúde do indicador ODS 11.5.3b e meta D do Marco de Sendai.
+[Base de consolidação.]{.field-label} Sendai D-7/ODS 11.5.3b; operacionalização local por estabelecimento–serviço–evento e intervalo de interrupção.
 
 ::: {.callout-note icon=false title="Conceito-chave"}
-Contagem de ocorrências em que serviço de saúde foi interrompido, reduzido ou teve qualidade comprometida por desastre, conforme protocolo de registro.
+Número de episódios documentados de interrupção de serviço de saúde atribuídos a desastres, com unidade de contagem explícita.
 :::
 
 ### Objetivo {.unnumbered .ficha-section}
@@ -39,33 +39,33 @@ Valor maior indica mais ocorrências de disrupção. Deve ser acompanhado por du
 
 ### Fontes de dados {.unnumbered .ficha-section}
 
-- Sistema Integrado de Informações sobre Desastres — evento e registro de interrupções básicas ([cadastro](../../backmatter/indice-fontes.qmd#s2id))
-- Departamento de Informática do Sistema Único de Saúde — cadastro e produção assistencial para verificação complementar ([cadastro](../../backmatter/indice-fontes.qmd#datasus))
+- Registros locais de afetados diretos e interrupções de saúde — Registro local datado de impactos e sua atribuição ao evento; o esquema mínimo consta do método ([cadastro](../../backmatter/indice-fontes.qmd#registros-locais-desastres))
+- IBGE — população municipal por Censo e publicação anual — Denominador populacional quando requerido ([cadastro](../../backmatter/indice-fontes.qmd#ibge-pop-municipal))
 
 ### Método de cálculo {.unnumbered .ficha-section}
 
-Definir unidade de ocorrência — estabelecimento-serviço-evento —, registrar início, término, nível de funcionamento e causa, verificar atribuição e contar ocorrências únicas.
+Registrar evento_id, COBRADE, município, estabelecimento_id (CNES quando existir), serviço_id no catálogo CNES de serviços/classificações da versão adotada, início, fim, fuso, tipo total/parcial e evidência de atribuição ao desastre. Incluir apenas intervalos em que um serviço programado ficou indisponível, integralmente ou para parte da capacidade/território; a condição parcial precisa ser documentada, não inferida de queda de produção. Para cada estabelecimento–serviço–evento, unir intervalos sobrepostos ou contíguos; cada intervalo unido é um episódio. Se um episódio unido incluir interrupção total em qualquer trecho, classificá-lo como total e sinalizar mistura com trechos parciais; classificar como parcial somente quando todos os trechos forem parciais. Contar episódios pelo ano de início, mantendo os que atravessam anos uma única vez e publicando duração como medida separada. Episódio ainda em curso entra na contagem com fim ausente e flag aberto; duração permanece censurada. Publicar totais e parciais separadamente e sua soma; falta de início, identificador ou comprovação gera registro indeterminado, não zero.
 
 $$
-N_{interrupções}=\sum_{f,s,e}I(serviço\ s\ de\ f\ interrompido\ pelo\ evento\ e)
+N_{m,y}=\sum_{(f,s,e)}\#\{\text{intervalos unidos com início em }y\text{ e município }m\}
 $$
 
 ::: {.indicator-card}
-[Numerador.]{.field-label} Não se aplica; contagem de ocorrências únicas.
+[Numerador.]{.field-label} Episódios de interrupção após união dos intervalos de cada estabelecimento–serviço–evento.
 
-[Denominador.]{.field-label} Não se aplica; horas-serviço e proporção de estabelecimentos são complementares.
+[Denominador.]{.field-label} Não se aplica.
 
-[Unidade de medida.]{.field-label} Ocorrências de interrupção.
+[Unidade de medida.]{.field-label} Episódios de interrupção por ano, separados em total e parcial.
 
-[Variáveis e categorias de análise.]{.field-label} Estabelecimento; serviço; interrupção total/parcial; início; duração; barreira; evento; população.
+[Variáveis e categorias de análise.]{.field-label} Evento_id, COBRADE, município, estabelecimento/CNES, serviço/classificação, início, fim, fuso, tipo e evidência causal.
 
-[Granularidade.]{.field-label} Estabelecimento-serviço-evento.
+[Granularidade.]{.field-label} Intervalo de interrupção por estabelecimento–serviço–evento; município como agregação de episódios.
 
-[Periodicidade de atualização.]{.field-label} Durante resposta e até restauração.
+[Periodicidade de atualização.]{.field-label} Após cada evento, com consolidação anual e revisão dos desfechos.
 
 [Responsabilidade gerencial.]{.field-label} Proteção e defesa civil consolida perdas e danos; saúde verifica óbitos, agravos e serviços; estatística fornece denominadores.
 
-[Notas.]{.field-label} As fichas seguem indicadores Sendai/ODS. Contagens nacionais devem observar os procedimentos oficiais de validação e evitar dupla contagem.
+[Notas.]{.field-label} PEPL_Assis_méd e emergên no Atlas é um campo monetário, não uma contagem de interrupções. Cadastro CNES e variação na produção SIA/SUS também não comprovam interrupção. A regra de união de intervalos é a operacionalização deste livro; divulgar a unidade de contagem ao comparar com relatórios Sendai.
 
 [Análise descritiva do indicador.]{.field-label} Mostrar número, duração, serviços essenciais, população sem acesso, causas operacionais, substituição e tempo de recuperação.
 
@@ -74,39 +74,51 @@ $$
 ### Campos complementares para clima, ambiente e saúde {.unnumbered .ficha-section}
 
 ::: {.indicator-card}
-[Unidade territorial.]{.field-label} Estabelecimento e território.
+[Unidade territorial.]{.field-label} Município da ocorrência; conservar limite territorial e ano do registro.
 
-[Resolução espacial original.]{.field-label} Local do serviço.
+[Resolução espacial original.]{.field-label} Pessoa/domicílio ou estabelecimento/serviço vinculado ao evento.
 
-[Resolução temporal.]{.field-label} Horas/dias por evento e consolidação anual.
+[Resolução temporal.]{.field-label} Ocorrência datada; resumo anual após consolidação e revisão.
 
-[Período de referência.]{.field-label} Evento e período de recuperação.
+[Período de referência.]{.field-label} Ano do evento ou início da interrupção, conforme método; registrar data de corte das revisões.
 
-[Limiar ou valor de referência.]{.field-label} Interrupção, redução ou perda de qualidade conforme definição ODS/Sendai adotada.
+[Limiar ou valor de referência.]{.field-label} Indisponibilidade documentada de serviço programado, com início conhecido e vínculo ao evento; sem limiar mínimo arbitrário de horas.
 
 :::
 
 ### Disponibilidade e acesso {.unnumbered .ficha-section}
 
-[Cobertura geográfica.]{.field-label} Brasil, condicionada a registro específico e integração setorial.
+[Protocolo verificado em.]{.field-label} 2026-10-03
 
-[Período disponível.]{.field-label} Conforme sistemas envolvidos.
+[Dependência de dados locais.]{.field-label} Necessária
 
-[Periodicidade de atualização.]{.field-label} Durante resposta e até restauração.
+[Automação.]{.field-label} Não demonstrada
 
-[Forma de acesso.]{.field-label} Formulários de desastre, sistemas de situação e informação assistencial.
+[Requisitos para o cálculo.]{.field-label} Disponibilização de registro local com os componentes e identificadores especificados; não foi demonstrada uma base aberta nacional com esse conteúdo.
+
+[Nível de evidência.]{.field-label} Documentação verificada
+
+[Alcance da verificação.]{.field-label} Produto e método documentados; série municipal completa ainda não produzida.
+
+[Cobertura geográfica.]{.field-label} Municípios com registros locais suficientes e rotina explícita de apuração.
+
+[Período disponível.]{.field-label} Desde a implantação de registro local com os campos exigidos; série municipal nacional completa não demonstrada.
+
+[Periodicidade de atualização.]{.field-label} Após cada evento, com consolidação anual e revisão dos desfechos.
+
+[Forma de acesso.]{.field-label} Exportação CSV/Parquet do sistema local no esquema desta ficha; a existência de S2iD, CNES ou SIA/SUS não garante os campos necessários.
 
 [URL ou identificador persistente.]{.field-label} https://unstats.un.org/sdgs/metadata/files/Metadata-11-05-03.pdf
 
-[Formato dos arquivos.]{.field-label} Registro de incidente, tabela e série assistencial.
+[Formato dos arquivos.]{.field-label} Tabelas locais de eventos e impactos vinculáveis; publicação municipal agregada, sem identificação pessoal.
 
-[Necessidade de processamento.]{.field-label} Definir ocorrência, vincular serviços, deduplicar, calcular duração e verificar retorno.
+[Necessidade de processamento.]{.field-label} Vincular ao desastre, classificar impacto, validar datas e identificadores, resolver revisões/duplicidades e somar apenas casos elegíveis.
 
 ### Qualidade, comparação e saúde {.unnumbered .ficha-section}
 
-[Qualidade e incerteza.]{.field-label} Relatar definição, desastre, local, período, fonte, verificação, revisões, duplicidades, sub-registro e denominador.
+[Qualidade e incerteza.]{.field-label} Sem apuração, resultado ausente, nunca zero automático. Zero requer cobertura documentada e confirmação de ausência de ocorrências no período. Preservar desconhecido, não aplicável e incompleto.
 
-[Possibilidade de comparação.]{.field-label} Manter taxonomia, componente, regra de atribuição, período, população e versão do registro; totais preliminares e consolidados devem ser distinguidos.
+[Possibilidade de comparação.]{.field-label} Mesma definição de evento, componente, estabelecimento, serviço e cobertura de registro; mudanças no cadastro local precisam de quebra de série.
 
 [Relação com desfechos de saúde.]{.field-label} Mortes, pessoas afetadas e interrupção de serviços expressam efeitos diretos e condições que ampliam riscos sanitários durante e após desastres.
 

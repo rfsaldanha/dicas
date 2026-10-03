@@ -961,3 +961,76 @@
   limitacoes: "Verificar cobertura, qualidade, versão e valores ausentes antes da agregação."
   ultima_verificacao: "2026-10-03"
   indicadores: ["AMB-URB-03"]
+
+- id: "atlas-2026-v11"
+  tipo_registro: "produto"
+  nome: "Atlas Digital de Desastres — 1991–2025, v1.1 de 06/08/2026"
+  instituicao: "Ministério da Integração e do Desenvolvimento Regional"
+  descricao: "Base consolidada de registros municipais de desastres e danos humanos/materiais."
+  recursos_relacionados: ["Atlas Digital de Desastres — 1991–2025, v1.1 de 06/08/2026"]
+  temas: ["Indicadores da Parte II"]
+  variaveis: ["Mortos", "Desaparecidos", "Danos em instalações públicas de saúde"]
+  cobertura_geografica: "Brasil no domínio do produto; cobertura efetiva descrita nas fichas."
+  resolucao_espacial: "Registro municipal"
+  resolucao_temporal: "Por evento"
+  periodo_disponivel: "1991–2025"
+  atualizacao: "Por edição do produto; congelar versão e data da extração."
+  acesso: "Download programático dos arquivos públicos identificados no catálogo."
+  url: "https://atlasdigital.mdr.gov.br/"
+  api: "https://atlasdigital.mdr.gov.br/arquivos/2026/BD_Atlas_1991_2025_v1.1_2026.08.06_Consolidado.csv"
+  formatos: ["CSV Latin-1, separador ponto e vírgula"]
+  licenca: "Licença específica do arquivo consolidado não identificada na verificação; acesso público demonstrado. Confirmar termos antes de redistribuir o arquivo bruto."
+  cadastro: "Não exigido para download público."
+  custos: "Consulta e dados públicos sem cobrança; processamento e armazenamento por conta do usuário."
+  limitacoes: "Verificar cobertura, qualidade, versão e valores ausentes antes da agregação."
+  ultima_verificacao: "2026-10-03"
+  indicadores: ["DES-HUM-01", "DES-SAU-01"]
+
+- id: "ibge-pop-municipal"
+  tipo_registro: "produto"
+  nome: "IBGE — população municipal por Censo e publicação anual"
+  instituicao: "IBGE"
+  descricao: "Censos e estimativas/relações municipais publicadas por ano. A relação de 2023 utiliza o Censo 2022 com atualização territorial."
+  recursos_relacionados: ["IBGE — população municipal por Censo e publicação anual"]
+  temas: ["Indicadores da Parte II"]
+  variaveis: ["População residente", "Código municipal", "Ano demográfico", "Ano de divulgação"]
+  cobertura_geografica: "Brasil no domínio do produto; cobertura efetiva descrita nas fichas."
+  resolucao_espacial: "Município"
+  resolucao_temporal: "Anual ou referência censitária"
+  periodo_disponivel: "Censos 1991/2000/2010/2022 e publicações anuais desde 1992, conforme arquivo"
+  atualizacao: "Por edição do produto; congelar versão e data da extração."
+  acesso: "SIDRA: tabela 202/variável 93 para Censos 1991, 2000 e 2010 (categorias Total); tabela 4714/variável 93 para 2022; tabela 6579/variável 9324 para estimativas disponíveis. Fora desses períodos, arquivo https://ftp.ibge.gov.br/Estimativas_de_Populacao/. Consultas censitárias amostrais e estimativa 2011 acessadas; PDFs antigos exigem extração/conferência."
+  url: "https://www.ibge.gov.br/estatisticas/sociais/populacao/9103-estimativas-de-populacao.html?t=downloads"
+  api: "https://apisidra.ibge.gov.br/values/t/202/n6/3550308/v/93/p/1991,2000,2010; https://apisidra.ibge.gov.br/values/t/4714/n6/3550308/v/93/p/2022; https://apisidra.ibge.gov.br/values/t/6579/n6/3550308/v/9324/p/2011"
+  formatos: ["JSON SIDRA", "XLS/XLSX", "PDF histórico"]
+  licenca: "Dados estatísticos públicos do IBGE, com atribuição e conservação de edição e notas metodológicas."
+  cadastro: "Não exigido para download público."
+  custos: "Consulta e dados públicos sem cobrança; processamento e armazenamento por conta do usuário."
+  limitacoes: "Verificar cobertura, qualidade, versão e valores ausentes antes da agregação."
+  ultima_verificacao: "2026-10-03"
+  indicadores: ["DES-HUM-01", "DES-HUM-02"]
+
+
+- id: "registros-locais-desastres"
+  tipo_registro: "cadastro provisório"
+  nome: "Registros locais de afetados diretos e interrupções de saúde"
+  instituicao: "Defesa civil e secretaria municipal de saúde"
+  descricao: "Esquemas mínimos descritos nas fichas Sendai; bases administrativas nacionais consultadas não contêm todos os componentes e identificadores."
+  recursos_relacionados: ["Registros locais de afetados diretos e interrupções de saúde"]
+  temas: ["Indicadores da Parte II"]
+  variaveis: ["B2", "B3", "B4", "B5", "Serviço", "Início/fim de interrupção", "Vínculo ao evento"]
+  cobertura_geografica: "Brasil no domínio do produto; cobertura efetiva descrita nas fichas."
+  resolucao_espacial: "Pessoa/domicílio ou estabelecimento/serviço"
+  resolucao_temporal: "Ocorrência e intervalo"
+  periodo_disponivel: "Conforme o início e a completude do sistema local"
+  atualizacao: "Por edição do produto; congelar versão e data da extração."
+  acesso: "Exportação local condicionada à implantação e qualidade do registro."
+  url: "https://unstats.un.org/sdgs/metadata/files/Metadata-11-05-03.pdf"
+  api: "Sem endpoint nacional demonstrado; requer exportação do sistema local."
+  formatos: ["CSV", "Parquet"]
+  licenca: "Conforme regras locais; disponibilizar apenas agregados públicos sem identificação pessoal."
+  cadastro: "Conforme sistema local."
+  custos: "Consulta e dados públicos sem cobrança; processamento e armazenamento por conta do usuário."
+  limitacoes: "Verificar cobertura, qualidade, versão e valores ausentes antes da agregação."
+  ultima_verificacao: "2026-10-03"
+  indicadores: ["DES-HUM-02", "DES-SAU-02"]
