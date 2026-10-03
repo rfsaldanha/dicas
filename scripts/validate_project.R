@@ -379,13 +379,19 @@ chapter_two_html <- paste(readLines(
   file.path(html_root, "chapters/part-1/01b-mudanca-climatica-resposta-sus.html"),
   warn = FALSE, encoding = "UTF-8"
 ), collapse = "\n")
-for (i in seq_along(chapter_two_art)) {
-  art <- paste0("arte-cap2-", chapter_two_art[[i]], ".svg")
+# A arte 07-grades integra o capítulo 3; o inventário de produção permanece completo.
+chapter_two_display_art <- chapter_two_art[chapter_two_art != "07-grades"]
+for (i in seq_along(chapter_two_display_art)) {
+  art <- paste0("arte-cap2-", chapter_two_display_art[[i]], ".svg")
   check_file(file.path(html_root, "assets/figures", art))
   image_pattern <- paste0('<img[^>]+src="[^"]*', sub("[.]svg$", "[.]svg", art), '"')
   if (!grepl(image_pattern, chapter_two_html, perl = TRUE)) {
     fail("A aquarela da Figura 2.", i, " não foi incorporada ao capítulo 2.")
   }
+}
+if (grepl('id="sec-grades-planejamento-sus"', chapter_two_html, fixed = TRUE) ||
+    grepl('id="fig-dados-grade-sus"', chapter_two_html, fixed = TRUE)) {
+  fail("A seção sobre dados em grade ou sua figura ainda está no capítulo 2.")
 }
 chapter_three_path <- "chapters/part-1/02-dados-variaveis-indices-indicadores.qmd"
 chapter_three_source <- paste(readLines(chapter_three_path, warn = FALSE, encoding = "UTF-8"), collapse = "\n")
@@ -394,14 +400,27 @@ chapter_three_html <- paste(readLines(
   warn = FALSE, encoding = "UTF-8"
 ), collapse = "\n")
 figure_list <- paste(readLines("backmatter/lista-figuras.qmd", warn = FALSE, encoding = "UTF-8"), collapse = "\n")
-# A arte 05-ficha foi transferida ao capítulo 5, preservando o arquivo original.
-for (i in which(chapter_three_ids != "fig-ficha-ripsa-livro")) {
-  figure_number <- if (i > 5L) i - 1L else i
-  art <- paste0("arte-cap3-", chapter_three_art[[i]], ".svg")
-  id <- chapter_three_ids[[i]]
+# A arte 05-ficha está no capítulo 5; CAP2-07 ocupa a posição 3.4.
+# Os nomes de produção permanecem independentes da ordem editorial.
+chapter_three_order <- which(chapter_three_ids != "fig-ficha-ripsa-livro")
+chapter_three_display_ids <- append(
+  chapter_three_ids[chapter_three_order], "fig-dados-grade-sus", after = 3L
+)
+chapter_three_display_art <- append(
+  paste0("arte-cap3-", chapter_three_art[chapter_three_order], ".svg"),
+  "arte-cap2-07-grades.svg", after = 3L
+)
+for (i in seq_along(chapter_three_display_ids)) {
+  art <- chapter_three_display_art[[i]]
+  id <- chapter_three_display_ids[[i]]
   check_file(file.path(html_root, "assets/figures", art))
+  caption_pattern <- paste0('(?s)<figcaption[^>]+id="', id, '-caption-[^"]+"[^>]*>.*?</figcaption>')
+  caption <- regmatches(chapter_three_html, regexpr(caption_pattern, chapter_three_html, perl = TRUE))
+  image_pattern <- paste0('<img[^>]+src="[^"]*', sub("[.]svg$", "[.]svg", art), '"')
   if (!grepl(paste0('id="', id, '"'), chapter_three_html, fixed = TRUE) ||
-      !grepl(paste0("Figura&nbsp;3.", figure_number, ":"), chapter_three_html, fixed = TRUE)) {
+      length(caption) != 1L ||
+      !grepl(paste0("Figura&nbsp;3.", i, ":"), caption, fixed = TRUE) ||
+      !grepl(image_pattern, chapter_three_html, perl = TRUE)) {
     fail("Figura do capítulo 3 ausente ou com numeração incorreta: ", id)
   }
   if (!grepl(paste0("@", id), chapter_three_source, fixed = TRUE) ||
@@ -409,7 +428,11 @@ for (i in which(chapter_three_ids != "fig-ficha-ripsa-livro")) {
     fail("Figura do capítulo 3 sem chamada ou ausente da lista: ", id)
   }
 }
-if (grepl("ARTE CAP3-", gsub("(?s)<!--.*?-->", "", chapter_three_html, perl = TRUE), fixed = TRUE)) {
+if (!grepl('<section id="sec-grades-planejamento-sus"[^>]*data-number="3[.]2[.]5"',
+           chapter_three_html, perl = TRUE)) {
+  fail("A seção sobre dados em grade não ocupa a posição 3.2.5.")
+}
+if (grepl("ARTE CAP[23]-", gsub("(?s)<!--.*?-->", "", chapter_three_html, perl = TRUE))) {
   fail("Instruções de produção do capítulo 3 aparecem no conteúdo renderizado.")
 }
 

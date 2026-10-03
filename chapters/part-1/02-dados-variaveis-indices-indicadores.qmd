@@ -69,11 +69,11 @@ Metadados são as informações necessárias para compreender, localizar, compar
 
 ## O que um dado ambiental realmente representa
 
-O significado de um valor depende de como ele foi produzido — uma fonte frequente de equívocos quando bases climáticas, ambientais e de saúde são combinadas.
+O significado de um valor depende da grandeza que ele representa, do método usado para produzi-lo e de sua organização no espaço e no tempo. Distinguir essas dimensões ajuda a interpretar bases climáticas, ambientais e de saúde antes de combiná-las.
 
-Considere novamente a temperatura. Uma estação meteorológica mede a temperatura do ar em um ponto específico e sob determinadas condições de instalação. Um produto em grade pode representar a temperatura de pequenas áreas por diferentes métodos. Um sensor em satélite pode, por sua vez, observar radiação e permitir estimar características da superfície. Todos esses produtos podem ser tecnicamente válidos e úteis, mas não representam necessariamente a mesma grandeza nem respondem à mesma pergunta [@iso2023geoquality; @wmo2023climatological].
+Considere novamente a temperatura. Uma estação meteorológica mede a temperatura do ar em um ponto específico e sob determinadas condições de instalação. Um produto em grade organiza valores que, conforme o método e os metadados, podem representar estimativas em pontos da malha ou valores referidos a células. Um sensor em satélite pode, por sua vez, observar radiação e permitir estimar características da superfície. Todos esses produtos podem ser tecnicamente válidos e úteis, mas não representam necessariamente a mesma grandeza nem respondem à mesma pergunta [@iso2023geoquality; @wmo2023climatological].
 
-Neste capítulo, interessa reconhecer essa diferença conceitual. As implicações de localização, resolução, agregação espacial e compatibilidade temporal serão tratadas especificamente no @sec-espaco-tempo.
+Neste capítulo, interessa reconhecer essas diferenças conceituais, compreender as operações aplicadas aos valores e examinar sua organização em grade. As implicações de localização, resolução, agregação espacial e compatibilidade temporal serão aprofundadas no @sec-espaco-tempo.
 
 ### Forma da variável e unidade
 
@@ -220,13 +220,58 @@ Referência temporal e finalidade do produto
 
 Os dois eixos se combinam: um valor histórico pode ser observado ou reconstruído; um valor futuro pode ser previsto por um modelo operacional ou projetado sob cenários. Essas categorias também não formam uma escala de “melhor” para “pior”. Uma observação pontual pode representar mal um território, enquanto uma estimativa modelada pode ser mais adequada para outra finalidade.
 
-Produtos específicos — como grades que combinam observações e modelos, observações por satélite, previsões em grade e projeções — aparecerão nos capítulos seguintes quando forem necessários. O @sec-espaco-tempo discutirá como esses produtos representam espaço e tempo, e o @sec-fontes-fichas aprofundará a documentação de suas fontes, versões e métodos.
-
 ::: {.callout-warning title="Atenção"}
 Uma série visualmente contínua pode reunir valores produzidos de maneiras diferentes. Não substitua silenciosamente observações ausentes por estimativas, previsões ou projeções sem registrar a mudança e avaliar suas consequências para a interpretação.
 :::
 
-Incerteza, completude e qualidade também acompanham essas escolhas. Como esse é o tema central do próximo capítulo, aqui basta reter uma regra: a quantidade de casas decimais de um resultado não informa, por si só, quanto sabemos sobre ele.
+Incerteza, completude e qualidade também acompanham essas escolhas e serão aprofundadas no @sec-espaco-tempo. Aqui basta reter uma regra: a quantidade de casas decimais de um resultado não informa, por si só, quanto sabemos sobre ele. O @sec-fontes-fichas retomará a documentação das fontes, versões e métodos.
+
+Além de conhecer o método de produção e a referência temporal, é preciso compreender como os valores estão organizados no espaço. A organização em grade, comum a produtos obtidos por diferentes métodos, permite examinar essa dimensão.
+
+### O que são dados em grade e o que permitem enxergar {#sec-grades-planejamento-sus}
+
+Dados em grade organizam valores em posições de uma malha espacial. Em uma grade regular, essa organização pode ser imaginada como linhas e colunas sobre um território: cada posição tem coordenadas, e os valores estão associados a uma variável e a um instante ou intervalo. Uma sequência dessas camadas permite acompanhar mudanças no tempo. Em imagens digitais, o termo pixel designa o elemento da imagem associado a essa representação espacial.
+
+A grade descreve uma forma de organização, não um método único de produção. Seus valores podem resultar de interpolação entre estações, de observações por sensores, de modelos ou de combinações dessas informações. Uma reanálise, por exemplo, combina observações e um sistema de modelagem e assimilação para reconstruir condições passadas. Ter um valor disponível em cada posição da grade não significa que exista ali um instrumento de medição [@hersbach2020era5].
+
+O significado espacial do valor precisa ser consultado nos metadados. Conforme o produto, ele pode representar uma estimativa em um ponto da malha, uma média em uma célula ou outra operação sobre uma área. Não se deve supor que todo valor em grade seja uma média, nem que descreva igualmente cada lugar ou pessoa dentro da célula. Coordenadas, limites das células e operações espaciais e temporais fazem parte dessa interpretação [@eaton2024cf].
+
+Para planejar uma resposta ao calor, a gestão pode relacionar uma grade de temperatura a moradias, unidades de saúde e trajetos. Isso ajuda a localizar condições ambientais relevantes, mas não observa diretamente a temperatura de cada casa nem a exposição de cada morador. A resolução nominal informa o espaçamento ou tamanho declarado da malha; não garante igual capacidade de distinguir diferenças entre ruas. Ampliar a imagem na tela ou subdividir células não acrescenta observações ao produto original. A compatibilização entre grades, municípios e população será aprofundada no @sec-espaco-tempo.
+
+A @fig-dados-grade-sus distingue o ponto de observação, a organização em grade e a diversidade de ambientes dentro de uma célula. A ampliação do desenho não acrescenta observações ao produto.
+
+![Dados em grade: organização espacial, temporal e limites de interpretação](../../assets/figures/arte-cap2-07-grades.svg){#fig-dados-grade-sus width="100%" print-src="arte-cap2-07-grades-print.png" print-width="110mm" fig-alt="Três cenas distinguem uma estação meteorológica em área aberta, uma malha sobre um território hipotético com prédios, casas, quadras, rio e áreas verdes e ambientes diversos dentro de uma célula, vistos em uma rua urbana. A malha não pressupõe instrumento em cada célula nem valor idêntico em cada residência. Camadas ilustram momentos distintos, sem temperaturas ou escala quantitativa."}
+
+[Fonte e composição: elaboração própria, com ilustração gerada por inteligência artificial. Licença: a mesma dos textos autorais da obra.]{.figure-source}
+
+<!--
+ARTE CAP2-07 — Revisão urbana v2
+Finalidade e leitura: Três cenas distinguem uma estação meteorológica em área aberta, uma malha sobre um território hipotético com prédios, casas, quadras, rio e áreas verdes e ambientes diversos dentro de uma célula, vistos em uma rua urbana. A malha não pressupõe instrumento em cada célula nem valor idêntico em cada residência. Camadas ilustram momentos distintos, sem temperaturas ou escala quantitativa.
+Identificador preservado: fig-dados-grade-sus.
+Arte incorporada: assets/figures/arte-cap2-07-grades.svg.
+Versão de impressão: assets/figures/arte-cap2-07-grades-print.png, em escala de cinza.
+Aquarela utilizada: assets/figures/arte-cap2-07-v2.png.
+Original anterior preservado: assets/figures/arte-cap2-07-v1.png.
+Prompt anterior preservado: assets/figures/arte-cap2-07-v1.prompt.txt.
+Prompt efetivamente utilizado: assets/figures/arte-cap2-07-v2.prompt.txt.
+Referência visual: assets/references/aquarela-grafite-nanquim.png; original v1 como referência de composição.
+Produção: edição com a ferramenta integrada image_gen; versão da ferramenta não informada.
+Composição reproduzível: scripts/build_cap2_art.py 07; exportação por scripts/render_figure.py.
+Rótulos e relações conceituais editáveis; fontes e aquarela incorporadas verificadas antes da exportação.
+Montagem e revisão: Compor uma malha regular apenas no painel central. Usar “Observação em um ponto”, “Valores organizados em uma malha” e “Ambientes diferentes dentro de uma célula”. Não ligar a estação à grade como se toda grade fosse interpolada de estações; acrescentar “O método de produção varia conforme o produto”. Junto à célula, escrever “O valor pode representar um ponto, uma média ou outra operação: conferir os metadados”. Nas camadas inferiores, usar “Momentos distintos”, sem datas ou valores. Acrescentar “Célula não é medição em cada residência” e “Mais zoom não cria novas observações”. No exemplo, a variável em grade é temperatura do ar; não usar temperatura de telhados como substituto. A dimensão da célula é esquemática e não representa a resolução de um produto específico.
+Prompt completo:
+Use case: precise-object-edit.
+Asset type: ilustração científica editorial para livro brasileiro sobre clima, ambiente e saúde.
+Input images: Imagem 1 é o original a EDITAR, referência obrigatória de composição, personagens e função; Imagem 2 é SOMENTE referência de ESTILO (aquarela-grafite-nanquim.png), não copiar sua cena.
+Style/medium: Ilustração editorial em aquarela tradicional translúcida, combinada com traços finos e espontâneos de lápis grafite e nanquim. Contornos parcialmente abertos, hachuras leves e marcas discretas de rascunho. Textura sutil de papel aquarela, pigmentação irregular e transições suaves. Paleta de verdes naturais, azuis acinzentados, ocres e terracota, com saturação moderada. Preservar áreas de papel branco e bordas irregulares que se dissolvem no fundo. Pessoas com proporções naturais e diversidade de tons de pele. Linguagem visual madura, acolhedora e adequada à divulgação científica para adultos.
+Primary request: Revisar esta imagem para trazer uma cidade brasileira contemporânea, inteiramente hipotética, para o plano principal. Prédios e infraestrutura urbana precisam ser claramente reconhecíveis, não apenas uma silhueta distante no horizonte. Preservar a linguagem de aquarela e a ideia científica do original.
+Constraints: Manter ordem, quantidade e separação das vinhetas; preservar identidade, roupas e gestos dos personagens existentes, perspectiva e margens de papel branco, salvo as mudanças explicitamente solicitadas abaixo. Pessoas e mãos anatomicamente coerentes. Densidade urbana legível, sem excesso de detalhes. Mostrar diferentes condições de proteção em ambientes urbanos sem caricaturas ou equivalência automática entre cidade e dano. Não desenhar palavras, letras, números, logotipos, marcas d'água, setas, grades analíticas, legendas ou novos gráficos. Textos e conexões serão acrescentados como vetores. Contraste deve funcionar em escala de cinza. Não inventar dados quantitativos nem representar uma cidade real.
+
+Composition/framing: Horizontal 3:2, resolução 1536 × 1024 pixels ou maior. Preservar três vinhetas na faixa superior, de x=0 a um terço, um terço a dois terços, dois terços a largura total; a paisagem termina até y=700/1024. Preservar os três planos coloridos abstratos separados na faixa inferior entre y=715/1024 e y=945/1024, sem dados, texto ou grades.
+Scene/backdrop: Vinheta esquerda mantém profissional e estação meteorológica em terreno aberto junto a unidade de saúde. Vinheta central: vista elevada de território misto com quarteirões densos, edifícios residenciais e comerciais de alturas variadas, casas, praças arborizadas e rio; prédios devem ocupar parte substancial do território, com ruas e quadras reconhecíveis. Vinheta direita: cena ao nível da rua com pessoas, calçadas, árvores e edifícios próximos de 4 a 8 andares junto de casas e comércio sem placas; mostrar sombra e trechos expostos ao sol na mesma área. O detalhe da direita deve compartilhar o tipo de prédios e vegetação do panorama central. A grade será acrescentada editorialmente, não desenhá-la na aquarela.
+-->
+
+Reconhecer a grandeza, o método de produção e o espaço e o tempo representados pelos dados orienta as operações que podem ser feitas com eles. A partir dessa compreensão, é possível examinar transformações e combinações de medidas para responder a perguntas que uma única variável não consegue representar. Essa é a passagem para a construção de índices.
 
 ## Quando uma variável não basta: índices
 
