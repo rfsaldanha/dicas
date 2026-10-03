@@ -1,10 +1,10 @@
 codigo: AMB-AR-01
-titulo_completo: Concentração média anual de PM2,5 nas cidades, ponderada pela população (ODS 11.6.2)
-titulo_resumido: PM2,5 anual ponderado — ODS 11.6.2
+titulo_completo: "Concentração média anual modelada de PM2,5, ponderada pela população urbana municipal"
+titulo_resumido: "PM2,5 anual ponderado — SatPM V6.GL.03"
 tema: Qualidade do ar, queimadas e fumaça
 capitulo: chapters/part-2/07-qualidade-ar-queimadas-fumaca.qmd
-referencia_metodologica: Indicador 11.6.2 dos Objetivos de Desenvolvimento Sustentável, sob custódia da Organização Mundial da Saúde.
-conceito: Média anual da concentração de partículas finas com diâmetro aerodinâmico igual ou inferior a 2,5 micrômetros em áreas urbanas, ponderada pela população exposta.
+referencia_metodologica: "Adaptação municipal do conceito do ODS 11.6.2; produto SatPM V6.GL.03, população GHS-POP R2023A e áreas urbanizadas IBGE 2022. Não é a série oficial do ODS produzida pela OMS."
+conceito: "Média anual da concentração superficial total modelada de PM2,5 ponderada pela população da área urbanizada fixa de cada município."
 objetivo: Monitorar a exposição populacional de longo prazo à poluição atmosférica por PM2,5 e o progresso na redução do impacto ambiental das cidades.
 interpretacao: Valores maiores indicam maior concentração média anual ponderada pela distribuição populacional. O indicador representa exposição ambiental populacional e não dose individual.
 usos:
@@ -20,38 +20,42 @@ limitacoes:
 dimensoes:
   - exposição
   - perigo
-metodo_calculo: Produzir ou obter uma superfície anual harmonizada de concentração de PM2,5, combinar com a distribuição populacional da mesma referência espacial e temporal e calcular a média ponderada. Na estimativa oficial global, a OMS integra medições, sensoriamento remoto, transporte químico, topografia e população em modelo próprio; reproduções locais não devem ser rotuladas como estimativa oficial sem seguir o metadado.
-formula_calculo: '\overline{PM}_{2,5}^{pop} = \frac{\sum_{g=1}^{G} PM_{2,5,g}\,Pop_g}{\sum_{g=1}^{G} Pop_g}'
-numerador: Soma, nas células ou áreas g, do produto entre concentração média anual de PM2,5 e população.
-denominador: População total nas células ou áreas incluídas.
+metodo_calculo: "Baixar a grade anual de PM2,5 total SatPM V6.GL.03, CNNPM25, Annual, SA. Interpolar linearmente, célula a célula, as contagens GHS-POP entre os dois anos quinquenais que cercam o ano da concentração. Intersectar população, grade de PM2,5, áreas urbanizadas IBGE 2022 e município 2022; repartir contagens populacionais pela fração de área de cada interseção. Calcular sum(Cg×Pg)/sum(Pg) nos fragmentos urbanos com concentração válida. Exigir cobertura de pelo menos 90% da população urbana estimada e publicar essa fração. Sem população no recorte, resultado não aplicável; abaixo da cobertura mínima, ausente."
+formula_calculo: "C_{m,y}^{urb}=\\frac{\\sum_{g\\subset m\\cap U_{2022}}C_{g,y}P_{g,y}}{\\sum_{g\\subset m\\cap U_{2022}}P_{g,y}}"
+numerador: "Soma de PM2,5 anual × população nos fragmentos urbanos válidos."
+denominador: "População dos mesmos fragmentos urbanos válidos; informar sua razão em relação à população urbana total."
 unidade_medida: Microgramas por metro cúbico (µg/m³).
-variaveis_categorias_analise: Concentração média anual; população; cidade ou área urbana; tipo de estimativa; ano.
-granularidade: Cidade ou território urbano na divulgação; cálculo em grade compatível com as superfícies de concentração e população.
-unidade_territorial: Área urbana, cidade, país ou agregação regional.
-resolucao_espacial_original: A da superfície oficial ou do modelo documentado; medições em estação são entradas e não representam diretamente toda a cidade.
-resolucao_temporal: Anual.
-periodo_referencia: Ano civil e versão da população e do modelo correspondentes.
+variaveis_categorias_analise: "Concentração anual de PM2,5 total; população em contagens; área urbanizada; município; ano; cobertura válida."
+granularidade: "Fragmentos da interseção de grades e área urbanizada; saída por município IBGE 2022 e ano."
+unidade_territorial: "Parcela urbanizada de cada município segundo IBGE 2022."
+resolucao_espacial_original: "SatPM 0,01°; GHS-POP 100 m; resolução nominal não equivale a observação em cada célula."
+resolucao_temporal: "Anual."
+periodo_referencia: "Ano civil; população interpolada para o mesmo ano; máscara urbana fixa de 2022."
 limiar_referencia: A diretriz mundial de qualidade do ar da OMS de 2021 recomenda média anual de 5 µg/m³ para PM2,5; diretriz de saúde não deve ser confundida com padrão jurídico nacional.
-fontes_dados:
-  - id: who-air
-    papel: estimativas e metadados oficiais do indicador ODS 11.6.2
+fontes_dados: [{"id": "satpm-v6", "papel": "V6GL03 CNNPM25 Annual SA: PM2,5 total, incluindo poeira e sal marinho"}, {"id": "ghs-pop-r2023a", "papel": "População modelada em grade de 100 m, interpolada para cada ano"}, {"id": "ibge", "papel": "Áreas Urbanizadas 2022 e malha municipal 2022"}]
 responsabilidade_gerencial: A OMS é agência custodiante no monitoramento global; autoridades ambientais produzem monitoramento e políticas, e o setor saúde interpreta riscos e impactos.
-cobertura_geografica: Estimativas globais por país e cidade conforme a edição; análises subnacionais dependem das fontes disponíveis.
-periodo_disponivel: Conforme edição do banco e série de estimativas da OMS.
-periodicidade_atualizacao: Periódica, segundo calendário da OMS e do sistema ODS.
-forma_acesso: Portal do Observatório Global de Saúde e banco mundial de qualidade do ar da OMS.
-url_persistente: https://www.who.int/data/gho/data/themes/air-pollution/who-air-quality-database
-formatos: Tabelas e arquivos de dados disponibilizados pela OMS; registrar edição e data de acesso.
-disponibilidade:
-  - disponível em estimativa oficial
-necessidade_processamento: Para uso do valor oficial, selecionar edição, território e ano. Para cálculo próprio, exige integração espacial de concentração e população e não deve ser confundido com o indicador oficial.
-qualidade_incerteza: Relatar cobertura de monitores, componentes modelados, intervalo de incerteza quando disponível, superfície populacional, definição urbana e revisão entre edições.
-comparabilidade: Preferir a mesma edição e método. Revisões do modelo podem alterar retrospectivamente a série; não misturar observação pontual com estimativa populacional.
+cobertura_geografica: "Brasil; municípios sem população no recorte urbano são não aplicáveis. Cobertura mínima de 90% é uma escolha operacional do livro."
+periodo_disponivel: "1998–2024 na versão V6.GL.03."
+periodicidade_atualizacao: "Anual quando houver nova edição do produto; a edição fixada termina em 2024."
+forma_acesso: "HTTP/S3 público: satpmdata.s3.amazonaws.com/V6GL03/CNNPM25/Annual/SA/V6GL03.CNNPM25.SA.AAAA01-AAAA12.nc, substituindo AAAA por 1998 a 2024. GHS-POP: edição R2023A, resolução 100 m, época quinquenal."
+url_persistente: "https://www.satpm.org/v6-gl-03"
+formatos: "NetCDF SatPM; GeoTIFF GHS-POP; vetores IBGE; CSV/Parquet municipal."
+disponibilidade: ["Calculável com dados abertos"]
+necessidade_processamento: "Ler coordenadas, unidades, escala e valores ausentes do NetCDF; cruzar grades sem interpolar bilinearmente contagens; preservar numerador, denominador e cobertura."
+qualidade_incerteza: "Estimativa modelada, não medição local. A população de 2025 usada na interpolação é projeção do produto. Não interpretar a resolução de 0,01° como validação em cada bairro."
+comparabilidade: "Manter SatPM V6.GL.03, GHS-POP R2023A e máscara IBGE 2022. Reprocessar toda a série ao mudar uma versão, sem emenda silenciosa."
 relacao_saude: PM2,5 penetra profundamente no trato respiratório e está relacionado a doenças cardiovasculares e respiratórias, ao câncer de pulmão e à mortalidade. O indicador é usado pela OMS como medida de exposição para avaliação de riscos à saúde.
 defasagens_temporais: A média anual é apropriada a exposição crônica. Estudos de efeitos agudos e fumaça devem empregar concentrações diárias ou subdiárias com defasagens específicas.
 aplicacao_gestao: Monitorar exposição crônica, desigualdades territoriais e resultados de políticas de emissão; combinar com indicadores diários consolidados para comunicação durante episódios.
-notas: Esta ficha substitui a média diária genérica pelo indicador oficial ODS 11.6.2. Valores de estações e produtos modelados permanecem dados de entrada ou indicadores distintos.
+notas: "Não usar AOD, concentração sem poeira/sal ou CAMS total como se fossem este produto. A máscara urbana fixa permite comparação temporal nesse recorte, não reconstrói a expansão urbana histórica."
 analise_descritiva: Apresentar nível, tendência e incerteza por edição, comparando com a diretriz de saúde sem tratá-la como limite legal. Desagregar quando a qualidade do modelo permitir.
 referencias:
   - "[@who2026pm25]"
   - "[@who2021air]"
+protocolo_versao: "2026-10-03"
+situacao_calculo: "abertos"
+dependencia_dados_locais: "Opcional para validação"
+automacao: "Viável"
+condicoes_automacao: "Download público SatPM e GHS-POP, vetores IBGE 2022 e processamento de interseções."
+evidencia_verificacao: "Acesso testado"
+detalhe_verificacao: "Listagem S3 e cabeçalho de arquivo NetCDF da América do Sul acessados. A leitura integral das variáveis e a média municipal ainda não foram testadas."

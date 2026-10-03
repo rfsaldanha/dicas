@@ -696,3 +696,124 @@
   limitacoes: "Não emendar com CHIRPS v2; final e preliminar são versões distintas. Cobertura global entre 60°S e 60°N; resolução nominal não equivale a densidade observacional."
   ultima_verificacao: "2026-10-03"
   indicadores: ["CLI-PRC-01", "CLI-PRC-02", "CLI-PRC-03", "CLI-PRC-04", "CLI-PRC-05", "CLI-SEC-01", "CLI-PRC-06"]
+
+- id: "satpm-v6"
+  tipo_registro: "produto"
+  nome: "SatPM V6.GL.03 — CNNPM25 anual, América do Sul"
+  instituicao: "Atmospheric Composition Analysis Group"
+  descricao: "Concentração superficial total anual de PM2,5 em grade; inclui poeira e sal marinho."
+  recursos_relacionados: ["SatPM V6.GL.03 — CNNPM25 anual, América do Sul"]
+  temas: ["Indicadores da Parte II"]
+  variaveis: ["PM2,5 total em µg/m³"]
+  cobertura_geografica: "Brasil no domínio do produto; cobertura efetiva descrita nas fichas."
+  resolucao_espacial: "0,01°"
+  resolucao_temporal: "Anual"
+  periodo_disponivel: "1998–2024"
+  atualizacao: "Por edição do produto; congelar versão e data da extração."
+  acesso: "Download programático dos arquivos públicos identificados no catálogo."
+  url: "https://www.satpm.org/v6-gl-03"
+  api: "https://satpmdata.s3.amazonaws.com/"
+  formatos: ["NetCDF"]
+  licenca: "CC BY 4.0; citar versão e produtores."
+  cadastro: "Não exigido para download público."
+  custos: "Consulta e dados públicos sem cobrança; processamento e armazenamento por conta do usuário."
+  limitacoes: "Verificar cobertura, qualidade, versão e valores ausentes antes da agregação."
+  ultima_verificacao: "2026-10-03"
+  indicadores: ["AMB-AR-01"]
+
+- id: "ghs-pop-r2023a"
+  tipo_registro: "produto"
+  nome: "GHS-POP R2023A — população, 100 m"
+  instituicao: "Comissão Europeia, Joint Research Centre"
+  descricao: "Grades de contagens populacionais por época quinquenal; interpolação anual é uma derivação do livro."
+  recursos_relacionados: ["GHS-POP R2023A — população, 100 m"]
+  temas: ["Indicadores da Parte II"]
+  variaveis: ["Contagem populacional por célula"]
+  cobertura_geografica: "Brasil no domínio do produto; cobertura efetiva descrita nas fichas."
+  resolucao_espacial: "100 m, grade Mollweide ESRI:54009; selecionar a versão 100 m e os tiles que interceptam o Brasil."
+  resolucao_temporal: "Quinquenal"
+  periodo_disponivel: "1975–2030, épocas quinquenais; 2025/2030 são projeções"
+  atualizacao: "Por edição do produto; congelar versão e data da extração."
+  acesso: "Download programático dos arquivos públicos identificados no catálogo."
+  url: "https://human-settlement.emergency.copernicus.eu/ghs_pop2023.php"
+  api: "https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/GHSL/GHS_POP_GLOBE_R2023A/"
+  formatos: ["GeoTIFF"]
+  licenca: "Reutilização sob política de dados abertos da Comissão Europeia, com atribuição; conservar os termos R2023A."
+  cadastro: "Não exigido para download público."
+  custos: "Consulta e dados públicos sem cobrança; processamento e armazenamento por conta do usuário."
+  limitacoes: "Verificar cobertura, qualidade, versão e valores ausentes antes da agregação."
+  ultima_verificacao: "2026-10-03"
+  indicadores: ["AMB-AR-01", "AMB-FUM-01", "AMB-VEG-01", "AMB-URB-01", "AMB-URB-02"]
+
+
+- id: "monitorar-mma"
+  tipo_registro: "produto"
+  nome: "MonitorAr — concentrações horárias das redes participantes"
+  instituicao: "Ministério do Meio Ambiente e Mudança do Clima e órgãos ambientais"
+  descricao: "Arquivos de estações locais centralizados no catálogo CKAN; disponibilidade e validação variam por rede."
+  recursos_relacionados: ["MonitorAr — concentrações horárias das redes participantes"]
+  temas: ["Indicadores da Parte II"]
+  variaveis: ["MP2,5", "MP10", "O3", "CO", "NO2", "SO2"]
+  cobertura_geografica: "Brasil no domínio do produto; cobertura efetiva descrita nas fichas."
+  resolucao_espacial: "Estação identificada e município"
+  resolucao_temporal: "Horária"
+  periodo_disponivel: "2022–2025 nos recursos localizados"
+  atualizacao: "Por edição do produto; congelar versão e data da extração."
+  acesso: "Download programático dos arquivos públicos identificados no catálogo."
+  url: "https://dados.mma.gov.br/dataset/ar-puro-monitorar"
+  api: "https://dados.mma.gov.br/api/3/action/package_show?id=ar-puro-monitorar"
+  formatos: ["CSV", "ZIP"]
+  licenca: "Conservar a licença declarada no registro CKAN e as condições dos órgãos produtores; a mera publicação não certifica a validação das medições."
+  cadastro: "Não exigido para download público."
+  custos: "Consulta e dados públicos sem cobrança; processamento e armazenamento por conta do usuário."
+  limitacoes: "Verificar cobertura, qualidade, versão e valores ausentes antes da agregação."
+  ultima_verificacao: "2026-10-03"
+  indicadores: ["AMB-AR-02", "AMB-AR-03"]
+
+- id: "hu-fire-pm25"
+  tipo_registro: "produto"
+  nome: "PM2,5 de fogo — Hu et al. (2025), GFED4.1s"
+  instituicao: "Autores do produto publicado em Earth System Science Data"
+  descricao: "Produto diário global de concentração atribuível ao fogo. A variante QFED é distribuída separadamente e não é uma continuação temporal."
+  recursos_relacionados: ["PM2,5 de fogo — Hu et al. (2025), GFED4.1s"]
+  temas: ["Indicadores da Parte II"]
+  variaveis: ["PM2,5 de fogo em superfície"]
+  cobertura_geografica: "Brasil no domínio do produto; cobertura efetiva descrita nas fichas."
+  resolucao_espacial: "0,25°"
+  resolucao_temporal: "Diária"
+  periodo_disponivel: "2000–2023"
+  atualizacao: "Por edição do produto; congelar versão e data da extração."
+  acesso: "Download programático dos arquivos públicos identificados no catálogo."
+  url: "https://zenodo.org/records/15493914"
+  api: "https://zenodo.org/api/records/15493914"
+  formatos: ["Arquivos digitais descritos no produto"]
+  licenca: "CC BY 4.0 conforme registro Zenodo; citar artigo, depósito e variante."
+  cadastro: "Não exigido para download público."
+  custos: "Consulta e dados públicos sem cobrança; processamento e armazenamento por conta do usuário."
+  limitacoes: "Verificar cobertura, qualidade, versão e valores ausentes antes da agregação."
+  ultima_verificacao: "2026-10-03"
+  indicadores: ["AMB-FUM-01"]
+
+- id: "mapbiomas-fogo-v5"
+  tipo_registro: "produto"
+  nome: "MapBiomas Fogo — Coleção 5, annual_burned_v1"
+  instituicao: "Rede MapBiomas"
+  descricao: "Mapa anual de cicatrizes de fogo, versão 1 da Coleção 5 fixada para esta série."
+  recursos_relacionados: ["MapBiomas Fogo — Coleção 5, annual_burned_v1"]
+  temas: ["Indicadores da Parte II"]
+  variaveis: ["Área queimada anual, classe 1"]
+  cobertura_geografica: "Brasil no domínio do produto; cobertura efetiva descrita nas fichas."
+  resolucao_espacial: "30 m nominal"
+  resolucao_temporal: "Anual"
+  periodo_disponivel: "1985–2025"
+  atualizacao: "Por edição do produto; congelar versão e data da extração."
+  acesso: "Download programático dos arquivos públicos identificados no catálogo."
+  url: "https://brasil.mapbiomas.org/wp-content/uploads/sites/4/2026/05/CODIGO-DE-LEGENDA-FOGO-COLECAO-5.pdf"
+  api: "projects/mapbiomas-public/assets/brazil/fire/collection5/mapbiomas_fire_collection5_annual_burned_v1"
+  formatos: ["Imagem multibanda GEE", "GeoTIFF exportado"]
+  licenca: "Uso público com atribuição ao MapBiomas e à coleção; conservar os termos do produto."
+  cadastro: "Google Earth Engine exige conta, projeto e elegibilidade de uso gratuito; downloads publicados podem ser obtidos sem execução no serviço."
+  custos: "Consulta e dados públicos sem cobrança; processamento e armazenamento por conta do usuário."
+  limitacoes: "Verificar cobertura, qualidade, versão e valores ausentes antes da agregação."
+  ultima_verificacao: "2026-10-03"
+  indicadores: ["AMB-FOG-01"]

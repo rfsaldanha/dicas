@@ -22,32 +22,39 @@ indicators:
     interpretacao: O valor anual é comparado ao nível-guia de 15 µg/m³. Como o nível se refere ao percentil 99, corresponde a aproximadamente três ou quatro dias de excedência por ano, e não a um teto diário sem exceções.
     usos: [Monitorar exposição aguda a PM2,5., Avaliar episódios e políticas de redução., Relacionar séries diárias a mortalidade, internações e atendimentos.]
     limitacoes: [A estação representa seu entorno, não toda a cidade., Requer regra de completude horária e anual., O valor-guia da OMS não é automaticamente padrão jurídico., O percentil anual não descreve duração contínua dos episódios.]
-    metodo_calculo: Calcular médias de 24 horas a partir de dados horários válidos segundo protocolo de completude, ordenar as médias diárias válidas do ano e estimar o percentil 99 pelo algoritmo declarado.
+    metodo_calculo: "Na estação e fuso local declarados, calcular a média aritmética diária de PM2,5 com pelo menos 16 horas distintas válidas. Exigir pelo menos 90% dos dias do ano e pelo menos metade dos dias válidos em cada quadrimestre. Ordenar as médias diárias e estimar P99 pelo quantil tipo 7: h=1+(n−1)×0,99; interpolar linearmente entre as posições floor(h) e ceil(h). Publicar por estação e município de localização, sem média automática entre estações."
     formula_calculo: 'PM_{2,5}^{P99,24h}=Q_{0,99}\{\overline{PM}_{2,5,d}^{24h}:d\ válido\}'
     numerador: Não se aplica.
     denominador: Não se aplica.
     unidade_medida: Microgramas por metro cúbico (µg/m³).
     variaveis_categorias_analise: PM2,5 horário; média de 24 horas; estação; dia; ano; método de medição.
-    granularidade: Média diária por estação e percentil anual por estação ou território qualificado.
-    resolucao_espacial_original: Ponto de monitoramento ou célula do produto modelado.
-    resolucao_temporal: Entrada horária; média diária; resumo anual.
-    periodo_referencia: Ano civil, com regra de completude declarada.
+    granularidade: "Estação–poluente–hora; município como chave de localização. Não transformar automaticamente valores de estação em média municipal."
+    resolucao_espacial_original: "Ponto de estação, com tipo e representatividade documentados."
+    resolucao_temporal: "Entrada horária; média do dia local; percentil anual."
+    periodo_referencia: "Ano civil local da estação."
     limiar_referencia: Nível-guia OMS 2021 de 15 µg/m³ para o percentil 99 das médias de 24 horas.
-    fontes_dados:
-      - id: redes-qualidade-ar
-        papel: concentrações horárias ou diárias de estações de monitoramento
-      - id: cams
-        papel: campo modelado condicionado à validação e identificação do produto
-    cobertura_geografica: A das redes e produtos selecionados; cobertura observacional é heterogênea.
-    periodo_disponivel: Conforme estação ou produto.
+    fontes_dados: [{"id": "monitorar-mma", "papel": "Arquivos anuais de concentrações horárias e identificação de estações; obter validação do órgão produtor"}]
+    cobertura_geografica: "Municípios com estações e poluentes efetivamente presentes nos arquivos; cobertura nacional incompleta."
+    periodo_disponivel: "Arquivos MonitorAr 2022–2025 localizados; história anterior somente quando disponibilizada pela rede local e identificada separadamente."
     periodicidade_atualizacao: Diária para vigilância e anual para avaliação do percentil.
-    forma_acesso: Redes ambientais e produtos modelados documentados.
-    url_persistente: https://www.who.int/publications/i/item/9789240034228
-    formatos: Tabela horária ou diária e arquivo multidimensional.
-    disponibilidade: [disponível onde há monitoramento, requer processamento]
-    necessidade_processamento: Validar horas, calcular médias de 24 horas, verificar completude anual e estimar percentil 99.
+    forma_acesso: "API CKAN: https://dados.mma.gov.br/api/3/action/package_show?id=ar-puro-monitorar; selecionar os recursos CSV/ZIP anuais e registrar URL, tamanho e data da extração."
+    url_persistente: "https://dados.mma.gov.br/dataset/ar-puro-monitorar"
+    formatos: "CSV em ZIP e dicionário de dados; conservar códigos de estação, município, parâmetro, unidade, data/hora e flag de validação."
+    disponibilidade: ["Calculável com dados locais centralizados"]
+    necessidade_processamento: "Validação de registros e fuso, médias com mínimo de 16 horas, elegibilidade anual/quadrimestral e quantil tipo 7."
     analise_descritiva: Mostrar série diária, P99, dias acima do nível-guia, episódios consecutivos, sazonalidade e distribuição por estação.
     referencias: ["[@who2021air]", "[@brasil2024conama506]"]
+    unidade_territorial: "Estação de monitoramento e seu município de localização, código IBGE de sete dígitos."
+    qualidade_incerteza: "Desduplicar estação/poluente/data/hora, conservando a revisão validada mais recente; conflito sem versão resulta em ausente. Concentração negativa, falha ou registro não validado pelo produtor não entra na série definitiva. Preservar o fuso de origem, sem presumir que horário local seja UTC."
+    comparabilidade: "Mesma estação, método, poluente, unidade, calendário local e validação; mudança ou relocalização da estação exige quebra de série. Não combinar automaticamente redes e modelos."
+    protocolo_versao: "2026-10-03"
+    situacao_calculo: "centralizados"
+    dependencia_dados_locais: "Necessária: estações locais com dados centralizados no MonitorAr"
+    automacao: "Condicionada"
+    condicoes_automacao: "Disponibilidade das estações e poluentes, identificação do fuso e confirmação dos flags de validação pelo produtor."
+    evidencia_verificacao: "Acesso testado"
+    detalhe_verificacao: "CSV e campos municipais acessados. Houve cálculo exploratório de P99 em Leandrinho/BA (2022), mas os flags de validação não foram confirmados; não é um resultado oficial nem uma validação do IQAr completo."
+    notas: "O mínimo de 90% dos dias e o quantil tipo 7 são escolhas explícitas deste protocolo para a estatística anual. Não confundir elegibilidade de cálculo com certificação regulatória. Se não houver cobertura, publicar ausente e o motivo."
 
   - <<: *air_common
     codigo: AMB-AR-03
@@ -59,66 +66,79 @@ indicators:
     interpretacao: O índice é classificado em N1 boa (0–40), N2 moderada (41–80), N3 ruim (81–120), N4 muito ruim (121–200) e N5 péssima (201–400). O poluente que produz o maior subíndice determina a classificação divulgada.
     usos: [Comunicação diária ou horária de risco., Orientação de atividades e proteção., Acionamento de protocolos ambientais e sanitários.]
     limitacoes: [Depende do conjunto de poluentes efetivamente monitorados., Um mesmo valor pode ser determinado por poluentes diferentes., Não substitui concentrações em análise epidemiológica., Tabelas e mensagens podem ser atualizadas por norma., Valor na estação não representa exposição individual.]
-    metodo_calculo: Para cada poluente, obter a concentração no tempo de média regulamentado, localizar sua faixa e interpolar linearmente entre limites de concentração e índice. Selecionar o maior subíndice válido entre MP10, MP2,5, O₃, CO, NO₂ e SO₂.
+    metodo_calculo: "Fixar a tabela MMA 2025 abaixo para a série retrospectiva. No dia local, MP10, MP2,5 e SO₂ usam média de 24 h com ≥16 horas válidas; NO₂ usa máximo horário, exigindo ≥16 horas válidas no dia. O₃ e CO usam o maior valor das médias móveis de oito horas terminadas no dia, cada uma com ≥6 horas válidas, exigindo ≥16 janelas válidas; carregar as sete horas anteriores ao dia. Estas regras de completude definem o protocolo retrospectivo do livro. Interpolar linearmente entre os limites contíguos da tabela, sem arredondar a concentração antes do cálculo, e obter o maior subíndice. Conservar o índice contínuo e classificar por intervalos (≤40; >40–80; >80–120; >120–200; >200), evitando ambiguidade no arredondamento. Para apresentação inteira, arredondar aritmeticamente apenas ao final. Acima do maior limite tabelado, registrar >400 e N5, sem extrapolar. Publicar os seis poluentes disponíveis/ausentes: falta de qualquer um recebe flag de IQAr parcial, mesmo que exista um máximo calculável.\n\n| Poluente | Tempo de média | Unidade | Limites C para índices 0; 40; 80; 120; 200; 400 |\n|---|---|---|---|\n| MP10 | 24 h | µg/m³ | 0; 45; 100; 150; 250; 600 |\n| MP2,5 | 24 h | µg/m³ | 0; 15; 50; 75; 125; 300 |\n| O₃ | 8 h | µg/m³ | 0; 100; 130; 160; 200; 800 |\n| CO | 8 h | ppm | 0; 9; 11; 13; 15; 50 |\n| NO₂ | 1 h | µg/m³ | 0; 200; 240; 320; 1130; 3750 |\n| SO₂ | 24 h | µg/m³ | 0; 40; 50; 125; 800; 2620 |"
     formula_calculo: 'I_p=I_{ini}+\frac{I_{fin}-I_{ini}}{C_{fin}-C_{ini}}(C_p-C_{ini});\quad IQAr=\max_p(I_p)'
     numerador: Na interpolação, diferença entre o índice final e inicial multiplicada pelo afastamento da concentração em relação ao limite inicial.
     denominador: Amplitude da faixa de concentração do poluente.
     unidade_medida: Adimensional.
     variaveis_categorias_analise: MP10 e MP2,5 em 24 h; O₃ e CO em 8 h; NO₂ em 1 h; SO₂ em 24 h; estação; poluente crítico; classe.
-    granularidade: Por estação e período de divulgação.
-    resolucao_espacial_original: Ponto de monitoramento; a representatividade depende da tipologia e implantação da estação.
-    resolucao_temporal: Horária ou diária conforme disponibilidade e tempos de média dos poluentes.
-    periodo_referencia: Período móvel ou diário definido na orientação técnica vigente.
-    limiar_referencia: Na orientação de 2025, a classe boa termina em 45 µg/m³ para MP10, 15 µg/m³ para MP2,5, 100 µg/m³ para O₃, 9 ppm para CO, 200 µg/m³ para NO₂ e 40 µg/m³ para SO₂; usar sempre a tabela vigente.
-    fontes_dados:
-      - id: redes-qualidade-ar
-        papel: concentrações monitoradas por métodos de referência ou equivalentes
-    cobertura_geografica: Locais cobertos pelas redes estaduais e distrital; não há cobertura homogênea do território nacional.
-    periodo_disponivel: Conforme cada rede e estação.
+    granularidade: "Estação–poluente–hora; município como chave de localização. Não transformar automaticamente valores de estação em média municipal."
+    resolucao_espacial_original: "Ponto de estação, com tipo e representatividade documentados."
+    resolucao_temporal: "Diária, com médias móveis horárias nas entradas de O₃ e CO."
+    periodo_referencia: "Dia local; tabela fixa MMA 2025 na série retrospectiva."
+    limiar_referencia: "Classes N1 a N5 definidas pela tabela desta ficha. Guardar separadamente o IQAr originalmente divulgado sob normas de cada época."
+    fontes_dados: [{"id": "monitorar-mma", "papel": "Arquivos anuais de concentrações horárias e identificação de estações; obter validação do órgão produtor"}]
+    cobertura_geografica: "Municípios com estações e poluentes efetivamente presentes nos arquivos; cobertura nacional incompleta."
+    periodo_disponivel: "Arquivos MonitorAr 2022–2025 localizados; história anterior somente quando disponibilizada pela rede local e identificada separadamente."
     periodicidade_atualizacao: Tempo real, horária ou diária, conforme a Lei nº 14.850/2024 e a operação da rede.
-    forma_acesso: Sistemas eletrônicos dos órgãos ambientais e bases consolidadas.
-    url_persistente: https://www.gov.br/mma/pt-br/assuntos/meio-ambiente-urbano-recursos-hidricos-qualidade-ambiental/qualidade-do-ar/indice-de-qualidade-do-ar-iqar/orientacao-tecnica-indice-de-qualidade-do-ar-jan-25.pdf
-    formatos: Painel, boletim e tabela por estação.
-    disponibilidade: [disponível nas redes participantes]
-    necessidade_processamento: Validar médias, aplicar tabela vigente, calcular subíndices e selecionar poluente crítico.
+    forma_acesso: "API CKAN: https://dados.mma.gov.br/api/3/action/package_show?id=ar-puro-monitorar; selecionar os recursos CSV/ZIP anuais e registrar URL, tamanho e data da extração."
+    url_persistente: "https://dados.mma.gov.br/dataset/ar-puro-monitorar"
+    formatos: "CSV em ZIP e dicionário de dados; conservar códigos de estação, município, parâmetro, unidade, data/hora e flag de validação."
+    disponibilidade: ["Calculável com dados locais centralizados"]
+    necessidade_processamento: "Conferir unidades; construir médias e máximos nos tempos especificados; aplicar a tabela integral; selecionar o poluente crítico e sinalizar cobertura incompleta."
     analise_descritiva: Informar IQAr, classe, poluente determinante, concentração, estação, horário, tendência e recomendações; manter as concentrações disponíveis.
-    referencias: ["[@brasil2024conama506]", "[@brasil2025iqar]"]
+    referencias: ["[@brasil2024conama506]", "[@brasil2025iqar]", "[@iema2025iqar]"]
+    unidade_territorial: "Estação de monitoramento e seu município de localização, código IBGE de sete dígitos."
+    qualidade_incerteza: "Desduplicar estação/poluente/data/hora, conservando a revisão validada mais recente; conflito sem versão resulta em ausente. Concentração negativa, falha ou registro não validado pelo produtor não entra na série definitiva. Preservar o fuso de origem, sem presumir que horário local seja UTC."
+    comparabilidade: "Mesma estação, método, poluente, unidade, calendário local e validação; mudança ou relocalização da estação exige quebra de série. Não combinar automaticamente redes e modelos."
+    protocolo_versao: "2026-10-03"
+    situacao_calculo: "centralizados"
+    dependencia_dados_locais: "Necessária: estações locais com dados centralizados no MonitorAr"
+    automacao: "Condicionada"
+    condicoes_automacao: "Disponibilidade das estações e poluentes, identificação do fuso e confirmação dos flags de validação pelo produtor."
+    evidencia_verificacao: "Acesso testado"
+    detalhe_verificacao: "CSV e campos municipais acessados. Houve cálculo exploratório de P99 em Leandrinho/BA (2022), mas os flags de validação não foram confirmados; não é um resultado oficial nem uma validação do IQAr completo."
+    notas: "Esta série recompõe a classificação com uma tabela fixa de 2025 e regras explícitas de completude; não substitui o boletim oficial divulgado em tempo real pela rede. O valor contínuo determina a classe; sua apresentação arredondada pode coincidir com uma fronteira."
 
   - <<: *air_common
     codigo: AMB-FUM-01
     titulo_completo: Exposição populacional média a PM2,5 atribuível à fumaça de incêndios
     titulo_resumido: PM2,5 de fumaça ponderado pela população
-    referencia_metodologica: Indicador de fumaça de incêndios do Lancet Countdown, que integra concentração de PM2,5 atribuível ao fogo e população.
+    referencia_metodologica: "Média populacional da concentração atribuída ao fogo, usando o produto diário de Hu et al. (2025), GEOS-Chem/GFED4.1s. É uma especificação municipal própria, não a reprodução automática da série Lancet Countdown."
     conceito: Média espacial da concentração de PM2,5 atribuída a emissões de incêndios, ponderada pela população residente, em período declarado.
     objetivo: Quantificar a intensidade média de exposição populacional à fumaça de incêndios separada, por modelagem, de outras fontes de PM2,5.
     interpretacao: Valor maior indica que a população do território viveu, em média, maior concentração ambiental de PM2,5 atribuível ao fogo. Não representa dose individual nem a concentração total.
     usos: [Monitorar exposição a fumaça ao longo do tempo., Comparar desigualdades territoriais., Apoiar estimativas de mortalidade atribuível e preparação sanitária.]
     limitacoes: [A atribuição ao fogo é modelada e incerta., Satélites podem representar a coluna atmosférica e não apenas a superfície., Ponderação residencial não capta mobilidade ou ambiente interno., Produtos e inventários de emissão geram estimativas distintas.]
-    metodo_calculo: Obter para cada célula e período a concentração superficial de PM2,5 atribuída a incêndios por produto validado, compatibilizar com população e calcular média ponderada; agregar temporalmente somente depois de preservar os valores diários.
-    formula_calculo: '\overline{PM}_{2,5}^{fogo,pop}=\frac{\sum_{g}PM_{2,5,g}^{fogo}Pop_g}{\sum_g Pop_g}'
+    metodo_calculo: "Baixar os campos diários de PM2,5 de fogo GEOS-Chem/GFED4.1s de Hu et al., Zenodo 15493914. Converter unidades somente segundo os atributos do arquivo. Interpolar contagens GHS-POP R2023A para cada ano e intersectar conservativamente com grade de fumaça e malha municipal IBGE 2022. Calcular, a cada dia, sum(Cfogo×Pop)/sum(Pop), exigindo a mesma máscara válida e ≥90% da população municipal coberta. Calcular a média anual dos 365/366 valores diários, exigindo todos os dias; falhas geram ano ausente. Publicar cobertura populacional e a versão GFED. A variante QFED em Zenodo 15496596 é análise de sensibilidade separada."
+    formula_calculo: "\\overline C^{fogo}_{m,y}=\\frac{1}{D_y}\\sum_{d\\in y}\\frac{\\sum_g C^{fogo}_{g,d}P_{g,y}}{\\sum_g P_{g,y}}"
     numerador: Soma dos produtos entre concentração de PM2,5 atribuível ao fogo e população da célula.
     denominador: População total incluída.
     unidade_medida: Microgramas por metro cúbico (µg/m³).
     variaveis_categorias_analise: PM2,5 de fogo; população; célula; dia, temporada ou ano; produto; território; grupo populacional.
-    granularidade: Célula diária e território diário, sazonal ou anual.
-    resolucao_espacial_original: A do produto de fumaça e da grade populacional após harmonização.
-    resolucao_temporal: Preferencialmente diária; resumo sazonal ou anual.
-    periodo_referencia: Ano ou temporada, com população correspondente e versão do modelo.
+    granularidade: "Interseção das grades de concentração e população com municípios; média populacional diária antes da média temporal."
+    resolucao_espacial_original: "Produto de fogo 0,25°; GHS-POP 100 m."
+    resolucao_temporal: "Diária; média anual."
+    periodo_referencia: "Ano civil, com população interpolada para o mesmo ano."
     limiar_referencia: Não há limiar universal específico de PM2,5 de fogo; comparações com diretrizes de PM2,5 total devem ser claramente identificadas.
-    fontes_dados:
-      - id: cams
-        papel: modelagem atmosférica, quando o produto separar contribuição do fogo
-      - id: queimadas-inpe
-        papel: informação de ocorrência e emissão usada na atribuição de fonte
-      - id: ibge
-        papel: população para ponderação no Brasil
-    cobertura_geografica: A do produto atmosférico e populacional selecionados.
-    periodo_disponivel: Conforme produto; não interpolar versões sem avaliação.
-    periodicidade_atualizacao: Diária ou anual, conforme a finalidade.
-    forma_acesso: Produto modelado de fonte específica e grade populacional versionada.
-    url_persistente: https://doi.org/10.1016/S2468-2667(24)00055-0
-    formatos: Arquivos multidimensionais e tabelas territoriais.
-    disponibilidade: [requer produto de atribuição de fonte, requer processamento geoespacial]
-    necessidade_processamento: Harmonizar grade, tempo e unidade; ponderar pela população; agregar e propagar incerteza.
+    fontes_dados: [{"id": "hu-fire-pm25", "papel": "Concentração diária superficial de PM2,5 atribuível ao fogo, variante GFED4.1s"}, {"id": "ghs-pop-r2023a", "papel": "População anual interpolada entre épocas quinquenais"}]
+    cobertura_geografica: "Brasil no domínio do produto global; cobertura válida explicitada por município."
+    periodo_disponivel: "2000–2023 na edição publicada por Hu et al. (2025)."
+    periodicidade_atualizacao: "Por edição publicada; esta versão termina em 2023."
+    forma_acesso: "API pública Zenodo records/15493914 e download dos arquivos listados; selecionar a variante GFED4.1s. População por download público GHS-POP R2023A."
+    url_persistente: "https://zenodo.org/records/15493914"
+    formatos: "Arquivos científicos do depósito Zenodo, com coordenadas e unidades; GeoTIFF populacional; saída CSV/Parquet."
+    disponibilidade: ["Calculável com dados abertos"]
+    necessidade_processamento: "Ler grade, datas e unidades; compatibilizar população por interseção conservativa; calcular exposição diária e média anual completa."
     analise_descritiva: Apresentar série diária, média e soma sazonal, dias de maior exposição, população por faixas, desigualdades e incerteza do modelo.
-    referencias: ["[@vandaalen2024lancet]", "[@who2021air]"]
+    referencias: ["[@hu2025firepm]", "[@who2021air]"]
+    unidade_territorial: "Município IBGE 2022."
+    notas: "Focos de fogo, AOD e PM2,5 total não separam a parcela atribuível ao fogo e não substituem a entrada desta ficha. GFED e QFED não devem ser emendados."
+    qualidade_incerteza: "A atribuição é modelada. Comparar inventários separadamente, registrar incerteza de concentração e população; cobertura mínima de 90% é uma escolha operacional do livro."
+    protocolo_versao: "2026-10-03"
+    situacao_calculo: "abertos"
+    dependencia_dados_locais: "Opcional para validação"
+    automacao: "Viável"
+    condicoes_automacao: "Download dos campos diários GFED4.1s e da população GHS-POP, com leitura de metadados e processamento espacial."
+    evidencia_verificacao: "Acesso testado"
+    detalhe_verificacao: "Metadados, licença e lista de arquivos do depósito Zenodo acessados. Concentrações e médias municipais ainda não calculadas."

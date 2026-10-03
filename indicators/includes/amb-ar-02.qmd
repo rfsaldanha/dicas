@@ -5,7 +5,7 @@
 [Título resumido:]{.field-label} PM2,5 de curto prazo — P99 24h \
 [Tema:]{.field-label} Qualidade do ar, queimadas e fumaça \
 [Dimensão:]{.field-label} perigo; exposição \
-[Disponibilidade:]{.field-label} [disponível onde há monitoramento]{.availability} [requer processamento]{.availability}
+[Disponibilidade:]{.field-label} [Calculável com dados locais centralizados]{.availability}
 :::
 
 ### Identificação e fundamento {.unnumbered .ficha-section}
@@ -42,12 +42,11 @@ O valor anual é comparado ao nível-guia de 15 µg/m³. Como o nível se refere
 
 ### Fontes de dados {.unnumbered .ficha-section}
 
-- Sistema Nacional de Gestão da Qualidade do Ar — concentrações horárias ou diárias de estações de monitoramento ([cadastro](../../backmatter/indice-fontes.qmd#redes-qualidade-ar))
-- Copernicus Atmosphere Monitoring Service — campo modelado condicionado à validação e identificação do produto ([cadastro](../../backmatter/indice-fontes.qmd#cams))
+- MonitorAr — concentrações horárias das redes participantes — Arquivos anuais de concentrações horárias e identificação de estações; obter validação do órgão produtor ([cadastro](../../backmatter/indice-fontes.qmd#monitorar-mma))
 
 ### Método de cálculo {.unnumbered .ficha-section}
 
-Calcular médias de 24 horas a partir de dados horários válidos segundo protocolo de completude, ordenar as médias diárias válidas do ano e estimar o percentil 99 pelo algoritmo declarado.
+Na estação e fuso local declarados, calcular a média aritmética diária de PM2,5 com pelo menos 16 horas distintas válidas. Exigir pelo menos 90% dos dias do ano e pelo menos metade dos dias válidos em cada quadrimestre. Ordenar as médias diárias e estimar P99 pelo quantil tipo 7: h=1+(n−1)×0,99; interpolar linearmente entre as posições floor(h) e ceil(h). Publicar por estação e município de localização, sem média automática entre estações.
 
 $$
 PM_{2,5}^{P99,24h}=Q_{0,99}\{\overline{PM}_{2,5,d}^{24h}:d\ válido\}
@@ -62,13 +61,13 @@ $$
 
 [Variáveis e categorias de análise.]{.field-label} PM2,5 horário; média de 24 horas; estação; dia; ano; método de medição.
 
-[Granularidade.]{.field-label} Média diária por estação e percentil anual por estação ou território qualificado.
+[Granularidade.]{.field-label} Estação–poluente–hora; município como chave de localização. Não transformar automaticamente valores de estação em média municipal.
 
 [Periodicidade de atualização.]{.field-label} Diária para vigilância e anual para avaliação do percentil.
 
 [Responsabilidade gerencial.]{.field-label} Órgão ambiental responsável pelo monitoramento e setor saúde responsável pela vigilância dos efeitos e comunicação sanitária.
 
-[Notas.]{.field-label} Concentração, índice de comunicação e estimativa de fonte específica são indicadores distintos e não devem ser convertidos sem a especificação correspondente.
+[Notas.]{.field-label} O mínimo de 90% dos dias e o quantil tipo 7 são escolhas explícitas deste protocolo para a estatística anual. Não confundir elegibilidade de cálculo com certificação regulatória. Se não houver cobertura, publicar ausente e o motivo.
 
 [Análise descritiva do indicador.]{.field-label} Mostrar série diária, P99, dias acima do nível-guia, episódios consecutivos, sazonalidade e distribuição por estação.
 
@@ -77,13 +76,13 @@ $$
 ### Campos complementares para clima, ambiente e saúde {.unnumbered .ficha-section}
 
 ::: {.indicator-card}
-[Unidade territorial.]{.field-label} Estação de monitoramento, célula de grade ou território derivado.
+[Unidade territorial.]{.field-label} Estação de monitoramento e seu município de localização, código IBGE de sete dígitos.
 
-[Resolução espacial original.]{.field-label} Ponto de monitoramento ou célula do produto modelado.
+[Resolução espacial original.]{.field-label} Ponto de estação, com tipo e representatividade documentados.
 
-[Resolução temporal.]{.field-label} Entrada horária; média diária; resumo anual.
+[Resolução temporal.]{.field-label} Entrada horária; média do dia local; percentil anual.
 
-[Período de referência.]{.field-label} Ano civil, com regra de completude declarada.
+[Período de referência.]{.field-label} Ano civil local da estação.
 
 [Limiar ou valor de referência.]{.field-label} Nível-guia OMS 2021 de 15 µg/m³ para o percentil 99 das médias de 24 horas.
 
@@ -91,25 +90,37 @@ $$
 
 ### Disponibilidade e acesso {.unnumbered .ficha-section}
 
-[Cobertura geográfica.]{.field-label} A das redes e produtos selecionados; cobertura observacional é heterogênea.
+[Protocolo verificado em.]{.field-label} 2026-10-03
 
-[Período disponível.]{.field-label} Conforme estação ou produto.
+[Dependência de dados locais.]{.field-label} Necessária: estações locais com dados centralizados no MonitorAr
+
+[Automação.]{.field-label} Condicionada
+
+[Requisitos para o cálculo.]{.field-label} Disponibilidade das estações e poluentes, identificação do fuso e confirmação dos flags de validação pelo produtor.
+
+[Nível de evidência.]{.field-label} Acesso testado
+
+[Alcance da verificação.]{.field-label} CSV e campos municipais acessados. Houve cálculo exploratório de P99 em Leandrinho/BA (2022), mas os flags de validação não foram confirmados; não é um resultado oficial nem uma validação do IQAr completo.
+
+[Cobertura geográfica.]{.field-label} Municípios com estações e poluentes efetivamente presentes nos arquivos; cobertura nacional incompleta.
+
+[Período disponível.]{.field-label} Arquivos MonitorAr 2022–2025 localizados; história anterior somente quando disponibilizada pela rede local e identificada separadamente.
 
 [Periodicidade de atualização.]{.field-label} Diária para vigilância e anual para avaliação do percentil.
 
-[Forma de acesso.]{.field-label} Redes ambientais e produtos modelados documentados.
+[Forma de acesso.]{.field-label} API CKAN: https://dados.mma.gov.br/api/3/action/package_show?id=ar-puro-monitorar; selecionar os recursos CSV/ZIP anuais e registrar URL, tamanho e data da extração.
 
-[URL ou identificador persistente.]{.field-label} https://www.who.int/publications/i/item/9789240034228
+[URL ou identificador persistente.]{.field-label} https://dados.mma.gov.br/dataset/ar-puro-monitorar
 
-[Formato dos arquivos.]{.field-label} Tabela horária ou diária e arquivo multidimensional.
+[Formato dos arquivos.]{.field-label} CSV em ZIP e dicionário de dados; conservar códigos de estação, município, parâmetro, unidade, data/hora e flag de validação.
 
-[Necessidade de processamento.]{.field-label} Validar horas, calcular médias de 24 horas, verificar completude anual e estimar percentil 99.
+[Necessidade de processamento.]{.field-label} Validação de registros e fuso, médias com mínimo de 16 horas, elegibilidade anual/quadrimestral e quantil tipo 7.
 
 ### Qualidade, comparação e saúde {.unnumbered .ficha-section}
 
-[Qualidade e incerteza.]{.field-label} Relatar método, calibração, completude, representatividade da estação, componente modelado, resolução, incerteza, versão e condições meteorológicas.
+[Qualidade e incerteza.]{.field-label} Desduplicar estação/poluente/data/hora, conservando a revisão validada mais recente; conflito sem versão resulta em ausente. Concentração negativa, falha ou registro não validado pelo produtor não entra na série definitiva. Preservar o fuso de origem, sem presumir que horário local seja UTC.
 
-[Possibilidade de comparação.]{.field-label} Manter poluente, tempo de média, unidade, método, regra de completude, versão do produto e suporte espacial.
+[Possibilidade de comparação.]{.field-label} Mesma estação, método, poluente, unidade, calendário local e validação; mudança ou relocalização da estação exige quebra de série. Não combinar automaticamente redes e modelos.
 
 [Relação com desfechos de saúde.]{.field-label} A poluição do ar aumenta morbidade e mortalidade cardiovascular e respiratória e está associada a câncer de pulmão, infecções respiratórias e desfechos materno-infantis.
 

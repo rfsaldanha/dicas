@@ -167,7 +167,7 @@ ODS significa objetivo de Desenvolvimento Sustentável.
 
 | Indicador | Base metodológica | Uso em saúde pública | Cuidado de interpretação |
 |---|---|---|---|
-| PM2,5 anual ponderado pela população | ODS 11.6.2, custódia OMS | exposição crônica, desigualdade e carga de doença | média não descreve episódios |
+| PM2,5 anual modelado ponderado pela população urbana | Adaptação municipal do conceito do ODS 11.6.2 | exposição crônica, desigualdade e carga de doença | média não descreve episódios |
 | P99 das médias de 24 h de PM2,5 | diretriz OMS 2021 | exposição de curto prazo e avaliação anual | não é máximo diário |
 | PM10, O₃, NO₂, SO₂ e CO em seus tempos de média | diretriz OMS e padrões nacionais | vigilância por poluente e avaliação regulatória | unidades e tempos não são intercambiáveis |
 | IQAr brasileiro | CONAMA nº 506/2024 e orientação de 2025 | comunicação diária ou horária | depende dos poluentes monitorados e informa o pior subíndice |
@@ -181,6 +181,20 @@ Indicadores de qualidade do ar, fogo e fumaça usados em saúde pública
 
 As fichas a seguir documentam os indicadores consolidados com aplicação sanitária direta. Focos e área queimada permanecem como variáveis contextuais até que se adote um produto específico com metadado completo.
 
+## Protocolo de cálculo e disponibilidade
+
+| Ficha | Rótulo | Entrada fixada |
+|---|---|---|
+| AMB-AR-01 | Calculável com dados abertos | SatPM V6.GL.03 total, 1998–2024, e GHS-POP R2023A |
+| AMB-AR-02 | Calculável com dados locais centralizados | PM2,5 horário por estação do MonitorAr; P99 anual |
+| AMB-AR-03 | Calculável com dados locais centralizados | Seis poluentes por estação e tabela IQAr de 2025 |
+| AMB-FUM-01 | Calculável com dados abertos | PM2,5 de fogo GEOS-Chem/GFED4.1s, 2000–2023 |
+| AMB-FOG-01 | Calculável com dados abertos | Área queimada MapBiomas Fogo Coleção 5 v1, 1985–2025 |
+
+O rótulo de dados locais centralizados preserva a dependência das estações: os arquivos estão reunidos em um catálogo, mas sua cobertura e validação variam. O município é uma chave de localização da estação, não uma certificação de representatividade de toda a população. Para o IQAr, qualquer poluente ausente exige a indicação de índice parcial. A tabela de 2025 é fixada para comparação retrospectiva; o boletim original da rede permanece uma série separada.
+
+PM2,5 total e PM2,5 atribuível ao fogo usam produtos distintos. A ficha de fumaça passa a adotar explicitamente o produto publicado por Hu et al.; não atribui automaticamente toda concentração observada durante uma queimada ao fogo [@hu2025firepm]. A ficha nova de área queimada descreve a cicatriz territorial, sem convertê-la em concentração ou dose. Em todas as médias populacionais, a população é repartida conservativamente nas interseções, e a cobertura válida acompanha o resultado.
+
 {{< include ../../indicators/includes/amb-ar-01.qmd >}}
 
 {{< include ../../indicators/includes/amb-ar-02.qmd >}}
@@ -188,6 +202,8 @@ As fichas a seguir documentam os indicadores consolidados com aplicação sanit�
 {{< include ../../indicators/includes/amb-ar-03.qmd >}}
 
 {{< include ../../indicators/includes/amb-fum-01.qmd >}}
+
+{{< include ../../indicators/includes/amb-fog-01.qmd >}}
 
 ## Alertas e aplicação na gestão
 
