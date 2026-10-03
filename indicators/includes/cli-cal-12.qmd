@@ -42,7 +42,7 @@ Valor maior indica mais dias em episódios compostos. Deve ser lido junto com n�
 
 ### Fontes de dados {.unnumbered .ficha-section}
 
-- ERA5-Land — ERA5-Land hourly data, reanalysis-era5-land: 2m_temperature; 2m_dewpoint_temperature e vento a 10 m quando requeridos ([cadastro](../../backmatter/indice-fontes.qmd#era5-land))
+- ERA5-Land — ERA5-Land hourly, variável 2m_temperature; extrair TX/TN conforme o método da ficha ([cadastro](../../backmatter/indice-fontes.qmd#era5-land))
 - Instituto Nacional de Meteorologia — Validação local e séries observadas separadas da reanálise ([cadastro](../../backmatter/indice-fontes.qmd#inmet))
 
 ### Método de cálculo {.unnumbered .ficha-section}
@@ -50,11 +50,11 @@ Valor maior indica mais dias em episódios compostos. Deve ser lido junto com n�
 Estimar separadamente P90 de TX e TN em janelas de 15 dias na base 1981–2010. Marcar dias com ambas as condições ≥, identificar sequências ≥2 dias e contar seus dias por ano civil. Detectar sequências continuamente, incluindo os dias de fronteira; contar apenas os dias do ano de saída. Sem onda, zero. A síntese municipal é a média por área dessas contagens.
 
 $$
-CHWF_p=\sum_{d\in p}I\{d\ pertence\ a\ sequência\geq2:\ TX_d\geq TX90_{cal(d)}\ \land\ TN_d\geq TN90_{cal(d)}\}
+CHWF_y=\sum_{d\in y}I(d\in C_{DN})
 $$
 
 ::: {.indicator-card}
-[Numerador.]{.field-label} Não se aplica; soma de dias participantes.
+[Numerador.]{.field-label} Dias do ano pertencentes a C_DN, conjunto de dias em sequências de pelo menos dois dias com TX≥P90(TX) e TN≥P90(TN).
 
 [Denominador.]{.field-label} Não se aplica.
 

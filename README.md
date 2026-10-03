@@ -6,7 +6,7 @@ O público principal inclui profissionais de secretarias de saúde, vigilância 
 
 ## Estado do projeto
 
-Esta é a versão editorial 0.9.0, preparada para revisão completa. Os 15 capítulos estão escritos; 62 fichas de indicadores consolidados estão integradas aos capítulos; 25 fontes possuem cadastro detalhado; e as referências citadas estão configuradas no estilo ABNT. As indicações de arte original permanecem marcadas no próprio texto.
+Esta é a versão editorial 0.9.0, preparada para revisão completa. Os 15 capítulos estão escritos; 69 fichas de indicadores consolidados estão integradas aos capítulos; 43 fontes possuem cadastro detalhado; e as referências citadas estão configuradas no estilo ABNT. As indicações de arte original permanecem marcadas no próprio texto.
 
 Comece pelo [guia de revisão](docs/guia-de-revisao.md) e consulte o [relatório da versão](docs/relatorio-versao-para-revisao.md).
 

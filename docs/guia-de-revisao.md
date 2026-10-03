@@ -2,7 +2,7 @@
 
 ## Finalidade
 
-A versão 0.9.0 está preparada para revisão integral. Ela reúne 15 capítulos completos, 62 fichas de indicadores consolidados, 25 registros de fontes, referências em estilo ABNT, quadros, tabelas, 23 diagramas Mermaid numerados, cinco ilustrações vetoriais originais e treze composições em aquarela com rótulos e conexões.
+A versão 0.9.0 está preparada para revisão integral. Ela reúne 15 capítulos completos, 69 fichas de indicadores consolidados, 43 registros de fontes, referências em estilo ABNT, quadros, tabelas, 23 diagramas Mermaid numerados, cinco ilustrações vetoriais originais e treze composições em aquarela com rótulos e conexões.
 
 Os artefatos são:
 

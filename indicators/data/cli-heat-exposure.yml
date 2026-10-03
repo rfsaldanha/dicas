@@ -24,7 +24,7 @@ indicators:
     limitacoes: [Depende fortemente da resolução e da regra de vizinhança., A definição publicada conecta células por aresta ou canto e admite separações especificadas; adaptações devem ser declaradas., A área não informa intensidade nem população., Continuidade física pode ser afetada por máscaras de costa, ilhas e lacunas.]
     fontes_dados: [{"id": "berkeley-earth-daily", "papel": "Temperatura diária interpolada em grade de 1°; protocolo e código de Skinner et al."}]
     metodo_calculo: "Reproduzir a máscara diária e o agrupamento global do código arquivado em Zenodo 16595017. Unir grupos próximos conforme o algoritmo publicado, sem somar à área as células intermediárias que não atendem ao limiar. A área diária de cada componente é a soma das áreas das suas células efetivamente em onda. Para cada município e dia, selecionar a maior área regional dos componentes que o interceptam; no ano, selecionar o máximo diário. Sem interseção em ano válido, zero. Esta atribuição municipal é uma adaptação explícita do livro."
-    formula_calculo: "A_{c,d}=\\sum_{g\\in c,\\,HW_{g,d}=1}a_g,\\qquad A_{m,y}=\\max_{d\\in y,\\,c:\\,c\\cap m\\ne\\varnothing} A_{c,d}"
+    formula_calculo: "\\begin{aligned}A_{c,d}&=\\sum_{g\\in c,\\,HW_{g,d}=1}a_g\\\\A_{m,y}&=\\max_{d\\in y,\\,c:\\,c\\cap m\\ne\\varnothing}A_{c,d}\\end{aligned}"
     numerador: Soma da área das células pertencentes ao componente contíguo no dia.
     denominador: "Não se aplica; área absoluta do evento regional."
     unidade_medida: "km² de extensão regional."
@@ -41,12 +41,12 @@ indicators:
     forma_acesso: "Downloads públicos Berkeley Earth e código arquivado em Zenodo 16595017; conservar a versão e os arquivos utilizados."
     formatos: "NetCDF da temperatura e saídas tabulares do agrupamento."
     necessidade_processamento: "Executar o agrupamento em domínio global, não apenas no recorte municipal ou brasileiro; calcular a área das células e cruzar as máscaras com municípios."
-    analise_descritiva: Apresentar mapa e trajetória da extensão, maior área diária, proporção do território, intensidade e duração correspondentes e sensibilidade à grade e conectividade.
+    analise_descritiva: "Apresentar área regional máxima em km², data e componente que intercepta o município, com sensibilidade à conectividade; não chamar essa extensão de proporção da área municipal."
     relacao_saude: Episódios extensos podem expor simultaneamente múltiplas populações e pressionar redes de energia, água, emergência e saúde, mas a extensão não estima sozinha a carga sanitária.
     referencias: ["[@skinner2025extent]", "[@skinner2025code]"]
     cobertura_geografica: "Municípios brasileiros interceptados por componentes do domínio global válido."
-    qualidade_incerteza: "Dia com menos de 24 horas válidas na grade é ausente. Nas sínteses anuais, mais de 15 dias ausentes, ou mais de três em qualquer mês, invalidam o ano; falhas não recebem zero e não unem sequências. Exigir 90% dos dados do período-base e registrar a cobertura. Sínteses municipais exigem ao menos 90% de área válida; informar essa fração. Critérios de cobertura são escolhas editoriais deste protocolo."
-    comparabilidade: "Fixar versão, calendário UTC, período-base e limites municipais de 2022. Não emendar estação e reanálise. Médias municipais de contagens podem ser fracionárias e não contam episódios sincrônicos do município."
+    qualidade_incerteza: "Aplicar calendário, máscara de terra e controle de qualidade do código arquivado em Zenodo 16595017 à temperatura diária Berkeley Earth. Oceano fora do domínio não é falha observacional. Lacunas em terra que alterem a conectividade não recebem zero nem são pontes de calor; sinalizar dias/componentes não calculáveis. Não aplicar a exigência de 24 observações horárias a esse produto diário."
+    comparabilidade: "Fixar Berkeley Earth, grade de 1°, base e código do depósito 16595017. Outra grade, base ou regra de união exige uma série distinta."
     notas: "A extensão pode exceder a área municipal, pois descreve o evento regional. Não é área municipal afetada nem medida de população exposta."
     protocolo_versao: "2026-10-03"
     situacao_calculo: "abertos"
@@ -56,6 +56,7 @@ indicators:
     condicoes_automacao: "Download do produto diário Berkeley Earth e reprodução do código arquivado; processamento global da conectividade."
     evidencia_verificacao: "Documentação verificada"
     detalhe_verificacao: "Produto e método documentados; série municipal completa ainda não produzida."
+
 
 
   - <<: *heat_exposure_common
@@ -75,8 +76,8 @@ indicators:
     denominador: "Não se aplica à contagem de pessoas-dia; taxas por pessoa são indicadores adicionais e devem ser identificadas separadamente."
     unidade_medida: "Pessoas-dia por ano, por faixa etária."
     variaveis_categorias_analise: TX; TN; percentis locais; dia; célula; idade menor de um ano; idade de 65 anos ou mais; sexo e território quando disponíveis.
-    granularidade: "Calcular o indicador em cada célula antes da média municipal ponderada pela área; manter produto, célula, ano e código IBGE de sete dígitos."
-    unidade_territorial: "Célula de grade; município como síntese ponderada pela área de interseção."
+    granularidade: "Fragmento de interseção população–clima–município, por dia e faixa etária; somar pessoas-dia, sem média territorial por área."
+    unidade_territorial: "Município IBGE 2022; população coberta pelas interseções de grades."
     resolucao_espacial_original: "Clima 0,1°; população WorldPop Global1 nominalmente 100 m."
     resolucao_temporal: "Entradas horárias; extremos diários em 00–23 UTC; saída anual, salvo estação quente ou produto explicitados."
     periodo_referencia: "1986–2005; P95 de todas as TX e todas as TN da base, separadamente, sem janela calendário."
@@ -91,7 +92,7 @@ indicators:
     relacao_saude: Lactentes e pessoas idosas apresentam maior suscetibilidade a agravos e mortalidade pelo calor; o indicador mede exposição populacional, não casos nem risco individual.
     referencias: ["[@romanello2024lancet]", "[@lancetcountdown2026data]"]
     cobertura_geografica: "Todos os municípios brasileiros no domínio da grade. Não representa diretamente a exposição individual ou o microclima de cada bairro."
-    qualidade_incerteza: "Dia com menos de 24 horas válidas na grade é ausente. Nas sínteses anuais, mais de 15 dias ausentes, ou mais de três em qualquer mês, invalidam o ano; falhas não recebem zero e não unem sequências. Exigir 90% dos dados do período-base e registrar a cobertura. Sínteses municipais exigem ao menos 90% de área válida; informar essa fração. Critérios de cobertura são escolhas editoriais deste protocolo."
+    qualidade_incerteza: "Requer população anual por idade e todos os dias climáticos válidos nas células incluídas na soma. Exigir ≥90% da população da faixa etária no município com série climática completa; publicar a contagem de pessoas-dia somente para a população coberta, junto à cobertura, sem extrapolar para os não cobertos. Abaixo disso, resultado ausente. Não confundir população zero com ausência da grade etária."
     comparabilidade: "Fixar versão, calendário UTC, período-base e limites municipais de 2022. Não emendar estação e reanálise. Médias municipais de contagens podem ser fracionárias e não contam episódios sincrônicos do município."
     notas: "Não extrapolar automaticamente as faixas etárias do Censo para todos os anos. Versões Global1 e Global2, e grades constrained/unconstrained, precisam de identificadores de série distintos."
     protocolo_versao: "2026-10-03"
@@ -99,6 +100,6 @@ indicators:
     disponibilidade: ["Calculável com dados abertos"]
     dependencia_dados_locais: "Opcional para validação"
     automacao: "Condicionada"
-    condicoes_automacao: "Cadastro gratuito e credencial CDS; download das variáveis e processamento conforme a ficha."
+    condicoes_automacao: "API CDS para 2m_temperature e download de todos os arquivos de idade/sexo WorldPop Global1 necessários às faixas <1 e ≥65 anos, de 2000–2020; conservar versão e contagens."
     evidencia_verificacao: "Documentação verificada"
     detalhe_verificacao: "Produto e método documentados; série municipal completa ainda não produzida."

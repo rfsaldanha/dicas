@@ -61,7 +61,7 @@ $$
 
 [Variáveis e categorias de análise.]{.field-label} TX; TN; percentis locais; dia; célula; idade menor de um ano; idade de 65 anos ou mais; sexo e território quando disponíveis.
 
-[Granularidade.]{.field-label} Calcular o indicador em cada célula antes da média municipal ponderada pela área; manter produto, célula, ano e código IBGE de sete dígitos.
+[Granularidade.]{.field-label} Fragmento de interseção população–clima–município, por dia e faixa etária; somar pessoas-dia, sem média territorial por área.
 
 [Periodicidade de atualização.]{.field-label} Anual, após completar e verificar o último ano de entrada.
 
@@ -76,7 +76,7 @@ $$
 ### Campos complementares para clima, ambiente e saúde {.unnumbered .ficha-section}
 
 ::: {.indicator-card}
-[Unidade territorial.]{.field-label} Célula de grade; município como síntese ponderada pela área de interseção.
+[Unidade territorial.]{.field-label} Município IBGE 2022; população coberta pelas interseções de grades.
 
 [Resolução espacial original.]{.field-label} Clima 0,1°; população WorldPop Global1 nominalmente 100 m.
 
@@ -96,7 +96,7 @@ $$
 
 [Automação.]{.field-label} Condicionada
 
-[Requisitos para o cálculo.]{.field-label} Cadastro gratuito e credencial CDS; download das variáveis e processamento conforme a ficha.
+[Requisitos para o cálculo.]{.field-label} API CDS para 2m_temperature e download de todos os arquivos de idade/sexo WorldPop Global1 necessários às faixas <1 e ≥65 anos, de 2000–2020; conservar versão e contagens.
 
 [Nível de evidência.]{.field-label} Documentação verificada
 
@@ -118,7 +118,7 @@ $$
 
 ### Qualidade, comparação e saúde {.unnumbered .ficha-section}
 
-[Qualidade e incerteza.]{.field-label} Dia com menos de 24 horas válidas na grade é ausente. Nas sínteses anuais, mais de 15 dias ausentes, ou mais de três em qualquer mês, invalidam o ano; falhas não recebem zero e não unem sequências. Exigir 90% dos dados do período-base e registrar a cobertura. Sínteses municipais exigem ao menos 90% de área válida; informar essa fração. Critérios de cobertura são escolhas editoriais deste protocolo.
+[Qualidade e incerteza.]{.field-label} Requer população anual por idade e todos os dias climáticos válidos nas células incluídas na soma. Exigir ≥90% da população da faixa etária no município com série climática completa; publicar a contagem de pessoas-dia somente para a população coberta, junto à cobertura, sem extrapolar para os não cobertos. Abaixo disso, resultado ausente. Não confundir população zero com ausência da grade etária.
 
 [Possibilidade de comparação.]{.field-label} Fixar versão, calendário UTC, período-base e limites municipais de 2022. Não emendar estação e reanálise. Médias municipais de contagens podem ser fracionárias e não contam episódios sincrônicos do município.
 

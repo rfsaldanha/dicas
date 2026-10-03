@@ -80,7 +80,7 @@ indicators:
     fontes_dados: [{"id": "monitorar-mma", "papel": "Arquivos anuais de concentrações horárias e identificação de estações; obter validação do órgão produtor"}]
     cobertura_geografica: "Municípios com estações e poluentes efetivamente presentes nos arquivos; cobertura nacional incompleta."
     periodo_disponivel: "Arquivos MonitorAr 2022–2025 localizados; história anterior somente quando disponibilizada pela rede local e identificada separadamente."
-    periodicidade_atualizacao: Tempo real, horária ou diária, conforme a Lei nº 14.850/2024 e a operação da rede.
+    periodicidade_atualizacao: "Reprocessamento anual dos arquivos horários consolidados; série de saída diária sob tabela fixa de 2025."
     forma_acesso: "API CKAN: https://dados.mma.gov.br/api/3/action/package_show?id=ar-puro-monitorar; selecionar os recursos CSV/ZIP anuais e registrar URL, tamanho e data da extração."
     url_persistente: "https://dados.mma.gov.br/dataset/ar-puro-monitorar"
     formatos: "CSV em ZIP e dicionário de dados; conservar códigos de estação, município, parâmetro, unidade, data/hora e flag de validação."
@@ -99,6 +99,7 @@ indicators:
     evidencia_verificacao: "Acesso testado"
     detalhe_verificacao: "CSV e campos municipais acessados. Houve cálculo exploratório de P99 em Leandrinho/BA (2022), mas os flags de validação não foram confirmados; não é um resultado oficial nem uma validação do IQAr completo."
     notas: "Esta série recompõe a classificação com uma tabela fixa de 2025 e regras explícitas de completude; não substitui o boletim oficial divulgado em tempo real pela rede. O valor contínuo determina a classe; sua apresentação arredondada pode coincidir com uma fronteira."
+
 
   - <<: *air_common
     codigo: AMB-FUM-01
@@ -125,9 +126,9 @@ indicators:
     cobertura_geografica: "Brasil no domínio do produto global; cobertura válida explicitada por município."
     periodo_disponivel: "2000–2023 na edição publicada por Hu et al. (2025)."
     periodicidade_atualizacao: "Por edição publicada; esta versão termina em 2023."
-    forma_acesso: "API pública Zenodo records/15493914 e download dos arquivos listados; selecionar a variante GFED4.1s. População por download público GHS-POP R2023A."
+    forma_acesso: "API pública https://zenodo.org/api/records/15493914: baixar os arquivos AAAAgfedfirepm25.nc.tar.gz de 2000 a 2023 e extrair os NetCDF, preservando coordenadas, datas, atributos e unidades. População por download GHS-POP R2023A."
     url_persistente: "https://zenodo.org/records/15493914"
-    formatos: "Arquivos científicos do depósito Zenodo, com coordenadas e unidades; GeoTIFF populacional; saída CSV/Parquet."
+    formatos: "Arquivos NetCDF anuais empacotados em TAR.GZ, nome AAAAgfedfirepm25.nc.tar.gz; população GeoTIFF; saída CSV/Parquet."
     disponibilidade: ["Calculável com dados abertos"]
     necessidade_processamento: "Ler grade, datas e unidades; compatibilizar população por interseção conservativa; calcular exposição diária e média anual completa."
     analise_descritiva: Apresentar série diária, média e soma sazonal, dias de maior exposição, população por faixas, desigualdades e incerteza do modelo.

@@ -23,7 +23,7 @@ indicators:
     usos: [Estudos de mortalidade e doenças crônicas., Avaliação de desigualdade de verdor., Análise de modificação de efeitos de calor e poluição.]
     limitacoes: [Satura em vegetação densa., É afetado por nuvens, solo e fenologia., A área de entorno residencial ignora mobilidade., Água e superfícies não vegetadas alteram média., O tamanho da área de entorno muda a exposição.]
     metodo_calculo: "Consultar Landsat Collection 2 Level-2, sensores TM/ETM+/OLI (L4, L5, L7, L8 e L9), para cada ano civil. Converter bandas de reflectância por rho=DN×0,0000275−0,2. Usar vermelho/NIR: SR_B3/SR_B4 em L4–7, SR_B4/SR_B5 em L8–9. Excluir pixels QA_PIXEL com qualquer bit 0–5 ativo (fill, dilatação de nuvem, cirrus quando aplicável, nuvem, sombra ou neve), qualquer QA_RADSAT não zero, reflectância fora de [0,1] ou denominador NIR+red≤0. Calcular NDVI por cena; em sobreposição no mesmo dia, obter mediana por pixel, para não duplicar a observação. Obter mediana anual por pixel com no mínimo três dias válidos. Para cada centro de célula GHS-POP R2023A de 100 m com população>0, obter a média ponderada pela área do NDVI no círculo geodésico de 300 m, inclusive fora do município, exigindo ≥90% do círculo com NDVI válido. Interpolar linearmente a população quinquenal para o ano da imagem. Repartir a população de células que cruzam limites municipais pela área de interseção e calcular a média municipal dos valores de entorno, ponderada por essa população. Exigir ≥90% da população municipal com entorno válido; abaixo disso, resultado ausente com cobertura."
-    formula_calculo: "NDVI=\\frac{\\rho_{NIR}-\\rho_{red}}{\\rho_{NIR}+\\rho_{red}},\\quad V_{g,y}=\\frac{\\sum_{i\\in B_{300}(g)}a_{ig}NDVI_{i,y}}{\\sum_{i\\in B_{300}(g)}a_{ig}},\\quad V_{m,y}=\\frac{\\sum_g P_{gm,y}V_{g,y}}{\\sum_g P_{gm,y}}"
+    formula_calculo: "\\begin{aligned}NDVI&=\\frac{\\rho_{NIR}-\\rho_{red}}{\\rho_{NIR}+\\rho_{red}}\\\\V_{g,y}&=\\frac{\\sum_{i\\in B_{300}(g)}a_{ig}NDVI_{i,y}}{\\sum_{i\\in B_{300}(g)}a_{ig}}\\\\V_{m,y}&=\\frac{\\sum_g P_{gm,y}V_{g,y}}{\\sum_g P_{gm,y}}\\end{aligned}"
     numerador: "Na síntese municipal, soma do NDVI médio de entorno multiplicado pela população residente estimada de cada fragmento de célula."
     denominador: "População dos fragmentos com entorno válido; informar sua fração da população municipal total."
     unidade_medida: "Adimensional, entre −1 e 1."
@@ -56,6 +56,7 @@ indicators:
     comparabilidade: "Fixar Collection 2 Level-2, máscaras, composição anual, raio, fonte populacional e limites; mudanças geram nova versão integral da série."
     notas: "O título foi alterado para explicitar a aproximação por centros de células. Não é NDVI calculado em endereços residenciais observados nem um indicador de acesso a parques."
 
+
   - <<: *urban_common
     codigo: AMB-URB-01
     titulo_completo: "Parcela da área urbana de referência ocupada por espaços abertos e ruas de uso público"
@@ -67,7 +68,7 @@ indicators:
     usos: [Monitorar as duas séries do ODS 11.7.1., Comparar cidades com método harmonizado., Planejar oferta e distribuição de espaços públicos., "Examinar desigualdades de acesso por sexo, idade e deficiência."]
     limitacoes: [A delimitação da cidade ou área urbana afeta o denominador., Espaços identificados por imagem exigem verificação de uso público e gratuidade., Espaço público aberto pode não ser verde., "Cadastro incompleto, rede caminhável inadequada e imagem defasada geram erro.", A série territorial e a série de acesso não devem ser fundidas em uma única medida.]
     metodo_calculo: "Definir U como município IBGE 2022 intersectado com classe 30 de GHS-SMOD 2020. Selecionar espaços abertos com acesso público gratuito comprovado na data e ruas públicas delimitadas em polígonos; quando houver apenas eixos, construir polígonos usando a largura medida de cada trecho, sem imputar largura padrão. Calcular 100×área[U∩união(espaços,ruas)]/área(U), contabilizando sobreposições uma única vez. Publicar adicionalmente, em coluna de nome e unidade próprios, acesso_400m: porcentagem da população de U a até 400 m de percurso caminhável de uma entrada de espaço aberto público. Usar rede com barreiras, passagens e entradas datadas, admitindo trajetos e destinos fora do município; unir áreas atendidas antes de intersectar a população. Não usar ruas isoladamente como destinos de acesso. Não havendo rede/entradas, acesso_400m é ausente, mesmo que a parcela territorial seja calculável."
-    formula_calculo: "P_{area}=100\\frac{area[U\\cap(E\\cup R)]}{area(U)},\\qquad P_{acesso400}=100\\frac{Pop[U\\cap A_{rede,400}(E)]}{Pop(U)}"
+    formula_calculo: "\\begin{aligned}P_{area}&=100\\frac{area[U\\cap(E\\cup R)]}{area(U)}\\\\P_{acesso400}&=100\\frac{Pop[U\\cap A_{rede,400}(E)]}{Pop(U)}\\end{aligned}"
     numerador: "Medida territorial: área da união de espaços abertos e ruas públicas dentro de U. Medida de acesso: população urbana atendida por percurso≤400 m."
     denominador: "Medida territorial: área de U. Medida de acesso: população de U."
     unidade_medida: "% de área e, separadamente, % de população."
@@ -101,6 +102,7 @@ indicators:
     detalhe_verificacao: "Produto e método documentados; série municipal completa ainda não produzida."
 
 
+
   - <<: *urban_common
     codigo: AMB-URB-02
     titulo_completo: "Proporção da população urbana a até 300 m lineares de espaço verde público com pelo menos 1 ha"
@@ -112,8 +114,8 @@ indicators:
     usos: [Planejar espaços verdes e rotas., Monitorar desigualdades territoriais., Avaliar intervenções urbanas relacionadas à saúde.]
     limitacoes: [Distância linear pode divergir da rede caminhável., Entradas e barreiras podem estar ausentes., Limiar de 300 m/1 ha é convenção de planejamento., População residencial não inclui mobilidade.]
     metodo_calculo: "Selecionar no cadastro local espaços verdes contínuos com acesso público gratuito verificado e área geodésica total≥10.000 m², medida antes de qualquer recorte municipal. Construir círculos/zonas de distância geodésica equivalente a 300 m do limite dos polígonos, incluindo espaços fora do município, e unir todas as zonas. Intersectar essa união com U=município IBGE 2022∩GHS-SMOD 2020 classe 30. Calcular a população coberta mediante frações de interseção das células GHS-POP, interpoladas para o ano do cadastro; dividir pela população total de U e multiplicar por 100. Contar cada fragmento populacional uma única vez. Sem população em U, resultado não aplicável; sem cadastro completo, ausente."
-    formula_calculo: "P_{verde300}=100\\frac{Pop\\left[U\\cap\\bigcup_{e:\\,area(e)\\geq10\\,000\\,m^2}B_{300m}(e)\\right]}{Pop(U)}"
-    numerador: População urbana em unidades cobertas pela área de acesso.
+    formula_calculo: "P_{verde300}=100\\frac{Pop(U\\cap V_{300})}{Pop(U)}"
+    numerador: "População de U na união V300 das zonas de 300 m dos espaços verdes públicos elegíveis (contínuos e com área≥1 ha)."
     denominador: População urbana total na área analisada.
     unidade_medida: Percentual (%).
     variaveis_categorias_analise: "Polígono de verde, acesso público confirmado, área, validade, distância linear, população, U e município."
@@ -144,6 +146,7 @@ indicators:
     condicoes_automacao: "Inventário completo e datado de polígonos verdes com área e acesso público verificados; esta variante usa distância linear, sem exigir rede caminhável."
     evidencia_verificacao: "Documentação verificada"
     detalhe_verificacao: "Produto e método documentados; série municipal completa ainda não produzida."
+
 
   - <<: *urban_common
     codigo: AMB-URB-03

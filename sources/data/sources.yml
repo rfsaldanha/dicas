@@ -783,16 +783,17 @@
   resolucao_temporal: "Diária"
   periodo_disponivel: "2000–2023"
   atualizacao: "Por edição do produto; congelar versão e data da extração."
-  acesso: "Download programático dos arquivos públicos identificados no catálogo."
+  acesso: "API Zenodo 15493914; arquivos AAAAgfedfirepm25.nc.tar.gz (2000–2023). Cada pacote anual listado tem aproximadamente 1,34 GB; planejar processamento por ano."
   url: "https://zenodo.org/records/15493914"
   api: "https://zenodo.org/api/records/15493914"
-  formatos: ["Arquivos digitais descritos no produto"]
+  formatos: ["NetCDF em TAR.GZ anual"]
   licenca: "CC BY 4.0 conforme registro Zenodo; citar artigo, depósito e variante."
   cadastro: "Não exigido para download público."
   custos: "Consulta e dados públicos sem cobrança; processamento e armazenamento por conta do usuário."
   limitacoes: "Verificar cobertura, qualidade, versão e valores ausentes antes da agregação."
   ultima_verificacao: "2026-10-03"
   indicadores: ["AMB-FUM-01"]
+
 
 - id: "mapbiomas-fogo-v5"
   tipo_registro: "produto"
@@ -1034,3 +1035,27 @@
   limitacoes: "Verificar cobertura, qualidade, versão e valores ausentes antes da agregação."
   ultima_verificacao: "2026-10-03"
   indicadores: ["DES-HUM-02", "DES-SAU-02"]
+
+- id: "medicoes-ibutg"
+  tipo_registro: "cadastro provisório"
+  nome: "Medições instrumentais locais de IBUTG — NHO 06/2025"
+  instituicao: "Responsável pela avaliação ocupacional; Fundacentro como referência metodológica"
+  descricao: "Registro de bulbo úmido natural, globo, ar, carga solar, duração, posto e calibração. Não existe endpoint municipal nacional demonstrado."
+  recursos_relacionados: ["Medições instrumentais locais de IBUTG — NHO 06/2025"]
+  temas: ["Indicadores da Parte II"]
+  variaveis: ["Tnwb", "Tg", "Ta", "Duração", "Carga solar", "Calibração"]
+  cobertura_geografica: "Brasil no domínio do produto; cobertura efetiva descrita nas fichas."
+  resolucao_espacial: "Posto de trabalho"
+  resolucao_temporal: "Leituras por condição e ponderação em 60 minutos"
+  periodo_disponivel: "Conforme campanhas e séries instrumentais locais"
+  atualizacao: "Por edição do produto; congelar versão e data da extração."
+  acesso: "Exportação dos instrumentos ou sistema ocupacional local."
+  url: "https://apisobrecarga.fundacentro.gov.br/doc/NHO06.pdf"
+  api: "Exportação local dos instrumentos; esquema mínimo especificado na ficha."
+  formatos: ["CSV instrumental"]
+  licenca: "Dados dependem do responsável pelo levantamento; a norma metodológica não licencia automaticamente as medições locais."
+  cadastro: "Conforme responsável pelo levantamento."
+  custos: "Consulta e dados públicos sem cobrança; processamento e armazenamento por conta do usuário."
+  limitacoes: "Verificar cobertura, qualidade, versão e valores ausentes antes da agregação."
+  ultima_verificacao: "2026-10-03"
+  indicadores: ["CLI-EST-05"]

@@ -52,13 +52,13 @@ UTCI=T_a+Offset(T_a,T_{mrt}-T_a,v_{10},p_a)
 $$
 
 ::: {.indicator-card}
-[Numerador.]{.field-label} Não se aplica; aproximação polinomial multivariada do modelo UTCI.
+[Numerador.]{.field-label} Não se aplica ao UTCI importado; na média anual, soma dos máximos diários válidos.
 
-[Denominador.]{.field-label} Não se aplica.
+[Denominador.]{.field-label} Dias válidos do ano na média dos máximos diários; área válida na agregação municipal.
 
 [Unidade de medida.]{.field-label} Grau Celsius de temperatura equivalente UTCI (°C).
 
-[Variáveis e categorias de análise.]{.field-label} Temperatura do ar; temperatura radiante média; vento a 10 m; pressão de vapor ou umidade relativa; dez categorias de estresse térmico.
+[Variáveis e categorias de análise.]{.field-label} UTCI horário do produto, em kelvin na entrada e °C na saída; máximo diário; média anual; célula, município e cobertura.
 
 [Granularidade.]{.field-label} Calcular o indicador em cada célula antes da média municipal ponderada pela área; manter produto, célula, ano e código IBGE de sete dígitos.
 
@@ -68,7 +68,7 @@ $$
 
 [Notas.]{.field-label} Usar o produto consolidado v1.1 e arquivar a requisição CDS. O suporte nativo de 0,25° deve acompanhar todo resultado municipal.
 
-[Análise descritiva do indicador.]{.field-label} Apresentar máximos e mínimos, horas ou dias em cada categoria, mapas, população exposta e incerteza; comparar com temperatura do ar para evidenciar o papel de vento, umidade e radiação.
+[Análise descritiva do indicador.]{.field-label} Publicar a média anual dos máximos diários de UTCI em °C e a completude; categorias de estresse, se adicionadas, são saídas separadas com seus próprios tempos de exposição.
 
 :::
 
@@ -113,11 +113,11 @@ $$
 
 [Formato dos arquivos.]{.field-label} NetCDF ou GRIB de entrada; CSV/Parquet para séries municipais.
 
-[Necessidade de processamento.]{.field-label} Converter kelvin para °C; obter TX e TN como máximo e mínimo das 24 temperaturas horárias válidas de cada dia UTC. Calcular a medida por célula e, depois, sua média municipal por área. Esta TX não é a máxima instantânea de termômetro.
+[Necessidade de processamento.]{.field-label} Calcular ou obter o índice horário conforme o produto e as entradas desta ficha; obter máximo diário apenas com 24 índices horários válidos e média anual desses máximos; depois ponderar por área municipal.
 
 ### Qualidade, comparação e saúde {.unnumbered .ficha-section}
 
-[Qualidade e incerteza.]{.field-label} Dia com menos de 24 horas válidas na grade é ausente. Nas sínteses anuais, mais de 15 dias ausentes, ou mais de três em qualquer mês, invalidam o ano; falhas não recebem zero e não unem sequências. Exigir 90% dos dados do período-base e registrar a cobertura. Sínteses municipais exigem ao menos 90% de área válida; informar essa fração. Critérios de cobertura são escolhas editoriais deste protocolo.
+[Qualidade e incerteza.]{.field-label} Dia com menos de 24 valores horários válidos do índice é ausente. Mais de 15 dias ausentes no ano ou mais de três no mês invalidam o ano. A média anual usa os dias válidos; publicar completude. Exigir ≥90% de área municipal com índice válido. Não usa período-base climatológico; não atribuir ponto de estação à área inteira do município.
 
 [Possibilidade de comparação.]{.field-label} Fixar versão, calendário UTC, período-base e limites municipais de 2022. Não emendar estação e reanálise. Médias municipais de contagens podem ser fracionárias e não contam episódios sincrônicos do município.
 

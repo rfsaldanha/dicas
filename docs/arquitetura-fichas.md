@@ -81,6 +81,16 @@ O YAML acrescenta objetivo, tema, dimensões analíticas, unidade territorial, r
 
 `fontes_dados` é uma lista estruturada com `id` e `papel`. O ID resolve um cadastro em `sources/data/sources.yml`; o papel distingue, por exemplo, observação primária de fonte secundária modelada.
 
+## Protocolo de cálculo da Parte II
+
+As 52 fichas da Parte II (45 revisadas e sete inclusões) usam `protocolo_versao`, `situacao_calculo`, `dependencia_dados_locais`, `automacao`, `condicoes_automacao`, `evidencia_verificacao` e `detalhe_verificacao`. O gerador valida esses campos e imprime a distinção entre disponibilidade, dependência local e alcance do teste.
+
+- Dados abertos (`abertos`): calculável com produtos abertos especificados, observados ou modelados; pode exigir cadastro gratuito.
+- Dados locais centralizados (`centralizados`): depende de medições locais já reunidas em uma base pública; a cobertura continua limitada à rede.
+- Dados locais (`locais`): depende de levantamento ou registro local não demonstrado em uma base nacional suficiente.
+
+A evidência distingue documentação, acesso e acesso com cálculo testado. Um teste parcial deve declarar seu alcance; nenhum rótulo afirma que a série nacional já foi produzida. Nas fichas versionadas, campos individuais prevalecem sobre valores comuns herdados do YAML.
+
 ## Tipos de registros de fontes
 
 Cada registro de fonte declara um único `tipo_registro`: instituição, unidade institucional, programa, sistema de informação, plataforma, base de dados, produto, serviço ou cadastro provisório. Bases, produtos, painéis e APIs associados aparecem separadamente em `recursos_relacionados` e `api`.
@@ -89,4 +99,4 @@ Essa separação evita atribuir a uma instituição características que pertenc
 
 ## Catálogo da edição
 
-A versão 0.9.0 contém 62 fichas integradas. O catálogo cobre temperatura e ondas de calor, precipitação e seca, qualidade do ar e fumaça, água e saneamento, vegetação e ambiente urbano, desastres, vulnerabilidade, efeitos em saúde e resiliência do sistema de saúde. Cada ficha declara a referência metodológica que sustenta sua definição.
+A versão 0.9.0 contém 69 fichas integradas. O catálogo cobre temperatura e ondas de calor, precipitação e seca, qualidade do ar e fumaça, água e saneamento, vegetação e ambiente urbano, desastres, vulnerabilidade, efeitos em saúde e resiliência do sistema de saúde. Cada ficha declara a referência metodológica que sustenta sua definição.

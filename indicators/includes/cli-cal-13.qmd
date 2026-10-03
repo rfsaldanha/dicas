@@ -40,7 +40,7 @@ Valor diário maior indica excesso médio mais elevado entre as horas acima do l
 
 ### Fontes de dados {.unnumbered .ficha-section}
 
-- ERA5-Land — ERA5-Land hourly data, reanalysis-era5-land: 2m_temperature; 2m_dewpoint_temperature e vento a 10 m quando requeridos ([cadastro](../../backmatter/indice-fontes.qmd#era5-land))
+- ERA5-Land — ERA5-Land hourly, variável 2m_temperature; extrair TX/TN conforme o método da ficha ([cadastro](../../backmatter/indice-fontes.qmd#era5-land))
 - Instituto Nacional de Meteorologia — Validação local e séries observadas separadas da reanálise ([cadastro](../../backmatter/indice-fontes.qmd#inmet))
 
 ### Método de cálculo {.unnumbered .ficha-section}
@@ -48,7 +48,7 @@ Valor diário maior indica excesso médio mais elevado entre as horas acima do l
 Reconstituir dias em hora solar local (UTC+longitude/15), por interpolação linear horária, e o nascer/pôr do sol pela geometria solar da latitude e data. Para onda diurna usar horas entre nascer e pôr do sol e limiar P90(TX); noturna, horas fora desse intervalo e P90(TN); composta, 24 horas e P90(Tmédia). Em cada dia de onda, somar apenas excessos horários positivos e dividir pelo número de horas com excesso: esta é a intensidade diária em °C. Somar as intensidades diárias de um evento para a intensidade acumulada em °C·dia; publicar o máximo anual desta última por tipo e por ano de início do evento. Se não houver hora excedente em um dia de onda, registrar não aplicável, sem dividir por zero; sem evento anual, zero.
 
 $$
-CEHWI_{d,k}=\frac{\sum_{h\in H_{d,k}}\max(0,T_h-L_{d,k})}{\sum_{h\in H_{d,k}}I(T_h>L_{d,k})},\qquad CEHWI_{e,k}=\sum_{d\in e}CEHWI_{d,k}
+\begin{aligned}CEHWI_{d,k}&=\frac{\sum_{h\in H_{d,k}}\max(0,T_h-L_{d,k})}{\sum_{h\in H_{d,k}}I(T_h>L_{d,k})}\\CEHWI_{e,k}&=\sum_{d\in e}CEHWI_{d,k}\end{aligned}
 $$
 
 ::: {.indicator-card}

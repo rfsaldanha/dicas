@@ -49,11 +49,11 @@ Representa proximidade geométrica a verde público, não percurso real, uso ou 
 Selecionar no cadastro local espaços verdes contínuos com acesso público gratuito verificado e área geodésica total≥10.000 m², medida antes de qualquer recorte municipal. Construir círculos/zonas de distância geodésica equivalente a 300 m do limite dos polígonos, incluindo espaços fora do município, e unir todas as zonas. Intersectar essa união com U=município IBGE 2022∩GHS-SMOD 2020 classe 30. Calcular a população coberta mediante frações de interseção das células GHS-POP, interpoladas para o ano do cadastro; dividir pela população total de U e multiplicar por 100. Contar cada fragmento populacional uma única vez. Sem população em U, resultado não aplicável; sem cadastro completo, ausente.
 
 $$
-P_{verde300}=100\frac{Pop\left[U\cap\bigcup_{e:\,area(e)\geq10\,000\,m^2}B_{300m}(e)\right]}{Pop(U)}
+P_{verde300}=100\frac{Pop(U\cap V_{300})}{Pop(U)}
 $$
 
 ::: {.indicator-card}
-[Numerador.]{.field-label} População urbana em unidades cobertas pela área de acesso.
+[Numerador.]{.field-label} População de U na união V300 das zonas de 300 m dos espaços verdes públicos elegíveis (contínuos e com área≥1 ha).
 
 [Denominador.]{.field-label} População urbana total na área analisada.
 

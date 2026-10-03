@@ -38,7 +38,7 @@ Valor maior indica que a onda anual mais expressiva foi mais longa e/ou apresent
 
 ### Fontes de dados {.unnumbered .ficha-section}
 
-- ERA5-Land — ERA5-Land hourly data, reanalysis-era5-land: 2m_temperature; 2m_dewpoint_temperature e vento a 10 m quando requeridos ([cadastro](../../backmatter/indice-fontes.qmd#era5-land))
+- ERA5-Land — ERA5-Land hourly, variável 2m_temperature; extrair TX/TN conforme o método da ficha ([cadastro](../../backmatter/indice-fontes.qmd#era5-land))
 - Instituto Nacional de Meteorologia — Validação local e séries observadas separadas da reanálise ([cadastro](../../backmatter/indice-fontes.qmd#inmet))
 
 ### Método de cálculo {.unnumbered .ficha-section}
@@ -46,7 +46,7 @@ Valor maior indica que a onda anual mais expressiva foi mais longa e/ou apresent
 Detectar ondas com pelo menos três dias TX>P90 calendário (janela de 31 dias, base 1981–2010). Calcular Q25 e Q75 dos 30 máximos anuais de TX da base. Magnitude diária=max(0,(TX−Q25)/(Q75−Q25)); magnitude do evento=soma diária; HWMId anual=maior magnitude dos eventos. Usar eventos completos atribuídos ao ano de início, carregando os dias do ano seguinte. Sem onda, zero; se Q75=Q25, ausente e sinalizado.
 
 $$
-M_d=\max\left(0,\frac{TX_d-Q25(TXx)}{Q75(TXx)-Q25(TXx)}\right),\qquad HWMId_y=\max_{e:\,inicio(e)\in y}\sum_{d\in e}M_d
+\begin{aligned}M_d&=\max\left(0,\frac{TX_d-Q25(TXx)}{Q75(TXx)-Q25(TXx)}\right)\\HWMId_y&=\max_{e:\,inicio(e)\in y}\sum_{d\in e}M_d\end{aligned}
 $$
 
 ::: {.indicator-card}

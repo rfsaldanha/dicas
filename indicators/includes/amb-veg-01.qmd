@@ -50,7 +50,7 @@ Valores maiores indicam maior verdor espectral no produto e período. NDVI varia
 Consultar Landsat Collection 2 Level-2, sensores TM/ETM+/OLI (L4, L5, L7, L8 e L9), para cada ano civil. Converter bandas de reflectância por rho=DN×0,0000275−0,2. Usar vermelho/NIR: SR_B3/SR_B4 em L4–7, SR_B4/SR_B5 em L8–9. Excluir pixels QA_PIXEL com qualquer bit 0–5 ativo (fill, dilatação de nuvem, cirrus quando aplicável, nuvem, sombra ou neve), qualquer QA_RADSAT não zero, reflectância fora de [0,1] ou denominador NIR+red≤0. Calcular NDVI por cena; em sobreposição no mesmo dia, obter mediana por pixel, para não duplicar a observação. Obter mediana anual por pixel com no mínimo três dias válidos. Para cada centro de célula GHS-POP R2023A de 100 m com população>0, obter a média ponderada pela área do NDVI no círculo geodésico de 300 m, inclusive fora do município, exigindo ≥90% do círculo com NDVI válido. Interpolar linearmente a população quinquenal para o ano da imagem. Repartir a população de células que cruzam limites municipais pela área de interseção e calcular a média municipal dos valores de entorno, ponderada por essa população. Exigir ≥90% da população municipal com entorno válido; abaixo disso, resultado ausente com cobertura.
 
 $$
-NDVI=\frac{\rho_{NIR}-\rho_{red}}{\rho_{NIR}+\rho_{red}},\quad V_{g,y}=\frac{\sum_{i\in B_{300}(g)}a_{ig}NDVI_{i,y}}{\sum_{i\in B_{300}(g)}a_{ig}},\quad V_{m,y}=\frac{\sum_g P_{gm,y}V_{g,y}}{\sum_g P_{gm,y}}
+\begin{aligned}NDVI&=\frac{\rho_{NIR}-\rho_{red}}{\rho_{NIR}+\rho_{red}}\\V_{g,y}&=\frac{\sum_{i\in B_{300}(g)}a_{ig}NDVI_{i,y}}{\sum_{i\in B_{300}(g)}a_{ig}}\\V_{m,y}&=\frac{\sum_g P_{gm,y}V_{g,y}}{\sum_g P_{gm,y}}\end{aligned}
 $$
 
 ::: {.indicator-card}

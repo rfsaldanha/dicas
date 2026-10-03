@@ -48,7 +48,7 @@ indicators:
     necessidade_processamento: "Converter kelvin para °C; obter TX e TN como máximo e mínimo das 24 temperaturas horárias válidas de cada dia UTC. Calcular a medida por célula e, depois, sua média municipal por área. Esta TX não é a máxima instantânea de termômetro."
     analise_descritiva: Mostrar EHF diário, início e fim, pico, soma por episódio e classe de severidade com referência local.
     referencias: ["[@nairn2015ehf]", "[@wmoWho2015heat]"]
-    fontes_dados: [{"id": "era5-land", "papel": "ERA5-Land hourly data, reanalysis-era5-land: 2m_temperature; 2m_dewpoint_temperature e vento a 10 m quando requeridos"}, {"id": "inmet", "papel": "Validação local e séries observadas separadas da reanálise"}]
+    fontes_dados: [{"id": "era5-land", "papel": "ERA5-Land hourly, variável 2m_temperature; extrair TX/TN conforme o método da ficha"}, {"id": "inmet", "papel": "Validação local e séries observadas separadas da reanálise"}]
     resolucao_espacial_original: "ERA5-Land: grade de 0,1°; malha municipal IBGE 2022 como recorte fixo."
     unidade_territorial: "Célula de grade; município como síntese ponderada pela área de interseção."
     granularidade: "Calcular o indicador em cada célula antes da média municipal ponderada pela área; manter produto, célula, ano e código IBGE de sete dígitos."
@@ -71,6 +71,7 @@ indicators:
     detalhe_verificacao: "Produto e método documentados; série municipal completa ainda não produzida."
 
 
+
   - <<: *severity_common
     codigo: CLI-CAL-10
     titulo_completo: Índice Diário de Magnitude de Ondas de Calor (HWMId)
@@ -82,7 +83,7 @@ indicators:
     usos: [Comparar magnitude de ondas entre regiões., Monitorar mudanças na severidade., Caracterizar exposição em estudos de impactos.]
     limitacoes: [Destaca apenas a onda de maior magnitude do ano., A normalização e o período-base afetam o valor., Não foi concebido como limiar clínico ou alerta isolado.]
     metodo_calculo: "Detectar ondas com pelo menos três dias TX>P90 calendário (janela de 31 dias, base 1981–2010). Calcular Q25 e Q75 dos 30 máximos anuais de TX da base. Magnitude diária=max(0,(TX−Q25)/(Q75−Q25)); magnitude do evento=soma diária; HWMId anual=maior magnitude dos eventos. Usar eventos completos atribuídos ao ano de início, carregando os dias do ano seguinte. Sem onda, zero; se Q75=Q25, ausente e sinalizado."
-    formula_calculo: "M_d=\\max\\left(0,\\frac{TX_d-Q25(TXx)}{Q75(TXx)-Q25(TXx)}\\right),\\qquad HWMId_y=\\max_{e:\\,inicio(e)\\in y}\\sum_{d\\in e}M_d"
+    formula_calculo: "\\begin{aligned}M_d&=\\max\\left(0,\\frac{TX_d-Q25(TXx)}{Q75(TXx)-Q25(TXx)}\\right)\\\\HWMId_y&=\\max_{e:\\,inicio(e)\\in y}\\sum_{d\\in e}M_d\\end{aligned}"
     numerador: Na magnitude diária, diferença entre TX do dia e percentil 25 das máximas anuais no período-base.
     denominador: Amplitude interquartil entre os percentis 75 e 25 das máximas anuais no período-base.
     unidade_medida: "Adimensional."
@@ -92,7 +93,7 @@ indicators:
     necessidade_processamento: "Converter kelvin para °C; obter TX e TN como máximo e mínimo das 24 temperaturas horárias válidas de cada dia UTC. Calcular a medida por célula e, depois, sua média municipal por área. Esta TX não é a máxima instantânea de termômetro."
     analise_descritiva: Apresentar HWMId anual e decompor a onda máxima em duração, magnitudes diárias, datas e área afetada.
     referencias: ["[@russo2015hwmid]", "[@nawaro2023]"]
-    fontes_dados: [{"id": "era5-land", "papel": "ERA5-Land hourly data, reanalysis-era5-land: 2m_temperature; 2m_dewpoint_temperature e vento a 10 m quando requeridos"}, {"id": "inmet", "papel": "Validação local e séries observadas separadas da reanálise"}]
+    fontes_dados: [{"id": "era5-land", "papel": "ERA5-Land hourly, variável 2m_temperature; extrair TX/TN conforme o método da ficha"}, {"id": "inmet", "papel": "Validação local e séries observadas separadas da reanálise"}]
     resolucao_espacial_original: "ERA5-Land: grade de 0,1°; malha municipal IBGE 2022 como recorte fixo."
     unidade_territorial: "Célula de grade; município como síntese ponderada pela área de interseção."
     granularidade: "Calcular o indicador em cada célula antes da média municipal ponderada pela área; manter produto, célula, ano e código IBGE de sete dígitos."

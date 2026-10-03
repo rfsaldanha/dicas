@@ -36,7 +36,7 @@ Valores maiores representam mais dias de frio persistente relativo à climatolog
 
 ### Fontes de dados {.unnumbered .ficha-section}
 
-- ERA5-Land — ERA5-Land hourly data, reanalysis-era5-land: 2m_temperature; 2m_dewpoint_temperature e vento a 10 m quando requeridos ([cadastro](../../backmatter/indice-fontes.qmd#era5-land))
+- ERA5-Land — ERA5-Land hourly, variável 2m_temperature; extrair TX/TN conforme o método da ficha ([cadastro](../../backmatter/indice-fontes.qmd#era5-land))
 - Instituto Nacional de Meteorologia — Validação local e séries observadas separadas da reanálise ([cadastro](../../backmatter/indice-fontes.qmd#inmet))
 
 ### Método de cálculo {.unnumbered .ficha-section}
@@ -44,7 +44,7 @@ Valores maiores representam mais dias de frio persistente relativo à climatolog
 Estimar P10 de TN por dia calendário em janela de cinco dias, base 1961–1990, quantil tipo 8 e bootstrap Zhang dentro da base. Interpolar o limiar de 29/02. Detectar sequências de pelo menos seis dias com TN<P10 na série contínua, incluindo cinco dias de cada ano vizinho; contar apenas os dias pertencentes ao ano de saída. Sem evento em ano válido, zero; agregar por área depois do cálculo por célula.
 
 $$
-CSDI_y=\sum_{d\in y}I(d\in\text{sequência de pelo menos 6 dias com }TN<P10)
+CSDI_y=\sum_{d\in y}I(d\in C),\qquad C=\bigcup_{e:\,|e|\geq6}e
 $$
 
 ::: {.indicator-card}
@@ -54,7 +54,7 @@ $$
 
 [Unidade de medida.]{.field-label} Dias por ano; média por área na síntese municipal.
 
-[Variáveis e categorias de análise.]{.field-label} Temperatura máxima diária; dia do calendário; período-base; estação; célula de grade; mês, estação climatológica ou ano.
+[Variáveis e categorias de análise.]{.field-label} Temperatura mínima diária TN; P10 calendário; sequências de seis dias ou mais; célula; município e ano.
 
 [Granularidade.]{.field-label} Calcular o indicador em cada célula antes da média municipal ponderada pela área; manter produto, célula, ano e código IBGE de sete dígitos.
 
@@ -62,9 +62,9 @@ $$
 
 [Responsabilidade gerencial.]{.field-label} Instituição responsável pelo serviço climático ou pela vigilância que adotar o protocolo, com governança compartilhada entre meteorologia e saúde quando usado operacionalmente.
 
-[Notas.]{.field-label} Protocolo municipal do livro. Reproduzir o método internacional na célula; a agregação municipal por área é uma adaptação explícita. A série nacional ainda não foi produzida.
+[Notas.]{.field-label} Na fórmula, e representa uma sequência consecutiva de dias TN<P10 e C reúne os dias das sequências qualificadas. A média municipal por área pode ser fracionária.
 
-[Análise descritiva do indicador.]{.field-label} Apresentar série do percentual, mediana e amplitude por período, tendência com incerteza e mapa somente após avaliar cobertura e homogeneidade. Evitar ordenações territoriais quando as fontes não forem comparáveis.
+[Análise descritiva do indicador.]{.field-label} Apresentar dias em períodos de frio, datas das sequências, cobertura e distribuição espacial; não apresentar a contagem como percentual.
 
 :::
 
@@ -121,7 +121,7 @@ $$
 
 [Defasagens temporais relevantes.]{.field-label} Em estudos de saúde, definir a priori defasagens e médias móveis conforme desfecho e literatura; o índice anual não deve substituir a série diária em análises de efeitos agudos.
 
-[Aplicação na gestão.]{.field-label} Monitorar tendência de extremos, apoiar avaliação sazonal e selecionar períodos para análise de pressão assistencial; para alertas, combinar com previsão e protocolo calor–saúde validado.
+[Aplicação na gestão.]{.field-label} Monitorar persistência do frio e selecionar períodos para análise de agravos e preparação dos serviços; alertas exigem validação local com temperaturas absolutas e desfechos.
 
 ### Referências metodológicas {.unnumbered .ficha-section}
 

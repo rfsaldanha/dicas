@@ -51,7 +51,7 @@ A parcela territorial informa disponibilidade de espaço público no recorte; ac
 Definir U como município IBGE 2022 intersectado com classe 30 de GHS-SMOD 2020. Selecionar espaços abertos com acesso público gratuito comprovado na data e ruas públicas delimitadas em polígonos; quando houver apenas eixos, construir polígonos usando a largura medida de cada trecho, sem imputar largura padrão. Calcular 100×área[U∩união(espaços,ruas)]/área(U), contabilizando sobreposições uma única vez. Publicar adicionalmente, em coluna de nome e unidade próprios, acesso_400m: porcentagem da população de U a até 400 m de percurso caminhável de uma entrada de espaço aberto público. Usar rede com barreiras, passagens e entradas datadas, admitindo trajetos e destinos fora do município; unir áreas atendidas antes de intersectar a população. Não usar ruas isoladamente como destinos de acesso. Não havendo rede/entradas, acesso_400m é ausente, mesmo que a parcela territorial seja calculável.
 
 $$
-P_{area}=100\frac{area[U\cap(E\cup R)]}{area(U)},\qquad P_{acesso400}=100\frac{Pop[U\cap A_{rede,400}(E)]}{Pop(U)}
+\begin{aligned}P_{area}&=100\frac{area[U\cap(E\cup R)]}{area(U)}\\P_{acesso400}&=100\frac{Pop[U\cap A_{rede,400}(E)]}{Pop(U)}\end{aligned}
 $$
 
 ::: {.indicator-card}

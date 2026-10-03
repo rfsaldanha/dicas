@@ -53,7 +53,7 @@ SPI igual a zero representa condição próxima da mediana ajustada; valores neg
 Usar a mesma máscara municipal de células válidas em toda a base e análise, com cobertura ≥90% da área. Obter a precipitação média diária municipal ponderada pela área; um mês exige todos os dias válidos. Somar o mês corrente e os dois anteriores. Para cada mês de término separadamente, usar os 30 acumulados completos de 1961–1990: q=proporção de zeros; ajustar gama de dois parâmetros por máxima verossimilhança apenas aos valores positivos. Calcular H(x)=q+(1−q)G(x) e SPI-3=Φ⁻¹(H(x)). Base sem 30 acumulados completos, menos de dois valores positivos distintos, variância nula ou falha de convergência resulta em ausente. H=0 ou 1 produz valor não finito, que deve ser sinalizado, sem truncamento arbitrário. Manter arquivo dos parâmetros por município e mês.
 
 $$
-X_{m,t}=P_{m,t}+P_{m,t-1}+P_{m,t-2},\quad H_m(x)=q_m+(1-q_m)G(x;\alpha_m,\theta_m),\quad SPI3_{m,t}=\Phi^{-1}(H_m(X_{m,t}))
+\begin{aligned}X_{m,t}&=P_{m,t}+P_{m,t-1}+P_{m,t-2}\\H_m(x)&=q_m+(1-q_m)G(x;\alpha_m,\theta_m)\\SPI3_{m,t}&=\Phi^{-1}(H_m(X_{m,t}))\end{aligned}
 $$
 
 ::: {.indicator-card}
