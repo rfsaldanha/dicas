@@ -26,7 +26,7 @@ O miolo atual tem 528 páginas de 160 × 230 mm, com as margens preservadas. A p
 
 O pré-voo confirmou fontes incorporadas, imagens raster em escala de cinza com pelo menos 300 ppi e total de páginas múltiplo de quatro. A distância entre linhas consecutivas de texto corrido foi conferida no PDF em 14 pt. Páginas vazias não recebem cabeçalho ou fólio. As páginas selecionadas do miolo são 1, 19, 21, 26 e 180–183; a ficha CLI-TEM-01 atravessa as quatro últimas páginas da seleção.
 
-A ilustração original da capa foi produzida com a ferramenta integrada `image_gen`, sem reamostragem: 1536 × 1024 pixels, usados a 128 mm de largura, equivalentes a 304,8 ppi. O [prompt](../assets/cover/territorio-e-cuidado-v1.prompt.txt), a [arte](../assets/cover/territorio-e-cuidado-v1.png) e os [créditos](../assets/cover/credits.json) estão preservados. As fontes OTF e WOFF2 acompanham o projeto com suas licenças.
+A ilustração da capa foi produzida com a ferramenta integrada `image_gen`, sem reamostragem: 1536 × 1024 pixels, usados a 128 mm de largura, equivalentes a 304,8 ppi. A composição atual foi criada do zero como uma vista aérea oblíqua de poucas quadras: moradias, pequenos edifícios, praça, unidade de saúde e córrego compartilham uma malha contínua, com pessoas pequenas na escala do bairro. O [prompt da composição aérea](../assets/cover/territorio-e-cuidado-v4.prompt.txt), a [arte atual](../assets/cover/territorio-e-cuidado-v4.png) e os [créditos](../assets/cover/credits.json) estão preservados, assim como as alternativas anteriores. A capa e as capturas da abertura web na prova reunida foram atualizadas; as demais páginas registram a prova inicial. As fontes OTF e WOFF2 acompanham o projeto com suas licenças.
 
 ## Validação e limites da prova
 

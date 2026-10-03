@@ -16,8 +16,8 @@
 ]
 // 1536 px a 128 mm: resolução efetiva de 304,8 ppi, sem reamostragem.
 #place(top + left, dx: 16mm, dy: 100mm)[
-  #image("territorio-e-cuidado-v1.png", width: 128mm,
-    alt: "Profissional de saúde conversa com uma moradora idosa e um familiar à sombra de uma árvore; ao fundo, moradias, unidade de saúde, vegetação e um rio.")
+  #image("territorio-e-cuidado-v4.png", width: 128mm,
+    alt: "Vista aérea oblíqua de um bairro brasileiro em aquarela. Casas, pequenos edifícios e comércio se distribuem em quadras com ruas e calçadas conectadas. Uma praça arborizada fica junto a uma unidade de saúde, e um córrego com margens vegetadas acompanha a borda do bairro. Pessoas pequenas ocupam os passeios e a praça.")
 ]
 #place(bottom + left, dx: 18mm, dy: -21mm)[
   #text(font: "Source Sans 3", size: 11pt, fill: rgb("#303b36"), book.author)

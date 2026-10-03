@@ -91,9 +91,19 @@ Quadrantes, curvas e Venn são exclusivamente vetoriais e usam `export_print(...
 
 A composição sobre desigualdades usa 90% da largura na impressão para preservar pelo menos 300 ppi efetivos no original, antes da rasterização. As curvas de impacto são uma elaboração didática sobre os horizontes de Freitas et al. (2014): sua Figura 1 contém blocos temporais, sem curvas ou dados quantitativos.
 
+### Vinhetas de abertura dos capítulos 1 a 6
+
+Executar `sh scripts/build_chapter_opening.sh` para preparar WebP colorido e PNG em cinza para os seis capítulos, ou passar os números desejados, como `sh scripts/build_chapter_opening.sh 1 2 3 4 5`. O montador seleciona as aquarelas sem sufixo `-turner`: `v3` no capítulo 1, `v1` no 2 e `v2` nos capítulos 3 a 5. O capítulo 6 mantém `cap6-indicador-decisao-turner-v2.png`. As versões Turner dos capítulos 1 a 5 estão arquivadas e não são usadas na montagem. O índice de arquivos ativos e históricos está em `assets/openings/README.md`.
+
+A composição de 2400 × 600 pixels remove apenas margens verticais de papel, previamente conferidas, e acrescenta respiro lateral. O script lê as dimensões reais dos originais; não redimensiona a pintura nem amplia artificialmente seu detalhe. A resolução efetiva é de 508 ppi a 120 mm de largura, ou aproximadamente 521 ppi na coluna de 117 mm do miolo. Originais, prompts e créditos por capítulo ficam preservados no diretório da arte. `credits.json` documenta o capítulo 1; os créditos sem `-turner` documentam os capítulos 2 a 5. O capítulo 6 usa `cap6-indicador-decisao-turner.credits.json`.
+
+O parcial `includes/chapter-opening/title-block.html` é ativado no YAML de cada um dos seis capítulos, pelos campos `chapter-opening.image` e `chapter-opening.alt`. Na web, a vinheta fica entre breadcrumb e título. O modelo Typst consulta um mapa de títulos, imagens e descrições e mantém a vinheta abaixo do título, no mesmo bloco indivisível. Conferir as aberturas em desktop e celular nos dois temas, e a paginação e a versão em cinza no PDF. As vinhetas não devem alterar a numeração ou a lista de figuras.
+
 ### Renderização do livro
 
 O pré-render executa `scripts/build_catalogs.R`. Esse script lê YAML, valida campos e códigos e gera páginas e índices. Em seguida, o Quarto compõe o livro. A validação completa deve ser executada após as duas saídas existirem. Renderizar os perfis em sequência: eles compartilham artefatos intermediários do Quarto.
+
+Na prévia, o pré-render também pode ser executado ao renderizar uma página individual. O gerador compara o conteúdo antes de gravar: fichas e índices inalterados conservam suas datas de modificação, para não invalidar outras páginas sem necessidade. A mensagem `Catálogos validados` informa quantos arquivos foram efetivamente atualizados; `0 arquivo(s) atualizado(s)` é esperado quando os dados não mudaram. Para verificar esse comportamento, executar `Rscript scripts/test_catalogs.R`.
 
 As fontes OTF e WOFF2, acompanhadas de suas licenças, estão em `assets/fonts`. O projeto usa Libertinus Serif e Source Sans 3 sem depender de instalação global ou de um serviço de fontes web. A capa é uma composição frontal de apresentação: lombada, contracapa e sangria de produção serão dimensionadas no fechamento gráfico.
 

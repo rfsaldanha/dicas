@@ -8,9 +8,19 @@ script_path <- if (length(script_arg)) sub("^--file=", "", script_arg[[1L]]) els
 root <- normalizePath(file.path(dirname(script_path), ".."), mustWork = TRUE)
 
 fail <- function(...) stop(paste0(...), call. = FALSE)
+updated_files <- 0L
 write_utf8 <- function(lines, path) {
+  # A prévia acompanha também os includes. Regravar conteúdo idêntico muda
+  # as datas das dependências e pode provocar renderizações desnecessárias.
+  content <- charToRaw(paste0(paste0(enc2utf8(lines), "\n"), collapse = ""))
+  if (file.exists(path)) {
+    previous <- readBin(path, "raw", n = file.info(path)$size)
+    if (identical(previous, content)) return(invisible(FALSE))
+  }
   dir.create(dirname(path), recursive = TRUE, showWarnings = FALSE)
-  writeLines(lines, path, useBytes = TRUE)
+  writeBin(content, path)
+  updated_files <<- updated_files + 1L
+  invisible(TRUE)
 }
 as_text <- function(value, fallback = "Não se aplica.") {
   if (is.null(value) || !length(value) || identical(value, "")) fallback else as.character(value)
@@ -386,6 +396,6 @@ write_utf8(
 )
 
 message(
-  "Catálogos validados e gerados: ", length(indicators), " fichas; ",
-  length(sources), " fontes."
+  "Catálogos validados: ", length(indicators), " fichas; ",
+  length(sources), " fontes; ", updated_files, " arquivo(s) atualizado(s)."
 )
