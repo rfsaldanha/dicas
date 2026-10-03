@@ -75,6 +75,14 @@ A revisão urbana abrange as 31 aquarelas: oito na primeira etapa e outras 23 na
 
 Nas cenas de trabalho interno, a presença urbana aparece principalmente nas vistas das janelas. Instrumentos em áreas abertas, estados dos equipamentos, documentos sem dados, vinhetas vazias e relações conceituais devem permanecer coerentes. Os mapas empíricos e diagramas técnicos seguem suas próprias fontes e métodos.
 
+### Revisão visual do capítulo 3
+
+A revisão das figuras de transformação temporal, acesso ao parque, unidades de observação e análise e risco por calor é recomposta por `python scripts/build_cap3_art.py 02 03 07 08`. Os nomes de produção não determinam a numeração editorial: essas artes ocupam as posições 3.2, 3.3, 3.7 e 3.8 na organização atual.
+
+CAP3-02 conserva a aquarela `v2`, usa recortes individuais e acrescenta um calendário vetorial com símbolos distintos para critério atendido, não atendido e dado ausente. CAP3-03 usa `v4`, com parque privado verde e entorno urbano predominantemente cinza, quase sem arborização. CAP3-07 e CAP3-08 usam `v3`, respectivamente com três vistas do mesmo bairro e cinco cenas de calor intenso. As versões anteriores e todos os prompts permanecem preservados; o manifesto registra os originais ativos, dimensões, hashes e histórico.
+
+Conferir os quatro SVGs na web e os PNGs em cinza no PDF: alinhamento das seis etapas, calendário e lacuna, acesso restrito ao parque, correspondência da estação com a vista territorial e exposição de pessoas ao sol sem cobertura. As dimensões completas dos novos originais são usadas nas figuras do parque e das unidades; os recortes da prancha de calor respeitam os limites individuais das vinhetas. A resolução efetiva deve ser verificada sobre esses originais, além do pré-voo dos PNGs exportados.
+
 ### Figuras da revisão do capítulo 1
 
 As seis novas figuras (CAP1-07 a CAP1-12) são recompostas por `python scripts/build_cap1_revision.py`, no mesmo ambiente Python das demais artes. Os originais, os três prompts de aquarela e a proveniência estão em `assets/figures`; o manifesto é `arte-cap1-revisao-manifest.json`. O código acrescenta os rótulos editáveis e exporta as versões em cinza.

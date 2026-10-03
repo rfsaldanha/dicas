@@ -28,7 +28,7 @@
     "slug": "tempo",
     "id": "fig-escala-temporal",
     "title": "Da observação horária às medidas de episódios",
-    "alt": "Fluxo de seis etapas: observações horárias, máximo entre observações válidas do dia, aplicação do critério, identificação de sequências, delimitação de episódios e medidas de frequência e duração. Cada etapa exige uma regra documentada; nenhuma série numérica é representada. Bairros com prédios e casas aparecem ao fundo das vinhetas, mantendo instrumentos e documentos em primeiro plano.",
+    "alt": "Seis linhas alinhadas ligam observações horárias, máximo entre observações válidas do dia, critério térmico, identificação de sequências, delimitação de episódios e medidas de frequência e duração. Na etapa 4, um calendário ilustrativo usa círculos preenchidos para dias que atendem ao critério, círculos vazios para os que não atendem e interrogação para dado ausente. Um grupo de dias observados consecutivos é destacado, sem incluir a lacuna nem estabelecer duração mínima de episódio. Aquarelas e calendário não representam dados observados.",
     "prompt": "arte-cap3-02-v2.prompt.txt",
     "source": "arte-cap3-02-v2.png",
     "svg": "arte-cap3-02-tempo.svg",
@@ -44,32 +44,49 @@
       1024
     ],
     "sha256_original": "da4c80a61465f2407af9a7ecfc814fe1b3e4171c7bc8e3f1e732c1f1069ff519",
-    "print_renderer": "Chromium e ImageMagick; fontes e raster incorporados verificados",
-    "review": "Revisão urbana: aquarela, presença de edifícios, anatomia, recortes e relações conceituais; versões anteriores preservadas."
+    "print_renderer": "scripts/render_figure.py; Chromium e ImageMagick; fontes e raster incorporados verificados",
+    "review": "Revisão editorial: recortes individuais de cinco vinhetas de v2, seis linhas alinhadas, textos com quebras explícitas e substituição do varal por calendário SVG editável; símbolos distinguem critério atendido, não atendido e dado ausente também em cinza. Nenhuma nova aquarela foi gerada para esta composição.",
+    "composition": "Calendário vetorial e recortes definidos em scripts/build_cap3_art.py; aquarela v2 e seu prompt preservados.",
+    "revision_date": "2026-10-03"
   },
   {
     "number": "03",
     "slug": "proxy",
     "id": "fig-proxy-limites",
-    "title": "Vegetação mapeada e acesso à sombra: o limite da aproximação",
-    "alt": "Duas vistas do mesmo bairro urbano hipotético, com prédios, casas, muro e praça correspondentes, comparam a vegetação visível de cima com a sombra efetivamente acessível na rua. Árvores em quintais fechados e uma área pública têm condições de acesso distintas; uma pessoa percorre a calçada exposta e outra descansa à sombra da praça. A imagem não mede cobertura nem exposição individual.",
-    "prompt": "arte-cap3-03-v2.prompt.txt",
-    "source": "arte-cap3-03-v2.png",
+    "title": "Vegetação contabilizada não garante acesso à sombra",
+    "alt": "Duas vistas correspondentes do mesmo bairro hipotético mostram um parque densamente arborizado dentro de um condomínio particular, delimitado por cerca e portão fechado. Fora do parque, prédios, fachadas de concreto, asfalto e calçadas predominantemente cinza compõem um entorno quase sem arborização. Na vista da rua, dois moradores vizinhos estão do lado de fora do portão. A indicação de acesso exclusivo aos moradores do condomínio contrasta com a inclusão da vegetação privada no indicador de cobertura do bairro. A cena não estima cobertura nem exposição individual.",
+    "prompt": "arte-cap3-03-v4.prompt.txt",
+    "source": "arte-cap3-03-v4.png",
     "svg": "arte-cap3-03-proxy.svg",
     "print": "arte-cap3-03-proxy-print.png",
-    "previous_source": "arte-cap3-03-v1.png",
-    "previous_prompt": "arte-cap3-03-v1.prompt.txt",
-    "sha256_original": "0dd4d2231186aef1f06476f425120a968887149cc6ae5794756f163e53949168",
+    "previous_source": "arte-cap3-03-v3.png",
+    "previous_prompt": "arte-cap3-03-v3.prompt.txt",
+    "sha256_original": "1d12c1fb987ba7b07633e44c535ef2f1ea3fb57dd70a53afd08b29fae8545e86",
     "original_dimensions_px": [
       1536,
       1024
     ],
     "reference": "assets/references/aquarela-grafite-nanquim.png",
-    "reference_delivery": "Original v1 e referência de estilo PNG inspecionados e fornecidos à ferramenta por referenced_image_paths.",
+    "reference_delivery": "Original v3 e referência de estilo inspecionados e fornecidos por referenced_image_paths à ferramenta integrada image_gen.",
     "tool": "image_gen",
     "tool_version": "Não informada pela ferramenta",
-    "review": "Revisão urbana: aquarela, composição, presença de edifícios, anatomia, correspondência de vistas e preservação das relações conceituais; originais v1 preservados.",
-    "print_renderer": "scripts/render_figure.py; Chromium e ImageMagick"
+    "review": "Revisão editorial em duas etapas: v3 reconstrói o parque privado e as duas vistas correspondentes; v4 atende à orientação adicional do autor, com entorno externo mais denso, quase sem arborização e predominantemente cinza. Portão fechado, vizinhos externos e vegetação interna preservados; rótulos editáveis e contraste em cinza conferidos.",
+    "print_renderer": "scripts/render_figure.py; Chromium e ImageMagick; fontes e raster incorporados verificados",
+    "history": [
+      {
+        "source": "arte-cap3-03-v1.png",
+        "prompt": "arte-cap3-03-v1.prompt.txt"
+      },
+      {
+        "source": "arte-cap3-03-v2.png",
+        "prompt": "arte-cap3-03-v2.prompt.txt"
+      },
+      {
+        "source": "arte-cap3-03-v3.png",
+        "prompt": "arte-cap3-03-v3.prompt.txt"
+      }
+    ],
+    "revision_date": "2026-10-03"
   },
   {
     "number": "04",
@@ -148,47 +165,69 @@
     "slug": "unidades",
     "id": "fig-observacao-analise-populacao",
     "title": "Observar, analisar e definir a população-alvo",
-    "alt": "Três cenas distinguem uma estação que produz registros em terreno aberto rural, um território misto com edifícios, casas, ruas, vegetação e rio ao qual uma medida pode ser atribuída por método explícito, e pessoas em atividades cotidianas num bairro urbano, representando a população à qual se pretende referir a interpretação. O valor territorial não descreve automaticamente a exposição de cada pessoa.",
-    "prompt": "arte-cap3-07-v2.prompt.txt",
-    "source": "arte-cap3-07-v2.png",
+    "alt": "Três vistas do mesmo bairro urbano hipotético distinguem unidade de observação, unidade de análise e população-alvo. A estação meteorológica aparece em um lote aberto na primeira cena e reaparece nesse lote na vista elevada central. Os mesmos prédios terracota e creme, casas de portas azuis e ruas situam os moradores da terceira cena no território analisado. A proximidade espacial não garante representatividade; atribuir uma medida ao bairro exige método, e o valor territorial não mede a exposição de cada pessoa.",
+    "prompt": "arte-cap3-07-v3.prompt.txt",
+    "source": "arte-cap3-07-v3.png",
     "svg": "arte-cap3-07-unidades.svg",
     "print": "arte-cap3-07-unidades-print.png",
-    "previous_source": "arte-cap3-07-v1.png",
-    "previous_prompt": "arte-cap3-07-v1.prompt.txt",
-    "sha256_original": "173d55682d2d03a7c6946d435dfcc81a20e072ca737a69f39b6ffd045dbcaa3e",
+    "previous_source": "arte-cap3-07-v2.png",
+    "previous_prompt": "arte-cap3-07-v2.prompt.txt",
+    "sha256_original": "4d3d8b38a15204373f3d2382c62aea76292fc6050fbacc77294d0bca123b0e26",
     "original_dimensions_px": [
       1536,
       1024
     ],
     "reference": "assets/references/aquarela-grafite-nanquim.png",
-    "reference_delivery": "Original v1 e referência de estilo PNG inspecionados e fornecidos à ferramenta por referenced_image_paths.",
+    "reference_delivery": "Original v2 e referência de estilo inspecionados e fornecidos por referenced_image_paths à ferramenta integrada image_gen.",
     "tool": "image_gen",
     "tool_version": "Não informada pela ferramenta",
-    "review": "Revisão urbana: aquarela, composição, presença de edifícios, anatomia, correspondência de vistas e preservação das relações conceituais; originais v1 preservados.",
-    "print_renderer": "scripts/render_figure.py; Chromium e ImageMagick"
+    "review": "Revisão editorial: estação em lote aberto dentro do bairro, visível novamente na vista elevada; edifícios e casas correspondentes nas três vinhetas; composição integral sem corte superior do original. Relação entre observação, análise e população-alvo preservada sem pressupor representatividade automática.",
+    "print_renderer": "scripts/render_figure.py; Chromium e ImageMagick; fontes e raster incorporados verificados",
+    "history": [
+      {
+        "source": "arte-cap3-07-v1.png",
+        "prompt": "arte-cap3-07-v1.prompt.txt"
+      },
+      {
+        "source": "arte-cap3-07-v2.png",
+        "prompt": "arte-cap3-07-v2.prompt.txt"
+      }
+    ],
+    "revision_date": "2026-10-03"
   },
   {
     "number": "08",
     "slug": "risco",
     "id": "fig-indicadores-cadeia-risco",
     "title": "Dimensões dos indicadores na leitura do risco à saúde",
-    "alt": "Perigo, exposição, vulnerabilidade e baixa capacidade de resposta convergem para uma leitura do risco, ligada a possíveis efeitos sobre a saúde. As setas organizam conceitos, sem representar uma equação ou comprovar causalidade. As cenas são hipotéticas. Ruas com prédios, casas, parada de ônibus, árvores e interiores de serviços de saúde situam os exemplos em contexto urbano.",
-    "prompt": "arte-cap3-08-v2.prompt.txt",
-    "source": "arte-cap3-08-v2.png",
+    "alt": "Cinco cenas hipotéticas usam calor intenso como exemplo comum. Uma rua sob sol forte representa perigo; três pessoas esperando ônibus sem cobertura, sob sol direto, representam exposição; uma moradia com proteção térmica limitada representa vulnerabilidade; um serviço com poucos recursos representa baixa capacidade de resposta. Quatro setas convergem para risco à saúde, ligado ao possível atendimento de uma pessoa com mal-estar. As setas organizam conceitos, sem equação ou causalidade comprovada; exposição não implica adoecimento inevitável.",
+    "prompt": "arte-cap3-08-v3.prompt.txt",
+    "source": "arte-cap3-08-v3.png",
     "svg": "arte-cap3-08-risco.svg",
     "print": "arte-cap3-08-risco-print.png",
-    "previous_source": "arte-cap3-08-v1.png",
-    "previous_prompt": "arte-cap3-08-v1.prompt.txt",
+    "previous_source": "arte-cap3-08-v2.png",
+    "previous_prompt": "arte-cap3-08-v2.prompt.txt",
     "tool": "image_gen",
     "tool_version": "Não informada",
     "reference": "assets/references/aquarela-grafite-nanquim.png",
-    "reference_delivery": "Original e referência de estilo PNG inspecionados e fornecidos por referenced_image_paths.",
+    "reference_delivery": "Original v2 e referência de estilo inspecionados e fornecidos por referenced_image_paths à ferramenta integrada image_gen.",
     "original_dimensions_px": [
       1536,
       1024
     ],
-    "sha256_original": "82a240a9770a1cc9e1169d103e49a69e3f40d5dda26a60dabec9507eaed640f8",
-    "print_renderer": "Chromium e ImageMagick; fontes e raster incorporados verificados",
-    "review": "Revisão urbana: aquarela, presença de edifícios, anatomia, recortes e relações conceituais; versões anteriores preservadas."
+    "sha256_original": "ba191042c7de12564dd4072b698a0c80b7b407c87a3557cfff6fb31d5c79f8d8",
+    "print_renderer": "scripts/render_figure.py; Chromium e ImageMagick; fontes e raster incorporados verificados",
+    "review": "Revisão editorial: cinco vinhetas reconstruídas para calor intenso, pessoas expostas ao sol em ponto sem cobertura, proteção térmica limitada da moradia, recursos limitados do serviço e possível atendimento. Recortes individuais preservam cada cena; conceitos, setas e ressalva sobre adoecimento não inevitável mantidos.",
+    "history": [
+      {
+        "source": "arte-cap3-08-v1.png",
+        "prompt": "arte-cap3-08-v1.prompt.txt"
+      },
+      {
+        "source": "arte-cap3-08-v2.png",
+        "prompt": "arte-cap3-08-v2.prompt.txt"
+      }
+    ],
+    "revision_date": "2026-10-03"
   }
 ]
