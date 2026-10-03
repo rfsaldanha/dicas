@@ -125,7 +125,7 @@ Gráficos e mapas devem usar dados reais e rastreáveis, nunca valores simulados
 
 Na etapa de planejamento de arte, marcar o local com um comentário HTML no QMD (`<!-- ... -->`), contendo finalidade, prompt completo, instruções de montagem e legenda proposta. Usar marcadores de produção como `ARTE CAP1-01`, sem atribuir identificadores `fig-` a imagens ainda não produzidas. Os comentários ficam junto aos trechos nos originais e não devem aparecer no conteúdo renderizado do site ou do PDF nem nas listas de figuras.
 
-Ao incorporar a arte aprovada, atribuir identificador `fig-` apenas às figuras novas e acrescentar sua referência no texto, legenda, fonte, autoria, licença e texto alternativo. Nos redesenhos, preservar o identificador existente e a integridade das relações conceituais. A Figura 1.1 permanece a primeira figura do livro.
+Ao incorporar a arte aprovada, atribuir identificador `fig-` apenas às figuras novas e acrescentar sua referência no texto, legenda, fonte, autoria, licença e texto alternativo. Nos redesenhos, preservar o identificador existente e a integridade das relações conceituais. A numeração acompanha a ordem das figuras; na revisão do capítulo 1, a ilustração de tempo, clima e ambiente passa a abrir a sequência. Códigos de produção como CAP1-07 não são números editoriais.
 
 ### Direção de arte: aquarela, grafite e nanquim
 
@@ -157,7 +157,7 @@ Em cenas internas, usar as vistas das janelas e a arquitetura dos serviços para
 
 Nas revisões de paisagem, preservar o original e seu prompt e salvar a nova arte e o prompt efetivamente utilizado em arquivos versionados. Atualizar a fonte nos montadores e manifestos, os créditos e os textos alternativos, mantendo os identificadores e os nomes das composições publicadas. Conferir a correspondência entre vistas do mesmo bairro e reutilizar o mesmo raster nos painéis que comparam suportes, escalas ou zoneamentos.
 
-Cada prompt deve conter o padrão visual completo, seguido de função conceitual, composição, proporção e elementos obrigatórios da cena. Os seis comentários de arte do capítulo 1 usam o mesmo parágrafo de direção de arte. Manter esse parágrafo idêntico nas próximas solicitações e alterar apenas a parte específica de cada imagem.
+Cada prompt deve conter o padrão visual completo, seguido de função conceitual, composição, proporção e elementos obrigatórios da cena. Os prompts das aquarelas do capítulo 1 usam o mesmo parágrafo de direção de arte. Manter esse parágrafo idêntico nas próximas solicitações e alterar apenas a parte específica de cada imagem. Diagramas exclusivamente vetoriais dispensam geração de aquarela, mantendo tipografia, paleta e acessibilidade.
 
 Anexar `assets/references/aquarela-grafite-nanquim.png` como referência de estilo às solicitações. Quando uma arte existente servir também de referência de conteúdo ou disposição, identificar separadamente o papel de cada imagem. Conferir lado a lado paleta, peso do traço, textura, perspectiva, simplificação dos personagens e densidade de elementos. A constância da série depende da referência visual e da revisão, além do texto do prompt.
 

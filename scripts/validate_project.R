@@ -339,23 +339,41 @@ chapter_one_html <- paste(readLines(
   file.path(html_root, "chapters/part-1/01-clima-ambiente-saude.html"),
   warn = FALSE, encoding = "UTF-8"
 ), collapse = "\n")
-if (!grepl('<img[^>]+src="[^"]*arte-cap1-01-diagrama[.]svg"', chapter_one_html, perl = TRUE)) {
-  fail("A aquarela da Figura 1.1 não foi incorporada ao capítulo 1.")
+chapter_one_source <- paste(readLines(
+  "chapters/part-1/01-clima-ambiente-saude.qmd", warn = FALSE, encoding = "UTF-8"
+), collapse = "\n")
+chapter_one_ids <- c(
+  "fig-tempo-clima-ambiente", "fig-cadeia-risco", "fig-quadrantes-impacto",
+  "fig-curvas-impacto-desastres", "fig-trajetorias-inundacao", "fig-venn-risco",
+  "fig-caracterizacao-perigo", "fig-exposicao-calor-dia", "fig-medida-exposicao-dose",
+  "fig-territorios-contraste", "fig-desigualdades-risco", "fig-justica-ambiental-climatica"
+)
+chapter_one_assets <- c(
+  "07-tempo-clima-ambiente", "01-diagrama", "08-quadrantes", "09-curvas-impacto",
+  "02-trajetorias", "10-venn-risco", "11-perigos", "03-exposicao", "04-dose",
+  "05-territorios", "12-desigualdades", "06-justica"
+)
+figure_list <- paste(readLines("backmatter/lista-figuras.qmd", warn = FALSE, encoding = "UTF-8"), collapse = "\n")
+for (i in seq_along(chapter_one_ids)) {
+  id <- chapter_one_ids[[i]]
+  asset <- paste0("arte-cap1-", chapter_one_assets[[i]])
+  for (extension in c(".svg", "-print.png")) check_file(paste0("assets/figures/", asset, extension))
+  check_file(paste0(html_root, "/assets/figures/", asset, ".svg"))
+  if (!grepl(paste0('id="', id, '"'), chapter_one_html, fixed = TRUE) ||
+      !grepl(paste0("Figura&nbsp;1.", i, ":"), chapter_one_html, fixed = TRUE) ||
+      !grepl(paste0("@", id), chapter_one_source, fixed = TRUE) ||
+      !grepl(paste0("@", id), figure_list, fixed = TRUE)) {
+    fail("Figura do capítulo 1 ausente, sem chamada ou com numeração incorreta: ", id)
+  }
 }
-if (!grepl('<img[^>]+src="[^"]*arte-cap1-02-trajetorias[.]svg"', chapter_one_html, perl = TRUE)) {
-  fail("A aquarela da Figura 1.2 não foi incorporada ao capítulo 1.")
-}
-if (!grepl('<img[^>]+src="[^"]*arte-cap1-03-exposicao[.]svg"', chapter_one_html, perl = TRUE)) {
-  fail("A aquarela da Figura 1.3 não foi incorporada ao capítulo 1.")
-}
-if (!grepl('<img[^>]+src="[^"]*arte-cap1-04-dose[.]svg"', chapter_one_html, perl = TRUE)) {
-  fail("A aquarela da Figura 1.4 não foi incorporada ao capítulo 1.")
-}
-if (!grepl('<img[^>]+src="[^"]*arte-cap1-05-territorios[.]svg"', chapter_one_html, perl = TRUE)) {
-  fail("A aquarela da Figura 1.5 não foi incorporada ao capítulo 1.")
-}
-if (!grepl('<img[^>]+src="[^"]*arte-cap1-06-justica[.]svg"', chapter_one_html, perl = TRUE)) {
-  fail("A aquarela da Figura 1.6 não foi incorporada ao capítulo 1.")
+# O gráfico deve seguir diretamente o parágrafo inicial; o quadro antecede o detalhamento dos eixos.
+section <- strsplit(chapter_one_source, "### Efeitos diretos, indiretos e trajetórias no tempo", fixed = TRUE)[[1L]][[2L]]
+section <- sub("(?s)<!--.*?-->", "", section, perl = TRUE)
+paragraphs <- strsplit(trimws(section), "\n\n", fixed = TRUE)[[1L]]
+if (!grepl("fig-quadrantes-impacto", paragraphs[[3L]], fixed = TRUE) ||
+    regexpr("{#qua-trajetorias-impacto}", section, fixed = TRUE) >
+      regexpr("O mecanismo predominante é", section, fixed = TRUE)) {
+  fail("Quadrantes ou Quadro 1.3 fora da posição prevista no capítulo 1.")
 }
 chapter_two_html <- paste(readLines(
   file.path(html_root, "chapters/part-1/01b-mudanca-climatica-resposta-sus.html"),
@@ -466,6 +484,9 @@ unresolved_html <- character()
 for (path in html_files) {
   html <- paste(readLines(path, warn = FALSE, encoding = "UTF-8"), collapse = "\n")
   if (!identical(path, references_html_path)) {
+    if (grepl('id="bibliography"|id="toc-bibliography"', html)) {
+      fail("Cabeçalho automático de bibliografia fora da página central: ", path)
+    }
     refs_tags <- regmatches(html, gregexpr('<div[^>]*id="refs"[^>]*>', html, perl = TRUE))[[1L]]
     if (length(refs_tags) && !identical(refs_tags, "-1") && any(!grepl("display: none", refs_tags, fixed = TRUE))) {
       fail("Bibliografia visível fora da página central: ", path)

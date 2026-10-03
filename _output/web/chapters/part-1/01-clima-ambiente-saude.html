@@ -73,6 +73,9 @@ div.csl-indent {
 <link href="../../site_libs/bootstrap/bootstrap-e5583ca9376584c4c28bae413d841c71.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../../site_libs/bootstrap/bootstrap-dark-3890ee60a53b4691a29ad5e6214cda48.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="../../site_libs/bootstrap/bootstrap-e5583ca9376584c4c28bae413d841c71.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -578,7 +581,6 @@ div.csl-indent {
   <li><a href="#justiça-ambiental-e-climática" id="toc-justiça-ambiental-e-climática" class="nav-link" data-scroll-target="#justiça-ambiental-e-climática"><span class="header-section-number">1.4.1</span> Justiça ambiental e climática</a></li>
   </ul></li>
   <li><a href="#síntese" id="toc-síntese" class="nav-link" data-scroll-target="#síntese"><span class="header-section-number">1.5</span> Síntese</a></li>
-  <li><a href="#bibliography" id="toc-bibliography" class="nav-link" data-scroll-target="#bibliography">Referências</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/rfsaldanha/dicas/blob/main/chapters/part-1/01-clima-ambiente-saude.qmd" class="toc-action"><i class="bi bi-github"></i>Ver o código fonte</a></li><li><a href="https://github.com/rfsaldanha/dicas/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></nav>
     </div>
@@ -608,18 +610,13 @@ div.csl-indent {
 <!--
 DIREÇÃO DE ARTE — CAPÍTULO 1
 
-As seis marcações ARTE CAP1-01 a ARTE CAP1-06 documentam as artes incorporadas ao capítulo. Cada comentário registra função, prompt completo, montagem, arquivos e legenda proposta. São orientações editoriais; não integram o texto renderizado nem a numeração das figuras.
+O capítulo reúne doze figuras: nove composições com aquarelas e três diagramas vetoriais. Os códigos ARTE CAP1 identificam arquivos de produção e não correspondem à numeração editorial, calculada pela ordem das figuras. Preservar os identificadores publicados.
 
-Padrão visual comum: aquarela tradicional translúcida, traços finos e espontâneos de lápis grafite e nanquim, contornos parcialmente abertos, hachuras leves e pigmentação irregular. Usar verdes naturais, azuis acinzentados, ocres e terracota com saturação moderada, preservando o branco do papel. Os seis prompts repetem a direção de arte fornecida pelo autor. A especificação permanente está em docs/guia-editorial.md.
+Padrão das aquarelas: aquarela tradicional translúcida, traços finos de grafite e nanquim, contornos abertos, hachuras leves e pigmentação irregular. Paleta de verdes naturais, azuis acinzentados, ocres e terracota, com branco de papel. Direção permanente: docs/guia-editorial.md. Referência visual: assets/references/aquarela-grafite-nanquim.png. Compor rótulos e conexões como elementos editáveis.
 
-Referência visual da série: assets/references/aquarela-grafite-nanquim.png, fornecida pelo autor. Anexar essa imagem às solicitações de geração, usando-a como referência de estilo. Conferir em conjunto traço, textura, paleta e simplificação. Compor rótulos e conexões como elementos editáveis na diagramação.
-
-1. ARTE CAP1-01: Cadeia entre ambiente e saúde — redesenho da Figura 1.1.
-2. ARTE CAP1-02: Trajetórias de uma inundação — Figura 1.2.
-3. ARTE CAP1-03: Exposição ao calor ao longo do dia — Figura 1.3.
-4. ARTE CAP1-04: Da medida ambiental à dose — Figura 1.4.
-5. ARTE CAP1-05: O mesmo calor, diferentes possibilidades de proteção — redesenho da Figura 1.5.
-6. ARTE CAP1-06: Quatro perguntas da justiça ambiental e climática — Figura 1.6.
+Artes preservadas: CAP1-01 cadeia entre ambiente e saúde; CAP1-02 trajetórias de uma inundação; CAP1-03 exposição ao calor; CAP1-04 medida ambiental e dose; CAP1-05 territórios e proteção; CAP1-06 justiça ambiental e climática.
+Novas artes: CAP1-07 tempo, clima e ambiente; CAP1-08 quadrantes; CAP1-09 curvas de impacto; CAP1-10 Venn do risco; CAP1-11 caracterização do perigo; CAP1-12 desigualdades.
+Produção das novas artes: scripts/build_cap1_revision.py; prompts e manifestos preservados em assets/figures. A composição CAP1-12 usa 90% da largura na impressão para manter a resolução efetiva do original acima de 300 ppi.
 -->
 <p>A saúde se produz nas condições concretas em que as pessoas vivem. As possibilidades de adoecer, recuperar-se e viver com saúde dependem da alimentação, da moradia, do trabalho, da renda, das relações sociais, das condições ambientais e do acesso ao cuidado. A abordagem dos determinantes da saúde procura compreender como essas condições se combinam e por que seus efeitos se distribuem de maneira desigual entre pessoas e territórios <span class="citation" data-cites="who2010sdhframework">(<a href="../../backmatter/referencias.html#ref-who2010sdhframework" role="doc-biblioref">Solar; Irwin, 2010</a>)</span>.</p>
 <p>Os determinantes ambientais fazem parte dessa produção social da saúde. Abrangem componentes físicos, químicos, biológicos e construídos: qualidade do ar e da água, saneamento, vegetação, uso da terra, contaminantes, condições térmicas e infraestrutura. A distribuição desses componentes resulta tanto de processos naturais quanto de decisões sobre produção, ocupação do território, habitação e serviços públicos <span class="citation" data-cites="brasilsaudeambiental">(<a href="../../backmatter/referencias.html#ref-brasilsaudeambiental" role="doc-biblioref">Brasil. Ministério da Saúde, 2026</a>)</span>. Uma mesma condição ambiental pode representar possibilidades muito diferentes de exposição e proteção conforme o contexto em que ocorre.</p>
@@ -631,13 +628,36 @@ Referência visual da série: assets/references/aquarela-grafite-nanquim.png, fo
 </blockquote>
 <p>Para a vigilância e a gestão do Sistema Único de Saúde (SUS), essa perspectiva exige perguntar qual é o perigo, quem está exposto, durante quanto tempo e com que possibilidades de proteção. Uma concentração de material particulado com diâmetro aerodinâmico igual ou inferior a 2,5 micrômetros (PM2,5), por exemplo, descreve uma condição do ar. Seu significado sanitário depende também da presença de pessoas, de suas atividades e das condições de suscetibilidade e cuidado.</p>
 <p>Este capítulo distingue tempo, clima e ambiente, acompanha os caminhos e as temporalidades dos impactos e discute perigo, exposição, vulnerabilidade, risco e justiça. O capítulo seguinte examina como essas relações orientam o planejamento e a resposta do SUS. Cada indicador será interpretado pelo que consegue representar desses processos e pelas decisões que pode apoiar.</p>
-<section id="tempo-clima-e-ambiente-três-maneiras-de-olhar-o-território" class="level2" data-number="1.1">
+<section id="tempo-clima-e-ambiente-três-maneiras-de-olhar-o-território" class="level2 page-columns page-full" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="tempo-clima-e-ambiente-três-maneiras-de-olhar-o-território"><span class="header-section-number">1.1</span> Tempo, clima e ambiente: três maneiras de olhar o território</h2>
 <p>No uso cotidiano, tempo e clima costumam aparecer como sinônimos. Para trabalhar com dados, porém, a diferença é importante.</p>
 <p>Tempo meteorológico descreve o estado da atmosfera em determinado lugar e momento. A chuva prevista para a tarde, a temperatura observada às 15 horas, a baixa umidade de uma sequência de dias e uma rajada de vento são informações sobre o tempo. São especialmente úteis para decisões de curto prazo: emitir um alerta, reorganizar uma equipe, preparar uma unidade ou orientar a população.</p>
 <p>Clima descreve como essas condições se comportam ao longo de períodos mais extensos. Não se resume a uma média. Inclui sazonalidade, distribuição dos valores, variabilidade, frequência de extremos e persistência dos eventos. Quando perguntamos se os dias muito quentes se tornaram mais frequentes nas últimas décadas, ou em que meses a chuva intensa costuma ocorrer, estamos fazendo uma pergunta climática <span class="citation" data-cites="wmo2023climatological wmo2017normals">(<a href="../../backmatter/referencias.html#ref-wmo2017normals" role="doc-biblioref">World Meteorological Organization, 2017</a>, <a href="../../backmatter/referencias.html#ref-wmo2023climatological" role="doc-biblioref">2023</a>)</span>.</p>
 <p>O ambiente reúne as condições naturais e construídas nas quais as exposições ocorrem. Para a saúde pública, interessa compreender como essas condições são produzidas e transformadas por decisões sobre ocupação do solo, habitação, transporte, energia e saneamento.</p>
 <p>Entre uma temperatura registrada e a condição experimentada pelas pessoas existem os microclimas de moradias, ruas, locais de trabalho e transporte. Sombra, ventilação, materiais e fontes locais de calor contribuem para essas diferenças. A seção sobre exposição examinará suas consequências para a interpretação dos dados.</p>
+<p>A <a href="#fig-tempo-clima-ambiente" class="quarto-xref">Figura&nbsp;<span>1.1</span></a> retoma essas três perguntas em um território hipotético. As vistas repetidas sugerem a observação ao longo do tempo, mas não bastam para caracterizar o clima: isso exige séries históricas que permitam reconhecer padrões, variabilidade e extremos.</p>
+<div id="fig-tempo-clima-ambiente" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-src="arte-cap1-07-tempo-clima-ambiente-print.png" alt="Três painéis em aquarela mostram um bairro hipotético. À esquerda, chuva em um momento; no centro, vistas repetidas da mesma rua sob chuva, sol e vento; à direita, rio, vegetação, moradias, prédios e serviços. Os rótulos distinguem condições do momento, padrões em séries históricas e condições naturais e construídas. As três vistas centrais não constituem uma série climática.">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-tempo-clima-ambiente-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<a href="../../assets/figures/arte-cap1-07-tempo-clima-ambiente.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-1" title="Figura&nbsp;1.1: Tempo, clima e ambiente: três leituras do mesmo território"><img src="../../assets/figures/arte-cap1-07-tempo-clima-ambiente.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Três painéis em aquarela mostram um bairro hipotético. À esquerda, chuva em um momento; no centro, vistas repetidas da mesma rua sob chuva, sol e vento; à direita, rio, vegetação, moradias, prédios e serviços. Os rótulos distinguem condições do momento, padrões em séries históricas e condições naturais e construídas. As três vistas centrais não constituem uma série climática."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-tempo-clima-ambiente-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;1.1: Tempo, clima e ambiente: três leituras do mesmo território
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte e composição: elaboração própria, com aquarela gerada pela ferramenta image_gen. Licença: a mesma dos textos autorais da obra.</span></p>
+<!--
+ARTE CAP1-07 — Revisão conceitual do capítulo.
+Composição: scripts/build_cap1_revision.py.
+Metadados, descrição acessível e proveniência: assets/figures/arte-cap1-revisao-manifest.json.
+SVG: assets/figures/arte-cap1-07-tempo-clima-ambiente.svg.
+Impressão: assets/figures/arte-cap1-07-tempo-clima-ambiente-print.png.
+Original: assets/figures/arte-cap1-07-v1.png.
+Prompt completo efetivamente utilizado: assets/figures/arte-cap1-07-v1.prompt.txt.
+Referência de estilo: assets/references/aquarela-grafite-nanquim.png.
+Produção: image_gen; versão não informada. Rótulos editáveis acrescentados na montagem.
+-->
 <div id="qua-tempo-clima-ambiente" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-qua figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-qua" id="qua-tempo-clima-ambiente-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -750,15 +770,15 @@ Quadro&nbsp;1.2: Exemplos de cadeias entre condições ambientais, efeitos sanit
 </div>
 </figure>
 </div>
-<p>A <a href="#fig-cadeia-risco" class="quarto-xref">Figura&nbsp;<span>1.1</span></a> reúne cinco componentes: perigo ou condição ambiental; exposição; efeitos; vigilância e resposta; e vulnerabilidades e capacidades de proteção. Uma inundação hipotética ilustra suas relações no território. O esquema ajuda a identificar as informações necessárias para compreender o risco e os pontos em que a ação pública pode modificá-lo.</p>
+<p>A <a href="#fig-cadeia-risco" class="quarto-xref">Figura&nbsp;<span>1.2</span></a> reúne cinco componentes: perigo ou condição ambiental; exposição; efeitos; vigilância e resposta; e vulnerabilidades e capacidades de proteção. Uma inundação hipotética ilustra suas relações no território. O esquema ajuda a identificar as informações necessárias para compreender o risco e os pontos em que a ação pública pode modificá-lo.</p>
 <p>A leitura principal desce do perigo à resposta. O bloco da base e as setas de retorno destacam a influência da proteção e das intervenções, sem estabelecer uma sequência obrigatória de acontecimentos.</p>
 <div id="fig-cadeia-risco" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-src="arte-cap1-01-diagrama-print.png" alt="Cinco cenas hipotéticas em aquarela ilustram perigo, exposição, efeitos, resposta e proteção. As setas ligam perigo e proteção à exposição, exposição a efeitos e efeitos à resposta. Duas setas pontilhadas indicam a ação sobre exposição e proteção. As cenas se passam em bairro urbano com prédios residenciais, casas, comércio, calçadas e arborização.">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-cadeia-risco-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
-<img src="../../assets/figures/arte-cap1-01-diagrama.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Cinco cenas hipotéticas em aquarela ilustram perigo, exposição, efeitos, resposta e proteção. As setas ligam perigo e proteção à exposição, exposição a efeitos e efeitos à resposta. Duas setas pontilhadas indicam a ação sobre exposição e proteção. As cenas se passam em bairro urbano com prédios residenciais, casas, comércio, calçadas e arborização.">
+<a href="../../assets/figures/arte-cap1-01-diagrama.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-2" title="Figura&nbsp;1.2: Do fenômeno ambiental à ação em saúde"><img src="../../assets/figures/arte-cap1-01-diagrama.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Cinco cenas hipotéticas em aquarela ilustram perigo, exposição, efeitos, resposta e proteção. As setas ligam perigo e proteção à exposição, exposição a efeitos e efeitos à resposta. Duas setas pontilhadas indicam a ação sobre exposição e proteção. As cenas se passam em bairro urbano com prédios residenciais, casas, comércio, calçadas e arborização."></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cadeia-risco-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;1.1: Do fenômeno ambiental à ação em saúde
+Figura&nbsp;1.2: Do fenômeno ambiental à ação em saúde
 </figcaption>
 </figure>
 </div>
@@ -791,9 +811,25 @@ Formato: mesma proporção do original 1122 × 1402; resolução igual ou superi
 <p>O bloco de vigilância, prevenção, cuidado e resposta reúne possibilidades de ação. As setas pontilhadas mostram dois retornos: reduzir a exposição e fortalecer a proteção. Alertas acompanhados de meios para agir, reorganização do atendimento e continuidade do abastecimento exemplificam intervenções nesses pontos. O acompanhamento de seus resultados produz aprendizado para a preparação seguinte. A figura organiza componentes do risco, sem estimar probabilidades ou detalhar a evolução temporal dos efeitos; essa última questão será desenvolvida a seguir.</p>
 <section id="sec-trajetorias-impacto" class="level3 page-columns page-full" data-number="1.2.1">
 <h3 data-number="1.2.1" class="anchored" data-anchor-id="sec-trajetorias-impacto"><span class="header-section-number">1.2.1</span> Efeitos diretos, indiretos e trajetórias no tempo</h3>
-<p>Para compreender um efeito em saúde, precisamos distinguir duas perguntas: por qual caminho ele foi produzido e como se manifesta ao longo do tempo? Um trauma causado pela ação física de uma inundação pode deixar uma sequela prolongada. Uma interrupção de energia que comprometa um cuidado dependente de equipamento pode gerar uma consequência imediata, embora mediada pela infraestrutura. Portanto, “direto” não significa necessariamente “imediato”, e “indireto” não equivale a “tardio”.</p>
-<p>O mecanismo predominante é o primeiro eixo. Efeitos diretos decorrem principalmente da ação do perigo sobre a pessoa, como a carga térmica do calor ou a força da água. Efeitos indiretos envolvem mudanças em sistemas ambientais, sociais, econômicos ou institucionais: abastecimento, alimentos, vetores, renda, mobilidade e serviços de saúde. Essa distinção depende de explicitar o ponto de partida. A inalação de fumaça é uma exposição direta ao poluente; quando a pergunta parte da seca, a queimada e a emissão de partículas são mediações do caminho até o agravo. As condições sociais atravessam ambos os mecanismos <span class="citation" data-cites="barcellos2009clima ipcc2022saude">(<a href="../../backmatter/referencias.html#ref-barcellos2009clima" role="doc-biblioref">Barcellos et al., 2009</a>; <a href="../../backmatter/referencias.html#ref-ipcc2022saude" role="doc-biblioref">Cissé et al., 2022</a>)</span>.</p>
-<p>O segundo eixo descreve a temporalidade predominante. É preciso distinguir o início do efeito, sua duração e a acumulação produzida por exposições repetidas. Um efeito pode começar durante o evento e persistir depois dele; outro pode aparecer após um intervalo. “Prolongado”, portanto, não é sinônimo de início tardio. Também é necessário separar a duração do fenômeno físico da duração de suas consequências sanitárias. Não se adotam aqui cortes universais em dias ou meses: a janela de observação deve corresponder ao mecanismo e ao desfecho estudados.</p>
+<p>Para compreender um efeito em saúde, precisamos distinguir duas perguntas: por qual caminho ele foi produzido e como se manifesta ao longo do tempo? Um trauma causado pela ação física de uma inundação pode deixar uma sequela prolongada. Uma interrupção de energia que comprometa um cuidado dependente de equipamento pode gerar uma consequência imediata, embora mediada pela infraestrutura. Portanto, “direto” não significa necessariamente “imediato”, e “indireto” não equivale a “tardio”. A <a href="#fig-quadrantes-impacto" class="quarto-xref">Figura&nbsp;<span>1.3</span></a> organiza essas duas perguntas.</p>
+<div id="fig-quadrantes-impacto" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-src="arte-cap1-08-quadrantes-print.png" alt="Gráfico de quatro quadrantes sem escala numérica. Na horizontal, efeitos imediatos ou de curto prazo à esquerda e prolongados ou cumulativos à direita; na vertical, mecanismo direto acima e indireto abaixo. Os exemplos são trauma pela água, sequela do trauma, interrupção do cuidado por falta de energia e agravamento associado à interrupção de tratamentos. Não há sequência obrigatória entre quadrantes.">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-quadrantes-impacto-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<a href="../../assets/figures/arte-cap1-08-quadrantes.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-3" title="Figura&nbsp;1.3: Mecanismo e temporalidade: dois eixos para analisar os impactos"><img src="../../assets/figures/arte-cap1-08-quadrantes.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Gráfico de quatro quadrantes sem escala numérica. Na horizontal, efeitos imediatos ou de curto prazo à esquerda e prolongados ou cumulativos à direita; na vertical, mecanismo direto acima e indireto abaixo. Os exemplos são trauma pela água, sequela do trauma, interrupção do cuidado por falta de energia e agravamento associado à interrupção de tratamentos. Não há sequência obrigatória entre quadrantes."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-quadrantes-impacto-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;1.3: Mecanismo e temporalidade: dois eixos para analisar os impactos
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte e autoria: elaboração própria. Licença: a mesma dos textos autorais da obra.</span></p>
+<!--
+ARTE CAP1-08 — Revisão conceitual do capítulo.
+Composição: scripts/build_cap1_revision.py.
+Metadados, descrição acessível e proveniência: assets/figures/arte-cap1-revisao-manifest.json.
+SVG: assets/figures/arte-cap1-08-quadrantes.svg.
+Impressão: assets/figures/arte-cap1-08-quadrantes-print.png.
+-->
 <p>O <a href="#qua-trajetorias-impacto" class="quarto-xref">Quadro&nbsp;<span>1.3</span></a> apresenta uma proposta conceitual em desenvolvimento, organizada a partir dessas duas dimensões. Os quatro domínios servem como posições de análise em uma trajetória; não constituem uma classificação validada de pessoas, doenças ou eventos. Sua aplicação exige explicitar o perigo de referência e sustentar cada ligação com evidências.</p>
 <div id="qua-trajetorias-impacto" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-qua figure">
@@ -831,17 +867,41 @@ Quadro&nbsp;1.3: Domínios analíticos de caminhos e temporalidades dos impactos
 </figure>
 </div>
 <p>Os exemplos do quadro são didáticos e não estabelecem frequência, probabilidade ou atribuição causal. Diferentes domínios podem coexistir, e uma pessoa pode enfrentar mais de um deles. A contribuição dessa leitura está em acompanhar trajetórias de impacto: processos nos quais se encadeiam ou se combinam efeitos, mediações e condições de recuperação. Uma mesma lesão não muda retroativamente de causa quando deixa uma sequela; a trajetória passa a incluir novas consequências e necessidades de cuidado.</p>
+<p>O mecanismo predominante é o primeiro eixo. Efeitos diretos decorrem principalmente da ação do perigo sobre a pessoa, como a carga térmica do calor ou a força da água. Efeitos indiretos envolvem mudanças em sistemas ambientais, sociais, econômicos ou institucionais: abastecimento, alimentos, vetores, renda, mobilidade e serviços de saúde. Essa distinção depende de explicitar o ponto de partida. A inalação de fumaça é uma exposição direta ao poluente; quando a pergunta parte da seca, a queimada e a emissão de partículas são mediações do caminho até o agravo. As condições sociais atravessam ambos os mecanismos <span class="citation" data-cites="barcellos2009clima ipcc2022saude">(<a href="../../backmatter/referencias.html#ref-barcellos2009clima" role="doc-biblioref">Barcellos et al., 2009</a>; <a href="../../backmatter/referencias.html#ref-ipcc2022saude" role="doc-biblioref">Cissé et al., 2022</a>)</span>.</p>
+<p>O segundo eixo descreve a temporalidade predominante. É preciso distinguir o início do efeito, sua duração e a acumulação produzida por exposições repetidas. Um efeito pode começar durante o evento e persistir depois dele; outro pode aparecer após um intervalo. “Prolongado”, portanto, não é sinônimo de início tardio. Também é necessário separar a duração do fenômeno físico da duração de suas consequências sanitárias. Não se adotam aqui cortes universais em dias ou meses: a janela de observação deve corresponder ao mecanismo e ao desfecho estudados.</p>
+<p>Freitas e colaboradores, entre eles Carlos Machado de Freitas, Diego Ricardo Xavier Silva e Christovam Barcellos, organizaram impactos e respostas em três horizontes: horas–dias, semanas–meses e meses–anos. Sua Figura 1 adapta uma proposta de Redmond e relaciona resgate e traumas agudos, vigilância e retomada dos serviços, cuidado prolongado e reconstrução <span class="citation" data-cites="freitas2014desastres redmond2005natural">(<a href="../../backmatter/referencias.html#ref-freitas2014desastres" role="doc-biblioref">Freitas et al., 2014</a>; <a href="../../backmatter/referencias.html#ref-redmond2005natural" role="doc-biblioref">Redmond, 2005</a>)</span>.</p>
+<p>A <a href="#fig-curvas-impacto-desastres" class="quarto-xref">Figura&nbsp;<span>1.4</span></a> retoma essa organização. O original apresenta blocos temporais; as curvas foram acrescentadas nesta adaptação para ilustrar a sobreposição dos impactos. Não expressam números de casos, probabilidades ou intensidades comparáveis, e as distâncias no eixo do tempo não representam intervalos proporcionais.</p>
+<div id="fig-curvas-impacto-desastres" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-src="arte-cap1-09-curvas-impacto-print.png" alt="Esquema com eixo vertical Impactos e horizontal Escala temporal, sem valores numéricos. Três curvas editoriais se sobrepõem: A, contínua, destaca resgate, trauma e óbitos; B, tracejada, cuidado e vigilância de doenças transmissíveis e não transmissíveis e retomada dos serviços; C, pontilhada, condições crônicas, efeitos psicossociais, reabilitação e reconstrução. Os horizontes são horas a dias, semanas a meses e meses a anos. As curvas foram acrescentadas ao esquema temporal de Freitas et al. (2014), não são dados observados e não definem limites universais.">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-curvas-impacto-desastres-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<a href="../../assets/figures/arte-cap1-09-curvas-impacto.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-4" title="Figura&nbsp;1.4: Impactos e respostas em diferentes tempos após um desastre"><img src="../../assets/figures/arte-cap1-09-curvas-impacto.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Esquema com eixo vertical Impactos e horizontal Escala temporal, sem valores numéricos. Três curvas editoriais se sobrepõem: A, contínua, destaca resgate, trauma e óbitos; B, tracejada, cuidado e vigilância de doenças transmissíveis e não transmissíveis e retomada dos serviços; C, pontilhada, condições crônicas, efeitos psicossociais, reabilitação e reconstrução. Os horizontes são horas a dias, semanas a meses e meses a anos. As curvas foram acrescentadas ao esquema temporal de Freitas et al. (2014), não são dados observados e não definem limites universais."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-curvas-impacto-desastres-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;1.4: Impactos e respostas em diferentes tempos após um desastre
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte conceitual: Freitas et al.&nbsp;(2014), Figura 1, adaptada pelos autores de Redmond (2005). Redesenho e curvas didáticas: elaboração própria; não reproduzem dados observados. Licença da composição autoral: a mesma dos textos da obra.</span></p>
+<!--
+ARTE CAP1-09 — Revisão conceitual do capítulo.
+Composição: scripts/build_cap1_revision.py.
+Metadados, descrição acessível e proveniência: assets/figures/arte-cap1-revisao-manifest.json.
+SVG: assets/figures/arte-cap1-09-curvas-impacto.svg.
+Impressão: assets/figures/arte-cap1-09-curvas-impacto-print.png.
+A figura original apresenta blocos temporais, não curvas. As curvas foram acrescentadas nesta composição como recurso didático, sem escala quantitativa.
+-->
+<p>Os horizontes orientam o acompanhamento, sem delimitar fases rígidas. Uma necessidade de reabilitação ou de cuidado em saúde mental pode começar durante o evento e persistir por muito tempo. Reduzir os atendimentos de urgência não significa que todas as necessidades tenham cessado. A vigilância precisa acompanhar a continuidade do cuidado e a recuperação das condições de vida, com janelas adequadas a cada desfecho.</p>
 <p>Considere uma inundação. Durante o evento, a água pode causar trauma e dificultar o acesso a uma unidade. Ao mesmo tempo, uma falha de energia ou a perda de medicamentos pode comprometer um tratamento. São caminhos distintos, com consequências que podem surgir no mesmo período. Posteriormente, a necessidade de reabilitação de uma lesão pode coexistir com dificuldades de moradia, renda e acompanhamento clínico. A trajetória não exige que todos atravessem essas etapas nem que elas ocorram nessa ordem. A análise das inundações de 2024 no Rio Grande do Sul ilustra a importância de examinar conjuntamente população, infraestrutura e vulnerabilidades <span class="citation" data-cites="xavier2025inundacoes">(<a href="../../backmatter/referencias.html#ref-xavier2025inundacoes" role="doc-biblioref">Xavier et al., 2025</a>)</span>.</p>
 <p>Trajetórias podem se ramificar quando um mesmo perigo produz consequências diferentes conforme a exposição e a proteção. Podem convergir quando fenômenos distintos comprometem o mesmo serviço ou necessidade de saúde. Podem ainda ser recorrentes: um novo evento alcança famílias ou serviços antes da recuperação do anterior. Essa possibilidade exige acompanhar perdas acumuladas, continuidade do cuidado e capacidade de recuperação, sem presumir que todo evento produzirá agravamento progressivo.</p>
 <p>A perspectiva também se aplica a processos graduais. Uma alteração persistente no regime de chuvas pode modificar a disponibilidade de água e as condições de produção de alimentos, sem um desastre que marque claramente seu início. A observação precisa combinar sinais ambientais, condições de vida e desfechos ao longo do tempo. A matriz ajuda a formular perguntas e identificar momentos de intervenção; os dados e os métodos determinarão quais relações podem ser demonstradas. No capítulo seguinte, essa leitura fundamentará a discussão da vigilância e da adaptação contínua.</p>
-<p>A <a href="#fig-trajetorias-inundacao" class="quarto-xref">Figura&nbsp;<span>1.2</span></a> reúne esses caminhos em um exemplo didático. A inundação se ramifica em consequências distintas; a interrupção do cuidado e a perda de moradia podem convergir em dificuldades de acompanhamento. A seta pontilhada representa um novo evento durante a recuperação. As possibilidades de apoio não são desfechos garantidos, e a disposição das cenas não define etapas obrigatórias nem intervalos fixos de tempo.</p>
+<p>A <a href="#fig-trajetorias-inundacao" class="quarto-xref">Figura&nbsp;<span>1.5</span></a> reúne esses caminhos em um exemplo didático. A inundação se ramifica em consequências distintas; a interrupção do cuidado e a perda de moradia podem convergir em dificuldades de acompanhamento. A seta pontilhada representa um novo evento durante a recuperação. As possibilidades de apoio não são desfechos garantidos, e a disposição das cenas não define etapas obrigatórias nem intervalos fixos de tempo.</p>
 <div id="fig-trajetorias-inundacao" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-src="arte-cap1-02-trajetorias-print.png" alt="Vinhetas em aquarela mostram uma inundação com três ramificações: lesão, falha de energia e acesso e perda de moradia. A lesão pode exigir reabilitação. A falha de serviços pode interromper o cuidado e, junto da perda de moradia, dificultar o acompanhamento. Retomada do tratamento e recuperação da moradia aparecem como possibilidades de apoio. Uma seta pontilhada liga um novo episódio de chuva à família ainda em recuperação. Os caminhos podem coexistir e não têm escala temporal fixa; processos graduais também podem iniciar trajetórias. Prédios, comércio, casas e calçadas situam as trajetórias em um bairro urbano hipotético.">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-trajetorias-inundacao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
-<img src="../../assets/figures/arte-cap1-02-trajetorias.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Vinhetas em aquarela mostram uma inundação com três ramificações: lesão, falha de energia e acesso e perda de moradia. A lesão pode exigir reabilitação. A falha de serviços pode interromper o cuidado e, junto da perda de moradia, dificultar o acompanhamento. Retomada do tratamento e recuperação da moradia aparecem como possibilidades de apoio. Uma seta pontilhada liga um novo episódio de chuva à família ainda em recuperação. Os caminhos podem coexistir e não têm escala temporal fixa; processos graduais também podem iniciar trajetórias. Prédios, comércio, casas e calçadas situam as trajetórias em um bairro urbano hipotético.">
+<a href="../../assets/figures/arte-cap1-02-trajetorias.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-5" title="Figura&nbsp;1.5: Trajetórias possíveis após uma inundação"><img src="../../assets/figures/arte-cap1-02-trajetorias.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Vinhetas em aquarela mostram uma inundação com três ramificações: lesão, falha de energia e acesso e perda de moradia. A lesão pode exigir reabilitação. A falha de serviços pode interromper o cuidado e, junto da perda de moradia, dificultar o acompanhamento. Retomada do tratamento e recuperação da moradia aparecem como possibilidades de apoio. Uma seta pontilhada liga um novo episódio de chuva à família ainda em recuperação. Os caminhos podem coexistir e não têm escala temporal fixa; processos graduais também podem iniciar trajetórias. Prédios, comércio, casas e calçadas situam as trajetórias em um bairro urbano hipotético."></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-trajetorias-inundacao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;1.2: Trajetórias possíveis após uma inundação
+Figura&nbsp;1.5: Trajetórias possíveis após uma inundação
 </figcaption>
 </figure>
 </div>
@@ -886,26 +946,72 @@ Formato: mesma proporção do original 1536 × 1024; resolução igual ou superi
 <p>Perigo é a possível ocorrência de um evento, processo ou condição capaz de causar dano. Uma onda de calor, uma inundação, concentração elevada de um poluente ou escassez de água podem ser descritas como perigos em contextos específicos.</p>
 <p>Exposição diz respeito à presença de pessoas, atividades, ecossistemas, infraestrutura ou serviços em situações nas quais o perigo pode alcançá-los. Estar no mesmo município não significa necessariamente estar igualmente exposto.</p>
 <p>Vulnerabilidade corresponde à propensão a sofrer efeitos adversos e envolve suscetibilidade e limitações de proteção. Ela depende do perigo considerado e das condições concretas de vida.</p>
-<p>Risco resulta da interação entre esses componentes e das consequências que se pretende evitar. Ele muda quando mudam o perigo, a exposição, a vulnerabilidade ou a capacidade de resposta <span class="citation" data-cites="ipcc2022glossario undrr2017terminology">(<a href="../../backmatter/referencias.html#ref-ipcc2022glossario" role="doc-biblioref">Matthews et al., 2022</a>; <a href="../../backmatter/referencias.html#ref-undrr2017terminology" role="doc-biblioref">United Nations Office for Disaster Risk Reduction, 2017</a>)</span>.</p>
+<p>Risco resulta da interação entre esses componentes e das consequências que se pretende evitar. Ele muda quando mudam o perigo, a exposição, a vulnerabilidade ou a capacidade de resposta <span class="citation" data-cites="ipcc2022glossario undrr2017terminology">(<a href="../../backmatter/referencias.html#ref-ipcc2022glossario" role="doc-biblioref">Matthews et al., 2022</a>; <a href="../../backmatter/referencias.html#ref-undrr2017terminology" role="doc-biblioref">United Nations Office for Disaster Risk Reduction, 2017a</a>)</span>.</p>
 </div>
 </div>
-<section id="perigo-não-é-desastre" class="level3" data-number="1.3.1">
+<p>A <a href="#fig-venn-risco" class="quarto-xref">Figura&nbsp;<span>1.6</span></a> representa a interação entre os três componentes. O risco não é uma característica isolada do evento ou da pessoa: depende de como perigo, exposição e vulnerabilidade se encontram. O Venn é uma síntese conceitual; o tamanho dos círculos e das interseções não mede probabilidades nem permite calcular o risco.</p>
+<div id="fig-venn-risco" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-src="arte-cap1-10-venn-risco-print.png" alt="Três círculos parcialmente sobrepostos representam perigo, exposição e vulnerabilidade. Risco ocupa a interseção dos três. Rótulos, posições e diferentes tracejados permitem distinguir os componentes sem depender de cor. Áreas e interseções não representam probabilidades ou quantidades.">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-venn-risco-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<a href="../../assets/figures/arte-cap1-10-venn-risco.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-6" title="Figura&nbsp;1.6: Perigo, exposição e vulnerabilidade interagem na produção do risco"><img src="../../assets/figures/arte-cap1-10-venn-risco.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Três círculos parcialmente sobrepostos representam perigo, exposição e vulnerabilidade. Risco ocupa a interseção dos três. Rótulos, posições e diferentes tracejados permitem distinguir os componentes sem depender de cor. Áreas e interseções não representam probabilidades ou quantidades."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-venn-risco-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;1.6: Perigo, exposição e vulnerabilidade interagem na produção do risco
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte conceitual: IPCC (2022) e UNDRR (2017). Composição: elaboração própria. Licença: a mesma dos textos autorais da obra.</span></p>
+<!--
+ARTE CAP1-10 — Revisão conceitual do capítulo.
+Composição: scripts/build_cap1_revision.py.
+Metadados, descrição acessível e proveniência: assets/figures/arte-cap1-revisao-manifest.json.
+SVG: assets/figures/arte-cap1-10-venn-risco.svg.
+Impressão: assets/figures/arte-cap1-10-venn-risco-print.png.
+-->
+<section id="perigo-não-é-desastre" class="level3 page-columns page-full" data-number="1.3.1">
 <h3 data-number="1.3.1" class="anchored" data-anchor-id="perigo-não-é-desastre"><span class="header-section-number">1.3.1</span> Perigo não é desastre</h3>
-<p>O desastre ocorre quando um evento interage com exposição e vulnerabilidades e produz grave perturbação do funcionamento de uma comunidade ou sociedade. Uma base de desastres, portanto, não substitui uma série meteorológica; ausência de desastre registrado não significa ausência de perigo <span class="citation" data-cites="undrr2017terminology">(<a href="../../backmatter/referencias.html#ref-undrr2017terminology" role="doc-biblioref">United Nations Office for Disaster Risk Reduction, 2017</a>)</span>.</p>
-<p>Concentração elevada de PM2,5 e temperatura elevada descrevem condições ambientais. Seu significado sanitário depende de duração, presença de pessoas, suscetibilidade e proteção. O indicador de perigo precisa ser relacionado a essas condições antes de orientar uma avaliação de risco.</p>
+<p>Perigo designa um processo, fenômeno, evento ou condição com potencial para causar dano à saúde, aos bens, aos serviços ou ao ambiente. Pode estar associado a processos naturais, a atividades humanas ou à combinação entre ambos. Uma inundação, por exemplo, envolve a dinâmica da água, mas sua intensidade e extensão também podem ser modificadas pela impermeabilização, pela drenagem e pelas intervenções nos cursos d’água <span class="citation" data-cites="undrr2017hazard ipcc2022glossario">(<a href="../../backmatter/referencias.html#ref-ipcc2022glossario" role="doc-biblioref">Matthews et al., 2022</a>; <a href="../../backmatter/referencias.html#ref-undrr2017hazard" role="doc-biblioref">United Nations Office for Disaster Risk Reduction, 2017b</a>)</span>.</p>
+<p>Caracterizar um perigo exige mais do que nomeá-lo. É preciso descrever onde pode ocorrer, sua intensidade ou magnitude, a área alcançada, a duração e a frequência ou probabilidade de ocorrência. As medidas dependem do fenômeno: a chuva acumulada e a profundidade da água respondem a perguntas diferentes; no calor, a persistência e as condições noturnas complementam a temperatura máxima; para um poluente, importam a concentração e o período de referência da medição.</p>
+<p>Há perigos de início súbito, como uma enxurrada, e processos que se desenvolvem gradualmente, como uma seca. Eles também podem ocorrer em conjunto ou em sequência. A seca pode favorecer condições para queimadas, cuja fumaça introduz um perigo adicional para a qualidade do ar. Essa cadeia precisa ser explicitada: observar pouca chuva não equivale a medir a concentração de partículas que chega a uma população <span class="citation" data-cites="undrr2017hazard">(<a href="../../backmatter/referencias.html#ref-undrr2017hazard" role="doc-biblioref">United Nations Office for Disaster Risk Reduction, 2017b</a>)</span>.</p>
+<p>A <a href="#fig-caracterizacao-perigo" class="quarto-xref">Figura&nbsp;<span>1.7</span></a> reúne perguntas para descrever três situações. Os limiares e as janelas de observação devem ser justificados para a finalidade do indicador e o contexto considerado. Uma classificação meteorológica, um nível de alerta e um critério sanitário podem responder a finalidades distintas; nenhum deles demonstra, sozinho, que ocorreu dano.</p>
+<div id="fig-caracterizacao-perigo" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-src="arte-cap1-11-perigos-print.png" alt="Três aquarelas hipotéticas mostram chuva e inundação de um bairro, calor sobre uma rua e poluição do ar em área urbana. Perguntas distinguem chuva, profundidade e extensão da água; intensidade e duração do calor e alívio noturno; concentração e permanência de poluentes. Localização, frequência e probabilidade completam a caracterização. Não se representam medidas observadas.">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-caracterizacao-perigo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<a href="../../assets/figures/arte-cap1-11-perigos.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-7" title="Figura&nbsp;1.7: Caracterizar o perigo: intensidade, duração e território"><img src="../../assets/figures/arte-cap1-11-perigos.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Três aquarelas hipotéticas mostram chuva e inundação de um bairro, calor sobre uma rua e poluição do ar em área urbana. Perguntas distinguem chuva, profundidade e extensão da água; intensidade e duração do calor e alívio noturno; concentração e permanência de poluentes. Localização, frequência e probabilidade completam a caracterização. Não se representam medidas observadas."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-caracterizacao-perigo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;1.7: Caracterizar o perigo: intensidade, duração e território
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte e composição: elaboração própria, com aquarela gerada pela ferramenta image_gen. Licença: a mesma dos textos autorais da obra.</span></p>
+<!--
+ARTE CAP1-11 — Revisão conceitual do capítulo.
+Composição: scripts/build_cap1_revision.py.
+Metadados, descrição acessível e proveniência: assets/figures/arte-cap1-revisao-manifest.json.
+SVG: assets/figures/arte-cap1-11-perigos.svg.
+Impressão: assets/figures/arte-cap1-11-perigos-print.png.
+Original: assets/figures/arte-cap1-11-v1.png.
+Prompt completo efetivamente utilizado: assets/figures/arte-cap1-11-v1.prompt.txt.
+Referência de estilo: assets/references/aquarela-grafite-nanquim.png.
+Produção: image_gen; versão não informada. Rótulos editáveis acrescentados na montagem.
+-->
+<p>Risco acrescenta a possibilidade de consequências adversas à análise do perigo, considerando quem ou o que está exposto e suas condições de vulnerabilidade. Desastre corresponde à grave perturbação do funcionamento de uma comunidade ou sociedade produzida pela interação de eventos perigosos com essas condições. Um perigo pode existir sem que se registre um desastre, e efeitos sobre a saúde podem ocorrer sem alcançar essa dimensão de perturbação <span class="citation" data-cites="ipcc2022glossario undrr2017terminology">(<a href="../../backmatter/referencias.html#ref-ipcc2022glossario" role="doc-biblioref">Matthews et al., 2022</a>; <a href="../../backmatter/referencias.html#ref-undrr2017terminology" role="doc-biblioref">United Nations Office for Disaster Risk Reduction, 2017a</a>)</span>.</p>
+<p>Por isso, uma base de desastres não substitui uma série meteorológica ou ambiental. A primeira registra consequências segundo critérios e capacidades de registro; a segunda descreve condições medidas ou estimadas. Ausência de desastre registrado não comprova ausência de perigo. Para avaliar o risco, a informação ambiental precisa ser articulada à presença de pessoas, às possibilidades de proteção e aos desfechos que se pretende evitar.</p>
 </section>
 <section id="exposição-é-contato-situado" class="level3 page-columns page-full" data-number="1.3.2">
 <h3 data-number="1.3.2" class="anchored" data-anchor-id="exposição-é-contato-situado"><span class="header-section-number">1.3.2</span> Exposição é contato situado</h3>
 <p>A exposição depende do encontro entre uma pessoa e uma condição ambiental em determinado lugar e período. Para descrevê-la, precisamos perguntar onde a pessoa esteve, por quanto tempo, realizando qual atividade e com quais possibilidades de proteção. A existência de um perigo no município não demonstra, por si só, que todos os moradores tiveram contato com ele.</p>
-<p>No caso do calor, a temperatura de uma estação caracteriza o ar naquele ponto de medição. A condição térmica experimentada por uma pessoa depende também da radiação solar, da umidade, da ventilação e dos ambientes que ela frequenta. Uma residência que retém calor durante a noite, um local de trabalho sombreado e um deslocamento sob sol intenso compõem situações diferentes ao longo do dia. A atividade física e o vestuário influenciam a carga térmica e as possibilidades de dissipar calor. Por isso, endereço de residência, temperatura externa e experiência térmica individual não são medidas intercambiáveis <span class="citation" data-cites="wmoWho2015heat">(<a href="../../backmatter/referencias.html#ref-wmoWho2015heat" role="doc-biblioref">World Meteorological Organization; World Health Organization, 2015</a>)</span>.</p>
-<p>A <a href="#fig-exposicao-calor-dia" class="quarto-xref">Figura&nbsp;<span>1.3</span></a> acompanha esse percurso em um exemplo didático. As cenas destacam mudanças de ambiente, atividade e possibilidades de proteção; não representam temperaturas ou intervalos medidos.</p>
+<p>No caso do calor, a temperatura de uma estação caracteriza o ar naquele ponto de medição. A condição térmica experimentada por uma pessoa depende também da radiação solar, da umidade, da ventilação e dos ambientes que ela frequenta. Uma residência que retém calor durante a noite, um local de trabalho sombreado e um deslocamento sob sol intenso compõem situações diferentes ao longo do dia.</p>
+<p>Durante o esforço físico, o corpo produz mais calor. As roupas também alteram a troca de calor com o ambiente e a evaporação do suor. Assim, duas pessoas sob a mesma temperatura externa podem enfrentar condições térmicas diferentes, conforme suas atividades, roupas e acesso à sombra e à ventilação. O endereço residencial indica onde alguém mora, mas não informa todos os ambientes que frequenta. Por isso, nem o endereço nem a temperatura externa, isoladamente, descrevem o calor que essa pessoa experimenta ao longo do dia <span class="citation" data-cites="wmoWho2015heat">(<a href="../../backmatter/referencias.html#ref-wmoWho2015heat" role="doc-biblioref">World Meteorological Organization; World Health Organization, 2015</a>)</span>.</p>
+<p>A <a href="#fig-exposicao-calor-dia" class="quarto-xref">Figura&nbsp;<span>1.8</span></a> acompanha esse percurso em um exemplo didático. As cenas destacam mudanças de ambiente, atividade e possibilidades de proteção; não representam temperaturas ou intervalos medidos.</p>
 <div id="fig-exposicao-calor-dia" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-src="arte-cap1-03-exposicao-print.png" alt="Quatro vinhetas em aquarela acompanham a mesma mulher em um bairro urbano misto, com casas, edifícios residenciais e comerciais, calçadas e praça: ela sai de casa pela manhã, com uma estação meteorológica em área aberta; caminha sob sol intenso; trabalha na jardinagem de uma área pública e faz uma pausa à sombra com água; e repousa em casa à noite, sob calor retido nas paredes e na cobertura. A estação mede as condições em um ponto. Local, horário, duração, atividade e condições ambientais modificam a exposição ao longo do percurso. As cenas não representam durações medidas.">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-exposicao-calor-dia-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
-<img src="../../assets/figures/arte-cap1-03-exposicao.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Quatro vinhetas em aquarela acompanham a mesma mulher em um bairro urbano misto, com casas, edifícios residenciais e comerciais, calçadas e praça: ela sai de casa pela manhã, com uma estação meteorológica em área aberta; caminha sob sol intenso; trabalha na jardinagem de uma área pública e faz uma pausa à sombra com água; e repousa em casa à noite, sob calor retido nas paredes e na cobertura. A estação mede as condições em um ponto. Local, horário, duração, atividade e condições ambientais modificam a exposição ao longo do percurso. As cenas não representam durações medidas.">
+<a href="../../assets/figures/arte-cap1-03-exposicao.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-8" title="Figura&nbsp;1.8: Uma pessoa, diferentes condições térmicas"><img src="../../assets/figures/arte-cap1-03-exposicao.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Quatro vinhetas em aquarela acompanham a mesma mulher em um bairro urbano misto, com casas, edifícios residenciais e comerciais, calçadas e praça: ela sai de casa pela manhã, com uma estação meteorológica em área aberta; caminha sob sol intenso; trabalha na jardinagem de uma área pública e faz uma pausa à sombra com água; e repousa em casa à noite, sob calor retido nas paredes e na cobertura. A estação mede as condições em um ponto. Local, horário, duração, atividade e condições ambientais modificam a exposição ao longo do percurso. As cenas não representam durações medidas."></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-exposicao-calor-dia-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;1.3: Uma pessoa, diferentes condições térmicas
+Figura&nbsp;1.8: Uma pessoa, diferentes condições térmicas
 </figcaption>
 </figure>
 </div>
@@ -938,14 +1044,14 @@ Scene/backdrop: Preservar a mesma mulher de pele castanha, coque escuro, camisa 
 -->
 <p>Para a poluição do ar, a concentração ambiental estima quanto poluente existe em determinado volume de ar. A exposição depende da presença e permanência da pessoa nesse ambiente; a quantidade inalada depende também da ventilação pulmonar, entre outros fatores. Uma estimativa para o endereço residencial pode representar exposição potencial, mas não observa todos os deslocamentos ou a dose individual. Uma aplicação de previsões de PM2,5 à antecipação de problemas respiratórios no Brasil ilustra a utilidade da informação ambiental para a vigilância, respeitada a escala em que foi avaliada <span class="citation" data-cites="roux2020alerta">(<a href="../../backmatter/referencias.html#ref-roux2020alerta" role="doc-biblioref">Roux et al., 2020</a>)</span>.</p>
 <p>Para água e contaminantes, a presença de uma substância no ambiente, o contato, a ingestão e a dose absorvida correspondem a etapas diferentes. Detectar um contaminante em uma fonte de abastecimento não informa automaticamente quem consumiu aquela água, em que quantidade ou com qual tratamento prévio. A rota de exposição precisa ser identificada antes de interpretar o resultado sanitário.</p>
-<p>A <a href="#fig-medida-exposicao-dose" class="quarto-xref">Figura&nbsp;<span>1.4</span></a> separa essas perguntas usando o abastecimento de água como exemplo. A coleta informa sobre uma amostra; a conexão à rede, o consumo e a absorção de um contaminante exigem informações distintas.</p>
+<p>A <a href="#fig-medida-exposicao-dose" class="quarto-xref">Figura&nbsp;<span>1.9</span></a> separa essas perguntas usando o abastecimento de água como exemplo. A coleta informa sobre uma amostra; a conexão à rede, o consumo e a absorção de um contaminante exigem informações distintas.</p>
 <div id="fig-medida-exposicao-dose" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-src="arte-cap1-04-dose-print.png" alt="Quatro vinhetas em aquarela separam perguntas sobre água: uma profissional coleta uma amostra; casas e prédios estão conectados à rede; uma pessoa segura um copo junto à torneira; uma silhueta mostra um percurso digestivo simplificado. As perguntas distinguem o que foi medido na água, quem pode acessá-la, se houve consumo e quanto do contaminante atravessou as barreiras do organismo. Não há setas entre as cenas: uma etapa não comprova a seguinte, e a absorção requer informação própria. A rede abastece casas e prédios de apartamentos, e a janela da cozinha mostra o bairro urbano." data-print-width="90%">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-medida-exposicao-dose-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
-<img src="../../assets/figures/arte-cap1-04-dose.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Quatro vinhetas em aquarela separam perguntas sobre água: uma profissional coleta uma amostra; casas e prédios estão conectados à rede; uma pessoa segura um copo junto à torneira; uma silhueta mostra um percurso digestivo simplificado. As perguntas distinguem o que foi medido na água, quem pode acessá-la, se houve consumo e quanto do contaminante atravessou as barreiras do organismo. Não há setas entre as cenas: uma etapa não comprova a seguinte, e a absorção requer informação própria. A rede abastece casas e prédios de apartamentos, e a janela da cozinha mostra o bairro urbano.">
+<a href="../../assets/figures/arte-cap1-04-dose.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-9" title="Figura&nbsp;1.9: Da medida ambiental à dose absorvida"><img src="../../assets/figures/arte-cap1-04-dose.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Quatro vinhetas em aquarela separam perguntas sobre água: uma profissional coleta uma amostra; casas e prédios estão conectados à rede; uma pessoa segura um copo junto à torneira; uma silhueta mostra um percurso digestivo simplificado. As perguntas distinguem o que foi medido na água, quem pode acessá-la, se houve consumo e quanto do contaminante atravessou as barreiras do organismo. Não há setas entre as cenas: uma etapa não comprova a seguinte, e a absorção requer informação própria. A rede abastece casas e prédios de apartamentos, e a janela da cozinha mostra o bairro urbano."></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-medida-exposicao-dose-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;1.4: Da medida ambiental à dose absorvida
+Figura&nbsp;1.9: Da medida ambiental à dose absorvida
 </figcaption>
 </figure>
 </div>
@@ -980,14 +1086,14 @@ Formato: mesma proporção do original 1536 × 1024; resolução igual ou superi
 <p>Falar em processos de vulnerabilização permite examinar como renda, racismo, condições de trabalho, infraestrutura e acesso desigual a direitos limitam a proteção. Uma recomendação para evitar o sol, por exemplo, tem alcance diferente para quem pode mudar seu horário e para quem depende de trabalho externo sem pausas. Cabe à análise reconhecer essas barreiras e as capacidades já existentes, como redes de vizinhança, organização comunitária e conhecimento do território. Essa leitura aproxima a avaliação de vulnerabilidade da identificação de ações possíveis <span class="citation" data-cites="lacerdaFreitas2024justica">(<a href="../../backmatter/referencias.html#ref-lacerdaFreitas2024justica" role="doc-biblioref">Lacerda; Freitas, 2024</a>)</span>.</p>
 <p>Uma pessoa idosa que vive em uma residência termicamente adequada, conta com apoio familiar e tem acesso a uma unidade de saúde próxima pode estar mais protegida durante uma onda de calor do que uma pessoa jovem submetida a trabalho físico intenso ao ar livre, sem pausas e sem acesso regular à água. O exemplo não diminui a importância da idade; mostra que suscetibilidade e exposição precisam ser observadas juntas.</p>
 <p>Capacidade também não é simplesmente o oposto da vulnerabilidade. Um município pode possuir hospital, ambulâncias e plano de contingência e ainda assim perder capacidade durante um evento se ruas ficarem bloqueadas, faltar energia, trabalhadores não conseguirem chegar ou a comunicação falhar. Avaliar capacidade exige observar funcionamento, acesso, redundância e desempenho, e não apenas a existência formal de recursos <span class="citation" data-cites="who2021vulnerability who2024resilienceindicators">(<a href="../../backmatter/referencias.html#ref-who2021vulnerability" role="doc-biblioref">World Health Organization, 2021</a>, <a href="../../backmatter/referencias.html#ref-who2024resilienceindicators" role="doc-biblioref">2024a</a>)</span>.</p>
-<p>A <a href="#fig-territorios-contraste" class="quarto-xref">Figura&nbsp;<span>1.5</span></a> ilustra essas diferenças em dois territórios hipotéticos. O contraste é didático: características favoráveis e desfavoráveis também podem coexistir em um mesmo bairro, exigindo investigação local.</p>
+<p>A <a href="#fig-territorios-contraste" class="quarto-xref">Figura&nbsp;<span>1.10</span></a> ilustra essas diferenças em dois territórios hipotéticos. O contraste é didático: características favoráveis e desfavoráveis também podem coexistir em um mesmo bairro, exigindo investigação local.</p>
 <div id="fig-territorios-contraste" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-src="arte-cap1-05-territorios-print.png" alt="Dois bairros urbanos hipotéticos, ambos com casas e prédios, durante o mesmo episódio de calor. No território A, uma pessoa idosa está à sombra, com água, apoio familiar, moradia ventilada e unidade de saúde próxima. No território B, uma pessoa jovem realiza trabalho físico ao sol, em rua com pouca sombra, moradias quentes e uma construção; vizinhos se ajudam a transportar água. Sombra, ventilação, água regular, apoio e serviços preparados favorecem a proteção. Trabalho externo intenso, água distante e serviços frágeis ampliam barreiras, sem eliminar as capacidades locais de apoio.">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-territorios-contraste-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
-<img src="../../assets/figures/arte-cap1-05-territorios.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Dois bairros urbanos hipotéticos, ambos com casas e prédios, durante o mesmo episódio de calor. No território A, uma pessoa idosa está à sombra, com água, apoio familiar, moradia ventilada e unidade de saúde próxima. No território B, uma pessoa jovem realiza trabalho físico ao sol, em rua com pouca sombra, moradias quentes e uma construção; vizinhos se ajudam a transportar água. Sombra, ventilação, água regular, apoio e serviços preparados favorecem a proteção. Trabalho externo intenso, água distante e serviços frágeis ampliam barreiras, sem eliminar as capacidades locais de apoio.">
+<a href="../../assets/figures/arte-cap1-05-territorios.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-10" title="Figura&nbsp;1.10: O mesmo perigo pode produzir riscos diferentes. Territórios hipotéticos; condições favoráveis e desfavoráveis podem coexistir."><img src="../../assets/figures/arte-cap1-05-territorios.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Dois bairros urbanos hipotéticos, ambos com casas e prédios, durante o mesmo episódio de calor. No território A, uma pessoa idosa está à sombra, com água, apoio familiar, moradia ventilada e unidade de saúde próxima. No território B, uma pessoa jovem realiza trabalho físico ao sol, em rua com pouca sombra, moradias quentes e uma construção; vizinhos se ajudam a transportar água. Sombra, ventilação, água regular, apoio e serviços preparados favorecem a proteção. Trabalho externo intenso, água distante e serviços frágeis ampliam barreiras, sem eliminar as capacidades locais de apoio."></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-territorios-contraste-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;1.5: O mesmo perigo pode produzir riscos diferentes. Territórios hipotéticos; condições favoráveis e desfavoráveis podem coexistir.
+Figura&nbsp;1.10: O mesmo perigo pode produzir riscos diferentes. Territórios hipotéticos; condições favoráveis e desfavoráveis podem coexistir.
 </figcaption>
 </figure>
 </div>
@@ -1026,6 +1132,29 @@ Scene/backdrop: Transformar ambos os bairros em bairros urbanos mistos com edif�
 <p>Populações indígenas, comunidades tradicionais, pessoas em situação de rua, moradores de favelas e periferias, trabalhadores expostos, pessoas com deficiência e indivíduos com condições crônicas podem enfrentar barreiras específicas de proteção. Entretanto, mesmo dentro desses grupos há grande diversidade de condições. O objetivo não é transformar categorias sociais em escores automáticos, mas compreender por quais mecanismos uma população fica mais exposta, mais suscetível ou com menor acesso a recursos de proteção.</p>
 <p>As desigualdades podem aparecer em diferentes pontos da cadeia: alguns territórios recebem mais perigos; algumas pessoas permanecem expostas por mais tempo; algumas têm maior suscetibilidade; outras enfrentam mais dificuldade para acessar cuidado depois do agravo. Há ainda uma desigualdade menos visível: quem aparece nos dados. Menor acesso a serviços pode produzir menos diagnósticos registrados sem significar menor ocorrência de doença.</p>
 <p>Essa é uma razão para desconfiar de médias isoladas. Um indicador municipal pode melhorar enquanto determinados bairros ou grupos permanecem em situação desfavorável. Quando possível, o monitoramento deve combinar medidas gerais com desagregações territorial e socialmente justificadas, sem perder de vista grupos que os próprios sistemas de informação representam mal <span class="citation" data-cites="who2024sdhequity">(<a href="../../backmatter/referencias.html#ref-who2024sdhequity" role="doc-biblioref">World Health Organization, 2024b</a>)</span>.</p>
+<p>A <a href="#fig-desigualdades-risco" class="quarto-xref">Figura&nbsp;<span>1.11</span></a> situa esses mecanismos no cotidiano. A moradia modifica a proteção disponível; o trabalho condiciona o tempo de exposição e a possibilidade de fazer pausas; a mobilidade e a organização dos serviços influenciam o acesso ao cuidado. Na quarta cena, a escuta e a busca ativa ajudam a reconhecer necessidades que podem não aparecer espontaneamente nos registros. Observar essas condições permite identificar intervenções, sem tratar uma categoria social como destino inevitável.</p>
+<div id="fig-desigualdades-risco" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-src="arte-cap1-12-desigualdades-print.png" alt="Quatro aquarelas mostram uma moradora abrindo a janela, trabalhadores urbanos com diferentes momentos de esforço e pausa, uma pessoa em cadeira de rodas chegando ao serviço de saúde e uma agente comunitária ouvindo uma moradora. Os rótulos relacionam moradia, trabalho, acesso ao cuidado e presença nos dados às possibilidades de proteção. São situações hipotéticas, sem escores de vulnerabilidade." data-print-width="90%">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-desigualdades-risco-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<a href="../../assets/figures/arte-cap1-12-desigualdades.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-11" title="Figura&nbsp;1.11: Quatro caminhos das desigualdades na produção do risco"><img src="../../assets/figures/arte-cap1-12-desigualdades.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Quatro aquarelas mostram uma moradora abrindo a janela, trabalhadores urbanos com diferentes momentos de esforço e pausa, uma pessoa em cadeira de rodas chegando ao serviço de saúde e uma agente comunitária ouvindo uma moradora. Os rótulos relacionam moradia, trabalho, acesso ao cuidado e presença nos dados às possibilidades de proteção. São situações hipotéticas, sem escores de vulnerabilidade."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-desigualdades-risco-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;1.11: Quatro caminhos das desigualdades na produção do risco
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte e composição: elaboração própria, com aquarela gerada pela ferramenta image_gen. Licença: a mesma dos textos autorais da obra.</span></p>
+<!--
+ARTE CAP1-12 — Revisão conceitual do capítulo.
+Composição: scripts/build_cap1_revision.py.
+Metadados, descrição acessível e proveniência: assets/figures/arte-cap1-revisao-manifest.json.
+SVG: assets/figures/arte-cap1-12-desigualdades.svg.
+Impressão: assets/figures/arte-cap1-12-desigualdades-print.png.
+Original: assets/figures/arte-cap1-12-v1.png.
+Prompt completo efetivamente utilizado: assets/figures/arte-cap1-12-v1.prompt.txt.
+Referência de estilo: assets/references/aquarela-grafite-nanquim.png.
+Produção: image_gen; versão não informada. Rótulos editáveis acrescentados na montagem.
+-->
 <section id="justiça-ambiental-e-climática" class="level3 page-columns page-full" data-number="1.4.1">
 <h3 data-number="1.4.1" class="anchored" data-anchor-id="justiça-ambiental-e-climática"><span class="header-section-number">1.4.1</span> Justiça ambiental e climática</h3>
 <p>Justiça ambiental diz respeito à distribuição dos danos e benefícios ambientais e às condições de participação nas decisões que os produzem. Ela permite perguntar por que certos grupos convivem com saneamento precário, poluição ou moradia em áreas perigosas enquanto outros dispõem de maior proteção. O problema envolve a forma como direitos, recursos e poder de decisão se distribuem. Reduzir a exposição exige também compreender as condições que restringem as escolhas das populações.</p>
@@ -1039,14 +1168,14 @@ Scene/backdrop: Transformar ambos os bairros em bairros urbanos mistos com edif�
 <p>Essas dimensões precisam aparecer na avaliação das respostas. Ampliar áreas verdes pode reduzir a exposição ao calor, mas a distribuição dos investimentos precisa alcançar bairros com maior necessidade. Um alerta divulgado apenas por aplicativos pode deixar de alcançar pessoas sem conexão ou com barreiras de acessibilidade. Um reassentamento pode reduzir a exposição à água e, ao mesmo tempo, dificultar o acesso ao trabalho, à escola e às redes de apoio. Esses exemplos são possibilidades de análise, não resultados atribuídos a uma intervenção específica. Mostram por que reduzir um perigo não basta para demonstrar que uma medida foi socialmente justa.</p>
 <p>A adaptação pode reproduzir desigualdades quando transfere custos às famílias, exige recursos que elas não possuem ou protege prioritariamente áreas com maior capacidade de influência. Por isso, o acompanhamento deve combinar resultados gerais com sua distribuição territorial e social. Além de perguntar quantas pessoas receberam um alerta, é necessário verificar quem pôde agir; além de contar unidades recuperadas, é necessário observar se o cuidado voltou a ser acessível. Os critérios de sucesso devem considerar as necessidades de quem enfrentava maiores barreiras antes do evento.</p>
 <p>Participação e conhecimento local ajudam a identificar essas barreiras. Moradores, trabalhadores, agentes comunitários e organizações territoriais podem reconhecer trajetos, locais de abrigo, horários de exposição e redes de apoio ausentes nas bases administrativas. A articulação com informações técnicas exige diálogo e devolução dos resultados, preservando as condições de participação desses grupos. Para o SUS, isso aproxima vigilância, controle social e ação intersetorial: o indicador deve apoiar escolhas discutidas com as populações afetadas e permitir avaliar quem foi efetivamente protegido.</p>
-<p>A <a href="#fig-justica-ambiental-climatica" class="quarto-xref">Figura&nbsp;<span>1.6</span></a> reúne essas dimensões em quatro perguntas para avaliar uma medida de adaptação.</p>
+<p>A <a href="#fig-justica-ambiental-climatica" class="quarto-xref">Figura&nbsp;<span>1.12</span></a> reúne essas dimensões em quatro perguntas para avaliar uma medida de adaptação.</p>
 <div id="fig-justica-ambiental-climatica" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-src="arte-cap1-06-justica-print.png" alt="Quatro cenas em aquarela têm o mesmo destaque: moradores observam diferenças de sombra, água e acesso ao cuidado; moradores, trabalhadores, uma técnica e uma pessoa com deficiência participam de uma reunião; uma moradora idosa compartilha conhecimento do território com profissionais; e pessoas de diferentes gerações discutem proteção diante de fontes de emissão ligadas à produção e ao transporte. As perguntas são: quem recebe danos e proteção; quem participa das decisões; quais conhecimentos são reconhecidos; e quem contribui para o problema e arca com os custos. A representação é conceitual, sem inventário de emissões nem atribuição de quantidades. Casas, edifícios, ruas, equipamentos públicos e vegetação compõem os territórios urbanos das quatro cenas." data-print-width="90%">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-justica-ambiental-climatica-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
-<img src="../../assets/figures/arte-cap1-06-justica.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Quatro cenas em aquarela têm o mesmo destaque: moradores observam diferenças de sombra, água e acesso ao cuidado; moradores, trabalhadores, uma técnica e uma pessoa com deficiência participam de uma reunião; uma moradora idosa compartilha conhecimento do território com profissionais; e pessoas de diferentes gerações discutem proteção diante de fontes de emissão ligadas à produção e ao transporte. As perguntas são: quem recebe danos e proteção; quem participa das decisões; quais conhecimentos são reconhecidos; e quem contribui para o problema e arca com os custos. A representação é conceitual, sem inventário de emissões nem atribuição de quantidades. Casas, edifícios, ruas, equipamentos públicos e vegetação compõem os territórios urbanos das quatro cenas.">
+<a href="../../assets/figures/arte-cap1-06-justica.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-12" title="Figura&nbsp;1.12: Quatro perguntas para avaliar a justiça de uma resposta climática"><img src="../../assets/figures/arte-cap1-06-justica.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Quatro cenas em aquarela têm o mesmo destaque: moradores observam diferenças de sombra, água e acesso ao cuidado; moradores, trabalhadores, uma técnica e uma pessoa com deficiência participam de uma reunião; uma moradora idosa compartilha conhecimento do território com profissionais; e pessoas de diferentes gerações discutem proteção diante de fontes de emissão ligadas à produção e ao transporte. As perguntas são: quem recebe danos e proteção; quem participa das decisões; quais conhecimentos são reconhecidos; e quem contribui para o problema e arca com os custos. A representação é conceitual, sem inventário de emissões nem atribuição de quantidades. Casas, edifícios, ruas, equipamentos públicos e vegetação compõem os territórios urbanos das quatro cenas."></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-justica-ambiental-climatica-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;1.6: Quatro perguntas para avaliar a justiça de uma resposta climática
+Figura&nbsp;1.12: Quatro perguntas para avaliar a justiça de uma resposta climática
 </figcaption>
 </figure>
 </div>
@@ -1081,9 +1210,6 @@ Formato: mesma proporção do original 1536 × 1024; resolução igual ou superi
 <p>A leitura das trajetórias acompanha os efeitos no tempo: consequências diretas podem persistir e indiretas podem surgir imediatamente. A análise exige explicitar mecanismo, população, território e janela de observação, reconhecendo o que os dados permitem representar. O <a href="01b-mudanca-climatica-resposta-sus.html" class="quarto-xref"><span>Capítulo 2</span></a> desenvolve as implicações para o planejamento, a vigilância e a continuidade do cuidado.</p>
 
 
-</section>
-<section id="bibliography" class="level1 unnumbered">
-<h1 class="unnumbered">Referências</h1>
 <div id="refs" class="references csl-bib-body" data-entry-spacing="1" role="list" style="display: none">
 <div id="ref-barcellos2009clima" class="csl-entry" role="listitem">
 BARCELLOS, Christovam <em>et al.</em> Mudanças climáticas e ambientais e as doenças infecciosas: cenários e incertezas para o Brasil. <strong>Epidemiologia e Serviços de Saúde</strong>, v. 18, n. 3, p. 285–304, 2009. Disponível em: &lt;https://doi.org/<a href="https://doi.org/10.5123/S1679-49742009000300011">10.5123/S1679-49742009000300011</a>&gt;.
@@ -1097,11 +1223,17 @@ CISSÉ, Guéladio <em>et al.</em> <a href="https://doi.org/10.1017/9781009325844
 <div id="ref-corvalan1999links" class="csl-entry" role="listitem">
 CORVALÁN, Carlos F.; KJELLSTRÖM, Tord; SMITH, Kirk R. Health, Environment and Sustainable Development: Identifying Links and Indicators to Promote Action. <strong>Epidemiology</strong>, v. 10, n. 5, p. 656–660, 1999. Disponível em: &lt;https://doi.org/<a href="https://doi.org/10.1097/00001648-199909000-00024">10.1097/00001648-199909000-00024</a>&gt;.
 </div>
+<div id="ref-freitas2014desastres" class="csl-entry" role="listitem">
+FREITAS, Carlos Machado de <em>et al.</em> Desastres naturais e saúde: uma análise da situação do Brasil. <strong>Ciência &amp; Saúde Coletiva</strong>, v. 19, n. 9, p. 3645–3656, 2014. Disponível em: &lt;https://doi.org/<a href="https://doi.org/10.1590/1413-81232014199.00732014">10.1590/1413-81232014199.00732014</a>&gt;.
+</div>
 <div id="ref-lacerdaFreitas2024justica" class="csl-entry" role="listitem">
 LACERDA, Luiz Felipe Barboza; FREITAS, Carlos Machado de. Justiça socioambiental para gestão integral de riscos de desastres. <strong>Em Pauta: teoria social e realidade contemporânea</strong>, v. 22, n. 55, p. 148–159, 2024. Disponível em: &lt;https://doi.org/<a href="https://doi.org/10.12957/rep.2024.79890">10.12957/rep.2024.79890</a>&gt;.
 </div>
 <div id="ref-ipcc2022glossario" class="csl-entry" role="listitem">
 MATTHEWS, J. B. Robin <em>et al.</em> <a href="https://doi.org/10.1017/9781009325844.029">Annex II: Glossary</a>. <em>In</em>: PÖRTNER, Hans-Otto <em>et al.</em> (Orgs). <strong>Climate Change 2022: Impacts, Adaptation and Vulnerability</strong>. Cambridge: Cambridge University Press, 2022. p. 2897–2930.
+</div>
+<div id="ref-redmond2005natural" class="csl-entry" role="listitem">
+REDMOND, Anthony D. Natural disasters. <strong>BMJ</strong>, v. 330, n. 7502, p. 1259–1261, 2005. Disponível em: &lt;https://doi.org/<a href="https://doi.org/10.1136/bmj.330.7502.1259">10.1136/bmj.330.7502.1259</a>&gt;.
 </div>
 <div id="ref-roux2020alerta" class="csl-entry" role="listitem">
 ROUX, Emmanuel <em>et al.</em> Toward an Early Warning System for Health Issues Related to Particulate Matter Exposure in Brazil: The Feasibility of Using Global PM2.5 Concentration Forecast Products. <strong>Remote Sensing</strong>, v. 12, n. 24, p. 4074, 2020. Disponível em: &lt;https://doi.org/<a href="https://doi.org/10.3390/rs12244074">10.3390/rs12244074</a>&gt;.
@@ -1110,7 +1242,10 @@ ROUX, Emmanuel <em>et al.</em> Toward an Early Warning System for Health Issues 
 SOLAR, Orielle; IRWIN, Alec. <strong><a href="https://www.who.int/publications/i/item/9789241500852">A conceptual framework for action on the social determinants of health</a></strong>. Geneva: World Health Organization, 2010.
 </div>
 <div id="ref-undrr2017terminology" class="csl-entry" role="listitem">
-UNITED NATIONS OFFICE FOR DISASTER RISK REDUCTION. <strong>Sendai Framework terminology on disaster risk reduction</strong>. 2017. Disponível em: &lt;<a href="https://www.undrr.org/terminology">https://www.undrr.org/terminology</a>&gt;. Acesso em: 4 ago. 2026.
+UNITED NATIONS OFFICE FOR DISASTER RISK REDUCTION. <strong>Sendai Framework terminology on disaster risk reduction</strong>. 2017a. Disponível em: &lt;<a href="https://www.undrr.org/terminology">https://www.undrr.org/terminology</a>&gt;. Acesso em: 4 ago. 2026.
+</div>
+<div id="ref-undrr2017hazard" class="csl-entry" role="listitem">
+UNITED NATIONS OFFICE FOR DISASTER RISK REDUCTION. <strong>Hazard: Sendai Framework terminology on disaster risk reduction</strong>. 2017b. Disponível em: &lt;<a href="https://www.undrr.org/terminology/hazard">https://www.undrr.org/terminology/hazard</a>&gt;. Acesso em: 3 out. 2026.
 </div>
 <div id="ref-who2003environmentalindicators" class="csl-entry" role="listitem">
 WORLD HEALTH ORGANIZATION. <strong><a href="https://iris.who.int/handle/10665/42673">Making a difference: indicators to improve children’s environmental health</a></strong>. Geneva: World Health Organization, 2003.
@@ -1577,8 +1712,40 @@ XAVIER, Diego Ricardo <em>et al.</em> Climate change and health vulnerabilities:
   </div>
 </nav>
 </div> <!-- /content -->
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/rfsaldanha/dicas/blob/main/chapters/part-1/01-clima-ambiente-saude.qmd" class="toc-action"><i class="bi bi-github"></i>Ver o código fonte</a></li><li><a href="https://github.com/rfsaldanha/dicas/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></div></div></footer><script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      }
+    });
+
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+
+  };
+
+})();
+          </script>
 
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/rfsaldanha/dicas/blob/main/chapters/part-1/01-clima-ambiente-saude.qmd" class="toc-action"><i class="bi bi-github"></i>Ver o código fonte</a></li><li><a href="https://github.com/rfsaldanha/dicas/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></div></div></footer></body></html>
+</body></html>

@@ -13,7 +13,8 @@ import xml.etree.ElementTree as ET
 from playwright.sync_api import sync_playwright
 
 
-def export_print(svg, output, width=2700):
+def export_print(svg, output, width=2700, *, require_raster=True):
+    """Exporte aquarelas; diagramas vetoriais devem usar require_raster=False."""
     svg, output = Path(svg), Path(output)
     root = ET.parse(svg).getroot()
     _, _, sw, sh = map(float, root.attrib['viewBox'].split())
@@ -31,7 +32,7 @@ def export_print(svg, output, width=2700):
                                  'svg{display:block}'
                                  '</style></head><body>' + svg.read_text() + '</body></html>',
                                  wait_until='load')
-                page.evaluate('''async ([width, height]) => {
+                page.evaluate('''async ([width, height, requireRaster]) => {
                     const svg = document.querySelector('svg');
                     svg.setAttribute('width', width);
                     svg.setAttribute('height', height);
@@ -41,14 +42,15 @@ def export_print(svg, output, width=2700):
                     if (!faces.length || faces.some(face => face.status !== 'loaded'))
                         throw new Error('Fontes incorporadas não foram carregadas.');
                     const images = [...document.querySelectorAll('image')];
-                    if (!images.length) throw new Error('SVG sem aquarela incorporada.');
+                    if (requireRaster && !images.length)
+                        throw new Error('SVG sem aquarela incorporada.');
                     await Promise.all(images.map(async element => {
                         const image = new Image();
                         image.src = element.getAttribute('href') ||
                             element.getAttributeNS('http://www.w3.org/1999/xlink', 'href');
                         await image.decode();
                     }));
-                }''', [width, height])
+                }''', [width, height, require_raster])
                 page.screenshot(path=str(rgba), animations='disabled')
             finally:
                 browser.close()

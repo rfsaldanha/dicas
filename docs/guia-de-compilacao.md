@@ -75,6 +75,14 @@ A revisão urbana abrange as 31 aquarelas: oito na primeira etapa e outras 23 na
 
 Nas cenas de trabalho interno, a presença urbana aparece principalmente nas vistas das janelas. Instrumentos em áreas abertas, estados dos equipamentos, documentos sem dados, vinhetas vazias e relações conceituais devem permanecer coerentes. Os mapas empíricos e diagramas técnicos seguem suas próprias fontes e métodos.
 
+### Figuras da revisão do capítulo 1
+
+As seis novas figuras (CAP1-07 a CAP1-12) são recompostas por `python scripts/build_cap1_revision.py`, no mesmo ambiente Python das demais artes. Os originais, os três prompts de aquarela e a proveniência estão em `assets/figures`; o manifesto é `arte-cap1-revisao-manifest.json`. O código acrescenta os rótulos editáveis e exporta as versões em cinza.
+
+Quadrantes, curvas e Venn são exclusivamente vetoriais e usam `export_print(..., require_raster=False)`. As aquarelas mantêm a exigência de raster válido, padrão do exportador. Execute `python scripts/test_render_figure.py` para conferir a opção vetorial e a preservação da saída quando a imagem incorporada é inválida. As chamadas aceitam `DICAS_BROWSER_CHANNEL=chrome`.
+
+A composição sobre desigualdades usa 90% da largura na impressão para preservar pelo menos 300 ppi efetivos no original, antes da rasterização. As curvas de impacto são uma elaboração didática sobre os horizontes de Freitas et al. (2014): sua Figura 1 contém blocos temporais, sem curvas ou dados quantitativos.
+
 ### Renderização do livro
 
 O pré-render executa `scripts/build_catalogs.R`. Esse script lê YAML, valida campos e códigos e gera páginas e índices. Em seguida, o Quarto compõe o livro. A validação completa deve ser executada após as duas saídas existirem. Renderizar os perfis em sequência: eles compartilham artefatos intermediários do Quarto.
