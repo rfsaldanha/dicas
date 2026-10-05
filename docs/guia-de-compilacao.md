@@ -48,7 +48,7 @@ make validate
 
 ### Recomposição das ilustrações em aquarela
 
-Os montadores das 31 artes dos capítulos 1 a 5 usam `scripts/render_figure.py` para exportar as composições: Chromium carrega as aquarelas e as fontes WOFF2 incorporadas no SVG; ImageMagick produz o PNG de 8 bits em escala de cinza. A exportação verifica a decodificação das imagens e o carregamento das fontes antes de substituir o PNG. Esse caminho evita exportações do Inkscape que omitem a imagem incorporada ou substituem a fonte.
+Os montadores das artes dos capítulos 1 a 5 usam `scripts/render_figure.py` para exportar as composições: Chromium carrega as aquarelas e as fontes WOFF2 incorporadas no SVG; ImageMagick produz o PNG de 8 bits em escala de cinza. A exportação verifica a decodificação das imagens e o carregamento das fontes antes de substituir o PNG. Esse caminho evita exportações do Inkscape que omitem a imagem incorporada ou substituem a fonte.
 
 Em um ambiente virtual Python, instalar `Pillow` e `playwright`, além do ImageMagick (`magick` no PATH). Usar `python -m playwright install chromium` para preparar o navegador. Alternativamente, com Google Chrome instalado, definir `DICAS_BROWSER_CHANNEL=chrome` no ambiente das chamadas abaixo.
 
@@ -71,7 +71,9 @@ python scripts/build_cap4_art.py
 python scripts/build_cap5_art.py
 ```
 
-A revisão urbana abrange as 31 aquarelas: oito na primeira etapa e outras 23 na segunda. Os originais e prompts anteriores ficam preservados; os montadores selecionam `v2`, exceto CAP1-01, que usa `v3` porque já possuía duas versões. As revisões mantêm os identificadores, os nomes dos SVGs e dos PNGs de impressão. Conferir também a resolução efetiva do original em cada recorte: aumentar a largura do PNG exportado não aumenta o detalhe disponível na aquarela.
+A revisão urbana abrange as 31 aquarelas: oito na primeira etapa e outras 23 na segunda. Os originais e prompts anteriores ficam preservados; os montadores selecionam `v2`, exceto CAP1-01 e CAP4-01, que usam `v3`. As revisões mantêm os identificadores, os nomes dos SVGs e dos PNGs de impressão. Conferir também a resolução efetiva do original em cada recorte: aumentar a largura do PNG exportado não aumenta o detalhe disponível na aquarela.
+
+No capítulo 4, CAP4-01 usa a vista vertical `v3`, com os originais anteriores preservados. CAP4-08 e CAP4-09 reutilizam essa aquarela em pranchas espaciais; CAP4-10 e CAP4-11 são vetoriais e dispensam raster incorporado. O montador lê o tipo de composição no manifesto. A tabela de fusos horários registra a versão IANA e as conversões em `data-raw/figures/conversoes-utc-cap4.json`; `python3 scripts/check_cap4_timezones.py` confere os valores publicados e casos de transição sazonal, também durante `make validate`.
 
 Nas cenas de trabalho interno, a presença urbana aparece principalmente nas vistas das janelas. Instrumentos em áreas abertas, estados dos equipamentos, documentos sem dados, vinhetas vazias e relações conceituais devem permanecer coerentes. Os mapas empíricos e diagramas técnicos seguem suas próprias fontes e métodos.
 

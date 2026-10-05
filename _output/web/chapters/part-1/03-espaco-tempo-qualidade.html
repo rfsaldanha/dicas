@@ -70,9 +70,9 @@ div.csl-indent {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-e5583ca9376584c4c28bae413d841c71.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-3890ee60a53b4691a29ad5e6214cda48.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-e5583ca9376584c4c28bae413d841c71.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-bb162014f31ff550f3668977ab0f7733.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-fdd2e9c9119fd81cafe9a82057eefc34.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-bb162014f31ff550f3668977ab0f7733.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -707,37 +707,31 @@ O nível em que o fenômeno será interpretado ou a decisão será tomada.
 </div>
 </div>
 <p>Uma estação meteorológica, por exemplo, possui uma coordenada, mas sua observação é feita em um ponto e sob condições específicas de instalação. Uma célula de grade de 10 km possui uma localização e uma dimensão, mas o valor pode resultar de um modelo cuja influência espacial ultrapassa o tamanho nominal da célula. Uma taxa municipal, por sua vez, não representa um ponto: ela resume eventos e população dentro de um limite administrativo. Barcellos e Bastos mostram que escolher escala e objeto de análise antecede a integração das bases e condiciona a interpretação dos resultados ambientais e sanitários <span class="citation" data-cites="barcellos1996geoprocessamento">(<a href="../../backmatter/referencias.html#ref-barcellos1996geoprocessamento" role="doc-biblioref">Barcellos; Bastos, 1996</a>)</span>.</p>
-<p>A <a href="#fig-suporte-localizacao" class="quarto-xref">Figura&nbsp;<span>4.1</span></a> resume essa distinção. Os elementos podem ocupar a mesma região do mapa e, ainda assim, ter suportes completamente diferentes.</p>
+<p>A <a href="#fig-suporte-localizacao" class="quarto-xref">Figura&nbsp;<span>4.1</span></a> resume essa distinção em vista vertical, como um mapa. Estação, residência, ruas e rio ocupam posições idênticas nos três painéis; mudam apenas as camadas que indicam localização, suporte e unidade de análise. Compartilhar uma região do mapa não torna esses suportes equivalentes. A paisagem é hipotética e não possui escala cartográfica.</p>
 <!--
-ARTE CAP4-01 — Revisão urbana v2
-Finalidade e leitura: Uma paisagem hipotética combina uma estação em área aberta, núcleo urbano com prédios e ruas, casas, vegetação e rio. Três cópias da mesma cena recebem camadas vetoriais: pontos na estação e em uma residência, células de grade e um limite municipal. A mesma coordenada não define sozinha o suporte do valor.
-Identificador preservado: fig-suporte-localizacao.
-Arte incorporada: assets/figures/arte-cap4-01-suporte.svg.
-Versão de impressão: assets/figures/arte-cap4-01-suporte-print.png, em escala de cinza.
-Aquarela utilizada: assets/figures/arte-cap4-01-v2.png.
-Original anterior preservado: assets/figures/arte-cap4-01-v1.png.
-Prompt anterior preservado: assets/figures/arte-cap4-01-v1.prompt.txt.
-Prompt efetivamente utilizado: assets/figures/arte-cap4-01-v2.prompt.txt.
-Referência visual: assets/references/aquarela-grafite-nanquim.png; original v1 como referência de composição.
-Produção: edição com a ferramenta integrada image_gen; versão da ferramenta não informada.
-Composição reproduzível: scripts/build_cap4_art.py 01; exportação por scripts/render_figure.py.
-Rótulos e relações conceituais editáveis; fontes e aquarela incorporadas verificadas antes da exportação.
-Montagem: Usar a mesma cena em três painéis verticais. Sobrepor pontos no primeiro, grade no segundo e polígono no terceiro. Rótulos: Localização; Suporte em área; Unidade de análise. A grade cruza o limite, sem sugerir encaixe perfeito.
+ARTE CAP4-01 — Vista vertical v3
+Originais e prompts v1/v2 preservados. Fonte atual: arte-cap4-01-v3.png.
+Primeira geração: arte-cap4-01-v3-preliminar.png; refinamento geométrico antes da montagem.
+Referências: original v2 (conteúdo) e aquarela-grafite-nanquim.png (estilo), apresentados em prévias JPEG.
+Montagem: mesma cena repetida; pontos na estação e residência, grade e limite em vetor. Rótulos editáveis.
+Reprodução: python3 scripts/build_cap4_art.py 01
 Prompt completo:
 Use case: precise-object-edit.
-Asset type: ilustração científica editorial para livro brasileiro sobre clima, ambiente e saúde.
-Input images: Imagem 1 é o original a EDITAR, referência obrigatória de composição, personagens e função; Imagem 2 é SOMENTE referência de ESTILO (aquarela-grafite-nanquim.png), não copiar sua cena.
+Asset type: paisagem cartográfica conceitual para livro científico brasileiro, formato horizontal 3:2, resolução 1536 × 1024 pixels ou maior.
+Input images: Imagem 1 é o original a reinterpretar em vista vertical, preservando os elementos do território. Imagem 2 é somente referência de ESTILO; não copiar pessoas ou composição dela.
 Style/medium: Ilustração editorial em aquarela tradicional translúcida, combinada com traços finos e espontâneos de lápis grafite e nanquim. Contornos parcialmente abertos, hachuras leves e marcas discretas de rascunho. Textura sutil de papel aquarela, pigmentação irregular e transições suaves. Paleta de verdes naturais, azuis acinzentados, ocres e terracota, com saturação moderada. Preservar áreas de papel branco e bordas irregulares que se dissolvem no fundo. Pessoas com proporções naturais e diversidade de tons de pele. Linguagem visual madura, acolhedora e adequada à divulgação científica para adultos.
-Primary request: Revisar esta imagem para trazer uma cidade brasileira contemporânea, inteiramente hipotética, para o plano principal. Prédios e infraestrutura urbana precisam ser claramente reconhecíveis, não apenas uma silhueta distante no horizonte. Preservar a linguagem de aquarela e a ideia científica do original.
-Constraints: Manter ordem, quantidade e separação das vinhetas; preservar identidade, roupas e gestos dos personagens existentes, perspectiva e margens de papel branco, salvo as mudanças explicitamente solicitadas abaixo. Pessoas e mãos anatomicamente coerentes. Densidade urbana legível, sem excesso de detalhes. Mostrar diferentes condições de proteção em ambientes urbanos sem caricaturas ou equivalência automática entre cidade e dano. Não desenhar palavras, letras, números, logotipos, marcas d'água, setas, grades analíticas, legendas ou novos gráficos. Textos e conexões serão acrescentados como vetores. Contraste deve funcionar em escala de cinza. Não inventar dados quantitativos nem representar uma cidade real.
+Primary request: Transformar o território da imagem 1 em uma vista ORTOGONAL VERTICAL, NÁDIR, exatamente de cima, como um mapa ilustrado. O plano do chão deve ser paralelo ao papel: não mostrar horizonte, céu, montanhas vistas de lado, fachadas, lados verticais de prédios ou perspectiva isométrica. Mostrar somente coberturas, plantas, ruas e copas de árvores vistas verticalmente.
+Composition/framing: Uma única paisagem urbana e periurbana inteiramente hipotética. Estação meteorológica pequena no terço esquerdo, em terreno gramado amplo e aberto, afastada de árvores e edifícios; vista superior do abrigo e instrumentos, sem ampliá-los desproporcionalmente. Núcleo urbano misto no centro e à direita, com quarteirões, vias, coberturas de edifícios maiores e casas menores. Uma residência de telhado terracota deve ser distinguível na região inferior direita. Rio sinuoso na faixa superior direita, arborização nas margens e ponte vista de cima. Vegetação e campos no lado esquerdo. Preservar a distribuição geral de estação à esquerda, ocupação urbana à direita e água no alto, adaptando toda a geometria à projeção estritamente superior. Não preservar o horizonte oblíquo do original. Bordas orgânicas suaves sobre papel branco e margens pequenas.
+Constraints: Sem pessoas; sem palavras, letras, números, setas, pontos marcadores, grades, limites administrativos, legendas, escalas, logotipos ou marcas d'água. Sem mapa de cidade real ou quantidades observacionais. Estação e residência receberão pontos vetoriais depois. A mesma imagem será repetida em diferentes painéis científicos; não gerar painéis nesta aquarela. Contraste legível em escala de cinza. Prédios reconhecíveis por coberturas amplas, sem qualquer fachada aparente. Não desenhar nuvens sobre o território.
 
-Composition/framing: Uma paisagem única horizontal 3:2, resolução 1536 × 1024 pixels ou maior. Preservar perspectiva levemente elevada, estação meteorológica no terço esquerdo em terreno aberto, rio e nuvens ao fundo, margem branca irregular; a região principal útil está entre y=18% e y=94% da imagem.
-Scene/backdrop: Transformar o núcleo de casas central e à direita em território urbano e periurbano misto: edifícios residenciais e comerciais de 4 a 10 andares bem visíveis no médio plano, quarteirões e vias pavimentadas, unidade de saúde sem inscrições, casas de diferentes tipos, praças arborizadas e áreas abertas junto ao rio. Manter campos e vegetação no terço esquerdo em torno da estação, com recuo plausível dos prédios. Preservar uma moradia baixa de telhado terracota claramente distinguível no primeiro plano à direita, pois receberá um marcador vetorial. Não acrescentar pontos, grades, limites ou símbolos analíticos. Esta mesma paisagem será repetida em três linhas para comparar localização, suporte e unidade de análise.
+Refinamento efetivamente aplicado:
+Correção geométrica precisa da imagem recém-gerada: manter posições de ruas, rio, ponte, vegetação, estação, cores e técnica. Mudar APENAS a projeção de TODAS as construções e instrumentos para NÁDIR ORTOGRÁFICO, câmera exatamente 90 graus para baixo, mapa plano visto de cima. Os prédios atuais mostram janelas e paredes verticais em suas faces inferiores; REMOVER COMPLETAMENTE essas fachadas, janelas laterais e paredes aparentes. Cada prédio será somente sua cobertura e planta horizontal: retângulos de laje clara com detalhes de telhado, sem extrusão, sem qualquer face lateral. A estação à esquerda será vista só de cima, abrigo apenas cobertura branca e instrumentos como suas pequenas plantas. Casas apenas telhados. Não inclinar prédios. Esta é uma imagem cartográfica, não uma fotografia aérea oblíqua nem uma cidade isométrica. Preservar contornos e localizações do território e aquarela com grafite e nanquim. Sem qualquer texto, número, grade, setas ou novos elementos. Manter 1536 × 1024 ou maior.
+
 -->
-<div id="fig-suporte-localizacao" class="lightbox quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-src="arte-cap4-01-suporte-print.png" alt="Uma paisagem hipotética combina uma estação em área aberta, núcleo urbano com prédios e ruas, casas, vegetação e rio. Três cópias da mesma cena recebem camadas vetoriais: pontos na estação e em uma residência, células de grade e um limite municipal. A mesma coordenada não define sozinha o suporte do valor." data-print-width="120mm">
+<div id="fig-suporte-localizacao" class="lightbox quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-src="arte-cap4-01-suporte-print.png" alt="Três cópias idênticas de um território hipotético visto verticalmente, como mapa, recebem pontos na estação e na residência, células de grade e um limite municipal. Ruas, coberturas, vegetação e rio permanecem na mesma posição." data-print-width="120mm">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-suporte-localizacao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
-<a href="../../assets/figures/arte-cap4-01-suporte.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-1" title="Figura&nbsp;4.1: Localização, suporte e unidade de análise"><img src="../../assets/figures/arte-cap4-01-suporte.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Uma paisagem hipotética combina uma estação em área aberta, núcleo urbano com prédios e ruas, casas, vegetação e rio. Três cópias da mesma cena recebem camadas vetoriais: pontos na estação e em uma residência, células de grade e um limite municipal. A mesma coordenada não define sozinha o suporte do valor."></a>
+<a href="../../assets/figures/arte-cap4-01-suporte.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-1" title="Figura&nbsp;4.1: Localização, suporte e unidade de análise"><img src="../../assets/figures/arte-cap4-01-suporte.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Três cópias idênticas de um território hipotético visto verticalmente, como mapa, recebem pontos na estação e na residência, células de grade e um limite municipal. Ruas, coberturas, vegetação e rio permanecem na mesma posição."></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-suporte-localizacao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figura&nbsp;4.1: Localização, suporte e unidade de análise
@@ -817,29 +811,77 @@ Figura&nbsp;4.1: Localização, suporte e unidade de análise
 \]</span></p>
 <p>em que (x_g) é o valor ambiental da célula (g) e (p_{gm}) é a população localizada na parte da célula (g) que pertence ao município (m). Essa notação deixa explícito que células e limites municipais podem se cruzar e que a população utilizada precisa estar espacialmente associada ao território analisado.</p>
 <p>A expressão exige população total positiva e valores ambientais válidos nas células incluídas. Excluir células por falta de dados altera a população representada e precisa ser documentado. O exemplo real a seguir permite comparar essa escolha com a ponderação por área usando o mesmo produto e o mesmo território.</p>
+<p>A <a href="#fig-estatistica-zonal-populacao" class="quarto-xref">Figura&nbsp;<span>4.2</span></a> decompõe o cálculo. Primeiro, identifica-se o valor ambiental de cada célula; depois, localiza-se a população sobre a mesma base espacial. O limite territorial seleciona as interseções que participarão da síntese. A população fora desse limite não pertence ao denominador do município, mesmo quando está em uma célula que o atravessa.</p>
+<!--
+ARTE CAP4-08
+ARTE CAP4-08 — Da grade ambiental à média territorial ponderada pela população
+Tipo: raster.
+Composição: Reutilizar a vista vertical v3 em três painéis alinhados. Sobrepor grade, símbolos populacionais e limite idêntico. Atenuar o exterior na interseção. Encerrar com a média ponderada e os requisitos de população positiva e cobertura válida. Não adicionar números observacionais.
+Estilo: tipografia Libertinus Serif incorporada, paleta editorial e rótulos em vetor.
+Reprodução: python3 scripts/build_cap4_art.py 08
+Aquarela e prompts: arte-cap4-01-v3.png; arte-cap4-01-v3.prompt.txt; arte-cap4-01-v3-refinamento.prompt.txt.
+Texto alternativo: Três vistas idênticas mostram campo ambiental, localização ilustrativa da população e interseção com um território. A fórmula combina os valores ambientais com a população de cada interseção. Os pontos não representam contagens.
+Legenda: Da grade ambiental à média territorial ponderada pela população
+-->
+<div id="fig-estatistica-zonal-populacao" class="lightbox quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-src="arte-cap4-08-ponderacao-populacional-print.png" alt="Três vistas idênticas mostram campo ambiental, localização ilustrativa da população e interseção com um território. A fórmula combina os valores ambientais com a população de cada interseção. Os pontos não representam contagens." data-print-width="120mm">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-estatistica-zonal-populacao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<a href="../../assets/figures/arte-cap4-08-ponderacao-populacional.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-2" title="Figura&nbsp;4.2: Da grade ambiental à média territorial ponderada pela população"><img src="../../assets/figures/arte-cap4-08-ponderacao-populacional.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Três vistas idênticas mostram campo ambiental, localização ilustrativa da população e interseção com um território. A fórmula combina os valores ambientais com a população de cada interseção. Os pontos não representam contagens."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-estatistica-zonal-populacao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;4.2: Da grade ambiental à média territorial ponderada pela população
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fontes conceituais: Barcellos e Bastos (1996); Carvalho e Souza-Santos (2005); fórmula e definições desta seção. Elaboração para esta obra em SVG, com aquarela gerada por IA (image_gen) reutilizada da vista vertical v3 e rótulos editáveis. Licença dos arquivos autorais: GPL-3.0; fontes mantêm suas condições de uso.</span></p>
+<p>No painel final, cada valor ambiental é multiplicado pela população de sua interseção com o território; a soma desses produtos é dividida pela população incluída. O campo ambiental permanece igual: mudam os pesos atribuídos às suas partes. Uma média pela área usaria áreas como pesos, respondendo a outra pergunta. Os pontos da prancha apenas ilustram localizações e não equivalem a uma pessoa, a um domicílio ou a uma contagem observada. Como (p_{gm}) já se refere à população da interseção, não se deve multiplicá-la novamente pela fração de área sem justificativa metodológica.</p>
 <p>Ponderar pela população não transforma uma temperatura ambiental em uma medida individual de exposição. Pessoas se deslocam, trabalham e permanecem em ambientes internos; a própria superfície populacional pode ser estimada. Ainda assim, quando a pergunta se refere à condição média nos locais de residência, essa ponderação pode ser mais informativa do que uma média puramente territorial.</p>
 <section id="situação-concreta-três-temperaturas-para-o-mesmo-estado" class="level3 page-columns page-full" data-number="4.2.1">
 <h3 data-number="4.2.1" class="anchored" data-anchor-id="situação-concreta-três-temperaturas-para-o-mesmo-estado"><span class="header-section-number">4.2.1</span> Situação concreta: três temperaturas para o mesmo estado</h3>
-<p>A <a href="#fig-mudanca-suporte" class="quarto-xref">Figura&nbsp;<span>4.2</span></a> mostra um exemplo em que a mesma previsão de temperatura do ar do Copernicus Atmosphere Monitoring Service (CAMS) é resumida para o estado do Rio de Janeiro de três maneiras. A média pela área territorial é 19,9 °C; a média ponderada pela distribuição populacional é 21,3 °C; o máximo territorial é 23,9 °C. Não existe contradição entre os três valores. Eles respondem a perguntas diferentes.</p>
+<p>A <a href="#fig-mudanca-suporte" class="quarto-xref">Figura&nbsp;<span>4.3</span></a> mostra um exemplo em que a mesma previsão de temperatura do ar do Copernicus Atmosphere Monitoring Service (CAMS) é resumida para o estado do Rio de Janeiro de três maneiras. A média pela área territorial é 19,9 °C; a média ponderada pela distribuição populacional é 21,3 °C; o máximo territorial é 23,9 °C. Não existe contradição entre os três valores. Eles respondem a perguntas diferentes.</p>
 <p>A média pela área descreve a superfície territorial; a média populacional enfatiza onde as pessoas residem; o máximo localiza a condição mais elevada. A escolha entre eles deve vir antes do cálculo e deve ser registrada como parte da definição do indicador. Os valores pertencem à rodada inicializada em 28 de julho de 2026, às 00 UTC, com horizonte de 24 horas e validade em 29 de julho de 2026, às 00 UTC. São resumos de uma previsão, não observações de estações nem uma diferença universal entre os métodos <span class="citation" data-cites="cams2026globalforecast ibge2022grade ibge2024malhas">(<a href="../../backmatter/referencias.html#ref-cams2026globalforecast" role="doc-biblioref">Copernicus Atmosphere Monitoring Service, 2026</a>; <a href="../../backmatter/referencias.html#ref-ibge2024malhas" role="doc-biblioref">Instituto Brasileiro de Geografia e Estatística, 2024</a>, <a href="../../backmatter/referencias.html#ref-ibge2022grade" role="doc-biblioref">2025</a>)</span>.</p>
 <div id="fig-mudanca-suporte" class="lightbox quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" alt="Três mapas do estado do Rio de Janeiro usam a mesma previsão CAMS de temperatura do ar. A média pela área territorial é 19,9 graus Celsius; a média ponderada pela população do Censo 2022 é 21,3 graus Celsius; e o máximo territorial é 23,9 graus Celsius.">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-mudanca-suporte-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
-<a href="../../assets/figures/mudanca-suporte.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-2" title="Figura&nbsp;4.2: Como a mudança de suporte altera a síntese territorial: temperatura do ar no estado do Rio de Janeiro"><img src="../../assets/figures/mudanca-suporte.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Três mapas do estado do Rio de Janeiro usam a mesma previsão CAMS de temperatura do ar. A média pela área territorial é 19,9 graus Celsius; a média ponderada pela população do Censo 2022 é 21,3 graus Celsius; e o máximo territorial é 23,9 graus Celsius."></a>
+<a href="../../assets/figures/mudanca-suporte.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-3" title="Figura&nbsp;4.3: Como a mudança de suporte altera a síntese territorial: temperatura do ar no estado do Rio de Janeiro"><img src="../../assets/figures/mudanca-suporte.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Três mapas do estado do Rio de Janeiro usam a mesma previsão CAMS de temperatura do ar. A média pela área territorial é 19,9 graus Celsius; a média ponderada pela população do Censo 2022 é 21,3 graus Celsius; e o máximo territorial é 23,9 graus Celsius."></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mudanca-suporte-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;4.2: Como a mudança de suporte altera a síntese territorial: temperatura do ar no estado do Rio de Janeiro
+Figura&nbsp;4.3: Como a mudança de suporte altera a síntese territorial: temperatura do ar no estado do Rio de Janeiro
 </figcaption>
 </figure>
 </div>
 <p><span class="figure-source">Fontes: CAMS/ECMWF (temperatura a 2 m; 29 jul. 2026, 00 UTC) e IBGE (Grade Estatística 2022 e Malha 2022), via <code>geobr</code>. Elaboração própria; script e proveniência: <code>data-raw/figures/README.md</code>. Licenças: termos das fontes e da obra.</span></p>
 </section>
-<section id="sobreposição-espacial-interpolação-areal-e-ponderação-populacional" class="level3" data-number="4.2.2">
+<section id="sobreposição-espacial-interpolação-areal-e-ponderação-populacional" class="level3 page-columns page-full" data-number="4.2.2">
 <h3 data-number="4.2.2" class="anchored" data-anchor-id="sobreposição-espacial-interpolação-areal-e-ponderação-populacional"><span class="header-section-number">4.2.2</span> Sobreposição espacial, interpolação areal e ponderação populacional</h3>
 <p>Três operações próximas na aparência devem ser separadas conceitualmente.</p>
 <p>Sobreposição entre grade e território ocorre quando uma superfície contínua, como temperatura, é resumida para um polígono. Células cortadas pelo limite podem contribuir segundo a fração de área efetivamente contida no território. A estatística final — média, máximo, percentil ou outra — deve ser coerente com a grandeza analisada.</p>
 <p>Interpolação areal é necessária quando uma quantidade associada a polígonos de origem precisa ser transferida para polígonos de destino diferentes. Em variáveis extensivas, como contagens populacionais, uma ponderação apenas pela área pressupõe distribuição uniforme dentro de cada polígono. Métodos dasimétricos procuram melhorar essa redistribuição utilizando informação auxiliar, como áreas construídas ou cobertura da terra, mas acrescentam dados e hipóteses <span class="citation" data-cites="openshaw1984 iso2023geoquality">(<a href="../../backmatter/referencias.html#ref-iso2023geoquality" role="doc-biblioref">International Organization for Standardization, 2023</a>; <a href="../../backmatter/referencias.html#ref-openshaw1984" role="doc-biblioref">Openshaw, 1984</a>)</span>.</p>
 <p>Ponderação populacional da exposição, por sua vez, combina uma superfície ambiental com uma superfície de população já compatibilizada espacialmente. Seu objetivo não é redistribuir a temperatura ou a concentração, mas atribuir maior peso aos locais onde reside mais gente.</p>
+<p>A <a href="#fig-operacoes-espaciais" class="quarto-xref">Figura&nbsp;<span>4.4</span></a> compara as três operações mantendo explícitos seus objetos de entrada e de saída. No primeiro painel, a interseção delimita a parte da grade associada ao território. No segundo, o mesmo domínio recebe duas malhas, e o objetivo é transferir quantidades extensivas entre elas. No terceiro, as superfícies já compatibilizadas são combinadas para calcular uma síntese ponderada.</p>
+<!--
+ARTE CAP4-09
+ARTE CAP4-09 — Três operações espaciais e o que cada uma transforma
+Tipo: raster.
+Composição: Três faixas: sobreposição entre grade e território; malhas de origem e destino cobrindo o mesmo domínio, com totais conservados e hipótese de uniformidade explícita; superfície ambiental e população compatibilizadas. Reutilizar a paisagem vertical v3. Não atribuir números às malhas.
+Estilo: tipografia Libertinus Serif incorporada, paleta editorial e rótulos em vetor.
+Reprodução: python3 scripts/build_cap4_art.py 09
+Aquarela e prompts: arte-cap4-01-v3.png; arte-cap4-01-v3.prompt.txt; arte-cap4-01-v3-refinamento.prompt.txt.
+Texto alternativo: Três faixas distinguem o recorte de uma grade pelo território, a transferência de totais entre duas malhas no mesmo domínio e a ponderação de valores ambientais pela população. Os diagramas não contêm totais observados.
+Legenda: Três operações espaciais e o que cada uma transforma
+-->
+<div id="fig-operacoes-espaciais" class="lightbox quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-src="arte-cap4-09-operacoes-espaciais-print.png" alt="Três faixas distinguem o recorte de uma grade pelo território, a transferência de totais entre duas malhas no mesmo domínio e a ponderação de valores ambientais pela população. Os diagramas não contêm totais observados." data-print-width="120mm">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-operacoes-espaciais-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<a href="../../assets/figures/arte-cap4-09-operacoes-espaciais.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-4" title="Figura&nbsp;4.4: Três operações espaciais e o que cada uma transforma"><img src="../../assets/figures/arte-cap4-09-operacoes-espaciais.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Três faixas distinguem o recorte de uma grade pelo território, a transferência de totais entre duas malhas no mesmo domínio e a ponderação de valores ambientais pela população. Os diagramas não contêm totais observados."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-operacoes-espaciais-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;4.4: Três operações espaciais e o que cada uma transforma
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fontes conceituais: Openshaw (1984); ISO 19157-1 (2023); discussão desta seção. Elaboração para esta obra em SVG, com aquarela gerada por IA (image_gen) reutilizada da vista vertical v3 e rótulos editáveis. Licença dos arquivos autorais: GPL-3.0; fontes mantêm suas condições de uso.</span></p>
+<p>Na interpolação areal por área, a parcela transferida depende da proporção da área de origem coberta por cada destino. Isso pressupõe distribuição uniforme da quantidade dentro do polígono de origem. Quando origem e destino cobrem integralmente o mesmo domínio, sem sobreposições duplicadas, a redistribuição deve conservar o total; se houver recortes ou lacunas, o balanço deve se referir apenas ao domínio comum. Informação auxiliar pode modificar os pesos, mas não elimina a necessidade de declarar as hipóteses. Já a ponderação populacional não redistribui a temperatura ou a concentração: utiliza a população como peso da síntese.</p>
 <p>Essas operações preservam propriedades diferentes. O processamento deve declarar o que se pretende conservar — média, total, proporção, ocorrência ou distribuição —, como foram tratadas as interseções e que dados auxiliares foram utilizados.</p>
 </section>
 </section>
@@ -852,7 +894,7 @@ Figura&nbsp;4.2: Como a mudança de suporte altera a síntese territorial: tempe
 <h3 data-number="4.3.1" class="anchored" data-anchor-id="quando-os-resultados-dependem-de-como-desenhamos-o-mapa"><span class="header-section-number">4.3.1</span> Quando os resultados dependem de como desenhamos o mapa</h3>
 <p>Há ainda um problema menos intuitivo: resultados obtidos com dados agregados podem mudar quando o mesmo espaço é dividido de outra forma. Uma associação calculada entre municípios pode ser diferente da associação calculada entre bairros ou regiões. Mesmo unidades de tamanho semelhante podem produzir resultados distintos quando seus limites são redesenhados. Esse fenômeno é conhecido como problema da unidade de área modificável (<em>modifiable areal unit problem</em>, MAUP) <span class="citation" data-cites="openshaw1984">(<a href="../../backmatter/referencias.html#ref-openshaw1984" role="doc-biblioref">Openshaw, 1984</a>)</span>.</p>
 <p>Isso não é resolvido simplesmente escolhendo a menor unidade disponível. Áreas muito pequenas podem produzir taxas instáveis, aumentar problemas de confidencialidade e se alinhar mal ao processo ambiental. Quando a conclusão depende fortemente da escala ou do zoneamento, é recomendável testar unidades plausíveis e relatar o que permanece estável <span class="citation" data-cites="carvalho2005espacial">(<a href="../../backmatter/referencias.html#ref-carvalho2005espacial" role="doc-biblioref">Carvalho; Souza-Santos, 2005</a>)</span>.</p>
-<p>A <a href="#fig-escala-zoneamento" class="quarto-xref">Figura&nbsp;<span>4.3</span></a> mantém a mesma paisagem e altera somente as divisões. Do primeiro para o segundo painel, a agregação produz unidades maiores: muda a escala. Do primeiro para o terceiro, permanece o número de unidades, mas os limites mudam: muda o zoneamento. A figura explica as operações, sem estimar quanto uma associação se alteraria.</p>
+<p>A <a href="#fig-escala-zoneamento" class="quarto-xref">Figura&nbsp;<span>4.5</span></a> mantém a mesma paisagem e altera somente as divisões. Do primeiro para o segundo painel, a agregação produz unidades maiores: muda a escala. Do primeiro para o terceiro, permanece o número de unidades, mas os limites mudam: muda o zoneamento. A figura explica as operações, sem estimar quanto uma associação se alteraria.</p>
 <!--
 ARTE CAP4-02 — Revisão urbana v2
 Finalidade e leitura: Três cópias idênticas de uma paisagem hipotética vista de cima, com quadras urbanas, coberturas de edifícios e casas, campos, vegetação e rio, recebem divisões diferentes. O segundo painel agrega unidades do primeiro; o terceiro redesenha unidades em escala semelhante à do primeiro. As construções não representam contagens populacionais.
@@ -887,10 +929,10 @@ Corrigir SOMENTE a perspectiva da imagem 1. Precisamos de VISTA ORTOGONAL VERTIC
 <div id="fig-escala-zoneamento" class="lightbox quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-src="arte-cap4-02-zoneamento-print.png" alt="Três cópias idênticas de uma paisagem hipotética vista de cima, com quadras urbanas, coberturas de edifícios e casas, campos, vegetação e rio, recebem divisões diferentes. O segundo painel agrega unidades do primeiro; o terceiro redesenha unidades em escala semelhante à do primeiro. As construções não representam contagens populacionais." data-print-width="120mm">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-escala-zoneamento-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
-<a href="../../assets/figures/arte-cap4-02-zoneamento.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-3" title="Figura&nbsp;4.3: O mesmo território sob diferentes escalas e zoneamentos"><img src="../../assets/figures/arte-cap4-02-zoneamento.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Três cópias idênticas de uma paisagem hipotética vista de cima, com quadras urbanas, coberturas de edifícios e casas, campos, vegetação e rio, recebem divisões diferentes. O segundo painel agrega unidades do primeiro; o terceiro redesenha unidades em escala semelhante à do primeiro. As construções não representam contagens populacionais."></a>
+<a href="../../assets/figures/arte-cap4-02-zoneamento.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-5" title="Figura&nbsp;4.5: O mesmo território sob diferentes escalas e zoneamentos"><img src="../../assets/figures/arte-cap4-02-zoneamento.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Três cópias idênticas de uma paisagem hipotética vista de cima, com quadras urbanas, coberturas de edifícios e casas, campos, vegetação e rio, recebem divisões diferentes. O segundo painel agrega unidades do primeiro; o terceiro redesenha unidades em escala semelhante à do primeiro. As construções não representam contagens populacionais."></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-escala-zoneamento-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;4.3: O mesmo território sob diferentes escalas e zoneamentos
+Figura&nbsp;4.5: O mesmo território sob diferentes escalas e zoneamentos
 </figcaption>
 </figure>
 </div>
@@ -913,7 +955,7 @@ Figura&nbsp;4.3: O mesmo território sob diferentes escalas e zoneamentos
 <section id="o-tempo-que-um-dado-representa" class="level2 page-columns page-full" data-number="4.4">
 <h2 data-number="4.4" class="anchored" data-anchor-id="o-tempo-que-um-dado-representa"><span class="header-section-number">4.4</span> O tempo que um dado representa</h2>
 <p>Assim como todo valor possui um suporte espacial, ele também possui uma referência temporal. Em clima e saúde, o tempo do fenômeno, da medição, do registro e da disponibilidade da informação frequentemente não coincide.</p>
-<p>Uma chuva intensa pode ocorrer hoje; uma inundação, algumas horas depois; sintomas, dias depois; um atendimento pode ser registrado no mesmo dia ou posteriormente; a base consolidada pode ser publicada semanas ou meses depois. Alinhar essas datas apenas porque aparecem na mesma coluna de “data” pode deslocar a relação que se pretende estudar. A <a href="#fig-tempos-dado" class="quarto-xref">Figura&nbsp;<span>4.4</span></a> distingue os momentos do fenômeno, da exposição, do possível efeito, do cuidado e do processamento da informação.</p>
+<p>Uma chuva intensa pode ocorrer hoje; uma inundação, algumas horas depois; sintomas, dias depois; um atendimento pode ser registrado no mesmo dia ou posteriormente; a base consolidada pode ser publicada semanas ou meses depois. Alinhar essas datas apenas porque aparecem na mesma coluna de “data” pode deslocar a relação que se pretende estudar. A <a href="#fig-tempos-dado" class="quarto-xref">Figura&nbsp;<span>4.6</span></a> distingue os momentos do fenômeno, da exposição, do possível efeito, do cuidado e do processamento da informação.</p>
 <!--
 ARTE CAP4-03 — Revisão urbana v2
 Finalidade e descrição acessível: Seis vinhetas distinguem condição ambiental, exposição, possível efeito, atendimento, registro e publicação. As conexões não representam durações universais nem causalidade demonstrada. Ruas e praças com prédios próximos e interiores de serviços de saúde compõem os cenários urbanos.
@@ -939,17 +981,17 @@ Formato: mesma proporção do original 1536 × 1024; resolução igual ou superi
 <div id="fig-tempos-dado" class="lightbox quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-src="arte-cap4-03-tempos-print.png" alt="Seis vinhetas distinguem condição ambiental, exposição, possível efeito, atendimento, registro e publicação. As conexões não representam durações universais nem causalidade demonstrada. Ruas e praças com prédios próximos e interiores de serviços de saúde compõem os cenários urbanos." data-print-width="120mm">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-tempos-dado-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
-<a href="../../assets/figures/arte-cap4-03-tempos.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-4" title="Figura&nbsp;4.4: Tempos do fenômeno, do cuidado e da informação"><img src="../../assets/figures/arte-cap4-03-tempos.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Seis vinhetas distinguem condição ambiental, exposição, possível efeito, atendimento, registro e publicação. As conexões não representam durações universais nem causalidade demonstrada. Ruas e praças com prédios próximos e interiores de serviços de saúde compõem os cenários urbanos."></a>
+<a href="../../assets/figures/arte-cap4-03-tempos.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-6" title="Figura&nbsp;4.6: Tempos do fenômeno, do cuidado e da informação"><img src="../../assets/figures/arte-cap4-03-tempos.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Seis vinhetas distinguem condição ambiental, exposição, possível efeito, atendimento, registro e publicação. As conexões não representam durações universais nem causalidade demonstrada. Ruas e praças com prédios próximos e interiores de serviços de saúde compõem os cenários urbanos."></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-tempos-dado-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;4.4: Tempos do fenômeno, do cuidado e da informação
+Figura&nbsp;4.6: Tempos do fenômeno, do cuidado e da informação
 </figcaption>
 </figure>
 </div>
 <p><span class="figure-source">Fontes conceituais: Bastos et al.&nbsp;(2019); discussão de temporalidade deste capítulo. Elaboração e revisão para esta obra, com aquarela gerada por IA (image_gen) e rótulos editáveis. Licença dos arquivos autorais: GPL-3.0; fontes mantêm suas condições de uso. Revisão urbana da aquarela: image_gen, com o original e a referência visual da série.</span></p>
 <p>Na figura, as conexões tracejadas representam caminhos possíveis: exposição não implica adoecimento inevitável. O intervalo até um efeito sanitário pertence ao processo estudado; a espera por atendimento e a demora de registro ou publicação pertencem a outros processos. As vinhetas não representam a trajetória documentada de uma pessoa, e seu espaçamento não quantifica duração. Bastos e colaboradores mostram por que atrasos de notificação precisam ser considerados na leitura de dados recentes de vigilância <span class="citation" data-cites="bastos2019delays">(<a href="../../backmatter/referencias.html#ref-bastos2019delays" role="doc-biblioref">Bastos et al., 2019</a>)</span>.</p>
 <p>Dependendo da fonte, podem coexistir várias datas: ocorrência do fenômeno, início e fim da exposição, início dos sintomas, atendimento, internação, notificação, competência, processamento e publicação. Em produtos de previsão há ainda a data da rodada e o horário para o qual a previsão é válida. A data correta para uma análise depende da pergunta.</p>
-<p>Em previsões, três referências devem ser preservadas: inicialização, horizonte de previsão (<em>lead time</em>) e tempo de validade. A inicialização informa quando a rodada começou; o horizonte informa quantas horas ou dias à frente o modelo avançou; e o tempo de validade é o instante ou período ao qual o valor se refere. A <a href="#fig-tempos-previsao" class="quarto-xref">Figura&nbsp;<span>4.5</span></a> usa os metadados do exemplo CAMS: a rodada de 28 de julho de 2026, às 00 UTC, com horizonte de +24 h produz uma estimativa válida em 29 de julho de 2026, às 00 UTC. O horário de validade não informa quando o arquivo foi baixado, e a previsão não se torna observação por ter alcançado esse horário.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>Em previsões, três referências devem ser preservadas: inicialização, horizonte de previsão (<em>lead time</em>) e tempo de validade. A inicialização informa quando a rodada começou; o horizonte informa quantas horas ou dias à frente o modelo avançou; e o tempo de validade é o instante ou período ao qual o valor se refere. A <a href="#fig-tempos-previsao" class="quarto-xref">Figura&nbsp;<span>4.7</span></a> usa os metadados do exemplo CAMS: a rodada de 28 de julho de 2026, às 00 UTC, com horizonte de +24 h produz uma estimativa válida em 29 de julho de 2026, às 00 UTC. O horário de validade não informa quando o arquivo foi baixado, e a previsão não se torna observação por ter alcançado esse horário.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <!--
 ARTE CAP4-04 — Revisão urbana v2
 Finalidade e descrição acessível: Uma linha temporal apresenta a rodada CAMS de 28 de julho de 2026 às 00 UTC, horizonte de 24 horas e validade em 29 de julho de 2026 às 00 UTC. A previsão permanece uma estimativa. Uma profissional observa informações diante de uma estação em área aberta; a outra cena mostra uma rua urbana com prédios, casas, sol e nuvens.
@@ -975,10 +1017,10 @@ Formato: mesma proporção do original 1536 × 1024; resolução igual ou superi
 <div id="fig-tempos-previsao" class="lightbox quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-src="arte-cap4-04-previsao-print.png" alt="Uma linha temporal apresenta a rodada CAMS de 28 de julho de 2026 às 00 UTC, horizonte de 24 horas e validade em 29 de julho de 2026 às 00 UTC. A previsão permanece uma estimativa. Uma profissional observa informações diante de uma estação em área aberta; a outra cena mostra uma rua urbana com prédios, casas, sol e nuvens." data-print-width="120mm">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-tempos-previsao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
-<a href="../../assets/figures/arte-cap4-04-previsao.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-5" title="Figura&nbsp;4.5: Inicialização, horizonte e validade de uma previsão"><img src="../../assets/figures/arte-cap4-04-previsao.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Uma linha temporal apresenta a rodada CAMS de 28 de julho de 2026 às 00 UTC, horizonte de 24 horas e validade em 29 de julho de 2026 às 00 UTC. A previsão permanece uma estimativa. Uma profissional observa informações diante de uma estação em área aberta; a outra cena mostra uma rua urbana com prédios, casas, sol e nuvens."></a>
+<a href="../../assets/figures/arte-cap4-04-previsao.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-7" title="Figura&nbsp;4.7: Inicialização, horizonte e validade de uma previsão"><img src="../../assets/figures/arte-cap4-04-previsao.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Uma linha temporal apresenta a rodada CAMS de 28 de julho de 2026 às 00 UTC, horizonte de 24 horas e validade em 29 de julho de 2026 às 00 UTC. A previsão permanece uma estimativa. Uma profissional observa informações diante de uma estação em área aberta; a outra cena mostra uma rua urbana com prédios, casas, sol e nuvens."></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-tempos-previsao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;4.5: Inicialização, horizonte e validade de uma previsão
+Figura&nbsp;4.7: Inicialização, horizonte e validade de uma previsão
 </figcaption>
 </figure>
 </div>
@@ -987,6 +1029,99 @@ Figura&nbsp;4.5: Inicialização, horizonte e validade de uma previsão
 <h3 data-number="4.4.1" class="anchored" data-anchor-id="dia-semana-e-mês-precisam-ser-definidos"><span class="header-section-number">4.4.1</span> Dia, semana e mês precisam ser definidos</h3>
 <p>“Diário” não é uma propriedade suficiente. Um dia precisa de início, fim e fuso horário. Dados meteorológicos frequentemente usam UTC; sistemas de saúde podem usar horário local. Sem harmonização, eventos próximos à meia-noite podem ser associados ao dia errado. Calendários diferentes também podem aparecer em modelos climáticos.</p>
 <p>Uma prática segura é conservar o horário original e seu fuso, realizar conversões explicitamente e somente depois criar janelas diárias, semanais ou mensais para a análise. Quando um deslocamento de algumas horas pode alterar a associação, a sensibilidade à definição temporal deve ser verificada.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Conceito-chave: UTC, fuso horário e data local">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Conceito-chave: UTC, fuso horário e data local
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>UTC é a referência temporal internacional. Um fuso horário reúne regras para expressar a hora civil de uma localidade; seu deslocamento em relação ao UTC pode variar com a data. Converter preserva o mesmo instante, mas pode mudar o dia.</p>
+<p>Some ao UTC o deslocamento indicado na <a href="#tbl-conversoes-utc" class="quarto-xref">Tabela&nbsp;<span>4.1</span></a>. Cada coluna parte de um único instante; todas as datas são de 2026.</p>
+<div id="tbl-conversoes-utc" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-conversoes-utc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;4.1: Conversões de dois instantes UTC para data e hora locais, em 2026
+</figcaption>
+<div aria-describedby="tbl-conversoes-utc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 30%">
+<col style="width: 23%">
+<col style="width: 23%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Referência/localidade</th>
+<th style="text-align: right;">UTC: jan./jul. (h)</th>
+<th>29 jan., 00 UTC</th>
+<th>29 jul., 00 UTC</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>UTC</td>
+<td style="text-align: right;">+00 / +00</td>
+<td>29 jan., 00h00</td>
+<td>29 jul., 00h00</td>
+</tr>
+<tr class="even">
+<td>Brasília</td>
+<td style="text-align: right;">−03 / −03</td>
+<td>28 jan., 21h00</td>
+<td>28 jul., 21h00</td>
+</tr>
+<tr class="odd">
+<td>Manaus</td>
+<td style="text-align: right;">−04 / −04</td>
+<td>28 jan., 20h00</td>
+<td>28 jul., 20h00</td>
+</tr>
+<tr class="even">
+<td>Rio Branco/Acre</td>
+<td style="text-align: right;">−05 / −05</td>
+<td>28 jan., 19h00</td>
+<td>28 jul., 19h00</td>
+</tr>
+<tr class="odd">
+<td>Fernando de Noronha</td>
+<td style="text-align: right;">−02 / −02</td>
+<td>28 jan., 22h00</td>
+<td>28 jul., 22h00</td>
+</tr>
+<tr class="even">
+<td>Paris</td>
+<td style="text-align: right;">+01 / +02</td>
+<td>29 jan., 01h00</td>
+<td>29 jul., 02h00</td>
+</tr>
+<tr class="odd">
+<td>Londres</td>
+<td style="text-align: right;">+00 / +01</td>
+<td>29 jan., 00h00</td>
+<td>29 jul., 01h00</td>
+</tr>
+<tr class="even">
+<td>Nova York</td>
+<td style="text-align: right;">−05 / −04</td>
+<td>28 jan., 19h00</td>
+<td>28 jul., 20h00</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p><span class="figure-source">Fonte: IANA Time Zone Database, versão 2026c; conversões calculadas com <code>zoneinfo</code> e conferidas em 5 de outubro de 2026.</span></p>
+<p>Em Brasília, 29 de julho às 00 UTC corresponde a 28 de julho às 21h00. Paris tem deslocamentos diferentes em janeiro e julho. Não aplique automaticamente essas diferenças a toda uma série histórica.</p>
+<p>Identificadores como <code>America/Sao_Paulo</code> e <code>Europe/Paris</code> permitem aplicar regras históricas. Nas transições sazonais, horas locais podem se repetir ou não existir; dias civis podem ter 23 ou 25 horas. Preserve data, hora e fuso originais e converta os instantes antes de formar dias locais.</p>
+</div>
+</div>
+<p>O box segue as definições e regras documentadas pelo Bureau Internacional de Pesos e Medidas (BIPM), pelo Observatório Nacional, pela Internet Assigned Numbers Authority (IANA) e pelo Observatório de Paris <span class="citation" data-cites="bipmUTC on2026tempo ianaTimeZones syrte2023heure">(<a href="../../backmatter/referencias.html#ref-bipmUTC" role="doc-biblioref">Bureau International des Poids et Mesures, <em>[S.d.]</em></a>; <a href="../../backmatter/referencias.html#ref-ianaTimeZones" role="doc-biblioref">Internet Assigned Numbers Authority, <em>[S.d.]</em></a>; <a href="../../backmatter/referencias.html#ref-syrte2023heure" role="doc-biblioref">Observatoire de Paris, SYRTE, 2023</a>; <a href="../../backmatter/referencias.html#ref-on2026tempo" role="doc-biblioref">Observatório Nacional, 2026</a>)</span>. Os identificadores e cálculos estão preservados em <code>data-raw/figures/conversoes-utc-cap4.json</code>. A conversão de julho usa o mesmo instante de validade da previsão CAMS apresentada no capítulo.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled" title="Nota técnica: calendários dos modelos">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1002,7 +1137,7 @@ Figura&nbsp;4.5: Inicialização, horizonte e validade de uma previsão
 </div>
 </div>
 </section>
-<section id="agregar-também-muda-o-fenômeno" class="level3" data-number="4.4.2">
+<section id="agregar-também-muda-o-fenômeno" class="level3 page-columns page-full" data-number="4.4.2">
 <h3 data-number="4.4.2" class="anchored" data-anchor-id="agregar-também-muda-o-fenômeno"><span class="header-section-number">4.4.2</span> Agregar também muda o fenômeno</h3>
 <p>Médias, somas, máximos e contagens não são operações neutras. Precipitação mensal costuma representar um acumulado; temperatura mensal, uma média; um máximo mensal de temperatura corresponde ao maior extremo diário; uma contagem anual de dias quentes preserva frequência, mas perde a ordem em que ocorreram.</p>
 <div id="qua-transformacoes-temporais" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -1062,14 +1197,63 @@ Quadro&nbsp;4.1: Transformações temporais e seus significados
 </div>
 </figure>
 </div>
+<p>A <a href="#fig-transformacoes-temporais" class="quarto-xref">Figura&nbsp;<span>4.8</span></a> representa as operações do <a href="#qua-transformacoes-temporais" class="quarto-xref">Quadro&nbsp;<span>4.1</span></a>. Os símbolos remetem a observações ou intervalos, sem apresentar uma série medida. A média ilustrada usa pesos iguais e requer observações comparáveis; se os intervalos representados forem diferentes, a ponderação temporal também precisa ser considerada.</p>
+<!--
+ARTE CAP4-10
+ARTE CAP4-10 — Média, soma, máximo, contagem e sequência: o que permanece na síntese
+Tipo: vector.
+Composição: Prancha exclusivamente vetorial com cinco faixas. Média de observações comparáveis e pesos iguais; soma de precipitação em intervalos disjuntos; seleção do máximo; contagem de dias que atendem ao critério; maior sequência de dias consecutivos. Repetir o mesmo calendário ilustrativo nos dois últimos painéis, sem publicar contagens ou valores. Informar as perdas de cada síntese e a necessidade de regra para ausências.
+Estilo: tipografia Libertinus Serif incorporada, paleta editorial e rótulos em vetor.
+Reprodução: python3 scripts/build_cap4_art.py 10
+Não houve geração de aquarela nesta composição.
+Texto alternativo: Cinco faixas mostram símbolos de observações, operações e propriedades preservadas ou perdidas. Contagem e sequência usam o mesmo calendário esquemático: contar dias selecionados difere de identificar um bloco consecutivo. Não há série observacional.
+Legenda: Média, soma, máximo, contagem e sequência: o que permanece na síntese
+-->
+<div id="fig-transformacoes-temporais" class="lightbox quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-src="arte-cap4-10-transformacoes-temporais-print.png" alt="Cinco faixas mostram símbolos de observações, operações e propriedades preservadas ou perdidas. Contagem e sequência usam o mesmo calendário esquemático: contar dias selecionados difere de identificar um bloco consecutivo. Não há série observacional." data-print-width="120mm">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-transformacoes-temporais-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<a href="../../assets/figures/arte-cap4-10-transformacoes-temporais.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-8" title="Figura&nbsp;4.8: Média, soma, máximo, contagem e sequência: o que permanece na síntese"><img src="../../assets/figures/arte-cap4-10-transformacoes-temporais.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Cinco faixas mostram símbolos de observações, operações e propriedades preservadas ou perdidas. Contagem e sequência usam o mesmo calendário esquemático: contar dias selecionados difere de identificar um bloco consecutivo. Não há série observacional."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-transformacoes-temporais-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;4.8: Média, soma, máximo, contagem e sequência: o que permanece na síntese
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fontes conceituais: Organização Meteorológica Mundial (2023); quadro de transformações temporais desta seção. Elaboração para esta obra em SVG, com rótulos e relações editáveis; sem geração de aquarela. Licença dos arquivos autorais: GPL-3.0; fontes mantêm suas condições de uso.</span></p>
+<p>A soma reúne quantidades acumuladas em intervalos sem sobreposição, como precipitação em milímetros. Uma intensidade em milímetros por hora precisa ser integrada pela duração antes de produzir esse total. O máximo seleciona um extremo, sem informar por quanto tempo ele persistiu. Nos dois últimos painéis, o mesmo calendário esquemático permite distinguir contagem e sequência: a primeira reúne todos os dias que atendem ao critério; a segunda procura o maior bloco consecutivo. O critério e o tratamento de dias ausentes devem ser definidos antes de ambas as operações; ausência não equivale a um dia que não atende ao critério.</p>
 <p>O <a href="#qua-transformacoes-temporais" class="quarto-xref">Quadro&nbsp;<span>4.1</span></a> mostra que cada operação preserva uma propriedade e pode ocultar outras. Agregar com coerência depende da unidade: uma intensidade de chuva, por exemplo, precisa ser integrada no tempo para produzir um acumulado.</p>
 <p>A completude também faz parte da agregação. Uma média diária calculada a partir de 24 observações e outra calculada com apenas três horários podem não ser comparáveis. Para totais, horas ou dias ausentes podem produzir subestimação. Critérios mínimos de completude devem ser definidos antes do cálculo <span class="citation" data-cites="wmo2023climatological">(<a href="../../backmatter/referencias.html#ref-wmo2023climatological" role="doc-biblioref">World Meteorological Organization, 2023</a>)</span>.</p>
 <p>É igualmente importante reconhecer a natureza temporal da variável. Número de pessoas internadas em determinado instante representa um estoque; novas internações durante uma semana representam um fluxo; uma interrupção de energia é um evento, com início e duração. Somar estoques sucessivos pode contar a mesma pessoa várias vezes. Resumir um evento apenas pela data inicial pode esconder sua persistência.</p>
 </section>
-<section id="defasagens-devem-ter-significado" class="level3" data-number="4.4.3">
+<section id="defasagens-devem-ter-significado" class="level3 page-columns page-full" data-number="4.4.3">
 <h3 data-number="4.4.3" class="anchored" data-anchor-id="defasagens-devem-ter-significado"><span class="header-section-number">4.4.3</span> Defasagens devem ter significado</h3>
 <p>Uma condição ambiental e um efeito sobre a saúde nem sempre aparecem no mesmo momento. Alguns efeitos podem ocorrer no mesmo dia; outros surgem depois de horas, dias ou períodos ainda mais longos. A distância temporal plausível depende do processo que está sendo estudado.</p>
 <p>Essa distância temporal costuma ser chamada de defasagem. Sua escolha deve partir do mecanismo e da pergunta, não da busca pela associação estatisticamente mais forte. Para explicar um desfecho no dia analisado, as exposições candidatas pertencem ao mesmo dia e aos dias anteriores, conforme o mecanismo. Se a análise parte do dia da exposição, são os desfechos posteriores que precisam ser acompanhados. Trocar essas referências pode introduzir informação futura indevida. Quando houver mais de uma janela plausível, elas podem ser comparadas em análises de sensibilidade. Os métodos epidemiológicos para estimar relações defasadas serão retomados no <a href="../part-3/12-efeitos-saude.html" class="quarto-xref"><span>Capítulo 14</span></a>.</p>
+<p>A <a href="#fig-janelas-defasagem" class="quarto-xref">Figura&nbsp;<span>4.9</span></a> apresenta duas formas de organizar a mesma pergunta temporal. Partindo do dia do desfecho, examinam-se exposições do mesmo dia e de dias anteriores. Partindo do dia da exposição, acompanham-se possíveis desfechos naquele dia e depois. A escolha da âncora muda a organização da base, mas não autoriza usar uma exposição futura para explicar um evento anterior.</p>
+<!--
+ARTE CAP4-11
+ARTE CAP4-11 — Duas formas de organizar a janela de defasagem
+Tipo: vector.
+Composição: Dois painéis vetoriais: ancorar no desfecho em t e olhar as exposições em t, t menos um e t menos k; ancorar na exposição em t e acompanhar desfechos até t mais k. Setas apenas no eixo cronológico. Janelas em tracejado, sem curvas de risco, números de casos ou duração universal. Separar defasagem analítica e atrasos dos processos.
+Estilo: tipografia Libertinus Serif incorporada, paleta editorial e rótulos em vetor.
+Reprodução: python3 scripts/build_cap4_art.py 11
+Não houve geração de aquarela nesta composição.
+Texto alternativo: No primeiro painel, um desfecho em t é examinado com exposições do mesmo dia e de dias anteriores. No segundo, uma exposição em t é acompanhada por possíveis desfechos no mesmo dia e depois. Linhas tracejadas delimitam janelas analíticas, sem demonstrar causalidade.
+Legenda: Duas formas de organizar a janela de defasagem
+-->
+<div id="fig-janelas-defasagem" class="lightbox quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-src="arte-cap4-11-defasagem-print.png" alt="No primeiro painel, um desfecho em t é examinado com exposições do mesmo dia e de dias anteriores. No segundo, uma exposição em t é acompanhada por possíveis desfechos no mesmo dia e depois. Linhas tracejadas delimitam janelas analíticas, sem demonstrar causalidade." data-print-width="120mm">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-janelas-defasagem-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<a href="../../assets/figures/arte-cap4-11-defasagem.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-9" title="Figura&nbsp;4.9: Duas formas de organizar a janela de defasagem"><img src="../../assets/figures/arte-cap4-11-defasagem.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="No primeiro painel, um desfecho em t é examinado com exposições do mesmo dia e de dias anteriores. No segundo, uma exposição em t é acompanhada por possíveis desfechos no mesmo dia e depois. Linhas tracejadas delimitam janelas analíticas, sem demonstrar causalidade."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-janelas-defasagem-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;4.9: Duas formas de organizar a janela de defasagem
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fontes conceituais: Hernán e Robins (2020); Gasparrini, Armstrong e Kenward (2010). Elaboração para esta obra em SVG, com rótulos e relações editáveis; sem geração de aquarela. Licença dos arquivos autorais: GPL-3.0; fontes mantêm suas condições de uso.</span></p>
+<p>Na figura, (t) identifica o dia de referência e (k) delimita uma janela de dias; os marcadores intermediários são ilustrativos. Defasagem zero significa exposição e desfecho no mesmo intervalo agregado, sem garantir que sua ordem dentro do dia seja conhecida. Defasagem positiva considera a exposição anterior ao desfecho. Não há uma janela universal aplicável a todos os fenômenos, e a ordenação temporal não demonstra, isoladamente, causalidade.</p>
+<p>A defasagem medida também depende da data escolhida para o desfecho. Resposta biológica, procura e acesso ao cuidado, admissão, registro e publicação são processos distintos. Se a análise usa a data de internação, a distância desde a exposição pode incluir tanto resposta biológica quanto espera assistencial; a data de registro ainda acrescenta atraso informacional. A <a href="#fig-tempos-dado" class="quarto-xref">Figura&nbsp;<span>4.6</span></a> distingue esses momentos; a análise precisa explicitar qual deles a janela pretende representar. A discussão de causalidade aparece em <a href="#sec-correlacao-causalidade-atribuicao" class="quarto-xref"><span>Seção 4.8</span></a>, e os métodos de estimação serão aprofundados no <a href="../part-3/12-efeitos-saude.html" class="quarto-xref"><span>Capítulo 14</span></a>.</p>
 </section>
 </section>
 <section id="períodos-de-referência-e-comparações-no-tempo" class="level2" data-number="4.5">
@@ -1149,7 +1333,7 @@ Quadro&nbsp;4.2: Dimensões da qualidade e perguntas para avaliar a adequação 
 </div>
 </figure>
 </div>
-<p>A <a href="#fig-qualidade-uso" class="quarto-xref">Figura&nbsp;<span>4.6</span></a> organiza essas dimensões em torno da finalidade. A disposição dá o mesmo peso visual aos componentes: uma base oportuna pode ser incompleta, e outra muito completa pode chegar depois da decisão. É a consequência do uso que orienta quais limitações precisam ser corrigidas ou explicitadas.</p>
+<p>A <a href="#fig-qualidade-uso" class="quarto-xref">Figura&nbsp;<span>4.10</span></a> organiza essas dimensões em torno da finalidade. A disposição dá o mesmo peso visual aos componentes: uma base oportuna pode ser incompleta, e outra muito completa pode chegar depois da decisão. É a consequência do uso que orienta quais limitações precisam ser corrigidas ou explicitadas.</p>
 <!--
 ARTE CAP4-05 — Revisão urbana v2
 Finalidade e descrição acessível: A pergunta adequado para qual uso se desdobra em oito dimensões: exatidão e validade, completude, representatividade, oportunidade, consistência, homogeneidade, comparabilidade e rastreabilidade. Duas profissionais examinam instrumento e documentos diante de uma janela com prédios, casas e árvores.
@@ -1175,10 +1359,10 @@ Formato: mesma proporção do original 1536 × 1024; resolução igual ou superi
 <div id="fig-qualidade-uso" class="lightbox quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-src="arte-cap4-05-qualidade-print.png" alt="A pergunta adequado para qual uso se desdobra em oito dimensões: exatidão e validade, completude, representatividade, oportunidade, consistência, homogeneidade, comparabilidade e rastreabilidade. Duas profissionais examinam instrumento e documentos diante de uma janela com prédios, casas e árvores." data-print-width="120mm">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-qualidade-uso-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
-<a href="../../assets/figures/arte-cap4-05-qualidade.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-6" title="Figura&nbsp;4.6: Dimensões da qualidade orientadas pela finalidade"><img src="../../assets/figures/arte-cap4-05-qualidade.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="A pergunta adequado para qual uso se desdobra em oito dimensões: exatidão e validade, completude, representatividade, oportunidade, consistência, homogeneidade, comparabilidade e rastreabilidade. Duas profissionais examinam instrumento e documentos diante de uma janela com prédios, casas e árvores."></a>
+<a href="../../assets/figures/arte-cap4-05-qualidade.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-10" title="Figura&nbsp;4.10: Dimensões da qualidade orientadas pela finalidade"><img src="../../assets/figures/arte-cap4-05-qualidade.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="A pergunta adequado para qual uso se desdobra em oito dimensões: exatidão e validade, completude, representatividade, oportunidade, consistência, homogeneidade, comparabilidade e rastreabilidade. Duas profissionais examinam instrumento e documentos diante de uma janela com prédios, casas e árvores."></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-qualidade-uso-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;4.6: Dimensões da qualidade orientadas pela finalidade
+Figura&nbsp;4.10: Dimensões da qualidade orientadas pela finalidade
 </figcaption>
 </figure>
 </div>
@@ -1210,7 +1394,7 @@ C = 100 \times \frac{n_{válidos}}{n_{esperados}}.
 <p>Registro ausente, zero verdadeiro, valor abaixo do limite de detecção, não aplicável e valor suprimido por confidencialidade representam situações diferentes. Tratá-los todos como zero modifica totais, médias, taxas e tendências. O dicionário de dados deve preservar essas distinções.</p>
 </div>
 </div>
-<p>A <a href="#fig-ausencia-zero" class="quarto-xref">Figura&nbsp;<span>4.7</span></a> separa cinco estados que podem parecer semelhantes em uma planilha. O pluviômetro simboliza uma observação válida igual a zero; o sensor desconectado, a falta de um registro utilizável; o laboratório, uma limitação de detecção. O formulário e a pasta protegida lembram que não aplicabilidade e supressão têm motivos distintos. A transparência do frasco não indica ausência de substância, e nenhum instrumento da ilustração apresenta uma medição real.</p>
+<p>A <a href="#fig-ausencia-zero" class="quarto-xref">Figura&nbsp;<span>4.11</span></a> separa cinco estados que podem parecer semelhantes em uma planilha. O pluviômetro simboliza uma observação válida igual a zero; o sensor desconectado, a falta de um registro utilizável; o laboratório, uma limitação de detecção. O formulário e a pasta protegida lembram que não aplicabilidade e supressão têm motivos distintos. A transparência do frasco não indica ausência de substância, e nenhum instrumento da ilustração apresenta uma medição real.</p>
 <!--
 ARTE CAP4-06 — Revisão urbana v2
 Finalidade e descrição acessível: Cinco cartões distinguem zero verdadeiro, registro ausente, abaixo do limite de detecção, não aplicável e dado suprimido. Nenhum cartão contém observações quantitativas inventadas. Prédios ao fundo situam os instrumentos em áreas abertas urbanas, sem alterar os cinco estados ilustrados.
@@ -1236,10 +1420,10 @@ Formato: mesma proporção do original 1536 × 1024; resolução igual ou superi
 <div id="fig-ausencia-zero" class="lightbox quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-src="arte-cap4-06-ausencias-print.png" alt="Cinco cartões distinguem zero verdadeiro, registro ausente, abaixo do limite de detecção, não aplicável e dado suprimido. Nenhum cartão contém observações quantitativas inventadas. Prédios ao fundo situam os instrumentos em áreas abertas urbanas, sem alterar os cinco estados ilustrados." data-print-width="120mm">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-ausencia-zero-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
-<a href="../../assets/figures/arte-cap4-06-ausencias.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-7" title="Figura&nbsp;4.7: Cinco situações que não devem receber o mesmo código"><img src="../../assets/figures/arte-cap4-06-ausencias.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Cinco cartões distinguem zero verdadeiro, registro ausente, abaixo do limite de detecção, não aplicável e dado suprimido. Nenhum cartão contém observações quantitativas inventadas. Prédios ao fundo situam os instrumentos em áreas abertas urbanas, sem alterar os cinco estados ilustrados."></a>
+<a href="../../assets/figures/arte-cap4-06-ausencias.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-11" title="Figura&nbsp;4.11: Cinco situações que não devem receber o mesmo código"><img src="../../assets/figures/arte-cap4-06-ausencias.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Cinco cartões distinguem zero verdadeiro, registro ausente, abaixo do limite de detecção, não aplicável e dado suprimido. Nenhum cartão contém observações quantitativas inventadas. Prédios ao fundo situam os instrumentos em áreas abertas urbanas, sem alterar os cinco estados ilustrados."></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ausencia-zero-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;4.7: Cinco situações que não devem receber o mesmo código
+Figura&nbsp;4.11: Cinco situações que não devem receber o mesmo código
 </figcaption>
 </figure>
 </div>
@@ -1507,7 +1691,7 @@ Quadro&nbsp;4.5: Escolhas de compatibilização no estudo de calor e internaçõ
 </div>
 </figure>
 </div>
-<p>Nenhuma alternativa é superior em todos os contextos. A pergunta de pesquisa ou de gestão é que define qual combinação é defensável. O <a href="../part-3/12-efeitos-saude.html" class="quarto-xref"><span>Capítulo 14</span></a> mostrará que escolhas adicionais são necessárias para interpretar relações entre exposição e saúde. Compatibilizar significa construir uma comparação cujo espaço, tempo e população tenham sentido conjunto. As etapas da <a href="#fig-compatibilizacao-inferencia" class="quarto-xref">Figura&nbsp;<span>4.8</span></a> organizam essa preparação. Quando qualidade ou cobertura forem inadequadas, o retorno à especificação pode exigir outra fonte ou uma pergunta mais restrita. Ao final, as três saídas não se sucedem: cada uma exige um desenho compatível.</p>
+<p>Nenhuma alternativa é superior em todos os contextos. A pergunta de pesquisa ou de gestão é que define qual combinação é defensável. O <a href="../part-3/12-efeitos-saude.html" class="quarto-xref"><span>Capítulo 14</span></a> mostrará que escolhas adicionais são necessárias para interpretar relações entre exposição e saúde. Compatibilizar significa construir uma comparação cujo espaço, tempo e população tenham sentido conjunto. As etapas da <a href="#fig-compatibilizacao-inferencia" class="quarto-xref">Figura&nbsp;<span>4.12</span></a> organizam essa preparação. Quando qualidade ou cobertura forem inadequadas, o retorno à especificação pode exigir outra fonte ou uma pergunta mais restrita. Ao final, as três saídas não se sucedem: cada uma exige um desenho compatível.</p>
 <!--
 ARTE CAP4-07 — Revisão urbana v2
 Finalidade e descrição acessível: Após preparar e avaliar os dados, três perguntas distintas são apresentadas: associação, efeito causal e atribuição. Cada uma tem requisitos próprios; não há setas de progressão entre elas. Uma equipe de três profissionais examina documentos diante de uma janela voltada para um bairro com prédios, casas e árvores.
@@ -1533,10 +1717,10 @@ Formato: mesma proporção do original 1536 × 1024; resolução igual ou superi
 <div id="fig-compatibilizacao-inferencia" class="lightbox quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-src="arte-cap4-07-interpretacao-print.png" alt="Após preparar e avaliar os dados, três perguntas distintas são apresentadas: associação, efeito causal e atribuição. Cada uma tem requisitos próprios; não há setas de progressão entre elas. Uma equipe de três profissionais examina documentos diante de uma janela voltada para um bairro com prédios, casas e árvores." data-print-width="120mm">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-compatibilizacao-inferencia-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
-<a href="../../assets/figures/arte-cap4-07-interpretacao.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-8" title="Figura&nbsp;4.8: Da compatibilização dos dados à pergunta analítica"><img src="../../assets/figures/arte-cap4-07-interpretacao.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Após preparar e avaliar os dados, três perguntas distintas são apresentadas: associação, efeito causal e atribuição. Cada uma tem requisitos próprios; não há setas de progressão entre elas. Uma equipe de três profissionais examina documentos diante de uma janela voltada para um bairro com prédios, casas e árvores."></a>
+<a href="../../assets/figures/arte-cap4-07-interpretacao.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-12" title="Figura&nbsp;4.12: Da compatibilização dos dados à pergunta analítica"><img src="../../assets/figures/arte-cap4-07-interpretacao.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Após preparar e avaliar os dados, três perguntas distintas são apresentadas: associação, efeito causal e atribuição. Cada uma tem requisitos próprios; não há setas de progressão entre elas. Uma equipe de três profissionais examina documentos diante de uma janela voltada para um bairro com prédios, casas e árvores."></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-compatibilizacao-inferencia-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;4.8: Da compatibilização dos dados à pergunta analítica
+Figura&nbsp;4.12: Da compatibilização dos dados à pergunta analítica
 </figcaption>
 </figure>
 </div>
@@ -1615,6 +1799,9 @@ BASTOS, Leonardo S. <em>et al.</em> A modelling approach for correcting reportin
 <div id="ref-brasil2018lgpd" class="csl-entry" role="listitem">
 BRASIL. <strong>Lei nº 13.709, de 14 de agosto de 2018: Lei Geral de Proteção de Dados Pessoais (LGPD)</strong>. 2018. Disponível em: &lt;<a href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709compilado.htm">https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709compilado.htm</a>&gt;. Acesso em: 2 out. 2026.
 </div>
+<div id="ref-bipmUTC" class="csl-entry" role="listitem">
+BUREAU INTERNATIONAL DES POIDS ET MESURES. <strong>Time metrology</strong>. <em>[S.d.]</em>. Disponível em: &lt;<a href="https://www.bipm.org/en/time-metrology">https://www.bipm.org/en/time-metrology</a>&gt;. Acesso em: 5 out. 2026.
+</div>
 <div id="ref-carvalho2005espacial" class="csl-entry" role="listitem">
 CARVALHO, Marilia Sá; SOUZA-SANTOS, Reinaldo. Análise de dados espaciais em saúde pública: métodos, problemas, perspectivas. <strong>Cadernos de Saúde Pública</strong>, v. 21, n. 2, p. 361–378, 2005. Disponível em: &lt;https://doi.org/<a href="https://doi.org/10.1590/s0102-311x2005000200003">10.1590/s0102-311x2005000200003</a>&gt;.
 </div>
@@ -1642,11 +1829,20 @@ INSTITUTO BRASILEIRO DE GEOGRAFIA E ESTATÍSTICA. <strong>Grade Estatística: Ce
 <div id="ref-iso2023geoquality" class="csl-entry" role="listitem">
 INTERNATIONAL ORGANIZATION FOR STANDARDIZATION. <strong>ISO 19157-1:2023 — Geographic information — Data quality — Part 1: General requirements</strong>. Geneva, International Organization for Standardization, 2023. Disponível em: &lt;<a href="https://www.iso.org/standard/78900.html">https://www.iso.org/standard/78900.html</a>&gt;. Acesso em: 4 ago. 2026.
 </div>
+<div id="ref-ianaTimeZones" class="csl-entry" role="listitem">
+INTERNET ASSIGNED NUMBERS AUTHORITY. <strong>Time Zone Database</strong>. <em>[S.d.]</em>. Disponível em: &lt;<a href="https://www.iana.org/time-zones">https://www.iana.org/time-zones</a>&gt;. Acesso em: 5 out. 2026.
+</div>
 <div id="ref-jin2012uhi" class="csl-entry" role="listitem">
 JIN, Menglin S. Developing an index to measure urban heat island effect using satellite land skin temperature and land cover observations. <strong>Journal of Climate</strong>, v. 25, n. 18, p. 6193–6201, 2012. Disponível em: &lt;https://doi.org/<a href="https://doi.org/10.1175/JCLI-D-11-00509.1">10.1175/JCLI-D-11-00509.1</a>&gt;.
 </div>
 <div id="ref-lima2009qualidade" class="csl-entry" role="listitem">
 LIMA, Claudia Risso de Araujo <em>et al.</em> Revisão das dimensões de qualidade dos dados e métodos aplicados na avaliação dos sistemas de informação em saúde. <strong>Cadernos de Saúde Pública</strong>, v. 25, n. 10, p. 2095–2109, 2009. Disponível em: &lt;https://doi.org/<a href="https://doi.org/10.1590/s0102-311x2009001000002">10.1590/s0102-311x2009001000002</a>&gt;.
+</div>
+<div id="ref-syrte2023heure" class="csl-entry" role="listitem">
+OBSERVATOIRE DE PARIS, SYRTE. <strong>Heure d’été, heure d’hiver, saut de seconde dans UTC(OP), différences TAI-UTC</strong>. 23 mar. 2023. Disponível em: &lt;<a href="https://syrte.obspm.fr/spip/en/services/ref-temps/article/heure-d-ete-heure-d-hiver-saut-de-seconde-dans-utc-op-differences-tai-utc.html">https://syrte.obspm.fr/spip/en/services/ref-temps/article/heure-d-ete-heure-d-hiver-saut-de-seconde-dans-utc-op-differences-tai-utc.html</a>&gt;. Acesso em: 5 out. 2026.
+</div>
+<div id="ref-on2026tempo" class="csl-entry" role="listitem">
+OBSERVATÓRIO NACIONAL. <strong>Histórico da DSHO</strong>. 17 set. 2026. Disponível em: &lt;<a href="https://www.gov.br/observatorio/pt-br/assuntos/areas-de-atuacao/tempo-e-frequencia/historico-da-dsho">https://www.gov.br/observatorio/pt-br/assuntos/areas-de-atuacao/tempo-e-frequencia/historico-da-dsho</a>&gt;. Acesso em: 5 out. 2026.
 </div>
 <div id="ref-openshaw1984" class="csl-entry" role="listitem">
 OPENSHAW, Stan. Ecological fallacies and the analysis of areal census data. <strong>Environment and Planning A</strong>, v. 16, n. 1, p. 17–31, 1984. Disponível em: &lt;https://doi.org/<a href="https://doi.org/10.1068/a160017">10.1068/a160017</a>&gt;.

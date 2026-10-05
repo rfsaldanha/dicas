@@ -115,22 +115,15 @@ required <- c(required, "scripts/build_cap3_art.py", "assets/figures/arte-cap3-m
       paste0(art, ".svg"), paste0(art, "-print.png")
     ))
   }), use.names = FALSE))
-chapter_four_art <- c(
-  "01-suporte", "02-zoneamento", "03-tempos", "04-previsao",
-  "05-qualidade", "06-ausencias", "07-interpretacao"
-)
-chapter_four_ids <- c(
-  "fig-suporte-localizacao", "fig-escala-zoneamento", "fig-tempos-dado",
-  "fig-tempos-previsao", "fig-qualidade-uso", "fig-ausencia-zero",
-  "fig-compatibilizacao-inferencia"
-)
-required <- c(required, "scripts/build_cap4_art.py", "assets/figures/arte-cap4-manifest.json",
-  unlist(lapply(chapter_four_art, function(art) {
-    number <- substr(art, 1L, 2L)
-    paste0("assets/figures/arte-cap4-", c(
-      paste0(number, "-v1.png"), paste0(number, "-v1.prompt.txt"),
-      paste0(art, ".svg"), paste0(art, "-print.png")
-    ))
+chapter_four_manifest <- yaml::read_yaml("assets/figures/arte-cap4-manifest.json")
+chapter_four_art <- vapply(chapter_four_manifest, function(a) paste0(a$number, "-", a$slug), character(1L))
+chapter_four_ids <- vapply(chapter_four_manifest, function(a) a$id, character(1L))
+if (length(chapter_four_art) != 11L) fail("Esperadas onze composições no manifesto do capítulo 4.")
+required <- c(required, "scripts/build_cap4_art.py", "scripts/cap4_panels.py",
+  "scripts/check_cap4_timezones.py", "data-raw/figures/conversoes-utc-cap4.json",
+  "assets/figures/arte-cap4-manifest.json",
+  unlist(lapply(chapter_four_manifest, function(a) {
+    paste0("assets/figures/", unlist(a[c("svg", "print", "prompt", "source", "source_prompt", "refinement_prompt")]))
   }), use.names = FALSE))
 chapter_five_art <- c("01-identificacao", "02-selecao", "03-proveniencia")
 chapter_five_ids <- c("fig-identificacao-fonte", "fig-selecao-fontes", "fig-proveniencia")
@@ -442,8 +435,8 @@ chapter_four_html <- paste(readLines(
   file.path(html_root, sub("[.]qmd$", ".html", chapter_four_path)),
   warn = FALSE, encoding = "UTF-8"
 ), collapse = "\n")
-# O mapa empírico permanece na posição 4.2, entre as duas primeiras artes.
-chapter_four_numbers <- c(1L, 3L, 4L, 5L, 6L, 7L, 8L)
+# As composições têm códigos de produção; a numeração segue a ordem no texto.
+chapter_four_numbers <- c(1L, 5L, 6L, 7L, 10L, 11L, 12L, 2L, 4L, 8L, 9L)
 for (i in seq_along(chapter_four_art)) {
   art <- paste0("arte-cap4-", chapter_four_art[[i]], ".svg")
   id <- chapter_four_ids[[i]]
@@ -458,9 +451,24 @@ for (i in seq_along(chapter_four_art)) {
   }
 }
 if (!grepl('id="fig-mudanca-suporte"', chapter_four_html, fixed = TRUE) ||
-    !grepl("Figura&nbsp;4.2:", chapter_four_html, fixed = TRUE)) {
+    !grepl("Figura&nbsp;4.3:", chapter_four_html, fixed = TRUE)) {
   fail("O mapa empírico do capítulo 4 está ausente ou foi renumerado incorretamente.")
 }
+for (a in chapter_four_manifest) {
+  svg <- paste(readLines(file.path("assets/figures", a$svg), warn = FALSE), collapse = "\n")
+  raster <- is.null(a$kind) || a$kind != "vector"
+  if (grepl("<image ", svg, fixed = TRUE) != raster) {
+    fail("Tipo de composição e presença de aquarela divergentes: ", a$svg)
+  }
+}
+figure_count <- lengths(regmatches(chapter_four_source,
+  gregexpr("(?m)^!\\[.*?\\]\\([^\n]+\\)\\{#fig-", chapter_four_source, perl = TRUE)))
+if (figure_count != 12L) fail("O capítulo 4 deve incorporar doze figuras.")
+if (!grepl('id="tbl-conversoes-utc"', chapter_four_html, fixed = TRUE) ||
+    !grepl("@tbl-conversoes-utc", paste(readLines("backmatter/lista-tabelas.qmd"), collapse="\n"), fixed=TRUE)) {
+  fail("Tabela de UTC ausente do capítulo ou da lista.")
+}
+if (system2("python3", "scripts/check_cap4_timezones.py") != 0L) fail("Conversões de UTC inconsistentes.")
 if (grepl("ARTE CAP4-", gsub("(?s)<!--.*?-->", "", chapter_four_html, perl = TRUE), fixed = TRUE)) {
   fail("Instruções de produção do capítulo 4 aparecem no conteúdo renderizado.")
 }

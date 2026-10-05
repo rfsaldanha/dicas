@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""Compõe as sete artes do capítulo 4 com texto e relações editáveis.
+"""Compõe as onze artes do capítulo 4 com texto e relações editáveis.
 
-Uso: python3 scripts/build_cap4_art.py [01 ... 07]
+Uso: python3 scripts/build_cap4_art.py [01 ... 11]
 As aquarelas são originais gerados sequencialmente; não contêm dados observados.
 """
 from pathlib import Path
+from cap4_panels import layout as new_layout
 from figure_style import write_svg
 from render_figure import export_print
 from xml.sax.saxutils import escape
@@ -49,6 +50,8 @@ def picture(name, crop, x, y, w, h, sw, sh):
 
 
 def layout(number, sw, sh):
+    if int(number) >= 8:
+        return new_layout(number, sw, sh, text, line, box, picture)
     p = []
     placements = []
 
@@ -65,9 +68,9 @@ def layout(number, sw, sh):
                 ('Unidade de análise', ['Para que território', 'a síntese será calculada?'], 'Limite municipal')]
         for i, (heading, detail, example) in enumerate(rows):
             y = 30 + i * 550
-            x, top, w, h = pic('suporte-'+str(i), (0, .18, 1, .76), 30, y, 1020, 465)
+            x, top, w, h = pic('suporte-'+str(i), (0, 0, 1, 1), 30, y, 1020, 465)
             if i == 0:
-                for px, py in [(.265, .48), (.81, .655)]:
+                for px, py in [(.157, .63), (.678, .77)]:
                     p.append(f'<circle cx="{x+px*w}" cy="{top+py*h}" r="16" fill="white" stroke="{INK}" stroke-width="6"/>')
             elif i == 1:
                 for j in range(5):
@@ -198,12 +201,16 @@ def layout(number, sw, sh):
 
 
 def compose(a):
-    data=(ART/a['source']).read_bytes()
-    if data[:8] != b'\x89PNG\r\n\x1a\n':
-        raise ValueError('Original não é PNG: '+a['source'])
-    if hashlib.sha256(data).hexdigest() != a['sha256_original']:
-        raise ValueError('Original difere do manifesto: '+a['source'])
-    sw,sh=struct.unpack('>II',data[16:24])
+    raster = a.get('kind', 'raster') != 'vector'
+    data = (ART/a['source']).read_bytes() if raster else b''
+    if raster:
+        if data[:8] != b'\x89PNG\r\n\x1a\n':
+            raise ValueError('Original não é PNG: '+a['source'])
+        if hashlib.sha256(data).hexdigest() != a['sha256_original']:
+            raise ValueError('Original difere do manifesto: '+a['source'])
+        sw,sh=struct.unpack('>II',data[16:24])
+    else:
+        sw,sh=0,0
     width,height,parts,placements=layout(a['number'],sw,sh)
     # 120 mm é a largura máxima de uso editorial destas composições.
     for item in placements:
@@ -213,25 +220,26 @@ def compose(a):
         if dpi < 300:
             raise ValueError(f"Resolução efetiva insuficiente: {a['number']} {item['name']} {dpi:.1f} dpi")
     metadata=json.dumps({
-        'tool':'image_gen','tool_version':a['tool_version'],'prompt':a['prompt'],
-        'reference':a['reference'],'reference_delivery':a['reference_delivery'],
+        'kind':a.get('kind','raster'),'tool':a['tool'],'tool_version':a['tool_version'],'prompt':a['prompt'],
+        'reference':a.get('reference'),'reference_delivery':a.get('reference_delivery'),
         'previous_source':a.get('previous_source'),
         'refinement_prompt':a.get('refinement_prompt'),
         'print_renderer':'Chromium e ImageMagick; fontes e raster incorporados verificados',
-        'sha256_original':hashlib.sha256(data).hexdigest(),
-        'interventions':'Inspeção visual; disposição e recorte de vinhetas; limites, conexões e rótulos em SVG; exportação em cinza.',
+        'sha256_original':hashlib.sha256(data).hexdigest() if raster else None,
+        'interventions':a.get('assembly','Inspeção visual; disposição e recorte de vinhetas; limites, conexões e rótulos em SVG; exportação em cinza.'),
         'license':a['license'],'reproduce':'python3 scripts/build_cap4_art.py '+a['number'],
         'maximum_print_width_mm':120,'placements':placements},ensure_ascii=False)
     encoded=base64.b64encode(data).decode('ascii')
+    raster_def = f'<image id="aquarela" width="{sw}" height="{sh}" xlink:href="data:image/png;base64,{encoded}"/>' if raster else ''
     svg=ART/a['svg'];out=ART/a['print']
     write_svg(svg, f'''<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img" aria-labelledby="title desc">
 <title id="title">{escape(a['title'])}</title><desc id="desc">{escape(a['alt'])}</desc>
 <metadata>{escape(metadata)}</metadata>
-<defs><image id="aquarela" width="{sw}" height="{sh}" xlink:href="data:image/png;base64,{encoded}"/>
+<defs>{raster_def}
 <marker id="arrow" markerWidth="16" markerHeight="14" refX="14" refY="7" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L16 7 L0 14 Z" fill="#4c5553"/></marker></defs>
 <rect width="{width}" height="{height}" fill="white"/>
 <g font-family="Libertinus Serif, Georgia, serif" fill="{INK}">'''+ '\n'.join(parts)+'</g></svg>\n')
-    export_print(svg, out, width=2400)
+    export_print(svg, out, width=2400, require_raster=raster)
     print(svg.relative_to(ROOT),flush=True)
 
 

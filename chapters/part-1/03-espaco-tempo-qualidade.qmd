@@ -42,36 +42,30 @@ Escala de análise
 
 Uma estação meteorológica, por exemplo, possui uma coordenada, mas sua observação é feita em um ponto e sob condições específicas de instalação. Uma célula de grade de 10 km possui uma localização e uma dimensão, mas o valor pode resultar de um modelo cuja influência espacial ultrapassa o tamanho nominal da célula. Uma taxa municipal, por sua vez, não representa um ponto: ela resume eventos e população dentro de um limite administrativo. Barcellos e Bastos mostram que escolher escala e objeto de análise antecede a integração das bases e condiciona a interpretação dos resultados ambientais e sanitários [@barcellos1996geoprocessamento].
 
-A @fig-suporte-localizacao resume essa distinção. Os elementos podem ocupar a mesma região do mapa e, ainda assim, ter suportes completamente diferentes.
+A @fig-suporte-localizacao resume essa distinção em vista vertical, como um mapa. Estação, residência, ruas e rio ocupam posições idênticas nos três painéis; mudam apenas as camadas que indicam localização, suporte e unidade de análise. Compartilhar uma região do mapa não torna esses suportes equivalentes. A paisagem é hipotética e não possui escala cartográfica.
 
 <!--
-ARTE CAP4-01 — Revisão urbana v2
-Finalidade e leitura: Uma paisagem hipotética combina uma estação em área aberta, núcleo urbano com prédios e ruas, casas, vegetação e rio. Três cópias da mesma cena recebem camadas vetoriais: pontos na estação e em uma residência, células de grade e um limite municipal. A mesma coordenada não define sozinha o suporte do valor.
-Identificador preservado: fig-suporte-localizacao.
-Arte incorporada: assets/figures/arte-cap4-01-suporte.svg.
-Versão de impressão: assets/figures/arte-cap4-01-suporte-print.png, em escala de cinza.
-Aquarela utilizada: assets/figures/arte-cap4-01-v2.png.
-Original anterior preservado: assets/figures/arte-cap4-01-v1.png.
-Prompt anterior preservado: assets/figures/arte-cap4-01-v1.prompt.txt.
-Prompt efetivamente utilizado: assets/figures/arte-cap4-01-v2.prompt.txt.
-Referência visual: assets/references/aquarela-grafite-nanquim.png; original v1 como referência de composição.
-Produção: edição com a ferramenta integrada image_gen; versão da ferramenta não informada.
-Composição reproduzível: scripts/build_cap4_art.py 01; exportação por scripts/render_figure.py.
-Rótulos e relações conceituais editáveis; fontes e aquarela incorporadas verificadas antes da exportação.
-Montagem: Usar a mesma cena em três painéis verticais. Sobrepor pontos no primeiro, grade no segundo e polígono no terceiro. Rótulos: Localização; Suporte em área; Unidade de análise. A grade cruza o limite, sem sugerir encaixe perfeito.
+ARTE CAP4-01 — Vista vertical v3
+Originais e prompts v1/v2 preservados. Fonte atual: arte-cap4-01-v3.png.
+Primeira geração: arte-cap4-01-v3-preliminar.png; refinamento geométrico antes da montagem.
+Referências: original v2 (conteúdo) e aquarela-grafite-nanquim.png (estilo), apresentados em prévias JPEG.
+Montagem: mesma cena repetida; pontos na estação e residência, grade e limite em vetor. Rótulos editáveis.
+Reprodução: python3 scripts/build_cap4_art.py 01
 Prompt completo:
 Use case: precise-object-edit.
-Asset type: ilustração científica editorial para livro brasileiro sobre clima, ambiente e saúde.
-Input images: Imagem 1 é o original a EDITAR, referência obrigatória de composição, personagens e função; Imagem 2 é SOMENTE referência de ESTILO (aquarela-grafite-nanquim.png), não copiar sua cena.
+Asset type: paisagem cartográfica conceitual para livro científico brasileiro, formato horizontal 3:2, resolução 1536 × 1024 pixels ou maior.
+Input images: Imagem 1 é o original a reinterpretar em vista vertical, preservando os elementos do território. Imagem 2 é somente referência de ESTILO; não copiar pessoas ou composição dela.
 Style/medium: Ilustração editorial em aquarela tradicional translúcida, combinada com traços finos e espontâneos de lápis grafite e nanquim. Contornos parcialmente abertos, hachuras leves e marcas discretas de rascunho. Textura sutil de papel aquarela, pigmentação irregular e transições suaves. Paleta de verdes naturais, azuis acinzentados, ocres e terracota, com saturação moderada. Preservar áreas de papel branco e bordas irregulares que se dissolvem no fundo. Pessoas com proporções naturais e diversidade de tons de pele. Linguagem visual madura, acolhedora e adequada à divulgação científica para adultos.
-Primary request: Revisar esta imagem para trazer uma cidade brasileira contemporânea, inteiramente hipotética, para o plano principal. Prédios e infraestrutura urbana precisam ser claramente reconhecíveis, não apenas uma silhueta distante no horizonte. Preservar a linguagem de aquarela e a ideia científica do original.
-Constraints: Manter ordem, quantidade e separação das vinhetas; preservar identidade, roupas e gestos dos personagens existentes, perspectiva e margens de papel branco, salvo as mudanças explicitamente solicitadas abaixo. Pessoas e mãos anatomicamente coerentes. Densidade urbana legível, sem excesso de detalhes. Mostrar diferentes condições de proteção em ambientes urbanos sem caricaturas ou equivalência automática entre cidade e dano. Não desenhar palavras, letras, números, logotipos, marcas d'água, setas, grades analíticas, legendas ou novos gráficos. Textos e conexões serão acrescentados como vetores. Contraste deve funcionar em escala de cinza. Não inventar dados quantitativos nem representar uma cidade real.
+Primary request: Transformar o território da imagem 1 em uma vista ORTOGONAL VERTICAL, NÁDIR, exatamente de cima, como um mapa ilustrado. O plano do chão deve ser paralelo ao papel: não mostrar horizonte, céu, montanhas vistas de lado, fachadas, lados verticais de prédios ou perspectiva isométrica. Mostrar somente coberturas, plantas, ruas e copas de árvores vistas verticalmente.
+Composition/framing: Uma única paisagem urbana e periurbana inteiramente hipotética. Estação meteorológica pequena no terço esquerdo, em terreno gramado amplo e aberto, afastada de árvores e edifícios; vista superior do abrigo e instrumentos, sem ampliá-los desproporcionalmente. Núcleo urbano misto no centro e à direita, com quarteirões, vias, coberturas de edifícios maiores e casas menores. Uma residência de telhado terracota deve ser distinguível na região inferior direita. Rio sinuoso na faixa superior direita, arborização nas margens e ponte vista de cima. Vegetação e campos no lado esquerdo. Preservar a distribuição geral de estação à esquerda, ocupação urbana à direita e água no alto, adaptando toda a geometria à projeção estritamente superior. Não preservar o horizonte oblíquo do original. Bordas orgânicas suaves sobre papel branco e margens pequenas.
+Constraints: Sem pessoas; sem palavras, letras, números, setas, pontos marcadores, grades, limites administrativos, legendas, escalas, logotipos ou marcas d'água. Sem mapa de cidade real ou quantidades observacionais. Estação e residência receberão pontos vetoriais depois. A mesma imagem será repetida em diferentes painéis científicos; não gerar painéis nesta aquarela. Contraste legível em escala de cinza. Prédios reconhecíveis por coberturas amplas, sem qualquer fachada aparente. Não desenhar nuvens sobre o território.
 
-Composition/framing: Uma paisagem única horizontal 3:2, resolução 1536 × 1024 pixels ou maior. Preservar perspectiva levemente elevada, estação meteorológica no terço esquerdo em terreno aberto, rio e nuvens ao fundo, margem branca irregular; a região principal útil está entre y=18% e y=94% da imagem.
-Scene/backdrop: Transformar o núcleo de casas central e à direita em território urbano e periurbano misto: edifícios residenciais e comerciais de 4 a 10 andares bem visíveis no médio plano, quarteirões e vias pavimentadas, unidade de saúde sem inscrições, casas de diferentes tipos, praças arborizadas e áreas abertas junto ao rio. Manter campos e vegetação no terço esquerdo em torno da estação, com recuo plausível dos prédios. Preservar uma moradia baixa de telhado terracota claramente distinguível no primeiro plano à direita, pois receberá um marcador vetorial. Não acrescentar pontos, grades, limites ou símbolos analíticos. Esta mesma paisagem será repetida em três linhas para comparar localização, suporte e unidade de análise.
+Refinamento efetivamente aplicado:
+Correção geométrica precisa da imagem recém-gerada: manter posições de ruas, rio, ponte, vegetação, estação, cores e técnica. Mudar APENAS a projeção de TODAS as construções e instrumentos para NÁDIR ORTOGRÁFICO, câmera exatamente 90 graus para baixo, mapa plano visto de cima. Os prédios atuais mostram janelas e paredes verticais em suas faces inferiores; REMOVER COMPLETAMENTE essas fachadas, janelas laterais e paredes aparentes. Cada prédio será somente sua cobertura e planta horizontal: retângulos de laje clara com detalhes de telhado, sem extrusão, sem qualquer face lateral. A estação à esquerda será vista só de cima, abrigo apenas cobertura branca e instrumentos como suas pequenas plantas. Casas apenas telhados. Não inclinar prédios. Esta é uma imagem cartográfica, não uma fotografia aérea oblíqua nem uma cidade isométrica. Preservar contornos e localizações do território e aquarela com grafite e nanquim. Sem qualquer texto, número, grade, setas ou novos elementos. Manter 1536 × 1024 ou maior.
+
 -->
 
-![Localização, suporte e unidade de análise](../../assets/figures/arte-cap4-01-suporte.svg){#fig-suporte-localizacao .lightbox width="100%" print-src="arte-cap4-01-suporte-print.png" print-width="120mm" fig-alt="Uma paisagem hipotética combina uma estação em área aberta, núcleo urbano com prédios e ruas, casas, vegetação e rio. Três cópias da mesma cena recebem camadas vetoriais: pontos na estação e em uma residência, células de grade e um limite municipal. A mesma coordenada não define sozinha o suporte do valor."}
+![Localização, suporte e unidade de análise](../../assets/figures/arte-cap4-01-suporte.svg){#fig-suporte-localizacao .lightbox width="100%" print-src="arte-cap4-01-suporte-print.png" print-width="120mm" fig-alt="Três cópias idênticas de um território hipotético visto verticalmente, como mapa, recebem pontos na estação e na residência, células de grade e um limite municipal. Ruas, coberturas, vegetação e rio permanecem na mesma posição."}
 
 [Fontes conceituais: Barcellos e Bastos (1996); Carvalho e Souza-Santos (2005). Elaboração e revisão para esta obra, com aquarela gerada por IA (image_gen) e rótulos editáveis. Licença dos arquivos autorais: GPL-3.0; fontes mantêm suas condições de uso.]{.figure-source}
 
@@ -123,6 +117,26 @@ em que \(x_g\) é o valor ambiental da célula \(g\) e \(p_{gm}\) é a populaç�
 
 A expressão exige população total positiva e valores ambientais válidos nas células incluídas. Excluir células por falta de dados altera a população representada e precisa ser documentado. O exemplo real a seguir permite comparar essa escolha com a ponderação por área usando o mesmo produto e o mesmo território.
 
+A @fig-estatistica-zonal-populacao decompõe o cálculo. Primeiro, identifica-se o valor ambiental de cada célula; depois, localiza-se a população sobre a mesma base espacial. O limite territorial seleciona as interseções que participarão da síntese. A população fora desse limite não pertence ao denominador do município, mesmo quando está em uma célula que o atravessa.
+
+<!--
+ARTE CAP4-08
+ARTE CAP4-08 — Da grade ambiental à média territorial ponderada pela população
+Tipo: raster.
+Composição: Reutilizar a vista vertical v3 em três painéis alinhados. Sobrepor grade, símbolos populacionais e limite idêntico. Atenuar o exterior na interseção. Encerrar com a média ponderada e os requisitos de população positiva e cobertura válida. Não adicionar números observacionais.
+Estilo: tipografia Libertinus Serif incorporada, paleta editorial e rótulos em vetor.
+Reprodução: python3 scripts/build_cap4_art.py 08
+Aquarela e prompts: arte-cap4-01-v3.png; arte-cap4-01-v3.prompt.txt; arte-cap4-01-v3-refinamento.prompt.txt.
+Texto alternativo: Três vistas idênticas mostram campo ambiental, localização ilustrativa da população e interseção com um território. A fórmula combina os valores ambientais com a população de cada interseção. Os pontos não representam contagens.
+Legenda: Da grade ambiental à média territorial ponderada pela população
+-->
+
+![Da grade ambiental à média territorial ponderada pela população](../../assets/figures/arte-cap4-08-ponderacao-populacional.svg){#fig-estatistica-zonal-populacao .lightbox width="100%" print-src="arte-cap4-08-ponderacao-populacional-print.png" print-width="120mm" fig-alt="Três vistas idênticas mostram campo ambiental, localização ilustrativa da população e interseção com um território. A fórmula combina os valores ambientais com a população de cada interseção. Os pontos não representam contagens."}
+
+[Fontes conceituais: Barcellos e Bastos (1996); Carvalho e Souza-Santos (2005); fórmula e definições desta seção. Elaboração para esta obra em SVG, com aquarela gerada por IA (image_gen) reutilizada da vista vertical v3 e rótulos editáveis. Licença dos arquivos autorais: GPL-3.0; fontes mantêm suas condições de uso.]{.figure-source}
+
+No painel final, cada valor ambiental é multiplicado pela população de sua interseção com o território; a soma desses produtos é dividida pela população incluída. O campo ambiental permanece igual: mudam os pesos atribuídos às suas partes. Uma média pela área usaria áreas como pesos, respondendo a outra pergunta. Os pontos da prancha apenas ilustram localizações e não equivalem a uma pessoa, a um domicílio ou a uma contagem observada. Como \(p_{gm}\) já se refere à população da interseção, não se deve multiplicá-la novamente pela fração de área sem justificativa metodológica.
+
 Ponderar pela população não transforma uma temperatura ambiental em uma medida individual de exposição. Pessoas se deslocam, trabalham e permanecem em ambientes internos; a própria superfície populacional pode ser estimada. Ainda assim, quando a pergunta se refere à condição média nos locais de residência, essa ponderação pode ser mais informativa do que uma média puramente territorial.
 
 ### Situação concreta: três temperaturas para o mesmo estado
@@ -144,6 +158,26 @@ Sobreposição entre grade e território ocorre quando uma superfície contínua
 Interpolação areal é necessária quando uma quantidade associada a polígonos de origem precisa ser transferida para polígonos de destino diferentes. Em variáveis extensivas, como contagens populacionais, uma ponderação apenas pela área pressupõe distribuição uniforme dentro de cada polígono. Métodos dasimétricos procuram melhorar essa redistribuição utilizando informação auxiliar, como áreas construídas ou cobertura da terra, mas acrescentam dados e hipóteses [@openshaw1984; @iso2023geoquality].
 
 Ponderação populacional da exposição, por sua vez, combina uma superfície ambiental com uma superfície de população já compatibilizada espacialmente. Seu objetivo não é redistribuir a temperatura ou a concentração, mas atribuir maior peso aos locais onde reside mais gente.
+
+A @fig-operacoes-espaciais compara as três operações mantendo explícitos seus objetos de entrada e de saída. No primeiro painel, a interseção delimita a parte da grade associada ao território. No segundo, o mesmo domínio recebe duas malhas, e o objetivo é transferir quantidades extensivas entre elas. No terceiro, as superfícies já compatibilizadas são combinadas para calcular uma síntese ponderada.
+
+<!--
+ARTE CAP4-09
+ARTE CAP4-09 — Três operações espaciais e o que cada uma transforma
+Tipo: raster.
+Composição: Três faixas: sobreposição entre grade e território; malhas de origem e destino cobrindo o mesmo domínio, com totais conservados e hipótese de uniformidade explícita; superfície ambiental e população compatibilizadas. Reutilizar a paisagem vertical v3. Não atribuir números às malhas.
+Estilo: tipografia Libertinus Serif incorporada, paleta editorial e rótulos em vetor.
+Reprodução: python3 scripts/build_cap4_art.py 09
+Aquarela e prompts: arte-cap4-01-v3.png; arte-cap4-01-v3.prompt.txt; arte-cap4-01-v3-refinamento.prompt.txt.
+Texto alternativo: Três faixas distinguem o recorte de uma grade pelo território, a transferência de totais entre duas malhas no mesmo domínio e a ponderação de valores ambientais pela população. Os diagramas não contêm totais observados.
+Legenda: Três operações espaciais e o que cada uma transforma
+-->
+
+![Três operações espaciais e o que cada uma transforma](../../assets/figures/arte-cap4-09-operacoes-espaciais.svg){#fig-operacoes-espaciais .lightbox width="100%" print-src="arte-cap4-09-operacoes-espaciais-print.png" print-width="120mm" fig-alt="Três faixas distinguem o recorte de uma grade pelo território, a transferência de totais entre duas malhas no mesmo domínio e a ponderação de valores ambientais pela população. Os diagramas não contêm totais observados."}
+
+[Fontes conceituais: Openshaw (1984); ISO 19157-1 (2023); discussão desta seção. Elaboração para esta obra em SVG, com aquarela gerada por IA (image_gen) reutilizada da vista vertical v3 e rótulos editáveis. Licença dos arquivos autorais: GPL-3.0; fontes mantêm suas condições de uso.]{.figure-source}
+
+Na interpolação areal por área, a parcela transferida depende da proporção da área de origem coberta por cada destino. Isso pressupõe distribuição uniforme da quantidade dentro do polígono de origem. Quando origem e destino cobrem integralmente o mesmo domínio, sem sobreposições duplicadas, a redistribuição deve conservar o total; se houver recortes ou lacunas, o balanço deve se referir apenas ao domínio comum. Informação auxiliar pode modificar os pesos, mas não elimina a necessidade de declarar as hipóteses. Já a ponderação populacional não redistribui a temperatura ou a concentração: utiliza a população como peso da síntese.
 
 Essas operações preservam propriedades diferentes. O processamento deve declarar o que se pretende conservar — média, total, proporção, ocorrência ou distribuição —, como foram tratadas as interseções e que dados auxiliares foram utilizados.
 
@@ -277,6 +311,43 @@ Formato: mesma proporção do original 1536 × 1024; resolução igual ou superi
 
 Uma prática segura é conservar o horário original e seu fuso, realizar conversões explicitamente e somente depois criar janelas diárias, semanais ou mensais para a análise. Quando um deslocamento de algumas horas pode alterar a associação, a sensibilidade à definição temporal deve ser verificada.
 
+```{=typst}
+#block(breakable: false)[
+```
+
+:::: {.callout-note icon=false title="Conceito-chave: UTC, fuso horário e data local"}
+
+UTC é a referência temporal internacional. Um fuso horário reúne regras para expressar a hora civil de uma localidade; seu deslocamento em relação ao UTC pode variar com a data. Converter preserva o mesmo instante, mas pode mudar o dia.
+
+Some ao UTC o deslocamento indicado na @tbl-conversoes-utc. Cada coluna parte de um único instante; todas as datas são de 2026.
+
+| Referência/localidade | UTC: jan./jul. (h) | 29 jan., 00 UTC | 29 jul., 00 UTC |
+|---|---:|---|---|
+| UTC | +00 / +00 | 29 jan., 00h00 | 29 jul., 00h00 |
+| Brasília | −03 / −03 | 28 jan., 21h00 | 28 jul., 21h00 |
+| Manaus | −04 / −04 | 28 jan., 20h00 | 28 jul., 20h00 |
+| Rio Branco/Acre | −05 / −05 | 28 jan., 19h00 | 28 jul., 19h00 |
+| Fernando de Noronha | −02 / −02 | 28 jan., 22h00 | 28 jul., 22h00 |
+| Paris | +01 / +02 | 29 jan., 01h00 | 29 jul., 02h00 |
+| Londres | +00 / +01 | 29 jan., 00h00 | 29 jul., 01h00 |
+| Nova York | −05 / −04 | 28 jan., 19h00 | 28 jul., 20h00 |
+
+: Conversões de dois instantes UTC para data e hora locais, em 2026 {#tbl-conversoes-utc}
+
+[Fonte: IANA Time Zone Database, versão 2026c; conversões calculadas com `zoneinfo` e conferidas em 5 de outubro de 2026.]{.figure-source}
+
+Em Brasília, 29 de julho às 00 UTC corresponde a 28 de julho às 21h00. Paris tem deslocamentos diferentes em janeiro e julho. Não aplique automaticamente essas diferenças a toda uma série histórica.
+
+Identificadores como `America/Sao_Paulo` e `Europe/Paris` permitem aplicar regras históricas. Nas transições sazonais, horas locais podem se repetir ou não existir; dias civis podem ter 23 ou 25 horas. Preserve data, hora e fuso originais e converta os instantes antes de formar dias locais.
+
+::::
+
+```{=typst}
+]
+```
+
+O box segue as definições e regras documentadas pelo Bureau Internacional de Pesos e Medidas (BIPM), pelo Observatório Nacional, pela Internet Assigned Numbers Authority (IANA) e pelo Observatório de Paris [@bipmUTC; @on2026tempo; @ianaTimeZones; @syrte2023heure]. Os identificadores e cálculos estão preservados em `data-raw/figures/conversoes-utc-cap4.json`. A conversão de julho usa o mesmo instante de validade da previsão CAMS apresentada no capítulo.
+
 ::: {.callout-note icon=false title="Nota técnica: calendários dos modelos"}
 Arquivos de modelos climáticos podem utilizar calendários diferentes do calendário civil. As convenções CF (Clima e Previsão (*Climate and Forecast*)), amplamente usadas em arquivos NetCDF, preveem calendários como `365_day`/`noleap`, `366_day` e `360_day`, no qual todos os meses possuem 30 dias.^[NetCDF Climate and Forecast (CF) Metadata Conventions, seção sobre calendários: <https://cfconventions.org/cf-conventions/cf-conventions.html#calendar>.]
 
@@ -301,6 +372,26 @@ Transformações temporais e seus significados
 
 :::
 
+A @fig-transformacoes-temporais representa as operações do @qua-transformacoes-temporais. Os símbolos remetem a observações ou intervalos, sem apresentar uma série medida. A média ilustrada usa pesos iguais e requer observações comparáveis; se os intervalos representados forem diferentes, a ponderação temporal também precisa ser considerada.
+
+<!--
+ARTE CAP4-10
+ARTE CAP4-10 — Média, soma, máximo, contagem e sequência: o que permanece na síntese
+Tipo: vector.
+Composição: Prancha exclusivamente vetorial com cinco faixas. Média de observações comparáveis e pesos iguais; soma de precipitação em intervalos disjuntos; seleção do máximo; contagem de dias que atendem ao critério; maior sequência de dias consecutivos. Repetir o mesmo calendário ilustrativo nos dois últimos painéis, sem publicar contagens ou valores. Informar as perdas de cada síntese e a necessidade de regra para ausências.
+Estilo: tipografia Libertinus Serif incorporada, paleta editorial e rótulos em vetor.
+Reprodução: python3 scripts/build_cap4_art.py 10
+Não houve geração de aquarela nesta composição.
+Texto alternativo: Cinco faixas mostram símbolos de observações, operações e propriedades preservadas ou perdidas. Contagem e sequência usam o mesmo calendário esquemático: contar dias selecionados difere de identificar um bloco consecutivo. Não há série observacional.
+Legenda: Média, soma, máximo, contagem e sequência: o que permanece na síntese
+-->
+
+![Média, soma, máximo, contagem e sequência: o que permanece na síntese](../../assets/figures/arte-cap4-10-transformacoes-temporais.svg){#fig-transformacoes-temporais .lightbox width="100%" print-src="arte-cap4-10-transformacoes-temporais-print.png" print-width="120mm" fig-alt="Cinco faixas mostram símbolos de observações, operações e propriedades preservadas ou perdidas. Contagem e sequência usam o mesmo calendário esquemático: contar dias selecionados difere de identificar um bloco consecutivo. Não há série observacional."}
+
+[Fontes conceituais: Organização Meteorológica Mundial (2023); quadro de transformações temporais desta seção. Elaboração para esta obra em SVG, com rótulos e relações editáveis; sem geração de aquarela. Licença dos arquivos autorais: GPL-3.0; fontes mantêm suas condições de uso.]{.figure-source}
+
+A soma reúne quantidades acumuladas em intervalos sem sobreposição, como precipitação em milímetros. Uma intensidade em milímetros por hora precisa ser integrada pela duração antes de produzir esse total. O máximo seleciona um extremo, sem informar por quanto tempo ele persistiu. Nos dois últimos painéis, o mesmo calendário esquemático permite distinguir contagem e sequência: a primeira reúne todos os dias que atendem ao critério; a segunda procura o maior bloco consecutivo. O critério e o tratamento de dias ausentes devem ser definidos antes de ambas as operações; ausência não equivale a um dia que não atende ao critério.
+
 O @qua-transformacoes-temporais mostra que cada operação preserva uma propriedade e pode ocultar outras. Agregar com coerência depende da unidade: uma intensidade de chuva, por exemplo, precisa ser integrada no tempo para produzir um acumulado.
 
 A completude também faz parte da agregação. Uma média diária calculada a partir de 24 observações e outra calculada com apenas três horários podem não ser comparáveis. Para totais, horas ou dias ausentes podem produzir subestimação. Critérios mínimos de completude devem ser definidos antes do cálculo [@wmo2023climatological].
@@ -312,6 +403,28 @@ A completude também faz parte da agregação. Uma média diária calculada a pa
 Uma condição ambiental e um efeito sobre a saúde nem sempre aparecem no mesmo momento. Alguns efeitos podem ocorrer no mesmo dia; outros surgem depois de horas, dias ou períodos ainda mais longos. A distância temporal plausível depende do processo que está sendo estudado.
 
 Essa distância temporal costuma ser chamada de defasagem. Sua escolha deve partir do mecanismo e da pergunta, não da busca pela associação estatisticamente mais forte. Para explicar um desfecho no dia analisado, as exposições candidatas pertencem ao mesmo dia e aos dias anteriores, conforme o mecanismo. Se a análise parte do dia da exposição, são os desfechos posteriores que precisam ser acompanhados. Trocar essas referências pode introduzir informação futura indevida. Quando houver mais de uma janela plausível, elas podem ser comparadas em análises de sensibilidade. Os métodos epidemiológicos para estimar relações defasadas serão retomados no @sec-efeitos-saude [@hernan2020causal; @gasparrini2010dlnm].
+
+A @fig-janelas-defasagem apresenta duas formas de organizar a mesma pergunta temporal. Partindo do dia do desfecho, examinam-se exposições do mesmo dia e de dias anteriores. Partindo do dia da exposição, acompanham-se possíveis desfechos naquele dia e depois. A escolha da âncora muda a organização da base, mas não autoriza usar uma exposição futura para explicar um evento anterior.
+
+<!--
+ARTE CAP4-11
+ARTE CAP4-11 — Duas formas de organizar a janela de defasagem
+Tipo: vector.
+Composição: Dois painéis vetoriais: ancorar no desfecho em t e olhar as exposições em t, t menos um e t menos k; ancorar na exposição em t e acompanhar desfechos até t mais k. Setas apenas no eixo cronológico. Janelas em tracejado, sem curvas de risco, números de casos ou duração universal. Separar defasagem analítica e atrasos dos processos.
+Estilo: tipografia Libertinus Serif incorporada, paleta editorial e rótulos em vetor.
+Reprodução: python3 scripts/build_cap4_art.py 11
+Não houve geração de aquarela nesta composição.
+Texto alternativo: No primeiro painel, um desfecho em t é examinado com exposições do mesmo dia e de dias anteriores. No segundo, uma exposição em t é acompanhada por possíveis desfechos no mesmo dia e depois. Linhas tracejadas delimitam janelas analíticas, sem demonstrar causalidade.
+Legenda: Duas formas de organizar a janela de defasagem
+-->
+
+![Duas formas de organizar a janela de defasagem](../../assets/figures/arte-cap4-11-defasagem.svg){#fig-janelas-defasagem .lightbox width="100%" print-src="arte-cap4-11-defasagem-print.png" print-width="120mm" fig-alt="No primeiro painel, um desfecho em t é examinado com exposições do mesmo dia e de dias anteriores. No segundo, uma exposição em t é acompanhada por possíveis desfechos no mesmo dia e depois. Linhas tracejadas delimitam janelas analíticas, sem demonstrar causalidade."}
+
+[Fontes conceituais: Hernán e Robins (2020); Gasparrini, Armstrong e Kenward (2010). Elaboração para esta obra em SVG, com rótulos e relações editáveis; sem geração de aquarela. Licença dos arquivos autorais: GPL-3.0; fontes mantêm suas condições de uso.]{.figure-source}
+
+Na figura, \(t\) identifica o dia de referência e \(k\) delimita uma janela de dias; os marcadores intermediários são ilustrativos. Defasagem zero significa exposição e desfecho no mesmo intervalo agregado, sem garantir que sua ordem dentro do dia seja conhecida. Defasagem positiva considera a exposição anterior ao desfecho. Não há uma janela universal aplicável a todos os fenômenos, e a ordenação temporal não demonstra, isoladamente, causalidade.
+
+A defasagem medida também depende da data escolhida para o desfecho. Resposta biológica, procura e acesso ao cuidado, admissão, registro e publicação são processos distintos. Se a análise usa a data de internação, a distância desde a exposição pode incluir tanto resposta biológica quanto espera assistencial; a data de registro ainda acrescenta atraso informacional. A @fig-tempos-dado distingue esses momentos; a análise precisa explicitar qual deles a janela pretende representar. A discussão de causalidade aparece em @sec-correlacao-causalidade-atribuicao, e os métodos de estimação serão aprofundados no @sec-efeitos-saude.
 
 ## Períodos de referência e comparações no tempo
 
