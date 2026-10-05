@@ -91,6 +91,16 @@ if command -v pdftotext >/dev/null 2>&1; then
     printf 'Numeração do quadro do apêndice não foi convertida para A.1.\n' >&2
     exit 1
   fi
+  if ! grep -F "Apêndice B — Estações" "$text_file" >/dev/null; then
+    printf 'Apêndice B ausente no PDF.\n' >&2
+    exit 1
+  fi
+  for element in "Figura B.1" "Figura B.7" "Tabela B.1" "Tabela B.5"; do
+    if ! tr '\302\240' ' ' < "$text_file" | grep -E "$(printf '%s' "$element" | sed 's/ /[[:space:]]+/g')" >/dev/null; then
+      printf 'Numeração do apêndice B ausente ou incorreta: %s\n' "$element" >&2
+      exit 1
+    fi
+  done
   # A entrada bibliográfica fica depois dos capítulos e antes do conteúdo do apêndice.
   if ! awk '
     /BARCELLOS, C/ && !reference { reference = NR }

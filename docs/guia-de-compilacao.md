@@ -130,3 +130,19 @@ make clean
 ```
 
 O alvo remove somente `_output` e `.quarto`, que são artefatos regeneráveis. Não remove dados, capítulos ou metadados.
+
+### Apêndice B: estações meteorológicas e qualidade do ar
+
+Os exemplos locais e seus originais ficam em `data-raw/estacoes`. Para conferir ou reconstruir as tabelas e figuras:
+
+```sh
+python3 scripts/build_estacoes_data.py --check
+python3 scripts/build_estacoes_data.py
+DICAS_BROWSER_CHANNEL=chrome python3 scripts/build_estacoes_art.py
+```
+
+O primeiro script requer Python e Poppler (`pdftotext`). O montador usa Pillow, Matplotlib e Playwright com Chrome/Chromium, além do ImageMagick. O exportador aceita `magick` (ImageMagick 7) ou `convert` (ImageMagick 6). As versões web são SVGs com fontes e imagens incorporadas; as versões de impressão são PNGs em cinza. Os gráficos mantêm texto editável no SVG e são refeitos exclusivamente dos CSV conferidos. Metadados, prompts e créditos constam no manifesto `estacoes-manifest.json`.
+
+Na implementação, as dependências foram isoladas em `/tmp/dicas-estacoes-env`, com Playwright 1.63.0, Pillow 12.3.0, Matplotlib 3.11.2 e PyMuPDF 1.28.2 (este último somente para revisão do PDF). Esse ambiente temporário não é requisito permanente do projeto.
+
+O filtro `figure_metadata.lua` identifica os dois apêndices pelo título, acrescenta as letras A/B na impressão e configura a numeração das figuras, tabelas e equações. Remissões dos capítulos ao apêndice usam links ao arquivo Quarto, pois seus headings são deliberadamente não numerados no PDF. A edição HTML usa a identificação alfabética nativa do Quarto.

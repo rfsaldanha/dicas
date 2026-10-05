@@ -354,23 +354,23 @@
   sigla: MonitorAr
   instituicao: Ministério do Meio Ambiente e Mudança do Clima
   descricao: Plataforma nacional que integra e divulga dados das estações oficiais estaduais e distrital de monitoramento da qualidade do ar e calcula o Índice de Qualidade do Ar.
-  recursos_relacionados: [MonitorAr Web — plataforma, aplicativos móveis — consulta, redes estaduais e distrital — fontes primárias]
+  recursos_relacionados: [MonitorAr Web — plataforma, portal de dados abertos MMA — ZIP e CSV anuais com dicionário, redes estaduais e municipais — fontes primárias]
   temas: [qualidade do ar]
   variaveis: [PM2,5, PM10, ozônio, dióxido de nitrogênio, dióxido de enxofre, monóxido de carbono]
   cobertura_geografica: Estações oficiais integradas ao MonitorAr; a cobertura é parcial e desigual entre unidades da Federação e áreas urbanas.
   resolucao_espacial: Ponto de monitoramento.
   resolucao_temporal: Tempo real, horário ou diário conforme disponibilidade e integração da estação; o IQAr usa a janela definida para cada poluente.
-  periodo_disponivel: Varia por estação e órgão ambiental; a plataforma oferece dados atuais e consulta histórica.
+  periodo_disponivel: Varia por estação e órgão ambiental; o catálogo aberto consultado oferece arquivos anuais de 2022 a 2025.
   atualizacao: Imediata quando a rede de origem transmite em tempo real; atrasos e validação variam por órgão.
   acesso: Site e aplicativos públicos, com busca por localização, estação, mapas e histórico.
   url: https://monitorar.mma.gov.br/
-  api: Não há API pública documentada na página de serviço; dados detalhados podem exigir consulta à rede de origem.
-  formatos: [mapas e gráficos web, visualizações no aplicativo]
-  licenca: Dados produzidos pelas redes oficiais; citar MonitorAr e o órgão ambiental responsável pela estação e observar os termos da rede de origem.
+  api: O catálogo de dados abertos utiliza CKAN; distinguir sua API de metadados do download dos CSV e de eventuais serviços operacionais da rede.
+  formatos: [mapas e gráficos web, visualizações no aplicativo, ZIP e CSV anuais no portal de dados abertos do MMA, dicionário PDF]
+  licenca: O conjunto no portal de dados abertos declara Creative Commons Atribuição; citar MMA/MonitorAr e a rede produtora e preservar a licença do recurso utilizado.
   cadastro: Não exigido.
   custos: Serviço público gratuito.
   limitacoes: Cobertura espacial heterogênea; integração, método, validação e disponibilidade histórica variam; estação representa seu entorno e não todo o município.
-  ultima_verificacao: 2026-07-28
+  ultima_verificacao: 2026-10-05
   indicadores: [AMB-AR-02, AMB-AR-03]
 
 - id: who-air
@@ -622,3 +622,103 @@
   limitacoes: A estrutura requer adaptação ao contexto, definição do universo avaliado e verificação documental ou funcional; percentuais não devem ser interpretados como cobertura nacional quando a amostra não for representativa.
   ultima_verificacao: 2026-07-28
   indicadores: [RES-GOV-01, RES-RIS-01, RES-ALR-01, RES-WAT-01, RES-ENE-01, RES-PLA-01, RES-INF-01]
+
+- id: inmet-bdmep
+  tipo_registro: base de dados
+  nome: Banco de Dados Meteorológicos
+  sigla: BDMEP
+  instituicao: Instituto Nacional de Meteorologia
+  descricao: Banco histórico do INMET; a descrição institucional destaca séries diárias de estações convencionais.
+  recursos_relacionados: [BDMEP — consulta e solicitação de séries, catálogo de estações — identificação e metadados]
+  temas: [meteorologia, séries históricas]
+  variaveis: [temperatura, precipitação, umidade, pressão, vento e outras variáveis conforme estação e produto]
+  cobertura_geografica: Brasil, conforme estações e períodos disponíveis.
+  resolucao_espacial: Ponto de estação; conferir coordenadas, altitude e histórico.
+  resolucao_temporal: Dados diários na descrição do serviço; confirmar outras agregações e produtos na interface.
+  periodo_disponivel: Varia por estação e variável; não pressupor série contínua.
+  atualizacao: Conforme produto e processamento do INMET; distinguir disponibilidade de validação.
+  acesso: Portal BDMEP, com seleção de estação, variáveis e período.
+  url: https://bdmep.inmet.gov.br/
+  api: Não foi identificada uma API pública documentada para todo o acervo nesta consulta.
+  formatos: [Arquivos e consultas conforme opções do serviço]
+  licenca: Citar INMET, estação, produto, período e data de acesso; observar os termos do serviço.
+  cadastro: A interface pode exigir credenciamento para solicitações.
+  custos: Serviço público de dados; verificar condições de cada solicitação.
+  limitacoes: Metadados, horários de observação, mudanças de instrumentos e falhas afetam comparabilidade; médias compensadas diferem de médias simples.
+  ultima_verificacao: 2026-10-05
+  indicadores: []
+
+- id: inmet-historicos-automaticas
+  tipo_registro: produto
+  nome: Históricos anuais de estações meteorológicas automáticas
+  sigla: INMET — históricos
+  instituicao: Instituto Nacional de Meteorologia
+  descricao: Arquivos anuais de observações automáticas, com arquivos individuais de estação e cabeçalhos de metadados.
+  recursos_relacionados: [Arquivo ZIP anual — distribuição, CSV por estação — observações, catálogo INMET — metadados]
+  temas: [meteorologia, observações de superfície]
+  variaveis: [temperatura, ponto de orvalho, precipitação, umidade, vento, pressão e radiação]
+  cobertura_geografica: Rede automática do INMET no Brasil; a presença e continuidade variam.
+  resolucao_espacial: Ponto de estação.
+  resolucao_temporal: Horária, com variáveis instantâneas, acumuladas e extremas identificadas nos cabeçalhos.
+  periodo_disponivel: Arquivos anuais desde 2000; verificar o início de cada estação. Exemplo da obra usa A701 em 2024.
+  atualizacao: Publicação e revisões de arquivos anuais; conferir a data-limite do ano corrente.
+  acesso: Download público de ZIP no portal institucional.
+  url: https://portal.inmet.gov.br/dadoshistoricos
+  api: Download de arquivos; não depende de API de painel.
+  formatos: [ZIP, CSV com ponto e vírgula no exemplo de 2024]
+  licenca: Citar INMET, estação, período e extração; preservar as condições de uso da fonte.
+  cadastro: Não exigido para os arquivos consultados.
+  custos: Download público gratuito.
+  limitacoes: Conferir UTC, unidade e significado de cada coluna; campos vazios não são zero e o maior registro horário não equivale necessariamente à máxima intrahorária.
+  ultima_verificacao: 2026-10-05
+  indicadores: []
+
+- id: cetesb-qualar
+  tipo_registro: sistema de informação
+  nome: Sistema de Informações da Qualidade do Ar
+  sigla: QUALAR
+  instituicao: Companhia Ambiental do Estado de São Paulo
+  descricao: Consulta aos dados das redes de monitoramento da qualidade do ar da CETESB; relatórios públicos oferecem resultados consolidados.
+  recursos_relacionados: [QUALAR — consulta autenticada, repositório CETESB — relatórios e apêndices públicos]
+  temas: [qualidade do ar, monitoramento ambiental]
+  variaveis: [Material particulado, ozônio, dióxido de nitrogênio, dióxido de enxofre, monóxido de carbono e variáveis conforme estação]
+  cobertura_geografica: Estado de São Paulo, conforme distribuição e histórico das estações.
+  resolucao_espacial: Ponto de estação e sua tipologia; não representa automaticamente o município.
+  resolucao_temporal: Observações e agregações segundo rede e produto; o exemplo publicado usa médias anuais de 2021.
+  periodo_disponivel: Varia por estação e parâmetro; relatórios são organizados por ano de referência.
+  atualizacao: Conforme validação e publicação pela CETESB; relatórios consolidados possuem edição própria.
+  acesso: Portal QUALAR ou repositório de relatórios públicos.
+  url: https://qualar.cetesb.sp.gov.br/qualar/home.do
+  api: Não foi identificada API pública de séries documentada nesta consulta.
+  formatos: [Consultas e exportações conforme o portal, PDF nos relatórios]
+  licenca: Citar CETESB, estação, variável e período; o relatório de 2021 permite reprodução com citação da fonte.
+  cadastro: Exigido para consultas autenticadas do QUALAR; relatórios utilizados são públicos.
+  custos: Consulta e relatórios públicos sem cobrança indicada.
+  limitacoes: Preservar representatividade temporal, método, unidade e janela; tabelas consolidadas não permitem reconstruir a série horária.
+  ultima_verificacao: 2026-10-05
+  indicadores: []
+
+- id: oscar-surface
+  tipo_registro: plataforma
+  nome: OSCAR/Surface
+  sigla: OSCAR/Surface
+  instituicao: Organização Meteorológica Mundial
+  descricao: Catálogo internacional de metadados de plataformas e estações de observação de superfície no contexto WIGOS.
+  recursos_relacionados: [OSCAR/Surface — catálogo, WIGOS Station Identifier — identificação, provedor nacional — séries observadas]
+  temas: [metadados, redes observacionais]
+  variaveis: [Identificadores, coordenadas, altitude, variáveis observadas, programas e histórico conforme cadastro]
+  cobertura_geografica: Internacional, conforme estações cadastradas pelos membros e responsáveis.
+  resolucao_espacial: Localização e características da plataforma ou estação.
+  resolucao_temporal: Metadados e períodos de validade; não é série horária de observações.
+  periodo_disponivel: Histórico dependente do cadastro de cada estação.
+  atualizacao: Pelos responsáveis pelo cadastro e manutenção dos metadados.
+  acesso: Consulta pública no catálogo web.
+  url: https://oscar.tools.wmo.int/web-client/
+  api: Consultar a documentação oficial para serviços de metadados; o apêndice utiliza a interface pública.
+  formatos: [Consulta de metadados em interface web]
+  licenca: Observar os termos do OSCAR/Surface e citar a OMM e a data de consulta.
+  cadastro: Consulta pública; edição restrita aos responsáveis autorizados.
+  custos: Consulta pública gratuita.
+  limitacoes: Cadastro não garante intercâmbio ativo de toda variável; dados observacionais devem ser obtidos no provedor correspondente.
+  ultima_verificacao: 2026-10-05
+  indicadores: []

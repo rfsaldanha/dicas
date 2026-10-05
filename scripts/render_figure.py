@@ -6,6 +6,7 @@ carregamento das fontes são verificados antes de produzir o PNG de impressão.
 from pathlib import Path
 import math
 import os
+import shutil
 import subprocess
 import tempfile
 import xml.etree.ElementTree as ET
@@ -56,7 +57,10 @@ def export_print(svg, output, width=2700, *, require_raster=True):
                 browser.close()
         # A largura máxima de uso no miolo é 120 mm. A densidade do raster
         # exportado não substitui a conferência da resolução efetiva da aquarela.
-        subprocess.run(['magick', str(rgba), '-background', 'white',
+        imagemagick = shutil.which('magick') or shutil.which('convert')
+        if not imagemagick:
+            raise RuntimeError('ImageMagick não encontrado: instale magick ou convert.')
+        subprocess.run([imagemagick, str(rgba), '-background', 'white',
                         '-alpha', 'remove', '-alpha', 'off', '-colorspace', 'Gray',
                         '-depth', '8', '-units', 'PixelsPerInch',
                         '-density', str(width * 25.4 / 120),

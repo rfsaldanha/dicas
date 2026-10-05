@@ -43,14 +43,28 @@ function Para(para)
 end
 
 local in_print_appendix = false
+local appendix_titles = {
+  ["Apêndice metodológico"] = { letter = "A", title = "Apêndice A — Apêndice metodológico" },
+  ["Estações meteorológicas e de qualidade do ar"] = { letter = "B", title = "Apêndice B — Estações meteorológicas e de qualidade do ar" }
+}
 
 function Header(header)
   if not quarto.doc.is_format("typst") then
     return
   end
   local title = pandoc.utils.stringify(header.content)
-  if header.level == 1 and (title:match("^Apêndice A") or title == "Apêndice metodológico") then
+  local appendix = header.level == 1 and appendix_titles[title] or nil
+  if appendix then
     in_print_appendix = true
+    header.content = pandoc.Inlines(appendix.title)
+    header.classes:insert("unnumbered")
+    -- Os contadores de imagem e tabela são reiniciados pelo template a cada H1.
+    -- A letra do apêndice deve substituir o último número de capítulo também
+    -- nas referências, sem transformar B em um novo capítulo numérico.
+    local prefix = appendix.letter
+    local setup = '#set figure(numbering: n => "' .. prefix .. '." + str(n))\n' ..
+      '#set math.equation(numbering: n => "(' .. prefix .. '." + str(n) + ")")'
+    return { pandoc.RawBlock("typst", setup), header }
   end
   if in_print_appendix then
     header.classes:insert("unnumbered")
@@ -74,5 +88,15 @@ function Image(element)
     element.attributes["print-src"] = nil
     element.attributes["print-width"] = nil
     return element
+  end
+end
+
+-- Mantém a imagem, a legenda e o crédito juntos nas pranchas do apêndice.
+function Div(div)
+  if quarto.doc.is_format("typst") and div.classes:includes("figure-with-source") then
+    local blocks = pandoc.List({ pandoc.RawBlock("typst", "#block(breakable: false)[") })
+    blocks:extend(div.content)
+    blocks:insert(pandoc.RawBlock("typst", "]"))
+    return blocks
   end
 end

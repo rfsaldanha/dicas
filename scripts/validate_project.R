@@ -28,6 +28,8 @@ required <- c(
   "backmatter/referencias.qmd", "backmatter/glossario.qmd",
   "backmatter/indice-indicadores.qmd", "backmatter/indice-fontes.qmd",
   "backmatter/indice-instituicoes.qmd", "backmatter/apendice-metodologico.qmd",
+  "backmatter/apendice-estacoes.qmd", "scripts/build_estacoes_data.py",
+  "scripts/build_estacoes_art.py", "assets/figures/estacoes-manifest.json",
   "backmatter/lista-fichas.qmd", "backmatter/lista-tabelas.qmd",
   "backmatter/lista-figuras.qmd", "indicators/generated-index-alphabetical.qmd",
   "indicators/generated-list.qmd", "scripts/figure_metadata.lua",
@@ -570,6 +572,25 @@ if (length(unresolved_html)) {
 
 pdf_status <- system2("sh", c("scripts/check_pdf.sh", pdf))
 if (pdf_status != 0L) fail("O pré-voo do PDF falhou.")
+
+# O apêndice B publica observações reais: conferir derivados contra os originais.
+if (system2("python3", c("scripts/build_estacoes_data.py", "--check")) != 0L) {
+  fail("Os exemplos observados do apêndice B divergem dos arquivos oficiais preservados.")
+}
+appendix_html <- paste(readLines("_output/web/backmatter/apendice-estacoes.html", warn = FALSE), collapse = "\n")
+appendix_art <- yaml::read_yaml("assets/figures/estacoes-manifest.json")
+if (length(appendix_art) != 7L) fail("Esperadas sete figuras no apêndice B.")
+for (a in appendix_art) {
+  check_file(file.path("assets/figures", a$svg))
+  check_file(file.path("assets/figures", a$print))
+  if (!grepl(a$svg, appendix_html, fixed = TRUE)) fail("Figura ausente no HTML do apêndice B: ", a$svg)
+}
+for (profile in c("_quarto-web.yml", "_quarto-print.yml")) {
+  config <- yaml::read_yaml(profile)
+  if (!identical(unlist(config$book$appendices), c("backmatter/apendice-metodologico.qmd", "backmatter/apendice-estacoes.qmd"))) {
+    fail("Ordem dos apêndices A/B incorreta: ", profile)
+  }
+}
 
 indicator_count <- length(list.files("indicators/includes", pattern = "\\.qmd$"))
 message(

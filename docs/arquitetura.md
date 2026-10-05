@@ -46,7 +46,7 @@ A composição usa o modelo Typst local e a identidade “Território, evidênci
 
 `references.bib` é a bibliografia única. O estilo local `styles/abnt.csl` aplica o sistema autor-data e contém correções editoriais para datas de páginas web, DOI e pontuação. A saída é validada como configuração do projeto; não se declara conformidade integral com uma edição normativa sem auditoria específica.
 
-Os elementos pós-textuais seguem uma ordem única nas duas saídas: glossário, catálogos, relação de instituições, lista de fichas, listas de quadros e figuras, referências e apêndice metodológico. O apêndice usa identificação alfabética; a bibliografia única reúne todas as obras citadas, inclusive nos apêndices, sob o título “Referências”, antes deles. A impressão usa `citeproc: true` para respeitar a posição de `#refs`. Os nomes históricos dos arquivos são preservados; a ordem nas configurações define a numeração editorial.
+Os elementos pós-textuais seguem uma ordem única nas duas saídas: glossário, catálogos, relação de instituições, lista de fichas, listas de quadros e figuras, referências, apêndice metodológico (A) e apêndice sobre estações meteorológicas e de qualidade do ar (B). O apêndice usa identificação alfabética; a bibliografia única reúne todas as obras citadas, inclusive nos apêndices, sob o título “Referências”, antes deles. A impressão usa `citeproc: true` para respeitar a posição de `#refs`. Os nomes históricos dos arquivos são preservados; a ordem nas configurações define a numeração editorial.
 
 ## Publicação
 

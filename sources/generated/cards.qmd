@@ -328,22 +328,22 @@ Plataforma nacional que integra e divulga dados das estações oficiais estaduai
 
 [Tipo de registro:]{.field-label} plataforma \
 [Instituição:]{.field-label} Ministério do Meio Ambiente e Mudança do Clima \
-[Recursos relacionados:]{.field-label} MonitorAr Web — plataforma; aplicativos móveis — consulta; redes estaduais e distrital — fontes primárias \
+[Recursos relacionados:]{.field-label} MonitorAr Web — plataforma; portal de dados abertos MMA — ZIP e CSV anuais com dicionário; redes estaduais e municipais — fontes primárias \
 [Temas:]{.field-label} qualidade do ar \
 [Cobertura:]{.field-label} Estações oficiais integradas ao MonitorAr; a cobertura é parcial e desigual entre unidades da Federação e áreas urbanas. \
 [Resolução espacial:]{.field-label} Ponto de monitoramento. \
 [Resolução temporal:]{.field-label} Tempo real, horário ou diário conforme disponibilidade e integração da estação; o IQAr usa a janela definida para cada poluente. \
-[Período:]{.field-label} Varia por estação e órgão ambiental; a plataforma oferece dados atuais e consulta histórica. \
+[Período:]{.field-label} Varia por estação e órgão ambiental; o catálogo aberto consultado oferece arquivos anuais de 2022 a 2025. \
 [Atualização:]{.field-label} Imediata quando a rede de origem transmite em tempo real; atrasos e validação variam por órgão. \
 [Acesso:]{.field-label} Site e aplicativos públicos, com busca por localização, estação, mapas e histórico. \
 [URL:]{.field-label} <https://monitorar.mma.gov.br/> \
-[API:]{.field-label} Não há API pública documentada na página de serviço; dados detalhados podem exigir consulta à rede de origem. \
-[Formatos:]{.field-label} mapas e gráficos web; visualizações no aplicativo \
-[Licença:]{.field-label} Dados produzidos pelas redes oficiais; citar MonitorAr e o órgão ambiental responsável pela estação e observar os termos da rede de origem. \
+[API:]{.field-label} O catálogo de dados abertos utiliza CKAN; distinguir sua API de metadados do download dos CSV e de eventuais serviços operacionais da rede. \
+[Formatos:]{.field-label} mapas e gráficos web; visualizações no aplicativo; ZIP e CSV anuais no portal de dados abertos do MMA; dicionário PDF \
+[Licença:]{.field-label} O conjunto no portal de dados abertos declara Creative Commons Atribuição; citar MMA/MonitorAr e a rede produtora e preservar a licença do recurso utilizado. \
 [Cadastro:]{.field-label} Não exigido. \
 [Custos:]{.field-label} Serviço público gratuito. \
 [Limitações:]{.field-label} Cobertura espacial heterogênea; integração, método, validação e disponibilidade histórica variam; estação representa seu entorno e não todo o município. \
-[Última verificação:]{.field-label} 2026-07-28
+[Última verificação:]{.field-label} 2026-10-05
 
 ### Banco Mundial de Qualidade do Ar da OMS {#who-air}
 
@@ -574,4 +574,96 @@ Conjunto de 64 indicadores centrais, com metadados, para medir e monitorar capac
 [Custos:]{.field-label} Acesso público sem cobrança; a coleta local pode exigir recursos. \
 [Limitações:]{.field-label} A estrutura requer adaptação ao contexto, definição do universo avaliado e verificação documental ou funcional; percentuais não devem ser interpretados como cobertura nacional quando a amostra não for representativa. \
 [Última verificação:]{.field-label} 2026-07-28
+
+### Banco de Dados Meteorológicos {#inmet-bdmep}
+
+Banco histórico do INMET; a descrição institucional destaca séries diárias de estações convencionais.
+
+[Tipo de registro:]{.field-label} base de dados \
+[Instituição:]{.field-label} Instituto Nacional de Meteorologia \
+[Recursos relacionados:]{.field-label} BDMEP — consulta e solicitação de séries; catálogo de estações — identificação e metadados \
+[Temas:]{.field-label} meteorologia; séries históricas \
+[Cobertura:]{.field-label} Brasil, conforme estações e períodos disponíveis. \
+[Resolução espacial:]{.field-label} Ponto de estação; conferir coordenadas, altitude e histórico. \
+[Resolução temporal:]{.field-label} Dados diários na descrição do serviço; confirmar outras agregações e produtos na interface. \
+[Período:]{.field-label} Varia por estação e variável; não pressupor série contínua. \
+[Atualização:]{.field-label} Conforme produto e processamento do INMET; distinguir disponibilidade de validação. \
+[Acesso:]{.field-label} Portal BDMEP, com seleção de estação, variáveis e período. \
+[URL:]{.field-label} <https://bdmep.inmet.gov.br/> \
+[API:]{.field-label} Não foi identificada uma API pública documentada para todo o acervo nesta consulta. \
+[Formatos:]{.field-label} Arquivos e consultas conforme opções do serviço \
+[Licença:]{.field-label} Citar INMET, estação, produto, período e data de acesso; observar os termos do serviço. \
+[Cadastro:]{.field-label} A interface pode exigir credenciamento para solicitações. \
+[Custos:]{.field-label} Serviço público de dados; verificar condições de cada solicitação. \
+[Limitações:]{.field-label} Metadados, horários de observação, mudanças de instrumentos e falhas afetam comparabilidade; médias compensadas diferem de médias simples. \
+[Última verificação:]{.field-label} 2026-10-05
+
+### Históricos anuais de estações meteorológicas automáticas {#inmet-historicos-automaticas}
+
+Arquivos anuais de observações automáticas, com arquivos individuais de estação e cabeçalhos de metadados.
+
+[Tipo de registro:]{.field-label} produto \
+[Instituição:]{.field-label} Instituto Nacional de Meteorologia \
+[Recursos relacionados:]{.field-label} Arquivo ZIP anual — distribuição; CSV por estação — observações; catálogo INMET — metadados \
+[Temas:]{.field-label} meteorologia; observações de superfície \
+[Cobertura:]{.field-label} Rede automática do INMET no Brasil; a presença e continuidade variam. \
+[Resolução espacial:]{.field-label} Ponto de estação. \
+[Resolução temporal:]{.field-label} Horária, com variáveis instantâneas, acumuladas e extremas identificadas nos cabeçalhos. \
+[Período:]{.field-label} Arquivos anuais desde 2000; verificar o início de cada estação. Exemplo da obra usa A701 em 2024. \
+[Atualização:]{.field-label} Publicação e revisões de arquivos anuais; conferir a data-limite do ano corrente. \
+[Acesso:]{.field-label} Download público de ZIP no portal institucional. \
+[URL:]{.field-label} <https://portal.inmet.gov.br/dadoshistoricos> \
+[API:]{.field-label} Download de arquivos; não depende de API de painel. \
+[Formatos:]{.field-label} ZIP; CSV com ponto e vírgula no exemplo de 2024 \
+[Licença:]{.field-label} Citar INMET, estação, período e extração; preservar as condições de uso da fonte. \
+[Cadastro:]{.field-label} Não exigido para os arquivos consultados. \
+[Custos:]{.field-label} Download público gratuito. \
+[Limitações:]{.field-label} Conferir UTC, unidade e significado de cada coluna; campos vazios não são zero e o maior registro horário não equivale necessariamente à máxima intrahorária. \
+[Última verificação:]{.field-label} 2026-10-05
+
+### Sistema de Informações da Qualidade do Ar {#cetesb-qualar}
+
+Consulta aos dados das redes de monitoramento da qualidade do ar da CETESB; relatórios públicos oferecem resultados consolidados.
+
+[Tipo de registro:]{.field-label} sistema de informação \
+[Instituição:]{.field-label} Companhia Ambiental do Estado de São Paulo \
+[Recursos relacionados:]{.field-label} QUALAR — consulta autenticada; repositório CETESB — relatórios e apêndices públicos \
+[Temas:]{.field-label} qualidade do ar; monitoramento ambiental \
+[Cobertura:]{.field-label} Estado de São Paulo, conforme distribuição e histórico das estações. \
+[Resolução espacial:]{.field-label} Ponto de estação e sua tipologia; não representa automaticamente o município. \
+[Resolução temporal:]{.field-label} Observações e agregações segundo rede e produto; o exemplo publicado usa médias anuais de 2021. \
+[Período:]{.field-label} Varia por estação e parâmetro; relatórios são organizados por ano de referência. \
+[Atualização:]{.field-label} Conforme validação e publicação pela CETESB; relatórios consolidados possuem edição própria. \
+[Acesso:]{.field-label} Portal QUALAR ou repositório de relatórios públicos. \
+[URL:]{.field-label} <https://qualar.cetesb.sp.gov.br/qualar/home.do> \
+[API:]{.field-label} Não foi identificada API pública de séries documentada nesta consulta. \
+[Formatos:]{.field-label} Consultas e exportações conforme o portal; PDF nos relatórios \
+[Licença:]{.field-label} Citar CETESB, estação, variável e período; o relatório de 2021 permite reprodução com citação da fonte. \
+[Cadastro:]{.field-label} Exigido para consultas autenticadas do QUALAR; relatórios utilizados são públicos. \
+[Custos:]{.field-label} Consulta e relatórios públicos sem cobrança indicada. \
+[Limitações:]{.field-label} Preservar representatividade temporal, método, unidade e janela; tabelas consolidadas não permitem reconstruir a série horária. \
+[Última verificação:]{.field-label} 2026-10-05
+
+### OSCAR/Surface {#oscar-surface}
+
+Catálogo internacional de metadados de plataformas e estações de observação de superfície no contexto WIGOS.
+
+[Tipo de registro:]{.field-label} plataforma \
+[Instituição:]{.field-label} Organização Meteorológica Mundial \
+[Recursos relacionados:]{.field-label} OSCAR/Surface — catálogo; WIGOS Station Identifier — identificação; provedor nacional — séries observadas \
+[Temas:]{.field-label} metadados; redes observacionais \
+[Cobertura:]{.field-label} Internacional, conforme estações cadastradas pelos membros e responsáveis. \
+[Resolução espacial:]{.field-label} Localização e características da plataforma ou estação. \
+[Resolução temporal:]{.field-label} Metadados e períodos de validade; não é série horária de observações. \
+[Período:]{.field-label} Histórico dependente do cadastro de cada estação. \
+[Atualização:]{.field-label} Pelos responsáveis pelo cadastro e manutenção dos metadados. \
+[Acesso:]{.field-label} Consulta pública no catálogo web. \
+[URL:]{.field-label} <https://oscar.tools.wmo.int/web-client/> \
+[API:]{.field-label} Consultar a documentação oficial para serviços de metadados; o apêndice utiliza a interface pública. \
+[Formatos:]{.field-label} Consulta de metadados em interface web \
+[Licença:]{.field-label} Observar os termos do OSCAR/Surface e citar a OMM e a data de consulta. \
+[Cadastro:]{.field-label} Consulta pública; edição restrita aos responsáveis autorizados. \
+[Custos:]{.field-label} Consulta pública gratuita. \
+[Limitações:]{.field-label} Cadastro não garante intercâmbio ativo de toda variável; dados observacionais devem ser obtidos no provedor correspondente. \
+[Última verificação:]{.field-label} 2026-10-05
 
