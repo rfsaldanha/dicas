@@ -21,41 +21,43 @@ limitacoes:
 dimensoes:
   - perigo
   - exposição
-metodo_calculo: Calcular, para cada dia do calendário, o percentil 90 de TX em uma janela centrada de cinco dias no período-base. No período de análise, contar os dias em que TX excede o limiar correspondente e dividir pelo número de dias válidos. Para o período-base, aplicar bootstrap conforme Zhang et al. para evitar descontinuidade artificial entre valores dentro e fora da base.
+metodo_calculo: "Estimar P90 de TX por dia do calendário em janela centrada de cinco dias, quantil tipo 8 de Hyndman–Fan. Aplicar bootstrap do período-base de Zhang et al. pelo algoritmo climdex.pcic; interpolar o limiar de 29 de fevereiro entre 28/02 e 01/03. Contar TX estritamente maior que o limiar; dividir pelos dias válidos e multiplicar por 100. Calcular na célula antes da agregação municipal."
 formula_calculo: 'TX90p_j = 100 \times \frac{\sum_{i \in j} I(TX_{ij} > TX^{90}_{in})}{N_j}'
 numerador: Número de dias válidos do período j em que TX excede o percentil 90 correspondente ao dia do calendário.
 denominador: Número de dias com temperatura máxima válida no período j.
 unidade_medida: Percentual de dias (%).
 variaveis_categorias_analise: Temperatura máxima diária; dia do calendário; período-base; estação; célula de grade; mês, estação climatológica ou ano.
-granularidade: Ponto de estação ou célula de grade; sínteses territoriais requerem regra explícita e, para exposição, ponderação populacional justificável.
-unidade_territorial: Estação meteorológica, célula de grade ou território derivado.
-resolucao_espacial_original: A da estação ou do produto em grade selecionado.
-resolucao_temporal: Entrada diária; saída mensal, sazonal ou anual.
-periodo_referencia: O padrão clássico ETCCDI usa 1961–1990; outro período-base somente deve ser usado se declarado e mantido em toda a comparação.
+granularidade: "Calcular o indicador em cada célula antes da média municipal ponderada pela área; manter produto, célula, ano e código IBGE de sete dígitos."
+unidade_territorial: "Célula de grade; município como síntese ponderada pela área de interseção."
+resolucao_espacial_original: "ERA5-Land: grade de 0,1°; malha municipal IBGE 2022 como recorte fixo."
+resolucao_temporal: "Entradas horárias; extremos diários em 00–23 UTC; saída anual, salvo estação quente ou produto explicitados."
+periodo_referencia: "1961–1990."
 limiar_referencia: Percentil 90 específico do dia do calendário, em janela móvel de cinco dias no período-base.
-fontes_dados:
-  - id: inmet
-    papel: observação de temperatura máxima em estação, sujeita a controle de qualidade e homogeneização
-  - id: era5-land
-    papel: reanálise em grade quando a finalidade e a validação admitirem produto modelado
+fontes_dados: [{"id": "era5-land", "papel": "ERA5-Land hourly, variável 2m_temperature; extrair TX/TN conforme o método da ficha"}, {"id": "inmet", "papel": "Validação local e séries observadas separadas da reanálise"}]
 responsabilidade_gerencial: Instituição responsável pelo serviço climático ou pela vigilância que adotar o protocolo, com governança compartilhada entre meteorologia e saúde quando usado operacionalmente.
-cobertura_geografica: Definida pela rede de estações ou pelo domínio do produto em grade.
-periodo_disponivel: Definido pela estação ou produto; o cálculo requer série diária suficientemente longa para estimar percentis estáveis.
-periodicidade_atualizacao: Mensal, sazonal ou anual, conforme a finalidade e a latência da fonte.
-forma_acesso: Calculado a partir de série diária de temperatura máxima obtida na fonte documentada.
-url_persistente: https://www.climdex.org/learn/indices/
-formatos: Tabela temporal ou matriz/arquivo multidimensional, preservando identificador, unidade e controle de qualidade.
-disponibilidade:
-  - requer processamento climatológico
-necessidade_processamento: Controle de qualidade, homogeneização quando aplicável, cálculo de percentis em janela móvel, bootstrap do período-base e agregação temporal.
-qualidade_incerteza: Relatar completude, falhas, mudanças de estação, método de homogeneização, período-base, bootstrap, viés do produto em grade e efeito da agregação espacial.
-comparabilidade: Comparável somente com a mesma definição de TX90p, período-base, calendário, critério de completude, fonte ou fonte harmonizada e procedimento de bootstrap.
+cobertura_geografica: "Todos os municípios brasileiros no domínio da grade. Não representa diretamente a exposição individual ou o microclima de cada bairro."
+periodo_disponivel: "1950–presente; publicar anos completos até 2025 e identificar 2026 como parcial. A janela inicial utilizável depende dos antecedentes exigidos pela medida."
+periodicidade_atualizacao: "Anual, após completar e verificar o último ano de entrada."
+forma_acesso: "API do Climate Data Store, dataset reanalysis-era5-land, product_type=reanalysis, todas as 24 horas UTC; download NetCDF ou GRIB por mês e recorte espacial."
+url_persistente: "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land"
+formatos: "NetCDF ou GRIB de entrada; CSV/Parquet para séries municipais."
+disponibilidade: ["Calculável com dados abertos"]
+necessidade_processamento: "Converter kelvin para °C; obter TX e TN como máximo e mínimo das 24 temperaturas horárias válidas de cada dia UTC. Calcular a medida por célula e, depois, sua média municipal por área. Esta TX não é a máxima instantânea de termômetro."
+qualidade_incerteza: "Dia com menos de 24 horas válidas na grade é ausente. Nas sínteses anuais, mais de 15 dias ausentes, ou mais de três em qualquer mês, invalidam o ano; falhas não recebem zero e não unem sequências. Exigir 90% dos dados do período-base e registrar a cobertura. Sínteses municipais exigem ao menos 90% de área válida; informar essa fração. Critérios de cobertura são escolhas editoriais deste protocolo."
+comparabilidade: "Fixar versão, calendário UTC, período-base e limites municipais de 2022. Não emendar estação e reanálise. Médias municipais de contagens podem ser fracionárias e não contam episódios sincrônicos do município."
 relacao_saude: TX90p é um indicador climático consolidado que pode caracterizar frequência de calor relativo em análises de morbimortalidade. Sua utilização em alerta exige validação com desfechos locais, pois limiares meteorológicos não são automaticamente limiares sanitários.
 defasagens_temporais: Em estudos de saúde, definir a priori defasagens e médias móveis conforme desfecho e literatura; o índice anual não deve substituir a série diária em análises de efeitos agudos.
 aplicacao_gestao: Monitorar tendência de extremos, apoiar avaliação sazonal e selecionar períodos para análise de pressão assistencial; para alertas, combinar com previsão e protocolo calor–saúde validado.
-notas: TX90p foi escolhido por ser um índice internacionalmente coordenado. Temperatura máxima diária permanece variável de entrada e não recebe ficha própria neste catálogo.
+notas: "Temperatura máxima diária é a entrada. TX90p expressa frequência relativa; TXx (CLI-TEM-02) expressa o maior extremo absoluto anual."
 analise_descritiva: Apresentar série do percentual, mediana e amplitude por período, tendência com incerteza e mapa somente após avaliar cobertura e homogeneidade. Evitar ordenações territoriais quando as fontes não forem comparáveis.
 referencias:
   - "[@climdex2024]"
   - "[@zhang2005]"
   - "[@wmoWho2015heat]"
+protocolo_versao: "2026-10-03"
+situacao_calculo: "abertos"
+dependencia_dados_locais: "Opcional para validação"
+automacao: "Condicionada"
+condicoes_automacao: "Cadastro gratuito e credencial CDS; download das variáveis e processamento conforme a ficha."
+evidencia_verificacao: "Documentação verificada"
+detalhe_verificacao: "Produto e método documentados; série municipal completa ainda não produzida."

@@ -1,21 +1,21 @@
-## Ficha do indicador: Número de mortes e pessoas desaparecidas atribuídas a desastres por 100 mil habitantes (ODS 1.5.1/11.5.1/13.1.1) {#sec-des-hum-01 .ficha-title}
+## Ficha do indicador: Mortes e desaparecimentos registrados em desastres por 100 mil habitantes {#sec-des-hum-01 .ficha-title}
 
 ::: {.indicator-card}
 [Código:]{.field-label} DES-HUM-01 \
-[Título resumido:]{.field-label} Mortes e desaparecidos por desastres \
+[Título resumido:]{.field-label} Mortes e desaparecidos registrados — Atlas \
 [Tema:]{.field-label} Eventos meteorológicos severos e desastres \
 [Dimensão:]{.field-label} efeito; resposta; exposição \
-[Disponibilidade:]{.field-label} [disponível em registros de desastre]{.availability} [sujeito a revisão]{.availability}
+[Disponibilidade:]{.field-label} [Calculável com dados abertos]{.availability}
 :::
 
 Contexto e interpretação: [Eventos meteorológicos severos e desastres](../../chapters/part-2/10-eventos-severos-desastres.qmd#sec-desastres).
 
 ### Identificação e fundamento {.unnumbered .ficha-section}
 
-[Base de consolidação.]{.field-label} Série harmonizada dos indicadores ODS 1.5.1, 11.5.1 e 13.1.1, sob custódia do UNDRR.
+[Base de consolidação.]{.field-label} Conceito de mortalidade/desaparecimento do Marco de Sendai e ODS 1.5.1/11.5.1/13.1.1; implementação com registros agregados do Atlas, explicitamente distinta de contagem individual deduplicada.
 
 ::: {.callout-note icon=false title="Conceito-chave"}
-Soma de pessoas mortas e desaparecidas cuja ocorrência é atribuída a desastres, dividida pela população e multiplicada por 100 mil.
+Soma municipal anual dos campos de mortos e desaparecidos registrados no Atlas, dividida pela população de referência e multiplicada por 100 mil.
 :::
 
 ### Objetivo {.unnumbered .ficha-section}
@@ -24,7 +24,7 @@ Monitorar a mortalidade e desaparecimento associados a desastres em escala compa
 
 ### Interpretação {.unnumbered .ficha-section}
 
-Valor maior indica maior impacto humano relativo à população. Mortes e desaparecimentos devem também ser apresentados separadamente e por tipo de perigo.
+Expressa a magnitude dos registros em relação à população de referência. Não garante ausência de duplicidade individual, não mede risco causal e não deve ser apresentada como série oficial Sendai validada.
 
 ### Usos {.unnumbered .ficha-section}
 
@@ -41,34 +41,33 @@ Valor maior indica maior impacto humano relativo à população. Mortes e desapa
 
 ### Fontes de dados {.unnumbered .ficha-section}
 
-- Sistema Integrado de Informações sobre Desastres — registros brasileiros de desastre e danos humanos ([cadastro](../../backmatter/indice-fontes.qmd#s2id))
-- Departamento de Informática do Sistema Único de Saúde — verificação complementar de óbitos e causas, sem substituição automática ([cadastro](../../backmatter/indice-fontes.qmd#datasus))
-- Instituto Brasileiro de Geografia e Estatística — população denominadora ([cadastro](../../backmatter/indice-fontes.qmd#ibge))
+- Atlas Digital de Desastres — 1991–2025, v1.1 de 06/08/2026 — DH_MORTOS, DH_DESAPARECIDOS, Data_Evento e Cod_IBGE_Mun ([cadastro](../../backmatter/indice-fontes.qmd#atlas-2026-v11))
+- IBGE — população municipal por Censo e publicação anual — Censos e população municipal publicada por ano; a relação 2023 tem referência demográfica no Censo 2022 ([cadastro](../../backmatter/indice-fontes.qmd#ibge-pop-municipal))
 
 ### Método de cálculo {.unnumbered .ficha-section}
 
-Consolidar mortes e desaparecidos atribuídos a eventos conforme definições Sendai, deduplicar pessoas e eventos, somar no período e dividir pela população média ou de referência.
+Após os controles de chaves e completude, somar DH_MORTOS e DH_DESAPARECIDOS por município e ano de Data_Evento. Dividir pela população municipal oficial correspondente e multiplicar por 100.000. Usar Censos em 1991, 2000, 2010 e 2022; nos demais anos, a população publicada pelo IBGE para o respectivo ano no arquivo de estimativas/TCU. Para 2023, usar a relação publicada em 2023 baseada no Censo 2022 com atualização territorial e registrar ano_populacao=2022, sem chamá-la de estimativa demográfica de 2023. Se faltar denominador compatível, publicar a contagem e deixar a taxa ausente. Não somar registros de município com código/território incompatível com o denominador. Morto e desaparecido são estados finais mutuamente exclusivos na interpretação desejada, mas os campos agregados não permitem auditar individualmente essa exclusividade: publicar a limitação.
 
 $$
 T_{MM}=100000\times\frac{N_{mortos}+N_{desaparecidos}}{Pop_{referência}}
 $$
 
 ::: {.indicator-card}
-[Numerador.]{.field-label} Número de mortes mais pessoas desaparecidas atribuídas a desastres, sem duplicidade.
+[Numerador.]{.field-label} Soma de DH_MORTOS+DH_DESAPARECIDOS em registros elegíveis completos, no município e ano.
 
-[Denominador.]{.field-label} População do território no período.
+[Denominador.]{.field-label} População municipal oficial na referência explicitada; população zero ou ausente invalida a taxa.
 
 [Unidade de medida.]{.field-label} Pessoas por 100 mil habitantes.
 
-[Variáveis e categorias de análise.]{.field-label} Morto; desaparecido; perigo; desastre; sexo; idade; deficiência; município; data.
+[Variáveis e categorias de análise.]{.field-label} Protocolo_S2iD, Cod_IBGE_Mun, Data_Evento, COBRADE, DH_MORTOS, DH_DESAPARECIDOS, população, ano demográfico e edição.
 
-[Granularidade.]{.field-label} Pessoa/evento no registro e território/período na taxa.
+[Granularidade.]{.field-label} Protocolo_S2iD–Cod_IBGE_Mun–Data_Evento; síntese municipal por ano do evento.
 
-[Periodicidade de atualização.]{.field-label} Por evento e consolidação anual, com revisões.
+[Periodicidade de atualização.]{.field-label} Por edição consolidada; congelar versão e data da extração.
 
 [Responsabilidade gerencial.]{.field-label} Proteção e defesa civil consolida perdas e danos; saúde verifica óbitos, agravos e serviços; estatística fornece denominadores.
 
-[Notas.]{.field-label} As fichas seguem indicadores Sendai/ODS. Contagens nacionais devem observar os procedimentos oficiais de validação e evitar dupla contagem.
+[Notas.]{.field-label} Total principal inclui todos os desastres do Atlas, com desagregação por COBRADE; não atribuir todos à mudança climática. O resultado é um registro administrativo, não uma contagem individual auditada.
 
 [Análise descritiva do indicador.]{.field-label} Mostrar contagens e taxas, perigo, território, perfil das vítimas, incerteza e evolução de registros.
 
@@ -77,39 +76,51 @@ $$
 ### Campos complementares para clima, ambiente e saúde {.unnumbered .ficha-section}
 
 ::: {.indicator-card}
-[Unidade territorial.]{.field-label} Município, estado, país ou agregação.
+[Unidade territorial.]{.field-label} Município identificado por Cod_IBGE_Mun no Atlas; conservar sua territorialização e verificar compatibilidade com qualquer denominador.
 
-[Resolução espacial original.]{.field-label} Local do evento e residência quando disponíveis.
+[Resolução espacial original.]{.field-label} Registro administrativo municipal; não contém identificação individual ou de cada estabelecimento.
 
-[Resolução temporal.]{.field-label} Evento; resumo anual ou plurianual.
+[Resolução temporal.]{.field-label} Evento datado; saída anual pelo ano de Data_Evento, não Data_Registro.
 
-[Período de referência.]{.field-label} Ano ou período, com população compatível.
+[Período de referência.]{.field-label} Ano civil do evento; versão consolidada v1.1 de 06/08/2026.
 
-[Limiar ou valor de referência.]{.field-label} Não se aplica; objetivo é redução.
+[Limiar ou valor de referência.]{.field-label} Taxa por 100 mil habitantes; não fixa limiar universal de alerta.
 
 :::
 
 ### Disponibilidade e acesso {.unnumbered .ficha-section}
 
-[Cobertura geográfica.]{.field-label} Brasil no S2iD; comparabilidade internacional conforme UNDRR.
+[Protocolo verificado em.]{.field-label} 2026-10-03
 
-[Período disponível.]{.field-label} Conforme registros e consolidação nacional.
+[Dependência de dados locais.]{.field-label} Dispensável para extrair o Atlas; registros originados na defesa civil local
 
-[Periodicidade de atualização.]{.field-label} Por evento e consolidação anual, com revisões.
+[Automação.]{.field-label} Condicionada
 
-[Forma de acesso.]{.field-label} S2iD, relatórios nacionais e sistema ODS.
+[Requisitos para o cálculo.]{.field-label} CSV Atlas e denominador oficial territorialmente compatível. SIDRA fornece consultas programáticas; edições históricas fora da API exigem extrair e conferir as tabelas publicadas pelo IBGE.
 
-[URL ou identificador persistente.]{.field-label} https://unstats.un.org/sdgs/metadata/files/Metadata-01-05-01.pdf
+[Nível de evidência.]{.field-label} Acesso e cálculo testados
 
-[Formato dos arquivos.]{.field-label} Registros administrativos e tabelas.
+[Alcance da verificação.]{.field-label} Campos do Atlas e cálculo amostral no registro de Teresópolis de 12/01/2011 testados. Consultas SIDRA de São Paulo para Censos 1991, 2000, 2010 e 2022 e população de referência 2011 foram acessadas. A base nacional e a extração dos PDFs históricos não foram produzidas.
 
-[Necessidade de processamento.]{.field-label} Vincular evento, deduplicar, verificar status, harmonizar população e calcular taxa.
+[Cobertura geográfica.]{.field-label} Municípios com registros administrativos no Atlas; diferenças de notificação e cobertura não significam diferenças equivalentes no risco.
+
+[Período disponível.]{.field-label} 1991–2025 na edição fixada do Atlas; a disponibilidade da taxa também depende do denominador compatível.
+
+[Periodicidade de atualização.]{.field-label} Por edição consolidada; congelar versão e data da extração.
+
+[Forma de acesso.]{.field-label} Atlas: download do CSV consolidado v1.1 de 06/08/2026. População: API SIDRA tabela 202, variável 93, anos 1991/2000/2010, categorias Total; tabela 4714, variável 93, ano 2022; tabela 6579, variável 9324, demais períodos nela disponíveis. Endpoint-base https://apisidra.ibge.gov.br/values/t/TABELA/n6/CODIGO/v/VARIAVEL/p/ANO; dividir consultas municipais para respeitar o limite da API. Demais anos usam arquivos oficiais de estimativas/TCU; 2023 usa a relação baseada no Censo 2022.
+
+[URL ou identificador persistente.]{.field-label} https://atlasdigital.mdr.gov.br/arquivos/2026/BD_Atlas_1991_2025_v1.1_2026.08.06_Consolidado.csv
+
+[Formato dos arquivos.]{.field-label} CSV consolidado; saída CSV/Parquet municipal com flags e versão.
+
+[Necessidade de processamento.]{.field-label} Preservar protocolo e município como chave composta; remover duplicatas exatas. Em versões diferentes, usar exclusivamente o arquivo consolidado fixado, sem somar versões. Conflitos não resolvidos dentro da mesma chave são sinalizados e excluídos da soma, com total incompleto. Não fundir eventos só porque data, município ou COBRADE coincidem.
 
 ### Qualidade, comparação e saúde {.unnumbered .ficha-section}
 
-[Qualidade e incerteza.]{.field-label} Relatar definição, desastre, local, período, fonte, verificação, revisões, duplicidades, sub-registro e denominador.
+[Qualidade e incerteza.]{.field-label} Campos vazios, inválidos ou negativos são ausentes. Município-ano sem registro recebe sem_registro e valor ausente; zero só é publicado quando há registros elegíveis completos com zero informado. Se algum registro elegível tem componente ausente, a soma anual é incompleta e não deve ser divulgada como total conhecido. O Atlas é sujeito a sub-registro, revisões e mudanças administrativas.
 
-[Possibilidade de comparação.]{.field-label} Manter taxonomia, componente, regra de atribuição, período, população e versão do registro; totais preliminares e consolidados devem ser distinguidos.
+[Possibilidade de comparação.]{.field-label} Manter versão, data do evento, COBRADE e territorialização. Para tendências através de alterações municipais, usar áreas mínimas comparáveis com correspondência oficial, sem transferir contagens automaticamente para a malha 2022.
 
 [Relação com desfechos de saúde.]{.field-label} Mortes, pessoas afetadas e interrupção de serviços expressam efeitos diretos e condições que ampliam riscos sanitários durante e após desastres.
 
@@ -120,4 +131,5 @@ $$
 ### Referências metodológicas {.unnumbered .ficha-section}
 
 - [@un2024disasters]
-- [@who2021edrmresearch]
+- [@atlas2026manual]
+- [@ibge2023relacao]

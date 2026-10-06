@@ -15,160 +15,180 @@ common: &urban_common
 indicators:
   - <<: *urban_common
     codigo: AMB-VEG-01
-    titulo_completo: Índice de Vegetação por Diferença Normalizada residencial médio (NDVI)
-    titulo_resumido: Verdor residencial — NDVI
-    referencia_metodologica: NDVI em áreas de entorno residencial, medida de exposição a verdor mais usada em estudos epidemiológicos de espaços verdes.
-    conceito: Média do NDVI dos pixels válidos dentro de uma área de entorno do endereço, ponto ou unidade residencial durante a janela temporal definida.
+    titulo_completo: "NDVI anual do entorno residencial estimado em grade, raio de 300 m"
+    titulo_resumido: "NDVI do entorno residencial estimado — 300 m"
+    referencia_metodologica: "NDVI de reflectância de superfície Landsat Collection 2 Level-2; entorno residencial e síntese populacional são uma especificação municipal do livro apoiada na literatura de espaços verdes e saúde."
+    conceito: "Média populacional municipal do NDVI anual no raio de 300 m em torno dos centros das células residenciais estimadas pelo GHS-POP."
     objetivo: Representar densidade de vegetação fotossinteticamente ativa no entorno residencial de maneira reprodutível.
     interpretacao: Valores maiores indicam maior verdor espectral no produto e período. NDVI varia teoricamente de −1 a 1; não mede acesso, qualidade, espécie, sombra ou uso.
     usos: [Estudos de mortalidade e doenças crônicas., Avaliação de desigualdade de verdor., Análise de modificação de efeitos de calor e poluição.]
     limitacoes: [Satura em vegetação densa., É afetado por nuvens, solo e fenologia., A área de entorno residencial ignora mobilidade., Água e superfícies não vegetadas alteram média., O tamanho da área de entorno muda a exposição.]
-    metodo_calculo: Obter reflectância corrigida no vermelho e infravermelho próximo, mascarar nuvens e pixels inválidos, calcular NDVI, compor a janela temporal e obter a média dos pixels na área de entorno previamente definida.
-    formula_calculo: 'NDVI=\frac{\rho_{NIR}-\rho_{red}}{\rho_{NIR}+\rho_{red}};\quad \overline{NDVI}_b=\frac{\sum_{g\in b}w_gNDVI_g}{\sum_{g\in b}w_g}'
-    numerador: Na fórmula espectral, diferença entre reflectância no infravermelho próximo e vermelho; na área de entorno, soma ponderada dos NDVI válidos.
-    denominador: Na fórmula espectral, soma das reflectâncias; na área de entorno, soma dos pesos ou áreas válidas.
-    unidade_medida: Adimensional.
-    variaveis_categorias_analise: Reflectância; NDVI; área de entorno; endereço; estação; ano; grupo populacional.
-    granularidade: Pixel de entrada e valor por ponto ou unidade.
-    resolucao_espacial_original: A do produto; 30 m em produtos multiespectrais Landsat usuais.
-    resolucao_temporal: Cena e composição sazonal ou anual.
-    periodo_referencia: Janela correspondente à exposição epidemiológica.
-    limiar_referencia: Não há ponto de corte sanitário universal; analisar continuamente e por quantis pré-especificados.
-    fontes_dados:
-      - id: landsat
-        papel: reflectância multiespectral para NDVI
-      - id: ibge
-        papel: endereços agregados, setores e população quando aplicável
-    cobertura_geografica: Global no Landsat; análise depende de nuvens e geocodificação.
-    periodo_disponivel: Conforme missão e produto selecionados.
-    periodicidade_atualizacao: Sazonal ou anual.
-    forma_acesso: Produtos Landsat de reflectância de superfície.
-    url_persistente: https://doi.org/10.1016/S2542-5196(19)30215-3
-    formatos: GeoTIFF e tabela por unidade.
-    disponibilidade: [requer processamento de sensoriamento remoto]
-    necessidade_processamento: Correção ou seleção do produto, máscara, composição, áreas de entorno, ponderação e controle de geocodificação.
+    metodo_calculo: "Consultar Landsat Collection 2 Level-2, sensores TM/ETM+/OLI (L4, L5, L7, L8 e L9), para cada ano civil. Converter bandas de reflectância por rho=DN×0,0000275−0,2. Usar vermelho/NIR: SR_B3/SR_B4 em L4–7, SR_B4/SR_B5 em L8–9. Excluir pixels QA_PIXEL com qualquer bit 0–5 ativo (fill, dilatação de nuvem, cirrus quando aplicável, nuvem, sombra ou neve), qualquer QA_RADSAT não zero, reflectância fora de [0,1] ou denominador NIR+red≤0. Calcular NDVI por cena; em sobreposição no mesmo dia, obter mediana por pixel, para não duplicar a observação. Obter mediana anual por pixel com no mínimo três dias válidos. Para cada centro de célula GHS-POP R2023A de 100 m com população>0, obter a média ponderada pela área do NDVI no círculo geodésico de 300 m, inclusive fora do município, exigindo ≥90% do círculo com NDVI válido. Interpolar linearmente a população quinquenal para o ano da imagem. Repartir a população de células que cruzam limites municipais pela área de interseção e calcular a média municipal dos valores de entorno, ponderada por essa população. Exigir ≥90% da população municipal com entorno válido; abaixo disso, resultado ausente com cobertura."
+    formula_calculo: "\\begin{aligned}NDVI&=\\frac{\\rho_{NIR}-\\rho_{red}}{\\rho_{NIR}+\\rho_{red}}\\\\V_{g,y}&=\\frac{\\sum_{i\\in B_{300}(g)}a_{ig}NDVI_{i,y}}{\\sum_{i\\in B_{300}(g)}a_{ig}}\\\\V_{m,y}&=\\frac{\\sum_g P_{gm,y}V_{g,y}}{\\sum_g P_{gm,y}}\\end{aligned}"
+    numerador: "Na síntese municipal, soma do NDVI médio de entorno multiplicado pela população residente estimada de cada fragmento de célula."
+    denominador: "População dos fragmentos com entorno válido; informar sua fração da população municipal total."
+    unidade_medida: "Adimensional, entre −1 e 1."
+    variaveis_categorias_analise: "Reflectância vermelho/NIR, QA_PIXEL, QA_RADSAT, data, sensor, NDVI, população, município e cobertura válida."
+    granularidade: "Pixel de NDVI, entorno de centro populacional e síntese municipal ponderada."
+    resolucao_espacial_original: "Landsat 30 m; população GHS-POP 100 m. O centro da célula é uma aproximação da residência, não endereço observado."
+    resolucao_temporal: "Cena/dia; mediana anual de NDVI antes da média espacial de entorno."
+    periodo_referencia: "Ano civil; raio fixo de 300 m; malha municipal 2022. Não usa período-base climatológico."
+    limiar_referencia: "Mínimo de três dias observados por pixel/ano; ≥90% de área válida no círculo e ≥90% da população com entorno válido. São escolhas operacionais explícitas do livro."
+    fontes_dados: [{"id": "landsat-c2-l2", "papel": "Reflectância de superfície e máscaras Collection 2 Level-2"}, {"id": "ghs-pop-r2023a", "papel": "Centros de células de 100 m e contagens populacionais anuais interpoladas"}, {"id": "ibge", "papel": "Malha municipal IBGE 2022"}]
+    cobertura_geografica: "Brasil onde há imagens suficientes e população modelada; lacunas por nuvens e sensores permanecem explícitas."
+    periodo_disponivel: "Imagens desde 1982, conforme sensor e cobertura; série municipal somente nos anos que passam os critérios de observações e população. Não prometer cobertura nacional completa desde 1982."
+    periodicidade_atualizacao: "Anual após encerramento e processamento do ano."
+    forma_acesso: "STAC público https://planetarycomputer.microsoft.com/api/stac/v1/search, collection=landsat-c2-l2, bbox e intervalo datetime; assets red, nir08, qa_pixel e qa_radsat, conferindo o sensor e os metadados. URLs de assets exigem assinatura temporária gratuita pelo serviço do catálogo. Alternativamente, obter os mesmos produtos no USGS."
+    url_persistente: "https://planetarycomputer.microsoft.com/dataset/landsat-c2-l2"
+    formatos: "COG/GeoTIFF, metadados STAC JSON e tabela municipal."
+    disponibilidade: ["Calculável com dados abertos"]
+    necessidade_processamento: "Máscara por bits e saturação, escala/offset, mosaico diário, composição anual, círculos geodésicos e interseção conservativa de população."
     analise_descritiva: Mostrar distribuição por áreas de entorno alternativas, grupos sociais, sazonalidade e mapa sem divulgar endereços individuais.
     referencias: ["[@rojasrueda2019greenspace]", "[@who2016greenspace]"]
+    protocolo_versao: "2026-10-03"
+    situacao_calculo: "abertos"
+    dependencia_dados_locais: "Opcional para validação"
+    automacao: "Viável"
+    condicoes_automacao: "Consulta STAC, assinatura temporária dos assets públicos e processamento das bandas e grades populacionais."
+    evidencia_verificacao: "Acesso testado"
+    detalhe_verificacao: "Bandas e máscaras de uma cena Landsat 8 de 27/07/2023 na região de São Paulo acessadas; NDVI foi calculado em pixels de amostra. Composição anual, entornos e média municipal completa não foram testados."
+    unidade_territorial: "Município IBGE 2022 e células residenciais estimadas."
+    qualidade_incerteza: "Nuvens e calendário de aquisição alteram a amostragem. Mudanças entre sensores e artefatos SLC-off do Landsat 7 exigem avaliação; não preencher falhas com zero. NDVI do entorno estimado não comprova verde público, acesso ou arborização de rua."
+    comparabilidade: "Fixar Collection 2 Level-2, máscaras, composição anual, raio, fonte populacional e limites; mudanças geram nova versão integral da série."
+    notas: "O título foi alterado para explicitar a aproximação por centros de células. Não é NDVI calculado em endereços residenciais observados nem um indicador de acesso a parques."
+
 
   - <<: *urban_common
     codigo: AMB-URB-01
-    titulo_completo: Parcela média da área construída da cidade que corresponde a espaço aberto para uso público (ODS 11.7.1)
-    titulo_resumido: Espaço público aberto — ODS 11.7.1
-    referencia_metodologica: Indicador ODS 11.7.1 sob custódia do Programa das Nações Unidas para os Assentamentos Humanos.
-    conceito: O indicador reúne duas séries complementares. A primeira mede a parcela da área construída da cidade destinada a espaços públicos, compreendendo espaços públicos abertos verificados e áreas destinadas a ruas. A segunda mede a parcela da população urbana com acesso conveniente a espaços públicos abertos.
+    titulo_completo: "Parcela da área urbana de referência ocupada por espaços abertos e ruas de uso público"
+    titulo_resumido: "Espaço público aberto — adaptação do ODS 11.7.1"
+    referencia_metodologica: "Metadado ODS 11.7.1/UN-Habitat; adaptação municipal com recorte fixo GHS-SMOD 2020 classe 30. A área e o acesso populacional são medidas separadas."
+    conceito: "Percentual da área urbana de referência ocupado pela união de espaços abertos públicos e ruas públicas; acompanhado, separadamente, do percentual populacional com percurso caminhável de até 400 m a um espaço aberto."
     objetivo: Monitorar a oferta territorial de espaços públicos e o acesso universal a espaços públicos abertos, seguros, inclusivos e acessíveis.
-    interpretacao: Na série territorial, valor maior indica maior parcela da cidade destinada a espaços públicos abertos e ruas. Na série de acesso, valor maior indica maior parcela da população situada a até 400 m caminháveis de um espaço público aberto. Nenhuma das séries informa automaticamente qualidade, vegetação, segurança ou uso efetivo.
+    interpretacao: "A parcela territorial informa disponibilidade de espaço público no recorte; acesso_400m informa proximidade por percurso. Valores iguais não significam mesma qualidade, segurança ou uso efetivo."
     usos: [Monitorar as duas séries do ODS 11.7.1., Comparar cidades com método harmonizado., Planejar oferta e distribuição de espaços públicos., "Examinar desigualdades de acesso por sexo, idade e deficiência."]
     limitacoes: [A delimitação da cidade ou área urbana afeta o denominador., Espaços identificados por imagem exigem verificação de uso público e gratuidade., Espaço público aberto pode não ser verde., "Cadastro incompleto, rede caminhável inadequada e imagem defasada geram erro.", A série territorial e a série de acesso não devem ser fundidas em uma única medida.]
-    metodo_calculo: Delimitar a cidade ou área urbana pelo protocolo ODS; identificar e verificar os espaços públicos abertos; estimar a área total destinada a ruas; somar as duas áreas e dividi-las pela área total delimitada. Calcular separadamente a população que alcança um espaço público aberto por percurso caminhável de até 400 m, dividindo-a pela população urbana total e desagregando o resultado por sexo, idade e deficiência.
-    formula_calculo: |
-      \begin{aligned}
-      ODS11.7.1_{área}
-        &=100\times\frac{A_{espaços\ públicos\ abertos}+A_{ruas}}{A_{cidade}},\\
-      ODS11.7.1_{acesso}
-        &=100\times\frac{Pop_{\leq 400\,m\ caminháveis}}{Pop_{urbana}}.
-      \end{aligned}
-    numerador: Na série territorial, soma da área dos espaços públicos abertos verificados com a área destinada a ruas; na série de acesso, população urbana a até 400 m caminháveis de um espaço público aberto.
-    denominador: Na série territorial, área total da cidade ou área urbana delimitada; na série de acesso, população urbana total da mesma área.
-    unidade_medida: Percentual (%).
-    variaveis_categorias_analise: Limite da cidade; espaço público aberto verificado; área destinada a ruas; rede caminhável; distância de 400 m; população; sexo; idade; deficiência.
-    granularidade: Polígono de espaço, área de ruas, segmento de rede, unidade populacional e cidade.
-    resolucao_espacial_original: A dos cadastros e imagens usados na delimitação.
-    resolucao_temporal: Atualização periódica por edição.
-    periodo_referencia: Ano dos cadastros, imagens e população.
-    limiar_referencia: Não há limiar sanitário universal; monitorar nível, distribuição e acesso.
-    fontes_dados:
-      - id: unhabitat-urban
-        papel: metadados oficiais, delimitação urbana e protocolo de cálculo do ODS 11.7.1
-      - id: mapbiomas
-        papel: apoio à delimitação de cobertura e área urbana, sem substituir a verificação dos espaços públicos
-      - id: ibge
-        papel: limites, população e desagregações
-    cobertura_geografica: Cidades com dados suficientes; estimativa oficial deve seguir o metadado ODS.
-    periodo_disponivel: Conforme cadastros e imagens.
-    periodicidade_atualizacao: Por ciclo de monitoramento ODS ou planejamento urbano.
-    forma_acesso: Dados municipais, IBGE, sensoriamento e plataforma ODS.
-    url_persistente: https://unstats.un.org/sdgs/metadata/files/Metadata-11-07-01.pdf
-    formatos: Vetores geoespaciais, tabelas e relatórios.
-    disponibilidade: [requer cadastro e processamento geoespacial]
-    necessidade_processamento: Delimitar a área urbana, validar espaços públicos, estimar a área de ruas, construir percursos caminháveis de 400 m, interpolar ou agregar a população e documentar omissões.
+    metodo_calculo: "Definir U como município IBGE 2022 intersectado com classe 30 de GHS-SMOD 2020. Selecionar espaços abertos com acesso público gratuito comprovado na data e ruas públicas delimitadas em polígonos; quando houver apenas eixos, construir polígonos usando a largura medida de cada trecho, sem imputar largura padrão. Calcular 100×área[U∩união(espaços,ruas)]/área(U), contabilizando sobreposições uma única vez. Publicar adicionalmente, em coluna de nome e unidade próprios, acesso_400m: porcentagem da população de U a até 400 m de percurso caminhável de uma entrada de espaço aberto público. Usar rede com barreiras, passagens e entradas datadas, admitindo trajetos e destinos fora do município; unir áreas atendidas antes de intersectar a população. Não usar ruas isoladamente como destinos de acesso. Não havendo rede/entradas, acesso_400m é ausente, mesmo que a parcela territorial seja calculável."
+    formula_calculo: "\\begin{aligned}P_{area}&=100\\frac{area[U\\cap(E\\cup R)]}{area(U)}\\\\P_{acesso400}&=100\\frac{Pop[U\\cap A_{rede,400}(E)]}{Pop(U)}\\end{aligned}"
+    numerador: "Medida territorial: área da união de espaços abertos e ruas públicas dentro de U. Medida de acesso: população urbana atendida por percurso≤400 m."
+    denominador: "Medida territorial: área de U. Medida de acesso: população de U."
+    unidade_medida: "% de área e, separadamente, % de população."
+    variaveis_categorias_analise: "Espaço, acesso gratuito, validade, geometria, rua/largura, entrada, rede/barreiras, população, U e município."
+    granularidade: "Polígonos de espaços e ruas; entradas/rede caminhável para acesso; saída municipal por ano de cadastro."
+    resolucao_espacial_original: "Cadastro vetorial local; GHS-SMOD 1 km; GHS-POP 100 m."
+    resolucao_temporal: "Ano da versão do cadastro; não fabricar série anual sem versões históricas."
+    periodo_referencia: "Máscara urbana fixa de 2020; cadastro e população referidos ao ano de análise."
+    limiar_referencia: "Área: acesso público gratuito comprovado. Acesso populacional: percurso caminhável≤400 m até entrada de espaço aberto."
+    fontes_dados: [{"id": "cadastro-espacos-publicos", "papel": "Cadastro local datado de espaços, acesso público, ruas e entradas, com verificação de campo"}, {"id": "ghs-smod-r2023a", "papel": "Máscara urbana fixa: classe 30 da época 2020"}, {"id": "ghs-pop-r2023a", "papel": "População por célula interpolada para o ano do cadastro"}, {"id": "ibge", "papel": "Malha municipal 2022"}]
+    cobertura_geografica: "Municípios com cadastro suficiente e interseção com classe 30; ausência de centro urbano nesse recorte é não aplicação, não zero."
+    periodo_disponivel: "Somente anos com cadastros históricos de acesso público verificável. OpenStreetMap atual não reconstrói retrospectivamente a situação de todos os anos."
+    periodicidade_atualizacao: "Por revisão anual documentada do cadastro ou por nova rodada de levantamento."
+    forma_acesso: "Exportação local GeoPackage/GeoJSON: id do espaço, geometria, acesso público e gratuito confirmado, início/fim de validade e entradas; ruas como polígonos ou eixos com largura observada. Rede caminhável datada é obrigatória para a medida de acesso de 400 m."
+    url_persistente: "https://unstats.un.org/sdgs/metadata/files/Metadata-11-07-01.pdf"
+    formatos: "GeoPackage/GeoJSON e tabelas de atributos; GeoTIFF SMOD/POP."
+    disponibilidade: ["Depende de dados locais"]
+    necessidade_processamento: "Validar acesso e datas; unir polígonos para evitar duplicação; intersectar com área urbana fixa; calcular distâncias/rotas quando exigidas e repartir contagens populacionais por área."
     analise_descritiva: Apresentar separadamente a parcela territorial de espaços públicos e a parcela populacional com acesso; detalhar os componentes espaço aberto e ruas, desagregar acesso por grupo e mostrar a distribuição intraurbana.
     referencias: ["[@un2026sdg1171]", "[@who2016greenspace]"]
+    unidade_territorial: "Interseção municipal IBGE 2022 com centros urbanos GHS-SMOD 2020, classe 30."
+    qualidade_incerteza: "Cadastro incompleto ou acesso desconhecido não permite afirmar cobertura total. Não inferir propriedade ou acesso público de NDVI, cobertura florestal ou presença de polígono em mapa colaborativo. Sem área urbana elegível, resultado não aplicável."
+    comparabilidade: "Mesmo recorte urbano, inventário, definição de acesso, geometria e versão populacional. A classe 30 restringe esta adaptação a centros urbanos e não representa todo núcleo urbano brasileiro."
+    notas: "Adaptação municipal explicitamente restrita ao recorte GHS-SMOD. O cálculo depende de registros locais; a existência de imagens abertas não resolve o atributo de acesso público."
+    protocolo_versao: "2026-10-03"
+    situacao_calculo: "locais"
+    dependencia_dados_locais: "Necessária"
+    automacao: "Condicionada"
+    condicoes_automacao: "Inventário local completo, datado e validado de acesso público, mais população e máscara urbana; rede caminhável e entradas para a medida de 400 m."
+    evidencia_verificacao: "Documentação verificada"
+    detalhe_verificacao: "Produto e método documentados; série municipal completa ainda não produzida."
+
+
 
   - <<: *urban_common
     codigo: AMB-URB-02
-    titulo_completo: Proporção da população urbana residente a até 300 metros de espaço verde acessível com pelo menos 1 hectare
-    titulo_resumido: Acesso próximo a espaço verde
+    titulo_completo: "Proporção da população urbana a até 300 m lineares de espaço verde público com pelo menos 1 ha"
+    titulo_resumido: "Proximidade de verde público — 300 m lineares"
     referencia_metodologica: Indicador de acessibilidade a espaço verde detalhado no relatório da OMS Europa sobre espaços verdes urbanos e saúde.
-    conceito: Percentual da população urbana cujo local de residência está dentro de uma área de acesso de 300 m à entrada ou limite acessível de espaço verde com área mínima de 1 ha.
+    conceito: "Percentual da população urbana estimada em grade a até 300 m de distância euclidiana do limite de espaço verde público contínuo de pelo menos 1 ha."
     objetivo: Medir proximidade residencial a espaço verde de porte mínimo por critério reproduzível.
-    interpretacao: Valor maior indica maior cobertura potencial de proximidade. Não comprova acesso real, qualidade, segurança, gratuidade ou uso.
+    interpretacao: "Representa proximidade geométrica a verde público, não percurso real, uso ou qualidade. O requisito de acesso público depende de verificação local."
     usos: [Planejar espaços verdes e rotas., Monitorar desigualdades territoriais., Avaliar intervenções urbanas relacionadas à saúde.]
     limitacoes: [Distância linear pode divergir da rede caminhável., Entradas e barreiras podem estar ausentes., Limiar de 300 m/1 ha é convenção de planejamento., População residencial não inclui mobilidade.]
-    metodo_calculo: Selecionar espaços verdes de pelo menos 1 ha com acesso público, construir área de serviço de 300 m pela rede caminhável — ou área linear de entorno claramente identificada —, intersectar com população e dividir a população coberta pela urbana total.
-    formula_calculo: 'P_{verde300}=100\times\frac{\sum_g Pop_g I(g\ acessa\ verde_{\geq1ha}\ em\leq300m)}{\sum_g Pop_g}'
-    numerador: População urbana em unidades cobertas pela área de acesso.
+    metodo_calculo: "Selecionar no cadastro local espaços verdes contínuos com acesso público gratuito verificado e área geodésica total≥10.000 m², medida antes de qualquer recorte municipal. Construir círculos/zonas de distância geodésica equivalente a 300 m do limite dos polígonos, incluindo espaços fora do município, e unir todas as zonas. Intersectar essa união com U=município IBGE 2022∩GHS-SMOD 2020 classe 30. Calcular a população coberta mediante frações de interseção das células GHS-POP, interpoladas para o ano do cadastro; dividir pela população total de U e multiplicar por 100. Contar cada fragmento populacional uma única vez. Sem população em U, resultado não aplicável; sem cadastro completo, ausente."
+    formula_calculo: "P_{verde300}=100\\frac{Pop(U\\cap V_{300})}{Pop(U)}"
+    numerador: "População de U na união V300 das zonas de 300 m dos espaços verdes públicos elegíveis (contínuos e com área≥1 ha)."
     denominador: População urbana total na área analisada.
     unidade_medida: Percentual (%).
-    variaveis_categorias_analise: Espaço verde; área; acesso; rede; distância; população; idade; renda; raça/cor; deficiência.
-    granularidade: Entrada ou polígono de espaço, segmento de rede e célula/setor populacional.
-    resolucao_espacial_original: A dos cadastros e da superfície populacional.
-    resolucao_temporal: Atualização periódica.
-    periodo_referencia: Mesmo ano ou anos compatíveis para espaço, rede e população.
-    limiar_referencia: Espaço verde acessível ≥1 ha e distância ≤300 m, segundo a aplicação metodológica declarada.
-    fontes_dados:
-      - id: mapbiomas
-        papel: apoio à identificação de cobertura vegetal
-      - id: landsat
-        papel: verificação de vegetação e atualização
-      - id: ibge
-        papel: população, malha e rede/endereço quando disponíveis
-    cobertura_geografica: Áreas urbanas com cadastro e população detalhados.
-    periodo_disponivel: Conforme fontes locais.
-    periodicidade_atualizacao: Anual ou por revisão do plano urbano.
-    forma_acesso: Cadastros municipais, dados de cobertura e população.
+    variaveis_categorias_analise: "Polígono de verde, acesso público confirmado, área, validade, distância linear, população, U e município."
+    granularidade: "Polígono de espaço verde, zonas de proximidade unidas e fragmentos de células populacionais."
+    resolucao_espacial_original: "Cadastro vetorial local; GHS-SMOD 1 km; GHS-POP 100 m."
+    resolucao_temporal: "Ano da versão do cadastro; não fabricar série anual sem versões históricas."
+    periodo_referencia: "Máscara urbana fixa de 2020; cadastro e população referidos ao ano de análise."
+    limiar_referencia: "Espaço verde público contínuo≥1 ha; distância linear ao limite≤300 m. Não usa rede caminhável."
+    fontes_dados: [{"id": "cadastro-espacos-publicos", "papel": "Cadastro local datado de espaços, acesso público, ruas e entradas, com verificação de campo"}, {"id": "ghs-smod-r2023a", "papel": "Máscara urbana fixa: classe 30 da época 2020"}, {"id": "ghs-pop-r2023a", "papel": "População por célula interpolada para o ano do cadastro"}, {"id": "ibge", "papel": "Malha municipal 2022"}]
+    cobertura_geografica: "Municípios com cadastro suficiente e interseção com classe 30; ausência de centro urbano nesse recorte é não aplicação, não zero."
+    periodo_disponivel: "Somente anos com cadastros históricos de acesso público verificável. OpenStreetMap atual não reconstrói retrospectivamente a situação de todos os anos."
+    periodicidade_atualizacao: "Por revisão anual documentada do cadastro ou por nova rodada de levantamento."
+    forma_acesso: "Cadastro local datado de polígonos verdes, área e acesso público; downloads GHS-SMOD/GHS-POP e malha IBGE 2022. Rede de caminhos não integra esta variante linear."
     url_persistente: https://www.who.int/europe/publications/i/item/WHO-EURO-2016-3352-43111-60341
-    formatos: Vetor geoespacial, raster populacional e tabela.
-    disponibilidade: [requer processamento de rede e população]
-    necessidade_processamento: Validar espaços e entradas, construir rede/área, interpolar população e testar sensibilidades.
+    formatos: "GeoPackage/GeoJSON e tabelas de atributos; GeoTIFF SMOD/POP."
+    disponibilidade: ["Depende de dados locais"]
+    necessidade_processamento: "Validar acesso e área total do espaço, construir zonas de distância de 300 m, unir geometrias e intersectar conservativamente com população e recorte urbano."
     analise_descritiva: Mostrar cobertura total e por grupos, bairros sem acesso, distância média e sensibilidade a limiar e método.
     referencias: ["[@who2016greenspace]"]
+    unidade_territorial: "Interseção municipal IBGE 2022 com centros urbanos GHS-SMOD 2020, classe 30."
+    qualidade_incerteza: "Cadastro incompleto ou acesso desconhecido não permite afirmar cobertura total. Não inferir propriedade ou acesso público de NDVI, cobertura florestal ou presença de polígono em mapa colaborativo. Sem área urbana elegível, resultado não aplicável."
+    comparabilidade: "Mesmo recorte urbano, inventário, definição de acesso, geometria e versão populacional. A classe 30 restringe esta adaptação a centros urbanos e não representa todo núcleo urbano brasileiro."
+    notas: "A definição foi fixada na variante de distância linear. Barreiras, entradas e trajetos reais podem reduzir o acesso efetivo; uma variante por rede caminhável seria outro indicador e não deve substituir esta série silenciosamente."
+    protocolo_versao: "2026-10-03"
+    situacao_calculo: "locais"
+    dependencia_dados_locais: "Necessária"
+    automacao: "Condicionada"
+    condicoes_automacao: "Inventário completo e datado de polígonos verdes com área e acesso público verificados; esta variante usa distância linear, sem exigir rede caminhável."
+    evidencia_verificacao: "Documentação verificada"
+    detalhe_verificacao: "Produto e método documentados; série municipal completa ainda não produzida."
+
 
   - <<: *urban_common
     codigo: AMB-URB-03
-    titulo_completo: Intensidade da ilha de calor urbana de superfície (SUHII)
-    titulo_resumido: Ilha de calor de superfície — SUHII
-    referencia_metodologica: Índice de ilha de calor baseado em temperatura radiométrica de superfície e cobertura da terra, conforme Jin.
-    conceito: Diferença entre temperatura média da superfície na área urbana e temperatura média da superfície em área não urbana de referência comparável, na mesma aquisição.
+    titulo_completo: "Intensidade anual da ilha de calor de superfície — YCEO v4, diurna e noturna"
+    titulo_resumido: "SUHII anual — YCEO v4"
+    referencia_metodologica: "Produto YCEO Surface Urban Heat Islands, Yearly Pixel v4; contraste urbano–referência calculado pelo método publicado do produtor. Síntese municipal por área é uma adaptação deste livro."
+    conceito: "Média municipal, nos pixels urbanos cobertos pelo produto, da intensidade anual de ilha de calor de superfície calculada pelo YCEO, com séries diurna e noturna separadas."
     objetivo: Quantificar o contraste térmico de superfície associado à urbanização e mapear heterogeneidade territorial.
     interpretacao: Valor positivo indica superfície urbana mais quente que a referência naquele sensor, data e horário. Não equivale à ilha de calor do ar nem à exposição térmica humana.
     usos: [Avaliar materiais e cobertura urbana., Priorizar mitigação e arborização., Contextualizar risco de calor com população e dados do ar.]
     limitacoes: [Referência rural determina o resultado., Temperatura da superfície difere da temperatura do ar., Nuvens e horário limitam amostragem., Emissividade e resolução introduzem erro., Uma cena não representa noite ou estação.]
-    metodo_calculo: Selecionar produto validado de temperatura da superfície, mascarar pixels inválidos, delimitar área urbana e referência não urbana com altitude, água, topografia e cobertura controladas e subtrair as médias ponderadas da mesma aquisição.
-    formula_calculo: 'SUHII_t=\overline{LST}_{urb,t}-\overline{LST}_{ref,t}'
+    metodo_calculo: "Acessar YALE/YCEO/UHI/UHI_yearly_pixel/v4 e selecionar as imagens anuais 2003–2018 pelas datas do catálogo, bandas Daytime e Nighttime. As bandas já contêm SUHII em °C; não subtrair uma nova referência rural nem aplicar escala de reflectância Landsat. Construir a máscara de elegibilidade como a união dos pixels válidos da coleção no período, por banda, e conservá-la fixa. Para cada ano e banda, calcular a média dos pixels válidos ponderada pela área de interseção com o município IBGE 2022. Exigir ≥90% da área elegível municipal válida nesse ano e informar a cobertura; sem pixel elegível, não aplicável. Não misturar dia e noite numa única média. Este filtro de cobertura e a agregação municipal são escolhas operacionais do livro."
+    formula_calculo: "SUHII_{m,y,k}=\\frac{\\sum_g a_{gm}SUHII^{YCEO}_{g,y,k}}{\\sum_g a_{gm}},\\qquad k\\in\\{dia,noite\\}"
     numerador: Não se aplica.
     denominador: Não se aplica.
-    unidade_medida: Grau Celsius (°C) ou kelvin de diferença.
-    variaveis_categorias_analise: LST; urbano; referência; sensor; horário; estação; cobertura; população.
-    granularidade: Pixel e resumo urbano por aquisição.
-    resolucao_espacial_original: A do produto térmico; declarar resolução nativa e reamostrada.
-    resolucao_temporal: Aquisição instantânea e composições sazonais.
-    periodo_referencia: Mesmas datas e horários para urbano e referência.
-    limiar_referencia: Zero indica ausência de contraste médio; não há limiar sanitário universal.
-    fontes_dados:
-      - id: landsat
-        papel: produto de temperatura da superfície e cobertura
-      - id: mapbiomas
-        papel: classificação urbano/não urbano e controle de cobertura
-      - id: ibge
-        papel: limite urbano, altitude/cartografia e população para análise de exposição
-    cobertura_geografica: Cidades com cenas válidas e referência comparável.
-    periodo_disponivel: Conforme missão e produto.
-    periodicidade_atualizacao: Sazonal ou anual.
-    forma_acesso: Produtos de temperatura da superfície e cobertura versionados.
-    url_persistente: https://doi.org/10.1175/JCLI-D-11-00509.1
-    formatos: Raster e tabela.
-    disponibilidade: [requer processamento térmico e territorial]
-    necessidade_processamento: Máscara, emissividade/produto, delimitação urbana e referência, estratificação temporal e ponderação.
+    unidade_medida: "°C de diferença."
+    variaveis_categorias_analise: "Ano, banda Daytime/Nighttime, SUHII em °C, máscara elegível, área válida, município e versão."
+    granularidade: "Pixel anual do produto e síntese municipal por área."
+    resolucao_espacial_original: "300 m nominal no produto distribuído; não equivale a observação térmica independente nessa resolução."
+    resolucao_temporal: "Anual, com bandas diurna e noturna separadas."
+    periodo_referencia: "Ano civil do produto; referência não urbana e seleção dos aglomerados preservadas do YCEO."
+    limiar_referencia: "Zero indica ausência de contraste térmico no produto; não há corte sanitário universal. Cobertura anual≥90% da área elegível."
+    fontes_dados: [{"id": "yceo-uhi-v4", "papel": "Produto anual por pixel: bandas Daytime e Nighttime"}, {"id": "ibge", "papel": "Malha municipal 2022"}]
+    cobertura_geografica: "Municípios que interceptam aglomerados urbanos cobertos pelo YCEO; não cobre toda área urbana brasileira."
+    periodo_disponivel: "2003–2018 na versão v4; não apresentar como produto atualizado até o presente."
+    periodicidade_atualizacao: "Edição histórica fechada; nova versão exige nova série."
+    forma_acesso: "API Google Earth Engine: ee.ImageCollection(\"YALE/YCEO/UHI/UHI_yearly_pixel/v4\"); filtrar ano e selecionar Daytime/Nighttime. Exportar pixels ou somas ponderadas por pixelArea em projeção nativa."
+    url_persistente: "https://developers.google.com/earth-engine/datasets/catalog/YALE_YCEO_UHI_UHI_yearly_pixel_v4"
+    formatos: "ImageCollection no Earth Engine; GeoTIFF/CSV exportado."
+    disponibilidade: ["Calculável com dados abertos"]
+    necessidade_processamento: "Selecionar bandas e datas, construir máscara elegível fixa, intersectar municípios e somar SUHII×área e área válida, sem redefinir a referência térmica."
     analise_descritiva: Mostrar distribuição urbana, contraste médio, dia/noite quando houver, estações, população em pontos quentes e sensibilidade à referência.
-    referencias: ["[@jin2012uhi]", "[@who2016greenspace]"]
+    referencias: ["[@yceo2026uhi]", "[@jin2012uhi]"]
+    unidade_territorial: "Parcela dos aglomerados urbanos do produto dentro de cada município IBGE 2022."
+    qualidade_incerteza: "Produto de temperatura de superfície e cobertura urbana, afetado por nuvens, amostragem temporal e referência rural. O detalhamento nominal não resolve temperatura do ar ou exposição individual."
+    comparabilidade: "Preservar v4, máscara, referência rural original, dia/noite e malha municipal; comparação com outro sensor ou método gera série distinta."
+    notas: "A ficha deixa de permitir escolher livremente sensor e entorno rural. A medida é a intensidade do produto YCEO v4 agregada no município, não temperatura do ar nem SUHI municipal recalculada com outra referência."
+    protocolo_versao: "2026-10-03"
+    situacao_calculo: "abertos"
+    dependencia_dados_locais: "Dispensável para o cálculo; opcional para validação"
+    automacao: "Condicionada"
+    condicoes_automacao: "Conta e projeto Earth Engine elegíveis para acesso gratuito ao produto histórico; preservar a versão, bandas e cobertura."
+    evidencia_verificacao: "Documentação verificada"
+    detalhe_verificacao: "Produto e método documentados; série municipal completa ainda não produzida."

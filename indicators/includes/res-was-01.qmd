@@ -1,0 +1,132 @@
+## Ficha do indicador: Percentual de estabelecimentos com serviços básicos de água, saneamento, higiene, resíduos e limpeza {#sec-res-was-01 .ficha-title}
+
+::: {.indicator-card}
+[Código:]{.field-label} RES-WAS-01 \
+[Título resumido:]{.field-label} Serviços básicos de água, saneamento, higiene, resíduos e limpeza \
+[Tema:]{.field-label} Capacidade de resposta, adaptação e resiliência \
+[Dimensão:]{.field-label} resposta \
+[Disponibilidade:]{.field-label} [Depende de dados locais]{.availability}
+:::
+
+Contexto e interpretação: [Capacidade de resposta, adaptação e resiliência](../../chapters/part-3/13-resposta-adaptacao-resiliencia.qmd#sec-resposta).
+
+### Identificação e fundamento {.unnumbered .ficha-section}
+
+[Base de consolidação.]{.field-label} OMS, Health system resilience indicators: an integrated package, edição 2024, indicador 30. Critérios e instrumento local explicitados neste capítulo.
+
+::: {.callout-note icon=false title="Conceito-chave"}
+Percentuais de estabelecimentos conformes em cada um dos cinco componentes do indicador 30 da OMS e em todos simultaneamente.
+:::
+
+### Objetivo {.unnumbered .ficha-section}
+
+Identificar ausência de serviços básicos que sustentam segurança e continuidade assistencial.
+
+### Interpretação {.unnumbered .ficha-section}
+
+Cada componente mede sua própria conformidade; o percentual conjunto exige os cinco, sem média ou compensação entre eles.
+
+### Usos {.unnumbered .ficha-section}
+
+- Priorizar correções em água, saneamento, higiene, resíduos e limpeza.
+- Acompanhar conformidade conjunta e lacunas por componente.
+
+### Limitações {.unnumbered .ficha-section}
+
+- Inspeção pontual não garante disponibilidade futura.
+- Conformidade básica não mede potabilidade laboratorial nem segurança estrutural.
+- Não resposta pode produzir viés; publicar cobertura por componente.
+
+### Fontes de dados {.unnumbered .ficha-section}
+
+- Cadastro Nacional de Estabelecimentos de Saúde — Dados cadastrais: identificação e composição do universo da rodada. ([cadastro](../../backmatter/indice-fontes.qmd#cnes))
+- Avaliação local de resiliência — instrumento vazio — Dados a coletar: respostas, inspeção e evidências no instrumento local desta edição. ([cadastro](../../backmatter/indice-fontes.qmd#avaliacao-local-resiliencia))
+
+### Método de cálculo {.unnumbered .ficha-section}
+
+Aplicar os itens was_agua, was_saneamento, was_higiene, was_residuos e was_limpeza do dicionário. Água: fonte melhorada, no terreno e disponível. Saneamento: sanitários melhorados e utilizáveis, com unidade para equipe, separação por sexo e higiene menstrual e unidade acessível à mobilidade reduzida. Higiene: instalação funcional nos pontos de cuidado e a até cinco metros dos sanitários, com água e sabão e/ou preparação alcoólica, conforme a redação do indicador 30 da OMS 2024. Resíduos: segregação em três recipientes e tratamento/destinação seguros de infecciosos e perfurocortantes. Limpeza: protocolo disponível e trabalhadores responsáveis treinados. Cada componente exige todos os seus itens sim, com inspeção/evidências registradas. Publicar 100 N/A de cada componente e 100 N/A conjunto; para o conjunto, exigir resposta válida em todos os itens dos cinco componentes. Não compensar componente ausente por outro conforme. Critérios detalhados de fonte, sanitários, tratamento e evidência no instrumento.
+
+$$
+P=100\times N/A,\qquad NR=U-A
+$$
+
+::: {.indicator-card}
+[Numerador.]{.field-label} Por componente: estabelecimentos com todos os seus itens sim. Conjunto: estabelecimentos com os cinco componentes conformes.
+
+[Denominador.]{.field-label} A: estabelecimentos do universo U com todos os itens exigidos válidos para o indicador. Para RES-WAS-01, A próprio por componente e A conjunto com os cinco componentes completos.
+
+[Unidade de medida.]{.field-label} Percentual de estabelecimentos (%).
+
+[Variáveis e categorias de análise.]{.field-label} Todos os campos was_* do instrumento, identificação CNES, rodada, data e evidências por componente.
+
+[Granularidade.]{.field-label} Estabelecimento e rodada; agregação pelo universo declarado.
+
+[Periodicidade de atualização.]{.field-label} Por rodada de avaliação; publicar a data de cada estabelecimento e os limites da rodada.
+
+[Responsabilidade gerencial.]{.field-label} Gestão do SUS e direção do estabelecimento, com participação da vigilância, atenção, engenharia clínica, infraestrutura, saúde do trabalhador e proteção e defesa civil conforme o indicador.
+
+[Notas.]{.field-label} Substitui RES-INF-01. A operacionalização segue o indicador 30, edição OMS 2024; não certifica conformidade geral da infraestrutura. O formulário é autoral e está vazio.
+
+[Análise descritiva do indicador.]{.field-label} Publicar N, A, U, NR, cobertura, percentual, datas e distribuição por município/tipo de estabelecimento; RES-WAS-01 exige cinco componentes e conformidade conjunta.
+
+:::
+
+### Campos complementares para clima, ambiente e saúde {.unnumbered .ficha-section}
+
+::: {.indicator-card}
+[Unidade territorial.]{.field-label} Município do estabelecimento e rede definida no universo da rodada.
+
+[Resolução espacial original.]{.field-label} Estabelecimento identificado por CNES.
+
+[Resolução temporal.]{.field-label} Data da avaliação, com janela retrospectiva somente para interrupções.
+
+[Período de referência.]{.field-label} Condições observadas e documentação verificada na data da avaliação.
+
+[Limiar ou valor de referência.]{.field-label} Conformidade integral em cada componente e simultânea nos cinco para o resultado conjunto.
+
+:::
+
+### Disponibilidade e acesso {.unnumbered .ficha-section}
+
+[Protocolo verificado em.]{.field-label} 2026-10-06
+
+[Dependência de dados locais.]{.field-label} Obrigatória: inspeção e verificação documental com o instrumento vazio e o dicionário publicados neste capítulo. O CNES identifica o universo; não contém estas respostas.
+
+[Automação.]{.field-label} Condicionada
+
+[Requisitos para o cálculo.]{.field-label} Agregação automatizável após coleta e validação humanas; não inferir respostas pelo CNES ou pela ausência de documento recebido.
+
+[Nível de evidência.]{.field-label} Documentação verificada
+
+[Alcance da verificação.]{.field-label} Definição documental conferida no pacote OMS 2024; modelo e regras verificados, sem aplicação em estabelecimentos nem cálculo empírico.
+
+[Cobertura geográfica.]{.field-label} Estabelecimentos CNES do universo municipal ou da rede declarada na rodada; não extrapolar para os não avaliados.
+
+[Período disponível.]{.field-label} Somente após coleta local. Nenhuma avaliação real acompanha esta revisão.
+
+[Periodicidade de atualização.]{.field-label} Por rodada de avaliação; publicar a data de cada estabelecimento e os limites da rodada.
+
+[Forma de acesso.]{.field-label} Modelos vazios de universo e avaliação, dicionário de perguntas e regras na seção Instrumento de coleta local deste capítulo.
+
+[URL ou identificador persistente.]{.field-label} https://cnes.datasus.gov.br/
+
+[Formato dos arquivos.]{.field-label} CSV UTF-8; documentos e registros de inspeção identificados por referência e SHA-256.
+
+[Necessidade de processamento.]{.field-label} Validar chaves CNES/rodada, datas, respostas e evidências; aplicar os critérios abaixo e publicar numerador, denominador e não resposta.
+
+### Qualidade, comparação e saúde {.unnumbered .ficha-section}
+
+[Qualidade e incerteza.]{.field-label} Por indicador/componente, publicar N conforme/afetado, A com resposta válida completa, U elegível e NR=U−A. Cobertura=100 A/U. Percentual=100 N/A; A=0 implica ausente. Não resposta, documento não disponibilizado e pergunta ignorada não equivalem a ausência de problema.
+
+[Possibilidade de comparação.]{.field-label} Comparar apenas rodadas com critérios, território e universo compatíveis; documentar mudanças do CNES e não resposta. Não ponderar ou extrapolar amostras de conveniência.
+
+[Relação com desfechos de saúde.]{.field-label} Mede capacidade ou interrupção do sistema, não o efeito final na saúde; a relação com desfechos depende do perigo, da continuidade dos serviços e das populações atendidas.
+
+[Defasagens temporais relevantes.]{.field-label} Estrutura e planos podem anteceder eventos; interrupções devem ser registradas próximo da ocorrência; resultados em saúde e recuperação podem aparecer depois.
+
+[Aplicação na gestão.]{.field-label} Identificar lacunas, priorizar investimento, pactuar responsáveis e prazos, acompanhar preparação e verificar continuidade antes, durante e depois de emergências.
+
+### Referências metodológicas {.unnumbered .ficha-section}
+
+- [@who2024resilienceindicators]
+- [@who2023framework]

@@ -40,17 +40,39 @@ indicators:
     interpretacao: Valor maior indica um pico diário mais elevado, mas não determina sozinho inundação, enxurrada ou deslizamento.
     usos: [Monitorar extremos de chuva., Relacionar picos de precipitação a agravos e interrupções., Contextualizar episódios hidrológicos.]
     limitacoes: [Ignora os demais dias do período., Pode diluir extremos subdiários., Depende do horário de fechamento do dia., A resposta hidrológica depende de solo, bacia, drenagem e chuva antecedente.]
-    metodo_calculo: Para cada período, selecionar o maior total diário de precipitação entre os dias válidos.
+    metodo_calculo: "Obter PR diário pelo protocolo de acumulação. Selecionar o maior PR entre 1º de janeiro e 31 de dezembro por célula; depois aplicar média por área municipal. Publicar data do máximo na célula e fração de dias válidos."
     formula_calculo: 'Rx1day_p=\max_{d\in p}(PR_d)'
     numerador: Não se aplica.
     denominador: Não se aplica.
     unidade_medida: Milímetros (mm).
-    periodo_referencia: Não se aplica ao valor; declarar o período de análise.
+    periodo_referencia: "Sem período-base para esta medida; exceções percentílicas são explicitadas na ficha."
     limiar_referencia: Não se aplica; é um máximo.
-    url_persistente: https://www.climdex.org/learn/indices/
-    necessidade_processamento: Somar registros subdiários no dia climatológico, aplicar controle de qualidade e selecionar o máximo.
+    url_persistente: "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land"
+    necessidade_processamento: "Reconstruir precipitação diária com a convenção de acumulação do produto; controlar falhas; calcular a estatística por célula e ponderar por área municipal, salvo SPI."
     analise_descritiva: Apresentar valor, data, completude, localização e comparação com distribuição histórica e condições antecedentes.
     referencias: ["[@climdex2024]", "[@levy2016waterborne]"]
+    fontes_dados: [{"id": "era5-land", "papel": "ERA5-Land hourly, total_precipitation; acumulado de 24 h às 00 UTC do dia seguinte"}, {"id": "chirps-v3", "papel": "CHIRPS v3 daily RNL final, série alternativa em grade"}, {"id": "inmet", "papel": "Pluviômetros para validação e séries observadas separadas"}]
+    periodo_disponivel: "ERA5-Land: 1950–presente; CHIRPS v3: 1981–presente. Publicar anos completos até 2025 e identificar 2026 como parcial."
+    resolucao_espacial_original: "ERA5-Land 0,1°; CHIRPS v3 0,05°. Não misturar produtos em uma mesma série."
+    unidade_territorial: "Célula; síntese municipal pela malha IBGE 2022."
+    granularidade: "Calcular o índice anual em cada célula e depois a média ponderada pela área de interseção municipal; SPI é a exceção descrita em sua ficha."
+    resolucao_temporal: "Precipitação diária em UTC; saída anual por ano civil."
+    cobertura_geografica: "Municípios brasileiros no domínio das grades; estações têm cobertura restrita à rede e não representam automaticamente toda a área municipal."
+    forma_acesso: "API CDS, reanalysis-era5-land, variable=total_precipitation, product_type=reanalysis, time=00:00. Para o dia d usar o acumulado do registro às 00 UTC de d+1, correspondente às 24 horas anteriores, e multiplicar metros por 1000. Não somar os acumulados horários sem desacumulação. CHIRPS: download HTTP dos rasters daily RNL final v3."
+    formatos: "NetCDF/GRIB ERA5-Land; GeoTIFF ou NetCDF CHIRPS; CSV/Parquet municipal."
+    periodicidade_atualizacao: "Anual para os índices; mensal para SPI-3."
+    qualidade_incerteza: "Precipitação negativa ou sem registro é ausente, nunca dia seco. Ano com mais de 15 dias ausentes, ou mais de três em qualquer mês, é inválido; estes critérios não eliminam o viés de lacunas restantes. Publicar fração observada e marcar índices de sequência como limite inferior se houver lacuna. Exigir ≥90% da área municipal válida. Regras de cobertura são escolhas editoriais."
+    comparabilidade: "Preservar produto, versão, fechamento UTC, limiar de 1 mm e malha IBGE 2022. CHIRPS v3 RNL usa desagregação diária apoiada em ERA5 e não constitui validação inteiramente independente. Séries v2/v3 e pluviômetros permanecem separadas."
+    notas: "A média municipal de extremos e durações não é o extremo ou a duração da chuva média municipal. A ficha SPI-3 especifica a ordem inversa. Não interpretar qualquer destes índices como ocorrência comprovada de inundação."
+    protocolo_versao: "2026-10-03"
+    situacao_calculo: "abertos"
+    disponibilidade: ["Calculável com dados abertos"]
+    dependencia_dados_locais: "Opcional para validação"
+    automacao: "Condicionada"
+    condicoes_automacao: "Credencial gratuita CDS e aceite da licença; alternativa CHIRPS por HTTP sem cadastro. Séries observadas exigem registros diários locais completos."
+    evidencia_verificacao: "Documentação verificada"
+    detalhe_verificacao: "Produto e método documentados; série municipal completa ainda não produzida."
+
 
   - <<: *precip_common
     codigo: CLI-PRC-02
@@ -62,39 +84,84 @@ indicators:
     interpretacao: Valor maior indica maior acumulação máxima em cinco dias. Não revela a distribuição interna da chuva nem a saturação real do solo.
     usos: [Monitorar extremos persistentes., Contextualizar inundações e movimentos de massa., Avaliar exposição em estudos de saúde.]
     limitacoes: [Janela fixa pode não coincidir com o tempo de resposta da bacia., Falhas dentro da janela afetam o máximo., Não substitui umidade do solo, vazão ou nível do rio.]
-    metodo_calculo: Calcular todas as somas móveis de cinco dias consecutivos no período, segundo a regra de completude, e selecionar a maior.
+    metodo_calculo: "Para cada dia d do ano, somar PR de d−4 a d, exigindo cinco dias válidos. Carregar os quatro últimos dias do ano anterior. Atribuir a janela ao dia final d e selecionar a maior soma entre janelas cujo término pertence ao ano; agregar os máximos das células por área municipal."
     formula_calculo: 'Rx5day_p=\max_{d\in p}\left(\sum_{k=0}^{4}PR_{d-k}\right)'
     numerador: Não se aplica.
     denominador: Não se aplica.
     unidade_medida: Milímetros (mm).
-    periodo_referencia: Não se aplica ao valor; declarar o período de análise.
+    periodo_referencia: "Sem período-base para esta medida; exceções percentílicas são explicitadas na ficha."
     limiar_referencia: Não se aplica; é um máximo móvel.
-    url_persistente: https://www.climdex.org/learn/indices/
-    necessidade_processamento: Controle de qualidade, somas móveis completas, regra para janelas que cruzam meses e seleção do máximo.
+    url_persistente: "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land"
+    necessidade_processamento: "Reconstruir precipitação diária com a convenção de acumulação do produto; controlar falhas; calcular a estatística por célula e ponderar por área municipal, salvo SPI."
     analise_descritiva: Mostrar Rx5day, datas inicial e final, contribuição de cada dia e condições antecedentes.
     referencias: ["[@climdex2024]", "[@who2014floods]"]
+    fontes_dados: [{"id": "era5-land", "papel": "ERA5-Land hourly, total_precipitation; acumulado de 24 h às 00 UTC do dia seguinte"}, {"id": "chirps-v3", "papel": "CHIRPS v3 daily RNL final, série alternativa em grade"}, {"id": "inmet", "papel": "Pluviômetros para validação e séries observadas separadas"}]
+    periodo_disponivel: "ERA5-Land: 1950–presente; CHIRPS v3: 1981–presente. Publicar anos completos até 2025 e identificar 2026 como parcial."
+    resolucao_espacial_original: "ERA5-Land 0,1°; CHIRPS v3 0,05°. Não misturar produtos em uma mesma série."
+    unidade_territorial: "Célula; síntese municipal pela malha IBGE 2022."
+    granularidade: "Calcular o índice anual em cada célula e depois a média ponderada pela área de interseção municipal; SPI é a exceção descrita em sua ficha."
+    resolucao_temporal: "Precipitação diária em UTC; saída anual por ano civil."
+    cobertura_geografica: "Municípios brasileiros no domínio das grades; estações têm cobertura restrita à rede e não representam automaticamente toda a área municipal."
+    forma_acesso: "API CDS, reanalysis-era5-land, variable=total_precipitation, product_type=reanalysis, time=00:00. Para o dia d usar o acumulado do registro às 00 UTC de d+1, correspondente às 24 horas anteriores, e multiplicar metros por 1000. Não somar os acumulados horários sem desacumulação. CHIRPS: download HTTP dos rasters daily RNL final v3."
+    formatos: "NetCDF/GRIB ERA5-Land; GeoTIFF ou NetCDF CHIRPS; CSV/Parquet municipal."
+    periodicidade_atualizacao: "Anual para os índices; mensal para SPI-3."
+    qualidade_incerteza: "Precipitação negativa ou sem registro é ausente, nunca dia seco. Ano com mais de 15 dias ausentes, ou mais de três em qualquer mês, é inválido; estes critérios não eliminam o viés de lacunas restantes. Publicar fração observada e marcar índices de sequência como limite inferior se houver lacuna. Exigir ≥90% da área municipal válida. Regras de cobertura são escolhas editoriais."
+    comparabilidade: "Preservar produto, versão, fechamento UTC, limiar de 1 mm e malha IBGE 2022. CHIRPS v3 RNL usa desagregação diária apoiada em ERA5 e não constitui validação inteiramente independente. Séries v2/v3 e pluviômetros permanecem separadas."
+    notas: "A média municipal de extremos e durações não é o extremo ou a duração da chuva média municipal. A ficha SPI-3 especifica a ordem inversa. Não interpretar qualquer destes índices como ocorrência comprovada de inundação."
+    protocolo_versao: "2026-10-03"
+    situacao_calculo: "abertos"
+    disponibilidade: ["Calculável com dados abertos"]
+    dependencia_dados_locais: "Opcional para validação"
+    automacao: "Condicionada"
+    condicoes_automacao: "Credencial gratuita CDS e aceite da licença; alternativa CHIRPS por HTTP sem cadastro. Séries observadas exigem registros diários locais completos."
+    evidencia_verificacao: "Documentação verificada"
+    detalhe_verificacao: "Produto e método documentados; série municipal completa ainda não produzida."
+
 
   - <<: *precip_common
     codigo: CLI-PRC-03
-    titulo_completo: Precipitação total em dias muito úmidos (R95pTOT)
-    titulo_resumido: Chuva em dias muito úmidos — R95pTOT
-    referencia_metodologica: Índice R95pTOT do conjunto ETCCDI, documentado pelo Climdex.
+    titulo_completo: "Precipitação total em dias muito úmidos (R95p)"
+    titulo_resumido: "Chuva em dias muito úmidos — R95p"
+    referencia_metodologica: "ETCCDI/Climdex e nomenclatura Climpact: R95p é uma soma em mm; R95pTOT é a contribuição percentual em relação a PRCPTOT."
     conceito: Soma da precipitação nos dias úmidos do período em que o total diário excede o percentil 95 dos dias úmidos do período-base.
     objetivo: Quantificar o volume de chuva concentrado nos dias climatologicamente muito úmidos.
     interpretacao: Valor maior pode resultar de mais dias acima do percentil, de dias mais intensos ou de ambos; deve ser acompanhado por frequência e contribuição percentual.
     usos: [Monitorar concentração da chuva em extremos., Avaliar mudanças no regime de precipitação., Caracterizar exposições relacionadas a chuva intensa.]
     limitacoes: [Depende do período-base e do limiar de dia úmido., Soma não separa frequência e intensidade., Comparação exige implementação percentílica harmonizada.]
-    metodo_calculo: No período-base, calcular o percentil 95 entre dias com PR igual ou superior a 1 mm. No período analisado, somar PR dos dias úmidos que excedem esse limiar.
-    formula_calculo: 'R95pTOT_p=\sum_{d\in p}PR_d I(PR_d>PR95_{wet})'
+    metodo_calculo: "Selecionar todos os dias com PR≥1 mm na base 1961–1990. Estimar seu P95 pelo quantil tipo 8, sem janela calendário. Somar, no ano, toda a precipitação dos dias com PR estritamente maior que esse limiar. Para a série alternativa CHIRPS v3, usar 1981–2010 e identificá-la como outra série. Calcular por célula antes da média municipal."
+    formula_calculo: "R95p_y=\\sum_{d\\in y}PR_d I(PR_d>P95_{wet})"
     numerador: Não se aplica; soma de precipitação qualificada.
     denominador: Não se aplica.
     unidade_medida: Milímetros (mm) por período.
-    periodo_referencia: Período climatológico declarado para o percentil 95.
+    periodo_referencia: "ERA5-Land: 1961–1990; alternativa CHIRPS v3: 1981–2010, explicitamente distinta."
     limiar_referencia: Percentil 95 da precipitação em dias úmidos, definidos por PR ≥ 1 mm.
-    url_persistente: https://www.climdex.org/learn/indices/
-    necessidade_processamento: Selecionar dias úmidos no período-base, calcular percentil, testar dias e somar precipitação excedente.
-    analise_descritiva: Apresentar R95pTOT, número de dias contribuintes, proporção de PRCPTOT, tendência e distribuição territorial.
-    referencias: ["[@climdex2024]"]
+    url_persistente: "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land"
+    necessidade_processamento: "Reconstruir precipitação diária com a convenção de acumulação do produto; controlar falhas; calcular a estatística por célula e ponderar por área municipal, salvo SPI."
+    analise_descritiva: "Publicar R95p em mm e, se calculada, sua contribuição percentual R95pTOT em coluna distinta, com a base explícita."
+    referencias: ["[@climdex2024]", "[@climpact2026]"]
+    fontes_dados: [{"id": "era5-land", "papel": "ERA5-Land hourly, total_precipitation; acumulado de 24 h às 00 UTC do dia seguinte"}, {"id": "chirps-v3", "papel": "CHIRPS v3 daily RNL final, série alternativa em grade"}, {"id": "inmet", "papel": "Pluviômetros para validação e séries observadas separadas"}]
+    periodo_disponivel: "ERA5-Land: 1950–presente; CHIRPS v3: 1981–presente. Publicar anos completos até 2025 e identificar 2026 como parcial."
+    resolucao_espacial_original: "ERA5-Land 0,1°; CHIRPS v3 0,05°. Não misturar produtos em uma mesma série."
+    unidade_territorial: "Célula; síntese municipal pela malha IBGE 2022."
+    granularidade: "Calcular o índice anual em cada célula e depois a média ponderada pela área de interseção municipal; SPI é a exceção descrita em sua ficha."
+    resolucao_temporal: "Precipitação diária em UTC; saída anual por ano civil."
+    cobertura_geografica: "Municípios brasileiros no domínio das grades; estações têm cobertura restrita à rede e não representam automaticamente toda a área municipal."
+    forma_acesso: "API CDS, reanalysis-era5-land, variable=total_precipitation, product_type=reanalysis, time=00:00. Para o dia d usar o acumulado do registro às 00 UTC de d+1, correspondente às 24 horas anteriores, e multiplicar metros por 1000. Não somar os acumulados horários sem desacumulação. CHIRPS: download HTTP dos rasters daily RNL final v3."
+    formatos: "NetCDF/GRIB ERA5-Land; GeoTIFF ou NetCDF CHIRPS; CSV/Parquet municipal."
+    periodicidade_atualizacao: "Anual para os índices; mensal para SPI-3."
+    qualidade_incerteza: "Precipitação negativa ou sem registro é ausente, nunca dia seco. Ano com mais de 15 dias ausentes, ou mais de três em qualquer mês, é inválido; estes critérios não eliminam o viés de lacunas restantes. Publicar fração observada e marcar índices de sequência como limite inferior se houver lacuna. Exigir ≥90% da área municipal válida. Regras de cobertura são escolhas editoriais."
+    comparabilidade: "Preservar produto, versão, fechamento UTC, limiar de 1 mm e malha IBGE 2022. CHIRPS v3 RNL usa desagregação diária apoiada em ERA5 e não constitui validação inteiramente independente. Séries v2/v3 e pluviômetros permanecem separadas."
+    notas: "Esta ficha calcula R95p em mm. A medida adicional R95pTOT=100×R95p/PRCPTOT tem unidade %, usa CLI-PRC-06 como denominador e é ausente quando PRCPTOT=0; não trocar o nome mantendo a unidade."
+    protocolo_versao: "2026-10-03"
+    situacao_calculo: "abertos"
+    disponibilidade: ["Calculável com dados abertos"]
+    dependencia_dados_locais: "Opcional para validação"
+    automacao: "Condicionada"
+    condicoes_automacao: "Credencial gratuita CDS e aceite da licença; alternativa CHIRPS por HTTP sem cadastro. Séries observadas exigem registros diários locais completos."
+    evidencia_verificacao: "Documentação verificada"
+    detalhe_verificacao: "Produto e método documentados; série municipal completa ainda não produzida."
+
+
 
   - <<: *precip_common
     codigo: CLI-PRC-04
@@ -106,17 +173,39 @@ indicators:
     interpretacao: Valor maior indica intervalo seco contínuo mais longo, não necessariamente seca agrícola, hidrológica ou socioeconômica.
     usos: [Caracterizar persistência da ausência de chuva., Monitorar mudança em extremos secos., Contextualizar disponibilidade de água, poeira, fogo e vetores.]
     limitacoes: [Limiar de 1 mm é climatológico, não uma necessidade hídrica., Falhas quebram sequências., Uma sequência pode cruzar anos., Não incorpora evapotranspiração, armazenamento ou demanda.]
-    metodo_calculo: Classificar cada dia válido como seco quando PR for inferior a 1 mm, identificar sequências consecutivas e selecionar a maior, aplicando regra explícita para sequências que cruzam períodos.
+    metodo_calculo: "Classificar cada dia válido por PR<1 mm. Dentro de cada ano civil, identificar sequências consecutivas e selecionar a maior duração. Truncar explicitamente as sequências em 31/12: esta é a variante anual adotada neste livro, diferente de implementações que permitem a passagem entre anos. Sem dia qualificado, zero. Lacuna interrompe a sequência e exige flag de limite inferior; aplicar o filtro de completude antes da publicação. Agregar as durações das células por área."
     formula_calculo: 'CDD_p=\max_{e\subset p}\{|e|:\ PR_d<1\ mm\ \forall d\in e\}'
     numerador: Não se aplica.
     denominador: Não se aplica.
     unidade_medida: Dias.
-    periodo_referencia: Não se aplica ao limiar fixo; declarar período de análise.
+    periodo_referencia: "Sem período-base para esta medida; exceções percentílicas são explicitadas na ficha."
     limiar_referencia: PR < 1 mm.
-    url_persistente: https://www.climdex.org/learn/indices/
-    necessidade_processamento: Controle de qualidade, classificação diária, detecção de sequências e regra de fronteira do período.
+    url_persistente: "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land"
+    necessidade_processamento: "Reconstruir precipitação diária com a convenção de acumulação do produto; controlar falhas; calcular a estatística por célula e ponderar por área municipal, salvo SPI."
     analise_descritiva: Mostrar CDD, datas, recorrência, tendência e relação com SPI e indicadores setoriais sem tratá-los como equivalentes.
     referencias: ["[@climdex2024]", "[@who2026drought]"]
+    fontes_dados: [{"id": "era5-land", "papel": "ERA5-Land hourly, total_precipitation; acumulado de 24 h às 00 UTC do dia seguinte"}, {"id": "chirps-v3", "papel": "CHIRPS v3 daily RNL final, série alternativa em grade"}, {"id": "inmet", "papel": "Pluviômetros para validação e séries observadas separadas"}]
+    periodo_disponivel: "ERA5-Land: 1950–presente; CHIRPS v3: 1981–presente. Publicar anos completos até 2025 e identificar 2026 como parcial."
+    resolucao_espacial_original: "ERA5-Land 0,1°; CHIRPS v3 0,05°. Não misturar produtos em uma mesma série."
+    unidade_territorial: "Célula; síntese municipal pela malha IBGE 2022."
+    granularidade: "Calcular o índice anual em cada célula e depois a média ponderada pela área de interseção municipal; SPI é a exceção descrita em sua ficha."
+    resolucao_temporal: "Precipitação diária em UTC; saída anual por ano civil."
+    cobertura_geografica: "Municípios brasileiros no domínio das grades; estações têm cobertura restrita à rede e não representam automaticamente toda a área municipal."
+    forma_acesso: "API CDS, reanalysis-era5-land, variable=total_precipitation, product_type=reanalysis, time=00:00. Para o dia d usar o acumulado do registro às 00 UTC de d+1, correspondente às 24 horas anteriores, e multiplicar metros por 1000. Não somar os acumulados horários sem desacumulação. CHIRPS: download HTTP dos rasters daily RNL final v3."
+    formatos: "NetCDF/GRIB ERA5-Land; GeoTIFF ou NetCDF CHIRPS; CSV/Parquet municipal."
+    periodicidade_atualizacao: "Anual para os índices; mensal para SPI-3."
+    qualidade_incerteza: "Precipitação negativa ou sem registro é ausente, nunca dia seco. Ano com mais de 15 dias ausentes, ou mais de três em qualquer mês, é inválido; estes critérios não eliminam o viés de lacunas restantes. Publicar fração observada e marcar índices de sequência como limite inferior se houver lacuna. Exigir ≥90% da área municipal válida. Regras de cobertura são escolhas editoriais."
+    comparabilidade: "Preservar produto, versão, fechamento UTC, limiar de 1 mm e malha IBGE 2022. CHIRPS v3 RNL usa desagregação diária apoiada em ERA5 e não constitui validação inteiramente independente. Séries v2/v3 e pluviômetros permanecem separadas."
+    notas: "Usar o identificador de variante anual truncada junto ao nome CDD/CWD. Não combinar esta série com durações de episódios completos que atravessam anos."
+    protocolo_versao: "2026-10-03"
+    situacao_calculo: "abertos"
+    disponibilidade: ["Calculável com dados abertos"]
+    dependencia_dados_locais: "Opcional para validação"
+    automacao: "Condicionada"
+    condicoes_automacao: "Credencial gratuita CDS e aceite da licença; alternativa CHIRPS por HTTP sem cadastro. Séries observadas exigem registros diários locais completos."
+    evidencia_verificacao: "Documentação verificada"
+    detalhe_verificacao: "Produto e método documentados; série municipal completa ainda não produzida."
+
 
   - <<: *precip_common
     codigo: CLI-PRC-05
@@ -128,39 +217,80 @@ indicators:
     interpretacao: Valor maior indica mais dias úmidos consecutivos, mas não implica chuva intensa nem inundação.
     usos: [Caracterizar persistência de chuva., Contextualizar condições favoráveis a umidade, vetores e interrupções., Complementar Rx1day e Rx5day.]
     limitacoes: [Dias pouco chuvosos contam como úmidos., Não representa volume total., Falhas quebram sequências., Relevância sanitária depende do mecanismo e da defasagem.]
-    metodo_calculo: Classificar dias válidos como úmidos quando PR for igual ou superior a 1 mm, identificar sequências consecutivas e selecionar a maior.
+    metodo_calculo: "Classificar cada dia válido por PR≥1 mm. Dentro de cada ano civil, identificar sequências consecutivas e selecionar a maior duração. Truncar explicitamente as sequências em 31/12: esta é a variante anual adotada neste livro, diferente de implementações que permitem a passagem entre anos. Sem dia qualificado, zero. Lacuna interrompe a sequência e exige flag de limite inferior; aplicar o filtro de completude antes da publicação. Agregar as durações das células por área."
     formula_calculo: 'CWD_p=\max_{e\subset p}\{|e|:\ PR_d\geq1\ mm\ \forall d\in e\}'
     numerador: Não se aplica.
     denominador: Não se aplica.
     unidade_medida: Dias.
-    periodo_referencia: Não se aplica ao limiar fixo; declarar período de análise.
+    periodo_referencia: "Sem período-base para esta medida; exceções percentílicas são explicitadas na ficha."
     limiar_referencia: PR ≥ 1 mm.
-    url_persistente: https://www.climdex.org/learn/indices/
-    necessidade_processamento: Controle de qualidade, classificação diária, detecção de sequências e regra de fronteira.
+    url_persistente: "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land"
+    necessidade_processamento: "Reconstruir precipitação diária com a convenção de acumulação do produto; controlar falhas; calcular a estatística por célula e ponderar por área municipal, salvo SPI."
     analise_descritiva: Apresentar CWD com chuva total da sequência, Rx1day, datas e distribuição espacial.
     referencias: ["[@climdex2024]", "[@levy2016waterborne]"]
+    fontes_dados: [{"id": "era5-land", "papel": "ERA5-Land hourly, total_precipitation; acumulado de 24 h às 00 UTC do dia seguinte"}, {"id": "chirps-v3", "papel": "CHIRPS v3 daily RNL final, série alternativa em grade"}, {"id": "inmet", "papel": "Pluviômetros para validação e séries observadas separadas"}]
+    periodo_disponivel: "ERA5-Land: 1950–presente; CHIRPS v3: 1981–presente. Publicar anos completos até 2025 e identificar 2026 como parcial."
+    resolucao_espacial_original: "ERA5-Land 0,1°; CHIRPS v3 0,05°. Não misturar produtos em uma mesma série."
+    unidade_territorial: "Célula; síntese municipal pela malha IBGE 2022."
+    granularidade: "Calcular o índice anual em cada célula e depois a média ponderada pela área de interseção municipal; SPI é a exceção descrita em sua ficha."
+    resolucao_temporal: "Precipitação diária em UTC; saída anual por ano civil."
+    cobertura_geografica: "Municípios brasileiros no domínio das grades; estações têm cobertura restrita à rede e não representam automaticamente toda a área municipal."
+    forma_acesso: "API CDS, reanalysis-era5-land, variable=total_precipitation, product_type=reanalysis, time=00:00. Para o dia d usar o acumulado do registro às 00 UTC de d+1, correspondente às 24 horas anteriores, e multiplicar metros por 1000. Não somar os acumulados horários sem desacumulação. CHIRPS: download HTTP dos rasters daily RNL final v3."
+    formatos: "NetCDF/GRIB ERA5-Land; GeoTIFF ou NetCDF CHIRPS; CSV/Parquet municipal."
+    periodicidade_atualizacao: "Anual para os índices; mensal para SPI-3."
+    qualidade_incerteza: "Precipitação negativa ou sem registro é ausente, nunca dia seco. Ano com mais de 15 dias ausentes, ou mais de três em qualquer mês, é inválido; estes critérios não eliminam o viés de lacunas restantes. Publicar fração observada e marcar índices de sequência como limite inferior se houver lacuna. Exigir ≥90% da área municipal válida. Regras de cobertura são escolhas editoriais."
+    comparabilidade: "Preservar produto, versão, fechamento UTC, limiar de 1 mm e malha IBGE 2022. CHIRPS v3 RNL usa desagregação diária apoiada em ERA5 e não constitui validação inteiramente independente. Séries v2/v3 e pluviômetros permanecem separadas."
+    notas: "Usar o identificador de variante anual truncada junto ao nome CDD/CWD. Não combinar esta série com durações de episódios completos que atravessam anos."
+    protocolo_versao: "2026-10-03"
+    situacao_calculo: "abertos"
+    disponibilidade: ["Calculável com dados abertos"]
+    dependencia_dados_locais: "Opcional para validação"
+    automacao: "Condicionada"
+    condicoes_automacao: "Credencial gratuita CDS e aceite da licença; alternativa CHIRPS por HTTP sem cadastro. Séries observadas exigem registros diários locais completos."
+    evidencia_verificacao: "Documentação verificada"
+    detalhe_verificacao: "Produto e método documentados; série municipal completa ainda não produzida."
+
 
   - <<: *precip_common
     codigo: CLI-SEC-01
-    titulo_completo: Índice Padronizado de Precipitação (SPI)
-    titulo_resumido: Seca meteorológica — SPI
-    referencia_metodologica: Standardized Precipitation Index recomendado pela Organização Meteorológica Mundial para caracterizar seca meteorológica.
-    conceito: Transformação probabilística do total de precipitação acumulado em uma escala temporal para uma distribuição normal padronizada.
+    titulo_completo: "Índice Padronizado de Precipitação de três meses (SPI-3)"
+    titulo_resumido: "Seca meteorológica — SPI-3"
+    referencia_metodologica: "SPI recomendado pela OMM; escala fixada em três meses, distribuição gama de dois parâmetros e ajuste de máxima verossimilhança."
+    conceito: "Anomalia padronizada do acumulado de precipitação de três meses da área municipal em relação à distribuição do mesmo trimestre final na base."
     objetivo: Comparar déficit ou excesso de precipitação entre períodos, escalas temporais e climas distintos.
     interpretacao: SPI igual a zero representa condição próxima da mediana ajustada; valores negativos indicam déficit e positivos, excesso. Na classificação usual, SPI ≤ −1 inicia uma condição de seca que persiste até retornar a valor positivo.
     usos: [Monitorar início, duração e intensidade de seca meteorológica., Comparar territórios em escala padronizada., Contextualizar impactos sobre água, alimento, saúde mental e serviços.]
     limitacoes: [Usa apenas precipitação., Requer série longa e relativamente consistente., Distribuição ajustada e tratamento de zeros influenciam o resultado., Escalas distintas representam processos distintos., Não mede diretamente seca hidrológica, agrícola ou impacto social.]
-    metodo_calculo: Acumular precipitação na escala escolhida, ajustar distribuição probabilística adequada à série e ao mês, converter a probabilidade acumulada para a normal padrão e identificar episódios conforme a classificação declarada.
-    formula_calculo: 'SPI_{k,t}=\Phi^{-1}\{F_{k,m}(P_{k,t})\}'
-    numerador: Não se aplica.
-    denominador: Não se aplica.
-    unidade_medida: Adimensional, em desvios-padrão da distribuição normal transformada.
+    metodo_calculo: "Usar a mesma máscara municipal de células válidas em toda a base e análise, com cobertura ≥90% da área. Obter a precipitação média diária municipal ponderada pela área; um mês exige todos os dias válidos. Somar o mês corrente e os dois anteriores. Para cada mês de término separadamente, usar os 30 acumulados completos de 1961–1990: q=proporção de zeros; ajustar gama de dois parâmetros por máxima verossimilhança apenas aos valores positivos. Calcular H(x)=q+(1−q)G(x) e SPI-3=Φ⁻¹(H(x)). Base sem 30 acumulados completos, menos de dois valores positivos distintos, variância nula ou falha de convergência resulta em ausente. H=0 ou 1 produz valor não finito, que deve ser sinalizado, sem truncamento arbitrário. Manter arquivo dos parâmetros por município e mês."
+    formula_calculo: "\\begin{aligned}X_{m,t}&=P_{m,t}+P_{m,t-1}+P_{m,t-2}\\\\H_m(x)&=q_m+(1-q_m)G(x;\\alpha_m,\\theta_m)\\\\SPI3_{m,t}&=\\Phi^{-1}(H_m(X_{m,t}))\\end{aligned}"
+    numerador: "Não se aplica."
+    denominador: "Não se aplica; transformação probabilística, não razão de totais."
+    unidade_medida: "Adimensional (desvios na escala normal padrão)."
     variaveis_categorias_analise: Precipitação acumulada; escala k; mês; local; classe de seca; episódio.
-    granularidade: Valor mensal por estação ou célula em uma ou mais escalas.
-    resolucao_temporal: Entrada mensal ou diária agregada; saída mensal.
-    periodo_referencia: Série de pelo menos 30 anos recomendada; séries mais longas melhoram estabilidade.
-    limiar_referencia: Classes usuais incluem −1,0 a −1,49 moderadamente seco; −1,5 a −1,99 severamente seco; ≤ −2,0 extremamente seco.
-    url_persistente: https://library.wmo.int/idurl/4/39629
-    necessidade_processamento: Verificar completude, acumular por escala, ajustar distribuição por mês, tratar zeros, transformar probabilidade e detectar episódios.
+    granularidade: "Primeiro média diária da precipitação ponderada pela área municipal; depois somas mensais e trimestrais, ajuste e transformação do SPI. Não obter SPI municipal pela média de SPI das células."
+    resolucao_temporal: "Mensal, a partir da soma dos três meses terminados no mês de referência."
+    periodo_referencia: "1961–1990 para ERA5-Land; CHIRPS v3 exige outra série, com base 1982–2011. Incluir novembro/dezembro anteriores ao primeiro ano da base."
+    limiar_referencia: "SPI≤−1: seca moderada ou mais intensa; ≤−1,5: severa; ≤−2: extrema. Valores positivos representam condição úmida."
+    url_persistente: "https://library.wmo.int/idurl/4/39629"
+    necessidade_processamento: "Agregação espacial da precipitação antes da transformação; somas mensais completas; ajuste gama estratificado por mês de término; armazenamento dos parâmetros e flags."
     analise_descritiva: Apresentar séries de SPI-1, SPI-3, SPI-6 ou SPI-12 conforme mecanismo, duração e intensidade dos episódios, área afetada e associação com indicadores sanitários.
     referencias: ["[@wmo2012spi]", "[@wmo2016drought]", "[@who2026drought]"]
+    fontes_dados: [{"id": "era5-land", "papel": "ERA5-Land hourly, total_precipitation; acumulado de 24 h às 00 UTC do dia seguinte"}, {"id": "chirps-v3", "papel": "CHIRPS v3 daily RNL final, série alternativa em grade"}, {"id": "inmet", "papel": "Pluviômetros para validação e séries observadas separadas"}]
+    periodo_disponivel: "ERA5-Land: 1950–presente; CHIRPS v3: 1981–presente. Publicar anos completos até 2025 e identificar 2026 como parcial."
+    resolucao_espacial_original: "ERA5-Land 0,1°; CHIRPS v3 0,05°. Não misturar produtos em uma mesma série."
+    unidade_territorial: "Célula; síntese municipal pela malha IBGE 2022."
+    cobertura_geografica: "Municípios brasileiros no domínio das grades; estações têm cobertura restrita à rede e não representam automaticamente toda a área municipal."
+    forma_acesso: "API CDS, reanalysis-era5-land, variable=total_precipitation, product_type=reanalysis, time=00:00. Para o dia d usar o acumulado do registro às 00 UTC de d+1, correspondente às 24 horas anteriores, e multiplicar metros por 1000. Não somar os acumulados horários sem desacumulação. CHIRPS: download HTTP dos rasters daily RNL final v3."
+    formatos: "NetCDF/GRIB ERA5-Land; GeoTIFF ou NetCDF CHIRPS; CSV/Parquet municipal."
+    periodicidade_atualizacao: "Anual para os índices; mensal para SPI-3."
+    qualidade_incerteza: "Exigir meses completos e 30 acumulados válidos para cada mês da base; não preencher faltas com zero. Não misturar estimativas de gama, escala temporal ou base. Especificações de elegibilidade e agregação são escolhas operacionais deste livro."
+    comparabilidade: "Preservar produto, versão, fechamento UTC, limiar de 1 mm e malha IBGE 2022. CHIRPS v3 RNL usa desagregação diária apoiada em ERA5 e não constitui validação inteiramente independente. Séries v2/v3 e pluviômetros permanecem separadas."
+    notas: "SPI-6 e SPI-12 são outros indicadores, obtidos com janelas e ajustes próprios. Não nomear uma série apenas SPI sem informar sua escala."
+    protocolo_versao: "2026-10-03"
+    situacao_calculo: "abertos"
+    disponibilidade: ["Calculável com dados abertos"]
+    dependencia_dados_locais: "Opcional para validação"
+    automacao: "Condicionada"
+    condicoes_automacao: "Credencial gratuita CDS e aceite da licença; alternativa CHIRPS por HTTP sem cadastro. Séries observadas exigem registros diários locais completos."
+    evidencia_verificacao: "Documentação verificada"
+    detalhe_verificacao: "Produto e método documentados; série municipal completa ainda não produzida."

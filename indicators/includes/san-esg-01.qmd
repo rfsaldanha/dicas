@@ -5,7 +5,7 @@
 [Título resumido:]{.field-label} Saneamento gerido de forma segura — ODS 6.2.1a \
 [Tema:]{.field-label} Água, saneamento e qualidade ambiental \
 [Dimensão:]{.field-label} exposição; vulnerabilidade; resposta \
-[Disponibilidade:]{.field-label} [disponível em estimativa oficial]{.availability}
+[Disponibilidade:]{.field-label} [Depende de dados locais]{.availability}
 :::
 
 Contexto e interpretação: [Água, saneamento e qualidade ambiental](../../chapters/part-2/08-agua-saneamento-qualidade-ambiental.qmd#sec-agua-saneamento).
@@ -41,16 +41,15 @@ Conexão à rede não basta: o indicador considera o destino e tratamento. Solu�
 
 ### Fontes de dados {.unnumbered .ficha-section}
 
-- Programa Conjunto OMS/UNICEF de Monitoramento do Abastecimento de Água, Saneamento e Higiene — estimativa internacional e metadado ODS ([cadastro](../../backmatter/indice-fontes.qmd#jmp))
-- Sistema Nacional de Informações em Saneamento Básico — informação nacional sobre esgotamento e tratamento ([cadastro](../../backmatter/indice-fontes.qmd#sinisa))
-- Instituto Brasileiro de Geografia e Estatística — censos e pesquisas domiciliares ([cadastro](../../backmatter/indice-fontes.qmd#ibge))
+- Programa Conjunto OMS/UNICEF de Monitoramento do Abastecimento de Água, Saneamento e Higiene — Definição e instrumentos de monitoramento; não fornece automaticamente microdados representativos de cada município ([cadastro](../../backmatter/indice-fontes.qmd#jmp))
+- Instituto Brasileiro de Geografia e Estatística — População municipal e desenho amostral; o Censo isolado não contém todos os componentes ([cadastro](../../backmatter/indice-fontes.qmd#ibge))
 
 ### Método de cálculo {.unnumbered .ficha-section}
 
-Estimar usuários de instalações melhoradas não compartilhadas e somar as parcelas cujas excretas são dispostas com segurança no local, transportadas por rede e tratadas ou removidas de sistemas não conectados e tratadas.
+No levantamento municipal, registrar peso domiciliar wh, residentes nh, tipo de instalação, compartilhamento com outros domicílios e destino verificado das excretas. Considerar instalações melhoradas não compartilhadas. Classificar cada domicílio em exatamente uma categoria segura: excretas tratadas/dispostas com segurança in situ; excretas transportadas pela rede e efetivamente tratadas; ou lodo removido e efetivamente tratado fora do local. A classificação exige evidência de toda a cadeia segundo JMP, incluindo tratamento/disposição final, não apenas ligação à rede ou existência de fossa. Somar wh×nh em cada uma das três categorias mutuamente exclusivas, dividir pela população total ponderada e multiplicar por 100. Categorias de destino desconhecido impedem a estimativa completa; publicar os componentes conhecidos e a lacuna, sem convertê-la em zero.
 
 $$
-ODS6.2.1a=100\times\frac{Pop_{in\ situ\ seguro}+Pop_{rede\ tratado}+Pop_{lodo\ tratado}}{Pop_{total}}
+S_m=100\frac{\sum_h w_hn_h(I_{in\ situ,h}+I_{rede,h}+I_{lodo,h})}{\sum_h w_hn_h}
 $$
 
 ::: {.indicator-card}
@@ -60,15 +59,15 @@ $$
 
 [Unidade de medida.]{.field-label} Percentual (%).
 
-[Variáveis e categorias de análise.]{.field-label} Tipo de instalação; compartilhamento; contenção; esvaziamento; transporte; tratamento; urbano/rural.
+[Variáveis e categorias de análise.]{.field-label} Município, rodada, domicílio, peso, residentes, instalação, compartilhamento, contenção, esvaziamento, transporte, tratamento e disposição final.
 
-[Granularidade.]{.field-label} Nacional, urbana e rural no JMP; local conforme sistemas administrativos.
+[Granularidade.]{.field-label} Domicílio/residente em levantamento representativo do município, com pesos amostrais e ano explícitos.
 
-[Periodicidade de atualização.]{.field-label} Periódica.
+[Periodicidade de atualização.]{.field-label} Por levantamento local; não interpolar automaticamente entre rodadas.
 
 [Responsabilidade gerencial.]{.field-label} Titulares e prestadores de saneamento, autoridades reguladoras e setor saúde, conforme a competência de cada indicador.
 
-[Notas.]{.field-label} Indicadores de cobertura, qualidade da água e desempenho da vigilância respondem a perguntas diferentes e devem ser apresentados em conjunto.
+[Notas.]{.field-label} Manter como indicador dependente de dados locais. Indicadores de rede do SINISA e conformidade de amostras do Sisagua são medidas distintas, não substituições equivalentes dos ODS.
 
 [Análise descritiva do indicador.]{.field-label} Apresentar cobertura e componentes por urbano/rural, renda e território, distinguindo rede, soluções locais e tratamento.
 
@@ -77,39 +76,51 @@ $$
 ### Campos complementares para clima, ambiente e saúde {.unnumbered .ficha-section}
 
 ::: {.indicator-card}
-[Unidade territorial.]{.field-label} País ou território subnacional qualificado.
+[Unidade territorial.]{.field-label} Município no limite territorial vigente no levantamento; não presumir representatividade municipal de pesquisa nacional.
 
-[Resolução espacial original.]{.field-label} A das pesquisas e registros administrativos.
+[Resolução espacial original.]{.field-label} Domicílio e área de atendimento vinculados ao município.
 
-[Resolução temporal.]{.field-label} Anual estimada.
+[Resolução temporal.]{.field-label} Rodada de levantamento; publicar série somente nos anos efetivamente observados.
 
-[Período de referência.]{.field-label} Ano da estimativa e fontes subjacentes.
+[Período de referência.]{.field-label} Rodada de levantamento, com verificação da cadeia de esgotamento no mesmo período.
 
-[Limiar ou valor de referência.]{.field-label} Instalação melhorada não compartilhada e manejo seguro de excretas.
+[Limiar ou valor de referência.]{.field-label} Instalação melhorada não compartilhada e uma das três destinações seguras comprovadas segundo JMP.
 
 :::
 
 ### Disponibilidade e acesso {.unnumbered .ficha-section}
 
-[Cobertura geográfica.]{.field-label} Global; detalhe nacional conforme fontes.
+[Protocolo verificado em.]{.field-label} 2026-10-03
 
-[Período disponível.]{.field-label} Conforme série JMP e fontes nacionais.
+[Dependência de dados locais.]{.field-label} Necessária
 
-[Periodicidade de atualização.]{.field-label} Periódica.
+[Automação.]{.field-label} Não demonstrada
 
-[Forma de acesso.]{.field-label} Portal WASH Data e sistemas nacionais.
+[Requisitos para o cálculo.]{.field-label} Levantamento local representativo contendo todas as variáveis do método; a fórmula está definida, mas não foi demonstrada uma base aberta municipal com esses componentes.
 
-[URL ou identificador persistente.]{.field-label} https://unstats.un.org/sdgs/metadata/?Goal=6&Target=6.2
+[Nível de evidência.]{.field-label} Documentação verificada
 
-[Formato dos arquivos.]{.field-label} Tabelas e relatórios.
+[Alcance da verificação.]{.field-label} Produto e método documentados; série municipal completa ainda não produzida.
 
-[Necessidade de processamento.]{.field-label} Integrar tipo de instalação e destino de excretas; não inferir tratamento a partir de conexão.
+[Cobertura geográfica.]{.field-label} Somente municípios com levantamento representativo e componentes compatíveis no tempo e na população-alvo.
+
+[Período disponível.]{.field-label} A partir dos levantamentos locais com os componentes requeridos. Não há série municipal nacional completa demonstrada para esta definição.
+
+[Periodicidade de atualização.]{.field-label} Por levantamento local; não interpolar automaticamente entre rodadas.
+
+[Forma de acesso.]{.field-label} Exportação tabular de levantamento domiciliar e registros locais vinculados, com dicionário, período, pesos e município. Microdados identificáveis não devem integrar a base pública de indicadores.
+
+[URL ou identificador persistente.]{.field-label} https://unstats.un.org/sdgs/metadata/files/Metadata-06-02-01a.pdf
+
+[Formato dos arquivos.]{.field-label} CSV/Parquet local com identificadores pseudonimizados, peso domiciliar, residentes e variáveis especificadas no método; saída pública agregada.
+
+[Necessidade de processamento.]{.field-label} Validar componentes, pesos e vinculação entre domicílios, população e serviços; calcular estimativa por município e rodada com incerteza.
 
 ### Qualidade, comparação e saúde {.unnumbered .ficha-section}
 
-[Qualidade e incerteza.]{.field-label} Relatar fonte, cobertura, população de referência, dados ausentes, plano amostral, qualidade laboratorial, regras de classificação e revisão.
+[Qualidade e incerteza.]{.field-label} Sem variável indispensável, sem peso amostral quando exigido ou sem representatividade municipal, o indicador é ausente. Publicar tamanho amostral, não resposta e intervalo de confiança pelo desenho da pesquisa; não tratar desconhecido como não atendimento.
 
-[Possibilidade de comparação.]{.field-label} Manter definição de serviço, população, forma de abastecimento, ponto de coleta, parâmetro, padrão vigente, período e método.
+[Possibilidade de comparação.]{.field-label} Mesma população-alvo, instrumento, definição de serviço e período; preservar separadamente as rodadas de coleta. A metodologia internacional orienta a definição, mas não cria os dados municipais inexistentes.
 
 [Relação com desfechos de saúde.]{.field-label} Água segura, saneamento e higiene reduzem exposição a patógenos e substâncias químicas e sustentam alimentação, cuidado, dignidade e funcionamento dos serviços de saúde.
 

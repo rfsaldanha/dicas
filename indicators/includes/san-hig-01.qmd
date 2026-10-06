@@ -5,7 +5,7 @@
 [Título resumido:]{.field-label} Instalação para higiene — ODS 6.2.1b \
 [Tema:]{.field-label} Água, saneamento e qualidade ambiental \
 [Dimensão:]{.field-label} exposição; vulnerabilidade; resposta \
-[Disponibilidade:]{.field-label} [disponível onde há pesquisa compatível]{.availability}
+[Disponibilidade:]{.field-label} [Depende de dados locais]{.availability}
 :::
 
 Contexto e interpretação: [Água, saneamento e qualidade ambiental](../../chapters/part-2/08-agua-saneamento-qualidade-ambiental.qmd#sec-agua-saneamento).
@@ -41,33 +41,33 @@ Valor maior indica maior cobertura de instalações com insumos no momento obser
 
 ### Fontes de dados {.unnumbered .ficha-section}
 
-- Programa Conjunto OMS/UNICEF de Monitoramento do Abastecimento de Água, Saneamento e Higiene — estimativa internacional e metadado ODS ([cadastro](../../backmatter/indice-fontes.qmd#jmp))
-- Instituto Brasileiro de Geografia e Estatística — pesquisas domiciliares nacionais quando incluírem os componentes ([cadastro](../../backmatter/indice-fontes.qmd#ibge))
+- Programa Conjunto OMS/UNICEF de Monitoramento do Abastecimento de Água, Saneamento e Higiene — Definição e instrumentos de monitoramento; não fornece automaticamente microdados representativos de cada município ([cadastro](../../backmatter/indice-fontes.qmd#jmp))
+- Instituto Brasileiro de Geografia e Estatística — População municipal e desenho amostral; o Censo isolado não contém todos os componentes ([cadastro](../../backmatter/indice-fontes.qmd#ibge))
 
 ### Método de cálculo {.unnumbered .ficha-section}
 
-Em pesquisa representativa, observar a presença de instalação no domicílio e verificar água e sabão; ponderar pessoas residentes nos domicílios qualificados.
+Visitar amostra domiciliar representativa do município. Registrar peso wh, número de residentes nh e observação direta de instalação para lavagem das mãos no domicílio/terreno, água disponível e sabão disponível no momento da visita. Ih=1 somente quando os três requisitos forem observados; instalação pode ser fixa ou móvel segundo JMP. Calcular 100×sum(wh×nh×Ih)/sum(wh×nh). Tratar não resposta pelo desenho amostral e seus pesos ajustados; não observação de um requisito é dado ausente, não ausência comprovada do equipamento. Não usar somente autodeclaração de encanamento.
 
 $$
-ODS6.2.1b=100\times\frac{Pop_{domicílios\ com\ instalação,\ água\ e\ sabão}}{Pop_{total}}
+H_m=100\frac{\sum_h w_hn_h I(\text{instalação, água e sabão observados})}{\sum_h w_hn_h}
 $$
 
 ::: {.indicator-card}
-[Numerador.]{.field-label} População em domicílios com instalação observada, água e sabão.
+[Numerador.]{.field-label} População ponderada em domicílios com os três requisitos observados.
 
-[Denominador.]{.field-label} População total pesquisada e ponderada.
+[Denominador.]{.field-label} População total representada pelos pesos ajustados do levantamento.
 
 [Unidade de medida.]{.field-label} Percentual (%).
 
-[Variáveis e categorias de análise.]{.field-label} Instalação; água; sabão; urbano/rural; renda; região.
+[Variáveis e categorias de análise.]{.field-label} Município, rodada, domicílio, peso ajustado, residentes, instalação observada, água observada e sabão observado.
 
-[Granularidade.]{.field-label} Domicílio na coleta e população/território na estimativa.
+[Granularidade.]{.field-label} Domicílio/residente em levantamento representativo do município, com pesos amostrais e ano explícitos.
 
-[Periodicidade de atualização.]{.field-label} Periódica.
+[Periodicidade de atualização.]{.field-label} Por levantamento local; não interpolar automaticamente entre rodadas.
 
 [Responsabilidade gerencial.]{.field-label} Titulares e prestadores de saneamento, autoridades reguladoras e setor saúde, conforme a competência de cada indicador.
 
-[Notas.]{.field-label} Indicadores de cobertura, qualidade da água e desempenho da vigilância respondem a perguntas diferentes e devem ser apresentados em conjunto.
+[Notas.]{.field-label} Manter como indicador dependente de dados locais. Indicadores de rede do SINISA e conformidade de amostras do Sisagua são medidas distintas, não substituições equivalentes dos ODS.
 
 [Análise descritiva do indicador.]{.field-label} Desagregar por urbano/rural, renda, região e presença de cada componente, com intervalos amostrais.
 
@@ -76,39 +76,51 @@ $$
 ### Campos complementares para clima, ambiente e saúde {.unnumbered .ficha-section}
 
 ::: {.indicator-card}
-[Unidade territorial.]{.field-label} País ou domínio amostral.
+[Unidade territorial.]{.field-label} Município no limite territorial vigente no levantamento; não presumir representatividade municipal de pesquisa nacional.
 
-[Resolução espacial original.]{.field-label} A do desenho da pesquisa.
+[Resolução espacial original.]{.field-label} Domicílio e área de atendimento vinculados ao município.
 
-[Resolução temporal.]{.field-label} Inquérito periódico e estimativa anual quando modelada.
+[Resolução temporal.]{.field-label} Rodada de levantamento; publicar série somente nos anos efetivamente observados.
 
-[Período de referência.]{.field-label} Data da coleta ou ano da estimativa.
+[Período de referência.]{.field-label} Data/rodada da visita domiciliar.
 
-[Limiar ou valor de referência.]{.field-label} Presença simultânea de instalação, água e sabão.
+[Limiar ou valor de referência.]{.field-label} Presença observada de instalação, água e sabão no momento da visita.
 
 :::
 
 ### Disponibilidade e acesso {.unnumbered .ficha-section}
 
-[Cobertura geográfica.]{.field-label} Global com disponibilidade desigual; nacional conforme pesquisa.
+[Protocolo verificado em.]{.field-label} 2026-10-03
 
-[Período disponível.]{.field-label} Conforme ciclos de inquérito.
+[Dependência de dados locais.]{.field-label} Necessária
 
-[Periodicidade de atualização.]{.field-label} Periódica.
+[Automação.]{.field-label} Não demonstrada
 
-[Forma de acesso.]{.field-label} Portal WASH Data e microdados/pesquisas nacionais.
+[Requisitos para o cálculo.]{.field-label} Levantamento local representativo contendo todas as variáveis do método; a fórmula está definida, mas não foi demonstrada uma base aberta municipal com esses componentes.
 
-[URL ou identificador persistente.]{.field-label} https://unstats.un.org/sdgs/metadata/?Goal=6&Target=6.2
+[Nível de evidência.]{.field-label} Documentação verificada
 
-[Formato dos arquivos.]{.field-label} Tabelas e microdados sob regras da pesquisa.
+[Alcance da verificação.]{.field-label} Produto e método documentados; série municipal completa ainda não produzida.
 
-[Necessidade de processamento.]{.field-label} Aplicar desenho amostral e ponderar população; preservar componentes separados.
+[Cobertura geográfica.]{.field-label} Somente municípios com levantamento representativo e componentes compatíveis no tempo e na população-alvo.
+
+[Período disponível.]{.field-label} A partir dos levantamentos locais com os componentes requeridos. Não há série municipal nacional completa demonstrada para esta definição.
+
+[Periodicidade de atualização.]{.field-label} Por levantamento local; não interpolar automaticamente entre rodadas.
+
+[Forma de acesso.]{.field-label} Exportação tabular de levantamento domiciliar e registros locais vinculados, com dicionário, período, pesos e município. Microdados identificáveis não devem integrar a base pública de indicadores.
+
+[URL ou identificador persistente.]{.field-label} https://unstats.un.org/sdgs/metadata/files/Metadata-06-02-01b.pdf
+
+[Formato dos arquivos.]{.field-label} CSV/Parquet local com identificadores pseudonimizados, peso domiciliar, residentes e variáveis especificadas no método; saída pública agregada.
+
+[Necessidade de processamento.]{.field-label} Validar componentes, pesos e vinculação entre domicílios, população e serviços; calcular estimativa por município e rodada com incerteza.
 
 ### Qualidade, comparação e saúde {.unnumbered .ficha-section}
 
-[Qualidade e incerteza.]{.field-label} Relatar fonte, cobertura, população de referência, dados ausentes, plano amostral, qualidade laboratorial, regras de classificação e revisão.
+[Qualidade e incerteza.]{.field-label} Sem variável indispensável, sem peso amostral quando exigido ou sem representatividade municipal, o indicador é ausente. Publicar tamanho amostral, não resposta e intervalo de confiança pelo desenho da pesquisa; não tratar desconhecido como não atendimento.
 
-[Possibilidade de comparação.]{.field-label} Manter definição de serviço, população, forma de abastecimento, ponto de coleta, parâmetro, padrão vigente, período e método.
+[Possibilidade de comparação.]{.field-label} Mesma população-alvo, instrumento, definição de serviço e período; preservar separadamente as rodadas de coleta. A metodologia internacional orienta a definição, mas não cria os dados municipais inexistentes.
 
 [Relação com desfechos de saúde.]{.field-label} Água segura, saneamento e higiene reduzem exposição a patógenos e substâncias químicas e sustentam alimentação, cuidado, dignidade e funcionamento dos serviços de saúde.
 

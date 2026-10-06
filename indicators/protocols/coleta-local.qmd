@@ -1,0 +1,150 @@
+## Instrumento de coleta local {#sec-coleta-local}
+
+Esta especificação acompanha as seis fichas locais. Os modelos estão vazios: não contêm avaliações ou resultados simulados. São instrumentos autorais baseados nos indicadores 11, 20, 28, 29, 30 e 44 do pacote OMS 2024 [@who2024resilienceindicators]. RES-ALR-01 utiliza o relatório nacional eSPAR e não este formulário.
+
+Baixar o [universo da rodada](../../indicators/protocols/universo-local-modelo.csv), a [avaliação por estabelecimento](../../indicators/protocols/avaliacao-local-modelo.csv) e o [contrato estruturado](../../indicators/protocols/parte-iii.yml). CSV em UTF-8, separador vírgula, cabeçalho obrigatório, uma linha por chave `cnes,rodada`. Não publicar documentos com dados pessoais; utilizar identificadores de evidências e controles locais de acesso.
+
+### Universo e identificação
+
+Antes da coleta, congelar uma competência mensal do CNES e relacionar os estabelecimentos ativos que prestam atendimento à saúde no município ou rede escolhida. Incluir públicos e privados quando o universo for municipal; para rede SUS, declarar explicitamente esse recorte. Excluir unidades exclusivamente administrativas, sem atendimento, com motivo. Registrar todas as unidades selecionadas, inclusive as não respondentes. Não retirar estabelecimento por estar com serviço temporariamente interrompido. O CNES fornece identificação e cadastro, não respostas sobre conformidade [@brasil2026cnes].
+
+No CSV do universo, preencher `protocolo_versao`, `rodada`, `cnes` (sete dígitos), `municipio_ibge` (sete dígitos), `tipo_estabelecimento`, `gestao`, `cnes_competencia` (AAAAMM), `cnes_arquivo_sha256`, `elegivel` (`sim` ou `nao`) e `motivo_exclusao` (obrigatório se não elegível). A lista explícita, o arquivo CNES e a regra territorial/de rede compõem o manifesto da rodada. U é a contagem de CNES únicos elegíveis. Duplicatas de chave ou município divergente bloqueiam a agregação.
+
+### Respostas, evidências e não resposta
+
+Respostas permitidas: `sim`, `nao`, `ignorado`. Campo vazio equivale a ignorado, nunca a não. `sim` exige observação ou documento que satisfaça a pergunta; `nao` exige constatação do descumprimento. Documento solicitado mas não apresentado é `ignorado`; ausência documental confirmada pelo responsável e registrada pelo avaliador é `nao`. Se a ausência de designação, perfil ou plano for confirmada, preencher os itens dependentes desse documento como `nao` e registrar o motivo. Para perfil inexistente, a data de revisão fica vazia e a conformidade é não; para perfil existente, data ausente é não resposta. Documento/data futura, código inesperado ou evidência inválida exigem correção e retiram o registro do denominador até resolvidos.
+
+Cada campo terminado em `_evidencia` deve registrar identificador do documento/registro de inspeção, data, página/item observado, repositório ou caminho de guarda e SHA-256 do arquivo. Aceita-se registro de entrevista assinado pelo avaliador para interrupções e ausência documental confirmada. Para resíduos tratados fora da unidade, exigir comprovante do prestador e da destinação; contrato isolado não comprova execução. Treinamento exige lista/registro de participação de todos os responsáveis. Fotografias podem complementar a inspeção, sem substituir o critério. Critérios adicionais de inspeção abaixo detalham a coleta e devem permanecer fixos entre rodadas.
+
+Para cada indicador/componente, A inclui somente estabelecimentos com todas as respostas necessárias válidas e evidência. N conta conformes (ou afetados, nas interrupções). Publicar `N`, `A`, `U`, `NR=U−A`, cobertura `100 A/U` e percentual `100 N/A`. A=0 produz percentual ausente; U=0 também torna cobertura ausente. Um item ignorado exclui do denominador daquele componente, mesmo havendo outro item não conforme. Para WASH conjunto, exigir completude nos cinco componentes; não usar a soma dos denominadores nem a média dos percentuais. Unidades sem linha de avaliação continuam em U e em NR. Não extrapolar o resultado às não avaliadas.
+
+### Datas e janela
+
+Água e energia usam os sete dias civis completos de D−7 a D−1, inclusive; o dia D da avaliação fica excluído. Qualquer interrupção entra no numerador, independentemente da duração. Água trata da interrupção no suprimento corrente ou de outra fonte segura; não se confunde com teste de potabilidade. Energia registra falha do fornecimento mesmo se a fonte alternativa foi acionada. Evidenciar que o entrevistado/registro cobriu toda a janela; caso contrário, usar ignorado. O perfil de risco deve ter revisão de D menos cinco anos civis até D, inclusive; para 29 de fevereiro sem correspondente no ano-limite, usar 28 de fevereiro. Esse prazo é escolha operacional baseada no exemplo da OMS.
+
+### Dicionário das entradas
+
+| Campo | Definição e validação |
+|---|---|
+| `protocolo_versao` | Texto fixo 2026-10-06. |
+| `cnes` | Texto de sete dígitos, preservando zeros iniciais. |
+| `municipio_ibge` | Texto de sete dígitos validado na tabela IBGE e no universo. |
+| `rodada` | Identificador textual da rodada, igual ao arquivo do universo. |
+| `data_avaliacao` | Data ISO AAAA-MM-DD da inspeção/entrevista. |
+| `avaliador_id` | Identificador interno do avaliador; manter nomes pessoais fora da publicação. |
+| `ris_data_revisao` | Data ISO da última revisão documentada do perfil; necessária se ris_documento=sim. |
+
+#### Grupo `gov`
+
+Todos os itens abaixo usam `sim`, `nao` ou `ignorado`.
+
+| Campo | Pergunta/critério para sim |
+|---|---|
+| `gov_designacao` | Há ato de designação de equipe ou responsável vigente na data da avaliação? |
+| `gov_emergencia` | As atribuições documentadas incluem liderar/coordenar a gestão de emergências? |
+| `gov_continuidade` | As atribuições documentadas incluem a continuidade dos serviços essenciais? |
+| `gov_evidencia` | Referências verificáveis para os itens deste grupo, conforme a regra de evidências. |
+
+#### Grupo `ris`
+
+Todos os itens abaixo usam `sim`, `nao` ou `ignorado`.
+
+| Campo | Pergunta/critério para sim |
+|---|---|
+| `ris_documento` | Existe perfil de riscos documentado? |
+| `ris_estrutural` | A avaliação documentada examina a segurança estrutural? |
+| `ris_nao_estrutural` | Examina elementos não estruturais (equipamentos, instalações e outros)? |
+| `ris_funcional` | Examina a capacidade funcional do serviço? |
+| `ris_preparacao` | Examina a preparação para emergências? |
+| `ris_ameacas` | Identifica natureza e extensão das ameaças à oferta, qualidade e uso dos serviços? |
+| `ris_probabilidade` | Registra a probabilidade das ameaças? |
+| `ris_impactos` | Registra interrupções possíveis e seus custos/consequências? |
+| `ris_mitigacao` | Avalia a efetividade das medidas de mitigação existentes? |
+| `ris_evidencia` | Referências verificáveis para os itens deste grupo, conforme a regra de evidências. |
+
+#### Grupo `pla`
+
+Todos os itens abaixo usam `sim`, `nao` ou `ignorado`.
+
+| Campo | Pergunta/critério para sim |
+|---|---|
+| `pla_documento` | Existe plano documentado de gestão de emergências vigente, aprovado e não substituído? |
+| `pla_funcoes` | Identifica funções e serviços essenciais que devem continuar? |
+| `pla_impactos` | Descreve como os perigos podem afetar essas funções? |
+| `pla_acoes` | Define ações, responsáveis e recursos para manter ou recuperar essas funções e serviços? |
+| `pla_evidencia` | Referências verificáveis para os itens deste grupo, conforme a regra de evidências. |
+
+#### Grupo `wat`
+
+Todos os itens abaixo usam `sim`, `nao` ou `ignorado`.
+
+| Campo | Pergunta/critério para sim |
+|---|---|
+| `wat_interrupcao` | Houve qualquer interrupção de abastecimento de água corrente ou de outra fonte segura entre D−7 e D−1, inclusive? |
+| `wat_evidencia` | Referências verificáveis para os itens deste grupo, conforme a regra de evidências. |
+
+#### Grupo `ene`
+
+Todos os itens abaixo usam `sim`, `nao` ou `ignorado`.
+
+| Campo | Pergunta/critério para sim |
+|---|---|
+| `ene_interrupcao` | Houve qualquer interrupção do fornecimento de energia elétrica entre D−7 e D−1, inclusive, mesmo com acionamento de fonte alternativa? |
+| `ene_evidencia` | Referências verificáveis para os itens deste grupo, conforme a regra de evidências. |
+
+#### Grupo `was_agua`
+
+Todos os itens abaixo usam `sim`, `nao` ou `ignorado`.
+
+| Campo | Pergunta/critério para sim |
+|---|---|
+| `was_agua_melhorada` | A fonte é melhorada: rede canalizada, poço tubular, poço escavado protegido, nascente protegida, chuva coletada ou água envasada/entregue? |
+| `was_agua_local` | Essa fonte está dentro do terreno do estabelecimento? |
+| `was_agua_disponivel` | Há água disponível dessa fonte no momento da avaliação? |
+| `was_agua_evidencia` | Referências verificáveis para os itens deste grupo, conforme a regra de evidências. |
+
+#### Grupo `was_saneamento`
+
+Todos os itens abaixo usam `sim`, `nao` ou `ignorado`.
+
+| Campo | Pergunta/critério para sim |
+|---|---|
+| `was_san_melhorado` | Os sanitários usam descarga para rede/fossa séptica/fossa, latrina melhorada ventilada, latrina com laje ou sanitário de compostagem? |
+| `was_san_utilizavel` | Os sanitários exigidos estão acessíveis, funcionais e garantem privacidade (porta fechável, sem grandes aberturas)? |
+| `was_san_equipe` | Há ao menos um sanitário destinado à equipe? |
+| `was_san_sexo_menstrual` | Há sanitários separados por sexo e, no destinado a mulheres, água e sabão em espaço privado e recipiente coberto para descarte de materiais menstruais? |
+| `was_san_mobilidade` | Há ao menos um sanitário acessível a pessoas com mobilidade reduzida (rota sem barreiras, porta/passagem e espaço para cadeira de rodas, barras de apoio)? |
+| `was_saneamento_evidencia` | Referências verificáveis para os itens deste grupo, conforme a regra de evidências. |
+
+#### Grupo `was_higiene`
+
+Todos os itens abaixo usam `sim`, `nao` ou `ignorado`.
+
+| Campo | Pergunta/critério para sim |
+|---|---|
+| `was_hig_cuidado` | Todos os pontos de cuidado inspecionados têm instalação funcional para higiene das mãos com água e sabão e/ou preparação alcoólica? |
+| `was_hig_sanitarios` | Há instalação funcional com água e sabão e/ou preparação alcoólica a no máximo cinco metros dos sanitários? |
+| `was_higiene_evidencia` | Referências verificáveis para os itens deste grupo, conforme a regra de evidências. |
+
+#### Grupo `was_residuos`
+
+Todos os itens abaixo usam `sim`, `nao` ou `ignorado`.
+
+| Campo | Pergunta/critério para sim |
+|---|---|
+| `was_res_tres` | Nos pontos de geração, há segregação correta em três recipientes: comuns, infecciosos e perfurocortantes? |
+| `was_res_perfuro` | Perfurocortantes têm tratamento e destinação seguros: tratamento em autoclave/incineração apropriada ou encapsulamento, seguido de destinação licenciada? |
+| `was_res_infeccioso` | Resíduos infecciosos têm tratamento seguro por autoclave, micro-ondas ou incineração apropriada e destinação licenciada, internamente ou por prestador comprovado? |
+| `was_residuos_evidencia` | Referências verificáveis para os itens deste grupo, conforme a regra de evidências. |
+
+#### Grupo `was_limpeza`
+
+Todos os itens abaixo usam `sim`, `nao` ou `ignorado`.
+
+| Campo | Pergunta/critério para sim |
+|---|---|
+| `was_lim_protocolo` | Há protocolo escrito disponível com procedimentos de limpeza de pisos, superfícies e instalações sanitárias? |
+| `was_lim_treinamento` | Todos os trabalhadores com responsabilidade de limpeza receberam treinamento nesses procedimentos, comprovado por registro? |
+| `was_limpeza_evidencia` | Referências verificáveis para os itens deste grupo, conforme a regra de evidências. |
+
+Inspecionar todos os pontos de cuidado, sanitários exigidos e pontos de geração de resíduos do estabelecimento; registrar a lista e as exceções na evidência. Sem inspeção completa, o item correspondente é ignorado. Fonte melhorada é uma classificação de infraestrutura; não atesta resultado laboratorial. A higiene segue a redação do indicador 30 da OMS 2024, incluindo a alternativa de preparação alcoólica; não apresentar o resultado como outra edição ou outro conjunto de critérios JMP. Sanitário utilizável combina acesso, funcionamento e privacidade. A acessibilidade exige verificar a rota, passagem e uso, e não somente a presença de placa. Os procedimentos de tratamento/destinação devem ter comprovação documental; queima a céu aberto, descarte não controlado e mistura com resíduo comum não são seguros.

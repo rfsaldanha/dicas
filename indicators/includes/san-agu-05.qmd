@@ -1,0 +1,129 @@
+## Ficha do indicador: Atendimento da população total por rede de abastecimento de água (IAG0001) {#sec-san-agu-05 .ficha-title}
+
+::: {.indicator-card}
+[Código:]{.field-label} SAN-AGU-05 \
+[Título resumido:]{.field-label} Atendimento da população total por rede de abastecimento de água (IAG0001) \
+[Tema:]{.field-label} Água, saneamento e qualidade ambiental \
+[Dimensão:]{.field-label} exposição; resposta \
+[Disponibilidade:]{.field-label} [Calculável com dados abertos]{.availability}
+:::
+
+Contexto e interpretação: [Água, saneamento e qualidade ambiental](../../chapters/part-2/08-agua-saneamento-qualidade-ambiental.qmd#sec-agua-saneamento).
+
+### Identificação e fundamento {.unnumbered .ficha-section}
+
+[Base de consolidação.]{.field-label} Glossário de indicadores SINISA 2025, referência 2024; fórmulas e bloqueios da edição.
+
+::: {.callout-note icon=false title="Conceito-chave"}
+Atendimento da população total por rede de abastecimento de água (IAG0001) segundo a base municipal da edição fixada.
+:::
+
+### Objetivo {.unnumbered .ficha-section}
+
+Disponibilizar a série municipal administrativa com definição e edição explícitas.
+
+### Interpretação {.unnumbered .ficha-section}
+
+Percentual da população com atendimento por rede; não atesta continuidade nem qualidade.
+
+### Usos {.unnumbered .ficha-section}
+
+- Acompanhar cobertura e desempenho declarado do serviço.
+- Identificar lacunas municipais e comparar edições compatíveis.
+
+### Limitações {.unnumbered .ficha-section}
+
+- Declaração administrativa sujeita a cobertura e consistência.
+- Não equivale a serviço gerido de forma segura do JMP.
+
+### Fontes de dados {.unnumbered .ficha-section}
+
+- SINISA 2025 — ano de referência 2024 — Planilha municipal publicada, campos do glossário e indicador oficial da edição 2025/ref.2024 ([cadastro](../../backmatter/indice-fontes.qmd#sinisa-2025))
+
+### Método de cálculo {.unnumbered .ficha-section}
+
+Priorizar o indicador já publicado na base municipal elegível e auditar com a fórmula: 100×(GTA0001+GTA0002)/DFE0001; aplicar os bloqueios do glossário, inclusive cadastro exclusivamente de produção CAD2003, denominador zero ou população atendida superior à de referência.
+
+$$
+IAG0001=100\frac{GTA0001+GTA0002}{DFE0001}
+$$
+
+::: {.indicator-card}
+[Numerador.]{.field-label} População urbana atendida (GTA0001) + população rural atendida (GTA0002).
+
+[Denominador.]{.field-label} População total de referência DFE0001.
+
+[Unidade de medida.]{.field-label} %.
+
+[Variáveis e categorias de análise.]{.field-label} População urbana atendida (GTA0001) + população rural atendida (GTA0002). População total de referência DFE0001. Município, ano, edição e bloqueios.
+
+[Granularidade.]{.field-label} Município–ano de referência; usar a base municipal, não somar percentuais de prestadores.
+
+[Periodicidade de atualização.]{.field-label} Anual, por publicação/retificação.
+
+[Responsabilidade gerencial.]{.field-label} Prestadores declarantes, titulares/reguladores e Ministério das Cidades como consolidador.
+
+[Notas.]{.field-label} Indicador adicional, não substituto de ODS 6.1.1 ou 6.2.1a. Redistribuição dos arquivos brutos depende de esclarecimento dos termos da fonte.
+
+[Análise descritiva do indicador.]{.field-label} Publicar percentual, entradas quando disponíveis, status, ano de referência e edição.
+
+:::
+
+### Campos complementares para clima, ambiente e saúde {.unnumbered .ficha-section}
+
+::: {.indicator-card}
+[Unidade territorial.]{.field-label} Município de prestação do serviço, código IBGE de sete dígitos.
+
+[Resolução espacial original.]{.field-label} Registro municipal da prestação de serviços.
+
+[Resolução temporal.]{.field-label} Anual.
+
+[Período de referência.]{.field-label} Ano de referência 2024; edição SINISA 2025, retificada em 25/05/2026.
+
+[Limiar ou valor de referência.]{.field-label} Escala 0–100%; não fixa meta normativa.
+
+:::
+
+### Disponibilidade e acesso {.unnumbered .ficha-section}
+
+[Protocolo verificado em.]{.field-label} 2026-10-03
+
+[Dependência de dados locais.]{.field-label} Dispensável para extrair a base publicada; informações declaradas pelos prestadores locais
+
+[Automação.]{.field-label} Viável
+
+[Requisitos para o cálculo.]{.field-label} Download público das planilhas e glossários da edição fixada; respeitar registros bloqueados e ano de referência.
+
+[Nível de evidência.]{.field-label} Acesso testado
+
+[Alcance da verificação.]{.field-label} Planilha de água ref.2024 acessada: 5.144 códigos municipais encontrados e IAG0001 identificado. Recalculo a partir de todas as entradas não realizado.
+
+[Cobertura geográfica.]{.field-label} Municípios declarantes elegíveis; não resposta não equivale a ausência de serviço.
+
+[Período disponível.]{.field-label} Valor de referência 2024 nesta especificação. Ampliar para referência 2023 somente após conferir códigos e fórmulas daquela edição. SNIS 1995–2022 permanece série separada.
+
+[Periodicidade de atualização.]{.field-label} Anual, por publicação/retificação.
+
+[Forma de acesso.]{.field-label} Download das planilhas municipais XLSX em ZIP da edição SINISA 2025. Água: SINISA_Resultados_Ref2024.zip; esgoto: SINISA_ESGOTO_Planilhas_2024.zip, no diretório resultados-sinisa do Ministério das Cidades. Na planilha de água testada, a aba é Indicadores de Gestão; localizar a linha com códigos IAG0001 e código municipal, preservando notas e bloqueios.
+
+[URL ou identificador persistente.]{.field-label} https://www.gov.br/cidades/pt-br/acesso-a-informacao/acoes-e-programas/saneamento/sinisa/resultados-sinisa/resultados-sinisa-2025
+
+[Formato dos arquivos.]{.field-label} XLSX, ZIP e glossário PDF.
+
+[Necessidade de processamento.]{.field-label} Ler a base municipal nativa; preservar código, ano, indicador e status. Quando as entradas estiverem disponíveis, recalcular a fórmula e comparar ao valor publicado; não agregar populações de prestadores com áreas sobrepostas.
+
+### Qualidade, comparação e saúde {.unnumbered .ficha-section}
+
+[Qualidade e incerteza.]{.field-label} Ausência, bloqueio, denominador zero e não resposta permanecem ausentes com motivos distintos. Verificar valores fora de [0,100] e divergências de arredondamento; não corrigir truncando automaticamente.
+
+[Possibilidade de comparação.]{.field-label} Fixar glossário e edição; não concatenar automaticamente SINISA e SNIS. Para séries antigas, manter IN055, IN056 e IN016 identificados como definições SNIS próprias.
+
+[Relação com desfechos de saúde.]{.field-label} Caracteriza infraestrutura e prestação; não demonstra qualidade de água nem segurança de toda a cadeia sanitária.
+
+[Defasagens temporais relevantes.]{.field-label} Ano de referência difere do ano de divulgação; preservar ambos.
+
+[Aplicação na gestão.]{.field-label} Planejar expansão e fiscalizar prestação com indicadores administrativos identificados.
+
+### Referências metodológicas {.unnumbered .ficha-section}
+
+- [@sinisa2025resultados]

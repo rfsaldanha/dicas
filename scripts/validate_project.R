@@ -587,6 +587,10 @@ for (profile in c("_quarto-web.yml", "_quarto-print.yml")) {
   }
 }
 
+if (system2("python3", "scripts/test_part_iii.py") != 0L) {
+  fail("Falha nos testes de aceite da especificação da Parte III.")
+}
+
 source("scripts/validate_book_structure.R")
 validate_book_structure(root, rendered = TRUE)
 

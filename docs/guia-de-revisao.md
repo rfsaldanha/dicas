@@ -2,7 +2,7 @@
 
 ## Finalidade
 
-A versão 0.9.0 está preparada para revisão integral. Ela reúne 24 capítulos em quatro partes, 62 fichas de indicadores consolidados, 29 registros de fontes, referências em estilo ABNT, quadros, tabelas, diagramas numerados, ilustrações vetoriais e composições em aquarela com rótulos e conexões.
+A versão 0.9.0 está preparada para revisão integral. Ela reúne 24 capítulos em quatro partes, 64 fichas de indicadores consolidados, 52 registros de fontes, referências em estilo ABNT, quadros, tabelas, diagramas numerados, ilustrações vetoriais e composições em aquarela com rótulos e conexões.
 
 Os artefatos são:
 

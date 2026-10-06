@@ -1,21 +1,21 @@
-## Ficha do indicador: Índice Padronizado de Precipitação (SPI) {#sec-cli-sec-01 .ficha-title}
+## Ficha do indicador: Índice Padronizado de Precipitação de três meses (SPI-3) {#sec-cli-sec-01 .ficha-title}
 
 ::: {.indicator-card}
 [Código:]{.field-label} CLI-SEC-01 \
-[Título resumido:]{.field-label} Seca meteorológica — SPI \
+[Título resumido:]{.field-label} Seca meteorológica — SPI-3 \
 [Tema:]{.field-label} Precipitação, secas e eventos hidrológicos \
 [Dimensão:]{.field-label} perigo; exposição \
-[Disponibilidade:]{.field-label} [requer processamento climatológico]{.availability}
+[Disponibilidade:]{.field-label} [Calculável com dados abertos]{.availability}
 :::
 
 Contexto e interpretação: [Precipitação, secas e eventos hidrológicos](../../chapters/part-2/06-precipitacao-secas-eventos-hidrologicos.qmd#sec-precipitacao).
 
 ### Identificação e fundamento {.unnumbered .ficha-section}
 
-[Base de consolidação.]{.field-label} Standardized Precipitation Index recomendado pela Organização Meteorológica Mundial para caracterizar seca meteorológica.
+[Base de consolidação.]{.field-label} SPI recomendado pela OMM; escala fixada em três meses, distribuição gama de dois parâmetros e ajuste de máxima verossimilhança.
 
 ::: {.callout-note icon=false title="Conceito-chave"}
-Transformação probabilística do total de precipitação acumulado em uma escala temporal para uma distribuição normal padronizada.
+Anomalia padronizada do acumulado de precipitação de três meses da área municipal em relação à distribuição do mesmo trimestre final na base.
 :::
 
 ### Objetivo {.unnumbered .ficha-section}
@@ -46,34 +46,34 @@ SPI igual a zero representa condição próxima da mediana ajustada; valores neg
 
 ### Fontes de dados {.unnumbered .ficha-section}
 
-- Instituto Nacional de Meteorologia — observações pluviométricas diárias ([cadastro](../../backmatter/indice-fontes.qmd#inmet))
-- Centro Nacional de Monitoramento e Alertas de Desastres Naturais — observações pluviométricas subdiárias ou diárias para monitoramento ([cadastro](../../backmatter/indice-fontes.qmd#cemaden))
-- ERA5-Land — precipitação em reanálise condicionada à validação ([cadastro](../../backmatter/indice-fontes.qmd#era5-land))
+- ERA5-Land — ERA5-Land hourly, total_precipitation; acumulado de 24 h às 00 UTC do dia seguinte ([cadastro](../../backmatter/indice-fontes.qmd#era5-land))
+- CHIRPS v3 — daily RNL final — CHIRPS v3 daily RNL final, série alternativa em grade ([cadastro](../../backmatter/indice-fontes.qmd#chirps-v3))
+- Instituto Nacional de Meteorologia — Pluviômetros para validação e séries observadas separadas ([cadastro](../../backmatter/indice-fontes.qmd#inmet))
 
 ### Método de cálculo {.unnumbered .ficha-section}
 
-Acumular precipitação na escala escolhida, ajustar distribuição probabilística adequada à série e ao mês, converter a probabilidade acumulada para a normal padrão e identificar episódios conforme a classificação declarada.
+Usar a mesma máscara municipal de células válidas em toda a base e análise, com cobertura ≥90% da área. Obter a precipitação média diária municipal ponderada pela área; um mês exige todos os dias válidos. Somar o mês corrente e os dois anteriores. Para cada mês de término separadamente, usar os 30 acumulados completos de 1961–1990: q=proporção de zeros; ajustar gama de dois parâmetros por máxima verossimilhança apenas aos valores positivos. Calcular H(x)=q+(1−q)G(x) e SPI-3=Φ⁻¹(H(x)). Base sem 30 acumulados completos, menos de dois valores positivos distintos, variância nula ou falha de convergência resulta em ausente. H=0 ou 1 produz valor não finito, que deve ser sinalizado, sem truncamento arbitrário. Manter arquivo dos parâmetros por município e mês.
 
 $$
-SPI_{k,t}=\Phi^{-1}\{F_{k,m}(P_{k,t})\}
+\begin{aligned}X_{m,t}&=P_{m,t}+P_{m,t-1}+P_{m,t-2}\\H_m(x)&=q_m+(1-q_m)G(x;\alpha_m,\theta_m)\\SPI3_{m,t}&=\Phi^{-1}(H_m(X_{m,t}))\end{aligned}
 $$
 
 ::: {.indicator-card}
 [Numerador.]{.field-label} Não se aplica.
 
-[Denominador.]{.field-label} Não se aplica.
+[Denominador.]{.field-label} Não se aplica; transformação probabilística, não razão de totais.
 
-[Unidade de medida.]{.field-label} Adimensional, em desvios-padrão da distribuição normal transformada.
+[Unidade de medida.]{.field-label} Adimensional (desvios na escala normal padrão).
 
-[Variáveis e categorias de análise.]{.field-label} Precipitação diária; dia do calendário; mês; estação; ano; estação ou célula de grade.
+[Variáveis e categorias de análise.]{.field-label} Precipitação acumulada; escala k; mês; local; classe de seca; episódio.
 
-[Granularidade.]{.field-label} Entrada diária por estação ou célula; resumo mensal, sazonal ou anual.
+[Granularidade.]{.field-label} Primeiro média diária da precipitação ponderada pela área municipal; depois somas mensais e trimestrais, ajuste e transformação do SPI. Não obter SPI municipal pela média de SPI das células.
 
-[Periodicidade de atualização.]{.field-label} Anual para monitoramento climático; diária ou subdiária em protocolo operacional próprio.
+[Periodicidade de atualização.]{.field-label} Anual para os índices; mensal para SPI-3.
 
 [Responsabilidade gerencial.]{.field-label} Serviço meteorológico ou hidrológico responsável pelo dado e órgão de saúde que qualifique o uso sanitário.
 
-[Notas.]{.field-label} Índices ETCCDI descrevem a precipitação observada. Não substituem modelagem hidrológica, mapeamento de inundação ou registro de desastre.
+[Notas.]{.field-label} SPI-6 e SPI-12 são outros indicadores, obtidos com janelas e ajustes próprios. Não nomear uma série apenas SPI sem informar sua escala.
 
 [Análise descritiva do indicador.]{.field-label} Apresentar séries de SPI-1, SPI-3, SPI-6 ou SPI-12 conforme mecanismo, duração e intensidade dos episódios, área afetada e associação com indicadores sanitários.
 
@@ -82,39 +82,51 @@ $$
 ### Campos complementares para clima, ambiente e saúde {.unnumbered .ficha-section}
 
 ::: {.indicator-card}
-[Unidade territorial.]{.field-label} Estação meteorológica, célula de grade, bacia ou território derivado.
+[Unidade territorial.]{.field-label} Célula; síntese municipal pela malha IBGE 2022.
 
-[Resolução espacial original.]{.field-label} A da fonte de precipitação; agregações territoriais exigem ponderação declarada.
+[Resolução espacial original.]{.field-label} ERA5-Land 0,1°; CHIRPS v3 0,05°. Não misturar produtos em uma mesma série.
 
-[Resolução temporal.]{.field-label} Entrada diária; saída por período.
+[Resolução temporal.]{.field-label} Mensal, a partir da soma dos três meses terminados no mês de referência.
 
-[Período de referência.]{.field-label} Série de pelo menos 30 anos recomendada; séries mais longas melhoram estabilidade.
+[Período de referência.]{.field-label} 1961–1990 para ERA5-Land; CHIRPS v3 exige outra série, com base 1982–2011. Incluir novembro/dezembro anteriores ao primeiro ano da base.
 
-[Limiar ou valor de referência.]{.field-label} Classes usuais incluem −1,0 a −1,49 moderadamente seco; −1,5 a −1,99 severamente seco; ≤ −2,0 extremamente seco.
+[Limiar ou valor de referência.]{.field-label} SPI≤−1: seca moderada ou mais intensa; ≤−1,5: severa; ≤−2: extrema. Valores positivos representam condição úmida.
 
 :::
 
 ### Disponibilidade e acesso {.unnumbered .ficha-section}
 
-[Cobertura geográfica.]{.field-label} A da fonte selecionada, condicionada à densidade observacional e qualidade.
+[Protocolo verificado em.]{.field-label} 2026-10-03
 
-[Período disponível.]{.field-label} O da fonte, incluindo série suficiente para o período-base quando houver percentis.
+[Dependência de dados locais.]{.field-label} Opcional para validação
 
-[Periodicidade de atualização.]{.field-label} Anual para monitoramento climático; diária ou subdiária em protocolo operacional próprio.
+[Automação.]{.field-label} Condicionada
 
-[Forma de acesso.]{.field-label} Cálculo sobre série de precipitação controlada, com algoritmo, unidades e calendário versionados.
+[Requisitos para o cálculo.]{.field-label} Credencial gratuita CDS e aceite da licença; alternativa CHIRPS por HTTP sem cadastro. Séries observadas exigem registros diários locais completos.
+
+[Nível de evidência.]{.field-label} Documentação verificada
+
+[Alcance da verificação.]{.field-label} Produto e método documentados; série municipal completa ainda não produzida.
+
+[Cobertura geográfica.]{.field-label} Municípios brasileiros no domínio das grades; estações têm cobertura restrita à rede e não representam automaticamente toda a área municipal.
+
+[Período disponível.]{.field-label} ERA5-Land: 1950–presente; CHIRPS v3: 1981–presente. Publicar anos completos até 2025 e identificar 2026 como parcial.
+
+[Periodicidade de atualização.]{.field-label} Anual para os índices; mensal para SPI-3.
+
+[Forma de acesso.]{.field-label} API CDS, reanalysis-era5-land, variable=total_precipitation, product_type=reanalysis, time=00:00. Para o dia d usar o acumulado do registro às 00 UTC de d+1, correspondente às 24 horas anteriores, e multiplicar metros por 1000. Não somar os acumulados horários sem desacumulação. CHIRPS: download HTTP dos rasters daily RNL final v3.
 
 [URL ou identificador persistente.]{.field-label} https://library.wmo.int/idurl/4/39629
 
-[Formato dos arquivos.]{.field-label} Tabela por estação ou arquivo multidimensional por célula.
+[Formato dos arquivos.]{.field-label} NetCDF/GRIB ERA5-Land; GeoTIFF ou NetCDF CHIRPS; CSV/Parquet municipal.
 
-[Necessidade de processamento.]{.field-label} Verificar completude, acumular por escala, ajustar distribuição por mês, tratar zeros, transformar probabilidade e detectar episódios.
+[Necessidade de processamento.]{.field-label} Agregação espacial da precipitação antes da transformação; somas mensais completas; ajuste gama estratificado por mês de término; armazenamento dos parâmetros e flags.
 
 ### Qualidade, comparação e saúde {.unnumbered .ficha-section}
 
-[Qualidade e incerteza.]{.field-label} Relatar falhas, horário de acumulação, vento e subcaptura do pluviômetro, mudança de instrumento, homogeneidade, viés de grade e cobertura espacial.
+[Qualidade e incerteza.]{.field-label} Exigir meses completos e 30 acumulados válidos para cada mês da base; não preencher faltas com zero. Não misturar estimativas de gama, escala temporal ou base. Especificações de elegibilidade e agregação são escolhas operacionais deste livro.
 
-[Possibilidade de comparação.]{.field-label} Manter limiar de dia úmido, período-base, calendário, fonte, unidade, regra de falhas e método de agregação.
+[Possibilidade de comparação.]{.field-label} Preservar produto, versão, fechamento UTC, limiar de 1 mm e malha IBGE 2022. CHIRPS v3 RNL usa desagregação diária apoiada em ERA5 e não constitui validação inteiramente independente. Séries v2/v3 e pluviômetros permanecem separadas.
 
 [Relação com desfechos de saúde.]{.field-label} Extremos e persistência de chuva ou ausência de chuva ajudam a caracterizar perigos relacionados a água, saneamento, vetores, segurança alimentar e acesso a serviços; não equivalem ao efeito sanitário.
 

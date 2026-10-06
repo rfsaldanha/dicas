@@ -1,11 +1,11 @@
-## Ficha do indicador: Proporção de amostras com residual de agente desinfetante em conformidade {#sec-san-agu-03 .ficha-title}
+## Ficha do indicador: Proporção de amostras de rotina de SAA na distribuição com cloro residual livre entre 0,2 e 5 mg/L {#sec-san-agu-03 .ficha-title}
 
 ::: {.indicator-card}
 [Código:]{.field-label} SAN-AGU-03 \
-[Título resumido:]{.field-label} Residual de desinfetante conforme \
+[Título resumido:]{.field-label} Cloro residual livre conforme — distribuição \
 [Tema:]{.field-label} Água, saneamento e qualidade ambiental \
 [Dimensão:]{.field-label} exposição; vulnerabilidade; resposta \
-[Disponibilidade:]{.field-label} [disponível em dados administrativos]{.availability}
+[Disponibilidade:]{.field-label} [Calculável com dados locais centralizados]{.availability}
 :::
 
 Contexto e interpretação: [Água, saneamento e qualidade ambiental](../../chapters/part-2/08-agua-saneamento-qualidade-ambiental.qmd#sec-agua-saneamento).
@@ -15,7 +15,7 @@ Contexto e interpretação: [Água, saneamento e qualidade ambiental](../../chap
 [Base de consolidação.]{.field-label} Indicador sentinela do Vigiagua e grupo de indicador do Sisagua para residual de desinfetante.
 
 ::: {.callout-note icon=false title="Conceito-chave"}
-Percentual de amostras válidas cujo residual do desinfetante medido se encontra na faixa exigida pela norma para o agente e ponto correspondentes.
+Percentual de resultados de cloro residual livre de amostras de rotina de SAA no sistema de distribuição dentro da faixa fixa de 0,2 a 5 mg/L.
 :::
 
 ### Objetivo {.unnumbered .ficha-section}
@@ -42,32 +42,32 @@ Valor maior indica maior conformidade dos resultados amostrados. Residual abaixo
 
 ### Fontes de dados {.unnumbered .ficha-section}
 
-- Programa Nacional de Vigilância da Qualidade da Água para Consumo Humano — resultados de parâmetros básicos no Sisagua ([cadastro](../../backmatter/indice-fontes.qmd#vigiagua))
+- Sisagua — Vigilância de parâmetros básicos — Sisagua — Vigilância de parâmetros básicos; CSV anual e dicionário oficial ([cadastro](../../backmatter/indice-fontes.qmd#sisagua-vigilancia))
 
 ### Método de cálculo {.unnumbered .ficha-section}
 
-Para cada amostra válida, identificar agente desinfetante e limite aplicável na norma vigente, classificar o resultado e dividir o número conforme pelo total analisado no mesmo universo.
+Após filtros e desduplicação, selecionar PARAMETRO=Cloro residual livre (mg/L). Converter vírgula decimal; aceitar valores numéricos finitos ≥0. Classificar como conforme se 0,2≤resultado≤5, inclusive. Resultado censurado, como <L ou >L, só entra se todo o intervalo possível permitir decisão inequívoca; se o intervalo atravessar um dos limites, registrar indeterminado e excluir do denominador, publicando sua contagem. Calcular 100×n_conformes/n_classificáveis por município e ano.
 
 $$
-P_{RAD\ conforme}=100\times\frac{N_{amostras\ RAD\ conforme}}{N_{amostras\ RAD\ válidas}}
+P_{CRL}=100\frac{N(0{,}2\leq CRL\leq5\;\mathrm{mg/L})}{N(CRL\ \mathrm{classificável})}
 $$
 
 ::: {.indicator-card}
-[Numerador.]{.field-label} Amostras válidas com residual de agente desinfetante dentro dos limites aplicáveis.
+[Numerador.]{.field-label} Resultados classificáveis conformes no intervalo inclusivo.
 
-[Denominador.]{.field-label} Amostras válidas analisadas para o agente no universo.
+[Denominador.]{.field-label} Resultados classificáveis de cloro residual livre no recorte.
 
 [Unidade de medida.]{.field-label} Percentual (%); concentração original em mg/L.
 
-[Variáveis e categorias de análise.]{.field-label} Agente; concentração; ponto; forma de abastecimento; vigilância/controle; data; município.
+[Variáveis e categorias de análise.]{.field-label} Identificação da amostra, procedência, parâmetro cloro residual livre, resultado mg/L, censura analítica e ano de coleta.
 
-[Granularidade.]{.field-label} Amostra e resumo por sistema/solução, município e período.
+[Granularidade.]{.field-label} Resultado de parâmetro por amostra; soma de numeradores e denominadores por município e ano de DT_COLETA.
 
-[Periodicidade de atualização.]{.field-label} Contínua e por publicação de arquivos.
+[Periodicidade de atualização.]{.field-label} Anual, mantendo data de extração porque registros podem ser incluídos ou retificados posteriormente.
 
 [Responsabilidade gerencial.]{.field-label} Titulares e prestadores de saneamento, autoridades reguladoras e setor saúde, conforme a competência de cada indicador.
 
-[Notas.]{.field-label} Indicadores de cobertura, qualidade da água e desempenho da vigilância respondem a perguntas diferentes e devem ser apresentados em conjunto.
+[Notas.]{.field-label} A alteração restringe expressamente a ficha ao cloro residual livre. Outros desinfetantes exigem indicadores próprios; não são convertidos para esta faixa.
 
 [Análise descritiva do indicador.]{.field-label} Apresentar concentração, conformidade, distribuição de valores, pontos baixos/altos, forma e execução do plano.
 
@@ -76,39 +76,51 @@ $$
 ### Campos complementares para clima, ambiente e saúde {.unnumbered .ficha-section}
 
 ::: {.indicator-card}
-[Unidade territorial.]{.field-label} Ponto de coleta, forma de abastecimento e município.
+[Unidade territorial.]{.field-label} Município da coleta, com código IBGE de sete dígitos após correspondência oficial.
 
-[Resolução espacial original.]{.field-label} Ponto de coleta.
+[Resolução espacial original.]{.field-label} Ponto de coleta; não representa aleatoriamente todos os domicílios ou habitantes.
 
-[Resolução temporal.]{.field-label} Momento da coleta; resumo periódico.
+[Resolução temporal.]{.field-label} Amostra datada; síntese anual, com contagens mensais auxiliares.
 
-[Período de referência.]{.field-label} Período e norma vigente.
+[Período de referência.]{.field-label} Ano de DT_COLETA; limites fixados da Portaria GM/MS 888/2021 para comparação retrospectiva, explicitamente identificada.
 
-[Limiar ou valor de referência.]{.field-label} A norma exige, no mínimo, 0,2 mg/L de cloro residual livre, 2 mg/L de cloro residual combinado ou 0,2 mg/L de dióxido de cloro na distribuição e pontos de consumo; verificar também limites máximos e condições específicas.
+[Limiar ou valor de referência.]{.field-label} 0,2–5 mg/L de cloro residual livre na distribuição; não se aplica a cloro combinado ou dióxido de cloro.
 
 :::
 
 ### Disponibilidade e acesso {.unnumbered .ficha-section}
 
-[Cobertura geográfica.]{.field-label} Brasil, condicionada ao monitoramento.
+[Protocolo verificado em.]{.field-label} 2026-10-03
 
-[Período disponível.]{.field-label} Conforme Sisagua e arquivos públicos.
+[Dependência de dados locais.]{.field-label} Necessária: coleta e análise locais registradas no Sisagua
 
-[Periodicidade de atualização.]{.field-label} Contínua e por publicação de arquivos.
+[Automação.]{.field-label} Viável
 
-[Forma de acesso.]{.field-label} Sisagua, painéis e dados abertos.
+[Requisitos para o cálculo.]{.field-label} CSV público, dicionário, filtro de rotina/SAA/distribuição e tabela oficial de códigos municipais.
 
-[URL ou identificador persistente.]{.field-label} https://www.gov.br/saude/pt-br/composicao/svsa/saude-ambiental/vigiagua/monitoramento-da-qualidade-da-agua
+[Nível de evidência.]{.field-label} Acesso e cálculo testados
 
-[Formato dos arquivos.]{.field-label} CSV, painel e relatórios.
+[Alcance da verificação.]{.field-label} Recorte Rotina/SAA/distribuição, chaves, vírgula decimal e contagem de conformidade testados em amostra parcial do CSV de 2014: 13.351 resultados numéricos de cloro e 15.553 de turbidez. Não é série municipal completa nem estimativa nacional.
 
-[Necessidade de processamento.]{.field-label} Identificar agente e norma, validar unidade, classificar resultados e calcular cobertura e conformidade separadamente.
+[Cobertura geográfica.]{.field-label} Municípios com amostras de rotina informadas ao Sisagua; cobertura depende da vigilância local.
+
+[Período disponível.]{.field-label} 2014–2025 completos no catálogo; 2026 parcial na data da verificação.
+
+[Periodicidade de atualização.]{.field-label} Anual, mantendo data de extração porque registros podem ser incluídos ou retificados posteriormente.
+
+[Forma de acesso.]{.field-label} Download HTTP dos ZIP CSV anuais listados em sisagua-vigilancia-parametros-basicos; exemplo 2014: https://s3.sa-east-1.amazonaws.com/ckan.saude.gov.br/SISAGUA/vigilancia_parametros_basicos_2014_csv.zip. Ler separador ponto e vírgula, codificação Latin-1 nos arquivos testados e vírgula decimal; confirmar o esquema em cada edição.
+
+[URL ou identificador persistente.]{.field-label} https://dadosabertos.saude.gov.br/dataset/sisagua-vigilancia-parametros-basicos
+
+[Formato dos arquivos.]{.field-label} CSV em ZIP; dicionário ODT; preservar campos originais e códigos.
+
+[Necessidade de processamento.]{.field-label} Descompactar, padronizar codificação e números; filtrar o recorte; usar chave município/solução/NU_AMOSTRA/DT_COLETA/HR_COLETA/PARAMETRO. Remover duplicatas exatas; em revisões, manter maior DT_INCLUSAO_REGISTRO; empate conflitante é ausente. Classificar resultados válidos e somar contagens, sem média simples de percentuais mensais.
 
 ### Qualidade, comparação e saúde {.unnumbered .ficha-section}
 
-[Qualidade e incerteza.]{.field-label} Relatar fonte, cobertura, população de referência, dados ausentes, plano amostral, qualidade laboratorial, regras de classificação e revisão.
+[Qualidade e incerteza.]{.field-label} Filtrar TP_MOTIVO_COLETA=Rotina, TP_ABASTECIMENTO=SAA e TP_PROCEDENCIA_COLETA=SISTEMA DE DISTRIBUIÇÃO, normalizando caixa e espaços. TP_PONTO_COLETA descreve outro atributo e não substitui esse filtro. O código CO_MUNICIPIO_IBGE de seis dígitos requer tabela oficial de correspondência para sete, sem acrescentar zero. Não exigir ANALISE_REALIZADA=SIM: o campo contém categorias como EM_CAMPO e EM_LABORATORIO. Denominador zero produz ausente. Publicar número de amostras e cobertura temporal, sem interpretar o percentual como população atendida.
 
-[Possibilidade de comparação.]{.field-label} Manter definição de serviço, população, forma de abastecimento, ponto de coleta, parâmetro, padrão vigente, período e método.
+[Possibilidade de comparação.]{.field-label} Manter módulo Vigilância, motivo Rotina, SAA, procedência distribuição, parâmetro e tabela fixa 888/2021. SAC, SAI, surtos, saídas de tratamento e outros recortes são séries distintas.
 
 [Relação com desfechos de saúde.]{.field-label} Água segura, saneamento e higiene reduzem exposição a patógenos e substâncias químicas e sustentam alimentação, cuidado, dignidade e funcionamento dos serviços de saúde.
 

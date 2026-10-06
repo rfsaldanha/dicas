@@ -1,220 +1,645 @@
-common: &res_common
-  tema: Capacidade de resposta, adaptação e resiliência
+indicators:
+- tema: Capacidade de resposta, adaptação e resiliência
   capitulo: chapters/part-3/13-resposta-adaptacao-resiliencia.qmd
   capitulo_fichas: chapters/part-4/24-fichas-resposta-adaptacao-resiliencia.qmd
-  dimensoes: [resposta]
-  responsabilidade_gerencial: Gestão do SUS e direção do estabelecimento, com participação da vigilância, atenção, engenharia clínica, infraestrutura, saúde do trabalhador e proteção e defesa civil conforme o indicador.
-  disponibilidade: [requer avaliação de estabelecimentos, requer adaptação nacional]
-  qualidade_incerteza: Definir universo elegível, cobertura e instrumento; verificar documentos, datas, funcionalidade e evidências; informar não resposta, amostragem e intervalo quando houver inferência.
-  comparabilidade: Manter definição, critérios de conformidade, janela temporal, universo, instrumento e desagregações; mudanças no número de estabelecimentos avaliados alteram o percentual.
-  relacao_saude: Mede capacidade ou interrupção do sistema, não o efeito final na saúde; a relação com desfechos depende do perigo, da continuidade dos serviços e das populações atendidas.
-  defasagens_temporais: Estrutura e planos podem anteceder eventos; interrupções devem ser registradas próximo da ocorrência; resultados em saúde e recuperação podem aparecer depois.
-  aplicacao_gestao: Identificar lacunas, priorizar investimento, pactuar responsáveis e prazos, acompanhar preparação e verificar continuidade antes, durante e depois de emergências.
-  notas: Existência documental, implementação, cobertura, qualidade, desempenho durante eventos e efetividade sobre a saúde são níveis diferentes de evidência.
-  fonte_padrao: &who_source
-    id: who-resilience-package
-    papel: definição, metadados, numerador, denominador e fonte recomendada
-  acesso_padrao: &access
-    cobertura_geografica: Aplicável internacionalmente após adaptação; resultados existem apenas para os estabelecimentos e níveis efetivamente avaliados.
-    periodo_disponivel: A partir da implementação local; referência metodológica publicada em 2024.
-    periodicidade_atualizacao: Anual ou conforme o ciclo de gestão, com verificação extraordinária após eventos e mudanças relevantes.
-    forma_acesso: Avaliação de estabelecimentos, sistema rotineiro de informação e verificação documental segundo o indicador.
-    url_persistente: https://www.who.int/publications/i/item/9789240088986
-    formatos: Formulário eletrônico ou papel, base tabular e documentação comprobatória.
-    necessidade_processamento: Validar universo, aplicar critérios, calcular numerador e denominador, estratificar e registrar evidências e data.
-
-indicators:
-  - <<: *res_common
-    <<: *access
-    codigo: RES-GOV-01
-    titulo_completo: Percentual de estabelecimentos com equipe ou pessoa focal designada para gestão de emergências e continuidade dos serviços
-    titulo_resumido: Ponto focal de emergência e continuidade
-    referencia_metodologica: Indicador 11 do pacote integrado de indicadores de resiliência dos sistemas de saúde da OMS.
-    conceito: Percentual de estabelecimentos com equipe ou pessoa focal formalmente designada, cujos termos de referência incluem liderar e coordenar a gestão de emergências e a continuidade dos serviços essenciais.
-    objetivo: Medir se existe responsabilidade institucional explícita para coordenar preparação, resposta e continuidade assistencial.
-    interpretacao: Valor de 80% significa que oito em cada dez estabelecimentos avaliados apresentaram equipe ou pessoa focal que atende aos critérios. Não demonstra, sozinho, treinamento, disponibilidade ou desempenho em evento real.
-    usos: [Mapear responsabilidade institucional., Identificar redes sem coordenação local., Planejar capacitação e substituição., Acompanhar preparação por tipo de estabelecimento.]
-    limitacoes: [Designação formal pode existir sem autoridade ou recursos., Termos de referência podem estar desatualizados., Auto relato requer comprovação., Percentual depende do universo avaliado.]
-    fontes_dados: [*who_source]
-    metodo_calculo: Definir o universo de estabelecimentos; verificar ato de designação e termos de referência vigentes; contar os que incluem gestão de emergências e continuidade dos serviços; dividir pelo total avaliado e multiplicar por 100. Registrar estabelecimentos sem informação separadamente.
-    formula_calculo: 'P_{focal}=100\times\frac{N(\text{estabelecimentos com equipe ou focal conforme})}{N(\text{estabelecimentos avaliados})}'
-    numerador: Estabelecimentos com equipe ou pessoa focal designada conforme a definição.
-    denominador: Total de estabelecimentos avaliados.
-    unidade_medida: Percentual de estabelecimentos (%).
-    variaveis_categorias_analise: Tipo e gestão do estabelecimento; urbano ou rural; território; ato e data de designação; termos de referência; substituto; treinamento.
-    granularidade: Estabelecimento na coleta e território ou rede no resumo.
-    unidade_territorial: Estabelecimento e agregações da rede de saúde.
-    resolucao_espacial_original: Estabelecimento.
-    resolucao_temporal: Situação na data da avaliação.
-    periodo_referencia: Data de verificação e vigência da designação.
-    limiar_referencia: Conformidade exige designação e responsabilidade explícita por emergência e continuidade; metas de cobertura são pactuadas localmente.
-    analise_descritiva: Mostrar numerador, denominador, não resposta, percentual por tipo e território, data do ato, treinamento e lacunas de cobertura.
-    referencias: ["[@who2024resilienceindicators]", "[@who2023framework]"]
-
-  - <<: *res_common
-    <<: *access
-    codigo: RES-RIS-01
-    titulo_completo: Percentual de estabelecimentos com perfil de riscos para choques e estressores documentado e atualizado
-    titulo_resumido: Perfil de riscos do estabelecimento
-    referencia_metodologica: Indicador 20 do pacote integrado de indicadores de resiliência dos sistemas de saúde da OMS.
-    conceito: Percentual de estabelecimentos com perfil de riscos atualizado, informado por avaliação de perigos e das condições estruturais, não estruturais, funcionais e de preparação.
-    objetivo: Verificar se os estabelecimentos conhecem e priorizam os riscos capazes de interromper, reduzir ou tornar inseguros os serviços.
-    interpretacao: Valor de 60% indica que seis em cada dez estabelecimentos avaliados têm perfil conforme. O conteúdo deve incluir natureza e extensão das ameaças, probabilidade, consequências e efetividade das medidas de mitigação.
-    usos: [Priorizar obras e redundâncias., Atualizar planos de continuidade., Integrar mapas de perigo e ativos críticos., Direcionar inspeções.]
-    limitacoes: [Documento pode omitir perigos emergentes., Atualização nominal não garante nova avaliação., Critérios locais podem variar., Risco de viés favorável em autoavaliação.]
-    fontes_dados: [*who_source]
-    metodo_calculo: Definir prazo de atualização, recomendado pela ficha da OMS como exemplo dentro dos últimos cinco anos; verificar se o documento contempla perigos, probabilidade, impactos, mitigação e avaliação estrutural, não estrutural, funcional e de preparação; dividir estabelecimentos conformes pelo total avaliado e multiplicar por 100.
-    formula_calculo: 'P_{risco}=100\times\frac{N(\text{estabelecimentos com perfil atualizado e conforme})}{N(\text{estabelecimentos avaliados})}'
-    numerador: Estabelecimentos com perfil de riscos atualizado e conforme.
-    denominador: Total de estabelecimentos avaliados.
-    unidade_medida: Percentual de estabelecimentos (%).
-    variaveis_categorias_analise: Perigos; probabilidade; impacto; custos de interrupção; segurança estrutural e não estrutural; funcionalidade; preparação; mitigação; data.
-    granularidade: Estabelecimento e componente do perfil.
-    unidade_territorial: Estabelecimento, rede, município, região de saúde e demais agregações.
-    resolucao_espacial_original: Estabelecimento.
-    resolucao_temporal: Avaliação periódica e atualização após mudança relevante ou evento.
-    periodo_referencia: Data do perfil e prazo nacional definido para atualização.
-    limiar_referencia: Todos os componentes mínimos e prazo de atualização definidos no protocolo; a OMS cita cinco anos como exemplo, a ser adaptado.
-    analise_descritiva: Apresentar percentual e componentes faltantes, data, perigos incluídos, prioridades de mitigação, tipo de estabelecimento e território.
-    referencias: ["[@who2024resilienceindicators]", "[@who2023framework]"]
-
-  - <<: *res_common
-    <<: *access
-    codigo: RES-ALR-01
-    titulo_completo: Nível de estabelecimento do sistema de alerta precoce, alerta e resposta
-    titulo_resumido: Sistema de alerta precoce e resposta
-    referencia_metodologica: Indicador 21 do pacote integrado de indicadores de resiliência dos sistemas de saúde da OMS, alinhado à capacidade C5.1 do instrumento eSPAR.
-    conceito: Nível de desenvolvimento e implementação da função de vigilância de alerta precoce, desde ausência de diretrizes até implementação em todos os níveis, exercícios, avaliação e atualização periódica.
-    objetivo: Avaliar a capacidade institucional de detectar, comunicar, analisar e responder oportunamente a eventos de saúde pública.
-    interpretacao: A escala varia de 1 a 5. Nível 1 indica diretrizes ausentes ou em elaboração; nível 5 indica implementação nacional, intermediária e local, com exercício, revisão, avaliação e atualização regulares.
-    usos: [Monitorar capacidade de alerta., Identificar nível administrativo não coberto., Integrar vigilância baseada em indicadores e eventos., Planejar exercícios e melhoria.]
-    limitacoes: [Autoavaliação pode superestimar capacidade., Uma nota nacional oculta desigualdades locais., Existência do sistema não mede antecedência nem alcance de cada alerta., O indicador foi concebido para ameaças de saúde pública e requer adaptação explícita para alertas climáticos.]
-    fontes_dados: [*who_source]
-    metodo_calculo: Aplicar os critérios da capacidade C5.1 do eSPAR. Classificar no maior nível integralmente atendido, do 1 ao 5, verificando diretrizes, implementação, reporte imediato e semanal, cobertura dos níveis administrativos, exercícios, revisão e atualização. Documentar evidências e lacunas.
-    formula_calculo: 'Nivel_{EWARS}=\max\{k\in\{1,\ldots,5\}: \text{todos os critérios do nível }k\text{ são atendidos}\}'
-    numerador: Não se aplica.
-    denominador: Não se aplica.
-    unidade_medida: Nível ordinal de 1 a 5.
-    variaveis_categorias_analise: Diretrizes e procedimentos; implementação nacional, intermediária e local; reporte imediato e semanal; vigilância baseada em indicadores e eventos; exercícios; revisão.
-    granularidade: País ou nível administrativo avaliado, com evidências por critério.
-    unidade_territorial: Nacional e subnacional conforme a aplicação.
-    resolucao_espacial_original: Nível administrativo da avaliação.
-    resolucao_temporal: Situação no ciclo anual do eSPAR ou avaliação equivalente.
-    periodo_referencia: Ciclo de avaliação e data das evidências.
-    limiar_referencia: Cinco níveis cumulativos definidos pela OMS; não calcular média aritmética entre níveis.
-    periodicidade_atualizacao: Anual no eSPAR e após exercícios ou eventos relevantes.
-    forma_acesso: eSPAR e verificação nacional ou subnacional das evidências.
-    necessidade_processamento: Aplicar rubrica cumulativa, validar evidências e registrar o nível mais alto integralmente atendido.
-    analise_descritiva: Mostrar nível, critérios atendidos e ausentes, níveis administrativos cobertos, oportunidade de reporte, exercícios e evolução anual.
-    referencias: ["[@who2024resilienceindicators]"]
-
-  - <<: *res_common
-    <<: *access
-    codigo: RES-WAT-01
-    titulo_completo: Percentual de estabelecimentos de saúde que tiveram interrupção do abastecimento de água na semana anterior
-    titulo_resumido: Interrupção de água em estabelecimentos
-    referencia_metodologica: Indicador 28 do pacote integrado de indicadores de resiliência dos sistemas de saúde da OMS.
-    conceito: Percentual de estabelecimentos que tiveram interrupção de água corrente ou de outra fonte de água segura na semana anterior.
-    objetivo: Monitorar falhas recentes de um serviço essencial à assistência segura e identificar estabelecimentos para intervenção.
-    interpretacao: Valor de 15% significa que 15 de cada 100 estabelecimentos avaliados relataram ao menos uma interrupção na janela. Não informa duração, horário, volume nem efeito sobre serviços sem variáveis complementares.
-    usos: [Detectar interrupções durante seca, inundação ou falha de rede., Priorizar reservação e fontes alternativas., Monitorar continuidade assistencial., Comparar tipos de estabelecimento.]
-    limitacoes: [Janela curta não representa o ano inteiro., Qualquer interrupção recebe o mesmo peso., Segurança da fonte alternativa precisa ser verificada., Memória e não resposta podem afetar a medida.]
-    fontes_dados: [*who_source]
-    metodo_calculo: Em data comum, perguntar ou consultar registros sobre qualquer interrupção de água corrente ou outra fonte segura nos sete dias anteriores. Contar estabelecimentos afetados, dividir pelos avaliados e multiplicar por 100. Complementar com número, duração e serviços afetados.
-    formula_calculo: 'P_{agua}=100\times\frac{N(\text{estabelecimentos com interrupção de água nos 7 dias})}{N(\text{estabelecimentos avaliados})}'
-    numerador: Estabelecimentos com ao menos uma interrupção de água na semana anterior.
-    denominador: Total de estabelecimentos avaliados.
-    unidade_medida: Percentual de estabelecimentos (%).
-    variaveis_categorias_analise: Ocorrência, número e duração da interrupção; fonte; reserva; qualidade; serviço afetado; tipo, gestão e território.
-    granularidade: Estabelecimento e episódio; percentual por rede ou território.
-    unidade_territorial: Estabelecimento e agregações da rede.
-    resolucao_espacial_original: Estabelecimento.
-    resolucao_temporal: Janela móvel ou semana padronizada de sete dias.
-    periodo_referencia: Sete dias anteriores à avaliação; adaptações mensais devem receber outro rótulo.
-    limiar_referencia: Qualquer interrupção classifica o estabelecimento no numerador; metas de redução são locais.
-    periodicidade_atualizacao: Semanal durante emergências e periódica na rotina.
-    analise_descritiva: Mostrar percentual, contagens, duração, recorrência, fonte alternativa, serviços suspensos, tipo de estabelecimento e distribuição territorial.
-    referencias: ["[@who2024resilienceindicators]", "[@who2023framework]"]
-
-  - <<: *res_common
-    <<: *access
-    codigo: RES-ENE-01
-    titulo_completo: Percentual de estabelecimentos de saúde que tiveram interrupção de energia elétrica na semana anterior
-    titulo_resumido: Interrupção de energia em estabelecimentos
-    referencia_metodologica: Indicador 29 do pacote integrado de indicadores de resiliência dos sistemas de saúde da OMS.
-    conceito: Percentual de estabelecimentos que tiveram ao menos uma interrupção de energia elétrica na semana anterior.
-    objetivo: Monitorar falhas recentes capazes de comprometer iluminação, equipamentos, tecnologia da informação, refrigeração, climatização e serviços essenciais.
-    interpretacao: Valor de 10% significa que um em cada dez estabelecimentos avaliados teve interrupção. Gerador disponível não elimina o evento; deve-se medir se a transição e a autonomia mantiveram cargas críticas.
-    usos: [Priorizar redundância elétrica., Proteger cadeia de frio e equipamentos., Monitorar impactos de eventos severos., Planejar combustível e manutenção.]
-    limitacoes: [Janela curta não descreve frequência anual., Interrupções de segundos e horas são contadas igualmente no indicador básico., Auto relato pode omitir falhas., Não mede diretamente perda de serviço.]
-    fontes_dados: [*who_source]
-    metodo_calculo: Registrar qualquer interrupção elétrica nos sete dias anteriores à data de avaliação; contar estabelecimentos afetados, dividir pelo total avaliado e multiplicar por 100. Vincular duração, cargas críticas, acionamento de gerador, combustível e perda de serviços.
-    formula_calculo: 'P_{energia}=100\times\frac{N(\text{estabelecimentos com interrupção elétrica nos 7 dias})}{N(\text{estabelecimentos avaliados})}'
-    numerador: Estabelecimentos com ao menos uma interrupção de energia na semana anterior.
-    denominador: Total de estabelecimentos avaliados.
-    unidade_medida: Percentual de estabelecimentos (%).
-    variaveis_categorias_analise: Ocorrência, duração, causa, gerador, autonomia, combustível, cargas críticas, cadeia de frio, serviço afetado, tipo e território.
-    granularidade: Estabelecimento e episódio; percentual por rede ou território.
-    unidade_territorial: Estabelecimento e agregações da rede.
-    resolucao_espacial_original: Estabelecimento.
-    resolucao_temporal: Janela móvel ou semana padronizada de sete dias.
-    periodo_referencia: Sete dias anteriores à avaliação.
-    limiar_referencia: Qualquer interrupção classifica no numerador, ainda que exista fonte alternativa; desempenho da redundância é analisado separadamente.
-    periodicidade_atualizacao: Semanal durante emergências e periódica na rotina.
-    analise_descritiva: Mostrar percentual, duração e recorrência, causa, acionamento e autonomia da fonte alternativa, cargas e serviços afetados e distribuição territorial.
-    referencias: ["[@who2024resilienceindicators]", "[@who2023framework]"]
-
-  - <<: *res_common
-    <<: *access
-    codigo: RES-PLA-01
-    titulo_completo: Percentual de estabelecimentos com plano de gestão de emergências que incorpora continuidade dos serviços
-    titulo_resumido: Plano de emergência com continuidade
-    referencia_metodologica: Indicador 44 do pacote integrado de indicadores de resiliência dos sistemas de saúde da OMS.
-    conceito: Percentual de estabelecimentos com plano de gestão de emergências que inclui a manutenção ou recuperação de serviços rotineiros e essenciais.
-    objetivo: Verificar se a preparação formal identifica funções críticas, impactos dos perigos e ações para sustentar a assistência.
-    interpretacao: Valor de 70% indica plano conforme em sete de cada dez estabelecimentos avaliados. Não demonstra que foi difundido, exercitado, financiado ou eficaz.
-    usos: [Identificar estabelecimentos sem plano., Verificar incorporação de serviços essenciais., Programar exercícios., Pactuar continuidade em redes.]
-    limitacoes: [Documento pode ser genérico ou desatualizado., Conformidade documental não prova implementação., Critérios de serviço essencial podem variar., Exercícios e eventos reais exigem indicadores de desempenho.]
-    fontes_dados: [*who_source]
-    metodo_calculo: Definir critérios mínimos; verificar plano vigente e se ele prioriza funções críticas, avalia impactos, define ações, responsabilidades, recursos, comunicação e continuidade ou recuperação de serviços essenciais; contar estabelecimentos conformes, dividir pelos avaliados e multiplicar por 100.
-    formula_calculo: 'P_{plano}=100\times\frac{N(\text{estabelecimentos com plano conforme})}{N(\text{estabelecimentos avaliados})}'
-    numerador: Estabelecimentos com plano de gestão de emergências que incorpora continuidade dos serviços.
-    denominador: Total de estabelecimentos avaliados.
-    unidade_medida: Percentual de estabelecimentos (%).
-    variaveis_categorias_analise: Vigência; perigos; serviços essenciais; responsabilidades; pessoal; suprimentos; referência e contrarreferência; comunicação; recuperação; exercícios.
-    granularidade: Estabelecimento e componente do plano.
-    unidade_territorial: Estabelecimento e agregações da rede.
-    resolucao_espacial_original: Estabelecimento.
-    resolucao_temporal: Situação na data da avaliação e histórico de revisões e exercícios.
-    periodo_referencia: Vigência e data da última atualização do plano.
-    limiar_referencia: Todos os critérios mínimos definidos no protocolo; plano sem continuidade dos serviços não entra no numerador.
-    analise_descritiva: Apresentar percentual e componentes ausentes, data, perigos cobertos, serviços priorizados, exercícios, correções e diferenças por território e tipo.
-    referencias: ["[@who2024resilienceindicators]", "[@who2023framework]"]
-
-  - <<: *res_common
-    <<: *access
-    codigo: RES-INF-01
-    titulo_completo: Percentual de estabelecimentos de saúde que atendem aos padrões de infraestrutura
-    titulo_resumido: Infraestrutura conforme aos padrões
-    referencia_metodologica: Indicador 47 do pacote integrado de indicadores de resiliência dos sistemas de saúde da OMS.
-    conceito: Percentual de estabelecimentos que atendem a padrão nacional ou subnacional de infraestrutura apropriada aos serviços essenciais e aos perigos prioritários.
-    objetivo: Avaliar conformidade estrutural e funcional necessária para segurança e continuidade do cuidado.
-    interpretacao: O estabelecimento só é conforme segundo a regra integral quando atende aos componentes exigidos de segurança estrutural, acessibilidade e capacidade, WASH e resíduos, energia sustentável e tecnologia da informação.
-    usos: [Priorizar investimento de capital., Verificar segurança diante de perigos., Integrar WASH, energia e tecnologia., Monitorar desigualdade da infraestrutura.]
-    limitacoes: [Depende da existência e qualidade do padrão nacional., Um percentual total oculta componentes críticos., Inspeções demandam qualificação técnica., Conformidade na data não garante desempenho em evento acima do nível de projeto.]
-    fontes_dados: [*who_source]
-    metodo_calculo: Adotar padrão oficial coerente com o perfil de riscos; inspecionar segurança estrutural, infraestrutura segura e acessível inclusive para aumento de demanda, WASH e resíduos, energia e tecnologia da informação; classificar cada componente e a conformidade integral; dividir estabelecimentos integralmente conformes pelo total examinado e multiplicar por 100.
-    formula_calculo: 'P_{infra}=100\times\frac{N(\text{estabelecimentos conformes em todos os componentes exigidos})}{N(\text{estabelecimentos examinados})}'
-    numerador: Estabelecimentos que atendem ao padrão de infraestrutura adotado.
-    denominador: Total de estabelecimentos examinados ou amostrados.
-    unidade_medida: Percentual de estabelecimentos (%).
-    variaveis_categorias_analise: Segurança estrutural; acesso; capacidade e surge; WASH; resíduos; energia; tecnologia; tipo, gestão, urbano ou rural e território.
-    granularidade: Estabelecimento, componente e item de inspeção.
-    unidade_territorial: Estabelecimento e agregações da rede.
-    resolucao_espacial_original: Estabelecimento.
-    resolucao_temporal: Data da inspeção; atualização após obra, dano ou mudança de padrão.
-    periodo_referencia: Edição do padrão e data da inspeção.
-    limiar_referencia: Critérios do padrão oficial; publicar componentes e regra de conformidade integral.
-    periodicidade_atualizacao: Conforme o ciclo de inspeção e após obras ou eventos que possam alterar segurança e funcionalidade.
-    analise_descritiva: Mostrar percentual integral e por componente, gravidade das não conformidades, custo e prazo de correção, tipo de estabelecimento, território e evolução.
-    referencias: ["[@who2024resilienceindicators]", "[@who2023framework]"]
+  dimensoes:
+  - resposta
+  responsabilidade_gerencial: Gestão do SUS e direção do estabelecimento, com participação da vigilância, atenção,
+    engenharia clínica, infraestrutura, saúde do trabalhador e proteção e defesa civil conforme o indicador.
+  disponibilidade:
+  - Depende de dados locais
+  qualidade_incerteza: Por indicador/componente, publicar N conforme/afetado, A com resposta válida completa,
+    U elegível e NR=U−A. Cobertura=100 A/U. Percentual=100 N/A; A=0 implica ausente. Não resposta, documento
+    não disponibilizado e pergunta ignorada não equivalem a ausência de problema.
+  comparabilidade: Comparar apenas rodadas com critérios, território e universo compatíveis; documentar mudanças
+    do CNES e não resposta. Não ponderar ou extrapolar amostras de conveniência.
+  relacao_saude: Mede capacidade ou interrupção do sistema, não o efeito final na saúde; a relação com desfechos
+    depende do perigo, da continuidade dos serviços e das populações atendidas.
+  defasagens_temporais: Estrutura e planos podem anteceder eventos; interrupções devem ser registradas próximo
+    da ocorrência; resultados em saúde e recuperação podem aparecer depois.
+  aplicacao_gestao: Identificar lacunas, priorizar investimento, pactuar responsáveis e prazos, acompanhar
+    preparação e verificar continuidade antes, durante e depois de emergências.
+  notas: 'Definição metodológica: OMS, pacote de 2024; dados: avaliação local ainda não realizada. O instrumento
+    deste livro é uma operacionalização autoral documentada, não um formulário oficial da OMS.'
+  cobertura_geografica: Estabelecimentos CNES do universo municipal ou da rede declarada na rodada; não extrapolar
+    para os não avaliados.
+  periodo_disponivel: Somente após coleta local. Nenhuma avaliação real acompanha esta revisão.
+  periodicidade_atualizacao: Por rodada de avaliação; publicar a data de cada estabelecimento e os limites
+    da rodada.
+  forma_acesso: Modelos vazios de universo e avaliação, dicionário de perguntas e regras na seção Instrumento
+    de coleta local deste capítulo.
+  url_persistente: https://cnes.datasus.gov.br/
+  formatos: CSV UTF-8; documentos e registros de inspeção identificados por referência e SHA-256.
+  necessidade_processamento: Validar chaves CNES/rodada, datas, respostas e evidências; aplicar os critérios
+    abaixo e publicar numerador, denominador e não resposta.
+  codigo: RES-GOV-01
+  titulo_completo: Percentual de estabelecimentos com equipe ou pessoa focal designada para gestão de emergências
+    e continuidade dos serviços
+  titulo_resumido: Ponto focal de emergência e continuidade
+  referencia_metodologica: 'OMS, Health system resilience indicators: an integrated package, edição 2024, indicador
+    11. Critérios e instrumento local explicitados neste capítulo.'
+  conceito: Percentual de estabelecimentos com equipe ou pessoa focal formalmente designada, cujos termos de
+    referência incluem liderar e coordenar a gestão de emergências e a continuidade dos serviços essenciais.
+  objetivo: Medir se existe responsabilidade institucional explícita para coordenar preparação, resposta e
+    continuidade assistencial.
+  interpretacao: Quanto maior o percentual, maior a conformidade documental entre os estabelecimentos com avaliação
+    completa. Não demonstra eficácia durante uma emergência.
+  usos:
+  - Mapear responsabilidade institucional.
+  - Identificar redes sem coordenação local.
+  - Planejar capacitação e substituição.
+  - Acompanhar preparação por tipo de estabelecimento.
+  limitacoes:
+  - Designação formal pode existir sem autoridade ou recursos.
+  - Termos de referência podem estar desatualizados.
+  - Auto relato requer comprovação.
+  - Percentual depende do universo avaliado.
+  fontes_dados:
+  - id: cnes
+    papel: 'Dados cadastrais: identificação e composição do universo da rodada.'
+  - id: avaliacao-local-resiliencia
+    papel: 'Dados a coletar: respostas, inspeção e evidências no instrumento local desta edição.'
+  metodo_calculo: Aplicar o instrumento local e as regras de universo, evidência e não resposta deste capítulo.
+    Conforme se todos os campos gov_designacao, gov_emergencia, gov_continuidade forem sim, com evidência verificável.
+    Percentual=100 N/A. Perguntas ignoradas retiram o registro de A; informar NR. Ausência documental efetivamente
+    verificada é não conformidade; documento solicitado mas não disponibilizado é ignorado.
+  formula_calculo: P=100\times N/A,\qquad NR=U-A
+  numerador: Estabelecimentos com equipe ou pessoa focal designada conforme a definição.
+  denominador: 'A: estabelecimentos elegíveis do universo U com todos os itens exigidos válidos e evidência
+    para este indicador.'
+  unidade_medida: Percentual de estabelecimentos (%).
+  variaveis_categorias_analise: 'Identificação, rodada, data, evidência e respostas: gov_designacao, gov_emergencia,
+    gov_continuidade.'
+  granularidade: Estabelecimento e rodada; agregação pelo universo declarado.
+  unidade_territorial: Município do estabelecimento e rede definida no universo da rodada.
+  resolucao_espacial_original: Estabelecimento identificado por CNES.
+  resolucao_temporal: Data da avaliação, com janela retrospectiva somente para interrupções.
+  periodo_referencia: Vigência documental na data da avaliação.
+  limiar_referencia: Todos os itens especificados devem ser satisfeitos.
+  analise_descritiva: Publicar N, A, U, NR, cobertura, percentual, datas e distribuição por município/tipo
+    de estabelecimento; RES-WAS-01 exige cinco componentes e conformidade conjunta.
+  referencias:
+  - '[@who2024resilienceindicators]'
+  - '[@who2023framework]'
+  protocolo_versao: '2026-10-06'
+  situacao_calculo: locais
+  dependencia_dados_locais: 'Obrigatória: inspeção e verificação documental com o instrumento vazio e o dicionário
+    publicados neste capítulo. O CNES identifica o universo; não contém estas respostas.'
+  automacao: Condicionada
+  condicoes_automacao: Agregação automatizável após coleta e validação humanas; não inferir respostas pelo
+    CNES ou pela ausência de documento recebido.
+  evidencia_verificacao: Documentação verificada
+  detalhe_verificacao: Definição documental conferida no pacote OMS 2024; modelo e regras verificados, sem
+    aplicação em estabelecimentos nem cálculo empírico.
+- tema: Capacidade de resposta, adaptação e resiliência
+  capitulo: chapters/part-3/13-resposta-adaptacao-resiliencia.qmd
+  capitulo_fichas: chapters/part-4/24-fichas-resposta-adaptacao-resiliencia.qmd
+  dimensoes:
+  - resposta
+  responsabilidade_gerencial: Gestão do SUS e direção do estabelecimento, com participação da vigilância, atenção,
+    engenharia clínica, infraestrutura, saúde do trabalhador e proteção e defesa civil conforme o indicador.
+  disponibilidade:
+  - Depende de dados locais
+  qualidade_incerteza: Por indicador/componente, publicar N conforme/afetado, A com resposta válida completa,
+    U elegível e NR=U−A. Cobertura=100 A/U. Percentual=100 N/A; A=0 implica ausente. Não resposta, documento
+    não disponibilizado e pergunta ignorada não equivalem a ausência de problema.
+  comparabilidade: Comparar apenas rodadas com critérios, território e universo compatíveis; documentar mudanças
+    do CNES e não resposta. Não ponderar ou extrapolar amostras de conveniência.
+  relacao_saude: Mede capacidade ou interrupção do sistema, não o efeito final na saúde; a relação com desfechos
+    depende do perigo, da continuidade dos serviços e das populações atendidas.
+  defasagens_temporais: Estrutura e planos podem anteceder eventos; interrupções devem ser registradas próximo
+    da ocorrência; resultados em saúde e recuperação podem aparecer depois.
+  aplicacao_gestao: Identificar lacunas, priorizar investimento, pactuar responsáveis e prazos, acompanhar
+    preparação e verificar continuidade antes, durante e depois de emergências.
+  notas: 'Definição metodológica: OMS, pacote de 2024; dados: avaliação local ainda não realizada. O instrumento
+    deste livro é uma operacionalização autoral documentada, não um formulário oficial da OMS.'
+  cobertura_geografica: Estabelecimentos CNES do universo municipal ou da rede declarada na rodada; não extrapolar
+    para os não avaliados.
+  periodo_disponivel: Somente após coleta local. Nenhuma avaliação real acompanha esta revisão.
+  periodicidade_atualizacao: Por rodada de avaliação; publicar a data de cada estabelecimento e os limites
+    da rodada.
+  forma_acesso: Modelos vazios de universo e avaliação, dicionário de perguntas e regras na seção Instrumento
+    de coleta local deste capítulo.
+  url_persistente: https://cnes.datasus.gov.br/
+  formatos: CSV UTF-8; documentos e registros de inspeção identificados por referência e SHA-256.
+  necessidade_processamento: Validar chaves CNES/rodada, datas, respostas e evidências; aplicar os critérios
+    abaixo e publicar numerador, denominador e não resposta.
+  codigo: RES-RIS-01
+  titulo_completo: Percentual de estabelecimentos com perfil de riscos para choques e estressores documentado
+    e atualizado
+  titulo_resumido: Perfil de riscos do estabelecimento
+  referencia_metodologica: 'OMS, Health system resilience indicators: an integrated package, edição 2024, indicador
+    20. Critérios e instrumento local explicitados neste capítulo.'
+  conceito: Percentual de estabelecimentos com perfil de riscos atualizado, informado por avaliação de perigos
+    e das condições estruturais, não estruturais, funcionais e de preparação.
+  objetivo: Verificar se os estabelecimentos conhecem e priorizam os riscos capazes de interromper, reduzir
+    ou tornar inseguros os serviços.
+  interpretacao: Quanto maior o percentual, maior a conformidade documental entre os estabelecimentos com avaliação
+    completa. Não demonstra eficácia durante uma emergência.
+  usos:
+  - Priorizar obras e redundâncias.
+  - Atualizar planos de continuidade.
+  - Integrar mapas de perigo e ativos críticos.
+  - Direcionar inspeções.
+  limitacoes:
+  - Documento pode omitir perigos emergentes.
+  - Atualização nominal não garante nova avaliação.
+  - Conformidade documental não demonstra mitigação efetiva.
+  - Autoavaliação pode favorecer respostas positivas.
+  fontes_dados:
+  - id: cnes
+    papel: 'Dados cadastrais: identificação e composição do universo da rodada.'
+  - id: avaliacao-local-resiliencia
+    papel: 'Dados a coletar: respostas, inspeção e evidências no instrumento local desta edição.'
+  metodo_calculo: Aplicar o instrumento local e as regras de universo, evidência e não resposta deste capítulo.
+    Conforme se todos os campos ris_documento, ris_estrutural, ris_nao_estrutural, ris_funcional, ris_preparacao,
+    ris_ameacas, ris_probabilidade, ris_impactos, ris_mitigacao forem sim, com evidência verificável. Exigir
+    ris_data_revisao entre D menos cinco anos civis e D, inclusive; em 29 de fevereiro, usar 28 de fevereiro
+    se o ano-limite não for bissexto. Data futura é inválida. O prazo de cinco anos é escolha operacional deste
+    livro baseada no exemplo da OMS, não exigência universal da OMS. Percentual=100 N/A. Perguntas ignoradas
+    retiram o registro de A; informar NR. Ausência documental efetivamente verificada é não conformidade; documento
+    solicitado mas não disponibilizado é ignorado.
+  formula_calculo: P=100\times N/A,\qquad NR=U-A
+  numerador: Estabelecimentos com perfil de riscos atualizado e conforme.
+  denominador: 'A: estabelecimentos elegíveis do universo U com todos os itens exigidos válidos e evidência
+    para este indicador.'
+  unidade_medida: Percentual de estabelecimentos (%).
+  variaveis_categorias_analise: 'Identificação, rodada, data, evidência e respostas: ris_documento, ris_estrutural,
+    ris_nao_estrutural, ris_funcional, ris_preparacao, ris_ameacas, ris_probabilidade, ris_impactos, ris_mitigacao.
+    Inclui ris_data_revisao.'
+  granularidade: Estabelecimento e rodada; agregação pelo universo declarado.
+  unidade_territorial: Município do estabelecimento e rede definida no universo da rodada.
+  resolucao_espacial_original: Estabelecimento identificado por CNES.
+  resolucao_temporal: Data da avaliação, com janela retrospectiva somente para interrupções.
+  periodo_referencia: Data da avaliação e revisão do perfil nos cinco anos civis anteriores, inclusive.
+  limiar_referencia: Todos os itens especificados devem ser satisfeitos; revisão nos últimos cinco anos civis.
+  analise_descritiva: Publicar N, A, U, NR, cobertura, percentual, datas e distribuição por município/tipo
+    de estabelecimento; RES-WAS-01 exige cinco componentes e conformidade conjunta.
+  referencias:
+  - '[@who2024resilienceindicators]'
+  - '[@who2023framework]'
+  protocolo_versao: '2026-10-06'
+  situacao_calculo: locais
+  dependencia_dados_locais: 'Obrigatória: inspeção e verificação documental com o instrumento vazio e o dicionário
+    publicados neste capítulo. O CNES identifica o universo; não contém estas respostas.'
+  automacao: Condicionada
+  condicoes_automacao: Agregação automatizável após coleta e validação humanas; não inferir respostas pelo
+    CNES ou pela ausência de documento recebido.
+  evidencia_verificacao: Documentação verificada
+  detalhe_verificacao: Definição documental conferida no pacote OMS 2024; modelo e regras verificados, sem
+    aplicação em estabelecimentos nem cálculo empírico.
+- tema: Capacidade de resposta, adaptação e resiliência
+  capitulo: chapters/part-3/13-resposta-adaptacao-resiliencia.qmd
+  capitulo_fichas: chapters/part-4/24-fichas-resposta-adaptacao-resiliencia.qmd
+  dimensoes:
+  - resposta
+  responsabilidade_gerencial: Gestão do SUS e direção do estabelecimento, com participação da vigilância, atenção,
+    engenharia clínica, infraestrutura, saúde do trabalhador e proteção e defesa civil conforme o indicador.
+  disponibilidade:
+  - Depende de dados locais
+  qualidade_incerteza: Por indicador/componente, publicar N conforme/afetado, A com resposta válida completa,
+    U elegível e NR=U−A. Cobertura=100 A/U. Percentual=100 N/A; A=0 implica ausente. Não resposta, documento
+    não disponibilizado e pergunta ignorada não equivalem a ausência de problema.
+  comparabilidade: Comparar apenas rodadas com critérios, território e universo compatíveis; documentar mudanças
+    do CNES e não resposta. Não ponderar ou extrapolar amostras de conveniência.
+  relacao_saude: Mede capacidade ou interrupção do sistema, não o efeito final na saúde; a relação com desfechos
+    depende do perigo, da continuidade dos serviços e das populações atendidas.
+  defasagens_temporais: Estrutura e planos podem anteceder eventos; interrupções devem ser registradas próximo
+    da ocorrência; resultados em saúde e recuperação podem aparecer depois.
+  aplicacao_gestao: Identificar lacunas, priorizar investimento, pactuar responsáveis e prazos, acompanhar
+    preparação e verificar continuidade antes, durante e depois de emergências.
+  notas: 'Definição metodológica: OMS, pacote de 2024; dados: avaliação local ainda não realizada. O instrumento
+    deste livro é uma operacionalização autoral documentada, não um formulário oficial da OMS.'
+  cobertura_geografica: Estabelecimentos CNES do universo municipal ou da rede declarada na rodada; não extrapolar
+    para os não avaliados.
+  periodo_disponivel: Somente após coleta local. Nenhuma avaliação real acompanha esta revisão.
+  periodicidade_atualizacao: Por rodada de avaliação; publicar a data de cada estabelecimento e os limites
+    da rodada.
+  forma_acesso: Modelos vazios de universo e avaliação, dicionário de perguntas e regras na seção Instrumento
+    de coleta local deste capítulo.
+  url_persistente: https://cnes.datasus.gov.br/
+  formatos: CSV UTF-8; documentos e registros de inspeção identificados por referência e SHA-256.
+  necessidade_processamento: Validar chaves CNES/rodada, datas, respostas e evidências; aplicar os critérios
+    abaixo e publicar numerador, denominador e não resposta.
+  codigo: RES-PLA-01
+  titulo_completo: Percentual de estabelecimentos com plano de gestão de emergências que incorpora continuidade
+    dos serviços
+  titulo_resumido: Plano de emergência com continuidade
+  referencia_metodologica: 'OMS, Health system resilience indicators: an integrated package, edição 2024, indicador
+    44. Critérios e instrumento local explicitados neste capítulo.'
+  conceito: Percentual de estabelecimentos com plano de gestão de emergências que inclui a manutenção ou recuperação
+    de serviços rotineiros e essenciais.
+  objetivo: Verificar se a preparação formal identifica funções críticas, impactos dos perigos e ações para
+    sustentar a assistência.
+  interpretacao: Quanto maior o percentual, maior a conformidade documental entre os estabelecimentos com avaliação
+    completa. Não demonstra eficácia durante uma emergência.
+  usos:
+  - Identificar estabelecimentos sem plano.
+  - Verificar incorporação de serviços essenciais.
+  - Programar exercícios.
+  - Pactuar continuidade em redes.
+  limitacoes:
+  - Documento pode ser genérico ou desatualizado.
+  - Conformidade documental não prova implementação.
+  - Critérios de serviço essencial podem variar.
+  - Exercícios e eventos reais exigem indicadores de desempenho.
+  fontes_dados:
+  - id: cnes
+    papel: 'Dados cadastrais: identificação e composição do universo da rodada.'
+  - id: avaliacao-local-resiliencia
+    papel: 'Dados a coletar: respostas, inspeção e evidências no instrumento local desta edição.'
+  metodo_calculo: Aplicar o instrumento local e as regras de universo, evidência e não resposta deste capítulo.
+    Conforme se todos os campos pla_documento, pla_funcoes, pla_impactos, pla_acoes forem sim, com evidência
+    verificável. Percentual=100 N/A. Perguntas ignoradas retiram o registro de A; informar NR. Ausência documental
+    efetivamente verificada é não conformidade; documento solicitado mas não disponibilizado é ignorado.
+  formula_calculo: P=100\times N/A,\qquad NR=U-A
+  numerador: Estabelecimentos com plano de gestão de emergências que incorpora continuidade dos serviços.
+  denominador: 'A: estabelecimentos elegíveis do universo U com todos os itens exigidos válidos e evidência
+    para este indicador.'
+  unidade_medida: Percentual de estabelecimentos (%).
+  variaveis_categorias_analise: 'Identificação, rodada, data, evidência e respostas: pla_documento, pla_funcoes,
+    pla_impactos, pla_acoes.'
+  granularidade: Estabelecimento e rodada; agregação pelo universo declarado.
+  unidade_territorial: Município do estabelecimento e rede definida no universo da rodada.
+  resolucao_espacial_original: Estabelecimento identificado por CNES.
+  resolucao_temporal: Data da avaliação, com janela retrospectiva somente para interrupções.
+  periodo_referencia: Vigência documental na data da avaliação.
+  limiar_referencia: Todos os itens especificados devem ser satisfeitos.
+  analise_descritiva: Publicar N, A, U, NR, cobertura, percentual, datas e distribuição por município/tipo
+    de estabelecimento; RES-WAS-01 exige cinco componentes e conformidade conjunta.
+  referencias:
+  - '[@who2024resilienceindicators]'
+  - '[@who2023framework]'
+  protocolo_versao: '2026-10-06'
+  situacao_calculo: locais
+  dependencia_dados_locais: 'Obrigatória: inspeção e verificação documental com o instrumento vazio e o dicionário
+    publicados neste capítulo. O CNES identifica o universo; não contém estas respostas.'
+  automacao: Condicionada
+  condicoes_automacao: Agregação automatizável após coleta e validação humanas; não inferir respostas pelo
+    CNES ou pela ausência de documento recebido.
+  evidencia_verificacao: Documentação verificada
+  detalhe_verificacao: Definição documental conferida no pacote OMS 2024; modelo e regras verificados, sem
+    aplicação em estabelecimentos nem cálculo empírico.
+- tema: Capacidade de resposta, adaptação e resiliência
+  capitulo: chapters/part-3/13-resposta-adaptacao-resiliencia.qmd
+  capitulo_fichas: chapters/part-4/24-fichas-resposta-adaptacao-resiliencia.qmd
+  dimensoes:
+  - resposta
+  responsabilidade_gerencial: Gestão do SUS e direção do estabelecimento, com participação da vigilância, atenção,
+    engenharia clínica, infraestrutura, saúde do trabalhador e proteção e defesa civil conforme o indicador.
+  disponibilidade:
+  - Depende de dados locais
+  qualidade_incerteza: Por indicador/componente, publicar N conforme/afetado, A com resposta válida completa,
+    U elegível e NR=U−A. Cobertura=100 A/U. Percentual=100 N/A; A=0 implica ausente. Não resposta, documento
+    não disponibilizado e pergunta ignorada não equivalem a ausência de problema.
+  comparabilidade: Comparar apenas rodadas com critérios, território e universo compatíveis; documentar mudanças
+    do CNES e não resposta. Não ponderar ou extrapolar amostras de conveniência.
+  relacao_saude: Mede capacidade ou interrupção do sistema, não o efeito final na saúde; a relação com desfechos
+    depende do perigo, da continuidade dos serviços e das populações atendidas.
+  defasagens_temporais: Estrutura e planos podem anteceder eventos; interrupções devem ser registradas próximo
+    da ocorrência; resultados em saúde e recuperação podem aparecer depois.
+  aplicacao_gestao: Identificar lacunas, priorizar investimento, pactuar responsáveis e prazos, acompanhar
+    preparação e verificar continuidade antes, durante e depois de emergências.
+  notas: 'Definição metodológica: OMS, pacote de 2024; dados: avaliação local ainda não realizada. O instrumento
+    deste livro é uma operacionalização autoral documentada, não um formulário oficial da OMS.'
+  cobertura_geografica: Estabelecimentos CNES do universo municipal ou da rede declarada na rodada; não extrapolar
+    para os não avaliados.
+  periodo_disponivel: Somente após coleta local. Nenhuma avaliação real acompanha esta revisão.
+  periodicidade_atualizacao: Por rodada de avaliação; publicar a data de cada estabelecimento e os limites
+    da rodada.
+  forma_acesso: Modelos vazios de universo e avaliação, dicionário de perguntas e regras na seção Instrumento
+    de coleta local deste capítulo.
+  url_persistente: https://cnes.datasus.gov.br/
+  formatos: CSV UTF-8; documentos e registros de inspeção identificados por referência e SHA-256.
+  necessidade_processamento: Validar chaves CNES/rodada, datas, respostas e evidências; aplicar os critérios
+    abaixo e publicar numerador, denominador e não resposta.
+  codigo: RES-WAT-01
+  titulo_completo: Percentual de estabelecimentos de saúde que tiveram interrupção do abastecimento de água
+    na semana anterior
+  titulo_resumido: Interrupção de água em estabelecimentos
+  referencia_metodologica: 'OMS, Health system resilience indicators: an integrated package, edição 2024, indicador
+    28. Critérios e instrumento local explicitados neste capítulo.'
+  conceito: Percentual de estabelecimentos que tiveram interrupção de água corrente ou de outra fonte de água
+    segura na semana anterior.
+  objetivo: Monitorar falhas recentes de um serviço essencial à assistência segura e identificar estabelecimentos
+    para intervenção.
+  interpretacao: Quanto maior o percentual, maior a frequência de interrupção recente entre estabelecimentos
+    com resposta válida.
+  usos:
+  - Detectar interrupções recentes de abastecimento.
+  - Priorizar reservação e fontes alternativas.
+  - Monitorar continuidade assistencial.
+  - Comparar tipos de estabelecimento.
+  limitacoes:
+  - Janela curta não representa o ano inteiro.
+  - Qualquer interrupção recebe o mesmo peso.
+  - Segurança da fonte alternativa precisa ser verificada.
+  - Memória e não resposta podem afetar a medida.
+  fontes_dados:
+  - id: cnes
+    papel: 'Dados cadastrais: identificação e composição do universo da rodada.'
+  - id: avaliacao-local-resiliencia
+    papel: 'Dados a coletar: respostas, inspeção e evidências no instrumento local desta edição.'
+  metodo_calculo: 'Aplicar o instrumento local e as regras de universo, evidência e não resposta deste capítulo.
+    Numerador: resposta sim a wat_interrupcao. Percentual=100 N/A. Perguntas ignoradas retiram o registro de
+    A; informar NR. Ausência documental efetivamente verificada é não conformidade; documento solicitado mas
+    não disponibilizado é ignorado.'
+  formula_calculo: P=100\times N/A,\qquad NR=U-A
+  numerador: Estabelecimentos com ao menos uma interrupção de água na semana anterior.
+  denominador: 'A: estabelecimentos elegíveis do universo U com todos os itens exigidos válidos e evidência
+    para este indicador.'
+  unidade_medida: Percentual de estabelecimentos (%).
+  variaveis_categorias_analise: 'Identificação, rodada, data, evidência e respostas: wat_interrupcao.'
+  granularidade: Estabelecimento e rodada; agregação pelo universo declarado.
+  unidade_territorial: Município do estabelecimento e rede definida no universo da rodada.
+  resolucao_espacial_original: Estabelecimento identificado por CNES.
+  resolucao_temporal: Data da avaliação, com janela retrospectiva somente para interrupções.
+  periodo_referencia: Data da avaliação D; para água/energia, de D−7 até D−1, inclusive, excluído D.
+  limiar_referencia: Qualquer interrupção na janela D−7 a D−1.
+  analise_descritiva: Publicar N, A, U, NR, cobertura, percentual, datas e distribuição por município/tipo
+    de estabelecimento; RES-WAS-01 exige cinco componentes e conformidade conjunta.
+  referencias:
+  - '[@who2024resilienceindicators]'
+  - '[@who2023framework]'
+  protocolo_versao: '2026-10-06'
+  situacao_calculo: locais
+  dependencia_dados_locais: 'Obrigatória: inspeção e verificação documental com o instrumento vazio e o dicionário
+    publicados neste capítulo. O CNES identifica o universo; não contém estas respostas.'
+  automacao: Condicionada
+  condicoes_automacao: Agregação automatizável após coleta e validação humanas; não inferir respostas pelo
+    CNES ou pela ausência de documento recebido.
+  evidencia_verificacao: Documentação verificada
+  detalhe_verificacao: Definição documental conferida no pacote OMS 2024; modelo e regras verificados, sem
+    aplicação em estabelecimentos nem cálculo empírico.
+- tema: Capacidade de resposta, adaptação e resiliência
+  capitulo: chapters/part-3/13-resposta-adaptacao-resiliencia.qmd
+  capitulo_fichas: chapters/part-4/24-fichas-resposta-adaptacao-resiliencia.qmd
+  dimensoes:
+  - resposta
+  responsabilidade_gerencial: Gestão do SUS e direção do estabelecimento, com participação da vigilância, atenção,
+    engenharia clínica, infraestrutura, saúde do trabalhador e proteção e defesa civil conforme o indicador.
+  disponibilidade:
+  - Depende de dados locais
+  qualidade_incerteza: Por indicador/componente, publicar N conforme/afetado, A com resposta válida completa,
+    U elegível e NR=U−A. Cobertura=100 A/U. Percentual=100 N/A; A=0 implica ausente. Não resposta, documento
+    não disponibilizado e pergunta ignorada não equivalem a ausência de problema.
+  comparabilidade: Comparar apenas rodadas com critérios, território e universo compatíveis; documentar mudanças
+    do CNES e não resposta. Não ponderar ou extrapolar amostras de conveniência.
+  relacao_saude: Mede capacidade ou interrupção do sistema, não o efeito final na saúde; a relação com desfechos
+    depende do perigo, da continuidade dos serviços e das populações atendidas.
+  defasagens_temporais: Estrutura e planos podem anteceder eventos; interrupções devem ser registradas próximo
+    da ocorrência; resultados em saúde e recuperação podem aparecer depois.
+  aplicacao_gestao: Identificar lacunas, priorizar investimento, pactuar responsáveis e prazos, acompanhar
+    preparação e verificar continuidade antes, durante e depois de emergências.
+  notas: 'Definição metodológica: OMS, pacote de 2024; dados: avaliação local ainda não realizada. O instrumento
+    deste livro é uma operacionalização autoral documentada, não um formulário oficial da OMS.'
+  cobertura_geografica: Estabelecimentos CNES do universo municipal ou da rede declarada na rodada; não extrapolar
+    para os não avaliados.
+  periodo_disponivel: Somente após coleta local. Nenhuma avaliação real acompanha esta revisão.
+  periodicidade_atualizacao: Por rodada de avaliação; publicar a data de cada estabelecimento e os limites
+    da rodada.
+  forma_acesso: Modelos vazios de universo e avaliação, dicionário de perguntas e regras na seção Instrumento
+    de coleta local deste capítulo.
+  url_persistente: https://cnes.datasus.gov.br/
+  formatos: CSV UTF-8; documentos e registros de inspeção identificados por referência e SHA-256.
+  necessidade_processamento: Validar chaves CNES/rodada, datas, respostas e evidências; aplicar os critérios
+    abaixo e publicar numerador, denominador e não resposta.
+  codigo: RES-ENE-01
+  titulo_completo: Percentual de estabelecimentos de saúde que tiveram interrupção de energia elétrica na semana
+    anterior
+  titulo_resumido: Interrupção de energia em estabelecimentos
+  referencia_metodologica: 'OMS, Health system resilience indicators: an integrated package, edição 2024, indicador
+    29. Critérios e instrumento local explicitados neste capítulo.'
+  conceito: Percentual de estabelecimentos que tiveram ao menos uma interrupção de energia elétrica na semana
+    anterior.
+  objetivo: Monitorar falhas recentes capazes de comprometer iluminação, equipamentos, tecnologia da informação,
+    refrigeração, climatização e serviços essenciais.
+  interpretacao: Quanto maior o percentual, maior a frequência de interrupção recente entre estabelecimentos
+    com resposta válida.
+  usos:
+  - Priorizar redundância elétrica.
+  - Proteger cadeia de frio e equipamentos.
+  - Monitorar impactos de eventos severos.
+  - Planejar combustível e manutenção.
+  limitacoes:
+  - Janela curta não descreve frequência anual.
+  - Interrupções de segundos e horas são contadas igualmente no indicador básico.
+  - Auto relato pode omitir falhas.
+  - Não mede diretamente perda de serviço.
+  fontes_dados:
+  - id: cnes
+    papel: 'Dados cadastrais: identificação e composição do universo da rodada.'
+  - id: avaliacao-local-resiliencia
+    papel: 'Dados a coletar: respostas, inspeção e evidências no instrumento local desta edição.'
+  metodo_calculo: 'Aplicar o instrumento local e as regras de universo, evidência e não resposta deste capítulo.
+    Numerador: resposta sim a ene_interrupcao. Percentual=100 N/A. Perguntas ignoradas retiram o registro de
+    A; informar NR. Ausência documental efetivamente verificada é não conformidade; documento solicitado mas
+    não disponibilizado é ignorado.'
+  formula_calculo: P=100\times N/A,\qquad NR=U-A
+  numerador: Estabelecimentos com ao menos uma interrupção de energia na semana anterior.
+  denominador: 'A: estabelecimentos elegíveis do universo U com todos os itens exigidos válidos e evidência
+    para este indicador.'
+  unidade_medida: Percentual de estabelecimentos (%).
+  variaveis_categorias_analise: 'Identificação, rodada, data, evidência e respostas: ene_interrupcao.'
+  granularidade: Estabelecimento e rodada; agregação pelo universo declarado.
+  unidade_territorial: Município do estabelecimento e rede definida no universo da rodada.
+  resolucao_espacial_original: Estabelecimento identificado por CNES.
+  resolucao_temporal: Data da avaliação, com janela retrospectiva somente para interrupções.
+  periodo_referencia: Data da avaliação D; para água/energia, de D−7 até D−1, inclusive, excluído D.
+  limiar_referencia: Qualquer interrupção na janela D−7 a D−1.
+  analise_descritiva: Publicar N, A, U, NR, cobertura, percentual, datas e distribuição por município/tipo
+    de estabelecimento; RES-WAS-01 exige cinco componentes e conformidade conjunta.
+  referencias:
+  - '[@who2024resilienceindicators]'
+  - '[@who2023framework]'
+  protocolo_versao: '2026-10-06'
+  situacao_calculo: locais
+  dependencia_dados_locais: 'Obrigatória: inspeção e verificação documental com o instrumento vazio e o dicionário
+    publicados neste capítulo. O CNES identifica o universo; não contém estas respostas.'
+  automacao: Condicionada
+  condicoes_automacao: Agregação automatizável após coleta e validação humanas; não inferir respostas pelo
+    CNES ou pela ausência de documento recebido.
+  evidencia_verificacao: Documentação verificada
+  detalhe_verificacao: Definição documental conferida no pacote OMS 2024; modelo e regras verificados, sem
+    aplicação em estabelecimentos nem cálculo empírico.
+- tema: Capacidade de resposta, adaptação e resiliência
+  capitulo: chapters/part-3/13-resposta-adaptacao-resiliencia.qmd
+  capitulo_fichas: chapters/part-4/24-fichas-resposta-adaptacao-resiliencia.qmd
+  dimensoes:
+  - resposta
+  responsabilidade_gerencial: Gestão do SUS e direção do estabelecimento, com participação da vigilância, atenção,
+    engenharia clínica, infraestrutura, saúde do trabalhador e proteção e defesa civil conforme o indicador.
+  disponibilidade:
+  - Depende de dados locais
+  qualidade_incerteza: Por indicador/componente, publicar N conforme/afetado, A com resposta válida completa,
+    U elegível e NR=U−A. Cobertura=100 A/U. Percentual=100 N/A; A=0 implica ausente. Não resposta, documento
+    não disponibilizado e pergunta ignorada não equivalem a ausência de problema.
+  comparabilidade: Comparar apenas rodadas com critérios, território e universo compatíveis; documentar mudanças
+    do CNES e não resposta. Não ponderar ou extrapolar amostras de conveniência.
+  relacao_saude: Mede capacidade ou interrupção do sistema, não o efeito final na saúde; a relação com desfechos
+    depende do perigo, da continuidade dos serviços e das populações atendidas.
+  defasagens_temporais: Estrutura e planos podem anteceder eventos; interrupções devem ser registradas próximo
+    da ocorrência; resultados em saúde e recuperação podem aparecer depois.
+  aplicacao_gestao: Identificar lacunas, priorizar investimento, pactuar responsáveis e prazos, acompanhar
+    preparação e verificar continuidade antes, durante e depois de emergências.
+  notas: Substitui RES-INF-01. A operacionalização segue o indicador 30, edição OMS 2024; não certifica conformidade
+    geral da infraestrutura. O formulário é autoral e está vazio.
+  cobertura_geografica: Estabelecimentos CNES do universo municipal ou da rede declarada na rodada; não extrapolar
+    para os não avaliados.
+  periodo_disponivel: Somente após coleta local. Nenhuma avaliação real acompanha esta revisão.
+  periodicidade_atualizacao: Por rodada de avaliação; publicar a data de cada estabelecimento e os limites
+    da rodada.
+  forma_acesso: Modelos vazios de universo e avaliação, dicionário de perguntas e regras na seção Instrumento
+    de coleta local deste capítulo.
+  url_persistente: https://cnes.datasus.gov.br/
+  formatos: CSV UTF-8; documentos e registros de inspeção identificados por referência e SHA-256.
+  necessidade_processamento: Validar chaves CNES/rodada, datas, respostas e evidências; aplicar os critérios
+    abaixo e publicar numerador, denominador e não resposta.
+  codigo: RES-WAS-01
+  titulo_completo: Percentual de estabelecimentos com serviços básicos de água, saneamento, higiene, resíduos
+    e limpeza
+  titulo_resumido: Serviços básicos de água, saneamento, higiene, resíduos e limpeza
+  referencia_metodologica: 'OMS, Health system resilience indicators: an integrated package, edição 2024, indicador
+    30. Critérios e instrumento local explicitados neste capítulo.'
+  conceito: Percentuais de estabelecimentos conformes em cada um dos cinco componentes do indicador 30 da OMS
+    e em todos simultaneamente.
+  objetivo: Identificar ausência de serviços básicos que sustentam segurança e continuidade assistencial.
+  interpretacao: Cada componente mede sua própria conformidade; o percentual conjunto exige os cinco, sem média
+    ou compensação entre eles.
+  usos:
+  - Priorizar correções em água, saneamento, higiene, resíduos e limpeza.
+  - Acompanhar conformidade conjunta e lacunas por componente.
+  limitacoes:
+  - Inspeção pontual não garante disponibilidade futura.
+  - Conformidade básica não mede potabilidade laboratorial nem segurança estrutural.
+  - Não resposta pode produzir viés; publicar cobertura por componente.
+  fontes_dados:
+  - id: cnes
+    papel: 'Dados cadastrais: identificação e composição do universo da rodada.'
+  - id: avaliacao-local-resiliencia
+    papel: 'Dados a coletar: respostas, inspeção e evidências no instrumento local desta edição.'
+  metodo_calculo: 'Aplicar os itens was_agua, was_saneamento, was_higiene, was_residuos e was_limpeza do dicionário.
+    Água: fonte melhorada, no terreno e disponível. Saneamento: sanitários melhorados e utilizáveis, com unidade
+    para equipe, separação por sexo e higiene menstrual e unidade acessível à mobilidade reduzida. Higiene:
+    instalação funcional nos pontos de cuidado e a até cinco metros dos sanitários, com água e sabão e/ou preparação
+    alcoólica, conforme a redação do indicador 30 da OMS 2024. Resíduos: segregação em três recipientes e tratamento/destinação
+    seguros de infecciosos e perfurocortantes. Limpeza: protocolo disponível e trabalhadores responsáveis treinados.
+    Cada componente exige todos os seus itens sim, com inspeção/evidências registradas. Publicar 100 N/A de
+    cada componente e 100 N/A conjunto; para o conjunto, exigir resposta válida em todos os itens dos cinco
+    componentes. Não compensar componente ausente por outro conforme. Critérios detalhados de fonte, sanitários,
+    tratamento e evidência no instrumento.'
+  formula_calculo: P=100\times N/A,\qquad NR=U-A
+  numerador: 'Por componente: estabelecimentos com todos os seus itens sim. Conjunto: estabelecimentos com
+    os cinco componentes conformes.'
+  denominador: 'A: estabelecimentos do universo U com todos os itens exigidos válidos para o indicador. Para
+    RES-WAS-01, A próprio por componente e A conjunto com os cinco componentes completos.'
+  unidade_medida: Percentual de estabelecimentos (%).
+  variaveis_categorias_analise: Todos os campos was_* do instrumento, identificação CNES, rodada, data e evidências
+    por componente.
+  granularidade: Estabelecimento e rodada; agregação pelo universo declarado.
+  unidade_territorial: Município do estabelecimento e rede definida no universo da rodada.
+  resolucao_espacial_original: Estabelecimento identificado por CNES.
+  resolucao_temporal: Data da avaliação, com janela retrospectiva somente para interrupções.
+  periodo_referencia: Condições observadas e documentação verificada na data da avaliação.
+  limiar_referencia: Conformidade integral em cada componente e simultânea nos cinco para o resultado conjunto.
+  analise_descritiva: Publicar N, A, U, NR, cobertura, percentual, datas e distribuição por município/tipo
+    de estabelecimento; RES-WAS-01 exige cinco componentes e conformidade conjunta.
+  referencias:
+  - '[@who2024resilienceindicators]'
+  - '[@who2023framework]'
+  protocolo_versao: '2026-10-06'
+  situacao_calculo: locais
+  dependencia_dados_locais: 'Obrigatória: inspeção e verificação documental com o instrumento vazio e o dicionário
+    publicados neste capítulo. O CNES identifica o universo; não contém estas respostas.'
+  automacao: Condicionada
+  condicoes_automacao: Agregação automatizável após coleta e validação humanas; não inferir respostas pelo
+    CNES ou pela ausência de documento recebido.
+  evidencia_verificacao: Documentação verificada
+  detalhe_verificacao: Definição documental conferida no pacote OMS 2024; modelo e regras verificados, sem
+    aplicação em estabelecimentos nem cálculo empírico.
+- tema: Capacidade de resposta, adaptação e resiliência
+  capitulo: chapters/part-3/13-resposta-adaptacao-resiliencia.qmd
+  capitulo_fichas: chapters/part-4/24-fichas-resposta-adaptacao-resiliencia.qmd
+  dimensoes:
+  - resposta
+  responsabilidade_gerencial: Gestão do SUS e direção do estabelecimento, com participação da vigilância, atenção,
+    engenharia clínica, infraestrutura, saúde do trabalhador e proteção e defesa civil conforme o indicador.
+  disponibilidade:
+  - Calculável com dados abertos
+  qualidade_incerteza: Verificar país BRA, ano, edição, C5.1 e escala no relatório. Não confundir nível do
+    indicador com média da capacidade C5. Autoavaliação nacional não certifica cada município.
+  comparabilidade: Comparar apenas anos com segunda edição SPAR, C5.1 e escala idêntica. A variável é ordinal,
+    sem média entre níveis.
+  relacao_saude: Mede capacidade ou interrupção do sistema, não o efeito final na saúde; a relação com desfechos
+    depende do perigo, da continuidade dos serviços e das populações atendidas.
+  defasagens_temporais: Estrutura e planos podem anteceder eventos; interrupções devem ser registradas próximo
+    da ocorrência; resultados em saúde e recuperação podem aparecer depois.
+  aplicacao_gestao: Identificar lacunas, priorizar investimento, pactuar responsáveis e prazos, acompanhar
+    preparação e verificar continuidade antes, durante e depois de emergências.
+  notas: 'Fonte metodológica: SPAR segunda edição e indicador 21 OMS 2024. Fonte de dados: eSPAR. Nenhum valor
+    brasileiro foi transcrito ou calculado nesta revisão.'
+  cobertura_geografica: Brasil.
+  periodo_disponivel: Relatórios que utilizem a segunda edição de 2021; conferir a edição em cada ano.
+  periodicidade_atualizacao: Anual, conforme publicação do eSPAR.
+  forma_acesso: Portal eSPAR, relatório nacional do Brasil e indicador C5.1.
+  url_persistente: https://extranet.who.int/e-spar
+  formatos: Relatório ou exportação do eSPAR arquivada com metadados.
+  necessidade_processamento: Selecionar Brasil/ano/edição/C5.1, validar a escala e transcrever o nível.
+  codigo: RES-ALR-01
+  titulo_completo: Nível nacional brasileiro de alerta precoce e resposta — SPAR C5.1
+  titulo_resumido: Alerta precoce e resposta nacional — SPAR C5.1
+  referencia_metodologica: SPAR, segunda edição, OMS 2021, indicador C5.1; reproduzido no indicador 21 do pacote
+    OMS 2024.
+  conceito: Nível ordinal de 1 a 5 declarado pelo Brasil para C5.1 no relatório anual SPAR, segunda edição.
+  objetivo: Avaliar a capacidade institucional de detectar, comunicar, analisar e responder oportunamente a
+    eventos de saúde pública.
+  interpretacao: '1: diretrizes ausentes/em elaboração; 2: desenvolvidas, implementação insuficiente; 3: implementadas
+    nacionalmente com notificação imediata e semanal; 4: nacional e intermediária; 5: nacional, intermediária
+    e local com exercícios, revisão, avaliação e atualização. A ficha não avalia cada município.'
+  usos:
+  - Monitorar capacidade de alerta.
+  - Identificar nível administrativo não coberto.
+  - Integrar vigilância baseada em indicadores e eventos.
+  - Planejar exercícios e melhoria.
+  limitacoes:
+  - Autoavaliação pode superestimar capacidade.
+  - O nível nacional oculta desigualdades locais.
+  - Existência do sistema não mede antecedência nem alcance de cada alerta.
+  - C5.1 mede vigilância de saúde pública; não é indicador específico de alerta climático.
+  fontes_dados:
+  - id: who-espar
+    papel: 'Dados: relatório anual brasileiro, C5.1, segunda edição; referência do instrumento SPAR 2021.'
+  metodo_calculo: 'Obter no eSPAR o relatório do Brasil (BRA), selecionar o ano e confirmar que usa a segunda
+    edição (2021) e o indicador C5.1. Transcrever o nível nacional publicado, conservando país, ano, edição,
+    código, nível, URL/arquivo, data de acesso e SHA-256. Se a saída apresentar apenas escore 20, 40, 60, 80
+    ou 100, converter por nível=escore/20 somente quando a legenda do próprio C5.1 confirmar essa correspondência
+    e arquivar essa legenda; não usar média da capacidade C5. Não reconstruir o nível a partir de respostas
+    locais. Nível ausente ou edição incompatível: não disponível, nunca zero ou nível 1.'
+  formula_calculo: L_{BRA,ano}=\text{nível C5.1 publicado}\in\{1,2,3,4,5\}
+  numerador: 'Não se aplica: nível ordinal publicado.'
+  denominador: Não se aplica.
+  unidade_medida: Nível ordinal de 1 a 5.
+  variaveis_categorias_analise: País BRA, ano, edição SPAR, indicador C5.1, nível, evidência da escala e arquivo
+    de origem.
+  granularidade: País e ano.
+  unidade_territorial: Brasil. Não atribuir a municípios ou estabelecimentos.
+  resolucao_espacial_original: Nacional.
+  resolucao_temporal: Anual.
+  periodo_referencia: Ano do relatório brasileiro, com segunda edição SPAR confirmada.
+  limiar_referencia: Categorias cumulativas C5.1 da segunda edição; não calcular médias ou diferenças percentuais
+    entre níveis.
+  analise_descritiva: Apresentar nível brasileiro, ano, edição, evidência e limitações da autoavaliação; não
+    produzir mapa municipal dessa classificação.
+  referencias:
+  - '[@who2021spar]'
+  - '[@who2024resilienceindicators]'
+  protocolo_versao: '2026-10-06'
+  situacao_calculo: abertos
+  dependencia_dados_locais: Não depende da coleta local deste livro; depende da publicação nacional brasileira
+    no eSPAR.
+  automacao: Condicionada
+  condicoes_automacao: Extração condicionada à exportação do eSPAR e à identificação de C5.1/edição/escala;
+    nenhum valor brasileiro extraído nesta revisão.
+  evidencia_verificacao: Documentação verificada
+  detalhe_verificacao: Definição conferida nas referências citadas; nenhuma série deste indicador foi calculada
+    nesta revisão.

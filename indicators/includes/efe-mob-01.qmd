@@ -1,21 +1,21 @@
-## Ficha do indicador: Taxa de internação hospitalar do SUS por causas selecionadas {#sec-efe-mob-01 .ficha-title}
+## Ficha do indicador: Taxas de internações SUS pelos seis grupos de causas da RIPSA D.29 {#sec-efe-mob-01 .ficha-title}
 
 ::: {.indicator-card}
 [Código:]{.field-label} EFE-MOB-01 \
 [Título resumido:]{.field-label} Internações SUS por causa — D.29 \
 [Tema:]{.field-label} Efeitos do clima e do ambiente sobre a saúde \
 [Dimensão:]{.field-label} efeito \
-[Disponibilidade:]{.field-label} [dados secundários de saúde]{.availability} [requer qualificação]{.availability}
+[Disponibilidade:]{.field-label} [Calculável com dados abertos]{.availability}
 :::
 
 Contexto e interpretação: [Efeitos do clima e do ambiente sobre a saúde](../../chapters/part-3/12-efeitos-saude.qmd#sec-efeitos-saude).
 
 ### Identificação e fundamento {.unnumbered .ficha-section}
 
-[Base de consolidação.]{.field-label} Indicador D.29 da RIPSA para internações hospitalares financiadas pelo SUS por causas selecionadas.
+[Base de consolidação.]{.field-label} RIPSA, IDB 2010, ficha D.29, tabela de causas CID-10. Seis taxas separadas por 10 mil residentes; a enumeração da tabela prevalece sobre o resumo abreviado do cabeçalho.
 
 ::: {.callout-note icon=false title="Conceito-chave"}
-Número de internações de residentes financiadas pelo SUS por uma causa ou grupo definido, por 10 mil habitantes da população residente.
+Número de AIHs normais aprovadas de residentes, por diagnóstico principal em cada grupo D.29 e ano de processamento, por 10 mil habitantes.
 :::
 
 ### Objetivo {.unnumbered .ficha-section}
@@ -24,82 +24,90 @@ Medir a frequência de utilização hospitalar do SUS associada a causas selecio
 
 ### Interpretação {.unnumbered .ficha-section}
 
-Valor de 12 por 10 mil representa 12 AIH de internação pela causa para cada 10 mil residentes. Mede episódios administrativos de internação, não pessoas únicas nem incidência integral da doença.
+Mede episódios administrativos financiados pelo SUS, não pessoas únicas nem incidência da doença. Ano de processamento difere da data clínica de internação.
 
 ### Usos {.unnumbered .ficha-section}
 
-- Monitorar pressão hospitalar durante calor
-- Fumaça
-- Enchentes ou surtos.
-- Comparar sazonalidade e períodos.
-- Estratificar por idade e território.
+- Monitorar a utilização hospitalar anual pelos seis grupos de causas.
+- Comparar anos de processamento e municípios com cobertura verificada.
 - Planejar capacidade assistencial.
 
 ### Limitações {.unnumbered .ficha-section}
 
-- Cobre internações financiadas pelo SUS
-- Não toda assistência hospitalar.
+- Cobre internações financiadas pelo SUS, não toda assistência hospitalar.
 - Uma pessoa pode gerar mais de uma AIH ou internação.
-- Oferta
-- Acesso e regras de faturamento modificam a taxa.
-- Diagnóstico principal pode não registrar a exposição ambiental.
+- Oferta, acesso e regras de faturamento modificam a taxa.
+- Diagnóstico principal não identifica a exposição ambiental.
+- Ano de processamento difere do ano clínico de internação.
 
 ### Fontes de dados {.unnumbered .ficha-section}
 
-- Sistema de Informações Hospitalares do SUS — AIH de residentes por diagnóstico, data e características ([cadastro](../../backmatter/indice-fontes.qmd#sih-sus))
-- Instituto Brasileiro de Geografia e Estatística — população residente no denominador ([cadastro](../../backmatter/indice-fontes.qmd#ibge))
+- Sistema de Informações Hospitalares do SUS — Dados: arquivos reduzidos RD, AIHs aprovadas, diagnóstico principal e residência. ([cadastro](../../backmatter/indice-fontes.qmd#sih-sus))
+- População municipal por sexo e idade — revisão 2024 — Dados: população municipal total, revisão 2024. ([cadastro](../../backmatter/indice-fontes.qmd#ms-pop-2024))
 
 ### Método de cálculo {.unnumbered .ficha-section}
 
-Definir códigos CID-10, população, território de residência e período. Contar AIH de residentes com diagnóstico principal no conjunto selecionado, observando longa permanência e duplicidades previstas no método. Dividir pela população residente e multiplicar por 10 mil. Para efeitos agudos, usar data de internação quando disponível e não apenas competência.
+Usar arquivos SIH/SUS RD (layout desde 2008) de todas as UFs e das 12 competências do ano, pois residentes podem ser atendidos em outra UF. Selecionar ANO_CMPT (ano de processamento), MES_CMPT de 01 a 12, IDENT=1 (AIH normal); excluir IDENT=5 (continuidade), registrar tipos ausentes/inválidos separadamente. Contar uma linha de AIH aprovada por registro do arquivo, sem deduplicar pessoas ou reunir reinternações. Não carregar o mesmo arquivo duas vezes; duplicata técnica de ingestão é erro, não internação adicional. MUNIC_RES determina residência; vincular código DATASUS de seis dígitos à correspondência IBGE. DIAG_PRINC determina o grupo, usando os três primeiros caracteres CID-10 válidos após retirar ponto e espaços. Seis grupos independentes: neoplasias C00–C97 e D46; diabetes E10–E14; doenças hipertensivas I10–I15; isquêmicas do coração I20–I25; cerebrovasculares I60–I69; pneumonia J12–J18. Dividir cada contagem pela população total e multiplicar por 10.000. Estudo de Estimativas Populacionais por Município, Idade e Sexo, revisão 2024, Ministério da Saúde/DATASUS (popsvs2024br.def). Usar ambos os sexos, município e mesmo ano do numerador. Para totais, usar o Total publicado; para padronização, idade simples ou grupos que componham exatamente as 18 faixas. Fixar a edição e arquivar a tabela extraída; não misturar a série antiga 2000–2021, projeções apenas estaduais ou estimativas para o TCU. Se o município/ano ou a divisão 80–84/85+ não estiver disponível, não calcular a taxa correspondente.
 
 $$
-TI_c=10\,000\times\frac{AIH_{c,res}}{Pop_{res}}
+TI_g=10\,000\times AIH_{g,res,processamento}/Pop_{res}
 $$
 
 ::: {.indicator-card}
-[Numerador.]{.field-label} Internações ou AIH de residentes financiadas pelo SUS pela causa selecionada.
+[Numerador.]{.field-label} AIHs normais aprovadas, IDENT=1, por grupo DIAG_PRINC, município MUNIC_RES e ano ANO_CMPT; exclui continuidade tipo 5.
 
-[Denominador.]{.field-label} População residente no território e período.
+[Denominador.]{.field-label} Estudo de Estimativas Populacionais por Município, Idade e Sexo, revisão 2024, Ministério da Saúde/DATASUS (popsvs2024br.def). Usar ambos os sexos, município e mesmo ano do numerador. Para totais, usar o Total publicado; para padronização, idade simples ou grupos que componham exatamente as 18 faixas. Fixar a edição e arquivar a tabela extraída; não misturar a série antiga 2000–2021, projeções apenas estaduais ou estimativas para o TCU. Se o município/ano ou a divisão 80–84/85+ não estiver disponível, não calcular a taxa correspondente.
 
 [Unidade de medida.]{.field-label} Internações por 10 mil habitantes.
 
-[Variáveis e categorias de análise.]{.field-label} Diagnóstico principal e secundário; idade; sexo; raça ou cor; residência; estabelecimento; data; permanência; desfecho.
+[Variáveis e categorias de análise.]{.field-label} ANO_CMPT, MES_CMPT, IDENT, N_AIH, MUNIC_RES, DIAG_PRINC; DT_INTER apenas para distinguir data clínica, sem filtro por essa data.
 
-[Granularidade.]{.field-label} AIH na origem e taxa territorial no resultado.
+[Granularidade.]{.field-label} AIH normal aprovada; saída município, ano de processamento e grupo de causa.
 
-[Periodicidade de atualização.]{.field-label} Mensal, sujeita a revisões administrativas.
+[Periodicidade de atualização.]{.field-label} Mensal na origem; resultado anual após verificar as 12 competências de todas as UFs.
 
 [Responsabilidade gerencial.]{.field-label} Área de vigilância epidemiológica e informação em saúde, com apoio de epidemiologia e estatística para modelagem e interpretação.
 
-[Notas.]{.field-label} Contagens, taxas, excesso, associação e atribuição respondem a perguntas diferentes. Resultados estimados devem informar modelo, referência contrafactual e incerteza.
+[Notas.]{.field-label} Sem suavização ou correção da cobertura. Ausência de arquivo, diagnóstico, residência ou população deve ser sinalizada. Denominador zero/ausente: taxa ausente, nunca zero ou infinita.
 
-[Análise descritiva do indicador.]{.field-label} Mostrar contagens e taxas, permanência, óbito hospitalar, idade, raça ou cor, residência e local de atendimento, sazonalidade, cobertura SUS e mudanças de oferta.
+[Análise descritiva do indicador.]{.field-label} Publicar seis taxas com AIHs, população, ano de processamento, cobertura das competências, exclusões e versão dos arquivos.
 
 :::
 
 ### Campos complementares para clima, ambiente e saúde {.unnumbered .ficha-section}
 
 ::: {.indicator-card}
-[Unidade territorial.]{.field-label} Município de residência e agregações, com opção de analisar fluxo por local de internação separadamente.
+[Unidade territorial.]{.field-label} Município de residência e agregações por soma prévia de numeradores e denominadores.
 
-[Resolução espacial original.]{.field-label} Município de residência e estabelecimento conforme arquivo público.
+[Resolução espacial original.]{.field-label} Município de residência.
 
-[Resolução temporal.]{.field-label} Episódio ou competência mensal; resumo diário quando datas forem qualificadas.
+[Resolução temporal.]{.field-label} Ano de processamento das AIHs aprovadas.
 
-[Período de referência.]{.field-label} Período analisado e versão do processamento SIH/SUS.
+[Período de referência.]{.field-label} ANO_CMPT; não é ano de DT_INTER.
 
-[Limiar ou valor de referência.]{.field-label} Não há corte universal; usar série histórica e capacidade local.
+[Limiar ou valor de referência.]{.field-label} Seis grupos fixados na tabela D.29 de 2010; taxas independentes, sem limiar de alerta.
 
 :::
 
 ### Disponibilidade e acesso {.unnumbered .ficha-section}
 
-[Cobertura geográfica.]{.field-label} Brasil para internações financiadas pelo SUS.
+[Protocolo verificado em.]{.field-label} 2026-10-06
 
-[Período disponível.]{.field-label} Conforme o SIH/SUS; considerar mudanças da CID e do processamento.
+[Dependência de dados locais.]{.field-label} Não depende de coleta local.
 
-[Periodicidade de atualização.]{.field-label} Mensal, sujeita a revisões administrativas.
+[Automação.]{.field-label} Condicionada
+
+[Requisitos para o cálculo.]{.field-label} Validar a edição, as entradas e os códigos; arquivar a extração com URL, data e SHA-256. Implementação em repositório de cálculo separado.
+
+[Nível de evidência.]{.field-label} Documentação verificada
+
+[Alcance da verificação.]{.field-label} Definição conferida nas referências citadas; nenhuma série deste indicador foi calculada nesta revisão.
+
+[Cobertura geográfica.]{.field-label} Brasil, internações financiadas pelo SUS.
+
+[Período disponível.]{.field-label} 2008–2024 nesta versão, pela interseção do layout RD vigente desde 2008 e população revisão 2024.
+
+[Periodicidade de atualização.]{.field-label} Mensal na origem; resultado anual após verificar as 12 competências de todas as UFs.
 
 [Forma de acesso.]{.field-label} TABNET, TABWIN e transferência de arquivos.
 
@@ -107,7 +115,7 @@ $$
 
 [Formato dos arquivos.]{.field-label} DBC, DBF após conversão e tabelas exportadas.
 
-[Necessidade de processamento.]{.field-label} Selecionar diagnósticos, data e residência, tratar AIH de continuidade, vincular denominador e verificar cobertura.
+[Necessidade de processamento.]{.field-label} Conferir cobertura dos arquivos, excluir continuidade, selecionar residência e diagnóstico principal, contar por competência e vincular população.
 
 ### Qualidade, comparação e saúde {.unnumbered .ficha-section}
 
@@ -117,11 +125,12 @@ $$
 
 [Relação com desfechos de saúde.]{.field-label} Mede ocorrência observada ou carga estimada de desfechos; a relação com clima ou ambiente exige exposição definida e desenho analítico compatível.
 
-[Defasagens temporais relevantes.]{.field-label} Registrar data do evento de saúde e considerar o intervalo biologicamente plausível entre exposição e desfecho; data de processamento ou competência não deve substituir automaticamente a data clínica.
+[Defasagens temporais relevantes.]{.field-label} Atrasos de apresentação e processamento podem deslocar o registro em relação à internação clínica. Não usar esta série para atribuição diária a um evento ambiental.
 
 [Aplicação na gestão.]{.field-label} Monitorar impacto, desigualdades e pressão sobre serviços, avaliar alertas e intervenções e apoiar priorização, sem atribuir causalidade além do desenho.
 
 ### Referências metodológicas {.unnumbered .ficha-section}
 
-- [@ripsa2026]
+- [@ripsa2010d29]
 - [@brasil2026sih]
+- [@ms2026populacao]

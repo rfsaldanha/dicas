@@ -19,38 +19,43 @@ indicators:
     referencia_metodologica: Indicador ODS 6.1.1, sob custódia do Programa Conjunto OMS/UNICEF de Monitoramento de Água, Saneamento e Higiene.
     conceito: Proporção da população que usa fonte melhorada de água localizada no domicílio ou terreno, disponível quando necessária e livre de contaminação fecal e química prioritária.
     objetivo: Monitorar acesso universal e equitativo a serviço de água que reúna acessibilidade, disponibilidade e qualidade.
-    interpretacao: O serviço é classificado como gerido de forma segura apenas quando atende simultaneamente aos três critérios. O valor global é estimado de maneira conservadora a partir dos componentes disponíveis.
+    interpretacao: "Estimativa agregada pela menor cobertura dos três componentes JMP. Não é a proporção diretamente observada da interseção dos domicílios que cumprem simultaneamente os três critérios."
     usos: [Monitorar o ODS 6.1.1., Comparar desigualdades urbano-rurais e sociais., Planejar expansão e melhoria do abastecimento.]
     limitacoes: [Nem todos os países dispõem de todos os componentes., A estimativa nacional pode ocultar intermitência local., Qualidade costuma usar E. coli e químicos prioritários, não todo o padrão de potabilidade., Fonte principal declarada não mede consumo individual.]
-    metodo_calculo: Estimar a proporção que usa fonte melhorada e, entre usuários, as proporções com fonte no local, água disponível quando necessária e livre de contaminação. Multiplicar cada componente pela cobertura de fonte melhorada e usar o menor valor disponível conforme o método JMP.
-    formula_calculo: 'ODS6.1.1=100\times\min(P_{local},P_{disponível},P_{sem\ contaminação})'
-    numerador: População estimada que usa fonte melhorada e atende simultaneamente aos componentes de serviço seguro.
-    denominador: População total do território.
+    metodo_calculo: "Para cada domicílio h, registrar peso wh, residentes nh, tipo de fonte, localização, insuficiência de água nos últimos 30 dias, E. coli em 100 mL, arsênio em µg/L e fluoreto em mg/L. Fontes melhoradas incluem rede, poço tubular/perfurado, poço escavado protegido, nascente protegida, chuva e água envasada/entregue, segundo a classificação JMP. Calcular três proporções sobre a mesma população total ponderada: (1) fonte melhorada no domicílio ou terreno; (2) fonte melhorada disponível quando necessária, sem episódio declarado de quantidade insuficiente no período perguntado; (3) fonte melhorada sem E. coli em 100 mL e com arsênio≤10 µg/L e fluoreto≤1,5 mg/L em amostragem representativa. Para cada componente j, pj=sum(wh×nh×Ihj)/sum(wh×nh). O indicador municipal é 100×min(p1,p2,p3). Este protocolo exige os três componentes completos e comparáveis; se algum não puder ser estimado, publicar ausente e apresentar somente os componentes disponíveis. Não substituir p3 pela fração de amostras de rotina conformes do Sisagua."
+    formula_calculo: "p_j=\\frac{\\sum_h w_h n_h I_{h,j}}{\\sum_h w_h n_h},\\qquad W_m=100\\min(p_1,p_2,p_3)"
+    numerador: "Em cada componente, população ponderada que usa fonte melhorada e cumpre o requisito; o resultado final é o mínimo das coberturas, não uma contagem de interseção."
+    denominador: "A mesma população municipal total ponderada nos três componentes."
     unidade_medida: Percentual (%).
-    variaveis_categorias_analise: Fonte melhorada; localização; disponibilidade; E. coli; arsênio e fluoreto quando disponíveis; urbano/rural; grupo socioeconômico.
-    granularidade: Estimativa nacional, urbana e rural; outras desagregações conforme dados.
-    unidade_territorial: País; desagregações subnacionais quando metodologicamente suportadas.
-    resolucao_espacial_original: A das pesquisas, censos e dados administrativos integrados.
-    resolucao_temporal: Anual estimada.
-    periodo_referencia: Ano da estimativa e fontes subjacentes documentadas.
-    limiar_referencia: Atender aos três critérios de serviço gerido de forma segura.
-    fontes_dados:
-      - id: jmp
-        papel: estimativa internacional oficial e metadado ODS
-      - id: sinisa
-        papel: informação administrativa nacional complementar sobre serviços
-      - id: ibge
-        papel: censos e pesquisas domiciliares usados em análises nacionais
-    cobertura_geografica: Global no JMP; detalhamento nacional depende das fontes brasileiras.
-    periodo_disponivel: Estimativas JMP desde 2000, conforme disponibilidade.
-    periodicidade_atualizacao: Periódica.
-    forma_acesso: Portal WASH Data e fontes nacionais.
-    url_persistente: https://washdata.org/topics/drinking-water
-    formatos: Tabelas, arquivos de estimativas e relatórios.
-    disponibilidade: [disponível em estimativa oficial]
-    necessidade_processamento: Para o valor oficial, selecionar edição. Para análise local, harmonizar fonte, população, disponibilidade e qualidade sem rotular como ODS oficial indevidamente.
+    variaveis_categorias_analise: "Município, rodada, domicílio, peso, residentes, fonte, localização, insuficiência nos últimos 30 dias, E. coli, arsênio e fluoreto."
+    granularidade: "Domicílio/residente em levantamento representativo do município, com pesos amostrais e ano explícitos."
+    unidade_territorial: "Município no limite territorial vigente no levantamento; não presumir representatividade municipal de pesquisa nacional."
+    resolucao_espacial_original: "Domicílio e área de atendimento vinculados ao município."
+    resolucao_temporal: "Rodada de levantamento; publicar série somente nos anos efetivamente observados."
+    periodo_referencia: "Rodada do levantamento; disponibilidade referida aos últimos 30 dias; qualidade e acesso medidos no período da rodada."
+    limiar_referencia: "Fonte melhorada no local; disponibilidade quando necessária; E. coli ausente/100 mL, arsênio≤10 µg/L e fluoreto≤1,5 mg/L. Os três componentes são obrigatórios neste protocolo municipal."
+    fontes_dados: [{"id": "jmp", "papel": "Definição e instrumentos de monitoramento; não fornece automaticamente microdados representativos de cada município"}, {"id": "ibge", "papel": "População municipal e desenho amostral; o Censo isolado não contém todos os componentes"}]
+    cobertura_geografica: "Somente municípios com levantamento representativo e componentes compatíveis no tempo e na população-alvo."
+    periodo_disponivel: "A partir dos levantamentos locais com os componentes requeridos. Não há série municipal nacional completa demonstrada para esta definição."
+    periodicidade_atualizacao: "Por levantamento local; não interpolar automaticamente entre rodadas."
+    forma_acesso: "Exportação tabular de levantamento domiciliar e registros locais vinculados, com dicionário, período, pesos e município. Microdados identificáveis não devem integrar a base pública de indicadores."
+    url_persistente: "https://unstats.un.org/sdgs/metadata/files/Metadata-06-01-01.pdf"
+    formatos: "CSV/Parquet local com identificadores pseudonimizados, peso domiciliar, residentes e variáveis especificadas no método; saída pública agregada."
+    disponibilidade: ["Depende de dados locais"]
+    necessidade_processamento: "Validar componentes, pesos e vinculação entre domicílios, população e serviços; calcular estimativa por município e rodada com incerteza."
     analise_descritiva: Mostrar valor total, componentes, urbano/rural, grupos sociais, fonte dos dados e intervalo entre anos observados e estimados.
     referencias: ["[@un2026sdg611]", "[@jmp2026water]"]
+    qualidade_incerteza: "Sem variável indispensável, sem peso amostral quando exigido ou sem representatividade municipal, o indicador é ausente. Publicar tamanho amostral, não resposta e intervalo de confiança pelo desenho da pesquisa; não tratar desconhecido como não atendimento."
+    comparabilidade: "Mesma população-alvo, instrumento, definição de serviço e período; preservar separadamente as rodadas de coleta. A metodologia internacional orienta a definição, mas não cria os dados municipais inexistentes."
+    notas: "Manter como indicador dependente de dados locais. Indicadores de rede do SINISA e conformidade de amostras do Sisagua são medidas distintas, não substituições equivalentes dos ODS."
+    protocolo_versao: "2026-10-03"
+    situacao_calculo: "locais"
+    dependencia_dados_locais: "Necessária"
+    automacao: "Não demonstrada"
+    condicoes_automacao: "Levantamento local representativo contendo todas as variáveis do método; a fórmula está definida, mas não foi demonstrada uma base aberta municipal com esses componentes."
+    evidencia_verificacao: "Documentação verificada"
+    detalhe_verificacao: "Produto e método documentados; série municipal completa ainda não produzida."
+
 
   - <<: *wash_common
     codigo: SAN-ESG-01
@@ -62,35 +67,40 @@ indicators:
     interpretacao: "Conexão à rede não basta: o indicador considera o destino e tratamento. Soluções no local podem qualificar-se quando manejadas com segurança."
     usos: [Monitorar ODS 6.2.1a., Planejar coleta e tratamento de esgoto e lodo fecal., Avaliar desigualdades e risco sanitário.]
     limitacoes: [Dados sobre toda a cadeia são incompletos., Taxas de tratamento podem ser estimadas., Não mede diretamente exposição em cada domicílio., Instalação compartilhada é excluída do nível básico no método global.]
-    metodo_calculo: Estimar usuários de instalações melhoradas não compartilhadas e somar as parcelas cujas excretas são dispostas com segurança no local, transportadas por rede e tratadas ou removidas de sistemas não conectados e tratadas.
-    formula_calculo: 'ODS6.2.1a=100\times\frac{Pop_{in\ situ\ seguro}+Pop_{rede\ tratado}+Pop_{lodo\ tratado}}{Pop_{total}}'
+    metodo_calculo: "No levantamento municipal, registrar peso domiciliar wh, residentes nh, tipo de instalação, compartilhamento com outros domicílios e destino verificado das excretas. Considerar instalações melhoradas não compartilhadas. Classificar cada domicílio em exatamente uma categoria segura: excretas tratadas/dispostas com segurança in situ; excretas transportadas pela rede e efetivamente tratadas; ou lodo removido e efetivamente tratado fora do local. A classificação exige evidência de toda a cadeia segundo JMP, incluindo tratamento/disposição final, não apenas ligação à rede ou existência de fossa. Somar wh×nh em cada uma das três categorias mutuamente exclusivas, dividir pela população total ponderada e multiplicar por 100. Categorias de destino desconhecido impedem a estimativa completa; publicar os componentes conhecidos e a lacuna, sem convertê-la em zero."
+    formula_calculo: "S_m=100\\frac{\\sum_h w_hn_h(I_{in\\ situ,h}+I_{rede,h}+I_{lodo,h})}{\\sum_h w_hn_h}"
     numerador: População que usa instalação melhorada não compartilhada com excretas manejadas com segurança.
     denominador: População total.
     unidade_medida: Percentual (%).
-    variaveis_categorias_analise: Tipo de instalação; compartilhamento; contenção; esvaziamento; transporte; tratamento; urbano/rural.
-    granularidade: Nacional, urbana e rural no JMP; local conforme sistemas administrativos.
-    unidade_territorial: País ou território subnacional qualificado.
-    resolucao_espacial_original: A das pesquisas e registros administrativos.
-    resolucao_temporal: Anual estimada.
-    periodo_referencia: Ano da estimativa e fontes subjacentes.
-    limiar_referencia: Instalação melhorada não compartilhada e manejo seguro de excretas.
-    fontes_dados:
-      - id: jmp
-        papel: estimativa internacional e metadado ODS
-      - id: sinisa
-        papel: informação nacional sobre esgotamento e tratamento
-      - id: ibge
-        papel: censos e pesquisas domiciliares
-    cobertura_geografica: Global; detalhe nacional conforme fontes.
-    periodo_disponivel: Conforme série JMP e fontes nacionais.
-    periodicidade_atualizacao: Periódica.
-    forma_acesso: Portal WASH Data e sistemas nacionais.
-    url_persistente: https://unstats.un.org/sdgs/metadata/?Goal=6&Target=6.2
-    formatos: Tabelas e relatórios.
-    disponibilidade: [disponível em estimativa oficial]
-    necessidade_processamento: Integrar tipo de instalação e destino de excretas; não inferir tratamento a partir de conexão.
+    variaveis_categorias_analise: "Município, rodada, domicílio, peso, residentes, instalação, compartilhamento, contenção, esvaziamento, transporte, tratamento e disposição final."
+    granularidade: "Domicílio/residente em levantamento representativo do município, com pesos amostrais e ano explícitos."
+    unidade_territorial: "Município no limite territorial vigente no levantamento; não presumir representatividade municipal de pesquisa nacional."
+    resolucao_espacial_original: "Domicílio e área de atendimento vinculados ao município."
+    resolucao_temporal: "Rodada de levantamento; publicar série somente nos anos efetivamente observados."
+    periodo_referencia: "Rodada de levantamento, com verificação da cadeia de esgotamento no mesmo período."
+    limiar_referencia: "Instalação melhorada não compartilhada e uma das três destinações seguras comprovadas segundo JMP."
+    fontes_dados: [{"id": "jmp", "papel": "Definição e instrumentos de monitoramento; não fornece automaticamente microdados representativos de cada município"}, {"id": "ibge", "papel": "População municipal e desenho amostral; o Censo isolado não contém todos os componentes"}]
+    cobertura_geografica: "Somente municípios com levantamento representativo e componentes compatíveis no tempo e na população-alvo."
+    periodo_disponivel: "A partir dos levantamentos locais com os componentes requeridos. Não há série municipal nacional completa demonstrada para esta definição."
+    periodicidade_atualizacao: "Por levantamento local; não interpolar automaticamente entre rodadas."
+    forma_acesso: "Exportação tabular de levantamento domiciliar e registros locais vinculados, com dicionário, período, pesos e município. Microdados identificáveis não devem integrar a base pública de indicadores."
+    url_persistente: "https://unstats.un.org/sdgs/metadata/files/Metadata-06-02-01a.pdf"
+    formatos: "CSV/Parquet local com identificadores pseudonimizados, peso domiciliar, residentes e variáveis especificadas no método; saída pública agregada."
+    disponibilidade: ["Depende de dados locais"]
+    necessidade_processamento: "Validar componentes, pesos e vinculação entre domicílios, população e serviços; calcular estimativa por município e rodada com incerteza."
     analise_descritiva: Apresentar cobertura e componentes por urbano/rural, renda e território, distinguindo rede, soluções locais e tratamento.
     referencias: ["[@un2026sdg621]"]
+    qualidade_incerteza: "Sem variável indispensável, sem peso amostral quando exigido ou sem representatividade municipal, o indicador é ausente. Publicar tamanho amostral, não resposta e intervalo de confiança pelo desenho da pesquisa; não tratar desconhecido como não atendimento."
+    comparabilidade: "Mesma população-alvo, instrumento, definição de serviço e período; preservar separadamente as rodadas de coleta. A metodologia internacional orienta a definição, mas não cria os dados municipais inexistentes."
+    notas: "Manter como indicador dependente de dados locais. Indicadores de rede do SINISA e conformidade de amostras do Sisagua são medidas distintas, não substituições equivalentes dos ODS."
+    protocolo_versao: "2026-10-03"
+    situacao_calculo: "locais"
+    dependencia_dados_locais: "Necessária"
+    automacao: "Não demonstrada"
+    condicoes_automacao: "Levantamento local representativo contendo todas as variáveis do método; a fórmula está definida, mas não foi demonstrada uma base aberta municipal com esses componentes."
+    evidencia_verificacao: "Documentação verificada"
+    detalhe_verificacao: "Produto e método documentados; série municipal completa ainda não produzida."
+
 
   - <<: *wash_common
     codigo: SAN-HIG-01
@@ -102,37 +112,44 @@ indicators:
     interpretacao: Valor maior indica maior cobertura de instalações com insumos no momento observado. Não mede frequência nem técnica de lavagem.
     usos: [Monitorar ODS 6.2.1b., Planejar políticas de água e higiene., Avaliar desigualdades e preparação para surtos.]
     limitacoes: [Observação pontual pode variar no tempo., Não mede comportamento., Produtos de limpeza alternativos exigem classificação do protocolo., Valor domiciliar não representa escolas ou serviços de saúde.]
-    metodo_calculo: Em pesquisa representativa, observar a presença de instalação no domicílio e verificar água e sabão; ponderar pessoas residentes nos domicílios qualificados.
-    formula_calculo: 'ODS6.2.1b=100\times\frac{Pop_{domicílios\ com\ instalação,\ água\ e\ sabão}}{Pop_{total}}'
-    numerador: População em domicílios com instalação observada, água e sabão.
-    denominador: População total pesquisada e ponderada.
+    metodo_calculo: "Visitar amostra domiciliar representativa do município. Registrar peso wh, número de residentes nh e observação direta de instalação para lavagem das mãos no domicílio/terreno, água disponível e sabão disponível no momento da visita. Ih=1 somente quando os três requisitos forem observados; instalação pode ser fixa ou móvel segundo JMP. Calcular 100×sum(wh×nh×Ih)/sum(wh×nh). Tratar não resposta pelo desenho amostral e seus pesos ajustados; não observação de um requisito é dado ausente, não ausência comprovada do equipamento. Não usar somente autodeclaração de encanamento."
+    formula_calculo: "H_m=100\\frac{\\sum_h w_hn_h I(\\text{instalação, água e sabão observados})}{\\sum_h w_hn_h}"
+    numerador: "População ponderada em domicílios com os três requisitos observados."
+    denominador: "População total representada pelos pesos ajustados do levantamento."
     unidade_medida: Percentual (%).
-    variaveis_categorias_analise: Instalação; água; sabão; urbano/rural; renda; região.
-    granularidade: Domicílio na coleta e população/território na estimativa.
-    unidade_territorial: País ou domínio amostral.
-    resolucao_espacial_original: A do desenho da pesquisa.
-    resolucao_temporal: Inquérito periódico e estimativa anual quando modelada.
-    periodo_referencia: Data da coleta ou ano da estimativa.
-    limiar_referencia: Presença simultânea de instalação, água e sabão.
-    fontes_dados:
-      - id: jmp
-        papel: estimativa internacional e metadado ODS
-      - id: ibge
-        papel: pesquisas domiciliares nacionais quando incluírem os componentes
-    cobertura_geografica: Global com disponibilidade desigual; nacional conforme pesquisa.
-    periodo_disponivel: Conforme ciclos de inquérito.
-    periodicidade_atualizacao: Periódica.
-    forma_acesso: Portal WASH Data e microdados/pesquisas nacionais.
-    url_persistente: https://unstats.un.org/sdgs/metadata/?Goal=6&Target=6.2
-    formatos: Tabelas e microdados sob regras da pesquisa.
-    disponibilidade: [disponível onde há pesquisa compatível]
-    necessidade_processamento: Aplicar desenho amostral e ponderar população; preservar componentes separados.
+    variaveis_categorias_analise: "Município, rodada, domicílio, peso ajustado, residentes, instalação observada, água observada e sabão observado."
+    granularidade: "Domicílio/residente em levantamento representativo do município, com pesos amostrais e ano explícitos."
+    unidade_territorial: "Município no limite territorial vigente no levantamento; não presumir representatividade municipal de pesquisa nacional."
+    resolucao_espacial_original: "Domicílio e área de atendimento vinculados ao município."
+    resolucao_temporal: "Rodada de levantamento; publicar série somente nos anos efetivamente observados."
+    periodo_referencia: "Data/rodada da visita domiciliar."
+    limiar_referencia: "Presença observada de instalação, água e sabão no momento da visita."
+    fontes_dados: [{"id": "jmp", "papel": "Definição e instrumentos de monitoramento; não fornece automaticamente microdados representativos de cada município"}, {"id": "ibge", "papel": "População municipal e desenho amostral; o Censo isolado não contém todos os componentes"}]
+    cobertura_geografica: "Somente municípios com levantamento representativo e componentes compatíveis no tempo e na população-alvo."
+    periodo_disponivel: "A partir dos levantamentos locais com os componentes requeridos. Não há série municipal nacional completa demonstrada para esta definição."
+    periodicidade_atualizacao: "Por levantamento local; não interpolar automaticamente entre rodadas."
+    forma_acesso: "Exportação tabular de levantamento domiciliar e registros locais vinculados, com dicionário, período, pesos e município. Microdados identificáveis não devem integrar a base pública de indicadores."
+    url_persistente: "https://unstats.un.org/sdgs/metadata/files/Metadata-06-02-01b.pdf"
+    formatos: "CSV/Parquet local com identificadores pseudonimizados, peso domiciliar, residentes e variáveis especificadas no método; saída pública agregada."
+    disponibilidade: ["Depende de dados locais"]
+    necessidade_processamento: "Validar componentes, pesos e vinculação entre domicílios, população e serviços; calcular estimativa por município e rodada com incerteza."
     analise_descritiva: Desagregar por urbano/rural, renda, região e presença de cada componente, com intervalos amostrais.
     referencias: ["[@un2026sdg621]"]
+    qualidade_incerteza: "Sem variável indispensável, sem peso amostral quando exigido ou sem representatividade municipal, o indicador é ausente. Publicar tamanho amostral, não resposta e intervalo de confiança pelo desenho da pesquisa; não tratar desconhecido como não atendimento."
+    comparabilidade: "Mesma população-alvo, instrumento, definição de serviço e período; preservar separadamente as rodadas de coleta. A metodologia internacional orienta a definição, mas não cria os dados municipais inexistentes."
+    notas: "Manter como indicador dependente de dados locais. Indicadores de rede do SINISA e conformidade de amostras do Sisagua são medidas distintas, não substituições equivalentes dos ODS."
+    protocolo_versao: "2026-10-03"
+    situacao_calculo: "locais"
+    dependencia_dados_locais: "Necessária"
+    automacao: "Não demonstrada"
+    condicoes_automacao: "Levantamento local representativo contendo todas as variáveis do método; a fórmula está definida, mas não foi demonstrada uma base aberta municipal com esses componentes."
+    evidencia_verificacao: "Documentação verificada"
+    detalhe_verificacao: "Produto e método documentados; série municipal completa ainda não produzida."
+
 
   - <<: *wash_common
     codigo: SAN-AGU-02
-    titulo_completo: Proporção de amostras de água para consumo humano com ausência de Escherichia coli
+    titulo_completo: "Proporção de amostras de rotina de SAA na distribuição com ausência de E. coli"
     titulo_resumido: Amostras sem E. coli
     referencia_metodologica: Indicador de qualidade bacteriológica utilizado no Sisagua e no Vigiagua, conforme a norma brasileira de potabilidade.
     conceito: Percentual de amostras válidas de água para consumo humano nas quais E. coli está ausente em 100 mL, no universo e período definidos.
@@ -140,71 +157,88 @@ indicators:
     interpretacao: Valor próximo de 100% indica maior proporção de resultados conformes. Uma amostra positiva exige avaliação e ação conforme ponto, forma de abastecimento e protocolo; a proporção não elimina o significado de eventos isolados.
     usos: [Vigilância da qualidade da água., Identificação de formas de abastecimento e pontos críticos., Investigação de surtos e avaliação de intervenções.]
     limitacoes: [Resultado representa local e momento da coleta., Plano de amostragem pode não cobrir áreas vulneráveis., Ausência do indicador não garante ausência de todos os patógenos., Agregar controle e vigilância pode ocultar diferenças.]
-    metodo_calculo: Selecionar amostras válidas no período, forma de abastecimento, origem institucional e ponto de coleta definidos; contar as com ausência de E. coli em 100 mL e dividir pelo total analisado.
+    metodo_calculo: "Aplicar o recorte e a desduplicação descritos nesta ficha. Selecionar PARAMETRO correspondente a Escherichia coli no dicionário. Contar como conforme somente resultado qualitativo de ausência em 100 mL; presença é não conforme. Valores quantitativos somente entram quando unidade, método e volume de 100 mL permitirem conversão inequívoca a presença/ausência; resultado ambíguo ou sem volume sai do denominador e tem contagem separada. Calcular 100×n_ausentes/n_resultados_classificáveis, por município e ano de coleta. Sem resultado classificável, ausente."
     formula_calculo: 'P_{E.coli\ ausente}=100\times\frac{N_{amostras\ sem\ E.coli}}{N_{amostras\ válidas\ analisadas}}'
-    numerador: Número de amostras válidas com ausência de E. coli em 100 mL.
-    denominador: Total de amostras válidas analisadas para E. coli no universo.
+    numerador: "Amostras classificáveis sem E. coli em 100 mL no recorte."
+    denominador: "Amostras com resultado de E. coli classificável no mesmo recorte."
     unidade_medida: Percentual (%).
-    variaveis_categorias_analise: Resultado; ponto; SAA, SAC ou SAI; vigilância ou controle; município; mês; laboratório.
-    granularidade: Amostra e resumo por forma de abastecimento, município e período.
-    unidade_territorial: Ponto de coleta, forma de abastecimento e município.
-    resolucao_espacial_original: Coordenada/endereço do ponto quando disponível.
-    resolucao_temporal: Data da coleta; resumo mensal, trimestral ou anual.
-    periodo_referencia: Período de monitoramento e norma de potabilidade vigente.
-    limiar_referencia: Ausência de E. coli em 100 mL.
-    fontes_dados:
-      - id: vigiagua
-        papel: registros de vigilância e controle no Sisagua
-    cobertura_geografica: Brasil, condicionada à alimentação e execução dos planos.
-    periodo_disponivel: Bases públicas de vigilância a partir de 2014 no conjunto consultado.
-    periodicidade_atualizacao: Contínua no sistema; arquivos públicos por competência.
-    forma_acesso: Sisagua, painéis Vigiagua e Portal de Dados Abertos do SUS.
-    url_persistente: https://dadosabertos.saude.gov.br/dataset/sisagua-vigilancia-parametros-basicos
-    formatos: CSV e painéis.
-    disponibilidade: [disponível em dados administrativos]
-    necessidade_processamento: Deduplicar, filtrar resultados válidos, harmonizar categorias e calcular com denominador explícito.
+    variaveis_categorias_analise: "Campos de identificação, DT_COLETA, PARAMETRO, RESULTADO, método/volume e filtros de amostragem."
+    granularidade: "Resultado de parâmetro por amostra; soma de numeradores e denominadores por município e ano de DT_COLETA."
+    unidade_territorial: "Município da coleta, com código IBGE de sete dígitos após correspondência oficial."
+    resolucao_espacial_original: "Ponto de coleta; não representa aleatoriamente todos os domicílios ou habitantes."
+    resolucao_temporal: "Amostra datada; síntese anual, com contagens mensais auxiliares."
+    periodo_referencia: "Ano de DT_COLETA; limites fixados da Portaria GM/MS 888/2021 para comparação retrospectiva, explicitamente identificada."
+    limiar_referencia: "Ausência de E. coli em 100 mL."
+    fontes_dados: [{"id": "sisagua-vigilancia", "papel": "Sisagua — Vigilância de parâmetros básicos; CSV anual e dicionário oficial"}]
+    cobertura_geografica: "Municípios com amostras de rotina informadas ao Sisagua; cobertura depende da vigilância local."
+    periodo_disponivel: "2014–2025 completos no catálogo; 2026 parcial na data da verificação."
+    periodicidade_atualizacao: "Anual, mantendo data de extração porque registros podem ser incluídos ou retificados posteriormente."
+    forma_acesso: "Download HTTP dos ZIP CSV anuais listados em sisagua-vigilancia-parametros-basicos; exemplo 2014: https://s3.sa-east-1.amazonaws.com/ckan.saude.gov.br/SISAGUA/vigilancia_parametros_basicos_2014_csv.zip. Ler separador ponto e vírgula, codificação Latin-1 nos arquivos testados e vírgula decimal; confirmar o esquema em cada edição."
+    url_persistente: "https://dadosabertos.saude.gov.br/dataset/sisagua-vigilancia-parametros-basicos"
+    formatos: "CSV em ZIP; dicionário ODT; preservar campos originais e códigos."
+    disponibilidade: ["Calculável com dados locais centralizados"]
+    necessidade_processamento: "Descompactar, padronizar codificação e números; filtrar o recorte; usar chave município/solução/NU_AMOSTRA/DT_COLETA/HR_COLETA/PARAMETRO. Remover duplicatas exatas; em revisões, manter maior DT_INCLUSAO_REGISTRO; empate conflitante é ausente. Classificar resultados válidos e somar contagens, sem média simples de percentuais mensais."
     analise_descritiva: Mostrar número de amostras, proporção conforme, positivos por ponto e forma, cobertura do plano e tendência.
     referencias: ["[@brasil2021portaria888]", "[@brasil2024agua]", "[@oliveira2019sisagua]"]
+    qualidade_incerteza: "Filtrar TP_MOTIVO_COLETA=Rotina, TP_ABASTECIMENTO=SAA e TP_PROCEDENCIA_COLETA=SISTEMA DE DISTRIBUIÇÃO, normalizando caixa e espaços. TP_PONTO_COLETA descreve outro atributo e não substitui esse filtro. O código CO_MUNICIPIO_IBGE de seis dígitos requer tabela oficial de correspondência para sete, sem acrescentar zero. Não exigir ANALISE_REALIZADA=SIM: o campo contém categorias como EM_CAMPO e EM_LABORATORIO. Denominador zero produz ausente. Publicar número de amostras e cobertura temporal, sem interpretar o percentual como população atendida."
+    comparabilidade: "Manter módulo Vigilância, motivo Rotina, SAA, procedência distribuição, parâmetro e tabela fixa 888/2021. SAC, SAI, surtos, saídas de tratamento e outros recortes são séries distintas."
+    notas: "O indicador descreve as amostras registradas, não o atendimento integral ao padrão de potabilidade nem a cobertura populacional de água segura. Não confundir ausência de resultado com ausência do contaminante."
+    protocolo_versao: "2026-10-03"
+    situacao_calculo: "centralizados"
+    dependencia_dados_locais: "Necessária: coleta e análise locais registradas no Sisagua"
+    automacao: "Viável"
+    condicoes_automacao: "CSV público, dicionário, filtro de rotina/SAA/distribuição e tabela oficial de códigos municipais."
+    evidencia_verificacao: "Acesso testado"
+    detalhe_verificacao: "Arquivo CSV, unidades, datas e código municipal acessados. Foram inspecionados resultados químicos de uma amostra do arquivo de 2014; ela não comprova cobertura nacional ou histórico completo."
+
 
   - <<: *wash_common
     codigo: SAN-AGU-03
-    titulo_completo: Proporção de amostras com residual de agente desinfetante em conformidade
-    titulo_resumido: Residual de desinfetante conforme
+    titulo_completo: "Proporção de amostras de rotina de SAA na distribuição com cloro residual livre entre 0,2 e 5 mg/L"
+    titulo_resumido: "Cloro residual livre conforme — distribuição"
     referencia_metodologica: Indicador sentinela do Vigiagua e grupo de indicador do Sisagua para residual de desinfetante.
-    conceito: Percentual de amostras válidas cujo residual do desinfetante medido se encontra na faixa exigida pela norma para o agente e ponto correspondentes.
+    conceito: "Percentual de resultados de cloro residual livre de amostras de rotina de SAA no sistema de distribuição dentro da faixa fixa de 0,2 a 5 mg/L."
     objetivo: Acompanhar manutenção da barreira de desinfecção na distribuição e nos pontos de consumo.
     interpretacao: Valor maior indica maior conformidade dos resultados amostrados. Residual abaixo do mínimo pode sinalizar perda de proteção; valor alto pode exigir avaliação de operação, subprodutos e aceitabilidade.
     usos: [Vigilância sentinela da distribuição., Priorização de inspeção e recoleta., Avaliação de integridade e operação do abastecimento.]
     limitacoes: [Faixas variam com agente e situação., Um resultado conforme não garante qualidade microbiológica., Horário, temperatura e técnica de campo afetam a medição., Agregação pode ocultar trechos críticos.]
-    metodo_calculo: Para cada amostra válida, identificar agente desinfetante e limite aplicável na norma vigente, classificar o resultado e dividir o número conforme pelo total analisado no mesmo universo.
-    formula_calculo: 'P_{RAD\ conforme}=100\times\frac{N_{amostras\ RAD\ conforme}}{N_{amostras\ RAD\ válidas}}'
-    numerador: Amostras válidas com residual de agente desinfetante dentro dos limites aplicáveis.
-    denominador: Amostras válidas analisadas para o agente no universo.
+    metodo_calculo: "Após filtros e desduplicação, selecionar PARAMETRO=Cloro residual livre (mg/L). Converter vírgula decimal; aceitar valores numéricos finitos ≥0. Classificar como conforme se 0,2≤resultado≤5, inclusive. Resultado censurado, como <L ou >L, só entra se todo o intervalo possível permitir decisão inequívoca; se o intervalo atravessar um dos limites, registrar indeterminado e excluir do denominador, publicando sua contagem. Calcular 100×n_conformes/n_classificáveis por município e ano."
+    formula_calculo: "P_{CRL}=100\\frac{N(0{,}2\\leq CRL\\leq5\\;\\mathrm{mg/L})}{N(CRL\\ \\mathrm{classificável})}"
+    numerador: "Resultados classificáveis conformes no intervalo inclusivo."
+    denominador: "Resultados classificáveis de cloro residual livre no recorte."
     unidade_medida: Percentual (%); concentração original em mg/L.
-    variaveis_categorias_analise: Agente; concentração; ponto; forma de abastecimento; vigilância/controle; data; município.
-    granularidade: Amostra e resumo por sistema/solução, município e período.
-    unidade_territorial: Ponto de coleta, forma de abastecimento e município.
-    resolucao_espacial_original: Ponto de coleta.
-    resolucao_temporal: Momento da coleta; resumo periódico.
-    periodo_referencia: Período e norma vigente.
-    limiar_referencia: A norma exige, no mínimo, 0,2 mg/L de cloro residual livre, 2 mg/L de cloro residual combinado ou 0,2 mg/L de dióxido de cloro na distribuição e pontos de consumo; verificar também limites máximos e condições específicas.
-    fontes_dados:
-      - id: vigiagua
-        papel: resultados de parâmetros básicos no Sisagua
-    cobertura_geografica: Brasil, condicionada ao monitoramento.
-    periodo_disponivel: Conforme Sisagua e arquivos públicos.
-    periodicidade_atualizacao: Contínua e por publicação de arquivos.
-    forma_acesso: Sisagua, painéis e dados abertos.
-    url_persistente: https://www.gov.br/saude/pt-br/composicao/svsa/saude-ambiental/vigiagua/monitoramento-da-qualidade-da-agua
-    formatos: CSV, painel e relatórios.
-    disponibilidade: [disponível em dados administrativos]
-    necessidade_processamento: Identificar agente e norma, validar unidade, classificar resultados e calcular cobertura e conformidade separadamente.
+    variaveis_categorias_analise: "Identificação da amostra, procedência, parâmetro cloro residual livre, resultado mg/L, censura analítica e ano de coleta."
+    granularidade: "Resultado de parâmetro por amostra; soma de numeradores e denominadores por município e ano de DT_COLETA."
+    unidade_territorial: "Município da coleta, com código IBGE de sete dígitos após correspondência oficial."
+    resolucao_espacial_original: "Ponto de coleta; não representa aleatoriamente todos os domicílios ou habitantes."
+    resolucao_temporal: "Amostra datada; síntese anual, com contagens mensais auxiliares."
+    periodo_referencia: "Ano de DT_COLETA; limites fixados da Portaria GM/MS 888/2021 para comparação retrospectiva, explicitamente identificada."
+    limiar_referencia: "0,2–5 mg/L de cloro residual livre na distribuição; não se aplica a cloro combinado ou dióxido de cloro."
+    fontes_dados: [{"id": "sisagua-vigilancia", "papel": "Sisagua — Vigilância de parâmetros básicos; CSV anual e dicionário oficial"}]
+    cobertura_geografica: "Municípios com amostras de rotina informadas ao Sisagua; cobertura depende da vigilância local."
+    periodo_disponivel: "2014–2025 completos no catálogo; 2026 parcial na data da verificação."
+    periodicidade_atualizacao: "Anual, mantendo data de extração porque registros podem ser incluídos ou retificados posteriormente."
+    forma_acesso: "Download HTTP dos ZIP CSV anuais listados em sisagua-vigilancia-parametros-basicos; exemplo 2014: https://s3.sa-east-1.amazonaws.com/ckan.saude.gov.br/SISAGUA/vigilancia_parametros_basicos_2014_csv.zip. Ler separador ponto e vírgula, codificação Latin-1 nos arquivos testados e vírgula decimal; confirmar o esquema em cada edição."
+    url_persistente: "https://dadosabertos.saude.gov.br/dataset/sisagua-vigilancia-parametros-basicos"
+    formatos: "CSV em ZIP; dicionário ODT; preservar campos originais e códigos."
+    disponibilidade: ["Calculável com dados locais centralizados"]
+    necessidade_processamento: "Descompactar, padronizar codificação e números; filtrar o recorte; usar chave município/solução/NU_AMOSTRA/DT_COLETA/HR_COLETA/PARAMETRO. Remover duplicatas exatas; em revisões, manter maior DT_INCLUSAO_REGISTRO; empate conflitante é ausente. Classificar resultados válidos e somar contagens, sem média simples de percentuais mensais."
     analise_descritiva: Apresentar concentração, conformidade, distribuição de valores, pontos baixos/altos, forma e execução do plano.
     referencias: ["[@brasil2021portaria888]", "[@brasil2024agua]", "[@oliveira2019sisagua]"]
+    qualidade_incerteza: "Filtrar TP_MOTIVO_COLETA=Rotina, TP_ABASTECIMENTO=SAA e TP_PROCEDENCIA_COLETA=SISTEMA DE DISTRIBUIÇÃO, normalizando caixa e espaços. TP_PONTO_COLETA descreve outro atributo e não substitui esse filtro. O código CO_MUNICIPIO_IBGE de seis dígitos requer tabela oficial de correspondência para sete, sem acrescentar zero. Não exigir ANALISE_REALIZADA=SIM: o campo contém categorias como EM_CAMPO e EM_LABORATORIO. Denominador zero produz ausente. Publicar número de amostras e cobertura temporal, sem interpretar o percentual como população atendida."
+    comparabilidade: "Manter módulo Vigilância, motivo Rotina, SAA, procedência distribuição, parâmetro e tabela fixa 888/2021. SAC, SAI, surtos, saídas de tratamento e outros recortes são séries distintas."
+    notas: "A alteração restringe expressamente a ficha ao cloro residual livre. Outros desinfetantes exigem indicadores próprios; não são convertidos para esta faixa."
+    protocolo_versao: "2026-10-03"
+    situacao_calculo: "centralizados"
+    dependencia_dados_locais: "Necessária: coleta e análise locais registradas no Sisagua"
+    automacao: "Viável"
+    condicoes_automacao: "CSV público, dicionário, filtro de rotina/SAA/distribuição e tabela oficial de códigos municipais."
+    evidencia_verificacao: "Acesso e cálculo testados"
+    detalhe_verificacao: "Recorte Rotina/SAA/distribuição, chaves, vírgula decimal e contagem de conformidade testados em amostra parcial do CSV de 2014: 13.351 resultados numéricos de cloro e 15.553 de turbidez. Não é série municipal completa nem estimativa nacional."
 
   - <<: *wash_common
     codigo: SAN-AGU-04
-    titulo_completo: Proporção de amostras de turbidez em conformidade com o padrão de potabilidade
+    titulo_completo: "Proporção de amostras de rotina de SAA na distribuição com turbidez até 5 uT"
     titulo_resumido: Turbidez conforme
     referencia_metodologica: Indicador sentinela do Vigiagua e grupo de indicador do Sisagua para turbidez.
     conceito: Percentual de resultados válidos de turbidez que atendem ao valor máximo permitido aplicável à etapa, tecnologia de tratamento e ponto de coleta.
@@ -212,28 +246,36 @@ indicators:
     interpretacao: Valor maior indica maior conformidade entre amostras. A interpretação deve separar saída do tratamento e distribuição e considerar a tecnologia.
     usos: [Avaliar tratamento e distribuição., Priorizar inspeção e ações corretivas., Acompanhar risco após chuva, inundação ou alteração do manancial.]
     limitacoes: [Não é medida direta de patógenos., Limites variam por tecnologia e ponto., Agregação entre etapas é inadequada., Falta de amostragem pode produzir falsa aparência de conformidade.]
-    metodo_calculo: Classificar cada resultado válido segundo o valor máximo permitido aplicável à tecnologia e ao ponto na norma vigente; dividir resultados conformes pelo total analisado no universo homogêneo.
-    formula_calculo: 'P_{turbidez\ conforme}=100\times\frac{N_{resultados\leq VMP_{aplicável}}}{N_{resultados\ válidos}}'
-    numerador: Resultados válidos de turbidez iguais ou inferiores ao valor máximo aplicável.
-    denominador: Total de resultados válidos no mesmo universo tecnológico e operacional.
+    metodo_calculo: "Após filtros e desduplicação, selecionar PARAMETRO=Turbidez (uT). Converter vírgula decimal; resultados negativos ou não finitos são inválidos. Classificar como conforme todo resultado entre 0 e 5 uT, inclusive. Para resultados censurados, classificar somente quando todo o intervalo permitir decisão inequívoca; indeterminados saem do denominador e têm contagem separada. Calcular 100×n_conformes/n_classificáveis por município e ano de coleta."
+    formula_calculo: "P_{turb}=100\\frac{N(0\\leq turbidez\\leq5\\;\\mathrm{uT})}{N(turbidez\\ \\mathrm{classificável})}"
+    numerador: "Resultados classificáveis com turbidez≤5 uT no recorte."
+    denominador: "Resultados classificáveis de turbidez no recorte."
     unidade_medida: Percentual (%); valor original em unidade de turbidez.
-    variaveis_categorias_analise: Turbidez; etapa; tecnologia; ponto; forma de abastecimento; data; município.
-    granularidade: Amostra e resumo por etapa, sistema/solução, município e período.
-    unidade_territorial: Ponto de coleta e forma de abastecimento.
-    resolucao_espacial_original: Ponto de coleta.
-    resolucao_temporal: Momento da coleta; resumo periódico.
-    periodo_referencia: Período de monitoramento e norma vigente.
-    limiar_referencia: Valor máximo permitido correspondente à tecnologia, etapa e ponto segundo a Portaria GM/MS nº 888/2021; não aplicar um único limiar a todos os registros.
-    fontes_dados:
-      - id: vigiagua
-        papel: resultados de turbidez no Sisagua
-    cobertura_geografica: Brasil, condicionada ao monitoramento.
-    periodo_disponivel: Conforme Sisagua e arquivos públicos.
-    periodicidade_atualizacao: Contínua e por publicação de arquivos.
-    forma_acesso: Sisagua, painéis e dados abertos.
-    url_persistente: https://dadosabertos.saude.gov.br/dataset/sisagua-vigilancia-parametros-basicos
-    formatos: CSV, painel e relatórios.
-    disponibilidade: [disponível em dados administrativos]
-    necessidade_processamento: Harmonizar etapa, tecnologia e unidade, aplicar VMP correspondente e calcular execução do plano e conformidade.
+    variaveis_categorias_analise: "Identificação da amostra, procedência, parâmetro Turbidez (uT), resultado, censura e ano de coleta."
+    granularidade: "Resultado de parâmetro por amostra; soma de numeradores e denominadores por município e ano de DT_COLETA."
+    unidade_territorial: "Município da coleta, com código IBGE de sete dígitos após correspondência oficial."
+    resolucao_espacial_original: "Ponto de coleta; não representa aleatoriamente todos os domicílios ou habitantes."
+    resolucao_temporal: "Amostra datada; síntese anual, com contagens mensais auxiliares."
+    periodo_referencia: "Ano de DT_COLETA; limites fixados da Portaria GM/MS 888/2021 para comparação retrospectiva, explicitamente identificada."
+    limiar_referencia: "Máximo de 5 uT em sistema de distribuição. Limites mais restritivos de saída da filtração não pertencem a esta série."
+    fontes_dados: [{"id": "sisagua-vigilancia", "papel": "Sisagua — Vigilância de parâmetros básicos; CSV anual e dicionário oficial"}]
+    cobertura_geografica: "Municípios com amostras de rotina informadas ao Sisagua; cobertura depende da vigilância local."
+    periodo_disponivel: "2014–2025 completos no catálogo; 2026 parcial na data da verificação."
+    periodicidade_atualizacao: "Anual, mantendo data de extração porque registros podem ser incluídos ou retificados posteriormente."
+    forma_acesso: "Download HTTP dos ZIP CSV anuais listados em sisagua-vigilancia-parametros-basicos; exemplo 2014: https://s3.sa-east-1.amazonaws.com/ckan.saude.gov.br/SISAGUA/vigilancia_parametros_basicos_2014_csv.zip. Ler separador ponto e vírgula, codificação Latin-1 nos arquivos testados e vírgula decimal; confirmar o esquema em cada edição."
+    url_persistente: "https://dadosabertos.saude.gov.br/dataset/sisagua-vigilancia-parametros-basicos"
+    formatos: "CSV em ZIP; dicionário ODT; preservar campos originais e códigos."
+    disponibilidade: ["Calculável com dados locais centralizados"]
+    necessidade_processamento: "Descompactar, padronizar codificação e números; filtrar o recorte; usar chave município/solução/NU_AMOSTRA/DT_COLETA/HR_COLETA/PARAMETRO. Remover duplicatas exatas; em revisões, manter maior DT_INCLUSAO_REGISTRO; empate conflitante é ausente. Classificar resultados válidos e somar contagens, sem média simples de percentuais mensais."
     analise_descritiva: Apresentar conformidade por etapa e tecnologia, distribuição dos valores, extremos, cobertura amostral e relação temporal com eventos.
     referencias: ["[@brasil2021portaria888]", "[@brasil2024agua]", "[@oliveira2019sisagua]"]
+    qualidade_incerteza: "Filtrar TP_MOTIVO_COLETA=Rotina, TP_ABASTECIMENTO=SAA e TP_PROCEDENCIA_COLETA=SISTEMA DE DISTRIBUIÇÃO, normalizando caixa e espaços. TP_PONTO_COLETA descreve outro atributo e não substitui esse filtro. O código CO_MUNICIPIO_IBGE de seis dígitos requer tabela oficial de correspondência para sete, sem acrescentar zero. Não exigir ANALISE_REALIZADA=SIM: o campo contém categorias como EM_CAMPO e EM_LABORATORIO. Denominador zero produz ausente. Publicar número de amostras e cobertura temporal, sem interpretar o percentual como população atendida."
+    comparabilidade: "Manter módulo Vigilância, motivo Rotina, SAA, procedência distribuição, parâmetro e tabela fixa 888/2021. SAC, SAI, surtos, saídas de tratamento e outros recortes são séries distintas."
+    notas: "O indicador descreve as amostras registradas, não o atendimento integral ao padrão de potabilidade nem a cobertura populacional de água segura. Não confundir ausência de resultado com ausência do contaminante."
+    protocolo_versao: "2026-10-03"
+    situacao_calculo: "centralizados"
+    dependencia_dados_locais: "Necessária: coleta e análise locais registradas no Sisagua"
+    automacao: "Viável"
+    condicoes_automacao: "CSV público, dicionário, filtro de rotina/SAA/distribuição e tabela oficial de códigos municipais."
+    evidencia_verificacao: "Acesso e cálculo testados"
+    detalhe_verificacao: "Recorte Rotina/SAA/distribuição, chaves, vírgula decimal e contagem de conformidade testados em amostra parcial do CSV de 2014: 13.351 resultados numéricos de cloro e 15.553 de turbidez. Não é série municipal completa nem estimativa nacional."

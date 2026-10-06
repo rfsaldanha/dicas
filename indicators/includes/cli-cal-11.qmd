@@ -5,7 +5,7 @@
 [Título resumido:]{.field-label} Noites quentes — TN90p \
 [Tema:]{.field-label} Temperatura e condições térmicas \
 [Dimensão:]{.field-label} perigo; exposição \
-[Disponibilidade:]{.field-label} [requer processamento climatológico]{.availability}
+[Disponibilidade:]{.field-label} [Calculável com dados abertos]{.availability}
 :::
 
 Contexto e interpretação: [Temperatura e condições térmicas](../../chapters/part-2/05-temperatura-condicoes-termicas.qmd#sec-temperatura).
@@ -41,12 +41,12 @@ Valor de 20% indica que, entre os dias válidos do período, uma em cada cinco m
 
 ### Fontes de dados {.unnumbered .ficha-section}
 
-- Instituto Nacional de Meteorologia — temperaturas máxima, mínima e, quando necessário, horária ([cadastro](../../backmatter/indice-fontes.qmd#inmet))
-- ERA5-Land — temperatura horária em grade, condicionada à validação ([cadastro](../../backmatter/indice-fontes.qmd#era5-land))
+- ERA5-Land — ERA5-Land hourly, variável 2m_temperature; extrair TX/TN conforme o método da ficha ([cadastro](../../backmatter/indice-fontes.qmd#era5-land))
+- Instituto Nacional de Meteorologia — Validação local e séries observadas separadas da reanálise ([cadastro](../../backmatter/indice-fontes.qmd#inmet))
 
 ### Método de cálculo {.unnumbered .ficha-section}
 
-Calcular o percentil 90 de TN para cada dia do calendário, em janela centrada de cinco dias no período-base. Contar no período analisado os dias válidos em que TN excede o limiar correspondente e dividir pelo total de dias válidos; no período-base, aplicar o procedimento de bootstrap do ETCCDI.
+Aplicar o protocolo ETCCDI de CLI-TEM-01 à temperatura mínima TN, incluindo bootstrap na base e interpolação de 29/02; calcular 100 vezes os dias TN>P90 divididos pelos dias válidos. Agregar por área depois do cálculo por célula.
 
 $$
 TN90p_p=100\times\frac{\sum_{d\in p}I(TN_d>TN90_{cal(d)})}{N_{válidos,p}}
@@ -61,13 +61,13 @@ $$
 
 [Variáveis e categorias de análise.]{.field-label} Temperatura mínima diária; dia do calendário; estação do ano; ano; local.
 
-[Granularidade.]{.field-label} Valor diário binário e resumo mensal, sazonal ou anual.
+[Granularidade.]{.field-label} Calcular o indicador em cada célula antes da média municipal ponderada pela área; manter produto, célula, ano e código IBGE de sete dígitos.
 
-[Periodicidade de atualização.]{.field-label} Anual em monitoramento climático; diária apenas em implementação operacional distinta.
+[Periodicidade de atualização.]{.field-label} Anual, após completar e verificar o último ano de entrada.
 
 [Responsabilidade gerencial.]{.field-label} Serviço meteorológico ou climático responsável pela exposição e autoridade de saúde responsável por validar o uso.
 
-[Notas.]{.field-label} As definições publicadas abaixo são reproduzidas para comparabilidade. Seu uso como gatilho operacional depende de validação com desfechos locais.
+[Notas.]{.field-label} Protocolo municipal do livro. Reproduzir o método internacional na célula; a agregação municipal por área é uma adaptação explícita. A série nacional ainda não foi produzida.
 
 [Análise descritiva do indicador.]{.field-label} Apresentar TN90p com número de dias válidos, tendência, sazonalidade, distribuição territorial e, quando pertinente, associação com desfechos preservando a série diária.
 
@@ -76,39 +76,51 @@ $$
 ### Campos complementares para clima, ambiente e saúde {.unnumbered .ficha-section}
 
 ::: {.indicator-card}
-[Unidade territorial.]{.field-label} Estação meteorológica, célula de grade ou território derivado.
+[Unidade territorial.]{.field-label} Célula de grade; município como síntese ponderada pela área de interseção.
 
-[Resolução espacial original.]{.field-label} A da série meteorológica; a atribuição territorial exige método explícito.
+[Resolução espacial original.]{.field-label} ERA5-Land: grade de 0,1°; malha municipal IBGE 2022 como recorte fixo.
 
-[Resolução temporal.]{.field-label} Entrada diária; saída mensal, sazonal ou anual.
+[Resolução temporal.]{.field-label} Entradas horárias; extremos diários em 00–23 UTC; saída anual, salvo estação quente ou produto explicitados.
 
-[Período de referência.]{.field-label} Período climatológico declarado, com 30 anos quando viável; não misturar bases.
+[Período de referência.]{.field-label} 1961–1990.
 
-[Limiar ou valor de referência.]{.field-label} Percentil 90 de TN específico do dia do calendário.
+[Limiar ou valor de referência.]{.field-label} TN > P90 calendário, janela centrada de cinco dias, quantil tipo 8.
 
 :::
 
 ### Disponibilidade e acesso {.unnumbered .ficha-section}
 
-[Cobertura geográfica.]{.field-label} A da fonte meteorológica selecionada.
+[Protocolo verificado em.]{.field-label} 2026-10-03
 
-[Período disponível.]{.field-label} O da fonte, com extensão suficiente para o período-base.
+[Dependência de dados locais.]{.field-label} Opcional para validação
 
-[Periodicidade de atualização.]{.field-label} Anual em monitoramento climático; diária apenas em implementação operacional distinta.
+[Automação.]{.field-label} Condicionada
 
-[Forma de acesso.]{.field-label} Cálculo sobre série diária controlada, preferencialmente com implementação ETCCDI validada.
+[Requisitos para o cálculo.]{.field-label} Cadastro gratuito e credencial CDS; download das variáveis e processamento conforme a ficha.
 
-[URL ou identificador persistente.]{.field-label} https://www.climdex.org/learn/indices/
+[Nível de evidência.]{.field-label} Documentação verificada
 
-[Formato dos arquivos.]{.field-label} Tabela por estação ou matriz multidimensional por célula.
+[Alcance da verificação.]{.field-label} Produto e método documentados; série municipal completa ainda não produzida.
 
-[Necessidade de processamento.]{.field-label} Controle de qualidade, percentis do calendário, bootstrap do período-base, teste diário e agregação.
+[Cobertura geográfica.]{.field-label} Todos os municípios brasileiros no domínio da grade. Não representa diretamente a exposição individual ou o microclima de cada bairro.
+
+[Período disponível.]{.field-label} 1950–presente; publicar anos completos até 2025 e identificar 2026 como parcial. A janela inicial utilizável depende dos antecedentes exigidos pela medida.
+
+[Periodicidade de atualização.]{.field-label} Anual, após completar e verificar o último ano de entrada.
+
+[Forma de acesso.]{.field-label} API do Climate Data Store, dataset reanalysis-era5-land, product_type=reanalysis, todas as 24 horas UTC; download NetCDF ou GRIB por mês e recorte espacial.
+
+[URL ou identificador persistente.]{.field-label} https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land
+
+[Formato dos arquivos.]{.field-label} NetCDF ou GRIB de entrada; CSV/Parquet para séries municipais.
+
+[Necessidade de processamento.]{.field-label} Converter kelvin para °C; obter TX e TN como máximo e mínimo das 24 temperaturas horárias válidas de cada dia UTC. Calcular a medida por célula e, depois, sua média municipal por área. Esta TX não é a máxima instantânea de termômetro.
 
 ### Qualidade, comparação e saúde {.unnumbered .ficha-section}
 
-[Qualidade e incerteza.]{.field-label} Relatar falhas, homogeneidade, período-base, algoritmo de percentil, definição temporal de dia e noite, viés de produtos em grade e sensibilidade aos parâmetros.
+[Qualidade e incerteza.]{.field-label} Dia com menos de 24 horas válidas na grade é ausente. Nas sínteses anuais, mais de 15 dias ausentes, ou mais de três em qualquer mês, invalidam o ano; falhas não recebem zero e não unem sequências. Exigir 90% dos dados do período-base e registrar a cobertura. Sínteses municipais exigem ao menos 90% de área válida; informar essa fração. Critérios de cobertura são escolhas editoriais deste protocolo.
 
-[Possibilidade de comparação.]{.field-label} Manter variável, período-base, janela do calendário, duração mínima, fonte, resolução e regra de agregação; classificações distintas não são intercambiáveis.
+[Possibilidade de comparação.]{.field-label} Fixar versão, calendário UTC, período-base e limites municipais de 2022. Não emendar estação e reanálise. Médias municipais de contagens podem ser fracionárias e não contam episódios sincrônicos do município.
 
 [Relação com desfechos de saúde.]{.field-label} A mínima elevada indica ausência de resfriamento noturno. Episódios compostos combinam calor diurno e noturno, condição associada a maior risco de mortalidade em estudos multicêntricos.
 

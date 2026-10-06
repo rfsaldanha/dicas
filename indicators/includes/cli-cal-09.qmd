@@ -5,7 +5,7 @@
 [Título resumido:]{.field-label} Fator de Excesso de Calor — EHF \
 [Tema:]{.field-label} Temperatura e condições térmicas \
 [Dimensão:]{.field-label} perigo; exposição \
-[Disponibilidade:]{.field-label} [requer processamento climatológico]{.availability}
+[Disponibilidade:]{.field-label} [Calculável com dados abertos]{.availability}
 :::
 
 Contexto e interpretação: [Temperatura e condições térmicas](../../chapters/part-2/05-temperatura-condicoes-termicas.qmd#sec-temperatura).
@@ -41,19 +41,15 @@ EHF positivo identifica condições de onda de calor na especificação original
 
 ### Fontes de dados {.unnumbered .ficha-section}
 
-- Instituto Nacional de Meteorologia — observações diárias de temperatura ([cadastro](../../backmatter/indice-fontes.qmd#inmet))
-- ERA5-Land — reanálise em grade condicionada à validação ([cadastro](../../backmatter/indice-fontes.qmd#era5-land))
+- ERA5-Land — ERA5-Land hourly, variável 2m_temperature; extrair TX/TN conforme o método da ficha ([cadastro](../../backmatter/indice-fontes.qmd#era5-land))
+- Instituto Nacional de Meteorologia — Validação local e séries observadas separadas da reanálise ([cadastro](../../backmatter/indice-fontes.qmd#inmet))
 
 ### Método de cálculo {.unnumbered .ficha-section}
 
-Calcular a média de temperatura média diária dos dias d a d+2. Subtrair o percentil 95 para obter EHIsig e a média dos 30 dias anteriores para obter EHIaccl. Multiplicar EHIsig pelo máximo entre 1 e EHIaccl.
+Definir T=(TX+TN)/2. Para cada início d, calcular T3 como média de d a d+2 e T30 como média de d−30 a d−1. Estimar P95 de todas as T da base, quantil tipo 8. EHI_sig=T3−P95; EHI_accl=T3−T30; EHF=EHI_sig×max(1,EHI_accl). Exigir os 33 dias válidos; manter os valores negativos. Publicar EHF diário e seu máximo anual por célula, antes da média municipal.
 
 $$
-\begin{aligned}
-EHF_d &= EHI_{sig,d}\max(1,EHI_{accl,d}),\\
-EHI_{sig,d} &= \overline{T}_{d:d+2}-T_{95},\\
-EHI_{accl,d} &= \overline{T}_{d:d+2}-\overline{T}_{d-30:d-1}.
-\end{aligned}
+EHF_d=(\overline{T}_{d:d+2}-P95_{1961:1990})\max(1,\overline{T}_{d:d+2}-\overline{T}_{d-30:d-1})
 $$
 
 ::: {.indicator-card}
@@ -61,17 +57,17 @@ $$
 
 [Denominador.]{.field-label} Não se aplica.
 
-[Unidade de medida.]{.field-label} Grau Celsius ao quadrado (°C²), segundo a formulação operacional.
+[Unidade de medida.]{.field-label} °C².
 
 [Variáveis e categorias de análise.]{.field-label} Temperatura máxima e mínima diárias ou temperatura média; local; período-base; episódio; temporada.
 
-[Granularidade.]{.field-label} Estação ou célula de grade; extensão regional é uma derivação posterior.
+[Granularidade.]{.field-label} Calcular o indicador em cada célula antes da média municipal ponderada pela área; manter produto, célula, ano e código IBGE de sete dígitos.
 
-[Periodicidade de atualização.]{.field-label} Diária em aplicação operacional ou anual em monitoramento climático.
+[Periodicidade de atualização.]{.field-label} Anual, após completar e verificar o último ano de entrada.
 
 [Responsabilidade gerencial.]{.field-label} Serviço meteorológico ou climático que produza o índice e instituição de saúde que valide seu uso.
 
-[Notas.]{.field-label} Estes índices combinam mais de um aspecto do calor. Seus valores não são equivalentes a temperatura do ar nem a risco relativo.
+[Notas.]{.field-label} Protocolo municipal do livro. Reproduzir o método internacional na célula; a agregação municipal por área é uma adaptação explícita. A série nacional ainda não foi produzida.
 
 [Análise descritiva do indicador.]{.field-label} Mostrar EHF diário, início e fim, pico, soma por episódio e classe de severidade com referência local.
 
@@ -80,39 +76,51 @@ $$
 ### Campos complementares para clima, ambiente e saúde {.unnumbered .ficha-section}
 
 ::: {.indicator-card}
-[Unidade territorial.]{.field-label} Estação meteorológica, célula de grade ou território derivado.
+[Unidade territorial.]{.field-label} Célula de grade; município como síntese ponderada pela área de interseção.
 
-[Resolução espacial original.]{.field-label} A da série meteorológica selecionada.
+[Resolução espacial original.]{.field-label} ERA5-Land: grade de 0,1°; malha municipal IBGE 2022 como recorte fixo.
 
-[Resolução temporal.]{.field-label} Entrada diária; saída diária, por episódio e anual.
+[Resolução temporal.]{.field-label} Diária; máximo anual como resumo.
 
-[Período de referência.]{.field-label} Período climatológico usado para o percentil 95 e histórico local de EHF positivo para severidade.
+[Período de referência.]{.field-label} 1961–1990; P95 da distribuição de todas as temperaturas médias diárias da base, sem janela por dia do calendário.
 
-[Limiar ou valor de referência.]{.field-label} EHF maior que zero para condição de onda de calor; categorias de severidade derivam da distribuição local conforme o método.
+[Limiar ou valor de referência.]{.field-label} EHF > 0 indica excesso segundo a definição de Nairn e Fawcett; unidade °C².
 
 :::
 
 ### Disponibilidade e acesso {.unnumbered .ficha-section}
 
-[Cobertura geográfica.]{.field-label} A da fonte, condicionada à qualidade e à extensão da série.
+[Protocolo verificado em.]{.field-label} 2026-10-03
 
-[Período disponível.]{.field-label} O da fonte, incluindo período-base suficiente.
+[Dependência de dados locais.]{.field-label} Opcional para validação
 
-[Periodicidade de atualização.]{.field-label} Diária em aplicação operacional ou anual em monitoramento climático.
+[Automação.]{.field-label} Condicionada
 
-[Forma de acesso.]{.field-label} Cálculo sobre série diária com implementação e parâmetros versionados.
+[Requisitos para o cálculo.]{.field-label} Cadastro gratuito e credencial CDS; download das variáveis e processamento conforme a ficha.
 
-[URL ou identificador persistente.]{.field-label} https://doi.org/10.3390/ijerph120100227
+[Nível de evidência.]{.field-label} Documentação verificada
 
-[Formato dos arquivos.]{.field-label} Tabela por estação ou arquivo multidimensional por célula.
+[Alcance da verificação.]{.field-label} Produto e método documentados; série municipal completa ainda não produzida.
 
-[Necessidade de processamento.]{.field-label} Calcular temperatura média diária, percentil 95, médias móveis de 3 e 30 dias, EHI e EHF; preservar resultados diários.
+[Cobertura geográfica.]{.field-label} Todos os municípios brasileiros no domínio da grade. Não representa diretamente a exposição individual ou o microclima de cada bairro.
+
+[Período disponível.]{.field-label} 1950–presente, após os 30 dias iniciais necessários à aclimatação e com dois dias posteriores disponíveis.
+
+[Periodicidade de atualização.]{.field-label} Anual, após completar e verificar o último ano de entrada.
+
+[Forma de acesso.]{.field-label} API do Climate Data Store, dataset reanalysis-era5-land, product_type=reanalysis, todas as 24 horas UTC; download NetCDF ou GRIB por mês e recorte espacial.
+
+[URL ou identificador persistente.]{.field-label} https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land
+
+[Formato dos arquivos.]{.field-label} NetCDF ou GRIB de entrada; CSV/Parquet para séries municipais.
+
+[Necessidade de processamento.]{.field-label} Converter kelvin para °C; obter TX e TN como máximo e mínimo das 24 temperaturas horárias válidas de cada dia UTC. Calcular a medida por célula e, depois, sua média municipal por área. Esta TX não é a máxima instantânea de termômetro.
 
 ### Qualidade, comparação e saúde {.unnumbered .ficha-section}
 
-[Qualidade e incerteza.]{.field-label} Relatar falhas, homogeneidade, período-base, algoritmo de percentil, viés da fonte e sensibilidade aos parâmetros.
+[Qualidade e incerteza.]{.field-label} Dia com menos de 24 horas válidas na grade é ausente. Nas sínteses anuais, mais de 15 dias ausentes, ou mais de três em qualquer mês, invalidam o ano; falhas não recebem zero e não unem sequências. Exigir 90% dos dados do período-base e registrar a cobertura. Sínteses municipais exigem ao menos 90% de área válida; informar essa fração. Critérios de cobertura são escolhas editoriais deste protocolo.
 
-[Possibilidade de comparação.]{.field-label} Manter fórmula, período-base, calendário, fonte harmonizada e tratamento de falhas; variantes não são intercambiáveis.
+[Possibilidade de comparação.]{.field-label} Fixar versão, calendário UTC, período-base e limites municipais de 2022. Não emendar estação e reanálise. Médias municipais de contagens podem ser fracionárias e não contam episódios sincrônicos do município.
 
 [Relação com desfechos de saúde.]{.field-label} Índices de magnitude e severidade podem ordenar episódios e apoiar a avaliação de impactos, mas seu gradiente deve ser validado com desfechos e capacidade de resposta locais.
 

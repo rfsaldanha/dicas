@@ -5,14 +5,14 @@
 [Título resumido:]{.field-label} PM2,5 de fumaça ponderado pela população \
 [Tema:]{.field-label} Qualidade do ar, queimadas e fumaça \
 [Dimensão:]{.field-label} perigo; exposição \
-[Disponibilidade:]{.field-label} [requer produto de atribuição de fonte]{.availability} [requer processamento geoespacial]{.availability}
+[Disponibilidade:]{.field-label} [Calculável com dados abertos]{.availability}
 :::
 
 Contexto e interpretação: [Qualidade do ar, queimadas e fumaça](../../chapters/part-2/07-qualidade-ar-queimadas-fumaca.qmd#sec-qualidade-ar).
 
 ### Identificação e fundamento {.unnumbered .ficha-section}
 
-[Base de consolidação.]{.field-label} Indicador de fumaça de incêndios do Lancet Countdown, que integra concentração de PM2,5 atribuível ao fogo e população.
+[Base de consolidação.]{.field-label} Média populacional da concentração atribuída ao fogo, usando o produto diário de Hu et al. (2025), GEOS-Chem/GFED4.1s. É uma especificação municipal própria, não a reprodução automática da série Lancet Countdown.
 
 ::: {.callout-note icon=false title="Conceito-chave"}
 Média espacial da concentração de PM2,5 atribuída a emissões de incêndios, ponderada pela população residente, em período declarado.
@@ -41,16 +41,15 @@ Valor maior indica que a população do território viveu, em média, maior conc
 
 ### Fontes de dados {.unnumbered .ficha-section}
 
-- Copernicus Atmosphere Monitoring Service — modelagem atmosférica, quando o produto separar contribuição do fogo ([cadastro](../../backmatter/indice-fontes.qmd#cams))
-- Programa Queimadas do INPE — informação de ocorrência e emissão usada na atribuição de fonte ([cadastro](../../backmatter/indice-fontes.qmd#queimadas-inpe))
-- Instituto Brasileiro de Geografia e Estatística — população para ponderação no Brasil ([cadastro](../../backmatter/indice-fontes.qmd#ibge))
+- PM2,5 de fogo — Hu et al. (2025), GFED4.1s — Concentração diária superficial de PM2,5 atribuível ao fogo, variante GFED4.1s ([cadastro](../../backmatter/indice-fontes.qmd#hu-fire-pm25))
+- GHS-POP R2023A — população, 100 m — População anual interpolada entre épocas quinquenais ([cadastro](../../backmatter/indice-fontes.qmd#ghs-pop-r2023a))
 
 ### Método de cálculo {.unnumbered .ficha-section}
 
-Obter para cada célula e período a concentração superficial de PM2,5 atribuída a incêndios por produto validado, compatibilizar com população e calcular média ponderada; agregar temporalmente somente depois de preservar os valores diários.
+Baixar os campos diários de PM2,5 de fogo GEOS-Chem/GFED4.1s de Hu et al., Zenodo 15493914. Converter unidades somente segundo os atributos do arquivo. Interpolar contagens GHS-POP R2023A para cada ano e intersectar conservativamente com grade de fumaça e malha municipal IBGE 2022. Calcular, a cada dia, sum(Cfogo×Pop)/sum(Pop), exigindo a mesma máscara válida e ≥90% da população municipal coberta. Calcular a média anual dos 365/366 valores diários, exigindo todos os dias; falhas geram ano ausente. Publicar cobertura populacional e a versão GFED. A variante QFED em Zenodo 15496596 é análise de sensibilidade separada.
 
 $$
-\overline{PM}_{2,5}^{fogo,pop}=\frac{\sum_{g}PM_{2,5,g}^{fogo}Pop_g}{\sum_g Pop_g}
+\overline C^{fogo}_{m,y}=\frac{1}{D_y}\sum_{d\in y}\frac{\sum_g C^{fogo}_{g,d}P_{g,y}}{\sum_g P_{g,y}}
 $$
 
 ::: {.indicator-card}
@@ -62,13 +61,13 @@ $$
 
 [Variáveis e categorias de análise.]{.field-label} PM2,5 de fogo; população; célula; dia, temporada ou ano; produto; território; grupo populacional.
 
-[Granularidade.]{.field-label} Célula diária e território diário, sazonal ou anual.
+[Granularidade.]{.field-label} Interseção das grades de concentração e população com municípios; média populacional diária antes da média temporal.
 
-[Periodicidade de atualização.]{.field-label} Diária ou anual, conforme a finalidade.
+[Periodicidade de atualização.]{.field-label} Por edição publicada; esta versão termina em 2023.
 
 [Responsabilidade gerencial.]{.field-label} Órgão ambiental responsável pelo monitoramento e setor saúde responsável pela vigilância dos efeitos e comunicação sanitária.
 
-[Notas.]{.field-label} Concentração, índice de comunicação e estimativa de fonte específica são indicadores distintos e não devem ser convertidos sem a especificação correspondente.
+[Notas.]{.field-label} Focos de fogo, AOD e PM2,5 total não separam a parcela atribuível ao fogo e não substituem a entrada desta ficha. GFED e QFED não devem ser emendados.
 
 [Análise descritiva do indicador.]{.field-label} Apresentar série diária, média e soma sazonal, dias de maior exposição, população por faixas, desigualdades e incerteza do modelo.
 
@@ -77,13 +76,13 @@ $$
 ### Campos complementares para clima, ambiente e saúde {.unnumbered .ficha-section}
 
 ::: {.indicator-card}
-[Unidade territorial.]{.field-label} Estação de monitoramento, célula de grade ou território derivado.
+[Unidade territorial.]{.field-label} Município IBGE 2022.
 
-[Resolução espacial original.]{.field-label} A do produto de fumaça e da grade populacional após harmonização.
+[Resolução espacial original.]{.field-label} Produto de fogo 0,25°; GHS-POP 100 m.
 
-[Resolução temporal.]{.field-label} Preferencialmente diária; resumo sazonal ou anual.
+[Resolução temporal.]{.field-label} Diária; média anual.
 
-[Período de referência.]{.field-label} Ano ou temporada, com população correspondente e versão do modelo.
+[Período de referência.]{.field-label} Ano civil, com população interpolada para o mesmo ano.
 
 [Limiar ou valor de referência.]{.field-label} Não há limiar universal específico de PM2,5 de fogo; comparações com diretrizes de PM2,5 total devem ser claramente identificadas.
 
@@ -91,23 +90,35 @@ $$
 
 ### Disponibilidade e acesso {.unnumbered .ficha-section}
 
-[Cobertura geográfica.]{.field-label} A do produto atmosférico e populacional selecionados.
+[Protocolo verificado em.]{.field-label} 2026-10-03
 
-[Período disponível.]{.field-label} Conforme produto; não interpolar versões sem avaliação.
+[Dependência de dados locais.]{.field-label} Opcional para validação
 
-[Periodicidade de atualização.]{.field-label} Diária ou anual, conforme a finalidade.
+[Automação.]{.field-label} Viável
 
-[Forma de acesso.]{.field-label} Produto modelado de fonte específica e grade populacional versionada.
+[Requisitos para o cálculo.]{.field-label} Download dos campos diários GFED4.1s e da população GHS-POP, com leitura de metadados e processamento espacial.
 
-[URL ou identificador persistente.]{.field-label} https://doi.org/10.1016/S2468-2667(24)00055-0
+[Nível de evidência.]{.field-label} Acesso testado
 
-[Formato dos arquivos.]{.field-label} Arquivos multidimensionais e tabelas territoriais.
+[Alcance da verificação.]{.field-label} Metadados, licença e lista de arquivos do depósito Zenodo acessados. Concentrações e médias municipais ainda não calculadas.
 
-[Necessidade de processamento.]{.field-label} Harmonizar grade, tempo e unidade; ponderar pela população; agregar e propagar incerteza.
+[Cobertura geográfica.]{.field-label} Brasil no domínio do produto global; cobertura válida explicitada por município.
+
+[Período disponível.]{.field-label} 2000–2023 na edição publicada por Hu et al. (2025).
+
+[Periodicidade de atualização.]{.field-label} Por edição publicada; esta versão termina em 2023.
+
+[Forma de acesso.]{.field-label} API pública https://zenodo.org/api/records/15493914: baixar os arquivos AAAAgfedfirepm25.nc.tar.gz de 2000 a 2023 e extrair os NetCDF, preservando coordenadas, datas, atributos e unidades. População por download GHS-POP R2023A.
+
+[URL ou identificador persistente.]{.field-label} https://zenodo.org/records/15493914
+
+[Formato dos arquivos.]{.field-label} Arquivos NetCDF anuais empacotados em TAR.GZ, nome AAAAgfedfirepm25.nc.tar.gz; população GeoTIFF; saída CSV/Parquet.
+
+[Necessidade de processamento.]{.field-label} Ler grade, datas e unidades; compatibilizar população por interseção conservativa; calcular exposição diária e média anual completa.
 
 ### Qualidade, comparação e saúde {.unnumbered .ficha-section}
 
-[Qualidade e incerteza.]{.field-label} Relatar método, calibração, completude, representatividade da estação, componente modelado, resolução, incerteza, versão e condições meteorológicas.
+[Qualidade e incerteza.]{.field-label} A atribuição é modelada. Comparar inventários separadamente, registrar incerteza de concentração e população; cobertura mínima de 90% é uma escolha operacional do livro.
 
 [Possibilidade de comparação.]{.field-label} Manter poluente, tempo de média, unidade, método, regra de completude, versão do produto e suporte espacial.
 
@@ -119,5 +130,5 @@ $$
 
 ### Referências metodológicas {.unnumbered .ficha-section}
 
-- [@vandaalen2024lancet]
+- [@hu2025firepm]
 - [@who2021air]

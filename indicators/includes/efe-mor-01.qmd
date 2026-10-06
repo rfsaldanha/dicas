@@ -1,21 +1,21 @@
-## Ficha do indicador: Taxa de mortalidade específica por causa {#sec-efe-mor-01 .ficha-title}
+## Ficha do indicador: Taxa bruta de mortalidade cardiovascular e por doenças respiratórias crônicas {#sec-efe-mor-01 .ficha-title}
 
 ::: {.indicator-card}
 [Código:]{.field-label} EFE-MOR-01 \
-[Título resumido:]{.field-label} Mortalidade específica por causa \
+[Título resumido:]{.field-label} Mortalidade cardiovascular e respiratória crônica \
 [Tema:]{.field-label} Efeitos do clima e do ambiente sobre a saúde \
 [Dimensão:]{.field-label} efeito \
-[Disponibilidade:]{.field-label} [dados secundários de saúde]{.availability} [requer qualificação]{.availability}
+[Disponibilidade:]{.field-label} [Calculável com dados abertos]{.availability}
 :::
 
 Contexto e interpretação: [Efeitos do clima e do ambiente sobre a saúde](../../chapters/part-3/12-efeitos-saude.qmd#sec-efeitos-saude).
 
 ### Identificação e fundamento {.unnumbered .ficha-section}
 
-[Base de consolidação.]{.field-label} Indicador de mortalidade específica por causas da RIPSA, calculado com óbitos de residentes e população residente.
+[Base de consolidação.]{.field-label} RIPSA, edição 2026, MRT.5.04 e MRT.5.05; taxa bruta anual de todas as idades pelos grupos de causas publicados.
 
 ::: {.callout-note icon=false title="Conceito-chave"}
-Número de óbitos cuja causa básica pertence ao conjunto definido, por 100 mil habitantes da população residente no mesmo território e período.
+Óbitos não fetais de residentes por cada um dos dois grupos de causas, por ano de ocorrência e 100 mil residentes, todas as idades.
 :::
 
 ### Objetivo {.unnumbered .ficha-section}
@@ -24,7 +24,7 @@ Medir a intensidade da mortalidade por causa ou grupo de causas em uma populaç�
 
 ### Interpretação {.unnumbered .ficha-section}
 
-Valor de 25 por 100 mil significa 25 óbitos registrados pela causa para cada 100 mil residentes no período. A taxa bruta reflete risco e estrutura etária; não deve ser usada isoladamente para comparar populações com idades distintas.
+Cada taxa expressa a mortalidade registrada por seu grupo de causas. Inclui óbitos com idade ignorada que tenham residência, causa e data válidas; estruturas etárias diferentes afetam a comparação.
 
 ### Usos {.unnumbered .ficha-section}
 
@@ -42,48 +42,48 @@ Valor de 25 por 100 mil significa 25 óbitos registrados pela causa para cada 10
 
 ### Fontes de dados {.unnumbered .ficha-section}
 
-- Sistema de Informações sobre Mortalidade — óbitos de residentes por causa básica, data e características ([cadastro](../../backmatter/indice-fontes.qmd#sim))
-- Instituto Brasileiro de Geografia e Estatística — população residente no denominador ([cadastro](../../backmatter/indice-fontes.qmd#ibge))
+- Sistema de Informações sobre Mortalidade — Dados: óbitos não fetais de residentes por causa básica e ano de ocorrência. ([cadastro](../../backmatter/indice-fontes.qmd#sim))
+- População municipal por sexo e idade — revisão 2024 — Dados: população municipal total ou etária, revisão 2024. ([cadastro](../../backmatter/indice-fontes.qmd#ms-pop-2024))
 
 ### Método de cálculo {.unnumbered .ficha-section}
 
-Definir previamente códigos da CID-10, idade, território de residência e período. Contar óbitos de residentes com causa básica no conjunto e dividir pela população residente estimada no meio do período; multiplicar por 100 mil. Calcular intervalos e, em pequenas áreas, considerar agregação ou suavização claramente identificada.
+SIM, arquivos DO de todas as UFs, uma única edição por ano, abrangendo óbitos não fetais (TIPOBITO=2). Selecionar residentes pelo CODMUNRES, ano de ocorrência em DTOBITO (DDMMAAAA), e causa básica CAUSABAS. Não selecionar por município de ocorrência. CODMUNRES é o código DATASUS de seis dígitos: vincular à tabela oficial de municípios IBGE de sete dígitos pela correspondência validada, sem preencher códigos desconhecidos. Registrar separadamente residência, data e causa ausentes/inválidas. Não misturar versões preliminares e finais, nem carregar duas vezes o mesmo arquivo; não deduplicar por atributos pessoais. Duas séries independentes, por causa básica CID-10: cardiovasculares I00–I99; respiratórias crônicas J30–J35 e J37–J98. Remover ponto e espaços do código, converter para maiúsculas e comparar os três primeiros caracteres válidos. J36, J99 e causas fora desses intervalos ficam excluídos; não somar as duas séries. Estudo de Estimativas Populacionais por Município, Idade e Sexo, revisão 2024, Ministério da Saúde/DATASUS (popsvs2024br.def). Usar ambos os sexos, município e mesmo ano do numerador. Para totais, usar o Total publicado; para padronização, idade simples ou grupos que componham exatamente as 18 faixas. Fixar a edição e arquivar a tabela extraída; não misturar a série antiga 2000–2021, projeções apenas estaduais ou estimativas para o TCU. Se o município/ano ou a divisão 80–84/85+ não estiver disponível, não calcular a taxa correspondente. Dividir cada contagem anual pela população total e multiplicar por 100.000. Não ajustar sub-registro nem causas mal definidas.
 
 $$
 TM_c=100\,000\times\frac{D_{c,res}}{Pop_{res}}
 $$
 
 ::: {.indicator-card}
-[Numerador.]{.field-label} Óbitos de residentes cuja causa básica pertence ao conjunto c no período.
+[Numerador.]{.field-label} Óbitos não fetais de residentes no município, ano de ocorrência e grupo CID-10 fixado; inclui idade ignorada.
 
-[Denominador.]{.field-label} População residente no território e período.
+[Denominador.]{.field-label} Estudo de Estimativas Populacionais por Município, Idade e Sexo, revisão 2024, Ministério da Saúde/DATASUS (popsvs2024br.def). Usar ambos os sexos, município e mesmo ano do numerador. Para totais, usar o Total publicado; para padronização, idade simples ou grupos que componham exatamente as 18 faixas. Fixar a edição e arquivar a tabela extraída; não misturar a série antiga 2000–2021, projeções apenas estaduais ou estimativas para o TCU. Se o município/ano ou a divisão 80–84/85+ não estiver disponível, não calcular a taxa correspondente.
 
 [Unidade de medida.]{.field-label} Óbitos por 100 mil habitantes.
 
-[Variáveis e categorias de análise.]{.field-label} Causa básica CID-10; idade; sexo; raça ou cor; escolaridade; ocupação; residência; ocorrência; período; circunstância quando disponível.
+[Variáveis e categorias de análise.]{.field-label} TIPOBITO, CODMUNRES, DTOBITO, CAUSABAS, IDADE; ano, município, causa e população. Ambos os sexos e todas as idades.
 
 [Granularidade.]{.field-label} Óbito individual na origem e taxa agregada.
 
-[Periodicidade de atualização.]{.field-label} Conforme bases preliminares e consolidadas do SIM.
+[Periodicidade de atualização.]{.field-label} Anual, com identificação da versão preliminar ou definitiva do SIM e edição populacional.
 
 [Responsabilidade gerencial.]{.field-label} Área de vigilância epidemiológica e informação em saúde, com apoio de epidemiologia e estatística para modelagem e interpretação.
 
-[Notas.]{.field-label} Contagens, taxas, excesso, associação e atribuição respondem a perguntas diferentes. Resultados estimados devem informar modelo, referência contrafactual e incerteza.
+[Notas.]{.field-label} São taxas de ocorrência registrada; não estimam excesso ou atribuição ao clima. Ausência de denominador ou denominador zero implica resultado ausente, com motivo. Zero óbito só é válido quando a cobertura dos arquivos está completa.
 
-[Análise descritiva do indicador.]{.field-label} Mostrar contagem e taxa, distribuição etária, sexo, raça ou cor, local, sazonalidade, causas mal definidas, cobertura e intervalo; usar padronização para comparações.
+[Análise descritiva do indicador.]{.field-label} Publicar contagens, população, taxa por causa, município e ano, versão das bases, exclusões e idade ignorada. Apresentar taxa bruta junto da padronizada.
 
 :::
 
 ### Campos complementares para clima, ambiente e saúde {.unnumbered .ficha-section}
 
 ::: {.indicator-card}
-[Unidade territorial.]{.field-label} Município de residência e agregações superiores; pequenas áreas sob regras de confidencialidade e estabilidade.
+[Unidade territorial.]{.field-label} Município de residência; agregações somando óbitos e populações antes de calcular taxas.
 
-[Resolução espacial original.]{.field-label} Município de residência nos dados públicos usuais.
+[Resolução espacial original.]{.field-label} Município de residência.
 
-[Resolução temporal.]{.field-label} Data do óbito; resumo diário, semanal, mensal ou anual conforme contagem.
+[Resolução temporal.]{.field-label} Anual, pelo ano de ocorrência do óbito.
 
-[Período de referência.]{.field-label} Período analisado e versão da CID; no Brasil, série CID-10 desde 1996.
+[Período de referência.]{.field-label} Ano civil do óbito e população do mesmo ano.
 
 [Limiar ou valor de referência.]{.field-label} Não há limiar universal; comparar com série histórica, território adequado e intervalo de incerteza.
 
@@ -91,29 +91,41 @@ $$
 
 ### Disponibilidade e acesso {.unnumbered .ficha-section}
 
-[Cobertura geográfica.]{.field-label} Brasil, condicionada à cobertura e qualidade local do SIM.
+[Protocolo verificado em.]{.field-label} 2026-10-06
 
-[Período disponível.]{.field-label} Desde 1996 em CID-10 no portal nacional consultado.
+[Dependência de dados locais.]{.field-label} Não depende de coleta local.
 
-[Periodicidade de atualização.]{.field-label} Conforme bases preliminares e consolidadas do SIM.
+[Automação.]{.field-label} Condicionada
 
-[Forma de acesso.]{.field-label} TABNET e transferência de arquivos do DATASUS.
+[Requisitos para o cálculo.]{.field-label} Validar a edição, as entradas e os códigos; arquivar a extração com URL, data e SHA-256. Implementação em repositório de cálculo separado.
+
+[Nível de evidência.]{.field-label} Documentação verificada
+
+[Alcance da verificação.]{.field-label} Definição conferida nas referências citadas; nenhuma série deste indicador foi calculada nesta revisão.
+
+[Cobertura geográfica.]{.field-label} Brasil; municípios com população correspondente disponível.
+
+[Período disponível.]{.field-label} Interseção entre os anos do SIM em CID-10 e os da população municipal revisão 2024; nesta versão, recorte de 2000 a 2024, limitado às faixas disponíveis.
+
+[Periodicidade de atualização.]{.field-label} Anual, com identificação da versão preliminar ou definitiva do SIM e edição populacional.
+
+[Forma de acesso.]{.field-label} DATASUS: transferência de arquivos SIM DO e TABNET da população municipal por sexo e idade, revisão 2024.
 
 [URL ou identificador persistente.]{.field-label} https://datasus.saude.gov.br/mortalidade-desde-1996-pela-cid-10
 
-[Formato dos arquivos.]{.field-label} DBC, DBF após conversão e tabelas exportadas.
+[Formato dos arquivos.]{.field-label} DBC/DBF do SIM e tabela populacional exportada.
 
-[Necessidade de processamento.]{.field-label} Selecionar causas, deduplicar se necessário, qualificar residência e data, vincular população e estimar estabilidade.
+[Necessidade de processamento.]{.field-label} Aplicar os filtros fixos, validar município e ano e juntar a população; não redistribuir causas mal definidas, imputar população ou suavizar taxas.
 
 ### Qualidade, comparação e saúde {.unnumbered .ficha-section}
 
-[Qualidade e incerteza.]{.field-label} Avaliar cobertura, completude, oportunidade, duplicidade, definição de caso, codificação CID, causa básica e associadas, revisões, estabilidade do denominador, pequenas contagens e intervalos de incerteza.
+[Qualidade e incerteza.]{.field-label} Publicar exclusões por falta de residência, data ou causa; idade ignorada separadamente. Ausência de arquivo/competência não é zero óbito. Pequenos números são instáveis; preservar contagens e sinalizar cobertura.
 
 [Possibilidade de comparação.]{.field-label} Manter desfecho, definição, códigos, população, fonte, território, calendário, padronização e versão; mudanças assistenciais e de registro podem alterar o indicador sem mudança igual na ocorrência.
 
 [Relação com desfechos de saúde.]{.field-label} Mede ocorrência observada ou carga estimada de desfechos; a relação com clima ou ambiente exige exposição definida e desenho analítico compatível.
 
-[Defasagens temporais relevantes.]{.field-label} Registrar data do evento de saúde e considerar o intervalo biologicamente plausível entre exposição e desfecho; data de processamento ou competência não deve substituir automaticamente a data clínica.
+[Defasagens temporais relevantes.]{.field-label} Ano de ocorrência do óbito; não há modelagem de defasagem entre exposição e efeito.
 
 [Aplicação na gestão.]{.field-label} Monitorar impacto, desigualdades e pressão sobre serviços, avaliar alertas e intervenções e apoiar priorização, sem atribuir causalidade além do desenho.
 
@@ -121,3 +133,4 @@ $$
 
 - [@ripsa2026]
 - [@brasil2026sim]
+- [@ms2026populacao]

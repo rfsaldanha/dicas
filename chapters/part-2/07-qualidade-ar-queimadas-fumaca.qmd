@@ -16,6 +16,8 @@ flowchart TD
   X --> H[Efeitos sobre a saúde]
 ```
 
+O [Apêndice B](../../backmatter/apendice-estacoes.qmd) detalha os equipamentos de monitoramento, a coleta manual e automática, os sensores de baixo custo e o acesso às séries oficiais.
+
 ## Poluição atmosférica e fontes de emissão
 
 ::: {.callout-note icon=false title="Conceito-chave: emissão, concentração, exposição e dose"}
@@ -55,8 +57,6 @@ A OMS estabelece recomendações para PM2,5, PM10 (Material particulado com diâ
 Os valores são recomendações baseadas em saúde e não substituem a legislação. No Brasil, a Resolução nº 506/2024 do Conselho Nacional do Meio Ambiente (CONAMA) estabelece padrões intermediários e finais, tempos de média, métodos e transição regulatória [@brasil2024conama506].
 
 ## Medição, modelagem e representatividade
-
-O [Apêndice B](../../backmatter/apendice-estacoes.qmd) detalha os equipamentos de monitoramento, a coleta manual e automática, os sensores de baixo custo e o acesso às séries oficiais.
 
 Estações de referência produzem séries de alta qualidade, mas sua cobertura é desigual. A localização determina o tipo de ambiente representado: tráfego, fundo urbano, industrial ou regional. A média de uma estação não deve ser atribuída automaticamente a todo o município.
 
@@ -167,23 +167,38 @@ ODS significa objetivo de Desenvolvimento Sustentável.
 
 ::: {#qua-indicadores-ar}
 
-| Indicador e ficha (Parte IV) | Base metodológica | Uso em saúde pública | Cuidado de interpretação |
+| Indicador | Base metodológica | Uso em saúde pública | Cuidado de interpretação |
 |---|---|---|---|
-| PM2,5 anual ponderado pela população — [AMB-AR-01](../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.qmd#sec-amb-ar-01) | ODS 11.6.2, custódia OMS | exposição crônica, desigualdade e carga de doença | média não descreve episódios |
-| P99 das médias de 24 h de PM2,5 — [AMB-AR-02](../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.qmd#sec-amb-ar-02) | diretriz OMS 2021 | exposição de curto prazo e avaliação anual | não é máximo diário |
+| PM2,5 anual modelado ponderado pela população urbana | Adaptação municipal do conceito do ODS 11.6.2 | exposição crônica, desigualdade e carga de doença | média não descreve episódios |
+| P99 das médias de 24 h de PM2,5 | diretriz OMS 2021 | exposição de curto prazo e avaliação anual | não é máximo diário |
 | PM10, O₃, NO₂, SO₂ e CO em seus tempos de média | diretriz OMS e padrões nacionais | vigilância por poluente e avaliação regulatória | unidades e tempos não são intercambiáveis |
-| IQAr brasileiro — [AMB-AR-03](../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.qmd#sec-amb-ar-03) | CONAMA nº 506/2024 e orientação de 2025 | comunicação diária ou horária | depende dos poluentes monitorados e informa o pior subíndice |
-| PM2,5 atribuível ao fogo ponderado pela população — [AMB-FUM-01](../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.qmd#sec-amb-fum-01) | Lancet Countdown e estudos de fonte específica | fumaça, desigualdade e carga atribuível | depende de modelagem de fonte |
+| IQAr brasileiro | CONAMA nº 506/2024 e orientação de 2025 | comunicação diária ou horária | depende dos poluentes monitorados e informa o pior subíndice |
+| PM2,5 atribuível ao fogo ponderado pela população | Lancet Countdown e estudos de fonte específica | fumaça, desigualdade e carga atribuível | depende de modelagem de fonte |
 | Focos ativos | Programa Queimadas/INPE | situação operacional do fogo | não mede incêndios individuais, fumaça ou saúde |
 | Área queimada | produtos orbitais documentados | magnitude territorial e efeitos ambientais | não representa emissão nem exposição |
 
 Indicadores de qualidade do ar, fogo e fumaça usados em saúde pública
+
 :::
 
-As fichas correspondentes na Parte IV documentam os indicadores consolidados com aplicação sanitária direta. Focos e área queimada permanecem como variáveis contextuais até que se adote um produto específico com metadado completo.
+As fichas correspondentes na Parte IV documentam os indicadores consolidados com aplicação sanitária direta. Focos permanecem contextuais; a área queimada tem protocolo próprio na ficha AMB-FOG-01.
+
+## Protocolo de cálculo e disponibilidade
+
+| Ficha | Rótulo | Entrada fixada |
+|---|---|---|
+| [AMB-AR-01](../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.qmd#sec-amb-ar-01) | Calculável com dados abertos | SatPM V6.GL.03 total, 1998–2024, e GHS-POP R2023A |
+| [AMB-AR-02](../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.qmd#sec-amb-ar-02) | Calculável com dados locais centralizados | PM2,5 horário por estação do MonitorAr; P99 anual |
+| [AMB-AR-03](../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.qmd#sec-amb-ar-03) | Calculável com dados locais centralizados | Seis poluentes por estação e tabela IQAr de 2025 |
+| [AMB-FUM-01](../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.qmd#sec-amb-fum-01) | Calculável com dados abertos | PM2,5 de fogo GEOS-Chem/GFED4.1s, 2000–2023 |
+| [AMB-FOG-01](../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.qmd#sec-amb-fog-01) | Calculável com dados abertos | Área queimada MapBiomas Fogo Coleção 5 v1, 1985–2025 |
+
+O rótulo de dados locais centralizados preserva a dependência das estações: os arquivos estão reunidos em um catálogo, mas sua cobertura e validação variam. O município é uma chave de localização da estação, não uma certificação de representatividade de toda a população. Para o IQAr, qualquer poluente ausente exige a indicação de índice parcial. A tabela de 2025 é fixada para comparação retrospectiva; o boletim original da rede permanece uma série separada.
+
+PM2,5 total e PM2,5 atribuível ao fogo usam produtos distintos. A ficha de fumaça passa a adotar explicitamente o produto publicado por Hu et al.; não atribui automaticamente toda concentração observada durante uma queimada ao fogo [@hu2025firepm]. A ficha nova de área queimada descreve a cicatriz territorial, sem convertê-la em concentração ou dose. Em todas as médias populacionais, a população é repartida conservativamente nas interseções, e a cobertura válida acompanha o resultado.
 
 `<span id="sec-amb-ar-01"></span>`{=html}
-Consulte a [ficha AMB-AR-01 — PM2,5 anual ponderado — ODS 11.6.2](../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.qmd#sec-amb-ar-01), na Parte IV`~(p. #ref(<sec-amb-ar-01>, form: "page", supplement: none))`{=typst}.
+Consulte a [ficha AMB-AR-01 — PM2,5 anual ponderado — SatPM V6.GL.03](../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.qmd#sec-amb-ar-01), na Parte IV`~(p. #ref(<sec-amb-ar-01>, form: "page", supplement: none))`{=typst}.
 
 `<span id="sec-amb-ar-02"></span>`{=html}
 Consulte a [ficha AMB-AR-02 — PM2,5 de curto prazo — P99 24h](../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.qmd#sec-amb-ar-02), na Parte IV`~(p. #ref(<sec-amb-ar-02>, form: "page", supplement: none))`{=typst}.
@@ -193,6 +208,9 @@ Consulte a [ficha AMB-AR-03 — Índice de Qualidade do Ar — IQAr](../../chapt
 
 `<span id="sec-amb-fum-01"></span>`{=html}
 Consulte a [ficha AMB-FUM-01 — PM2,5 de fumaça ponderado pela população](../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.qmd#sec-amb-fum-01), na Parte IV`~(p. #ref(<sec-amb-fum-01>, form: "page", supplement: none))`{=typst}.
+
+`<span id="sec-amb-fog-01"></span>`{=html}
+Consulte a [ficha AMB-FOG-01 — Área municipal queimada — MapBiomas Fogo 5](../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.qmd#sec-amb-fog-01), na Parte IV`~(p. #ref(<sec-amb-fog-01>, form: "page", supplement: none))`{=typst}.
 
 ## Alertas e aplicação na gestão
 

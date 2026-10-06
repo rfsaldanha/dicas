@@ -1,281 +1,328 @@
-common: &health_effect_common
-  tema: Efeitos do clima e do ambiente sobre a saúde
+indicators:
+- tema: Efeitos do clima e do ambiente sobre a saúde
   capitulo: chapters/part-3/12-efeitos-saude.qmd
   capitulo_fichas: chapters/part-4/23-fichas-efeitos-saude.qmd
-  dimensoes: [efeito]
-  responsabilidade_gerencial: Área de vigilância epidemiológica e informação em saúde, com apoio de epidemiologia e estatística para modelagem e interpretação.
-  disponibilidade: [dados secundários de saúde, requer qualificação]
-  qualidade_incerteza: Avaliar cobertura, completude, oportunidade, duplicidade, definição de caso, codificação CID, causa básica e associadas, revisões, estabilidade do denominador, pequenas contagens e intervalos de incerteza.
-  comparabilidade: Manter desfecho, definição, códigos, população, fonte, território, calendário, padronização e versão; mudanças assistenciais e de registro podem alterar o indicador sem mudança igual na ocorrência.
-  relacao_saude: Mede ocorrência observada ou carga estimada de desfechos; a relação com clima ou ambiente exige exposição definida e desenho analítico compatível.
-  defasagens_temporais: Registrar data do evento de saúde e considerar o intervalo biologicamente plausível entre exposição e desfecho; data de processamento ou competência não deve substituir automaticamente a data clínica.
-  aplicacao_gestao: Monitorar impacto, desigualdades e pressão sobre serviços, avaliar alertas e intervenções e apoiar priorização, sem atribuir causalidade além do desenho.
-  notas: Contagens, taxas, excesso, associação e atribuição respondem a perguntas diferentes. Resultados estimados devem informar modelo, referência contrafactual e incerteza.
-
-indicators:
-  - <<: *health_effect_common
-    codigo: EFE-MOR-01
-    titulo_completo: Taxa de mortalidade específica por causa
-    titulo_resumido: Mortalidade específica por causa
-    referencia_metodologica: Indicador de mortalidade específica por causas da RIPSA, calculado com óbitos de residentes e população residente.
-    conceito: Número de óbitos cuja causa básica pertence ao conjunto definido, por 100 mil habitantes da população residente no mesmo território e período.
-    objetivo: Medir a intensidade da mortalidade por causa ou grupo de causas em uma população.
-    interpretacao: Valor de 25 por 100 mil significa 25 óbitos registrados pela causa para cada 100 mil residentes no período. A taxa bruta reflete risco e estrutura etária; não deve ser usada isoladamente para comparar populações com idades distintas.
-    usos: [Descrever mortalidade por causas sensíveis ao clima e ambiente., Comparar períodos dentro de população estável., Monitorar desigualdades com estratificação., Compor análises epidemiológicas de eventos.]
-    limitacoes: [Depende da qualidade da causa básica e da cobertura do SIM., Códigos diretos de calor ou desastre podem subestimar efeitos indiretos., Pequenas populações produzem taxas instáveis., Comparações territoriais exigem padronização por idade quando as estruturas diferem.]
-    fontes_dados:
-      - id: sim
-        papel: óbitos de residentes por causa básica, data e características
-      - id: ibge
-        papel: população residente no denominador
-    metodo_calculo: Definir previamente códigos da CID-10, idade, território de residência e período. Contar óbitos de residentes com causa básica no conjunto e dividir pela população residente estimada no meio do período; multiplicar por 100 mil. Calcular intervalos e, em pequenas áreas, considerar agregação ou suavização claramente identificada.
-    formula_calculo: 'TM_c=100\,000\times\frac{D_{c,res}}{Pop_{res}}'
-    numerador: Óbitos de residentes cuja causa básica pertence ao conjunto c no período.
-    denominador: População residente no território e período.
-    unidade_medida: Óbitos por 100 mil habitantes.
-    variaveis_categorias_analise: Causa básica CID-10; idade; sexo; raça ou cor; escolaridade; ocupação; residência; ocorrência; período; circunstância quando disponível.
-    granularidade: Óbito individual na origem e taxa agregada.
-    unidade_territorial: Município de residência e agregações superiores; pequenas áreas sob regras de confidencialidade e estabilidade.
-    resolucao_espacial_original: Município de residência nos dados públicos usuais.
-    resolucao_temporal: Data do óbito; resumo diário, semanal, mensal ou anual conforme contagem.
-    periodo_referencia: Período analisado e versão da CID; no Brasil, série CID-10 desde 1996.
-    limiar_referencia: Não há limiar universal; comparar com série histórica, território adequado e intervalo de incerteza.
-    cobertura_geografica: Brasil, condicionada à cobertura e qualidade local do SIM.
-    periodo_disponivel: Desde 1996 em CID-10 no portal nacional consultado.
-    periodicidade_atualizacao: Conforme bases preliminares e consolidadas do SIM.
-    forma_acesso: TABNET e transferência de arquivos do DATASUS.
-    url_persistente: https://datasus.saude.gov.br/mortalidade-desde-1996-pela-cid-10
-    formatos: DBC, DBF após conversão e tabelas exportadas.
-    necessidade_processamento: Selecionar causas, deduplicar se necessário, qualificar residência e data, vincular população e estimar estabilidade.
-    analise_descritiva: Mostrar contagem e taxa, distribuição etária, sexo, raça ou cor, local, sazonalidade, causas mal definidas, cobertura e intervalo; usar padronização para comparações.
-    referencias: ["[@ripsa2026]", "[@brasil2026sim]"]
-
-  - <<: *health_effect_common
-    codigo: EFE-MOR-02
-    titulo_completo: Taxa de mortalidade específica por causa padronizada por idade pelo método direto
-    titulo_resumido: Mortalidade padronizada por idade
-    referencia_metodologica: Padronização direta com população padrão da Organização Mundial da Saúde.
-    conceito: Média ponderada das taxas de mortalidade específicas por idade de uma população, usando como pesos uma distribuição etária padrão comum.
-    objetivo: Comparar mortalidade por causa entre populações ou períodos removendo a influência de diferenças na composição etária.
-    interpretacao: A taxa representa quantos óbitos por 100 mil ocorreriam na população padrão se ela experimentasse as taxas etárias observadas. É uma medida comparativa hipotética, não a taxa efetivamente observada.
-    usos: [Comparar territórios com estruturas etárias diferentes., Monitorar tendências longas., Comparar grupos populacionais., Produzir indicadores internacionais de mortalidade ambiental.]
-    limitacoes: [O resultado depende da população padrão e das faixas etárias., Exige números e denominadores por idade confiáveis., Taxas etárias instáveis contaminam a soma., Não substitui a apresentação de contagens e taxas específicas por idade.]
-    fontes_dados:
-      - id: sim
-        papel: óbitos por causa e faixa etária
-      - id: ibge
-        papel: população por faixa etária
-      - id: who-ghe
-        papel: referência internacional e população padrão para comparações
-    metodo_calculo: Para cada faixa etária, dividir óbitos pela população correspondente. Multiplicar cada taxa específica pela proporção da mesma faixa na população padrão. Somar os produtos e multiplicar pela constante quando as taxas não estiverem previamente escaladas. Declarar padrão, faixas, tratamento da idade ignorada e intervalo.
-    formula_calculo: 'TMP_c=100\,000\times\sum_a\left(\frac{D_{c,a}}{Pop_a}\right)w_a,\qquad \sum_a w_a=1'
-    numerador: Soma ponderada das taxas específicas por idade; não há numerador observado único.
-    denominador: Populações específicas por idade; pesos da população padrão somam um.
-    unidade_medida: Óbitos por 100 mil habitantes da população padrão.
-    variaveis_categorias_analise: Causa; idade; sexo; raça ou cor quando denominadores permitirem; território; ano; população padrão.
-    granularidade: Faixa etária antes da padronização; território-período na saída.
-    unidade_territorial: Território com óbitos e população por idade compatíveis.
-    resolucao_espacial_original: A menor unidade com contagens etárias estáveis e denominadores qualificados.
-    resolucao_temporal: Geralmente anual ou plurianual.
-    periodo_referencia: Período dos óbitos e população; população padrão OMS 2000–2025 quando adotada.
-    limiar_referencia: Não há corte universal; comparações exigem a mesma população padrão.
-    cobertura_geografica: Brasil com SIM e IBGE; global nas estimativas comparáveis da OMS.
-    periodo_disponivel: Conforme séries de mortalidade e população por idade.
-    periodicidade_atualizacao: Anual ou por edição da base.
-    forma_acesso: Cálculo com tabelas etárias; estimativas internacionais no Observatório Global de Saúde.
-    url_persistente: https://cdn.who.int/media/docs/default-source/gho-documents/global-health-estimates/gpe_discussion_paper_series_paper31_2001_age_standardization_rates.pdf
-    formatos: Tabelas por idade e arquivo de pesos padrão.
-    necessidade_processamento: Harmonizar faixas, calcular taxas específicas, aplicar pesos, estimar variância e documentar padrão.
-    analise_descritiva: Apresentar taxa bruta, padronizada e específicas por idade, contagens, padrão empregado e intervalos; investigar se a diferença comparativa é concentrada em alguma idade.
-    referencias: ["[@ripsa2026]", "[@who2001standard]"]
-
-  - <<: *health_effect_common
-    codigo: EFE-MOB-01
-    titulo_completo: Taxa de internação hospitalar do SUS por causas selecionadas
-    titulo_resumido: Internações SUS por causa — D.29
-    referencia_metodologica: Indicador D.29 da RIPSA para internações hospitalares financiadas pelo SUS por causas selecionadas.
-    conceito: Número de internações de residentes financiadas pelo SUS por uma causa ou grupo definido, por 10 mil habitantes da população residente.
-    objetivo: Medir a frequência de utilização hospitalar do SUS associada a causas selecionadas em relação à população.
-    interpretacao: Valor de 12 por 10 mil representa 12 AIH de internação pela causa para cada 10 mil residentes. Mede episódios administrativos de internação, não pessoas únicas nem incidência integral da doença.
-    usos: [Monitorar pressão hospitalar durante calor, fumaça, enchentes ou surtos., Comparar sazonalidade e períodos., Estratificar por idade e território., Planejar capacidade assistencial.]
-    limitacoes: [Cobre internações financiadas pelo SUS, não toda assistência hospitalar., Uma pessoa pode gerar mais de uma AIH ou internação., Oferta, acesso e regras de faturamento modificam a taxa., Diagnóstico principal pode não registrar a exposição ambiental.]
-    fontes_dados:
-      - id: sih-sus
-        papel: AIH de residentes por diagnóstico, data e características
-      - id: ibge
-        papel: população residente no denominador
-    metodo_calculo: Definir códigos CID-10, população, território de residência e período. Contar AIH de residentes com diagnóstico principal no conjunto selecionado, observando longa permanência e duplicidades previstas no método. Dividir pela população residente e multiplicar por 10 mil. Para efeitos agudos, usar data de internação quando disponível e não apenas competência.
-    formula_calculo: 'TI_c=10\,000\times\frac{AIH_{c,res}}{Pop_{res}}'
-    numerador: Internações ou AIH de residentes financiadas pelo SUS pela causa selecionada.
-    denominador: População residente no território e período.
-    unidade_medida: Internações por 10 mil habitantes.
-    variaveis_categorias_analise: Diagnóstico principal e secundário; idade; sexo; raça ou cor; residência; estabelecimento; data; permanência; desfecho.
-    granularidade: AIH na origem e taxa territorial no resultado.
-    unidade_territorial: Município de residência e agregações, com opção de analisar fluxo por local de internação separadamente.
-    resolucao_espacial_original: Município de residência e estabelecimento conforme arquivo público.
-    resolucao_temporal: Episódio ou competência mensal; resumo diário quando datas forem qualificadas.
-    periodo_referencia: Período analisado e versão do processamento SIH/SUS.
-    limiar_referencia: Não há corte universal; usar série histórica e capacidade local.
-    cobertura_geografica: Brasil para internações financiadas pelo SUS.
-    periodo_disponivel: Conforme o SIH/SUS; considerar mudanças da CID e do processamento.
-    periodicidade_atualizacao: Mensal, sujeita a revisões administrativas.
-    forma_acesso: TABNET, TABWIN e transferência de arquivos.
-    url_persistente: https://datasus.saude.gov.br/acesso-a-informacao/morbidade-hospitalar-do-sus-sih-sus/
-    formatos: DBC, DBF após conversão e tabelas exportadas.
-    necessidade_processamento: Selecionar diagnósticos, data e residência, tratar AIH de continuidade, vincular denominador e verificar cobertura.
-    analise_descritiva: Mostrar contagens e taxas, permanência, óbito hospitalar, idade, raça ou cor, residência e local de atendimento, sazonalidade, cobertura SUS e mudanças de oferta.
-    referencias: ["[@ripsa2026]", "[@brasil2026sih]"]
-
-  - <<: *health_effect_common
-    codigo: EFE-EXC-01
-    titulo_completo: Número de óbitos em excesso
-    titulo_resumido: Óbitos em excesso
-    referencia_metodologica: Definição epidemiológica e métodos de mortalidade em excesso da Organização Mundial da Saúde.
-    conceito: Diferença entre o número de óbitos observados e o número que seria esperado na ausência do período ou evento de interesse, segundo um modelo contrafactual.
-    objetivo: Detectar e quantificar mortalidade acima ou abaixo do padrão esperado por todas as causas ou causas definidas.
-    interpretacao: Excesso positivo indica mais óbitos que o esperado; valor negativo indica déficit. O total inclui efeitos diretos e indiretos e não identifica sozinho qual parcela foi causada pelo evento.
-    usos: [Monitorar ondas de calor, desastres e emergências., Captar efeitos não registrados em códigos específicos., Comparar impacto temporal., Avaliar pressão e interrupção do sistema.]
-    limitacoes: [O resultado depende criticamente do modelo esperado., Tendência, sazonalidade, envelhecimento e feriados devem ser tratados., Atraso de registro pode criar excesso ou déficit artificial., Excesso temporal não prova atribuição causal ao perigo.]
-    fontes_dados:
-      - id: sim
-        papel: óbitos observados por data, idade, sexo, causa e território
-      - id: ibge
-        papel: população e mudanças demográficas para taxas ou compensação do modelo
-    metodo_calculo: Modelar óbitos esperados com período anterior não afetado, controlando tendência, sazonalidade e calendário e incorporando estrutura demográfica quando necessário. Prever cada unidade temporal com intervalo. Subtrair o esperado do observado e somar no período. Informar resultados usando tanto a média esperada quanto, quando pertinente, o limite superior preditivo.
-    formula_calculo: 'Excesso_t=O_t-E_t;\qquad Excesso_P=\sum_{t\in P}(O_t-E_t)'
-    numerador: Não se aplica; diferença entre contagem observada e esperada.
-    denominador: Não se aplica; pode-se dividir pela população para obter taxa de excesso.
-    unidade_medida: Óbitos; adicionalmente óbitos por população.
-    variaveis_categorias_analise: Óbitos por todas as causas ou causa; data; idade; sexo; raça ou cor; território; observado; esperado; intervalo preditivo.
-    granularidade: Dia ou semana antes da agregação; território-período no resumo.
-    unidade_territorial: Território com série suficientemente estável e registro oportuno.
-    resolucao_espacial_original: A dos óbitos; modelagem em pequenas áreas requer pooling ou estrutura hierárquica.
-    resolucao_temporal: Diário ou semanal para eventos agudos; mensal para séries menos densas.
-    periodo_referencia: Anos anteriores selecionados antes do evento, excluindo períodos anômalos conforme protocolo.
-    limiar_referencia: Esperado e intervalo preditivo do modelo; exceder o limite superior é sinal estatístico, não prova causal.
-    cobertura_geografica: Brasil conforme o SIM e a oportunidade dos registros.
-    periodo_disponivel: Conforme a série histórica qualificada.
-    periodicidade_atualizacao: Semanal ou mensal em monitoramento com dados preliminares; revisão após consolidação.
-    forma_acesso: Modelagem sobre série de óbitos do SIM e denominadores do IBGE.
-    url_persistente: https://www.who.int/publications/m/item/methods-for-estimating-the-excess-mortality-associatedwith-the-covid-19-pandemic
-    formatos: Série temporal de contagens, previsões e intervalos.
-    necessidade_processamento: Corrigir atraso, definir linha de base, modelar tendência e sazonalidade, prever esperado, calcular diferenças e intervalos.
-    analise_descritiva: Plotar observado e esperado com intervalo, excesso diário e acumulado, estratos e revisões; testar baselines alternativos e mortalidade deslocada.
-    referencias: ["[@who2023excess]"]
-
-  - <<: *health_effect_common
-    codigo: EFE-EXC-02
-    titulo_completo: P-score de mortalidade em excesso
-    titulo_resumido: P-score de excesso de mortalidade
-    referencia_metodologica: Medida percentual usada pela Organização Mundial da Saúde para comparar mortalidade observada e esperada.
-    conceito: Excesso de óbitos expresso como percentual do número esperado no mesmo território e período.
-    objetivo: Tornar o excesso comparável entre populações e períodos com diferentes níveis basais de mortalidade.
-    interpretacao: P-score de 20% indica que os óbitos observados ficaram 20% acima do esperado; −10% indica 10% abaixo. Um mesmo percentual pode representar números absolutos muito diferentes.
-    usos: [Comparar intensidade relativa de excesso., Monitorar estratos etários e sexuais., Comunicar desvio proporcional da linha de base., Complementar contagem absoluta.]
-    limitacoes: [Herda toda incerteza do esperado., Pode ser instável quando o esperado é pequeno., Percentual alto em pequena população pode corresponder a poucos óbitos., Não substitui contagens nem taxa populacional.]
-    fontes_dados:
-      - id: sim
-        papel: óbitos observados e série histórica para o esperado
-    metodo_calculo: Obter observado e esperado com o mesmo método da ficha de óbitos em excesso. Subtrair o esperado do observado, dividir pelo esperado e multiplicar por 100. Calcular por unidade temporal ou sobre somas do período; não fazer média simples de P-scores diários com esperados diferentes.
-    formula_calculo: 'Pscore_P=100\times\frac{\sum_{t\in P}O_t-\sum_{t\in P}E_t}{\sum_{t\in P}E_t}'
-    numerador: Óbitos observados menos óbitos esperados no período.
-    denominador: Óbitos esperados no período.
-    unidade_medida: Percentual (%).
-    variaveis_categorias_analise: Observado; esperado; idade; sexo; raça ou cor; causa; território; período.
-    granularidade: Dia ou semana na origem; período agregado no P-score.
-    unidade_territorial: Território com esperado suficientemente grande e estável.
-    resolucao_espacial_original: A da modelagem de excesso.
-    resolucao_temporal: Diário, semanal, mensal ou por episódio.
-    periodo_referencia: A mesma linha de base do modelo de esperado.
-    limiar_referencia: Zero indica observado igual ao esperado; intervalos devem ser obtidos da incerteza do modelo.
-    cobertura_geografica: A do sistema de mortalidade usado.
-    periodo_disponivel: Conforme os dados observados e a linha de base.
-    periodicidade_atualizacao: A mesma da estimativa de excesso.
-    forma_acesso: Derivação das séries observada e esperada.
-    url_persistente: https://www.who.int/publications/m/item/methods-for-estimating-the-excess-mortality-associatedwith-the-covid-19-pandemic
-    formatos: Tabela e série temporal com observado, esperado, excesso e P-score.
-    necessidade_processamento: Agregar observado e esperado de forma consistente e propagar incerteza.
-    analise_descritiva: Apresentar P-score com excesso absoluto, esperado, intervalo e tamanho populacional; evitar ordenação sem estabilidade.
-    referencias: ["[@who2023excess]"]
-
-  - <<: *health_effect_common
-    codigo: EFE-ATR-01
-    titulo_completo: Número e fração de eventos atribuíveis à temperatura em modelos de defasagem distribuída
-    titulo_resumido: Eventos atribuíveis à temperatura
-    referencia_metodologica: Método de risco atribuível de Gasparrini e Leone para modelos de defasagem distribuída, aplicado a temperatura e mortalidade ou morbidade.
-    conceito: Número e proporção de eventos estimados que não ocorreriam no período se a exposição observada fosse substituída pela temperatura de referência, dadas a curva exposição–resposta e as defasagens modeladas.
-    objetivo: Quantificar carga atribuível a temperaturas acima, abaixo ou diferentes do ponto de risco mínimo.
-    interpretacao: Fração atribuível de 5% estima que 5% dos eventos no período são atribuíveis à distribuição de temperatura em relação ao contrafactual, sob o modelo e suas hipóteses. Não é a proporção de declarações com código de calor.
-    usos: [Estimar mortes ou internações atribuíveis ao calor e ao frio., Separar componentes moderados e extremos., Comparar cenários e populações., Avaliar impacto potencial de adaptação.]
-    limitacoes: [Exige hipótese causal, controle adequado de sazonalidade e confundimento., Curva e defasagem podem ser instáveis nas extremidades., O ponto de risco mínimo é estimado com incerteza., Somar frações de exposições correlacionadas pode gerar dupla contagem.]
-    fontes_dados:
-      - id: sim
-        papel: série diária de óbitos por desfecho
-      - id: inmet
-        papel: série diária de temperatura ou índice térmico
-      - id: era5-land
-        papel: exposição em grade quando validada para o território
-    metodo_calculo: Ajustar um modelo de série temporal com função não linear de exposição e defasagem distribuída, controlando sazonalidade, tendência, calendário e confundidores definidos. Escolher a temperatura de referência, usualmente o ponto de risco mínimo. Para cada dia, obter o risco relativo acumulado das exposições presentes e defasadas, calcular a fração atribuível e multiplicar pelo número de eventos. Somar números atribuíveis e dividir pelo total para a fração do período. Estimar intervalos por simulação dos coeficientes.
-    formula_calculo: 'AF_t=1-\exp\left(-\sum_{\ell=0}^{L}\beta_{x_{t-\ell},\ell}\right);\quad AN_t=AF_tY_t;\quad AF_P=\frac{\sum_t AN_t}{\sum_tY_t}'
-    numerador: Soma dos eventos atribuíveis estimados no período.
-    denominador: Total de eventos observados para a fração atribuível.
-    unidade_medida: Eventos atribuíveis e percentual atribuível (%).
-    variaveis_categorias_analise: Exposição diária; defasagem; desfecho diário; temperatura de referência; calor e frio; moderado e extremo; idade; sexo; território.
-    granularidade: Dia na modelagem; período e território no resultado.
-    unidade_territorial: Cidade ou território com exposição e desfecho temporalmente alinhados.
-    resolucao_espacial_original: A da exposição e do desfecho; a atribuição territorial deve ser validada.
-    resolucao_temporal: Diária ou subdiária agregada conforme o modelo; defasagens em dias.
-    periodo_referencia: Série suficientemente longa para estimar sazonalidade e curva; contrafactual no ponto de risco mínimo ou valor definido.
-    limiar_referencia: Temperatura de risco mínimo e percentis que separam exposições moderadas e extremas, todos estimados ou definidos no protocolo.
-    cobertura_geografica: Territórios com séries de saúde e temperatura compatíveis.
-    periodo_disponivel: Interseção das séries qualificadas.
-    periodicidade_atualizacao: Por estudo ou ciclo analítico; não é simples indicador de atualização automática.
-    forma_acesso: Modelagem epidemiológica reproduzível com dados diários e código versionado.
-    url_persistente: https://doi.org/10.1186/1471-2288-14-55
-    formatos: Séries diárias, objetos do modelo e tabelas de número e fração atribuíveis.
-    necessidade_processamento: Harmonizar séries, ajustar DLNM, escolher referência, calcular contribuições backward ou forward, simular incerteza e realizar sensibilidade.
-    analise_descritiva: Mostrar curva exposição–resposta, defasagem, referência, eventos atribuíveis por dia e acumulados, componentes de calor e frio, intervalos e sensibilidade a graus de liberdade.
-    referencias: ["[@gasparrini2010dlnm]", "[@gasparrini2014attributable]"]
-
-  - <<: *health_effect_common
-    codigo: EFE-CAR-01
-    titulo_completo: Anos de vida ajustados por incapacidade atribuíveis a risco ambiental (DALY atribuível)
-    titulo_resumido: DALY atribuível a risco ambiental
-    referencia_metodologica: Métodos das Estimativas Globais de Saúde da OMS e estrutura de fração atribuível populacional para riscos ambientais.
-    conceito: Anos de vida saudável perdidos por morte prematura e por incapacidade estimados como atribuíveis a uma exposição ambiental em relação a uma distribuição contrafactual.
-    objetivo: Integrar efeitos fatais e não fatais e comparar a carga de diferentes riscos e desfechos em uma unidade comum.
-    interpretacao: Um DALY representa um ano equivalente de vida saudável perdido. O DALY atribuível depende da carga total, distribuição de exposição, risco relativo, contrafactual, tabela de vida e pesos de incapacidade.
-    usos: [Comparar carga de poluição, temperatura, água insegura e outros riscos., Priorizar prevenção., Avaliar cenários contrafactuais., Integrar mortalidade e morbidade.]
-    limitacoes: [Resultado modelado com múltiplas fontes de incerteza., Pesos de incapacidade e contrafactual incorporam escolhas normativas e técnicas., Riscos correlacionados podem produzir dupla contagem., Estimativa global não substitui dados nacionais nem identifica indivíduos.]
-    fontes_dados:
-      - id: who-ghe
-        papel: DALY, YLL, YLD, tabelas e métodos comparáveis
-      - id: sim
-        papel: mortalidade nacional para componentes locais de YLL
-    metodo_calculo: Estimar YLL multiplicando óbitos por expectativa de vida padrão restante; estimar YLD pela prevalência do estado de saúde multiplicada pelo peso de incapacidade; somar para obter DALY. Calcular a fração atribuível populacional a partir da distribuição observada de exposição, distribuição contrafactual e riscos relativos. Multiplicar a carga do desfecho pela fração, mantendo idade, sexo, causa e ano. Propagar incerteza de todos os componentes.
-    formula_calculo: |
-      \begin{aligned}
-      DALY &= YLL+YLD,\\
-      YLL &= \sum_a D_aL_a,\\
-      YLD &= \sum_s Prev_sDW_s,\\
-      DALY_{atr} &= PAF\times DALY.
-      \end{aligned}
-    numerador: DALY atribuível estimado; a PAF tem numerador igual à diferença de carga ponderada entre exposição observada e contrafactual.
-    denominador: DALY total do desfecho para a fração atribuível.
-    unidade_medida: Anos de vida saudável perdidos; número e taxa por população.
-    variaveis_categorias_analise: Risco; exposição; contrafactual; causa; idade; sexo; YLL; YLD; DALY; peso de incapacidade; território; ano.
-    granularidade: Estratos de causa, idade, sexo, território e ano.
-    unidade_territorial: País ou território com dados e modelos suficientes; estimativas locais exigem validação própria.
-    resolucao_espacial_original: Nacional nas Estimativas Globais de Saúde; pode ser modelada em outros níveis.
-    resolucao_temporal: Anual.
-    periodo_referencia: Ano da carga, edição das estimativas, tabela de vida e distribuição contrafactual.
-    limiar_referencia: Distribuição teórica ou alternativa de exposição de risco mínimo definida no método de carga.
-    cobertura_geografica: Global, regional e nacional na OMS; aplicações subnacionais dependem de dados.
-    periodo_disponivel: Conforme a edição do WHO Global Health Estimates.
-    periodicidade_atualizacao: Por edição das estimativas.
-    forma_acesso: Downloads da OMS ou cálculo local com exposição, risco relativo e carga de doença.
-    url_persistente: https://www.who.int/data/gho/data/themes/mortality-and-global-health-estimates/global-health-estimates-leading-causes-of-dalys/
-    formatos: Planilhas, CSV e documentação metodológica.
-    necessidade_processamento: Harmonizar causas e estratos, estimar YLL/YLD, PAF e contrafactual, multiplicar carga e propagar incerteza.
-    analise_descritiva: Apresentar DALY atribuível, taxa, YLL, YLD, PAF, contrafactual, causa, idade e sexo, com intervalos e comparação de edições.
-    referencias: ["[@who2020ghe]", "[@who2024attributable]"]
+  dimensoes:
+  - efeito
+  responsabilidade_gerencial: Área de vigilância epidemiológica e informação em saúde, com apoio de epidemiologia
+    e estatística para modelagem e interpretação.
+  disponibilidade:
+  - Calculável com dados abertos
+  qualidade_incerteza: Publicar exclusões por falta de residência, data ou causa; idade ignorada separadamente.
+    Ausência de arquivo/competência não é zero óbito. Pequenos números são instáveis; preservar contagens e
+    sinalizar cobertura.
+  comparabilidade: Manter desfecho, definição, códigos, população, fonte, território, calendário, padronização
+    e versão; mudanças assistenciais e de registro podem alterar o indicador sem mudança igual na ocorrência.
+  relacao_saude: Mede ocorrência observada ou carga estimada de desfechos; a relação com clima ou ambiente
+    exige exposição definida e desenho analítico compatível.
+  defasagens_temporais: Ano de ocorrência do óbito; não há modelagem de defasagem entre exposição e efeito.
+  aplicacao_gestao: Monitorar impacto, desigualdades e pressão sobre serviços, avaliar alertas e intervenções
+    e apoiar priorização, sem atribuir causalidade além do desenho.
+  notas: São taxas de ocorrência registrada; não estimam excesso ou atribuição ao clima. Ausência de denominador
+    ou denominador zero implica resultado ausente, com motivo. Zero óbito só é válido quando a cobertura dos
+    arquivos está completa.
+  codigo: EFE-MOR-01
+  titulo_completo: Taxa bruta de mortalidade cardiovascular e por doenças respiratórias crônicas
+  titulo_resumido: Mortalidade cardiovascular e respiratória crônica
+  referencia_metodologica: RIPSA, edição 2026, MRT.5.04 e MRT.5.05; taxa bruta anual de todas as idades pelos
+    grupos de causas publicados.
+  conceito: Óbitos não fetais de residentes por cada um dos dois grupos de causas, por ano de ocorrência e
+    100 mil residentes, todas as idades.
+  objetivo: Medir a intensidade da mortalidade por causa ou grupo de causas em uma população.
+  interpretacao: Cada taxa expressa a mortalidade registrada por seu grupo de causas. Inclui óbitos com idade
+    ignorada que tenham residência, causa e data válidas; estruturas etárias diferentes afetam a comparação.
+  usos:
+  - Descrever mortalidade por causas sensíveis ao clima e ambiente.
+  - Comparar períodos dentro de população estável.
+  - Monitorar desigualdades com estratificação.
+  - Compor análises epidemiológicas de eventos.
+  limitacoes:
+  - Depende da qualidade da causa básica e da cobertura do SIM.
+  - Códigos diretos de calor ou desastre podem subestimar efeitos indiretos.
+  - Pequenas populações produzem taxas instáveis.
+  - Comparações territoriais exigem padronização por idade quando as estruturas diferem.
+  fontes_dados:
+  - id: sim
+    papel: 'Dados: óbitos não fetais de residentes por causa básica e ano de ocorrência.'
+  - id: ms-pop-2024
+    papel: 'Dados: população municipal total ou etária, revisão 2024.'
+  metodo_calculo: 'SIM, arquivos DO de todas as UFs, uma única edição por ano, abrangendo óbitos não fetais
+    (TIPOBITO=2). Selecionar residentes pelo CODMUNRES, ano de ocorrência em DTOBITO (DDMMAAAA), e causa básica
+    CAUSABAS. Não selecionar por município de ocorrência. CODMUNRES é o código DATASUS de seis dígitos: vincular
+    à tabela oficial de municípios IBGE de sete dígitos pela correspondência validada, sem preencher códigos
+    desconhecidos. Registrar separadamente residência, data e causa ausentes/inválidas. Não misturar versões
+    preliminares e finais, nem carregar duas vezes o mesmo arquivo; não deduplicar por atributos pessoais.
+    Duas séries independentes, por causa básica CID-10: cardiovasculares I00–I99; respiratórias crônicas J30–J35
+    e J37–J98. Remover ponto e espaços do código, converter para maiúsculas e comparar os três primeiros caracteres
+    válidos. J36, J99 e causas fora desses intervalos ficam excluídos; não somar as duas séries. Estudo de
+    Estimativas Populacionais por Município, Idade e Sexo, revisão 2024, Ministério da Saúde/DATASUS (popsvs2024br.def).
+    Usar ambos os sexos, município e mesmo ano do numerador. Para totais, usar o Total publicado; para padronização,
+    idade simples ou grupos que componham exatamente as 18 faixas. Fixar a edição e arquivar a tabela extraída;
+    não misturar a série antiga 2000–2021, projeções apenas estaduais ou estimativas para o TCU. Se o município/ano
+    ou a divisão 80–84/85+ não estiver disponível, não calcular a taxa correspondente. Dividir cada contagem
+    anual pela população total e multiplicar por 100.000. Não ajustar sub-registro nem causas mal definidas.'
+  formula_calculo: TM_c=100\,000\times\frac{D_{c,res}}{Pop_{res}}
+  numerador: Óbitos não fetais de residentes no município, ano de ocorrência e grupo CID-10 fixado; inclui
+    idade ignorada.
+  denominador: Estudo de Estimativas Populacionais por Município, Idade e Sexo, revisão 2024, Ministério da
+    Saúde/DATASUS (popsvs2024br.def). Usar ambos os sexos, município e mesmo ano do numerador. Para totais,
+    usar o Total publicado; para padronização, idade simples ou grupos que componham exatamente as 18 faixas.
+    Fixar a edição e arquivar a tabela extraída; não misturar a série antiga 2000–2021, projeções apenas estaduais
+    ou estimativas para o TCU. Se o município/ano ou a divisão 80–84/85+ não estiver disponível, não calcular
+    a taxa correspondente.
+  unidade_medida: Óbitos por 100 mil habitantes.
+  variaveis_categorias_analise: TIPOBITO, CODMUNRES, DTOBITO, CAUSABAS, IDADE; ano, município, causa e população.
+    Ambos os sexos e todas as idades.
+  granularidade: Óbito individual na origem e taxa agregada.
+  unidade_territorial: Município de residência; agregações somando óbitos e populações antes de calcular taxas.
+  resolucao_espacial_original: Município de residência.
+  resolucao_temporal: Anual, pelo ano de ocorrência do óbito.
+  periodo_referencia: Ano civil do óbito e população do mesmo ano.
+  limiar_referencia: Não há limiar universal; comparar com série histórica, território adequado e intervalo
+    de incerteza.
+  cobertura_geografica: Brasil; municípios com população correspondente disponível.
+  periodo_disponivel: Interseção entre os anos do SIM em CID-10 e os da população municipal revisão 2024; nesta
+    versão, recorte de 2000 a 2024, limitado às faixas disponíveis.
+  periodicidade_atualizacao: Anual, com identificação da versão preliminar ou definitiva do SIM e edição populacional.
+  forma_acesso: 'DATASUS: transferência de arquivos SIM DO e TABNET da população municipal por sexo e idade,
+    revisão 2024.'
+  url_persistente: https://datasus.saude.gov.br/mortalidade-desde-1996-pela-cid-10
+  formatos: DBC/DBF do SIM e tabela populacional exportada.
+  necessidade_processamento: Aplicar os filtros fixos, validar município e ano e juntar a população; não redistribuir
+    causas mal definidas, imputar população ou suavizar taxas.
+  analise_descritiva: Publicar contagens, população, taxa por causa, município e ano, versão das bases, exclusões
+    e idade ignorada. Apresentar taxa bruta junto da padronizada.
+  referencias:
+  - '[@ripsa2026]'
+  - '[@brasil2026sim]'
+  - '[@ms2026populacao]'
+  protocolo_versao: '2026-10-06'
+  situacao_calculo: abertos
+  dependencia_dados_locais: Não depende de coleta local.
+  automacao: Condicionada
+  condicoes_automacao: Validar a edição, as entradas e os códigos; arquivar a extração com URL, data e SHA-256.
+    Implementação em repositório de cálculo separado.
+  evidencia_verificacao: Documentação verificada
+  detalhe_verificacao: Definição conferida nas referências citadas; nenhuma série deste indicador foi calculada
+    nesta revisão.
+- tema: Efeitos do clima e do ambiente sobre a saúde
+  capitulo: chapters/part-3/12-efeitos-saude.qmd
+  capitulo_fichas: chapters/part-4/23-fichas-efeitos-saude.qmd
+  dimensoes:
+  - efeito
+  responsabilidade_gerencial: Área de vigilância epidemiológica e informação em saúde, com apoio de epidemiologia
+    e estatística para modelagem e interpretação.
+  disponibilidade:
+  - Calculável com dados abertos
+  qualidade_incerteza: Publicar exclusões por falta de residência, data ou causa; idade ignorada separadamente.
+    Ausência de arquivo/competência não é zero óbito. Pequenos números são instáveis; preservar contagens e
+    sinalizar cobertura.
+  comparabilidade: Manter desfecho, definição, códigos, população, fonte, território, calendário, padronização
+    e versão; mudanças assistenciais e de registro podem alterar o indicador sem mudança igual na ocorrência.
+  relacao_saude: Mede ocorrência observada ou carga estimada de desfechos; a relação com clima ou ambiente
+    exige exposição definida e desenho analítico compatível.
+  defasagens_temporais: Ano de ocorrência do óbito; não há modelagem de defasagem entre exposição e efeito.
+  aplicacao_gestao: Monitorar impacto, desigualdades e pressão sobre serviços, avaliar alertas e intervenções
+    e apoiar priorização, sem atribuir causalidade além do desenho.
+  notas: São taxas de ocorrência registrada; não estimam excesso ou atribuição ao clima. Ausência de denominador
+    ou denominador zero implica resultado ausente, com motivo. Zero óbito só é válido quando a cobertura dos
+    arquivos está completa.
+  codigo: EFE-MOR-02
+  titulo_completo: Taxa de mortalidade cardiovascular e respiratória crônica padronizada por idade
+  titulo_resumido: Mortalidade padronizada por idade
+  referencia_metodologica: 'RIPSA, edição 2026, MRT.5.04 e MRT.5.05 (grupos de causas); padronização direta:
+    OMS, Ahmad et al., 2001, população padrão 2000–2025, tabela 1.'
+  conceito: Para cada um dos dois grupos fixos de causas, média ponderada das taxas de mortalidade em 18 faixas
+    etárias, com padrão OMS 2000–2025 publicado em 2001.
+  objetivo: Comparar mortalidade por causa entre populações ou períodos removendo a influência de diferenças
+    na composição etária.
+  interpretacao: A taxa representa quantos óbitos por 100 mil ocorreriam na população padrão se ela experimentasse
+    as taxas etárias observadas. É uma medida comparativa hipotética, não a taxa efetivamente observada.
+  usos:
+  - Comparar territórios com estruturas etárias diferentes.
+  - Monitorar tendências com padrão etário fixo.
+  - Descrever mortalidade cardiovascular e respiratória crônica.
+  limitacoes:
+  - O resultado depende da população padrão e das faixas etárias.
+  - Exige números e denominadores por idade confiáveis.
+  - Taxas etárias instáveis contaminam a soma.
+  - Não substitui a apresentação de contagens e taxas específicas por idade.
+  fontes_dados:
+  - id: sim
+    papel: 'Dados: óbitos não fetais de residentes por causa básica e ano de ocorrência.'
+  - id: ms-pop-2024
+    papel: 'Dados: população municipal total ou etária, revisão 2024.'
+  metodo_calculo: 'SIM, arquivos DO de todas as UFs, uma única edição por ano, abrangendo óbitos não fetais
+    (TIPOBITO=2). Selecionar residentes pelo CODMUNRES, ano de ocorrência em DTOBITO (DDMMAAAA), e causa básica
+    CAUSABAS. Não selecionar por município de ocorrência. CODMUNRES é o código DATASUS de seis dígitos: vincular
+    à tabela oficial de municípios IBGE de sete dígitos pela correspondência validada, sem preencher códigos
+    desconhecidos. Registrar separadamente residência, data e causa ausentes/inválidas. Não misturar versões
+    preliminares e finais, nem carregar duas vezes o mesmo arquivo; não deduplicar por atributos pessoais.
+    Duas séries independentes, por causa básica CID-10: cardiovasculares I00–I99; respiratórias crônicas J30–J35
+    e J37–J98. Remover ponto e espaços do código, converter para maiúsculas e comparar os três primeiros caracteres
+    válidos. J36, J99 e causas fora desses intervalos ficam excluídos; não somar as duas séries. Estudo de
+    Estimativas Populacionais por Município, Idade e Sexo, revisão 2024, Ministério da Saúde/DATASUS (popsvs2024br.def).
+    Usar ambos os sexos, município e mesmo ano do numerador. Para totais, usar o Total publicado; para padronização,
+    idade simples ou grupos que componham exatamente as 18 faixas. Fixar a edição e arquivar a tabela extraída;
+    não misturar a série antiga 2000–2021, projeções apenas estaduais ou estimativas para o TCU. Se o município/ano
+    ou a divisão 80–84/85+ não estiver disponível, não calcular a taxa correspondente. Decodificar IDADE: unidade
+    0 (01–59 minutos), 1 (01–23 horas), 2 (01–29 dias) e 3 (01–11 meses) pertencem a 0–4; unidade 4 informa
+    anos completos nos dois últimos dígitos; unidade 5 informa 100 mais esses dígitos. Unidade 9, vazio, 000
+    ou valor inválido: idade ignorada, fora da soma e publicada separadamente. Agrupar 0–4, 5–9, …, 80–84 e
+    85+; 5 anos pertence a 5–9 e 85 anos a 85+. Para cada faixa dividir óbitos por população, multiplicar pelo
+    peso e somar; multiplicar a soma por 100.000. Exigir todas as 18 populações positivas e presentes; não
+    repartir um grupo 80+ nem renormalizar pesos sobre faixas disponíveis. Sem imputação ou suavização. Pesos
+    percentuais da tabela 1, na ordem das faixas: 8.86, 8.69, 8.60, 8.47, 8.22, 7.93, 7.61, 7.15, 6.59, 6.04,
+    5.37, 4.55, 3.72, 2.96, 2.21, 1.52, 0.91, 0.63. Cada peso normalizado é o valor publicado dividido por
+    100.03; a soma é um. Quadro completo e CSV dos pesos neste capítulo.'
+  formula_calculo: TMP_c=100\,000\times\sum_a\left(\frac{D_{c,a}}{Pop_a}\right)w_a,\qquad \sum_a w_a=1
+  numerador: Soma ponderada das taxas específicas por idade; não há numerador observado único.
+  denominador: Estudo de Estimativas Populacionais por Município, Idade e Sexo, revisão 2024, Ministério da
+    Saúde/DATASUS (popsvs2024br.def). Usar ambos os sexos, município e mesmo ano do numerador. Para totais,
+    usar o Total publicado; para padronização, idade simples ou grupos que componham exatamente as 18 faixas.
+    Fixar a edição e arquivar a tabela extraída; não misturar a série antiga 2000–2021, projeções apenas estaduais
+    ou estimativas para o TCU. Se o município/ano ou a divisão 80–84/85+ não estiver disponível, não calcular
+    a taxa correspondente.
+  unidade_medida: Óbitos por 100 mil habitantes da população padrão.
+  variaveis_categorias_analise: TIPOBITO, CODMUNRES, DTOBITO, CAUSABAS, IDADE; ano, município, causa e população.
+    Ambos os sexos e todas as idades.
+  granularidade: Município, ano, grupo de causa e 18 faixas etárias.
+  unidade_territorial: Município de residência; agregações somando óbitos e populações antes de calcular taxas.
+  resolucao_espacial_original: Município de residência.
+  resolucao_temporal: Anual, pelo ano de ocorrência do óbito.
+  periodo_referencia: Ano civil do óbito e população do mesmo ano.
+  limiar_referencia: Mesmos grupos CID-10 de EFE-MOR-01; padrão OMS fixo, tabela 1 de 2001, com grupo final
+    85 anos ou mais.
+  cobertura_geografica: Brasil; municípios com população correspondente disponível.
+  periodo_disponivel: Interseção entre os anos do SIM em CID-10 e os da população municipal revisão 2024; nesta
+    versão, recorte de 2000 a 2024, limitado às faixas disponíveis.
+  periodicidade_atualizacao: Anual, com identificação da versão preliminar ou definitiva do SIM e edição populacional.
+  forma_acesso: 'DATASUS: transferência de arquivos SIM DO e TABNET da população municipal por sexo e idade,
+    revisão 2024.'
+  url_persistente: https://cdn.who.int/media/docs/default-source/gho-documents/global-health-estimates/gpe_discussion_paper_series_paper31_2001_age_standardization_rates.pdf
+  formatos: DBC/DBF do SIM e tabela populacional exportada.
+  necessidade_processamento: Aplicar os filtros fixos, validar município e ano e juntar a população; não redistribuir
+    causas mal definidas, imputar população ou suavizar taxas.
+  analise_descritiva: Publicar contagens, população, taxa por causa, município e ano, versão das bases, exclusões
+    e idade ignorada. Apresentar taxa bruta junto da padronizada.
+  referencias:
+  - '[@ripsa2026]'
+  - '[@brasil2026sim]'
+  - '[@ms2026populacao]'
+  - '[@who2001standard]'
+  - '[@brasil2011simdicionario]'
+  protocolo_versao: '2026-10-06'
+  situacao_calculo: abertos
+  dependencia_dados_locais: Não depende de coleta local.
+  automacao: Condicionada
+  condicoes_automacao: Validar a edição, as entradas e os códigos; arquivar a extração com URL, data e SHA-256.
+    Implementação em repositório de cálculo separado.
+  evidencia_verificacao: Documentação verificada
+  detalhe_verificacao: Definição conferida nas referências citadas; nenhuma série deste indicador foi calculada
+    nesta revisão.
+- tema: Efeitos do clima e do ambiente sobre a saúde
+  capitulo: chapters/part-3/12-efeitos-saude.qmd
+  capitulo_fichas: chapters/part-4/23-fichas-efeitos-saude.qmd
+  dimensoes:
+  - efeito
+  responsabilidade_gerencial: Área de vigilância epidemiológica e informação em saúde, com apoio de epidemiologia
+    e estatística para modelagem e interpretação.
+  disponibilidade:
+  - Calculável com dados abertos
+  qualidade_incerteza: Avaliar cobertura, completude, oportunidade, duplicidade, definição de caso, codificação
+    CID, causa básica e associadas, revisões, estabilidade do denominador, pequenas contagens e intervalos
+    de incerteza.
+  comparabilidade: Manter desfecho, definição, códigos, população, fonte, território, calendário, padronização
+    e versão; mudanças assistenciais e de registro podem alterar o indicador sem mudança igual na ocorrência.
+  relacao_saude: Mede ocorrência observada ou carga estimada de desfechos; a relação com clima ou ambiente
+    exige exposição definida e desenho analítico compatível.
+  defasagens_temporais: Atrasos de apresentação e processamento podem deslocar o registro em relação à internação
+    clínica. Não usar esta série para atribuição diária a um evento ambiental.
+  aplicacao_gestao: Monitorar impacto, desigualdades e pressão sobre serviços, avaliar alertas e intervenções
+    e apoiar priorização, sem atribuir causalidade além do desenho.
+  notas: 'Sem suavização ou correção da cobertura. Ausência de arquivo, diagnóstico, residência ou população
+    deve ser sinalizada. Denominador zero/ausente: taxa ausente, nunca zero ou infinita.'
+  codigo: EFE-MOB-01
+  titulo_completo: Taxas de internações SUS pelos seis grupos de causas da RIPSA D.29
+  titulo_resumido: Internações SUS por causa — D.29
+  referencia_metodologica: RIPSA, IDB 2010, ficha D.29, tabela de causas CID-10. Seis taxas separadas por 10
+    mil residentes; a enumeração da tabela prevalece sobre o resumo abreviado do cabeçalho.
+  conceito: Número de AIHs normais aprovadas de residentes, por diagnóstico principal em cada grupo D.29 e
+    ano de processamento, por 10 mil habitantes.
+  objetivo: Medir a frequência de utilização hospitalar do SUS associada a causas selecionadas em relação à
+    população.
+  interpretacao: Mede episódios administrativos financiados pelo SUS, não pessoas únicas nem incidência da
+    doença. Ano de processamento difere da data clínica de internação.
+  usos:
+  - Monitorar a utilização hospitalar anual pelos seis grupos de causas.
+  - Comparar anos de processamento e municípios com cobertura verificada.
+  - Planejar capacidade assistencial.
+  limitacoes:
+  - Cobre internações financiadas pelo SUS, não toda assistência hospitalar.
+  - Uma pessoa pode gerar mais de uma AIH ou internação.
+  - Oferta, acesso e regras de faturamento modificam a taxa.
+  - Diagnóstico principal não identifica a exposição ambiental.
+  - Ano de processamento difere do ano clínico de internação.
+  fontes_dados:
+  - id: sih-sus
+    papel: 'Dados: arquivos reduzidos RD, AIHs aprovadas, diagnóstico principal e residência.'
+  - id: ms-pop-2024
+    papel: 'Dados: população municipal total, revisão 2024.'
+  metodo_calculo: 'Usar arquivos SIH/SUS RD (layout desde 2008) de todas as UFs e das 12 competências do ano,
+    pois residentes podem ser atendidos em outra UF. Selecionar ANO_CMPT (ano de processamento), MES_CMPT de
+    01 a 12, IDENT=1 (AIH normal); excluir IDENT=5 (continuidade), registrar tipos ausentes/inválidos separadamente.
+    Contar uma linha de AIH aprovada por registro do arquivo, sem deduplicar pessoas ou reunir reinternações.
+    Não carregar o mesmo arquivo duas vezes; duplicata técnica de ingestão é erro, não internação adicional.
+    MUNIC_RES determina residência; vincular código DATASUS de seis dígitos à correspondência IBGE. DIAG_PRINC
+    determina o grupo, usando os três primeiros caracteres CID-10 válidos após retirar ponto e espaços. Seis
+    grupos independentes: neoplasias C00–C97 e D46; diabetes E10–E14; doenças hipertensivas I10–I15; isquêmicas
+    do coração I20–I25; cerebrovasculares I60–I69; pneumonia J12–J18. Dividir cada contagem pela população
+    total e multiplicar por 10.000. Estudo de Estimativas Populacionais por Município, Idade e Sexo, revisão
+    2024, Ministério da Saúde/DATASUS (popsvs2024br.def). Usar ambos os sexos, município e mesmo ano do numerador.
+    Para totais, usar o Total publicado; para padronização, idade simples ou grupos que componham exatamente
+    as 18 faixas. Fixar a edição e arquivar a tabela extraída; não misturar a série antiga 2000–2021, projeções
+    apenas estaduais ou estimativas para o TCU. Se o município/ano ou a divisão 80–84/85+ não estiver disponível,
+    não calcular a taxa correspondente.'
+  formula_calculo: TI_g=10\,000\times AIH_{g,res,processamento}/Pop_{res}
+  numerador: AIHs normais aprovadas, IDENT=1, por grupo DIAG_PRINC, município MUNIC_RES e ano ANO_CMPT; exclui
+    continuidade tipo 5.
+  denominador: Estudo de Estimativas Populacionais por Município, Idade e Sexo, revisão 2024, Ministério da
+    Saúde/DATASUS (popsvs2024br.def). Usar ambos os sexos, município e mesmo ano do numerador. Para totais,
+    usar o Total publicado; para padronização, idade simples ou grupos que componham exatamente as 18 faixas.
+    Fixar a edição e arquivar a tabela extraída; não misturar a série antiga 2000–2021, projeções apenas estaduais
+    ou estimativas para o TCU. Se o município/ano ou a divisão 80–84/85+ não estiver disponível, não calcular
+    a taxa correspondente.
+  unidade_medida: Internações por 10 mil habitantes.
+  variaveis_categorias_analise: ANO_CMPT, MES_CMPT, IDENT, N_AIH, MUNIC_RES, DIAG_PRINC; DT_INTER apenas para
+    distinguir data clínica, sem filtro por essa data.
+  granularidade: AIH normal aprovada; saída município, ano de processamento e grupo de causa.
+  unidade_territorial: Município de residência e agregações por soma prévia de numeradores e denominadores.
+  resolucao_espacial_original: Município de residência.
+  resolucao_temporal: Ano de processamento das AIHs aprovadas.
+  periodo_referencia: ANO_CMPT; não é ano de DT_INTER.
+  limiar_referencia: Seis grupos fixados na tabela D.29 de 2010; taxas independentes, sem limiar de alerta.
+  cobertura_geografica: Brasil, internações financiadas pelo SUS.
+  periodo_disponivel: 2008–2024 nesta versão, pela interseção do layout RD vigente desde 2008 e população revisão
+    2024.
+  periodicidade_atualizacao: Mensal na origem; resultado anual após verificar as 12 competências de todas as
+    UFs.
+  forma_acesso: TABNET, TABWIN e transferência de arquivos.
+  url_persistente: https://datasus.saude.gov.br/acesso-a-informacao/morbidade-hospitalar-do-sus-sih-sus/
+  formatos: DBC, DBF após conversão e tabelas exportadas.
+  necessidade_processamento: Conferir cobertura dos arquivos, excluir continuidade, selecionar residência e
+    diagnóstico principal, contar por competência e vincular população.
+  analise_descritiva: Publicar seis taxas com AIHs, população, ano de processamento, cobertura das competências,
+    exclusões e versão dos arquivos.
+  referencias:
+  - '[@ripsa2010d29]'
+  - '[@brasil2026sih]'
+  - '[@ms2026populacao]'
+  protocolo_versao: '2026-10-06'
+  situacao_calculo: abertos
+  dependencia_dados_locais: Não depende de coleta local.
+  automacao: Condicionada
+  condicoes_automacao: Validar a edição, as entradas e os códigos; arquivar a extração com URL, data e SHA-256.
+    Implementação em repositório de cálculo separado.
+  evidencia_verificacao: Documentação verificada
+  detalhe_verificacao: Definição conferida nas referências citadas; nenhuma série deste indicador foi calculada
+    nesta revisão.

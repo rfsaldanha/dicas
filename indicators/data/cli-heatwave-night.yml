@@ -31,24 +31,41 @@ indicators:
     interpretacao: Valor de 20% indica que, entre os dias válidos do período, uma em cada cinco mínimas excedeu o limiar climatológico correspondente. O índice não identifica sozinho ondas nem dose individual.
     usos: [Monitorar tendência de noites quentes., Caracterizar ausência de resfriamento noturno., Apoiar estudos de morbimortalidade e desigualdade térmica.]
     limitacoes: [Não exige dias consecutivos., A mínima meteorológica diária pode não coincidir com o período noturno civil., Período-base e algoritmo de percentil condicionam o valor., Estação externa não representa necessariamente o interior da moradia.]
-    metodo_calculo: Calcular o percentil 90 de TN para cada dia do calendário, em janela centrada de cinco dias no período-base. Contar no período analisado os dias válidos em que TN excede o limiar correspondente e dividir pelo total de dias válidos; no período-base, aplicar o procedimento de bootstrap do ETCCDI.
+    metodo_calculo: "Aplicar o protocolo ETCCDI de CLI-TEM-01 à temperatura mínima TN, incluindo bootstrap na base e interpolação de 29/02; calcular 100 vezes os dias TN>P90 divididos pelos dias válidos. Agregar por área depois do cálculo por célula."
     formula_calculo: 'TN90p_p=100\times\frac{\sum_{d\in p}I(TN_d>TN90_{cal(d)})}{N_{válidos,p}}'
     numerador: Número de dias válidos com TN acima do percentil 90 do calendário.
     denominador: Total de dias com TN válida no período.
     unidade_medida: Percentual (%).
     variaveis_categorias_analise: Temperatura mínima diária; dia do calendário; estação do ano; ano; local.
-    granularidade: Valor diário binário e resumo mensal, sazonal ou anual.
-    resolucao_temporal: Entrada diária; saída mensal, sazonal ou anual.
-    periodo_referencia: Período climatológico declarado, com 30 anos quando viável; não misturar bases.
-    limiar_referencia: Percentil 90 de TN específico do dia do calendário.
-    url_persistente: https://www.climdex.org/learn/indices/
-    periodo_disponivel: O da fonte, com extensão suficiente para o período-base.
-    periodicidade_atualizacao: Anual em monitoramento climático; diária apenas em implementação operacional distinta.
-    forma_acesso: Cálculo sobre série diária controlada, preferencialmente com implementação ETCCDI validada.
-    formatos: Tabela por estação ou matriz multidimensional por célula.
-    necessidade_processamento: Controle de qualidade, percentis do calendário, bootstrap do período-base, teste diário e agregação.
+    granularidade: "Calcular o indicador em cada célula antes da média municipal ponderada pela área; manter produto, célula, ano e código IBGE de sete dígitos."
+    resolucao_temporal: "Entradas horárias; extremos diários em 00–23 UTC; saída anual, salvo estação quente ou produto explicitados."
+    periodo_referencia: "1961–1990."
+    limiar_referencia: "TN > P90 calendário, janela centrada de cinco dias, quantil tipo 8."
+    url_persistente: "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land"
+    periodo_disponivel: "1950–presente; publicar anos completos até 2025 e identificar 2026 como parcial. A janela inicial utilizável depende dos antecedentes exigidos pela medida."
+    periodicidade_atualizacao: "Anual, após completar e verificar o último ano de entrada."
+    forma_acesso: "API do Climate Data Store, dataset reanalysis-era5-land, product_type=reanalysis, todas as 24 horas UTC; download NetCDF ou GRIB por mês e recorte espacial."
+    formatos: "NetCDF ou GRIB de entrada; CSV/Parquet para séries municipais."
+    necessidade_processamento: "Converter kelvin para °C; obter TX e TN como máximo e mínimo das 24 temperaturas horárias válidas de cada dia UTC. Calcular a medida por célula e, depois, sua média municipal por área. Esta TX não é a máxima instantânea de termômetro."
     analise_descritiva: Apresentar TN90p com número de dias válidos, tendência, sazonalidade, distribuição territorial e, quando pertinente, associação com desfechos preservando a série diária.
     referencias: ["[@climdex2024]", "[@zhang2005]", "[@liu2025cehwi]"]
+    fontes_dados: [{"id": "era5-land", "papel": "ERA5-Land hourly, variável 2m_temperature; extrair TX/TN conforme o método da ficha"}, {"id": "inmet", "papel": "Validação local e séries observadas separadas da reanálise"}]
+    resolucao_espacial_original: "ERA5-Land: grade de 0,1°; malha municipal IBGE 2022 como recorte fixo."
+    unidade_territorial: "Célula de grade; município como síntese ponderada pela área de interseção."
+    cobertura_geografica: "Todos os municípios brasileiros no domínio da grade. Não representa diretamente a exposição individual ou o microclima de cada bairro."
+    qualidade_incerteza: "Dia com menos de 24 horas válidas na grade é ausente. Nas sínteses anuais, mais de 15 dias ausentes, ou mais de três em qualquer mês, invalidam o ano; falhas não recebem zero e não unem sequências. Exigir 90% dos dados do período-base e registrar a cobertura. Sínteses municipais exigem ao menos 90% de área válida; informar essa fração. Critérios de cobertura são escolhas editoriais deste protocolo."
+    comparabilidade: "Fixar versão, calendário UTC, período-base e limites municipais de 2022. Não emendar estação e reanálise. Médias municipais de contagens podem ser fracionárias e não contam episódios sincrônicos do município."
+    notas: "Protocolo municipal do livro. Reproduzir o método internacional na célula; a agregação municipal por área é uma adaptação explícita. A série nacional ainda não foi produzida."
+    protocolo_versao: "2026-10-03"
+    situacao_calculo: "abertos"
+    disponibilidade: ["Calculável com dados abertos"]
+    dependencia_dados_locais: "Opcional para validação"
+    automacao: "Condicionada"
+    condicoes_automacao: "Cadastro gratuito e credencial CDS; download das variáveis e processamento conforme a ficha."
+    evidencia_verificacao: "Documentação verificada"
+    detalhe_verificacao: "Produto e método documentados; série municipal completa ainda não produzida."
+
+
 
   - <<: *night_common
     codigo: CLI-CAL-12
@@ -60,28 +77,46 @@ indicators:
     interpretacao: Valor maior indica mais dias em episódios compostos. Deve ser lido junto com número, duração e intensidade das ondas, pois a mesma frequência pode resultar de poucos episódios longos ou vários curtos.
     usos: [Caracterizar exposição composta dia–noite., Avaliar mortalidade e utilização de serviços durante episódios., Apoiar sistemas de alerta que considerem recuperação noturna.]
     limitacoes: [A duração de dois dias e o percentil 90 refletem a especificação publicada, não um limiar universal., Depende da qualidade conjunta de TX e TN., Não mede condições internas, proteção individual ou acesso a resfriamento., Classificações de onda diurna, noturna e composta são mutuamente condicionadas.]
-    metodo_calculo: Para cada dia, comparar TX e TN aos respectivos percentis 90 específicos do calendário, obtidos em janela móvel centrada de 15 dias no período 1981–2010. Identificar sequências de pelo menos dois dias em que ambas atingem ou excedem o limiar e somar todos os dias participantes.
-    formula_calculo: 'CHWF_p=\sum_{d\in p}I\{d\ pertence\ a\ sequência\geq2:\ TX_d\geq TX90_{cal(d)}\ \land\ TN_d\geq TN90_{cal(d)}\}'
-    numerador: Não se aplica; soma de dias participantes.
+    metodo_calculo: "Estimar separadamente P90 de TX e TN em janelas de 15 dias na base 1981–2010. Marcar dias com ambas as condições ≥, identificar sequências ≥2 dias e contar seus dias por ano civil. Detectar sequências continuamente, incluindo os dias de fronteira; contar apenas os dias do ano de saída. Sem onda, zero. A síntese municipal é a média por área dessas contagens."
+    formula_calculo: "CHWF_y=\\sum_{d\\in y}I(d\\in C_{DN})"
+    numerador: "Dias do ano pertencentes a C_DN, conjunto de dias em sequências de pelo menos dois dias com TX≥P90(TX) e TN≥P90(TN)."
     denominador: Não se aplica.
-    unidade_medida: Dias por período.
+    unidade_medida: "Dias por ano; média de dias por área na síntese municipal."
     variaveis_categorias_analise: Temperatura máxima e mínima diárias; percentis do calendário; episódio; local; temporada.
-    granularidade: Detecção diária e resumo por episódio, estação quente ou ano.
-    resolucao_temporal: Entrada diária; saída diária, por episódio e sazonal.
-    periodo_referencia: 1981–2010 na especificação publicada; outra base caracteriza adaptação e deve ser identificada como tal.
-    limiar_referencia: TX e TN iguais ou superiores aos respectivos percentis 90 do calendário por pelo menos dois dias consecutivos.
-    url_persistente: https://doi.org/10.1038/s41467-025-56067-7
-    periodo_disponivel: O da fonte, incluindo o período-base e o período de análise.
-    periodicidade_atualizacao: Diária em vigilância operacional ou sazonal em avaliação.
-    forma_acesso: Cálculo sobre séries diárias harmonizadas de TX e TN.
-    formatos: Tabela diária e tabela de episódios; grade multidimensional quando espacializado.
-    necessidade_processamento: Controle de qualidade, percentis em janela de 15 dias, classificação conjunta e detecção de sequências.
+    granularidade: "Calcular o indicador em cada célula antes da média municipal ponderada pela área; manter produto, célula, ano e código IBGE de sete dígitos."
+    resolucao_temporal: "Entradas horárias; extremos diários em 00–23 UTC; saída anual, salvo estação quente ou produto explicitados."
+    periodo_referencia: "1981–2010."
+    limiar_referencia: "TX ≥ P90(TX) e TN ≥ P90(TN), simultaneamente, por pelo menos dois dias; janela calendário centrada de 15 dias, quantil tipo 8."
+    url_persistente: "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land"
+    periodo_disponivel: "1950–presente; publicar anos completos até 2025 e identificar 2026 como parcial. A janela inicial utilizável depende dos antecedentes exigidos pela medida."
+    periodicidade_atualizacao: "Anual, após completar e verificar o último ano de entrada."
+    forma_acesso: "API do Climate Data Store, dataset reanalysis-era5-land, product_type=reanalysis, todas as 24 horas UTC; download NetCDF ou GRIB por mês e recorte espacial."
+    formatos: "NetCDF ou GRIB de entrada; CSV/Parquet para séries municipais."
+    necessidade_processamento: "Converter kelvin para °C; obter TX e TN como máximo e mínimo das 24 temperaturas horárias válidas de cada dia UTC. Calcular a medida por célula e, depois, sua média municipal por área. Esta TX não é a máxima instantânea de termômetro."
     analise_descritiva: Apresentar dias CHW, número e duração dos episódios, datas, TX e TN excedentes e comparação com ondas somente diurnas e somente noturnas.
     referencias: ["[@liu2025cehwi]", "[@yang2024compound]"]
+    fontes_dados: [{"id": "era5-land", "papel": "ERA5-Land hourly, variável 2m_temperature; extrair TX/TN conforme o método da ficha"}, {"id": "inmet", "papel": "Validação local e séries observadas separadas da reanálise"}]
+    resolucao_espacial_original: "ERA5-Land: grade de 0,1°; malha municipal IBGE 2022 como recorte fixo."
+    unidade_territorial: "Célula de grade; município como síntese ponderada pela área de interseção."
+    cobertura_geografica: "Todos os municípios brasileiros no domínio da grade. Não representa diretamente a exposição individual ou o microclima de cada bairro."
+    qualidade_incerteza: "Dia com menos de 24 horas válidas na grade é ausente. Nas sínteses anuais, mais de 15 dias ausentes, ou mais de três em qualquer mês, invalidam o ano; falhas não recebem zero e não unem sequências. Exigir 90% dos dados do período-base e registrar a cobertura. Sínteses municipais exigem ao menos 90% de área válida; informar essa fração. Critérios de cobertura são escolhas editoriais deste protocolo."
+    comparabilidade: "Fixar versão, calendário UTC, período-base e limites municipais de 2022. Não emendar estação e reanálise. Médias municipais de contagens podem ser fracionárias e não contam episódios sincrônicos do município."
+    notas: "Protocolo municipal do livro. Reproduzir o método internacional na célula; a agregação municipal por área é uma adaptação explícita. A série nacional ainda não foi produzida."
+    protocolo_versao: "2026-10-03"
+    situacao_calculo: "abertos"
+    disponibilidade: ["Calculável com dados abertos"]
+    dependencia_dados_locais: "Opcional para validação"
+    automacao: "Condicionada"
+    condicoes_automacao: "Cadastro gratuito e credencial CDS; download das variáveis e processamento conforme a ficha."
+    evidencia_verificacao: "Documentação verificada"
+    detalhe_verificacao: "Produto e método documentados; série municipal completa ainda não produzida."
+
+
+
 
   - <<: *night_common
     codigo: CLI-CAL-13
-    titulo_completo: Índice Cumulativo de Excesso de Calor em Ondas de Calor (CEHWI)
+    titulo_completo: "Intensidade excedente diária e acumulada de ondas de calor (CEHWI)"
     titulo_resumido: Excesso acumulado — CEHWI
     referencia_metodologica: Cumulative Excess Heatwave Index aplicado por Liu et al. às relações não lineares entre ondas diurnas, noturnas e compostas e mortalidade.
     conceito: Média do excesso positivo da temperatura horária sobre o limiar térmico diário durante as horas pertinentes de cada dia de onda, acumulável ao longo do episódio.
@@ -89,21 +124,36 @@ indicators:
     interpretacao: Valor diário maior indica excesso médio mais elevado entre as horas acima do limiar. A soma ao longo da onda representa acumulação; seu gradiente de risco depende do tipo de onda, cidade e desfecho.
     usos: [Modelar relações exposição–resposta com mortalidade., Comparar intensidade de ondas diurnas, noturnas e compostas., Estimar carga atribuível em estudos epidemiológicos.]
     limitacoes: [Requer dados horários e horários locais de nascer e pôr do sol., A definição publicada foi avaliada em cidades do leste da Ásia., O limiar varia por calendário e local., Não é índice fisiológico nem protocolo de alerta universal.]
-    metodo_calculo: Classificar ondas como diurnas, noturnas ou compostas. Dividir o dia em noite, dia e entardecer conforme nascer e pôr do sol. Para cada hora do período pertinente, subtrair o limiar diário local — TX90 para onda diurna, TN90 para noturna e Tmean90 para composta —, manter apenas diferenças positivas, somá-las e dividir pelo número de horas com excesso. Somar os valores diários quando a finalidade for representar o episódio.
-    formula_calculo: 'CEHWI_{ig}=\frac{\sum_{j=1}^{N_{ig}}(t_{jg}-Thr_{ig})I(t_{jg}>Thr_{ig})}{n_{ig}}'
+    metodo_calculo: "Reconstituir dias em hora solar local (UTC+longitude/15), por interpolação linear horária, e o nascer/pôr do sol pela geometria solar da latitude e data. Para onda diurna usar horas entre nascer e pôr do sol e limiar P90(TX); noturna, horas fora desse intervalo e P90(TN); composta, 24 horas e P90(Tmédia). Em cada dia de onda, somar apenas excessos horários positivos e dividir pelo número de horas com excesso: esta é a intensidade diária em °C. Somar as intensidades diárias de um evento para a intensidade acumulada em °C·dia; publicar o máximo anual desta última por tipo e por ano de início do evento. Se não houver hora excedente em um dia de onda, registrar não aplicável, sem dividir por zero; sem evento anual, zero."
+    formula_calculo: "\\begin{aligned}CEHWI_{d,k}&=\\frac{\\sum_{h\\in H_{d,k}}\\max(0,T_h-L_{d,k})}{\\sum_{h\\in H_{d,k}}I(T_h>L_{d,k})}\\\\CEHWI_{e,k}&=\\sum_{d\\in e}CEHWI_{d,k}\\end{aligned}"
     numerador: Soma dos excessos horários positivos sobre o limiar pertinente no dia e tipo de onda.
     denominador: Número de horas do período da onda em que a temperatura excede o limiar.
-    unidade_medida: Grau Celsius (°C) por dia; soma de °C-dia quando acumulado no episódio, conforme especificação declarada.
+    unidade_medida: "°C na intensidade diária; °C·dia na intensidade acumulada do evento."
     variaveis_categorias_analise: Temperatura horária; TX, TN e temperatura média; nascer e pôr do sol; tipo de onda; episódio; cidade.
-    granularidade: Valor diário por tipo de onda e soma por episódio.
-    resolucao_temporal: Entrada horária; saída diária e por episódio.
-    periodo_referencia: 1981–2010 e janela móvel de 15 dias na aplicação publicada.
-    limiar_referencia: Percentil 90 diário local de TX, TN ou temperatura média, conforme o tipo de onda.
-    url_persistente: https://doi.org/10.1038/s41467-025-56067-7
-    periodo_disponivel: O da fonte horária, incluindo período-base adequado.
-    periodicidade_atualizacao: Diária em aplicação operacional ou por estudo epidemiológico.
-    forma_acesso: Cálculo sobre temperatura horária e efemérides locais, com código e parâmetros versionados.
-    formatos: Tabela horária de entrada e tabela diária/por episódio de saída.
-    necessidade_processamento: Reconstruir TX, TN e média, calcular percentis, classificar ondas e períodos do dia, calcular excessos horários e acumular.
+    granularidade: "Calcular o indicador em cada célula antes da média municipal ponderada pela área; manter produto, célula, ano e código IBGE de sete dígitos."
+    resolucao_temporal: "Horária em hora solar local; saída diária, por evento e máximo anual por tipo."
+    periodo_referencia: "1981–2010; P90 de TX, TN e temperatura média diária em janelas centradas de 15 dias, quantil tipo 8."
+    limiar_referencia: "Pelo menos dois dias de TX≥P90 para ondas diurnas, TN≥P90 para noturnas, ou ambas para compostas; tipos devem ser publicados separadamente."
+    url_persistente: "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land"
+    periodo_disponivel: "1950–presente; publicar anos completos até 2025 e identificar 2026 como parcial. A janela inicial utilizável depende dos antecedentes exigidos pela medida."
+    periodicidade_atualizacao: "Anual, após completar e verificar o último ano de entrada."
+    forma_acesso: "API do Climate Data Store, dataset reanalysis-era5-land, product_type=reanalysis, todas as 24 horas UTC; download NetCDF ou GRIB por mês e recorte espacial."
+    formatos: "NetCDF ou GRIB de entrada; CSV/Parquet para séries municipais."
+    necessidade_processamento: "Converter kelvin para °C; obter TX e TN como máximo e mínimo das 24 temperaturas horárias válidas de cada dia UTC. Calcular a medida por célula e, depois, sua média municipal por área. Esta TX não é a máxima instantânea de termômetro."
     analise_descritiva: Mostrar distribuição do CEHWI por tipo de onda, trajetória diária, total por episódio, percentis locais e curvas exposição–resposta com intervalos de incerteza.
     referencias: ["[@liu2025cehwi]"]
+    fontes_dados: [{"id": "era5-land", "papel": "ERA5-Land hourly, variável 2m_temperature; extrair TX/TN conforme o método da ficha"}, {"id": "inmet", "papel": "Validação local e séries observadas separadas da reanálise"}]
+    resolucao_espacial_original: "ERA5-Land: grade de 0,1°; malha municipal IBGE 2022 como recorte fixo."
+    unidade_territorial: "Célula de grade; município como síntese ponderada pela área de interseção."
+    cobertura_geografica: "Todos os municípios brasileiros no domínio da grade. Não representa diretamente a exposição individual ou o microclima de cada bairro."
+    qualidade_incerteza: "Dia com menos de 24 horas válidas na grade é ausente. Nas sínteses anuais, mais de 15 dias ausentes, ou mais de três em qualquer mês, invalidam o ano; falhas não recebem zero e não unem sequências. Exigir 90% dos dados do período-base e registrar a cobertura. Sínteses municipais exigem ao menos 90% de área válida; informar essa fração. Critérios de cobertura são escolhas editoriais deste protocolo."
+    comparabilidade: "Fixar versão, calendário UTC, período-base e limites municipais de 2022. Não emendar estação e reanálise. Médias municipais de contagens podem ser fracionárias e não contam episódios sincrônicos do município."
+    notas: "A discretização horária e o resumo municipal são especificações operacionais do livro baseadas em Liu et al.; não confundir média de excesso com soma de graus-hora. Não combinar esta variante solar com séries calculadas em dias UTC."
+    protocolo_versao: "2026-10-03"
+    situacao_calculo: "abertos"
+    disponibilidade: ["Calculável com dados abertos"]
+    dependencia_dados_locais: "Opcional para validação"
+    automacao: "Condicionada"
+    condicoes_automacao: "Cadastro gratuito e credencial CDS; download das variáveis e processamento conforme a ficha."
+    evidencia_verificacao: "Documentação verificada"
+    detalhe_verificacao: "Produto e método documentados; série municipal completa ainda não produzida."

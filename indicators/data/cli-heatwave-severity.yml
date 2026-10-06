@@ -38,22 +38,40 @@ indicators:
     interpretacao: EHF positivo identifica condições de onda de calor na especificação original; valores positivos maiores indicam maior intensidade. A classificação de severidade requer distribuição local do EHF positivo.
     usos: [Monitoramento e previsão de ondas de calor., Classificação relativa de intensidade e severidade., Avaliação de utilização de serviços e gatilhos validados.]
     limitacoes: [Depende de 33 dias consecutivos de dados., Percentil e aclimatação são locais., Valores em °C² não têm interpretação clínica direta., Desempenho sanitário deve ser validado.]
-    metodo_calculo: Calcular a média de temperatura média diária dos dias d a d+2. Subtrair o percentil 95 para obter EHIsig e a média dos 30 dias anteriores para obter EHIaccl. Multiplicar EHIsig pelo máximo entre 1 e EHIaccl.
-    formula_calculo: |
-      \begin{aligned}
-      EHF_d &= EHI_{sig,d}\max(1,EHI_{accl,d}),\\
-      EHI_{sig,d} &= \overline{T}_{d:d+2}-T_{95},\\
-      EHI_{accl,d} &= \overline{T}_{d:d+2}-\overline{T}_{d-30:d-1}.
-      \end{aligned}
+    metodo_calculo: "Definir T=(TX+TN)/2. Para cada início d, calcular T3 como média de d a d+2 e T30 como média de d−30 a d−1. Estimar P95 de todas as T da base, quantil tipo 8. EHI_sig=T3−P95; EHI_accl=T3−T30; EHF=EHI_sig×max(1,EHI_accl). Exigir os 33 dias válidos; manter os valores negativos. Publicar EHF diário e seu máximo anual por célula, antes da média municipal."
+    formula_calculo: "EHF_d=(\\overline{T}_{d:d+2}-P95_{1961:1990})\\max(1,\\overline{T}_{d:d+2}-\\overline{T}_{d-30:d-1})"
     numerador: Não se aplica.
     denominador: Não se aplica.
-    unidade_medida: Grau Celsius ao quadrado (°C²), segundo a formulação operacional.
-    periodo_referencia: Período climatológico usado para o percentil 95 e histórico local de EHF positivo para severidade.
-    limiar_referencia: EHF maior que zero para condição de onda de calor; categorias de severidade derivam da distribuição local conforme o método.
-    url_persistente: https://doi.org/10.3390/ijerph120100227
-    necessidade_processamento: Calcular temperatura média diária, percentil 95, médias móveis de 3 e 30 dias, EHI e EHF; preservar resultados diários.
+    unidade_medida: "°C²."
+    periodo_referencia: "1961–1990; P95 da distribuição de todas as temperaturas médias diárias da base, sem janela por dia do calendário."
+    limiar_referencia: "EHF > 0 indica excesso segundo a definição de Nairn e Fawcett; unidade °C²."
+    url_persistente: "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land"
+    necessidade_processamento: "Converter kelvin para °C; obter TX e TN como máximo e mínimo das 24 temperaturas horárias válidas de cada dia UTC. Calcular a medida por célula e, depois, sua média municipal por área. Esta TX não é a máxima instantânea de termômetro."
     analise_descritiva: Mostrar EHF diário, início e fim, pico, soma por episódio e classe de severidade com referência local.
     referencias: ["[@nairn2015ehf]", "[@wmoWho2015heat]"]
+    fontes_dados: [{"id": "era5-land", "papel": "ERA5-Land hourly, variável 2m_temperature; extrair TX/TN conforme o método da ficha"}, {"id": "inmet", "papel": "Validação local e séries observadas separadas da reanálise"}]
+    resolucao_espacial_original: "ERA5-Land: grade de 0,1°; malha municipal IBGE 2022 como recorte fixo."
+    unidade_territorial: "Célula de grade; município como síntese ponderada pela área de interseção."
+    granularidade: "Calcular o indicador em cada célula antes da média municipal ponderada pela área; manter produto, célula, ano e código IBGE de sete dígitos."
+    cobertura_geografica: "Todos os municípios brasileiros no domínio da grade. Não representa diretamente a exposição individual ou o microclima de cada bairro."
+    periodo_disponivel: "1950–presente, após os 30 dias iniciais necessários à aclimatação e com dois dias posteriores disponíveis."
+    resolucao_temporal: "Diária; máximo anual como resumo."
+    periodicidade_atualizacao: "Anual, após completar e verificar o último ano de entrada."
+    forma_acesso: "API do Climate Data Store, dataset reanalysis-era5-land, product_type=reanalysis, todas as 24 horas UTC; download NetCDF ou GRIB por mês e recorte espacial."
+    formatos: "NetCDF ou GRIB de entrada; CSV/Parquet para séries municipais."
+    qualidade_incerteza: "Dia com menos de 24 horas válidas na grade é ausente. Nas sínteses anuais, mais de 15 dias ausentes, ou mais de três em qualquer mês, invalidam o ano; falhas não recebem zero e não unem sequências. Exigir 90% dos dados do período-base e registrar a cobertura. Sínteses municipais exigem ao menos 90% de área válida; informar essa fração. Critérios de cobertura são escolhas editoriais deste protocolo."
+    comparabilidade: "Fixar versão, calendário UTC, período-base e limites municipais de 2022. Não emendar estação e reanálise. Médias municipais de contagens podem ser fracionárias e não contam episódios sincrônicos do município."
+    notas: "Protocolo municipal do livro. Reproduzir o método internacional na célula; a agregação municipal por área é uma adaptação explícita. A série nacional ainda não foi produzida."
+    protocolo_versao: "2026-10-03"
+    situacao_calculo: "abertos"
+    disponibilidade: ["Calculável com dados abertos"]
+    dependencia_dados_locais: "Opcional para validação"
+    automacao: "Condicionada"
+    condicoes_automacao: "Cadastro gratuito e credencial CDS; download das variáveis e processamento conforme a ficha."
+    evidencia_verificacao: "Documentação verificada"
+    detalhe_verificacao: "Produto e método documentados; série municipal completa ainda não produzida."
+
+
 
   - <<: *severity_common
     codigo: CLI-CAL-10
@@ -65,14 +83,35 @@ indicators:
     interpretacao: Valor maior indica que a onda anual mais expressiva foi mais longa e/ou apresentou máximas mais anômalas na escala local. É adimensional e não representa probabilidade de dano.
     usos: [Comparar magnitude de ondas entre regiões., Monitorar mudanças na severidade., Caracterizar exposição em estudos de impactos.]
     limitacoes: [Destaca apenas a onda de maior magnitude do ano., A normalização e o período-base afetam o valor., Não foi concebido como limiar clínico ou alerta isolado.]
-    metodo_calculo: Definir onda como ao menos três dias com TX acima do percentil 90 específico do calendário em janela de 31 dias. Calcular a magnitude diária pela posição de TX em relação aos percentis 25 e 75 das máximas anuais do período-base, truncar negativos em zero, somar por evento e selecionar o maior total anual.
-    formula_calculo: 'M_d=\max\left(0,\frac{TX_d-T^{ann}_{25}}{T^{ann}_{75}-T^{ann}_{25}}\right);\quad HWMId_j=\max_{e\in j}\sum_{d\in e}M_d'
+    metodo_calculo: "Detectar ondas com pelo menos três dias TX>P90 calendário (janela de 31 dias, base 1981–2010). Calcular Q25 e Q75 dos 30 máximos anuais de TX da base. Magnitude diária=max(0,(TX−Q25)/(Q75−Q25)); magnitude do evento=soma diária; HWMId anual=maior magnitude dos eventos. Usar eventos completos atribuídos ao ano de início, carregando os dias do ano seguinte. Sem onda, zero; se Q75=Q25, ausente e sinalizado."
+    formula_calculo: "\\begin{aligned}M_d&=\\max\\left(0,\\frac{TX_d-Q25(TXx)}{Q75(TXx)-Q25(TXx)}\\right)\\\\HWMId_y&=\\max_{e:\\,inicio(e)\\in y}\\sum_{d\\in e}M_d\\end{aligned}"
     numerador: Na magnitude diária, diferença entre TX do dia e percentil 25 das máximas anuais no período-base.
     denominador: Amplitude interquartil entre os percentis 75 e 25 das máximas anuais no período-base.
-    unidade_medida: Adimensional.
-    periodo_referencia: Período climatológico de 30 anos; a formulação publicada deve ser seguida e declarada.
-    limiar_referencia: TX acima do percentil 90 em janela móvel de 31 dias por pelo menos três dias consecutivos.
-    url_persistente: https://doi.org/10.1088/1748-9326/10/12/124003
-    necessidade_processamento: Percentis diários, detecção de sequências, percentis das máximas anuais, magnitude diária, soma por episódio e máximo anual.
+    unidade_medida: "Adimensional."
+    periodo_referencia: "1981–2010; P90 de TX em janela centrada de 31 dias. Q25 e Q75 são quantis da série dos 30 máximos anuais de TX."
+    limiar_referencia: "Pelo menos três dias consecutivos com TX > P90; quantis tipo 8."
+    url_persistente: "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land"
+    necessidade_processamento: "Converter kelvin para °C; obter TX e TN como máximo e mínimo das 24 temperaturas horárias válidas de cada dia UTC. Calcular a medida por célula e, depois, sua média municipal por área. Esta TX não é a máxima instantânea de termômetro."
     analise_descritiva: Apresentar HWMId anual e decompor a onda máxima em duração, magnitudes diárias, datas e área afetada.
     referencias: ["[@russo2015hwmid]", "[@nawaro2023]"]
+    fontes_dados: [{"id": "era5-land", "papel": "ERA5-Land hourly, variável 2m_temperature; extrair TX/TN conforme o método da ficha"}, {"id": "inmet", "papel": "Validação local e séries observadas separadas da reanálise"}]
+    resolucao_espacial_original: "ERA5-Land: grade de 0,1°; malha municipal IBGE 2022 como recorte fixo."
+    unidade_territorial: "Célula de grade; município como síntese ponderada pela área de interseção."
+    granularidade: "Calcular o indicador em cada célula antes da média municipal ponderada pela área; manter produto, célula, ano e código IBGE de sete dígitos."
+    cobertura_geografica: "Todos os municípios brasileiros no domínio da grade. Não representa diretamente a exposição individual ou o microclima de cada bairro."
+    periodo_disponivel: "1950–presente; publicar anos completos até 2025 e identificar 2026 como parcial. A janela inicial utilizável depende dos antecedentes exigidos pela medida."
+    resolucao_temporal: "Entradas horárias; extremos diários em 00–23 UTC; saída anual, salvo estação quente ou produto explicitados."
+    periodicidade_atualizacao: "Anual, após completar e verificar o último ano de entrada."
+    forma_acesso: "API do Climate Data Store, dataset reanalysis-era5-land, product_type=reanalysis, todas as 24 horas UTC; download NetCDF ou GRIB por mês e recorte espacial."
+    formatos: "NetCDF ou GRIB de entrada; CSV/Parquet para séries municipais."
+    qualidade_incerteza: "Dia com menos de 24 horas válidas na grade é ausente. Nas sínteses anuais, mais de 15 dias ausentes, ou mais de três em qualquer mês, invalidam o ano; falhas não recebem zero e não unem sequências. Exigir 90% dos dados do período-base e registrar a cobertura. Sínteses municipais exigem ao menos 90% de área válida; informar essa fração. Critérios de cobertura são escolhas editoriais deste protocolo."
+    comparabilidade: "Fixar versão, calendário UTC, período-base e limites municipais de 2022. Não emendar estação e reanálise. Médias municipais de contagens podem ser fracionárias e não contam episódios sincrônicos do município."
+    notas: "Protocolo municipal do livro. Reproduzir o método internacional na célula; a agregação municipal por área é uma adaptação explícita. A série nacional ainda não foi produzida."
+    protocolo_versao: "2026-10-03"
+    situacao_calculo: "abertos"
+    disponibilidade: ["Calculável com dados abertos"]
+    dependencia_dados_locais: "Opcional para validação"
+    automacao: "Condicionada"
+    condicoes_automacao: "Cadastro gratuito e credencial CDS; download das variáveis e processamento conforme a ficha."
+    evidencia_verificacao: "Documentação verificada"
+    detalhe_verificacao: "Produto e método documentados; série municipal completa ainda não produzida."

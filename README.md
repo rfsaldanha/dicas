@@ -10,7 +10,7 @@ O público principal inclui profissionais de secretarias de saúde, vigilância 
 
 ## Estado do projeto
 
-Esta é a versão editorial 0.9.0, preparada para revisão completa. Os 24 capítulos estão organizados em quatro partes; 62 fichas de indicadores consolidados e 29 fontes com cadastro detalhado estão reunidas na Parte IV; e as referências citadas estão configuradas no estilo ABNT.
+Esta é a versão editorial 0.9.0, preparada para revisão completa. Os 24 capítulos estão organizados em quatro partes; 64 fichas de indicadores consolidados e 52 fontes com cadastro detalhado estão reunidas na Parte IV; e as referências citadas estão configuradas no estilo ABNT.
 
 Comece pelo [guia de revisão](docs/guia-de-revisao.md) e consulte o [relatório da versão](docs/relatorio-versao-para-revisao.md).
 

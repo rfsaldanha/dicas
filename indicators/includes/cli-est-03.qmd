@@ -5,7 +5,7 @@
 [Título resumido:]{.field-label} Humidex \
 [Tema:]{.field-label} Temperatura e condições térmicas \
 [Dimensão:]{.field-label} perigo; exposição \
-[Disponibilidade:]{.field-label} [requer processamento meteorológico]{.availability}
+[Disponibilidade:]{.field-label} [Calculável com dados abertos]{.availability}
 :::
 
 Contexto e interpretação: [Temperatura e condições térmicas](../../chapters/part-2/05-temperatura-condicoes-termicas.qmd#sec-temperatura).
@@ -42,15 +42,15 @@ Na escala operacional canadense, 20–29 indica pouco desconforto; 30–39, algu
 
 ### Fontes de dados {.unnumbered .ficha-section}
 
-- Instituto Nacional de Meteorologia — temperatura do ar e ponto de orvalho ou umidade relativa ([cadastro](../../backmatter/indice-fontes.qmd#inmet))
-- ERA5-Land — temperatura e umidade em grade para análise retrospectiva, após validação ([cadastro](../../backmatter/indice-fontes.qmd#era5-land))
+- ERA5-Land — ERA5-Land hourly: 2m_temperature e 2m_dewpoint_temperature ([cadastro](../../backmatter/indice-fontes.qmd#era5-land))
+- Instituto Nacional de Meteorologia — Validação local e série observada separada, quando contiver as mesmas entradas ([cadastro](../../backmatter/indice-fontes.qmd#inmet))
 
 ### Método de cálculo {.unnumbered .ficha-section}
 
-Converter o ponto de orvalho para kelvin. Calcular a pressão de vapor e, em seguida, o incremento h; somá-lo à temperatura do ar em graus Celsius. Se a entrada disponível for umidade relativa, derivar primeiro o ponto de orvalho ou a pressão de vapor com método documentado.
+Usar T em °C e Td em kelvin na fórmula de Environment and Climate Change Canada desta ficha; e está em hPa. Calcular Humidex horário, máximo diário e média anual dos máximos, antes da média municipal por área. Não substituir Td por umidade relativa sem conversão termodinâmica explícita.
 
 $$
-Humidex=T_a+0{,}5555(e-10),\quad e=6{,}11\exp\left[5417{,}7530\left(\frac{1}{273{,}15}-\frac{1}{T_d}\right)\right]
+\begin{aligned}Humidex&=T_a+0{,}5555(e-10)\\e&=6{,}11\exp\left[5417{,}7530\left(\frac{1}{273{,}15}-\frac{1}{T_d}\right)\right]\end{aligned}
 $$
 
 ::: {.indicator-card}
@@ -62,13 +62,13 @@ $$
 
 [Variáveis e categorias de análise.]{.field-label} Temperatura do ar (°C); ponto de orvalho (K) ou pressão de vapor (hPa); hora; local; faixa canadense de impacto.
 
-[Granularidade.]{.field-label} Valor horário ou por observação; resumo diário, por episódio ou território.
+[Granularidade.]{.field-label} Calcular o indicador em cada célula antes da média municipal ponderada pela área; manter produto, célula, ano e código IBGE de sete dígitos.
 
-[Periodicidade de atualização.]{.field-label} Horária ou conforme a fonte.
+[Periodicidade de atualização.]{.field-label} Anual, após completar e verificar o último ano de entrada.
 
 [Responsabilidade gerencial.]{.field-label} Serviço meteorológico ou equipe de saúde ambiental ou do trabalhador responsável pela medição, com autoridade de saúde responsável pelo protocolo de uso.
 
-[Notas.]{.field-label} O valor é uma temperatura ou índice equivalente, não a temperatura corporal nem uma medição direta de risco individual. Categorias operacionais de outro país não constituem automaticamente limiares de alerta no Brasil.
+[Notas.]{.field-label} Calcular o índice a cada hora antes de obter o máximo diário; não calcular a fórmula usando médias anuais das entradas. Série municipal: média por área das médias anuais dos máximos diários. Não representa exposição individual.
 
 [Análise descritiva do indicador.]{.field-label} Apresentar distribuição, máximo diário, horas em cada faixa, completude e comparação com temperatura do ar; separar a descrição das decisões de alerta.
 
@@ -77,39 +77,51 @@ $$
 ### Campos complementares para clima, ambiente e saúde {.unnumbered .ficha-section}
 
 ::: {.indicator-card}
-[Unidade territorial.]{.field-label} Ponto de observação, célula de grade ou território obtido por agregação explícita.
+[Unidade territorial.]{.field-label} Célula de grade; município como síntese ponderada pela área de interseção.
 
-[Resolução espacial original.]{.field-label} Ponto de estação ou célula do produto meteorológico.
+[Resolução espacial original.]{.field-label} ERA5-Land: grade de 0,1°; malha municipal IBGE 2022 como recorte fixo.
 
-[Resolução temporal.]{.field-label} Horária ou subdiária.
+[Resolução temporal.]{.field-label} Cálculo horário; máximo diário; média anual dos máximos diários.
 
-[Período de referência.]{.field-label} Não exige climatologia; tendências requerem série homogênea.
+[Período de referência.]{.field-label} Não usa período-base climatológico.
 
-[Limiar ou valor de referência.]{.field-label} Faixas canadenses 20–29, 30–39, 40–45 e ≥46; seu emprego como gatilho fora do Canadá requer validação local.
+[Limiar ou valor de referência.]{.field-label} Índice contínuo; limiares de alerta sanitário exigem validação local.
 
 :::
 
 ### Disponibilidade e acesso {.unnumbered .ficha-section}
 
-[Cobertura geográfica.]{.field-label} A da fonte meteorológica ou do levantamento microambiental selecionado.
+[Protocolo verificado em.]{.field-label} 2026-10-03
 
-[Período disponível.]{.field-label} O período comum às variáveis de temperatura e umidade.
+[Dependência de dados locais.]{.field-label} Opcional para validação
 
-[Periodicidade de atualização.]{.field-label} Horária ou conforme a fonte.
+[Automação.]{.field-label} Condicionada
 
-[Forma de acesso.]{.field-label} Cálculo sobre observações sincronizadas de temperatura e umidade.
+[Requisitos para o cálculo.]{.field-label} Cadastro gratuito e credencial CDS; download das variáveis e processamento conforme a ficha.
 
-[URL ou identificador persistente.]{.field-label} https://www.canada.ca/en/environment-climate-change/services/climate-change/canadian-centre-climate-services/display-download/technical-documentation-climate-normals.html
+[Nível de evidência.]{.field-label} Documentação verificada
 
-[Formato dos arquivos.]{.field-label} Tabela horária por estação ou grade.
+[Alcance da verificação.]{.field-label} Produto e método documentados; série municipal completa ainda não produzida.
 
-[Necessidade de processamento.]{.field-label} Controle de qualidade, conversão do ponto de orvalho para kelvin, cálculo de pressão de vapor e aplicação da fórmula.
+[Cobertura geográfica.]{.field-label} Todos os municípios brasileiros no domínio da grade. Não representa diretamente a exposição individual ou o microclima de cada bairro.
+
+[Período disponível.]{.field-label} 1950–presente; publicar anos completos até 2025 e identificar 2026 como parcial. A janela inicial utilizável depende dos antecedentes exigidos pela medida.
+
+[Periodicidade de atualização.]{.field-label} Anual, após completar e verificar o último ano de entrada.
+
+[Forma de acesso.]{.field-label} API do Climate Data Store, dataset reanalysis-era5-land, product_type=reanalysis, todas as 24 horas UTC; download NetCDF ou GRIB por mês e recorte espacial.
+
+[URL ou identificador persistente.]{.field-label} https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land
+
+[Formato dos arquivos.]{.field-label} NetCDF ou GRIB de entrada; CSV/Parquet para séries municipais.
+
+[Necessidade de processamento.]{.field-label} Calcular ou obter o índice horário conforme o produto e as entradas desta ficha; obter máximo diário apenas com 24 índices horários válidos e média anual desses máximos; depois ponderar por área municipal.
 
 ### Qualidade, comparação e saúde {.unnumbered .ficha-section}
 
-[Qualidade e incerteza.]{.field-label} Verificar unidades, altura e abrigo dos sensores, sincronização das variáveis, dados ausentes, domínio de validade da fórmula, representatividade espacial e diferença entre valor medido e modelado.
+[Qualidade e incerteza.]{.field-label} Dia com menos de 24 valores horários válidos do índice é ausente. Mais de 15 dias ausentes no ano ou mais de três no mês invalidam o ano. A média anual usa os dias válidos; publicar completude. Exigir ≥90% de área municipal com índice válido. Não usa período-base climatológico; não atribuir ponto de estação à área inteira do município.
 
-[Possibilidade de comparação.]{.field-label} Manter fórmula, versão, entradas, unidades, altura do vento, tratamento da radiação, resolução temporal e regra de agregação; índices diferentes não são conversíveis por uma escala comum.
+[Possibilidade de comparação.]{.field-label} Fixar versão, calendário UTC, período-base e limites municipais de 2022. Não emendar estação e reanálise. Médias municipais de contagens podem ser fracionárias e não contam episódios sincrônicos do município.
 
 [Relação com desfechos de saúde.]{.field-label} A umidade elevada dificulta a perda de calor por evaporação; o Humidex apoia comunicação de desconforto e risco, mas não modela diretamente a termorregulação individual.
 

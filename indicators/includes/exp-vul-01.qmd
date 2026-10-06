@@ -5,14 +5,14 @@
 [Título resumido:]{.field-label} Índice de Vulnerabilidade Social — IVS \
 [Tema:]{.field-label} Exposição e vulnerabilidade socioambiental \
 [Dimensão:]{.field-label} vulnerabilidade \
-[Disponibilidade:]{.field-label} [dados secundários]{.availability} [requer harmonização territorial]{.availability}
+[Disponibilidade:]{.field-label} [Calculável com dados abertos]{.availability}
 :::
 
 Contexto e interpretação: [Exposição e vulnerabilidade socioambiental](../../chapters/part-3/11-exposicao-vulnerabilidade.qmd#sec-exposicao-vulnerabilidade).
 
 ### Identificação e fundamento {.unnumbered .ficha-section}
 
-[Base de consolidação.]{.field-label} Atlas da Vulnerabilidade Social e relatórios metodológicos do Instituto de Pesquisa Econômica Aplicada.
+[Base de consolidação.]{.field-label} Atlas da Vulnerabilidade Social nos Municípios Brasileiros, Ipea, 2015, quadros 1–3 e metodologia. Edição municipal dos Censos 2000 e 2010.
 
 ::: {.callout-note icon=false title="Conceito-chave"}
 Índice brasileiro de 0 a 1 que sintetiza 16 indicadores normalizados nas dimensões infraestrutura urbana, capital humano e renda e trabalho.
@@ -24,15 +24,14 @@ Evidenciar falhas de oferta de bens e serviços e condições sociais que limita
 
 ### Interpretação {.unnumbered .ficha-section}
 
-Quanto mais próximo de 1, maior a vulnerabilidade social segundo o conjunto do IVS. As faixas originais são muito baixa de 0 a <0,200; baixa de 0,200 a <0,300; média de 0,300 a <0,400; alta de 0,400 a <0,500; e muito alta de 0,500 a 1.
+Quanto maior o IVS, maior a vulnerabilidade segundo as dimensões selecionadas pelo Ipea. A média de valores publicados pode diferir na última casa decimal do IVS calculado antes do arredondamento.
 
 ### Usos {.unnumbered .ficha-section}
 
 - Descrever desigualdades territoriais brasileiras.
 - Apoiar priorização de políticas e programas.
 - Estratificar análises de efeitos climáticos e ambientais.
-- Examinar separadamente infraestrutura
-- Capital humano e renda e trabalho.
+- Examinar separadamente infraestrutura, capital humano e renda e trabalho.
 
 ### Limitações {.unnumbered .ficha-section}
 
@@ -43,12 +42,11 @@ Quanto mais próximo de 1, maior a vulnerabilidade social segundo o conjunto do 
 
 ### Fontes de dados {.unnumbered .ficha-section}
 
-- Atlas da Vulnerabilidade Social — valores, dimensões, componentes e documentação metodológica do IVS ([cadastro](../../backmatter/indice-fontes.qmd#ipea-ivs))
-- Instituto Brasileiro de Geografia e Estatística — Censo Demográfico e PNAD Contínua usados na construção das edições ([cadastro](../../backmatter/indice-fontes.qmd#ibge))
+- Atlas da Vulnerabilidade Social — Dados: três subíndices municipais publicados pelo Ipea, fonte Censo, anos 2000 e 2010; Atlas 2015 como referência metodológica. ([cadastro](../../backmatter/indice-fontes.qmd#ipea-ivs))
 
 ### Método de cálculo {.unnumbered .ficha-section}
 
-Obter os 16 indicadores da edição escolhida. Transformar cada componente para escala entre 0 e 1 pelos parâmetros metodológicos do Ipea, invertendo o sentido quando necessário para que valor maior represente maior vulnerabilidade. Calcular cada dimensão pela agregação ponderada publicada e o IVS como média aritmética dos três subíndices. Não recalibrar extremos ou pesos sem caracterizar um novo índice.
+Obter no Atlas IVS a tabela municipal, fonte Censo, anos 2000 e 2010, com código do município e os subíndices IVS Infraestrutura Urbana, IVS Capital Humano e IVS Renda e Trabalho. Preservar os cabeçalhos originais e mapear para ivs_infraestrutura, ivs_capital_humano e ivs_renda_trabalho. Exigir uma linha por município e ano e três valores numéricos entre 0 e 1. Calcular a média aritmética sem arredondamento intermediário. Se faltar dimensão, não calcular. Comparar ao IVS publicado com tolerância de 0,001 para arredondamentos de publicação. Os 16 componentes identificados na seção de conferência deste capítulo servem à interpretação, sem reconstrução a partir de microdados ou recalibração dos subíndices.
 
 $$
 IVS=\frac{IVS_{infraestrutura}+IVS_{capital\ humano}+IVS_{renda\ e\ trabalho}}{3}
@@ -61,15 +59,15 @@ $$
 
 [Unidade de medida.]{.field-label} Índice adimensional de 0 a 1.
 
-[Variáveis e categorias de análise.]{.field-label} 16 componentes; três dimensões; faixas de IVS; município, unidade da Federação e demais recortes; sexo, cor e situação do domicílio nas edições disponíveis.
+[Variáveis e categorias de análise.]{.field-label} Município, ano censitário, três subíndices oficiais e IVS publicado para conferência; 16 componentes identificados no quadro complementar.
 
-[Granularidade.]{.field-label} Recorte territorial e populacional disponibilizado na edição.
+[Granularidade.]{.field-label} Município e ano censitário.
 
-[Periodicidade de atualização.]{.field-label} Conforme a publicação de novas edições pelo Ipea.
+[Periodicidade de atualização.]{.field-label} Edição fixa; nova edição exige novo protocolo.
 
 [Responsabilidade gerencial.]{.field-label} Instituição estatística ou responsável pelo índice, com equipes de vigilância, planejamento e participação social responsáveis pela interpretação e uso.
 
-[Notas.]{.field-label} Índices compostos devem ser publicados com todos os componentes. O escore apoia priorização, mas não substitui escuta local, análise de direitos, conhecimento territorial nem avaliação do perigo específico.
+[Notas.]{.field-label} O protocolo calcula a média dos três subíndices oficiais; não calcula um IVS novo. O Atlas 2015 identifica os 16 componentes, seus pesos internos e parâmetros de normalização.
 
 [Análise descritiva do indicador.]{.field-label} Apresentar IVS, três dimensões e componentes; mapear valores e variações; cruzar com perigos sem somá-los ao índice; mostrar populações e recursos presentes no território.
 
@@ -78,33 +76,45 @@ $$
 ### Campos complementares para clima, ambiente e saúde {.unnumbered .ficha-section}
 
 ::: {.indicator-card}
-[Unidade territorial.]{.field-label} Brasil, unidade da Federação, município, região metropolitana ou unidade de desenvolvimento humano, conforme a base.
+[Unidade territorial.]{.field-label} Município da edição municipal do Atlas 2015.
 
-[Resolução espacial original.]{.field-label} A do Censo, Atlas ou levantamento amostral usado; não interpolar valores amostrais para pequenas áreas.
+[Resolução espacial original.]{.field-label} Município; malha e códigos da edição do Atlas.
 
-[Resolução temporal.]{.field-label} Ano censitário ou período de referência da pesquisa domiciliar.
+[Resolução temporal.]{.field-label} Anos censitários 2000 e 2010.
 
-[Período de referência.]{.field-label} O ano do Censo ou da PNAD Contínua da edição; registrar ajustes de compatibilização.
+[Período de referência.]{.field-label} Censos 2000 e 2010, na edição municipal de 2015.
 
-[Limiar ou valor de referência.]{.field-label} Muito baixa <0,200; baixa 0,200–<0,300; média 0,300–<0,400; alta 0,400–<0,500; muito alta ≥0,500.
+[Limiar ou valor de referência.]{.field-label} Publicar o valor contínuo; não reclassificar nem alterar limites da edição oficial.
 
 :::
 
 ### Disponibilidade e acesso {.unnumbered .ficha-section}
 
-[Cobertura geográfica.]{.field-label} Brasil, conforme os recortes da edição do Atlas.
+[Protocolo verificado em.]{.field-label} 2026-10-06
 
-[Período disponível.]{.field-label} Censos 2000 e 2010 no Atlas original e atualizações conforme PNAD Contínua e Censo 2022.
+[Dependência de dados locais.]{.field-label} Não depende de coleta local.
 
-[Periodicidade de atualização.]{.field-label} Conforme a publicação de novas edições pelo Ipea.
+[Automação.]{.field-label} Condicionada
 
-[Forma de acesso.]{.field-label} Consulta e obtenção de arquivos no Atlas e no repositório do Ipea.
+[Requisitos para o cálculo.]{.field-label} Validar a edição, as entradas e os códigos; arquivar a extração com URL, data e SHA-256. Implementação em repositório de cálculo separado.
 
-[URL ou identificador persistente.]{.field-label} http://repositorio.ipea.gov.br/handle/11058/9451
+[Nível de evidência.]{.field-label} Documentação verificada
 
-[Formato dos arquivos.]{.field-label} Tabelas, planilhas, mapas e relatórios.
+[Alcance da verificação.]{.field-label} Definição conferida nas referências citadas; nenhuma série deste indicador foi calculada nesta revisão.
 
-[Necessidade de processamento.]{.field-label} Selecionar edição, harmonizar códigos territoriais, preservar componentes e incorporar erro amostral quando aplicável.
+[Cobertura geográfica.]{.field-label} Municípios brasileiros publicados na edição do Atlas 2015; preservar a compatibilização territorial dessa edição.
+
+[Período disponível.]{.field-label} 2000 e 2010. Esta especificação não inclui IVS municipal baseado no Censo 2022 nem séries PNAD.
+
+[Periodicidade de atualização.]{.field-label} Edição fixa; nova edição exige novo protocolo.
+
+[Forma de acesso.]{.field-label} Portal Atlas IVS/Ipea, consulta de municípios, fonte Censo, com exportação dos três subíndices e do IVS.
+
+[URL ou identificador persistente.]{.field-label} https://ivs.ipea.gov.br/
+
+[Formato dos arquivos.]{.field-label} Tabela exportada do Atlas; planilha/CSV arquivada com cabeçalhos originais.
+
+[Necessidade de processamento.]{.field-label} Mapear os três subíndices publicados, validar chaves e calcular média.
 
 ### Qualidade, comparação e saúde {.unnumbered .ficha-section}
 
@@ -121,4 +131,3 @@ $$
 ### Referências metodológicas {.unnumbered .ficha-section}
 
 - [@ipea2015ivs]
-- [@marguti2018ivs]

@@ -43,7 +43,7 @@ main <- function() {
   source(file.path(root, "scripts/validate_book_structure.R"))
   validate_book_structure(fixture)
   initial <- snapshot()
-  check(nrow(initial) == 66L, "A geração inicial deve produzir 62 fichas e quatro catálogos.")
+  check(nrow(initial) == 68L, "A geração inicial deve produzir 64 fichas e quatro catálogos.")
   # Datas antigas tornam uma regravação detectável mesmo em discos de baixa resolução temporal.
   Sys.setFileTime(initial$path, as.POSIXct("2001-01-01", tz = "UTC"))
   before <- snapshot()
@@ -51,7 +51,7 @@ main <- function() {
   check(identical(before, snapshot()), "Conteúdo idêntico foi regravado: hashes e datas devem ser preservados.")
 
   input <- sort(list.files(file.path(fixture, "indicators/data"), full.names = TRUE))[1L]
-  document <- yaml::read_yaml(input)
+  document <- yaml::read_yaml(input, merge.precedence = "override")
   grouped <- !is.null(document$indicators)
   entry <- if (grouped) document$indicators[[1L]] else document
   entry$titulo_resumido <- paste0(entry$titulo_resumido, " — teste de atualização")

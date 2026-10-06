@@ -1,0 +1,131 @@
+## Ficha do indicador: Precipitação total anual em dias úmidos (PRCPTOT) {#sec-cli-prc-06 .ficha-title}
+
+::: {.indicator-card}
+[Código:]{.field-label} CLI-PRC-06 \
+[Título resumido:]{.field-label} Precipitação em dias úmidos — PRCPTOT \
+[Tema:]{.field-label} Precipitação, secas e eventos hidrológicos \
+[Dimensão:]{.field-label} perigo; exposição \
+[Disponibilidade:]{.field-label} [Calculável com dados abertos]{.availability}
+:::
+
+Contexto e interpretação: [Precipitação, secas e eventos hidrológicos](../../chapters/part-2/06-precipitacao-secas-eventos-hidrologicos.qmd#sec-precipitacao).
+
+### Identificação e fundamento {.unnumbered .ficha-section}
+
+[Base de consolidação.]{.field-label} Índice ETCCDI/Climdex PRCPTOT.
+
+::: {.callout-note icon=false title="Conceito-chave"}
+Soma anual da precipitação diária dos dias com pelo menos 1 mm.
+:::
+
+### Objetivo {.unnumbered .ficha-section}
+
+Descrever o volume anual dos dias úmidos e fornecer denominador à contribuição dos extremos.
+
+### Interpretação {.unnumbered .ficha-section}
+
+Maior valor indica maior volume de chuva nos dias úmidos; não mede por si só disponibilidade de água.
+
+### Usos {.unnumbered .ficha-section}
+
+- Monitorar totais anuais de precipitação.
+- Calcular a contribuição percentual dos dias muito úmidos.
+
+### Limitações {.unnumbered .ficha-section}
+
+- Exclui precipitação de dias com menos de 1 mm.
+- Falhas podem subestimar a soma; publicar completude.
+
+### Fontes de dados {.unnumbered .ficha-section}
+
+- ERA5-Land — ERA5-Land hourly, total_precipitation; acumulado de 24 h às 00 UTC do dia seguinte ([cadastro](../../backmatter/indice-fontes.qmd#era5-land))
+- CHIRPS v3 — daily RNL final — CHIRPS v3 daily RNL final, série alternativa em grade ([cadastro](../../backmatter/indice-fontes.qmd#chirps-v3))
+- Instituto Nacional de Meteorologia — Pluviômetros para validação e séries observadas separadas ([cadastro](../../backmatter/indice-fontes.qmd#inmet))
+
+### Método de cálculo {.unnumbered .ficha-section}
+
+Somar PR dos dias com PR≥1 mm em cada ano civil, por célula. Aplicar as regras de acumulação e qualidade do capítulo, depois calcular a média municipal por área. Sem dia úmido em ano válido, zero.
+
+$$
+PRCPTOT_y=\sum_{d\in y}PR_d I(PR_d\geq1\,\mathrm{mm})
+$$
+
+::: {.indicator-card}
+[Numerador.]{.field-label} Soma dos acumulados diários qualificados.
+
+[Denominador.]{.field-label} Não se aplica.
+
+[Unidade de medida.]{.field-label} mm por ano.
+
+[Variáveis e categorias de análise.]{.field-label} Precipitação diária em mm; dia úmido; célula, município, ano, produto e versão.
+
+[Granularidade.]{.field-label} Calcular o índice anual em cada célula e depois a média ponderada pela área de interseção municipal; SPI é a exceção descrita em sua ficha.
+
+[Periodicidade de atualização.]{.field-label} Anual para os índices; mensal para SPI-3.
+
+[Responsabilidade gerencial.]{.field-label} Serviço climático produtor da precipitação e instituição responsável pela publicação municipal.
+
+[Notas.]{.field-label} A média municipal de extremos e durações não é o extremo ou a duração da chuva média municipal. A ficha SPI-3 especifica a ordem inversa. Não interpretar qualquer destes índices como ocorrência comprovada de inundação.
+
+[Análise descritiva do indicador.]{.field-label} Publicar total, completude e produto ao lado de R95p.
+
+:::
+
+### Campos complementares para clima, ambiente e saúde {.unnumbered .ficha-section}
+
+::: {.indicator-card}
+[Unidade territorial.]{.field-label} Célula; síntese municipal pela malha IBGE 2022.
+
+[Resolução espacial original.]{.field-label} ERA5-Land 0,1°; CHIRPS v3 0,05°. Não misturar produtos em uma mesma série.
+
+[Resolução temporal.]{.field-label} Precipitação diária em UTC; saída anual por ano civil.
+
+[Período de referência.]{.field-label} Sem período-base para esta medida; exceções percentílicas são explicitadas na ficha.
+
+[Limiar ou valor de referência.]{.field-label} Dia úmido: PR≥1 mm.
+
+:::
+
+### Disponibilidade e acesso {.unnumbered .ficha-section}
+
+[Protocolo verificado em.]{.field-label} 2026-10-03
+
+[Dependência de dados locais.]{.field-label} Opcional para validação
+
+[Automação.]{.field-label} Condicionada
+
+[Requisitos para o cálculo.]{.field-label} Cadastro gratuito e credencial CDS; download das variáveis e processamento conforme a ficha.
+
+[Nível de evidência.]{.field-label} Documentação verificada
+
+[Alcance da verificação.]{.field-label} Produto e método documentados; série municipal completa ainda não produzida.
+
+[Cobertura geográfica.]{.field-label} Municípios brasileiros no domínio das grades; estações têm cobertura restrita à rede e não representam automaticamente toda a área municipal.
+
+[Período disponível.]{.field-label} ERA5-Land: 1950–presente; CHIRPS v3: 1981–presente. Publicar anos completos até 2025 e identificar 2026 como parcial.
+
+[Periodicidade de atualização.]{.field-label} Anual para os índices; mensal para SPI-3.
+
+[Forma de acesso.]{.field-label} API CDS, reanalysis-era5-land, variable=total_precipitation, product_type=reanalysis, time=00:00. Para o dia d usar o acumulado do registro às 00 UTC de d+1, correspondente às 24 horas anteriores, e multiplicar metros por 1000. Não somar os acumulados horários sem desacumulação. CHIRPS: download HTTP dos rasters daily RNL final v3.
+
+[URL ou identificador persistente.]{.field-label} https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land
+
+[Formato dos arquivos.]{.field-label} NetCDF/GRIB ERA5-Land; GeoTIFF ou NetCDF CHIRPS; CSV/Parquet municipal.
+
+[Necessidade de processamento.]{.field-label} Reconstruir precipitação diária com a convenção de acumulação do produto; controlar falhas; calcular a estatística por célula e ponderar por área municipal, salvo SPI.
+
+### Qualidade, comparação e saúde {.unnumbered .ficha-section}
+
+[Qualidade e incerteza.]{.field-label} Precipitação negativa ou sem registro é ausente, nunca dia seco. Ano com mais de 15 dias ausentes, ou mais de três em qualquer mês, é inválido; estes critérios não eliminam o viés de lacunas restantes. Publicar fração observada e marcar índices de sequência como limite inferior se houver lacuna. Exigir ≥90% da área municipal válida. Regras de cobertura são escolhas editoriais.
+
+[Possibilidade de comparação.]{.field-label} Preservar produto, versão, fechamento UTC, limiar de 1 mm e malha IBGE 2022. CHIRPS v3 RNL usa desagregação diária apoiada em ERA5 e não constitui validação inteiramente independente. Séries v2/v3 e pluviômetros permanecem separadas.
+
+[Relação com desfechos de saúde.]{.field-label} Contextualiza disponibilidade hídrica e sazonalidade; não equivale a exposição ou dano sanitário.
+
+[Defasagens temporais relevantes.]{.field-label} Em estudos de saúde, definir a priori defasagens e médias móveis conforme desfecho e literatura; o índice anual não deve substituir a série diária em análises de efeitos agudos.
+
+[Aplicação na gestão.]{.field-label} Acompanhar o regime pluviométrico e contextualizar disponibilidade hídrica, drenagem e vigilância de agravos relacionados à água; não substituir previsão ou modelagem hidrológica.
+
+### Referências metodológicas {.unnumbered .ficha-section}
+
+- [@climdex2024]

@@ -645,10 +645,11 @@ window.Quarto = {
     <h2 id="toc-title">Índice</h2>
    
   <ul class="collapse">
-  <li><a href="#sec-amb-ar-01" id="toc-sec-amb-ar-01" class="nav-link active" data-scroll-target="#sec-amb-ar-01"><span class="header-section-number">18.1</span> Ficha do indicador: Concentração média anual de PM2,5 nas cidades, ponderada pela população (ODS 11.6.2)</a></li>
+  <li><a href="#sec-amb-ar-01" id="toc-sec-amb-ar-01" class="nav-link active" data-scroll-target="#sec-amb-ar-01"><span class="header-section-number">18.1</span> Ficha do indicador: Concentração média anual modelada de PM2,5, ponderada pela população urbana municipal</a></li>
   <li><a href="#sec-amb-ar-02" id="toc-sec-amb-ar-02" class="nav-link" data-scroll-target="#sec-amb-ar-02"><span class="header-section-number">18.2</span> Ficha do indicador: Percentil 99 das concentrações médias de 24 horas de PM2,5</a></li>
   <li><a href="#sec-amb-ar-03" id="toc-sec-amb-ar-03" class="nav-link" data-scroll-target="#sec-amb-ar-03"><span class="header-section-number">18.3</span> Ficha do indicador: Índice de Qualidade do Ar brasileiro (IQAr)</a></li>
   <li><a href="#sec-amb-fum-01" id="toc-sec-amb-fum-01" class="nav-link" data-scroll-target="#sec-amb-fum-01"><span class="header-section-number">18.4</span> Ficha do indicador: Exposição populacional média a PM2,5 atribuível à fumaça de incêndios</a></li>
+  <li><a href="#sec-amb-fog-01" id="toc-sec-amb-fog-01" class="nav-link" data-scroll-target="#sec-amb-fog-01"><span class="header-section-number">18.5</span> Ficha do indicador: Percentual da área municipal queimada no ano</a></li>
   </ul>
 <div class="toc-actions"><ul class="collapse"><li><a href="https://github.com/rfsaldanha/dicas/blob/main/chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.qmd" class="toc-action"><i class="bi bi-github"></i>Ver o código fonte</a></li><li><a href="https://github.com/rfsaldanha/dicas/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></nav>
     </div>
@@ -677,18 +678,18 @@ window.Quarto = {
 
 <p>Este capítulo reúne as fichas de qualidade do ar, queimadas e fumaça. A interpretação do tema, a comparação entre medidas e suas aplicações estão no <a href="../../chapters/part-2/07-qualidade-ar-queimadas-fumaca.html">capítulo de contexto</a>: <a href="../part-2/07-qualidade-ar-queimadas-fumaca.html" class="quarto-xref"><span>Capítulo 9</span></a>.</p>
 <section id="sec-amb-ar-01" class="level2 ficha-title" data-number="18.1">
-<h2 class="ficha-title anchored" data-number="18.1" data-anchor-id="sec-amb-ar-01"><span class="header-section-number">18.1</span> Ficha do indicador: Concentração média anual de PM2,5 nas cidades, ponderada pela população (ODS 11.6.2)</h2>
+<h2 class="ficha-title anchored" data-number="18.1" data-anchor-id="sec-amb-ar-01"><span class="header-section-number">18.1</span> Ficha do indicador: Concentração média anual modelada de PM2,5, ponderada pela população urbana municipal</h2>
 <div class="indicator-card">
 <p><span class="field-label">Código:</span> AMB-AR-01<br>
-<span class="field-label">Título resumido:</span> PM2,5 anual ponderado — ODS 11.6.2<br>
+<span class="field-label">Título resumido:</span> PM2,5 anual ponderado — SatPM V6.GL.03<br>
 <span class="field-label">Tema:</span> Qualidade do ar, queimadas e fumaça<br>
 <span class="field-label">Dimensão:</span> exposição; perigo<br>
-<span class="field-label">Disponibilidade:</span> <span class="availability">disponível em estimativa oficial</span></p>
+<span class="field-label">Disponibilidade:</span> <span class="availability">Calculável com dados abertos</span></p>
 </div>
 <p>Contexto e interpretação: <a href="../../chapters/part-2/07-qualidade-ar-queimadas-fumaca.html#sec-qualidade-ar">Qualidade do ar, queimadas e fumaça</a>.</p>
 <section id="identificação-e-fundamento" class="level3 unnumbered ficha-section">
 <h3 class="unnumbered ficha-section anchored" data-anchor-id="identificação-e-fundamento">Identificação e fundamento</h3>
-<p><span class="field-label">Base de consolidação.</span> Indicador 11.6.2 dos Objetivos de Desenvolvimento Sustentável, sob custódia da Organização Mundial da Saúde.</p>
+<p><span class="field-label">Base de consolidação.</span> Adaptação municipal do conceito do ODS 11.6.2; produto SatPM V6.GL.03, população GHS-POP R2023A e áreas urbanizadas IBGE 2022. Não é a série oficial do ODS produzida pela OMS.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled" title="Conceito-chave">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -699,7 +700,7 @@ window.Quarto = {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Média anual da concentração de partículas finas com diâmetro aerodinâmico igual ou inferior a 2,5 micrômetros em áreas urbanas, ponderada pela população exposta.</p>
+<p>Média anual da concentração superficial total modelada de PM2,5 ponderada pela população da área urbanizada fixa de cada município.</p>
 </div>
 </div>
 </section>
@@ -732,51 +733,59 @@ window.Quarto = {
 <section id="fontes-de-dados" class="level3 unnumbered ficha-section">
 <h3 class="unnumbered ficha-section anchored" data-anchor-id="fontes-de-dados">Fontes de dados</h3>
 <ul>
-<li>Banco Mundial de Qualidade do Ar da OMS — estimativas e metadados oficiais do indicador ODS 11.6.2 (<a href="../../backmatter/indice-fontes.html#who-air">cadastro</a>)</li>
+<li>SatPM V6.GL.03 — CNNPM25 anual, América do Sul — V6GL03 CNNPM25 Annual SA: PM2,5 total, incluindo poeira e sal marinho (<a href="../../backmatter/indice-fontes.html#satpm-v6">cadastro</a>)</li>
+<li>GHS-POP R2023A — população, 100 m — População modelada em grade de 100 m, interpolada para cada ano (<a href="../../backmatter/indice-fontes.html#ghs-pop-r2023a">cadastro</a>)</li>
+<li>Instituto Brasileiro de Geografia e Estatística — Áreas Urbanizadas 2022 e malha municipal 2022 (<a href="../../backmatter/indice-fontes.html#ibge">cadastro</a>)</li>
 </ul>
 </section>
 <section id="método-de-cálculo" class="level3 unnumbered ficha-section">
 <h3 class="unnumbered ficha-section anchored" data-anchor-id="método-de-cálculo">Método de cálculo</h3>
-<p>Produzir ou obter uma superfície anual harmonizada de concentração de PM2,5, combinar com a distribuição populacional da mesma referência espacial e temporal e calcular a média ponderada. Na estimativa oficial global, a OMS integra medições, sensoriamento remoto, transporte químico, topografia e população em modelo próprio; reproduções locais não devem ser rotuladas como estimativa oficial sem seguir o metadado.</p>
+<p>Baixar a grade anual de PM2,5 total SatPM V6.GL.03, CNNPM25, Annual, SA. Interpolar linearmente, célula a célula, as contagens GHS-POP entre os dois anos quinquenais que cercam o ano da concentração. Intersectar população, grade de PM2,5, áreas urbanizadas IBGE 2022 e município 2022; repartir contagens populacionais pela fração de área de cada interseção. Calcular sum(Cg×Pg)/sum(Pg) nos fragmentos urbanos com concentração válida. Exigir cobertura de pelo menos 90% da população urbana estimada e publicar essa fração. Sem população no recorte, resultado não aplicável; abaixo da cobertura mínima, ausente.</p>
 <p><span class="math display">\[
-\overline{PM}_{2,5}^{pop} = \frac{\sum_{g=1}^{G} PM_{2,5,g}\,Pop_g}{\sum_{g=1}^{G} Pop_g}
+C_{m,y}^{urb}=\frac{\sum_{g\subset m\cap U_{2022}}C_{g,y}P_{g,y}}{\sum_{g\subset m\cap U_{2022}}P_{g,y}}
 \]</span></p>
 <div class="indicator-card">
-<p><span class="field-label">Numerador.</span> Soma, nas células ou áreas g, do produto entre concentração média anual de PM2,5 e população.</p>
-<p><span class="field-label">Denominador.</span> População total nas células ou áreas incluídas.</p>
+<p><span class="field-label">Numerador.</span> Soma de PM2,5 anual × população nos fragmentos urbanos válidos.</p>
+<p><span class="field-label">Denominador.</span> População dos mesmos fragmentos urbanos válidos; informar sua razão em relação à população urbana total.</p>
 <p><span class="field-label">Unidade de medida.</span> Microgramas por metro cúbico (µg/m³).</p>
-<p><span class="field-label">Variáveis e categorias de análise.</span> Concentração média anual; população; cidade ou área urbana; tipo de estimativa; ano.</p>
-<p><span class="field-label">Granularidade.</span> Cidade ou território urbano na divulgação; cálculo em grade compatível com as superfícies de concentração e população.</p>
-<p><span class="field-label">Periodicidade de atualização.</span> Periódica, segundo calendário da OMS e do sistema ODS.</p>
+<p><span class="field-label">Variáveis e categorias de análise.</span> Concentração anual de PM2,5 total; população em contagens; área urbanizada; município; ano; cobertura válida.</p>
+<p><span class="field-label">Granularidade.</span> Fragmentos da interseção de grades e área urbanizada; saída por município IBGE 2022 e ano.</p>
+<p><span class="field-label">Periodicidade de atualização.</span> Anual quando houver nova edição do produto; a edição fixada termina em 2024.</p>
 <p><span class="field-label">Responsabilidade gerencial.</span> A OMS é agência custodiante no monitoramento global; autoridades ambientais produzem monitoramento e políticas, e o setor saúde interpreta riscos e impactos.</p>
-<p><span class="field-label">Notas.</span> Esta ficha substitui a média diária genérica pelo indicador oficial ODS 11.6.2. Valores de estações e produtos modelados permanecem dados de entrada ou indicadores distintos.</p>
+<p><span class="field-label">Notas.</span> Não usar AOD, concentração sem poeira/sal ou CAMS total como se fossem este produto. A máscara urbana fixa permite comparação temporal nesse recorte, não reconstrói a expansão urbana histórica.</p>
 <p><span class="field-label">Análise descritiva do indicador.</span> Apresentar nível, tendência e incerteza por edição, comparando com a diretriz de saúde sem tratá-la como limite legal. Desagregar quando a qualidade do modelo permitir.</p>
 </div>
 </section>
 <section id="campos-complementares-para-clima-ambiente-e-saúde" class="level3 unnumbered ficha-section">
 <h3 class="unnumbered ficha-section anchored" data-anchor-id="campos-complementares-para-clima-ambiente-e-saúde">Campos complementares para clima, ambiente e saúde</h3>
 <div class="indicator-card">
-<p><span class="field-label">Unidade territorial.</span> Área urbana, cidade, país ou agregação regional.</p>
-<p><span class="field-label">Resolução espacial original.</span> A da superfície oficial ou do modelo documentado; medições em estação são entradas e não representam diretamente toda a cidade.</p>
+<p><span class="field-label">Unidade territorial.</span> Parcela urbanizada de cada município segundo IBGE 2022.</p>
+<p><span class="field-label">Resolução espacial original.</span> SatPM 0,01°; GHS-POP 100 m; resolução nominal não equivale a observação em cada célula.</p>
 <p><span class="field-label">Resolução temporal.</span> Anual.</p>
-<p><span class="field-label">Período de referência.</span> Ano civil e versão da população e do modelo correspondentes.</p>
+<p><span class="field-label">Período de referência.</span> Ano civil; população interpolada para o mesmo ano; máscara urbana fixa de 2022.</p>
 <p><span class="field-label">Limiar ou valor de referência.</span> A diretriz mundial de qualidade do ar da OMS de 2021 recomenda média anual de 5 µg/m³ para PM2,5; diretriz de saúde não deve ser confundida com padrão jurídico nacional.</p>
 </div>
 </section>
 <section id="disponibilidade-e-acesso" class="level3 unnumbered ficha-section">
 <h3 class="unnumbered ficha-section anchored" data-anchor-id="disponibilidade-e-acesso">Disponibilidade e acesso</h3>
-<p><span class="field-label">Cobertura geográfica.</span> Estimativas globais por país e cidade conforme a edição; análises subnacionais dependem das fontes disponíveis.</p>
-<p><span class="field-label">Período disponível.</span> Conforme edição do banco e série de estimativas da OMS.</p>
-<p><span class="field-label">Periodicidade de atualização.</span> Periódica, segundo calendário da OMS e do sistema ODS.</p>
-<p><span class="field-label">Forma de acesso.</span> Portal do Observatório Global de Saúde e banco mundial de qualidade do ar da OMS.</p>
-<p><span class="field-label">URL ou identificador persistente.</span> https://www.who.int/data/gho/data/themes/air-pollution/who-air-quality-database</p>
-<p><span class="field-label">Formato dos arquivos.</span> Tabelas e arquivos de dados disponibilizados pela OMS; registrar edição e data de acesso.</p>
-<p><span class="field-label">Necessidade de processamento.</span> Para uso do valor oficial, selecionar edição, território e ano. Para cálculo próprio, exige integração espacial de concentração e população e não deve ser confundido com o indicador oficial.</p>
+<p><span class="field-label">Protocolo verificado em.</span> 2026-10-03</p>
+<p><span class="field-label">Dependência de dados locais.</span> Opcional para validação</p>
+<p><span class="field-label">Automação.</span> Viável</p>
+<p><span class="field-label">Requisitos para o cálculo.</span> Download público SatPM e GHS-POP, vetores IBGE 2022 e processamento de interseções.</p>
+<p><span class="field-label">Nível de evidência.</span> Acesso testado</p>
+<p><span class="field-label">Alcance da verificação.</span> Listagem S3 e cabeçalho de arquivo NetCDF da América do Sul acessados. A leitura integral das variáveis e a média municipal ainda não foram testadas.</p>
+<p><span class="field-label">Cobertura geográfica.</span> Brasil; municípios sem população no recorte urbano são não aplicáveis. Cobertura mínima de 90% é uma escolha operacional do livro.</p>
+<p><span class="field-label">Período disponível.</span> 1998–2024 na versão V6.GL.03.</p>
+<p><span class="field-label">Periodicidade de atualização.</span> Anual quando houver nova edição do produto; a edição fixada termina em 2024.</p>
+<p><span class="field-label">Forma de acesso.</span> HTTP/S3 público: satpmdata.s3.amazonaws.com/V6GL03/CNNPM25/Annual/SA/V6GL03.CNNPM25.SA.AAAA01-AAAA12.nc, substituindo AAAA por 1998 a 2024. GHS-POP: edição R2023A, resolução 100 m, época quinquenal.</p>
+<p><span class="field-label">URL ou identificador persistente.</span> https://www.satpm.org/v6-gl-03</p>
+<p><span class="field-label">Formato dos arquivos.</span> NetCDF SatPM; GeoTIFF GHS-POP; vetores IBGE; CSV/Parquet municipal.</p>
+<p><span class="field-label">Necessidade de processamento.</span> Ler coordenadas, unidades, escala e valores ausentes do NetCDF; cruzar grades sem interpolar bilinearmente contagens; preservar numerador, denominador e cobertura.</p>
 </section>
 <section id="qualidade-comparação-e-saúde" class="level3 unnumbered ficha-section">
 <h3 class="unnumbered ficha-section anchored" data-anchor-id="qualidade-comparação-e-saúde">Qualidade, comparação e saúde</h3>
-<p><span class="field-label">Qualidade e incerteza.</span> Relatar cobertura de monitores, componentes modelados, intervalo de incerteza quando disponível, superfície populacional, definição urbana e revisão entre edições.</p>
-<p><span class="field-label">Possibilidade de comparação.</span> Preferir a mesma edição e método. Revisões do modelo podem alterar retrospectivamente a série; não misturar observação pontual com estimativa populacional.</p>
+<p><span class="field-label">Qualidade e incerteza.</span> Estimativa modelada, não medição local. A população de 2025 usada na interpolação é projeção do produto. Não interpretar a resolução de 0,01° como validação em cada bairro.</p>
+<p><span class="field-label">Possibilidade de comparação.</span> Manter SatPM V6.GL.03, GHS-POP R2023A e máscara IBGE 2022. Reprocessar toda a série ao mudar uma versão, sem emenda silenciosa.</p>
 <p><span class="field-label">Relação com desfechos de saúde.</span> PM2,5 penetra profundamente no trato respiratório e está relacionado a doenças cardiovasculares e respiratórias, ao câncer de pulmão e à mortalidade. O indicador é usado pela OMS como medida de exposição para avaliação de riscos à saúde.</p>
 <p><span class="field-label">Defasagens temporais relevantes.</span> A média anual é apropriada a exposição crônica. Estudos de efeitos agudos e fumaça devem empregar concentrações diárias ou subdiárias com defasagens específicas.</p>
 <p><span class="field-label">Aplicação na gestão.</span> Monitorar exposição crônica, desigualdades territoriais e resultados de políticas de emissão; combinar com indicadores diários consolidados para comunicação durante episódios.</p>
@@ -796,7 +805,7 @@ window.Quarto = {
 <span class="field-label">Título resumido:</span> PM2,5 de curto prazo — P99 24h<br>
 <span class="field-label">Tema:</span> Qualidade do ar, queimadas e fumaça<br>
 <span class="field-label">Dimensão:</span> perigo; exposição<br>
-<span class="field-label">Disponibilidade:</span> <span class="availability">disponível onde há monitoramento</span> <span class="availability">requer processamento</span></p>
+<span class="field-label">Disponibilidade:</span> <span class="availability">Calculável com dados locais centralizados</span></p>
 </div>
 <p>Contexto e interpretação: <a href="../../chapters/part-2/07-qualidade-ar-queimadas-fumaca.html#sec-qualidade-ar">Qualidade do ar, queimadas e fumaça</a>.</p>
 <section id="identificação-e-fundamento-1" class="level3 unnumbered ficha-section">
@@ -847,13 +856,12 @@ window.Quarto = {
 <section id="fontes-de-dados-1" class="level3 unnumbered ficha-section">
 <h3 class="unnumbered ficha-section anchored" data-anchor-id="fontes-de-dados-1">Fontes de dados</h3>
 <ul>
-<li>Sistema Nacional de Gestão da Qualidade do Ar — concentrações horárias ou diárias de estações de monitoramento (<a href="../../backmatter/indice-fontes.html#redes-qualidade-ar">cadastro</a>)</li>
-<li>Copernicus Atmosphere Monitoring Service — campo modelado condicionado à validação e identificação do produto (<a href="../../backmatter/indice-fontes.html#cams">cadastro</a>)</li>
+<li>MonitorAr — concentrações horárias das redes participantes — Arquivos anuais de concentrações horárias e identificação de estações; obter validação do órgão produtor (<a href="../../backmatter/indice-fontes.html#monitorar-mma">cadastro</a>)</li>
 </ul>
 </section>
 <section id="método-de-cálculo-1" class="level3 unnumbered ficha-section">
 <h3 class="unnumbered ficha-section anchored" data-anchor-id="método-de-cálculo-1">Método de cálculo</h3>
-<p>Calcular médias de 24 horas a partir de dados horários válidos segundo protocolo de completude, ordenar as médias diárias válidas do ano e estimar o percentil 99 pelo algoritmo declarado.</p>
+<p>Na estação e fuso local declarados, calcular a média aritmética diária de PM2,5 com pelo menos 16 horas distintas válidas. Exigir pelo menos 90% dos dias do ano e pelo menos metade dos dias válidos em cada quadrimestre. Ordenar as médias diárias e estimar P99 pelo quantil tipo 7: h=1+(n−1)×0,99; interpolar linearmente entre as posições floor(h) e ceil(h). Publicar por estação e município de localização, sem média automática entre estações.</p>
 <p><span class="math display">\[
 PM_{2,5}^{P99,24h}=Q_{0,99}\{\overline{PM}_{2,5,d}^{24h}:d\ válido\}
 \]</span></p>
@@ -862,37 +870,43 @@ PM_{2,5}^{P99,24h}=Q_{0,99}\{\overline{PM}_{2,5,d}^{24h}:d\ válido\}
 <p><span class="field-label">Denominador.</span> Não se aplica.</p>
 <p><span class="field-label">Unidade de medida.</span> Microgramas por metro cúbico (µg/m³).</p>
 <p><span class="field-label">Variáveis e categorias de análise.</span> PM2,5 horário; média de 24 horas; estação; dia; ano; método de medição.</p>
-<p><span class="field-label">Granularidade.</span> Média diária por estação e percentil anual por estação ou território qualificado.</p>
+<p><span class="field-label">Granularidade.</span> Estação–poluente–hora; município como chave de localização. Não transformar automaticamente valores de estação em média municipal.</p>
 <p><span class="field-label">Periodicidade de atualização.</span> Diária para vigilância e anual para avaliação do percentil.</p>
 <p><span class="field-label">Responsabilidade gerencial.</span> Órgão ambiental responsável pelo monitoramento e setor saúde responsável pela vigilância dos efeitos e comunicação sanitária.</p>
-<p><span class="field-label">Notas.</span> Concentração, índice de comunicação e estimativa de fonte específica são indicadores distintos e não devem ser convertidos sem a especificação correspondente.</p>
+<p><span class="field-label">Notas.</span> O mínimo de 90% dos dias e o quantil tipo 7 são escolhas explícitas deste protocolo para a estatística anual. Não confundir elegibilidade de cálculo com certificação regulatória. Se não houver cobertura, publicar ausente e o motivo.</p>
 <p><span class="field-label">Análise descritiva do indicador.</span> Mostrar série diária, P99, dias acima do nível-guia, episódios consecutivos, sazonalidade e distribuição por estação.</p>
 </div>
 </section>
 <section id="campos-complementares-para-clima-ambiente-e-saúde-1" class="level3 unnumbered ficha-section">
 <h3 class="unnumbered ficha-section anchored" data-anchor-id="campos-complementares-para-clima-ambiente-e-saúde-1">Campos complementares para clima, ambiente e saúde</h3>
 <div class="indicator-card">
-<p><span class="field-label">Unidade territorial.</span> Estação de monitoramento, célula de grade ou território derivado.</p>
-<p><span class="field-label">Resolução espacial original.</span> Ponto de monitoramento ou célula do produto modelado.</p>
-<p><span class="field-label">Resolução temporal.</span> Entrada horária; média diária; resumo anual.</p>
-<p><span class="field-label">Período de referência.</span> Ano civil, com regra de completude declarada.</p>
+<p><span class="field-label">Unidade territorial.</span> Estação de monitoramento e seu município de localização, código IBGE de sete dígitos.</p>
+<p><span class="field-label">Resolução espacial original.</span> Ponto de estação, com tipo e representatividade documentados.</p>
+<p><span class="field-label">Resolução temporal.</span> Entrada horária; média do dia local; percentil anual.</p>
+<p><span class="field-label">Período de referência.</span> Ano civil local da estação.</p>
 <p><span class="field-label">Limiar ou valor de referência.</span> Nível-guia OMS 2021 de 15 µg/m³ para o percentil 99 das médias de 24 horas.</p>
 </div>
 </section>
 <section id="disponibilidade-e-acesso-1" class="level3 unnumbered ficha-section">
 <h3 class="unnumbered ficha-section anchored" data-anchor-id="disponibilidade-e-acesso-1">Disponibilidade e acesso</h3>
-<p><span class="field-label">Cobertura geográfica.</span> A das redes e produtos selecionados; cobertura observacional é heterogênea.</p>
-<p><span class="field-label">Período disponível.</span> Conforme estação ou produto.</p>
+<p><span class="field-label">Protocolo verificado em.</span> 2026-10-03</p>
+<p><span class="field-label">Dependência de dados locais.</span> Necessária: estações locais com dados centralizados no MonitorAr</p>
+<p><span class="field-label">Automação.</span> Condicionada</p>
+<p><span class="field-label">Requisitos para o cálculo.</span> Disponibilidade das estações e poluentes, identificação do fuso e confirmação dos flags de validação pelo produtor.</p>
+<p><span class="field-label">Nível de evidência.</span> Acesso testado</p>
+<p><span class="field-label">Alcance da verificação.</span> CSV e campos municipais acessados. Houve cálculo exploratório de P99 em Leandrinho/BA (2022), mas os flags de validação não foram confirmados; não é um resultado oficial nem uma validação do IQAr completo.</p>
+<p><span class="field-label">Cobertura geográfica.</span> Municípios com estações e poluentes efetivamente presentes nos arquivos; cobertura nacional incompleta.</p>
+<p><span class="field-label">Período disponível.</span> Arquivos MonitorAr 2022–2025 localizados; história anterior somente quando disponibilizada pela rede local e identificada separadamente.</p>
 <p><span class="field-label">Periodicidade de atualização.</span> Diária para vigilância e anual para avaliação do percentil.</p>
-<p><span class="field-label">Forma de acesso.</span> Redes ambientais e produtos modelados documentados.</p>
-<p><span class="field-label">URL ou identificador persistente.</span> https://www.who.int/publications/i/item/9789240034228</p>
-<p><span class="field-label">Formato dos arquivos.</span> Tabela horária ou diária e arquivo multidimensional.</p>
-<p><span class="field-label">Necessidade de processamento.</span> Validar horas, calcular médias de 24 horas, verificar completude anual e estimar percentil 99.</p>
+<p><span class="field-label">Forma de acesso.</span> API CKAN: https://dados.mma.gov.br/api/3/action/package_show?id=ar-puro-monitorar; selecionar os recursos CSV/ZIP anuais e registrar URL, tamanho e data da extração.</p>
+<p><span class="field-label">URL ou identificador persistente.</span> https://dados.mma.gov.br/dataset/ar-puro-monitorar</p>
+<p><span class="field-label">Formato dos arquivos.</span> CSV em ZIP e dicionário de dados; conservar códigos de estação, município, parâmetro, unidade, data/hora e flag de validação.</p>
+<p><span class="field-label">Necessidade de processamento.</span> Validação de registros e fuso, médias com mínimo de 16 horas, elegibilidade anual/quadrimestral e quantil tipo 7.</p>
 </section>
 <section id="qualidade-comparação-e-saúde-1" class="level3 unnumbered ficha-section">
 <h3 class="unnumbered ficha-section anchored" data-anchor-id="qualidade-comparação-e-saúde-1">Qualidade, comparação e saúde</h3>
-<p><span class="field-label">Qualidade e incerteza.</span> Relatar método, calibração, completude, representatividade da estação, componente modelado, resolução, incerteza, versão e condições meteorológicas.</p>
-<p><span class="field-label">Possibilidade de comparação.</span> Manter poluente, tempo de média, unidade, método, regra de completude, versão do produto e suporte espacial.</p>
+<p><span class="field-label">Qualidade e incerteza.</span> Desduplicar estação/poluente/data/hora, conservando a revisão validada mais recente; conflito sem versão resulta em ausente. Concentração negativa, falha ou registro não validado pelo produtor não entra na série definitiva. Preservar o fuso de origem, sem presumir que horário local seja UTC.</p>
+<p><span class="field-label">Possibilidade de comparação.</span> Mesma estação, método, poluente, unidade, calendário local e validação; mudança ou relocalização da estação exige quebra de série. Não combinar automaticamente redes e modelos.</p>
 <p><span class="field-label">Relação com desfechos de saúde.</span> A poluição do ar aumenta morbidade e mortalidade cardiovascular e respiratória e está associada a câncer de pulmão, infecções respiratórias e desfechos materno-infantis.</p>
 <p><span class="field-label">Defasagens temporais relevantes.</span> Preservar concentrações horárias ou diárias para avaliar efeitos agudos e médias de longo prazo para efeitos crônicos.</p>
 <p><span class="field-label">Aplicação na gestão.</span> Apoiar comunicação de risco, vigilância de agravos, avaliação de políticas de emissão e preparação dos serviços.</p>
@@ -912,7 +926,7 @@ PM_{2,5}^{P99,24h}=Q_{0,99}\{\overline{PM}_{2,5,d}^{24h}:d\ válido\}
 <span class="field-label">Título resumido:</span> Índice de Qualidade do Ar — IQAr<br>
 <span class="field-label">Tema:</span> Qualidade do ar, queimadas e fumaça<br>
 <span class="field-label">Dimensão:</span> perigo; exposição<br>
-<span class="field-label">Disponibilidade:</span> <span class="availability">disponível nas redes participantes</span></p>
+<span class="field-label">Disponibilidade:</span> <span class="availability">Calculável com dados locais centralizados</span></p>
 </div>
 <p>Contexto e interpretação: <a href="../../chapters/part-2/07-qualidade-ar-queimadas-fumaca.html#sec-qualidade-ar">Qualidade do ar, queimadas e fumaça</a>.</p>
 <section id="identificação-e-fundamento-2" class="level3 unnumbered ficha-section">
@@ -961,12 +975,66 @@ PM_{2,5}^{P99,24h}=Q_{0,99}\{\overline{PM}_{2,5,d}^{24h}:d\ válido\}
 <section id="fontes-de-dados-2" class="level3 unnumbered ficha-section">
 <h3 class="unnumbered ficha-section anchored" data-anchor-id="fontes-de-dados-2">Fontes de dados</h3>
 <ul>
-<li>Sistema Nacional de Gestão da Qualidade do Ar — concentrações monitoradas por métodos de referência ou equivalentes (<a href="../../backmatter/indice-fontes.html#redes-qualidade-ar">cadastro</a>)</li>
+<li>MonitorAr — concentrações horárias das redes participantes — Arquivos anuais de concentrações horárias e identificação de estações; obter validação do órgão produtor (<a href="../../backmatter/indice-fontes.html#monitorar-mma">cadastro</a>)</li>
 </ul>
 </section>
 <section id="método-de-cálculo-2" class="level3 unnumbered ficha-section">
 <h3 class="unnumbered ficha-section anchored" data-anchor-id="método-de-cálculo-2">Método de cálculo</h3>
-<p>Para cada poluente, obter a concentração no tempo de média regulamentado, localizar sua faixa e interpolar linearmente entre limites de concentração e índice. Selecionar o maior subíndice válido entre MP10, MP2,5, O₃, CO, NO₂ e SO₂.</p>
+<p>Fixar a tabela MMA 2025 abaixo para a série retrospectiva. No dia local, MP10, MP2,5 e SO₂ usam média de 24 h com ≥16 horas válidas; NO₂ usa máximo horário, exigindo ≥16 horas válidas no dia. O₃ e CO usam o maior valor das médias móveis de oito horas terminadas no dia, cada uma com ≥6 horas válidas, exigindo ≥16 janelas válidas; carregar as sete horas anteriores ao dia. Estas regras de completude definem o protocolo retrospectivo do livro. Interpolar linearmente entre os limites contíguos da tabela, sem arredondar a concentração antes do cálculo, e obter o maior subíndice. Conservar o índice contínuo e classificar por intervalos (≤40; &gt;40–80; &gt;80–120; &gt;120–200; &gt;200), evitando ambiguidade no arredondamento. Para apresentação inteira, arredondar aritmeticamente apenas ao final. Acima do maior limite tabelado, registrar &gt;400 e N5, sem extrapolar. Publicar os seis poluentes disponíveis/ausentes: falta de qualquer um recebe flag de IQAr parcial, mesmo que exista um máximo calculável.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Poluente</th>
+<th>Tempo de média</th>
+<th>Unidade</th>
+<th>Limites C para índices 0; 40; 80; 120; 200; 400</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>MP10</td>
+<td>24 h</td>
+<td>µg/m³</td>
+<td>0; 45; 100; 150; 250; 600</td>
+</tr>
+<tr class="even">
+<td>MP2,5</td>
+<td>24 h</td>
+<td>µg/m³</td>
+<td>0; 15; 50; 75; 125; 300</td>
+</tr>
+<tr class="odd">
+<td>O₃</td>
+<td>8 h</td>
+<td>µg/m³</td>
+<td>0; 100; 130; 160; 200; 800</td>
+</tr>
+<tr class="even">
+<td>CO</td>
+<td>8 h</td>
+<td>ppm</td>
+<td>0; 9; 11; 13; 15; 50</td>
+</tr>
+<tr class="odd">
+<td>NO₂</td>
+<td>1 h</td>
+<td>µg/m³</td>
+<td>0; 200; 240; 320; 1130; 3750</td>
+</tr>
+<tr class="even">
+<td>SO₂</td>
+<td>24 h</td>
+<td>µg/m³</td>
+<td>0; 40; 50; 125; 800; 2620</td>
+</tr>
+</tbody>
+</table>
 <p><span class="math display">\[
 I_p=I_{ini}+\frac{I_{fin}-I_{ini}}{C_{fin}-C_{ini}}(C_p-C_{ini});\quad IQAr=\max_p(I_p)
 \]</span></p>
@@ -975,37 +1043,43 @@ I_p=I_{ini}+\frac{I_{fin}-I_{ini}}{C_{fin}-C_{ini}}(C_p-C_{ini});\quad IQAr=\max
 <p><span class="field-label">Denominador.</span> Amplitude da faixa de concentração do poluente.</p>
 <p><span class="field-label">Unidade de medida.</span> Adimensional.</p>
 <p><span class="field-label">Variáveis e categorias de análise.</span> MP10 e MP2,5 em 24 h; O₃ e CO em 8 h; NO₂ em 1 h; SO₂ em 24 h; estação; poluente crítico; classe.</p>
-<p><span class="field-label">Granularidade.</span> Por estação e período de divulgação.</p>
-<p><span class="field-label">Periodicidade de atualização.</span> Tempo real, horária ou diária, conforme a Lei nº 14.850/2024 e a operação da rede.</p>
+<p><span class="field-label">Granularidade.</span> Estação–poluente–hora; município como chave de localização. Não transformar automaticamente valores de estação em média municipal.</p>
+<p><span class="field-label">Periodicidade de atualização.</span> Reprocessamento anual dos arquivos horários consolidados; série de saída diária sob tabela fixa de 2025.</p>
 <p><span class="field-label">Responsabilidade gerencial.</span> Órgão ambiental responsável pelo monitoramento e setor saúde responsável pela vigilância dos efeitos e comunicação sanitária.</p>
-<p><span class="field-label">Notas.</span> Concentração, índice de comunicação e estimativa de fonte específica são indicadores distintos e não devem ser convertidos sem a especificação correspondente.</p>
+<p><span class="field-label">Notas.</span> Esta série recompõe a classificação com uma tabela fixa de 2025 e regras explícitas de completude; não substitui o boletim oficial divulgado em tempo real pela rede. O valor contínuo determina a classe; sua apresentação arredondada pode coincidir com uma fronteira.</p>
 <p><span class="field-label">Análise descritiva do indicador.</span> Informar IQAr, classe, poluente determinante, concentração, estação, horário, tendência e recomendações; manter as concentrações disponíveis.</p>
 </div>
 </section>
 <section id="campos-complementares-para-clima-ambiente-e-saúde-2" class="level3 unnumbered ficha-section">
 <h3 class="unnumbered ficha-section anchored" data-anchor-id="campos-complementares-para-clima-ambiente-e-saúde-2">Campos complementares para clima, ambiente e saúde</h3>
 <div class="indicator-card">
-<p><span class="field-label">Unidade territorial.</span> Estação de monitoramento, célula de grade ou território derivado.</p>
-<p><span class="field-label">Resolução espacial original.</span> Ponto de monitoramento; a representatividade depende da tipologia e implantação da estação.</p>
-<p><span class="field-label">Resolução temporal.</span> Horária ou diária conforme disponibilidade e tempos de média dos poluentes.</p>
-<p><span class="field-label">Período de referência.</span> Período móvel ou diário definido na orientação técnica vigente.</p>
-<p><span class="field-label">Limiar ou valor de referência.</span> Na orientação de 2025, a classe boa termina em 45 µg/m³ para MP10, 15 µg/m³ para MP2,5, 100 µg/m³ para O₃, 9 ppm para CO, 200 µg/m³ para NO₂ e 40 µg/m³ para SO₂; usar sempre a tabela vigente.</p>
+<p><span class="field-label">Unidade territorial.</span> Estação de monitoramento e seu município de localização, código IBGE de sete dígitos.</p>
+<p><span class="field-label">Resolução espacial original.</span> Ponto de estação, com tipo e representatividade documentados.</p>
+<p><span class="field-label">Resolução temporal.</span> Diária, com médias móveis horárias nas entradas de O₃ e CO.</p>
+<p><span class="field-label">Período de referência.</span> Dia local; tabela fixa MMA 2025 na série retrospectiva.</p>
+<p><span class="field-label">Limiar ou valor de referência.</span> Classes N1 a N5 definidas pela tabela desta ficha. Guardar separadamente o IQAr originalmente divulgado sob normas de cada época.</p>
 </div>
 </section>
 <section id="disponibilidade-e-acesso-2" class="level3 unnumbered ficha-section">
 <h3 class="unnumbered ficha-section anchored" data-anchor-id="disponibilidade-e-acesso-2">Disponibilidade e acesso</h3>
-<p><span class="field-label">Cobertura geográfica.</span> Locais cobertos pelas redes estaduais e distrital; não há cobertura homogênea do território nacional.</p>
-<p><span class="field-label">Período disponível.</span> Conforme cada rede e estação.</p>
-<p><span class="field-label">Periodicidade de atualização.</span> Tempo real, horária ou diária, conforme a Lei nº 14.850/2024 e a operação da rede.</p>
-<p><span class="field-label">Forma de acesso.</span> Sistemas eletrônicos dos órgãos ambientais e bases consolidadas.</p>
-<p><span class="field-label">URL ou identificador persistente.</span> https://www.gov.br/mma/pt-br/assuntos/meio-ambiente-urbano-recursos-hidricos-qualidade-ambiental/qualidade-do-ar/indice-de-qualidade-do-ar-iqar/orientacao-tecnica-indice-de-qualidade-do-ar-jan-25.pdf</p>
-<p><span class="field-label">Formato dos arquivos.</span> Painel, boletim e tabela por estação.</p>
-<p><span class="field-label">Necessidade de processamento.</span> Validar médias, aplicar tabela vigente, calcular subíndices e selecionar poluente crítico.</p>
+<p><span class="field-label">Protocolo verificado em.</span> 2026-10-03</p>
+<p><span class="field-label">Dependência de dados locais.</span> Necessária: estações locais com dados centralizados no MonitorAr</p>
+<p><span class="field-label">Automação.</span> Condicionada</p>
+<p><span class="field-label">Requisitos para o cálculo.</span> Disponibilidade das estações e poluentes, identificação do fuso e confirmação dos flags de validação pelo produtor.</p>
+<p><span class="field-label">Nível de evidência.</span> Acesso testado</p>
+<p><span class="field-label">Alcance da verificação.</span> CSV e campos municipais acessados. Houve cálculo exploratório de P99 em Leandrinho/BA (2022), mas os flags de validação não foram confirmados; não é um resultado oficial nem uma validação do IQAr completo.</p>
+<p><span class="field-label">Cobertura geográfica.</span> Municípios com estações e poluentes efetivamente presentes nos arquivos; cobertura nacional incompleta.</p>
+<p><span class="field-label">Período disponível.</span> Arquivos MonitorAr 2022–2025 localizados; história anterior somente quando disponibilizada pela rede local e identificada separadamente.</p>
+<p><span class="field-label">Periodicidade de atualização.</span> Reprocessamento anual dos arquivos horários consolidados; série de saída diária sob tabela fixa de 2025.</p>
+<p><span class="field-label">Forma de acesso.</span> API CKAN: https://dados.mma.gov.br/api/3/action/package_show?id=ar-puro-monitorar; selecionar os recursos CSV/ZIP anuais e registrar URL, tamanho e data da extração.</p>
+<p><span class="field-label">URL ou identificador persistente.</span> https://dados.mma.gov.br/dataset/ar-puro-monitorar</p>
+<p><span class="field-label">Formato dos arquivos.</span> CSV em ZIP e dicionário de dados; conservar códigos de estação, município, parâmetro, unidade, data/hora e flag de validação.</p>
+<p><span class="field-label">Necessidade de processamento.</span> Conferir unidades; construir médias e máximos nos tempos especificados; aplicar a tabela integral; selecionar o poluente crítico e sinalizar cobertura incompleta.</p>
 </section>
 <section id="qualidade-comparação-e-saúde-2" class="level3 unnumbered ficha-section">
 <h3 class="unnumbered ficha-section anchored" data-anchor-id="qualidade-comparação-e-saúde-2">Qualidade, comparação e saúde</h3>
-<p><span class="field-label">Qualidade e incerteza.</span> Relatar método, calibração, completude, representatividade da estação, componente modelado, resolução, incerteza, versão e condições meteorológicas.</p>
-<p><span class="field-label">Possibilidade de comparação.</span> Manter poluente, tempo de média, unidade, método, regra de completude, versão do produto e suporte espacial.</p>
+<p><span class="field-label">Qualidade e incerteza.</span> Desduplicar estação/poluente/data/hora, conservando a revisão validada mais recente; conflito sem versão resulta em ausente. Concentração negativa, falha ou registro não validado pelo produtor não entra na série definitiva. Preservar o fuso de origem, sem presumir que horário local seja UTC.</p>
+<p><span class="field-label">Possibilidade de comparação.</span> Mesma estação, método, poluente, unidade, calendário local e validação; mudança ou relocalização da estação exige quebra de série. Não combinar automaticamente redes e modelos.</p>
 <p><span class="field-label">Relação com desfechos de saúde.</span> A poluição do ar aumenta morbidade e mortalidade cardiovascular e respiratória e está associada a câncer de pulmão, infecções respiratórias e desfechos materno-infantis.</p>
 <p><span class="field-label">Defasagens temporais relevantes.</span> Preservar concentrações horárias ou diárias para avaliar efeitos agudos e médias de longo prazo para efeitos crônicos.</p>
 <p><span class="field-label">Aplicação na gestão.</span> Apoiar comunicação de risco, vigilância de agravos, avaliação de políticas de emissão e preparação dos serviços.</p>
@@ -1015,6 +1089,7 @@ I_p=I_{ini}+\frac{I_{fin}-I_{ini}}{C_{fin}-C_{ini}}(C_p-C_{ini});\quad IQAr=\max
 <ul>
 <li><span class="citation" data-cites="brasil2024conama506">(<a href="../../backmatter/referencias.html#ref-brasil2024conama506" role="doc-biblioref">Brasil. Conselho Nacional do Meio Ambiente, 2024</a>)</span></li>
 <li><span class="citation" data-cites="brasil2025iqar">(<a href="../../backmatter/referencias.html#ref-brasil2025iqar" role="doc-biblioref">Brasil. Ministério do Meio Ambiente e Mudança do Clima, 2025</a>)</span></li>
+<li><span class="citation" data-cites="iema2025iqar">(<a href="../../backmatter/referencias.html#ref-iema2025iqar" role="doc-biblioref">IEMA, 2025</a>)</span></li>
 </ul>
 </section>
 </section>
@@ -1025,12 +1100,12 @@ I_p=I_{ini}+\frac{I_{fin}-I_{ini}}{C_{fin}-C_{ini}}(C_p-C_{ini});\quad IQAr=\max
 <span class="field-label">Título resumido:</span> PM2,5 de fumaça ponderado pela população<br>
 <span class="field-label">Tema:</span> Qualidade do ar, queimadas e fumaça<br>
 <span class="field-label">Dimensão:</span> perigo; exposição<br>
-<span class="field-label">Disponibilidade:</span> <span class="availability">requer produto de atribuição de fonte</span> <span class="availability">requer processamento geoespacial</span></p>
+<span class="field-label">Disponibilidade:</span> <span class="availability">Calculável com dados abertos</span></p>
 </div>
 <p>Contexto e interpretação: <a href="../../chapters/part-2/07-qualidade-ar-queimadas-fumaca.html#sec-qualidade-ar">Qualidade do ar, queimadas e fumaça</a>.</p>
 <section id="identificação-e-fundamento-3" class="level3 unnumbered ficha-section">
 <h3 class="unnumbered ficha-section anchored" data-anchor-id="identificação-e-fundamento-3">Identificação e fundamento</h3>
-<p><span class="field-label">Base de consolidação.</span> Indicador de fumaça de incêndios do Lancet Countdown, que integra concentração de PM2,5 atribuível ao fogo e população.</p>
+<p><span class="field-label">Base de consolidação.</span> Média populacional da concentração atribuída ao fogo, usando o produto diário de Hu et al.&nbsp;(2025), GEOS-Chem/GFED4.1s. É uma especificação municipal própria, não a reprodução automática da série Lancet Countdown.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled" title="Conceito-chave">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1073,52 +1148,57 @@ I_p=I_{ini}+\frac{I_{fin}-I_{ini}}{C_{fin}-C_{ini}}(C_p-C_{ini});\quad IQAr=\max
 <section id="fontes-de-dados-3" class="level3 unnumbered ficha-section">
 <h3 class="unnumbered ficha-section anchored" data-anchor-id="fontes-de-dados-3">Fontes de dados</h3>
 <ul>
-<li>Copernicus Atmosphere Monitoring Service — modelagem atmosférica, quando o produto separar contribuição do fogo (<a href="../../backmatter/indice-fontes.html#cams">cadastro</a>)</li>
-<li>Programa Queimadas do INPE — informação de ocorrência e emissão usada na atribuição de fonte (<a href="../../backmatter/indice-fontes.html#queimadas-inpe">cadastro</a>)</li>
-<li>Instituto Brasileiro de Geografia e Estatística — população para ponderação no Brasil (<a href="../../backmatter/indice-fontes.html#ibge">cadastro</a>)</li>
+<li>PM2,5 de fogo — Hu et al.&nbsp;(2025), GFED4.1s — Concentração diária superficial de PM2,5 atribuível ao fogo, variante GFED4.1s (<a href="../../backmatter/indice-fontes.html#hu-fire-pm25">cadastro</a>)</li>
+<li>GHS-POP R2023A — população, 100 m — População anual interpolada entre épocas quinquenais (<a href="../../backmatter/indice-fontes.html#ghs-pop-r2023a">cadastro</a>)</li>
 </ul>
 </section>
 <section id="método-de-cálculo-3" class="level3 unnumbered ficha-section">
 <h3 class="unnumbered ficha-section anchored" data-anchor-id="método-de-cálculo-3">Método de cálculo</h3>
-<p>Obter para cada célula e período a concentração superficial de PM2,5 atribuída a incêndios por produto validado, compatibilizar com população e calcular média ponderada; agregar temporalmente somente depois de preservar os valores diários.</p>
+<p>Baixar os campos diários de PM2,5 de fogo GEOS-Chem/GFED4.1s de Hu et al., Zenodo 15493914. Converter unidades somente segundo os atributos do arquivo. Interpolar contagens GHS-POP R2023A para cada ano e intersectar conservativamente com grade de fumaça e malha municipal IBGE 2022. Calcular, a cada dia, sum(Cfogo×Pop)/sum(Pop), exigindo a mesma máscara válida e ≥90% da população municipal coberta. Calcular a média anual dos 365/366 valores diários, exigindo todos os dias; falhas geram ano ausente. Publicar cobertura populacional e a versão GFED. A variante QFED em Zenodo 15496596 é análise de sensibilidade separada.</p>
 <p><span class="math display">\[
-\overline{PM}_{2,5}^{fogo,pop}=\frac{\sum_{g}PM_{2,5,g}^{fogo}Pop_g}{\sum_g Pop_g}
+\overline C^{fogo}_{m,y}=\frac{1}{D_y}\sum_{d\in y}\frac{\sum_g C^{fogo}_{g,d}P_{g,y}}{\sum_g P_{g,y}}
 \]</span></p>
 <div class="indicator-card">
 <p><span class="field-label">Numerador.</span> Soma dos produtos entre concentração de PM2,5 atribuível ao fogo e população da célula.</p>
 <p><span class="field-label">Denominador.</span> População total incluída.</p>
 <p><span class="field-label">Unidade de medida.</span> Microgramas por metro cúbico (µg/m³).</p>
 <p><span class="field-label">Variáveis e categorias de análise.</span> PM2,5 de fogo; população; célula; dia, temporada ou ano; produto; território; grupo populacional.</p>
-<p><span class="field-label">Granularidade.</span> Célula diária e território diário, sazonal ou anual.</p>
-<p><span class="field-label">Periodicidade de atualização.</span> Diária ou anual, conforme a finalidade.</p>
+<p><span class="field-label">Granularidade.</span> Interseção das grades de concentração e população com municípios; média populacional diária antes da média temporal.</p>
+<p><span class="field-label">Periodicidade de atualização.</span> Por edição publicada; esta versão termina em 2023.</p>
 <p><span class="field-label">Responsabilidade gerencial.</span> Órgão ambiental responsável pelo monitoramento e setor saúde responsável pela vigilância dos efeitos e comunicação sanitária.</p>
-<p><span class="field-label">Notas.</span> Concentração, índice de comunicação e estimativa de fonte específica são indicadores distintos e não devem ser convertidos sem a especificação correspondente.</p>
+<p><span class="field-label">Notas.</span> Focos de fogo, AOD e PM2,5 total não separam a parcela atribuível ao fogo e não substituem a entrada desta ficha. GFED e QFED não devem ser emendados.</p>
 <p><span class="field-label">Análise descritiva do indicador.</span> Apresentar série diária, média e soma sazonal, dias de maior exposição, população por faixas, desigualdades e incerteza do modelo.</p>
 </div>
 </section>
 <section id="campos-complementares-para-clima-ambiente-e-saúde-3" class="level3 unnumbered ficha-section">
 <h3 class="unnumbered ficha-section anchored" data-anchor-id="campos-complementares-para-clima-ambiente-e-saúde-3">Campos complementares para clima, ambiente e saúde</h3>
 <div class="indicator-card">
-<p><span class="field-label">Unidade territorial.</span> Estação de monitoramento, célula de grade ou território derivado.</p>
-<p><span class="field-label">Resolução espacial original.</span> A do produto de fumaça e da grade populacional após harmonização.</p>
-<p><span class="field-label">Resolução temporal.</span> Preferencialmente diária; resumo sazonal ou anual.</p>
-<p><span class="field-label">Período de referência.</span> Ano ou temporada, com população correspondente e versão do modelo.</p>
+<p><span class="field-label">Unidade territorial.</span> Município IBGE 2022.</p>
+<p><span class="field-label">Resolução espacial original.</span> Produto de fogo 0,25°; GHS-POP 100 m.</p>
+<p><span class="field-label">Resolução temporal.</span> Diária; média anual.</p>
+<p><span class="field-label">Período de referência.</span> Ano civil, com população interpolada para o mesmo ano.</p>
 <p><span class="field-label">Limiar ou valor de referência.</span> Não há limiar universal específico de PM2,5 de fogo; comparações com diretrizes de PM2,5 total devem ser claramente identificadas.</p>
 </div>
 </section>
 <section id="disponibilidade-e-acesso-3" class="level3 unnumbered ficha-section">
 <h3 class="unnumbered ficha-section anchored" data-anchor-id="disponibilidade-e-acesso-3">Disponibilidade e acesso</h3>
-<p><span class="field-label">Cobertura geográfica.</span> A do produto atmosférico e populacional selecionados.</p>
-<p><span class="field-label">Período disponível.</span> Conforme produto; não interpolar versões sem avaliação.</p>
-<p><span class="field-label">Periodicidade de atualização.</span> Diária ou anual, conforme a finalidade.</p>
-<p><span class="field-label">Forma de acesso.</span> Produto modelado de fonte específica e grade populacional versionada.</p>
-<p><span class="field-label">URL ou identificador persistente.</span> https://doi.org/10.1016/S2468-2667(24)00055-0</p>
-<p><span class="field-label">Formato dos arquivos.</span> Arquivos multidimensionais e tabelas territoriais.</p>
-<p><span class="field-label">Necessidade de processamento.</span> Harmonizar grade, tempo e unidade; ponderar pela população; agregar e propagar incerteza.</p>
+<p><span class="field-label">Protocolo verificado em.</span> 2026-10-03</p>
+<p><span class="field-label">Dependência de dados locais.</span> Opcional para validação</p>
+<p><span class="field-label">Automação.</span> Viável</p>
+<p><span class="field-label">Requisitos para o cálculo.</span> Download dos campos diários GFED4.1s e da população GHS-POP, com leitura de metadados e processamento espacial.</p>
+<p><span class="field-label">Nível de evidência.</span> Acesso testado</p>
+<p><span class="field-label">Alcance da verificação.</span> Metadados, licença e lista de arquivos do depósito Zenodo acessados. Concentrações e médias municipais ainda não calculadas.</p>
+<p><span class="field-label">Cobertura geográfica.</span> Brasil no domínio do produto global; cobertura válida explicitada por município.</p>
+<p><span class="field-label">Período disponível.</span> 2000–2023 na edição publicada por Hu et al.&nbsp;(2025).</p>
+<p><span class="field-label">Periodicidade de atualização.</span> Por edição publicada; esta versão termina em 2023.</p>
+<p><span class="field-label">Forma de acesso.</span> API pública https://zenodo.org/api/records/15493914: baixar os arquivos AAAAgfedfirepm25.nc.tar.gz de 2000 a 2023 e extrair os NetCDF, preservando coordenadas, datas, atributos e unidades. População por download GHS-POP R2023A.</p>
+<p><span class="field-label">URL ou identificador persistente.</span> https://zenodo.org/records/15493914</p>
+<p><span class="field-label">Formato dos arquivos.</span> Arquivos NetCDF anuais empacotados em TAR.GZ, nome AAAAgfedfirepm25.nc.tar.gz; população GeoTIFF; saída CSV/Parquet.</p>
+<p><span class="field-label">Necessidade de processamento.</span> Ler grade, datas e unidades; compatibilizar população por interseção conservativa; calcular exposição diária e média anual completa.</p>
 </section>
 <section id="qualidade-comparação-e-saúde-3" class="level3 unnumbered ficha-section">
 <h3 class="unnumbered ficha-section anchored" data-anchor-id="qualidade-comparação-e-saúde-3">Qualidade, comparação e saúde</h3>
-<p><span class="field-label">Qualidade e incerteza.</span> Relatar método, calibração, completude, representatividade da estação, componente modelado, resolução, incerteza, versão e condições meteorológicas.</p>
+<p><span class="field-label">Qualidade e incerteza.</span> A atribuição é modelada. Comparar inventários separadamente, registrar incerteza de concentração e população; cobertura mínima de 90% é uma escolha operacional do livro.</p>
 <p><span class="field-label">Possibilidade de comparação.</span> Manter poluente, tempo de média, unidade, método, regra de completude, versão do produto e suporte espacial.</p>
 <p><span class="field-label">Relação com desfechos de saúde.</span> A poluição do ar aumenta morbidade e mortalidade cardiovascular e respiratória e está associada a câncer de pulmão, infecções respiratórias e desfechos materno-infantis.</p>
 <p><span class="field-label">Defasagens temporais relevantes.</span> Preservar concentrações horárias ou diárias para avaliar efeitos agudos e médias de longo prazo para efeitos crônicos.</p>
@@ -1127,8 +1207,123 @@ I_p=I_{ini}+\frac{I_{fin}-I_{ini}}{C_{fin}-C_{ini}}(C_p-C_{ini});\quad IQAr=\max
 <section id="referências-metodológicas-3" class="level3 unnumbered ficha-section">
 <h3 class="unnumbered ficha-section anchored" data-anchor-id="referências-metodológicas-3">Referências metodológicas</h3>
 <ul>
-<li><span class="citation" data-cites="vandaalen2024lancet">(<a href="../../backmatter/referencias.html#ref-vandaalen2024lancet" role="doc-biblioref"><span class="nocase">Daalen et al.</span>, 2024</a>)</span></li>
+<li><span class="citation" data-cites="hu2025firepm">(<a href="../../backmatter/referencias.html#ref-hu2025firepm" role="doc-biblioref">Hu et al., 2025</a>)</span></li>
 <li><span class="citation" data-cites="who2021air">(<a href="../../backmatter/referencias.html#ref-who2021air" role="doc-biblioref">World Health Organization, 2021</a>)</span></li>
+</ul>
+</section>
+</section>
+<section id="sec-amb-fog-01" class="level2 ficha-title" data-number="18.5">
+<h2 class="ficha-title anchored" data-number="18.5" data-anchor-id="sec-amb-fog-01"><span class="header-section-number">18.5</span> Ficha do indicador: Percentual da área municipal queimada no ano</h2>
+<div class="indicator-card">
+<p><span class="field-label">Código:</span> AMB-FOG-01<br>
+<span class="field-label">Título resumido:</span> Área municipal queimada — MapBiomas Fogo 5<br>
+<span class="field-label">Tema:</span> Qualidade do ar, queimadas e fumaça<br>
+<span class="field-label">Dimensão:</span> perigo; exposição<br>
+<span class="field-label">Disponibilidade:</span> <span class="availability">Calculável com dados abertos</span></p>
+</div>
+<p>Contexto e interpretação: <a href="../../chapters/part-2/07-qualidade-ar-queimadas-fumaca.html#sec-qualidade-ar">Qualidade do ar, queimadas e fumaça</a>.</p>
+<section id="identificação-e-fundamento-4" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="identificação-e-fundamento-4">Identificação e fundamento</h3>
+<p><span class="field-label">Base de consolidação.</span> MapBiomas Fogo Coleção 5, annual_burned_v1; percentual municipal como derivação explícita.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Conceito-chave">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Conceito-chave
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Proporção da área territorial municipal que apresenta cicatriz de fogo mapeada em um ano.</p>
+</div>
+</div>
+</section>
+<section id="objetivo-4" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="objetivo-4">Objetivo</h3>
+<p>Descrever a extensão territorial anual do fogo sem confundi-la com exposição à fumaça.</p>
+</section>
+<section id="interpretação-4" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="interpretação-4">Interpretação</h3>
+<p>Maior percentual indica maior área mapeada como queimada no ano, não maior dose ou concentração de fumaça.</p>
+</section>
+<section id="usos-4" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="usos-4">Usos</h3>
+<ul>
+<li>Caracterizar extensão do fogo.</li>
+<li>Contextualizar episódios de fumaça sem substituir modelagem atmosférica.</li>
+</ul>
+</section>
+<section id="limitações-4" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="limitações-4">Limitações</h3>
+<ul>
+<li>Área queimada não estima PM2,5 de fogo.</li>
+<li>Não conta quantas vezes a mesma área queimou dentro do ano.</li>
+</ul>
+</section>
+<section id="fontes-de-dados-4" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="fontes-de-dados-4">Fontes de dados</h3>
+<ul>
+<li>MapBiomas Fogo — Coleção 5, annual_burned_v1 — Bandas burned_area_AAAA, classe 1=área queimada (<a href="../../backmatter/indice-fontes.html#mapbiomas-fogo-v5">cadastro</a>)</li>
+<li>Instituto Brasileiro de Geografia e Estatística — Malha municipal 2022 (<a href="../../backmatter/indice-fontes.html#ibge">cadastro</a>)</li>
+</ul>
+</section>
+<section id="método-de-cálculo-4" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="método-de-cálculo-4">Método de cálculo</h3>
+<p>No asset annual_burned_v1 da Coleção 5, selecionar burned_area_AAAA, de 1985 a 2025. No domínio brasileiro do produto, classe 1 representa cicatriz mapeada e o fundo sem cicatriz é convertido em 0; máscara exterior ao domínio ou arquivo anual indisponível não recebe zero. Somar as áreas geodésicas das interseções município–pixels de classe 1, uma única vez por pixel e ano. Dividir pela área geodésica total do polígono municipal IBGE 2022 e multiplicar por 100. Publicar zero apenas quando a banda anual estiver disponível e não houver cicatriz mapeada no município; isso não comprova ausência real de incêndio.</p>
+<p><span class="math display">\[
+F_{m,y}=100\frac{area(m\cap\{B_y=1\})}{area(m)}
+\]</span></p>
+<div class="indicator-card">
+<p><span class="field-label">Numerador.</span> Área da união das cicatrizes mapeadas no ano dentro do município, em km².</p>
+<p><span class="field-label">Denominador.</span> Área total do mesmo município IBGE 2022, em km².</p>
+<p><span class="field-label">Unidade de medida.</span> %.</p>
+<p><span class="field-label">Variáveis e categorias de análise.</span> Ano, classe de queima, área geodésica, município, coleção e versão.</p>
+<p><span class="field-label">Granularidade.</span> Pixel anual; soma de área por município.</p>
+<p><span class="field-label">Periodicidade de atualização.</span> Por edição anual; conservar Coleção 5 v1 como identificador da série.</p>
+<p><span class="field-label">Responsabilidade gerencial.</span> Instituição que publica a série municipal, com atribuição à Rede MapBiomas.</p>
+<p><span class="field-label">Notas.</span> Indicador novo e distinto de AMB-FUM-01; não é seu substituto.</p>
+<p><span class="field-label">Análise descritiva do indicador.</span> Publicar km², percentual, cobertura e versão por ano.</p>
+</div>
+</section>
+<section id="campos-complementares-para-clima-ambiente-e-saúde-4" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="campos-complementares-para-clima-ambiente-e-saúde-4">Campos complementares para clima, ambiente e saúde</h3>
+<div class="indicator-card">
+<p><span class="field-label">Unidade territorial.</span> Município IBGE 2022.</p>
+<p><span class="field-label">Resolução espacial original.</span> 30 m nominal.</p>
+<p><span class="field-label">Resolução temporal.</span> Anual.</p>
+<p><span class="field-label">Período de referência.</span> Ano civil; sem período-base climatológico.</p>
+<p><span class="field-label">Limiar ou valor de referência.</span> Classe 1 no raster anual, segundo legenda oficial; não somar contagens mensais.</p>
+</div>
+</section>
+<section id="disponibilidade-e-acesso-4" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="disponibilidade-e-acesso-4">Disponibilidade e acesso</h3>
+<p><span class="field-label">Protocolo verificado em.</span> 2026-10-03</p>
+<p><span class="field-label">Dependência de dados locais.</span> Dispensável para o cálculo; opcional para validação</p>
+<p><span class="field-label">Automação.</span> Condicionada</p>
+<p><span class="field-label">Requisitos para o cálculo.</span> Conta/projeto Earth Engine elegível para acesso gratuito ou download público da mesma versão; malha municipal IBGE 2022.</p>
+<p><span class="field-label">Nível de evidência.</span> Documentação verificada</p>
+<p><span class="field-label">Alcance da verificação.</span> Produto e método documentados; série municipal completa ainda não produzida.</p>
+<p><span class="field-label">Cobertura geográfica.</span> Brasil, no domínio válido do mapeamento.</p>
+<p><span class="field-label">Período disponível.</span> 1985–2025 na edição fixada.</p>
+<p><span class="field-label">Periodicidade de atualização.</span> Por edição anual; conservar Coleção 5 v1 como identificador da série.</p>
+<p><span class="field-label">Forma de acesso.</span> Google Earth Engine: projects/mapbiomas-public/assets/brazil/fire/collection5/mapbiomas_fire_collection5_annual_burned_v1; bandas burned_area_1985 a burned_area_2025.</p>
+<p><span class="field-label">URL ou identificador persistente.</span> https://brasil.mapbiomas.org/wp-content/uploads/sites/4/2026/05/CODIGO-DE-LEGENDA-FOGO-COLECAO-5.pdf</p>
+<p><span class="field-label">Formato dos arquivos.</span> Imagem multibanda; exportação GeoTIFF; CSV municipal.</p>
+<p><span class="field-label">Necessidade de processamento.</span> Selecionar banda anual, conferir máscara/classe, intersectar com municípios e somar áreas geodésicas.</p>
+</section>
+<section id="qualidade-comparação-e-saúde-4" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="qualidade-comparação-e-saúde-4">Qualidade, comparação e saúde</h3>
+<p><span class="field-label">Qualidade e incerteza.</span> Fogo pequeno, oculto ou não detectado pode ficar no fundo sem cicatriz. Zero é ausência de cicatriz mapeada, não comprovação de observação perfeita. Ano sem arquivo ou fora do domínio é ausente.</p>
+<p><span class="field-label">Possibilidade de comparação.</span> Mesma coleção, versão, malha e regra de área; não emendar com Coleção 5.1 ou versões anteriores.</p>
+<p><span class="field-label">Relação com desfechos de saúde.</span> Descreve um perigo ambiental associado a emissões, mas não mede exposição respiratória.</p>
+<p><span class="field-label">Defasagens temporais relevantes.</span> A síntese anual não permite datar exposição aguda à fumaça.</p>
+<p><span class="field-label">Aplicação na gestão.</span> Monitorar território atingido e contextualizar ações intersetoriais.</p>
+</section>
+<section id="referências-metodológicas-4" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="referências-metodológicas-4">Referências metodológicas</h3>
+<ul>
+<li><span class="citation" data-cites="mapbiomas2026fogo5">(<a href="../../backmatter/referencias.html#ref-mapbiomas2026fogo5" role="doc-biblioref">MapBiomas, 2026</a>)</span></li>
 </ul>
 
 
@@ -1139,8 +1334,14 @@ BRASIL. CONSELHO NACIONAL DO MEIO AMBIENTE. <strong>Resolução CONAMA nº 506, 
 <div id="ref-brasil2025iqar" class="csl-entry" role="listitem">
 BRASIL. MINISTÉRIO DO MEIO AMBIENTE E MUDANÇA DO CLIMA. <strong><a href="https://www.gov.br/mma/pt-br/assuntos/meio-ambiente-urbano-recursos-hidricos-qualidade-ambiental/qualidade-do-ar/indice-de-qualidade-do-ar-iqar/orientacao-tecnica-indice-de-qualidade-do-ar-jan-25.pdf">Índice de Qualidade do Ar (IQAr): orientação técnica</a></strong>. Brasília, DF: Ministério do Meio Ambiente e Mudança do Clima, 2025.
 </div>
-<div id="ref-vandaalen2024lancet" class="csl-entry" role="listitem">
-<span class="nocase">DAALEN, Kim R. van <em>et al.</em></span> The 2024 Europe report of the Lancet Countdown on health and climate change: unprecedented warming demands unprecedented action. <strong>The Lancet Public Health</strong>, v. 9, n. 7, p. e495–e522, 2024. Disponível em: &lt;https://doi.org/<a href="https://doi.org/10.1016/S2468-2667(24)00055-0">10.1016/S2468-2667(24)00055-0</a>&gt;.
+<div id="ref-hu2025firepm" class="csl-entry" role="listitem">
+HU, Yonghang <em>et al.</em> <strong>Global high-resolution fire-sourced PM2.5 concentrations for 2000–2023</strong>. 2025. Disponível em: &lt;<a href="https://essd.copernicus.org/articles/17/3741/2025/">https://essd.copernicus.org/articles/17/3741/2025/</a>&gt;. Acesso em: 3 out. 2026.
+</div>
+<div id="ref-iema2025iqar" class="csl-entry" role="listitem">
+IEMA. <strong>Boletim mensal de qualidade do ar: junho de 2025; tabela do IQAr</strong>. 2025. Disponível em: &lt;<a href="https://iema.es.gov.br/Media/iema/CQAI/Boletim%20Mensal/Boletim%20Mensal%20-%20Junho%202025.pdf">https://iema.es.gov.br/Media/iema/CQAI/Boletim%20Mensal/Boletim%20Mensal%20-%20Junho%202025.pdf</a>&gt;. Acesso em: 3 out. 2026.
+</div>
+<div id="ref-mapbiomas2026fogo5" class="csl-entry" role="listitem">
+MAPBIOMAS. <strong>Códigos de legenda do MapBiomas Fogo, Coleção 5</strong>. 2026. Disponível em: &lt;<a href="https://brasil.mapbiomas.org/wp-content/uploads/sites/4/2026/05/CODIGO-DE-LEGENDA-FOGO-COLECAO-5.pdf">https://brasil.mapbiomas.org/wp-content/uploads/sites/4/2026/05/CODIGO-DE-LEGENDA-FOGO-COLECAO-5.pdf</a>&gt;. Acesso em: 3 out. 2026.
 </div>
 <div id="ref-who2021air" class="csl-entry" role="listitem">
 WORLD HEALTH ORGANIZATION. <strong><a href="https://www.who.int/publications/i/item/9789240034228">WHO global air quality guidelines: particulate matter (PM2.5 and PM10), ozone, nitrogen dioxide, sulfur dioxide and carbon monoxide</a></strong>. Geneva: World Health Organization, 2021.

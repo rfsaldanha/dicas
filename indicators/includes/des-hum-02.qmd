@@ -5,17 +5,17 @@
 [Título resumido:]{.field-label} Pessoas diretamente afetadas por desastres \
 [Tema:]{.field-label} Eventos meteorológicos severos e desastres \
 [Dimensão:]{.field-label} efeito; resposta; exposição \
-[Disponibilidade:]{.field-label} [disponível em registros de desastre]{.availability} [sujeito a revisão]{.availability}
+[Disponibilidade:]{.field-label} [Depende de dados locais]{.availability}
 :::
 
 Contexto e interpretação: [Eventos meteorológicos severos e desastres](../../chapters/part-2/10-eventos-severos-desastres.qmd#sec-desastres).
 
 ### Identificação e fundamento {.unnumbered .ficha-section}
 
-[Base de consolidação.]{.field-label} Componente de pessoas diretamente afetadas dos indicadores ODS 1.5.1, 11.5.1 e 13.1.1 e do Marco de Sendai.
+[Base de consolidação.]{.field-label} Marco de Sendai, indicador composto B-1=B-2+B-3+B-4+B-5; taxa por 100 mil habitantes.
 
 ::: {.callout-note icon=false title="Conceito-chave"}
-Número de pessoas feridas ou enfermas, com moradia danificada ou destruída ou meios de vida interrompidos ou destruídos, atribuídos a desastres, por 100 mil habitantes.
+Soma dos componentes de pessoas diretamente afetadas do Sendai, por município e ano, relativa à população de referência.
 :::
 
 ### Objetivo {.unnumbered .ficha-section}
@@ -24,7 +24,7 @@ Medir a extensão populacional direta dos impactos além de mortes e desaparecim
 
 ### Interpretação {.unnumbered .ficha-section}
 
-Valor maior indica maior alcance direto relativo. Os componentes devem ser preservados porque representam necessidades diferentes.
+Magnitude agregada dos quatro componentes de impacto direto em relação à população. Pode haver sobreposição entre componentes; não interpretar como probabilidade individual.
 
 ### Usos {.unnumbered .ficha-section}
 
@@ -41,33 +41,33 @@ Valor maior indica maior alcance direto relativo. Os componentes devem ser prese
 
 ### Fontes de dados {.unnumbered .ficha-section}
 
-- Sistema Integrado de Informações sobre Desastres — danos humanos e materiais vinculados ao evento ([cadastro](../../backmatter/indice-fontes.qmd#s2id))
-- Instituto Brasileiro de Geografia e Estatística — população e características territoriais ([cadastro](../../backmatter/indice-fontes.qmd#ibge))
+- Registros locais de afetados diretos e interrupções de saúde — Registro local datado de impactos e sua atribuição ao evento; o esquema mínimo consta do método ([cadastro](../../backmatter/indice-fontes.qmd#registros-locais-desastres))
+- IBGE — população municipal por Censo e publicação anual — Denominador populacional quando requerido ([cadastro](../../backmatter/indice-fontes.qmd#ibge-pop-municipal))
 
 ### Método de cálculo {.unnumbered .ficha-section}
 
-Consolidar componentes definidos no metadado, aplicar regras nacionais para evitar dupla contagem e estimativas de ocupantes, somar pessoas únicas ou estimadas e dividir pela população.
+Apurar localmente, por evento, B2=pessoas feridas ou enfermas diretamente em razão do desastre; B3=residentes das moradias danificadas; B4=residentes das moradias destruídas; B5=pessoas cujos meios de vida foram diretamente interrompidos ou destruídos. Campos mínimos: evento_id, data, município, pessoa pseudonimizada, domicílio, lesão/enfermidade atribuída, classe de dano da moradia, residentes e impacto no meio de vida. Deduplicar dentro de cada componente; para moradias, dano e destruição são categorias mutuamente exclusivas na situação final. Somar B2+B3+B4+B5 conforme Sendai e dividir pela população oficial de referência, segundo o protocolo DES-HUM-01. A soma composta pode contar a mesma pessoa em componentes diferentes; informar as quatro parcelas e não chamá-la de pessoas únicas. Se qualquer componente não puder ser apurado, o total é ausente. Não usar DH_total_danos_humanos_diretos do Atlas: esse campo inclui mortos e desaparecidos e não reproduz a definição B-1.
 
 $$
-T_{afetados}=100000\times\frac{N_{diretamente\ afetados}}{Pop_{referência}}
+T_{B1,m,y}=100\,000\frac{B2_{m,y}+B3_{m,y}+B4_{m,y}+B5_{m,y}}{Pop_{m,y}}
 $$
 
 ::: {.indicator-card}
-[Numerador.]{.field-label} Pessoas diretamente afetadas segundo os componentes Sendai, com tratamento de sobreposição.
+[Numerador.]{.field-label} Soma dos quatro componentes Sendai B2–B5; contagem composta, não necessariamente pessoas únicas.
 
-[Denominador.]{.field-label} População do território.
+[Denominador.]{.field-label} População oficial de referência, com ano e territorialização compatíveis.
 
 [Unidade de medida.]{.field-label} Pessoas por 100 mil habitantes.
 
-[Variáveis e categorias de análise.]{.field-label} Ferido/enfermo; moradia danificada/destruída; meios de vida; deslocamento; perigo; território; grupo.
+[Variáveis e categorias de análise.]{.field-label} Evento, município, data, pessoa/domicílio, residentes, lesão/enfermidade, dano de moradia e interrupção de meios de vida.
 
 [Granularidade.]{.field-label} Componente por evento e território.
 
-[Periodicidade de atualização.]{.field-label} Por evento e consolidação anual.
+[Periodicidade de atualização.]{.field-label} Após cada evento, com consolidação anual e revisão dos desfechos.
 
 [Responsabilidade gerencial.]{.field-label} Proteção e defesa civil consolida perdas e danos; saúde verifica óbitos, agravos e serviços; estatística fornece denominadores.
 
-[Notas.]{.field-label} As fichas seguem indicadores Sendai/ODS. Contagens nacionais devem observar os procedimentos oficiais de validação e evitar dupla contagem.
+[Notas.]{.field-label} Manter a ficha e sua dependência local. Não inferir os componentes ausentes a partir de totais administrativos de significado diferente.
 
 [Análise descritiva do indicador.]{.field-label} Apresentar total e componentes, taxas, perigo, duração, grupos e incerteza de estimativas.
 
@@ -76,39 +76,51 @@ $$
 ### Campos complementares para clima, ambiente e saúde {.unnumbered .ficha-section}
 
 ::: {.indicator-card}
-[Unidade territorial.]{.field-label} Município, estado, país ou agregação.
+[Unidade territorial.]{.field-label} Município da ocorrência; conservar limite territorial e ano do registro.
 
-[Resolução espacial original.]{.field-label} Local do impacto.
+[Resolução espacial original.]{.field-label} Pessoa/domicílio ou estabelecimento/serviço vinculado ao evento.
 
-[Resolução temporal.]{.field-label} Evento e resumo anual/plurianual.
+[Resolução temporal.]{.field-label} Ocorrência datada; resumo anual após consolidação e revisão.
 
-[Período de referência.]{.field-label} Período e população compatível.
+[Período de referência.]{.field-label} Ano do evento ou início da interrupção, conforme método; registrar data de corte das revisões.
 
-[Limiar ou valor de referência.]{.field-label} Não se aplica; objetivo é redução.
+[Limiar ou valor de referência.]{.field-label} Impacto direto documentado em um dos quatro componentes; não inclui morte/desaparecimento no numerador B-1.
 
 :::
 
 ### Disponibilidade e acesso {.unnumbered .ficha-section}
 
-[Cobertura geográfica.]{.field-label} Brasil, condicionada ao registro municipal e validação.
+[Protocolo verificado em.]{.field-label} 2026-10-03
 
-[Período disponível.]{.field-label} Conforme S2iD.
+[Dependência de dados locais.]{.field-label} Necessária
 
-[Periodicidade de atualização.]{.field-label} Por evento e consolidação anual.
+[Automação.]{.field-label} Não demonstrada
 
-[Forma de acesso.]{.field-label} S2iD e relatórios.
+[Requisitos para o cálculo.]{.field-label} Disponibilização de registro local com os componentes e identificadores especificados; não foi demonstrada uma base aberta nacional com esse conteúdo.
+
+[Nível de evidência.]{.field-label} Documentação verificada
+
+[Alcance da verificação.]{.field-label} Produto e método documentados; série municipal completa ainda não produzida.
+
+[Cobertura geográfica.]{.field-label} Municípios com registros locais suficientes e rotina explícita de apuração.
+
+[Período disponível.]{.field-label} Desde a implantação de registro local com os campos exigidos; série municipal nacional completa não demonstrada.
+
+[Periodicidade de atualização.]{.field-label} Após cada evento, com consolidação anual e revisão dos desfechos.
+
+[Forma de acesso.]{.field-label} Exportação CSV/Parquet do sistema local no esquema desta ficha; a existência de S2iD, CNES ou SIA/SUS não garante os campos necessários.
 
 [URL ou identificador persistente.]{.field-label} https://unstats.un.org/sdgs/metadata/files/Metadata-01-05-01.pdf
 
-[Formato dos arquivos.]{.field-label} Registros e tabelas.
+[Formato dos arquivos.]{.field-label} Tabelas locais de eventos e impactos vinculáveis; publicação municipal agregada, sem identificação pessoal.
 
-[Necessidade de processamento.]{.field-label} Harmonizar componentes, estimar ocupantes quando autorizado, deduplicar e calcular taxa.
+[Necessidade de processamento.]{.field-label} Vincular ao desastre, classificar impacto, validar datas e identificadores, resolver revisões/duplicidades e somar apenas casos elegíveis.
 
 ### Qualidade, comparação e saúde {.unnumbered .ficha-section}
 
-[Qualidade e incerteza.]{.field-label} Relatar definição, desastre, local, período, fonte, verificação, revisões, duplicidades, sub-registro e denominador.
+[Qualidade e incerteza.]{.field-label} Sem apuração, resultado ausente, nunca zero automático. Zero requer cobertura documentada e confirmação de ausência de ocorrências no período. Preservar desconhecido, não aplicável e incompleto.
 
-[Possibilidade de comparação.]{.field-label} Manter taxonomia, componente, regra de atribuição, período, população e versão do registro; totais preliminares e consolidados devem ser distinguidos.
+[Possibilidade de comparação.]{.field-label} Mesma definição de evento, componente, estabelecimento, serviço e cobertura de registro; mudanças no cadastro local precisam de quebra de série.
 
 [Relação com desfechos de saúde.]{.field-label} Mortes, pessoas afetadas e interrupção de serviços expressam efeitos diretos e condições que ampliam riscos sanitários durante e após desastres.
 

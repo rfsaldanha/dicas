@@ -1,0 +1,130 @@
+## Ficha do indicador: Percentual da área municipal queimada no ano {#sec-amb-fog-01 .ficha-title}
+
+::: {.indicator-card}
+[Código:]{.field-label} AMB-FOG-01 \
+[Título resumido:]{.field-label} Área municipal queimada — MapBiomas Fogo 5 \
+[Tema:]{.field-label} Qualidade do ar, queimadas e fumaça \
+[Dimensão:]{.field-label} perigo; exposição \
+[Disponibilidade:]{.field-label} [Calculável com dados abertos]{.availability}
+:::
+
+Contexto e interpretação: [Qualidade do ar, queimadas e fumaça](../../chapters/part-2/07-qualidade-ar-queimadas-fumaca.qmd#sec-qualidade-ar).
+
+### Identificação e fundamento {.unnumbered .ficha-section}
+
+[Base de consolidação.]{.field-label} MapBiomas Fogo Coleção 5, annual_burned_v1; percentual municipal como derivação explícita.
+
+::: {.callout-note icon=false title="Conceito-chave"}
+Proporção da área territorial municipal que apresenta cicatriz de fogo mapeada em um ano.
+:::
+
+### Objetivo {.unnumbered .ficha-section}
+
+Descrever a extensão territorial anual do fogo sem confundi-la com exposição à fumaça.
+
+### Interpretação {.unnumbered .ficha-section}
+
+Maior percentual indica maior área mapeada como queimada no ano, não maior dose ou concentração de fumaça.
+
+### Usos {.unnumbered .ficha-section}
+
+- Caracterizar extensão do fogo.
+- Contextualizar episódios de fumaça sem substituir modelagem atmosférica.
+
+### Limitações {.unnumbered .ficha-section}
+
+- Área queimada não estima PM2,5 de fogo.
+- Não conta quantas vezes a mesma área queimou dentro do ano.
+
+### Fontes de dados {.unnumbered .ficha-section}
+
+- MapBiomas Fogo — Coleção 5, annual_burned_v1 — Bandas burned_area_AAAA, classe 1=área queimada ([cadastro](../../backmatter/indice-fontes.qmd#mapbiomas-fogo-v5))
+- Instituto Brasileiro de Geografia e Estatística — Malha municipal 2022 ([cadastro](../../backmatter/indice-fontes.qmd#ibge))
+
+### Método de cálculo {.unnumbered .ficha-section}
+
+No asset annual_burned_v1 da Coleção 5, selecionar burned_area_AAAA, de 1985 a 2025. No domínio brasileiro do produto, classe 1 representa cicatriz mapeada e o fundo sem cicatriz é convertido em 0; máscara exterior ao domínio ou arquivo anual indisponível não recebe zero. Somar as áreas geodésicas das interseções município–pixels de classe 1, uma única vez por pixel e ano. Dividir pela área geodésica total do polígono municipal IBGE 2022 e multiplicar por 100. Publicar zero apenas quando a banda anual estiver disponível e não houver cicatriz mapeada no município; isso não comprova ausência real de incêndio.
+
+$$
+F_{m,y}=100\frac{area(m\cap\{B_y=1\})}{area(m)}
+$$
+
+::: {.indicator-card}
+[Numerador.]{.field-label} Área da união das cicatrizes mapeadas no ano dentro do município, em km².
+
+[Denominador.]{.field-label} Área total do mesmo município IBGE 2022, em km².
+
+[Unidade de medida.]{.field-label} %.
+
+[Variáveis e categorias de análise.]{.field-label} Ano, classe de queima, área geodésica, município, coleção e versão.
+
+[Granularidade.]{.field-label} Pixel anual; soma de área por município.
+
+[Periodicidade de atualização.]{.field-label} Por edição anual; conservar Coleção 5 v1 como identificador da série.
+
+[Responsabilidade gerencial.]{.field-label} Instituição que publica a série municipal, com atribuição à Rede MapBiomas.
+
+[Notas.]{.field-label} Indicador novo e distinto de AMB-FUM-01; não é seu substituto.
+
+[Análise descritiva do indicador.]{.field-label} Publicar km², percentual, cobertura e versão por ano.
+
+:::
+
+### Campos complementares para clima, ambiente e saúde {.unnumbered .ficha-section}
+
+::: {.indicator-card}
+[Unidade territorial.]{.field-label} Município IBGE 2022.
+
+[Resolução espacial original.]{.field-label} 30 m nominal.
+
+[Resolução temporal.]{.field-label} Anual.
+
+[Período de referência.]{.field-label} Ano civil; sem período-base climatológico.
+
+[Limiar ou valor de referência.]{.field-label} Classe 1 no raster anual, segundo legenda oficial; não somar contagens mensais.
+
+:::
+
+### Disponibilidade e acesso {.unnumbered .ficha-section}
+
+[Protocolo verificado em.]{.field-label} 2026-10-03
+
+[Dependência de dados locais.]{.field-label} Dispensável para o cálculo; opcional para validação
+
+[Automação.]{.field-label} Condicionada
+
+[Requisitos para o cálculo.]{.field-label} Conta/projeto Earth Engine elegível para acesso gratuito ou download público da mesma versão; malha municipal IBGE 2022.
+
+[Nível de evidência.]{.field-label} Documentação verificada
+
+[Alcance da verificação.]{.field-label} Produto e método documentados; série municipal completa ainda não produzida.
+
+[Cobertura geográfica.]{.field-label} Brasil, no domínio válido do mapeamento.
+
+[Período disponível.]{.field-label} 1985–2025 na edição fixada.
+
+[Periodicidade de atualização.]{.field-label} Por edição anual; conservar Coleção 5 v1 como identificador da série.
+
+[Forma de acesso.]{.field-label} Google Earth Engine: projects/mapbiomas-public/assets/brazil/fire/collection5/mapbiomas_fire_collection5_annual_burned_v1; bandas burned_area_1985 a burned_area_2025.
+
+[URL ou identificador persistente.]{.field-label} https://brasil.mapbiomas.org/wp-content/uploads/sites/4/2026/05/CODIGO-DE-LEGENDA-FOGO-COLECAO-5.pdf
+
+[Formato dos arquivos.]{.field-label} Imagem multibanda; exportação GeoTIFF; CSV municipal.
+
+[Necessidade de processamento.]{.field-label} Selecionar banda anual, conferir máscara/classe, intersectar com municípios e somar áreas geodésicas.
+
+### Qualidade, comparação e saúde {.unnumbered .ficha-section}
+
+[Qualidade e incerteza.]{.field-label} Fogo pequeno, oculto ou não detectado pode ficar no fundo sem cicatriz. Zero é ausência de cicatriz mapeada, não comprovação de observação perfeita. Ano sem arquivo ou fora do domínio é ausente.
+
+[Possibilidade de comparação.]{.field-label} Mesma coleção, versão, malha e regra de área; não emendar com Coleção 5.1 ou versões anteriores.
+
+[Relação com desfechos de saúde.]{.field-label} Descreve um perigo ambiental associado a emissões, mas não mede exposição respiratória.
+
+[Defasagens temporais relevantes.]{.field-label} A síntese anual não permite datar exposição aguda à fumaça.
+
+[Aplicação na gestão.]{.field-label} Monitorar território atingido e contextualizar ações intersetoriais.
+
+### Referências metodológicas {.unnumbered .ficha-section}
+
+- [@mapbiomas2026fogo5]

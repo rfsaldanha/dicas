@@ -1,0 +1,130 @@
+## Ficha do indicador: Percentual de domicílios com mais de três moradores por dormitório {#sec-exp-hab-02 .ficha-title}
+
+::: {.indicator-card}
+[Código:]{.field-label} EXP-HAB-02 \
+[Título resumido:]{.field-label} Domicílios com mais de três moradores por dormitório \
+[Tema:]{.field-label} Exposição e vulnerabilidade socioambiental \
+[Dimensão:]{.field-label} vulnerabilidade \
+[Disponibilidade:]{.field-label} [Calculável com dados abertos]{.availability}
+:::
+
+Contexto e interpretação: [Exposição e vulnerabilidade socioambiental](../../chapters/part-3/11-exposicao-vulnerabilidade.qmd#sec-exposicao-vulnerabilidade).
+
+### Identificação e fundamento {.unnumbered .ficha-section}
+
+[Base de consolidação.]{.field-label} IBGE, Censo Demográfico 2022, Características dos domicílios: resultados preliminares da amostra, tabela SIDRA 9933.
+
+::: {.callout-note icon=false title="Conceito-chave"}
+Parcela dos domicílios particulares permanentes ocupados com mais de três moradores por cômodo utilizado como dormitório, segundo as categorias da tabela 9933.
+:::
+
+### Objetivo {.unnumbered .ficha-section}
+
+Descrever adensamento domiciliar municipal com uma medida disponível no Censo 2022.
+
+### Interpretação {.unnumbered .ficha-section}
+
+Valores maiores indicam maior frequência de domicílios nessa classe de adensamento. Não representa o indicador ODS 11.1.1 completo nem mede inadequação habitacional em todas as dimensões.
+
+### Usos {.unnumbered .ficha-section}
+
+- Caracterizar adensamento domiciliar.
+- Apoiar planejamento de habitação e saúde.
+
+### Limitações {.unnumbered .ficha-section}
+
+- Resultados preliminares da amostra, sujeitos a erro amostral e revisões.
+- A unidade é domicílio, não pessoa.
+- Não mede ventilação, temperatura interna, custo ou segurança da posse.
+
+### Fontes de dados {.unnumbered .ficha-section}
+
+- Censo 2022 — SIDRA 9933: moradores por dormitório — Dados e definição de universo: domicílios por moradores por dormitório, Censo 2022. ([cadastro](../../backmatter/indice-fontes.qmd#ibge-sidra-9933))
+
+### Método de cálculo {.unnumbered .ficha-section}
+
+Consultar SIDRA 9933, ano 2022, município (nível N6), variável 381 (domicílios). Na classificação 1975, usar categoria 73090 (mais de 3 moradores por dormitório) no numerador e 73086 (Total) no denominador. Fixar classificação 63 em 95826 (Total) e 125 em 2932 (Total). Calcular 100 × numerador / denominador. Não somar a categoria Total às parcelas. Interpretar os sinais convencionais do SIDRA: hífen (-) significa zero absoluto e pode ser convertido em zero, preservando o símbolo original; X indica valor inibido, ... indisponível e .. não aplicável, todos mantidos como ausentes com motivo. Campo vazio ou símbolo inesperado também impede o cálculo. Valores numéricos são usados como publicados, conservando sua precisão. Não transformar supressão ou indisponibilidade em zero. Denominador nulo ou ausente produz resultado ausente com motivo. Registrar versão da divulgação, extração e natureza amostral.
+
+$$
+P=100\times D_{>3}/D_{total}
+$$
+
+::: {.indicator-card}
+[Numerador.]{.field-label} Variável 381, classificação 1975, categoria 73090, demais classificações em Total.
+
+[Denominador.]{.field-label} Variável 381, classificação 1975, categoria 73086, mesmos município, ano e totais.
+
+[Unidade de medida.]{.field-label} Percentual de domicílios (%).
+
+[Variáveis e categorias de análise.]{.field-label} Município, ano 2022 e categorias fixadas; estimativas do número de domicílios no numerador e no denominador.
+
+[Granularidade.]{.field-label} Município.
+
+[Periodicidade de atualização.]{.field-label} Divulgações e revisões do Censo 2022.
+
+[Responsabilidade gerencial.]{.field-label} Instituição estatística ou responsável pelo índice, com equipes de vigilância, planejamento e participação social responsáveis pela interpretação e uso.
+
+[Notas.]{.field-label} Substitui EXP-HAB-01; código anterior reservado. Não equivale ao ODS 11.1.1.
+
+[Análise descritiva do indicador.]{.field-label} Publicar município, ano, estimativas dos domicílios, percentual e indicação de resultado amostral; não interpretar como contagem bruta da amostra.
+
+:::
+
+### Campos complementares para clima, ambiente e saúde {.unnumbered .ficha-section}
+
+::: {.indicator-card}
+[Unidade territorial.]{.field-label} Municípios do Censo 2022.
+
+[Resolução espacial original.]{.field-label} Município.
+
+[Resolução temporal.]{.field-label} Censo 2022.
+
+[Período de referência.]{.field-label} Data de referência do Censo 2022.
+
+[Limiar ou valor de referência.]{.field-label} Estritamente mais de três moradores por dormitório; a classe de mais de dois até três não integra o numerador.
+
+:::
+
+### Disponibilidade e acesso {.unnumbered .ficha-section}
+
+[Protocolo verificado em.]{.field-label} 2026-10-06
+
+[Dependência de dados locais.]{.field-label} Não depende de coleta local.
+
+[Automação.]{.field-label} Condicionada
+
+[Requisitos para o cálculo.]{.field-label} Validar a edição, as entradas e os códigos; arquivar a extração com URL, data e SHA-256. Implementação em repositório de cálculo separado.
+
+[Nível de evidência.]{.field-label} Acesso e cálculo testados
+
+[Alcance da verificação.]{.field-label} Consulta real de Rio de Janeiro (3304557), Censo 2022, arquivada em data-raw/parte-iii; razão das contagens comparada ao percentual oficial da variável 1000381. Ver registro de verificação.
+
+[Cobertura geográfica.]{.field-label} Brasil, municípios com resultados publicados na tabela 9933.
+
+[Período disponível.]{.field-label} 2022.
+
+[Periodicidade de atualização.]{.field-label} Divulgações e revisões do Censo 2022.
+
+[Forma de acesso.]{.field-label} SIDRA ou API de agregados do IBGE, agregado 9933; consulta reproduzível e resposta arquivadas em data-raw/parte-iii.
+
+[URL ou identificador persistente.]{.field-label} https://sidra.ibge.gov.br/tabela/9933
+
+[Formato dos arquivos.]{.field-label} JSON e tabelas SIDRA.
+
+[Necessidade de processamento.]{.field-label} Consultar as duas categorias, validar símbolos especiais e dividir.
+
+### Qualidade, comparação e saúde {.unnumbered .ficha-section}
+
+[Qualidade e incerteza.]{.field-label} Documentar fonte, ano, universo, erro amostral, imputação, variáveis, sentido, normalização, pesos, edição, limites territoriais e impacto de valores pequenos ou ausentes.
+
+[Possibilidade de comparação.]{.field-label} Comparar somente valores calculados com a mesma edição, universo, componentes, pesos e território; índices relativos podem mudar mesmo sem alteração absoluta de uma localidade.
+
+[Relação com desfechos de saúde.]{.field-label} Privação material, discriminação, barreiras de acesso e menor capacidade de proteção modificam exposição, suscetibilidade e recuperação diante de perigos climáticos e ambientais.
+
+[Defasagens temporais relevantes.]{.field-label} A vulnerabilidade medida em Censo ou pesquisa domiciliar refere-se a uma data ou período anterior; registrar a distância temporal até o evento e mudanças posteriores.
+
+[Aplicação na gestão.]{.field-label} Orientar busca ativa, comunicação acessível, localização de recursos, proteção social e planejamento intersetorial, sem rotular pessoas ou territórios como portadores naturais de vulnerabilidade.
+
+### Referências metodológicas {.unnumbered .ficha-section}
+
+- [@ibge2025domicilios2022]

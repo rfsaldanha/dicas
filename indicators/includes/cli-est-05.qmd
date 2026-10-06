@@ -5,14 +5,14 @@
 [Título resumido:]{.field-label} WBGT \
 [Tema:]{.field-label} Temperatura e condições térmicas \
 [Dimensão:]{.field-label} perigo; exposição \
-[Disponibilidade:]{.field-label} [requer processamento meteorológico]{.availability}
+[Disponibilidade:]{.field-label} [Depende de dados locais]{.availability}
 :::
 
 Contexto e interpretação: [Temperatura e condições térmicas](../../chapters/part-2/05-temperatura-condicoes-termicas.qmd#sec-temperatura).
 
 ### Identificação e fundamento {.unnumbered .ficha-section}
 
-[Base de consolidação.]{.field-label} ISO 7243:2017 e critérios do NIOSH para triagem de estresse térmico ocupacional.
+[Base de consolidação.]{.field-label} ISO 7243:2017 e NHO 06, 3ª edição, Fundacentro, 2025.
 
 ::: {.callout-note icon=false title="Conceito-chave"}
 Índice ambiental ponderado que combina temperatura de bulbo úmido natural, temperatura de globo e, sob sol direto, temperatura do ar.
@@ -43,15 +43,14 @@ WBGT maior representa maior carga ambiental. Sua interpretação ocupacional exi
 
 ### Fontes de dados {.unnumbered .ficha-section}
 
-- Instituto Nacional de Meteorologia — dados meteorológicos auxiliares para estimativa externa e planejamento de medição ([cadastro](../../backmatter/indice-fontes.qmd#inmet))
-- ERA5-Land — campos meteorológicos auxiliares em avaliações retrospectivas, sem substituir medição ocupacional local ([cadastro](../../backmatter/indice-fontes.qmd#era5-land))
+- Medições instrumentais locais de IBUTG — NHO 06/2025 — Medições locais de Tnwb, Tg, Ta, condição solar, duração e metadados de calibração; protocolo NHO 06/2025 ([cadastro](../../backmatter/indice-fontes.qmd#medicoes-ibutg))
 
 ### Método de cálculo {.unnumbered .ficha-section}
 
-Medir simultaneamente temperatura de bulbo úmido natural, temperatura de globo e temperatura do ar no local representativo da exposição. Para ambiente externo com carga solar, aplicar 0,7Tnwb + 0,2Tg + 0,1Ta. Para ambiente interno ou externo sem carga solar, aplicar 0,7Tnwb + 0,3Tg. Calcular média ponderada no tempo e, se necessário, no corpo conforme o protocolo técnico.
+Medir temperatura de bulbo úmido natural Tnwb, de globo Tg e do ar Ta, em °C, com instrumentos e posicionamento conformes à NHO 06, 3ª edição (2025). Com carga solar direta, IBUTG=0,7Tnwb+0,2Tg+0,1Ta; sem carga solar, IBUTG=0,7Tnwb+0,3Tg. Em cada condição i do período crítico de 60 minutos, registrar duração ti; IBUTG60=sum(IBUTGi×ti)/60, com soma(ti)=60. Publicar por posto de trabalho, com metabolismo e aclimatização separados.
 
 $$
-WBGT_{sol}=0{,}7T_{nwb}+0{,}2T_g+0{,}1T_a;\qquad WBGT_{sem\ sol}=0{,}7T_{nwb}+0{,}3T_g
+\begin{aligned}IBUTG_{sol}&=0{,}7T_{nwb}+0{,}2T_g+0{,}1T_a\\IBUTG_{sem\ sol}&=0{,}7T_{nwb}+0{,}3T_g\end{aligned}
 $$
 
 ::: {.indicator-card}
@@ -63,13 +62,13 @@ $$
 
 [Variáveis e categorias de análise.]{.field-label} Bulbo úmido natural; globo; ar; sol ou sombra; posto e tarefa; esforço metabólico; vestimenta; aclimatação; tempo de exposição.
 
-[Granularidade.]{.field-label} Medição por ponto, tarefa e intervalo; média ponderada da exposição na jornada.
+[Granularidade.]{.field-label} Campanha/estabelecimento/posto/instrumento/data e intervalo; município é chave de localização.
 
-[Periodicidade de atualização.]{.field-label} Conforme programa de higiene ocupacional e mudanças de tarefa, processo, ambiente ou clima.
+[Periodicidade de atualização.]{.field-label} Anual, após completar e verificar o último ano de entrada.
 
 [Responsabilidade gerencial.]{.field-label} Serviço meteorológico ou equipe de saúde ambiental ou do trabalhador responsável pela medição, com autoridade de saúde responsável pelo protocolo de uso.
 
-[Notas.]{.field-label} O valor é uma temperatura ou índice equivalente, não a temperatura corporal nem uma medição direta de risco individual. Categorias operacionais de outro país não constituem automaticamente limiares de alerta no Brasil.
+[Notas.]{.field-label} Manter a ficha por sua relevância ocupacional; modelagens de WBGT são produtos distintos e não substituem a avaliação instrumental aqui especificada.
 
 [Análise descritiva do indicador.]{.field-label} Mostrar WBGT por tarefa e horário, duração, esforço, vestimenta, aclimatação, controles existentes e incerteza; não publicar apenas a máxima ambiental.
 
@@ -78,39 +77,51 @@ $$
 ### Campos complementares para clima, ambiente e saúde {.unnumbered .ficha-section}
 
 ::: {.indicator-card}
-[Unidade territorial.]{.field-label} Ponto de observação, célula de grade ou território obtido por agregação explícita.
+[Unidade territorial.]{.field-label} Posto de trabalho, estabelecimento e município de localização; não atribuir a leitura a toda a área municipal.
 
-[Resolução espacial original.]{.field-label} Microambiente ocupacional no ponto representativo da exposição.
+[Resolução espacial original.]{.field-label} Ponto e altura de medição no posto de trabalho.
 
-[Resolução temporal.]{.field-label} Leituras simultâneas durante períodos representativos; média ponderada na jornada.
+[Resolução temporal.]{.field-label} Leituras durante ciclos de exposição e média ponderada no período de 60 minutos mais crítico.
 
-[Período de referência.]{.field-label} Condição atual de trabalho; séries históricas são secundárias à caracterização representativa da exposição.
+[Período de referência.]{.field-label} Não se aplica; janela de exposição de 60 minutos da NHO 06.
 
-[Limiar ou valor de referência.]{.field-label} Valores de ação e limites dependem de esforço, vestimenta, aclimatação e norma aplicável; não há um único limiar WBGT para toda população e atividade.
+[Limiar ou valor de referência.]{.field-label} Limites ocupacionais variam com metabolismo, aclimatização e regime de trabalho; não existe um corte municipal universal.
 
 :::
 
 ### Disponibilidade e acesso {.unnumbered .ficha-section}
 
-[Cobertura geográfica.]{.field-label} A da fonte meteorológica ou do levantamento microambiental selecionado.
+[Protocolo verificado em.]{.field-label} 2026-10-03
 
-[Período disponível.]{.field-label} Períodos efetivamente medidos; estimativas meteorológicas dependem da fonte.
+[Dependência de dados locais.]{.field-label} Necessária
 
-[Periodicidade de atualização.]{.field-label} Conforme programa de higiene ocupacional e mudanças de tarefa, processo, ambiente ou clima.
+[Automação.]{.field-label} Condicionada
 
-[Forma de acesso.]{.field-label} Medição instrumental no local; estimativa meteorológica apenas para triagem complementar com método validado.
+[Requisitos para o cálculo.]{.field-label} Disponibilização das três temperaturas instrumentais, durações e metadados locais segundo a NHO 06. Não há base nacional municipal demonstrada.
 
-[URL ou identificador persistente.]{.field-label} https://www.iso.org/standard/67188.html
+[Nível de evidência.]{.field-label} Documentação verificada
 
-[Formato dos arquivos.]{.field-label} Planilha ou sistema de higiene ocupacional com leituras, metadados de tarefa e calibração.
+[Alcance da verificação.]{.field-label} Produto e método documentados; série municipal completa ainda não produzida.
 
-[Necessidade de processamento.]{.field-label} Verificar calibração e posicionamento, sincronizar sensores, aplicar fórmula adequada, ponderar tempo e atividade e confrontar com critérios aplicáveis.
+[Cobertura geográfica.]{.field-label} Somente postos de trabalho efetivamente medidos.
+
+[Período disponível.]{.field-label} Desde o início de cada campanha ou registro instrumental local; não há série municipal nacional centralizada demonstrada.
+
+[Periodicidade de atualização.]{.field-label} Anual, após completar e verificar o último ano de entrada.
+
+[Forma de acesso.]{.field-label} Exportação CSV dos instrumentos ou do sistema local, contendo temperaturas, duração, condição solar, posto e identificação do equipamento.
+
+[URL ou identificador persistente.]{.field-label} https://apisobrecarga.fundacentro.gov.br/doc/NHO06.pdf
+
+[Formato dos arquivos.]{.field-label} CSV local com dicionário, unidades e metadados de calibração.
+
+[Necessidade de processamento.]{.field-label} Validar calibração, estabilização e duração; separar com/sem carga solar e calcular a média ponderada de 60 minutos.
 
 ### Qualidade, comparação e saúde {.unnumbered .ficha-section}
 
-[Qualidade e incerteza.]{.field-label} Verificar unidades, altura e abrigo dos sensores, sincronização das variáveis, dados ausentes, domínio de validade da fórmula, representatividade espacial e diferença entre valor medido e modelado.
+[Qualidade e incerteza.]{.field-label} Sem Tnwb ou Tg instrumentais o IBUTG não é calculável por este protocolo. Temperatura de bulbo úmido psicrométrica não substitui Tnwb.
 
-[Possibilidade de comparação.]{.field-label} Manter fórmula, versão, entradas, unidades, altura do vento, tratamento da radiação, resolução temporal e regra de agregação; índices diferentes não são conversíveis por uma escala comum.
+[Possibilidade de comparação.]{.field-label} Mesma edição da NHO 06, protocolo instrumental, posição, atividade e duração.
 
 [Relação com desfechos de saúde.]{.field-label} O índice é consolidado para triagem de estresse térmico ocupacional, condição capaz de causar exaustão, golpe de calor, lesão renal e morte.
 
@@ -121,5 +132,4 @@ $$
 ### Referências metodológicas {.unnumbered .ficha-section}
 
 - [@iso2017wbgt]
-- [@niosh2016heat]
-- [@who2025workplaceheat]
+- [@fundacentro2025nho06]

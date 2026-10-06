@@ -23,12 +23,8 @@ indicators:
     interpretacao: Valores maiores indicam maior carga térmica aparente nas condições assumidas. O resultado não incorpora diretamente radiação solar, vento variável, esforço, vestimenta, aclimatação ou suscetibilidade clínica.
     usos: [Comunicar calor úmido., Caracterizar horas ou dias com Índice de Calor elevado., Apoiar estudos epidemiológicos e protocolos calor–saúde que tenham validado localmente a exposição.]
     limitacoes: [A regressão completa é aplicada quando a estimativa preliminar atinge pelo menos 80 °F., A fórmula não é válida fora da faixa de temperatura e umidade dos dados de Steadman., Sol direto pode elevar substancialmente a carga térmica., As categorias do NWS são orientação operacional estadunidense e não limiares sanitários universais.]
-    fontes_dados:
-      - id: inmet
-        papel: temperatura do ar e umidade relativa sincronizadas
-      - id: era5-land
-        papel: temperatura e umidade em grade para análise retrospectiva, após avaliação de viés
-    metodo_calculo: Converter a temperatura para graus Fahrenheit. Calcular primeiro a aproximação simples de Steadman e tirar sua média com a temperatura observada. Se essa média for inferior a 80 °F, usar o resultado simples. Se atingir 80 °F, aplicar a regressão de Rothfusz e os ajustes oficiais para umidade muito baixa ou muito alta nas faixas especificadas pelo NWS. Converter para graus Celsius apenas ao final, quando necessário.
+    fontes_dados: [{"id": "era5-land", "papel": "ERA5-Land hourly: 2m_temperature e 2m_dewpoint_temperature"}, {"id": "inmet", "papel": "Validação local e série observada separada, quando contiver as mesmas entradas"}]
+    metodo_calculo: "Obter T e Td em °C; RH=100×exp[17,625Td/(243,04+Td)−17,625T/(243,04+T)], limitado a [0,100]. Converter T para °F. Calcular S=0,5×[T+61+1,2(T−68)+0,094RH] e A=(S+T)/2. Se A<80°F, usar A; caso contrário aplicar a regressão completa de Rothfusz apresentada nesta ficha. Se RH<13 e 80≤T≤112, subtrair [(13−RH)/4]×sqrt[(17−abs(T−95))/17]. Se RH>85 e 80≤T≤87, somar [(RH−85)/10]×[(87−T)/5]. Converter o resultado para °C. Agregar conforme resolução temporal e espacial da ficha."
     formula_calculo: |
       \begin{aligned}
       HI={}&-42{,}379+2{,}04901523T+10{,}14333127RH\\
@@ -40,21 +36,38 @@ indicators:
     denominador: Não se aplica.
     unidade_medida: Grau Fahrenheit (°F) na fórmula original; pode ser convertido para grau Celsius (°C) após o cálculo.
     variaveis_categorias_analise: Temperatura do ar em °F; umidade relativa em %; hora; local; categoria operacional, se adotada e validada.
-    granularidade: Valor por observação sincronizada; resumos por hora, dia, episódio ou território.
-    resolucao_espacial_original: Ponto de estação ou célula do produto meteorológico.
-    resolucao_temporal: Preferencialmente horária ou subdiária; não calcular a partir de médias mensais.
-    periodo_referencia: Não exige climatologia para o cálculo; comparações temporais requerem série e método estáveis.
-    limiar_referencia: Aplicar a regressão completa quando a média entre a aproximação inicial e T for pelo menos 80 °F; demais categorias devem ser identificadas com a fonte e validadas para a finalidade.
-    url_persistente: https://www.weather.gov/ctp/heat
-    periodo_disponivel: O período comum às séries de temperatura e umidade.
-    periodicidade_atualizacao: Horária ou conforme a observação meteorológica.
-    forma_acesso: Cálculo sobre observações sincronizadas, com implementação e ajustes versionados.
-    formatos: Tabela horária por estação ou matriz multidimensional por célula.
-    necessidade_processamento: Controle de qualidade, conversão de unidades, cálculo preliminar, escolha da equação, ajustes de umidade e agregação temporal.
+    granularidade: "Calcular o indicador em cada célula antes da média municipal ponderada pela área; manter produto, célula, ano e código IBGE de sete dígitos."
+    resolucao_espacial_original: "ERA5-Land: grade de 0,1°; malha municipal IBGE 2022 como recorte fixo."
+    resolucao_temporal: "Cálculo horário; máximo diário; média anual dos máximos diários."
+    periodo_referencia: "Não usa período-base climatológico."
+    limiar_referencia: "Índice contínuo; limiares de alerta sanitário exigem validação local."
+    url_persistente: "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land"
+    periodo_disponivel: "1950–presente; publicar anos completos até 2025 e identificar 2026 como parcial. A janela inicial utilizável depende dos antecedentes exigidos pela medida."
+    periodicidade_atualizacao: "Anual, após completar e verificar o último ano de entrada."
+    forma_acesso: "API do Climate Data Store, dataset reanalysis-era5-land, product_type=reanalysis, todas as 24 horas UTC; download NetCDF ou GRIB por mês e recorte espacial."
+    formatos: "NetCDF ou GRIB de entrada; CSV/Parquet para séries municipais."
+    necessidade_processamento: "Calcular ou obter o índice horário conforme o produto e as entradas desta ficha; obter máximo diário apenas com 24 índices horários válidos e média anual desses máximos; depois ponderar por área municipal."
     analise_descritiva: Apresentar máximos diários, horas acima das categorias adotadas, distribuição territorial, completude e comparação com temperatura do ar, sem converter categorias de outros índices.
     relacao_saude: Calor úmido reduz a eficiência da evaporação do suor; o índice é usado em comunicação e estudos de calor, mas não representa resposta fisiológica individual.
     aplicacao_gestao: Apoiar comunicação de risco e vigilância de calor úmido quando o protocolo declarar a fórmula, as hipóteses e os limiares locais de ação.
     referencias: ["[@nws2026heat]", "[@rothfusz1990]"]
+    unidade_territorial: "Célula de grade; município como síntese ponderada pela área de interseção."
+    cobertura_geografica: "Todos os municípios brasileiros no domínio da grade. Não representa diretamente a exposição individual ou o microclima de cada bairro."
+    qualidade_incerteza: "Dia com menos de 24 valores horários válidos do índice é ausente. Mais de 15 dias ausentes no ano ou mais de três no mês invalidam o ano. A média anual usa os dias válidos; publicar completude. Exigir ≥90% de área municipal com índice válido. Não usa período-base climatológico; não atribuir ponto de estação à área inteira do município."
+    comparabilidade: "Fixar versão, calendário UTC, período-base e limites municipais de 2022. Não emendar estação e reanálise. Médias municipais de contagens podem ser fracionárias e não contam episódios sincrônicos do município."
+    notas: "Calcular o índice a cada hora antes de obter o máximo diário; não calcular a fórmula usando médias anuais das entradas. Série municipal: média por área das médias anuais dos máximos diários. Não representa exposição individual."
+    protocolo_versao: "2026-10-03"
+    situacao_calculo: "abertos"
+    disponibilidade: ["Calculável com dados abertos"]
+    dependencia_dados_locais: "Opcional para validação"
+    automacao: "Condicionada"
+    condicoes_automacao: "Cadastro gratuito e credencial CDS; download das variáveis e processamento conforme a ficha."
+    evidencia_verificacao: "Documentação verificada"
+    detalhe_verificacao: "Produto e método documentados; série municipal completa ainda não produzida."
+
+
+
+
 
   - <<: *heat_stress_common
     codigo: CLI-EST-02
@@ -66,32 +79,46 @@ indicators:
     interpretacao: A diferença entre AT e a temperatura do ar mostra quanto umidade e vento alteram a condição equivalente no modelo. AT maior que a temperatura indica condição aparente mais quente; AT menor, resfriamento aparente.
     usos: [Comunicação meteorológica de sensação térmica., Caracterização de exposição térmica externa., Estudos de saúde que especifiquem a equação de AT empregada.]
     limitacoes: [A equação operacional não incorpora radiação solar direta., Representa uma pessoa de referência, não indivíduos com diferentes atividades, roupas ou condições clínicas., Pressão de vapor, vento e temperatura precisam ser simultâneos., Existem outras equações chamadas temperatura aparente; o nome sem a fórmula é insuficiente.]
-    fontes_dados:
-      - id: inmet
-        papel: temperatura do ar, umidade ou ponto de orvalho e vento a 10 m
-      - id: era5-land
-        papel: variáveis meteorológicas em grade para análise retrospectiva, após validação
-    metodo_calculo: Obter temperatura do ar em graus Celsius, pressão de vapor em hPa e velocidade do vento a 10 m em m/s para o mesmo instante. Aplicar a equação externa sem radiação do Bureau of Meteorology. Quando a pressão de vapor for derivada de temperatura e umidade relativa, registrar a equação de saturação empregada.
-    formula_calculo: 'AT=T_a+0{,}33e-0{,}70v_{10}-4{,}00'
+    fontes_dados: [{"id": "era5-land", "papel": "ERA5-Land hourly: 2m_temperature, 2m_dewpoint_temperature, 10m_u_component_of_wind e 10m_v_component_of_wind"}, {"id": "inmet", "papel": "Validação local e série observada separada, quando contiver as mesmas entradas"}]
+    metodo_calculo: "Calcular RH a partir de T/Td conforme CLI-EST-01; e=(RH/100)×6,105×exp[17,27T/(237,7+T)] em hPa. Calcular a velocidade s10=sqrt(u10²+v10²), em m/s, a partir dos componentes zonal e meridional do vento. Aplicar AT=T+0,33e−0,70s10−4, com T em °C. Esta é a variante à sombra do Bureau of Meteorology; agregar os índices horários conforme a ficha."
+    formula_calculo: "AT=T+0{,}33e-0{,}70s_{10}-4,\\qquad s_{10}=\\sqrt{u_{10}^2+v_{10}^2}"
     numerador: Não se aplica; combinação linear de temperatura, pressão de vapor e vento.
     denominador: Não se aplica.
     unidade_medida: Grau Celsius (°C).
     variaveis_categorias_analise: Temperatura do ar (°C); pressão de vapor (hPa); vento a 10 m (m/s); hora; local.
-    granularidade: Valor horário ou por observação; resumo diário ou por episódio.
-    resolucao_espacial_original: Ponto de estação ou célula do produto meteorológico.
-    resolucao_temporal: Horária ou subdiária.
-    periodo_referencia: Não exige período-base; análises de anomalia devem declarar a climatologia.
-    limiar_referencia: Não há categoria sanitária universal própria da equação; limiares de ação precisam ser relacionados a efeitos e capacidades locais.
-    url_persistente: https://media.bom.gov.au/social/blog/1153/apparent-/
-    periodo_disponivel: O período de interseção entre temperatura, umidade e vento.
-    periodicidade_atualizacao: Horária ou conforme a fonte.
-    forma_acesso: Cálculo sobre observações ou campos meteorológicos sincronizados.
-    formatos: Tabela de observações ou grade horária.
-    necessidade_processamento: Harmonizar unidades e horários, calcular ou obter pressão de vapor, aplicar a equação e documentar a ausência de radiação solar.
+    granularidade: "Calcular o indicador em cada célula antes da média municipal ponderada pela área; manter produto, célula, ano e código IBGE de sete dígitos."
+    resolucao_espacial_original: "ERA5-Land: grade de 0,1°; malha municipal IBGE 2022 como recorte fixo."
+    resolucao_temporal: "Cálculo horário; máximo diário; média anual dos máximos diários."
+    periodo_referencia: "Não usa período-base climatológico."
+    limiar_referencia: "Índice contínuo; limiares de alerta sanitário exigem validação local."
+    url_persistente: "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land"
+    periodo_disponivel: "1950–presente; publicar anos completos até 2025 e identificar 2026 como parcial. A janela inicial utilizável depende dos antecedentes exigidos pela medida."
+    periodicidade_atualizacao: "Anual, após completar e verificar o último ano de entrada."
+    forma_acesso: "API do Climate Data Store, dataset reanalysis-era5-land, product_type=reanalysis, todas as 24 horas UTC; download NetCDF ou GRIB por mês e recorte espacial."
+    formatos: "NetCDF ou GRIB de entrada; CSV/Parquet para séries municipais."
+    necessidade_processamento: "Calcular ou obter o índice horário conforme o produto e as entradas desta ficha; obter máximo diário apenas com 24 índices horários válidos e média anual desses máximos; depois ponderar por área municipal."
     analise_descritiva: Mostrar AT e temperatura do ar lado a lado, máximos e mínimos, horas críticas, distribuição territorial e disponibilidade conjunta das entradas.
     relacao_saude: A medida representa condições externas percebidas em um corpo de referência e pode reduzir erro de exposição quando umidade e vento são relevantes, mas não substitui um índice fisiológico validado.
     aplicacao_gestao: Apoiar comunicação e análise de exposição, mantendo explícito que a versão à sombra não representa trabalho ao sol nem ambientes com fontes radiantes.
     referencias: ["[@steadman1994]", "[@bom2026apparent]"]
+    unidade_territorial: "Célula de grade; município como síntese ponderada pela área de interseção."
+    cobertura_geografica: "Todos os municípios brasileiros no domínio da grade. Não representa diretamente a exposição individual ou o microclima de cada bairro."
+    qualidade_incerteza: "Dia com menos de 24 valores horários válidos do índice é ausente. Mais de 15 dias ausentes no ano ou mais de três no mês invalidam o ano. A média anual usa os dias válidos; publicar completude. Exigir ≥90% de área municipal com índice válido. Não usa período-base climatológico; não atribuir ponto de estação à área inteira do município."
+    comparabilidade: "Fixar versão, calendário UTC, período-base e limites municipais de 2022. Não emendar estação e reanálise. Médias municipais de contagens podem ser fracionárias e não contam episódios sincrônicos do município."
+    notas: "Calcular o índice a cada hora antes de obter o máximo diário; não calcular a fórmula usando médias anuais das entradas. Série municipal: média por área das médias anuais dos máximos diários. Não representa exposição individual."
+    protocolo_versao: "2026-10-03"
+    situacao_calculo: "abertos"
+    disponibilidade: ["Calculável com dados abertos"]
+    dependencia_dados_locais: "Opcional para validação"
+    automacao: "Condicionada"
+    condicoes_automacao: "Cadastro gratuito e credencial CDS; download das variáveis e processamento conforme a ficha."
+    evidencia_verificacao: "Documentação verificada"
+    detalhe_verificacao: "Produto e método documentados; série municipal completa ainda não produzida."
+
+
+
+
+
 
   - <<: *heat_stress_common
     codigo: CLI-EST-03
@@ -103,32 +130,46 @@ indicators:
     interpretacao: Na escala operacional canadense, 20–29 indica pouco desconforto; 30–39, algum desconforto; 40–45, grande desconforto e recomendação de evitar esforço; 46 ou mais, condição perigosa com possibilidade de golpe de calor.
     usos: [Comunicação de calor úmido., Orientação de atividades ao ar livre no sistema canadense., Estudos de exposição que adotem explicitamente o Humidex.]
     limitacoes: [Não incorpora vento nem radiação solar., Categorias refletem orientação canadense e não equivalem a limiares brasileiros., Não representa atividade, vestimenta ou suscetibilidade individual., O uso de umidade relativa exige sua conversão consistente para pressão de vapor ou ponto de orvalho.]
-    fontes_dados:
-      - id: inmet
-        papel: temperatura do ar e ponto de orvalho ou umidade relativa
-      - id: era5-land
-        papel: temperatura e umidade em grade para análise retrospectiva, após validação
-    metodo_calculo: Converter o ponto de orvalho para kelvin. Calcular a pressão de vapor e, em seguida, o incremento h; somá-lo à temperatura do ar em graus Celsius. Se a entrada disponível for umidade relativa, derivar primeiro o ponto de orvalho ou a pressão de vapor com método documentado.
-    formula_calculo: 'Humidex=T_a+0{,}5555(e-10),\quad e=6{,}11\exp\left[5417{,}7530\left(\frac{1}{273{,}15}-\frac{1}{T_d}\right)\right]'
+    fontes_dados: [{"id": "era5-land", "papel": "ERA5-Land hourly: 2m_temperature e 2m_dewpoint_temperature"}, {"id": "inmet", "papel": "Validação local e série observada separada, quando contiver as mesmas entradas"}]
+    metodo_calculo: "Usar T em °C e Td em kelvin na fórmula de Environment and Climate Change Canada desta ficha; e está em hPa. Calcular Humidex horário, máximo diário e média anual dos máximos, antes da média municipal por área. Não substituir Td por umidade relativa sem conversão termodinâmica explícita."
+    formula_calculo: "\\begin{aligned}Humidex&=T_a+0{,}5555(e-10)\\\\e&=6{,}11\\exp\\left[5417{,}7530\\left(\\frac{1}{273{,}15}-\\frac{1}{T_d}\\right)\\right]\\end{aligned}"
     numerador: Não se aplica.
     denominador: Não se aplica.
     unidade_medida: Índice adimensional informado em escala semelhante a graus Celsius.
     variaveis_categorias_analise: Temperatura do ar (°C); ponto de orvalho (K) ou pressão de vapor (hPa); hora; local; faixa canadense de impacto.
-    granularidade: Valor horário ou por observação; resumo diário, por episódio ou território.
-    resolucao_espacial_original: Ponto de estação ou célula do produto meteorológico.
-    resolucao_temporal: Horária ou subdiária.
-    periodo_referencia: Não exige climatologia; tendências requerem série homogênea.
-    limiar_referencia: Faixas canadenses 20–29, 30–39, 40–45 e ≥46; seu emprego como gatilho fora do Canadá requer validação local.
-    url_persistente: https://www.canada.ca/en/environment-climate-change/services/climate-change/canadian-centre-climate-services/display-download/technical-documentation-climate-normals.html
-    periodo_disponivel: O período comum às variáveis de temperatura e umidade.
-    periodicidade_atualizacao: Horária ou conforme a fonte.
-    forma_acesso: Cálculo sobre observações sincronizadas de temperatura e umidade.
-    formatos: Tabela horária por estação ou grade.
-    necessidade_processamento: Controle de qualidade, conversão do ponto de orvalho para kelvin, cálculo de pressão de vapor e aplicação da fórmula.
+    granularidade: "Calcular o indicador em cada célula antes da média municipal ponderada pela área; manter produto, célula, ano e código IBGE de sete dígitos."
+    resolucao_espacial_original: "ERA5-Land: grade de 0,1°; malha municipal IBGE 2022 como recorte fixo."
+    resolucao_temporal: "Cálculo horário; máximo diário; média anual dos máximos diários."
+    periodo_referencia: "Não usa período-base climatológico."
+    limiar_referencia: "Índice contínuo; limiares de alerta sanitário exigem validação local."
+    url_persistente: "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land"
+    periodo_disponivel: "1950–presente; publicar anos completos até 2025 e identificar 2026 como parcial. A janela inicial utilizável depende dos antecedentes exigidos pela medida."
+    periodicidade_atualizacao: "Anual, após completar e verificar o último ano de entrada."
+    forma_acesso: "API do Climate Data Store, dataset reanalysis-era5-land, product_type=reanalysis, todas as 24 horas UTC; download NetCDF ou GRIB por mês e recorte espacial."
+    formatos: "NetCDF ou GRIB de entrada; CSV/Parquet para séries municipais."
+    necessidade_processamento: "Calcular ou obter o índice horário conforme o produto e as entradas desta ficha; obter máximo diário apenas com 24 índices horários válidos e média anual desses máximos; depois ponderar por área municipal."
     analise_descritiva: Apresentar distribuição, máximo diário, horas em cada faixa, completude e comparação com temperatura do ar; separar a descrição das decisões de alerta.
     relacao_saude: A umidade elevada dificulta a perda de calor por evaporação; o Humidex apoia comunicação de desconforto e risco, mas não modela diretamente a termorregulação individual.
     aplicacao_gestao: Apoiar comunicação e orientação de atividades quando a autoridade adotar e validar explicitamente a escala; não converter suas faixas para Heat Index.
     referencias: ["[@canada2026humidex]", "[@canada2021humidexformula]", "[@masterton1979]"]
+    unidade_territorial: "Célula de grade; município como síntese ponderada pela área de interseção."
+    cobertura_geografica: "Todos os municípios brasileiros no domínio da grade. Não representa diretamente a exposição individual ou o microclima de cada bairro."
+    qualidade_incerteza: "Dia com menos de 24 valores horários válidos do índice é ausente. Mais de 15 dias ausentes no ano ou mais de três no mês invalidam o ano. A média anual usa os dias válidos; publicar completude. Exigir ≥90% de área municipal com índice válido. Não usa período-base climatológico; não atribuir ponto de estação à área inteira do município."
+    comparabilidade: "Fixar versão, calendário UTC, período-base e limites municipais de 2022. Não emendar estação e reanálise. Médias municipais de contagens podem ser fracionárias e não contam episódios sincrônicos do município."
+    notas: "Calcular o índice a cada hora antes de obter o máximo diário; não calcular a fórmula usando médias anuais das entradas. Série municipal: média por área das médias anuais dos máximos diários. Não representa exposição individual."
+    protocolo_versao: "2026-10-03"
+    situacao_calculo: "abertos"
+    disponibilidade: ["Calculável com dados abertos"]
+    dependencia_dados_locais: "Opcional para validação"
+    automacao: "Condicionada"
+    condicoes_automacao: "Cadastro gratuito e credencial CDS; download das variáveis e processamento conforme a ficha."
+    evidencia_verificacao: "Documentação verificada"
+    detalhe_verificacao: "Produto e método documentados; série municipal completa ainda não produzida."
+
+
+
+
+
 
   - <<: *heat_stress_common
     codigo: CLI-EST-04
@@ -140,66 +181,87 @@ indicators:
     interpretacao: Para calor, 26–32 °C indica estresse moderado; acima de 32 até 38 °C, forte; acima de 38 até 46 °C, muito forte; acima de 46 °C, extremo. Entre 9 e 26 °C, a escala indica ausência de estresse térmico.
     usos: [Monitorar estresse térmico externo., Mapear horas ou dias em categorias de calor., Apoiar alertas, planejamento urbano e estudos de exposição em saúde.]
     limitacoes: [A aproximação polinomial oficial restringe o vento a 0,5–17 m/s., A temperatura radiante média é difícil de observar e frequentemente modelada., A referência supõe caminhada a 4 km/h e vestimenta adaptativa modelada., Grade de reanálise não descreve sombra e geometria urbana em microescala.]
-    fontes_dados:
-      - id: era5-heat
-        papel: UTCI e temperatura radiante média horárias já derivadas do ERA5
-      - id: inmet
-        papel: observações meteorológicas para validação das entradas ou de aplicações locais
-    metodo_calculo: Usar a implementação oficial do UTCI com temperatura do ar, diferença entre temperatura radiante média e temperatura do ar, pressão de vapor ou umidade relativa e vento a 10 m. Para séries globais, usar o UTCI horário do ERA5-HEAT, registrando versão. Classificar cada valor pela escala UTCI e agregar horas ou dias conforme a pergunta.
+    fontes_dados: [{"id": "era5-heat", "papel": "ERA5-HEAT v1.1, derived-utci-historical: universal_thermal_climate_index"}]
+    metodo_calculo: "Baixar UTCI já calculado pelo ERA5-HEAT v1.1; converter kelvin para °C subtraindo 273,15. Obter máximo diário com 24 horas válidas e média anual desses máximos; aplicar depois média municipal por área. Não recalcular o polinômio UTCI com temperatura média radiante arbitrária."
     formula_calculo: 'UTCI=T_a+Offset(T_a,T_{mrt}-T_a,v_{10},p_a)'
-    numerador: Não se aplica; aproximação polinomial multivariada do modelo UTCI.
-    denominador: Não se aplica.
+    numerador: "Não se aplica ao UTCI importado; na média anual, soma dos máximos diários válidos."
+    denominador: "Dias válidos do ano na média dos máximos diários; área válida na agregação municipal."
     unidade_medida: Grau Celsius de temperatura equivalente UTCI (°C).
-    variaveis_categorias_analise: Temperatura do ar; temperatura radiante média; vento a 10 m; pressão de vapor ou umidade relativa; dez categorias de estresse térmico.
-    granularidade: Valor horário por ponto ou célula; resumo diário, sazonal, anual ou territorial.
-    resolucao_espacial_original: 0,25° na distribuição regular do ERA5-HEAT; aplicações locais podem ter outra resolução, que deve ser declarada.
-    resolucao_temporal: Horária na entrada; saída horária ou agregada.
-    periodo_referencia: Não exige climatologia para a categoria; anomalias e contagens comparativas devem declarar o período-base.
+    variaveis_categorias_analise: "UTCI horário do produto, em kelvin na entrada e °C na saída; máximo diário; média anual; célula, município e cobertura."
+    granularidade: "Calcular o indicador em cada célula antes da média municipal ponderada pela área; manter produto, célula, ano e código IBGE de sete dígitos."
+    resolucao_espacial_original: "0,25°, nativa do ERA5-HEAT v1.1."
+    resolucao_temporal: "Horária; máximo diário e média anual dos máximos diários."
+    periodo_referencia: "Não usa período-base para calcular UTCI."
     limiar_referencia: Calor moderado 26–32 °C; forte >32–38 °C; muito forte >38–46 °C; extremo >46 °C.
-    url_persistente: https://doi.org/10.24381/cds.553b7518
-    periodo_disponivel: Desde 1940 até próximo do presente no ERA5-HEAT, conforme a versão consultada.
-    periodicidade_atualizacao: O conjunto histórico é estendido conforme o ERA5; verificar latência e versão.
-    forma_acesso: Obtenção pelo Copernicus Climate Data Store ou cálculo com a implementação oficial do UTCI.
-    formatos: NetCDF para grade; NetCDF ou CSV no produto de séries temporais.
-    necessidade_processamento: Selecionar versão e fluxo, converter kelvin para Celsius quando necessário, classificar valores, tratar horários e agregar sem ocultar extremos.
-    analise_descritiva: Apresentar máximos e mínimos, horas ou dias em cada categoria, mapas, população exposta e incerteza; comparar com temperatura do ar para evidenciar o papel de vento, umidade e radiação.
+    url_persistente: "https://cds.climate.copernicus.eu/datasets/derived-utci-historical"
+    periodo_disponivel: "1940–presente; anos completos até 2025."
+    periodicidade_atualizacao: "Anual, após completar e verificar o último ano de entrada."
+    forma_acesso: "API CDS, dataset derived-utci-historical, variable=universal_thermal_climate_index, version=1_1, product_type=consolidated_dataset, todas as horas disponíveis."
+    formatos: "NetCDF ou GRIB de entrada; CSV/Parquet para séries municipais."
+    necessidade_processamento: "Calcular ou obter o índice horário conforme o produto e as entradas desta ficha; obter máximo diário apenas com 24 índices horários válidos e média anual desses máximos; depois ponderar por área municipal."
+    analise_descritiva: "Publicar a média anual dos máximos diários de UTCI em °C e a completude; categorias de estresse, se adicionadas, são saídas separadas com seus próprios tempos de exposição."
     relacao_saude: As categorias derivam de respostas termofisiológicas modeladas e o índice é aplicado a alertas e avaliação de estresse térmico humano, não a diagnóstico individual.
     aplicacao_gestao: Apoiar vigilância, comunicação e planejamento territorial de estresse térmico externo, com validação local e resolução compatível com a ação.
     referencias: ["[@brode2012utci]", "[@dinapoli2021era5heat]", "[@copernicus2026utci]"]
+    unidade_territorial: "Célula de grade; município como síntese ponderada pela área de interseção."
+    cobertura_geografica: "Todos os municípios brasileiros no domínio da grade. Não representa diretamente a exposição individual ou o microclima de cada bairro."
+    qualidade_incerteza: "Dia com menos de 24 valores horários válidos do índice é ausente. Mais de 15 dias ausentes no ano ou mais de três no mês invalidam o ano. A média anual usa os dias válidos; publicar completude. Exigir ≥90% de área municipal com índice válido. Não usa período-base climatológico; não atribuir ponto de estação à área inteira do município."
+    comparabilidade: "Fixar versão, calendário UTC, período-base e limites municipais de 2022. Não emendar estação e reanálise. Médias municipais de contagens podem ser fracionárias e não contam episódios sincrônicos do município."
+    notas: "Usar o produto consolidado v1.1 e arquivar a requisição CDS. O suporte nativo de 0,25° deve acompanhar todo resultado municipal."
+    protocolo_versao: "2026-10-03"
+    situacao_calculo: "abertos"
+    disponibilidade: ["Calculável com dados abertos"]
+    dependencia_dados_locais: "Opcional para validação"
+    automacao: "Condicionada"
+    condicoes_automacao: "Cadastro gratuito e credencial CDS; download das variáveis e processamento conforme a ficha."
+    evidencia_verificacao: "Documentação verificada"
+    detalhe_verificacao: "Produto e método documentados; série municipal completa ainda não produzida."
+
+
+
 
   - <<: *heat_stress_common
     codigo: CLI-EST-05
     titulo_completo: Temperatura de Globo e Bulbo Úmido (WBGT)
     titulo_resumido: WBGT
-    referencia_metodologica: ISO 7243:2017 e critérios do NIOSH para triagem de estresse térmico ocupacional.
+    referencia_metodologica: "ISO 7243:2017 e NHO 06, 3ª edição, Fundacentro, 2025."
     conceito: Índice ambiental ponderado que combina temperatura de bulbo úmido natural, temperatura de globo e, sob sol direto, temperatura do ar.
     objetivo: Realizar triagem da exposição ao calor ao longo da jornada de trabalho e indicar a necessidade de avaliação e controles.
     interpretacao: WBGT maior representa maior carga ambiental. Sua interpretação ocupacional exige considerar taxa metabólica, vestimenta, aclimatação, distribuição espacial e temporal da exposição e limites adotados no protocolo.
     usos: [Avaliar ambientes ocupacionais internos e externos., Definir regimes de trabalho, descanso e controles segundo norma aplicável., Monitorar atividades físicas e eventos ao ar livre com orientação específica.]
     limitacoes: [Não interpretar o valor isolado sem esforço, vestimenta e aclimatação., A ISO 7243 se aplica à exposição total de adultos aptos ao trabalho em jornadas de até oito horas e não a exposições muito curtas., WBGT estimado de estação não substitui medição no microambiente quando há fontes radiantes., Limites ocupacionais vigentes devem ser verificados na norma e regulação aplicáveis.]
-    fontes_dados:
-      - id: inmet
-        papel: dados meteorológicos auxiliares para estimativa externa e planejamento de medição
-      - id: era5-land
-        papel: campos meteorológicos auxiliares em avaliações retrospectivas, sem substituir medição ocupacional local
-    metodo_calculo: Medir simultaneamente temperatura de bulbo úmido natural, temperatura de globo e temperatura do ar no local representativo da exposição. Para ambiente externo com carga solar, aplicar 0,7Tnwb + 0,2Tg + 0,1Ta. Para ambiente interno ou externo sem carga solar, aplicar 0,7Tnwb + 0,3Tg. Calcular média ponderada no tempo e, se necessário, no corpo conforme o protocolo técnico.
-    formula_calculo: 'WBGT_{sol}=0{,}7T_{nwb}+0{,}2T_g+0{,}1T_a;\qquad WBGT_{sem\ sol}=0{,}7T_{nwb}+0{,}3T_g'
+    fontes_dados: [{"id": "medicoes-ibutg", "papel": "Medições locais de Tnwb, Tg, Ta, condição solar, duração e metadados de calibração; protocolo NHO 06/2025"}]
+    metodo_calculo: "Medir temperatura de bulbo úmido natural Tnwb, de globo Tg e do ar Ta, em °C, com instrumentos e posicionamento conformes à NHO 06, 3ª edição (2025). Com carga solar direta, IBUTG=0,7Tnwb+0,2Tg+0,1Ta; sem carga solar, IBUTG=0,7Tnwb+0,3Tg. Em cada condição i do período crítico de 60 minutos, registrar duração ti; IBUTG60=sum(IBUTGi×ti)/60, com soma(ti)=60. Publicar por posto de trabalho, com metabolismo e aclimatização separados."
+    formula_calculo: "\\begin{aligned}IBUTG_{sol}&=0{,}7T_{nwb}+0{,}2T_g+0{,}1T_a\\\\IBUTG_{sem\\ sol}&=0{,}7T_{nwb}+0{,}3T_g\\end{aligned}"
     numerador: Não se aplica; média ponderada de temperaturas ambientais.
     denominador: Não se aplica.
     unidade_medida: Grau Celsius WBGT (°C).
     variaveis_categorias_analise: Bulbo úmido natural; globo; ar; sol ou sombra; posto e tarefa; esforço metabólico; vestimenta; aclimatação; tempo de exposição.
-    granularidade: Medição por ponto, tarefa e intervalo; média ponderada da exposição na jornada.
-    resolucao_espacial_original: Microambiente ocupacional no ponto representativo da exposição.
-    resolucao_temporal: Leituras simultâneas durante períodos representativos; média ponderada na jornada.
-    periodo_referencia: Condição atual de trabalho; séries históricas são secundárias à caracterização representativa da exposição.
-    limiar_referencia: Valores de ação e limites dependem de esforço, vestimenta, aclimatação e norma aplicável; não há um único limiar WBGT para toda população e atividade.
-    url_persistente: https://www.iso.org/standard/67188.html
-    periodo_disponivel: Períodos efetivamente medidos; estimativas meteorológicas dependem da fonte.
-    periodicidade_atualizacao: Conforme programa de higiene ocupacional e mudanças de tarefa, processo, ambiente ou clima.
-    forma_acesso: Medição instrumental no local; estimativa meteorológica apenas para triagem complementar com método validado.
-    formatos: Planilha ou sistema de higiene ocupacional com leituras, metadados de tarefa e calibração.
-    necessidade_processamento: Verificar calibração e posicionamento, sincronizar sensores, aplicar fórmula adequada, ponderar tempo e atividade e confrontar com critérios aplicáveis.
+    granularidade: "Campanha/estabelecimento/posto/instrumento/data e intervalo; município é chave de localização."
+    resolucao_espacial_original: "Ponto e altura de medição no posto de trabalho."
+    resolucao_temporal: "Leituras durante ciclos de exposição e média ponderada no período de 60 minutos mais crítico."
+    periodo_referencia: "Não se aplica; janela de exposição de 60 minutos da NHO 06."
+    limiar_referencia: "Limites ocupacionais variam com metabolismo, aclimatização e regime de trabalho; não existe um corte municipal universal."
+    url_persistente: "https://apisobrecarga.fundacentro.gov.br/doc/NHO06.pdf"
+    periodo_disponivel: "Desde o início de cada campanha ou registro instrumental local; não há série municipal nacional centralizada demonstrada."
+    periodicidade_atualizacao: "Anual, após completar e verificar o último ano de entrada."
+    forma_acesso: "Exportação CSV dos instrumentos ou do sistema local, contendo temperaturas, duração, condição solar, posto e identificação do equipamento."
+    formatos: "CSV local com dicionário, unidades e metadados de calibração."
+    necessidade_processamento: "Validar calibração, estabilização e duração; separar com/sem carga solar e calcular a média ponderada de 60 minutos."
     analise_descritiva: Mostrar WBGT por tarefa e horário, duração, esforço, vestimenta, aclimatação, controles existentes e incerteza; não publicar apenas a máxima ambiental.
     relacao_saude: O índice é consolidado para triagem de estresse térmico ocupacional, condição capaz de causar exaustão, golpe de calor, lesão renal e morte.
     aplicacao_gestao: Orientar controles de engenharia e administrativos, pausas, hidratação, aclimatação, vigilância de sintomas e resposta de emergência segundo protocolo ocupacional vigente.
-    referencias: ["[@iso2017wbgt]", "[@niosh2016heat]", "[@who2025workplaceheat]"]
+    referencias: ["[@iso2017wbgt]", "[@fundacentro2025nho06]"]
+    unidade_territorial: "Posto de trabalho, estabelecimento e município de localização; não atribuir a leitura a toda a área municipal."
+    cobertura_geografica: "Somente postos de trabalho efetivamente medidos."
+    qualidade_incerteza: "Sem Tnwb ou Tg instrumentais o IBUTG não é calculável por este protocolo. Temperatura de bulbo úmido psicrométrica não substitui Tnwb."
+    comparabilidade: "Mesma edição da NHO 06, protocolo instrumental, posição, atividade e duração."
+    notas: "Manter a ficha por sua relevância ocupacional; modelagens de WBGT são produtos distintos e não substituem a avaliação instrumental aqui especificada."
+    protocolo_versao: "2026-10-03"
+    situacao_calculo: "locais"
+    disponibilidade: ["Depende de dados locais"]
+    dependencia_dados_locais: "Necessária"
+    automacao: "Condicionada"
+    condicoes_automacao: "Disponibilização das três temperaturas instrumentais, durações e metadados locais segundo a NHO 06. Não há base nacional municipal demonstrada."
+    evidencia_verificacao: "Documentação verificada"
+    detalhe_verificacao: "Produto e método documentados; série municipal completa ainda não produzida."

@@ -5,14 +5,14 @@
 [Título resumido:]{.field-label} Plano de emergência com continuidade \
 [Tema:]{.field-label} Capacidade de resposta, adaptação e resiliência \
 [Dimensão:]{.field-label} resposta \
-[Disponibilidade:]{.field-label} [requer avaliação de estabelecimentos]{.availability} [requer adaptação nacional]{.availability}
+[Disponibilidade:]{.field-label} [Depende de dados locais]{.availability}
 :::
 
 Contexto e interpretação: [Capacidade de resposta, adaptação e resiliência](../../chapters/part-3/13-resposta-adaptacao-resiliencia.qmd#sec-resposta).
 
 ### Identificação e fundamento {.unnumbered .ficha-section}
 
-[Base de consolidação.]{.field-label} Indicador 44 do pacote integrado de indicadores de resiliência dos sistemas de saúde da OMS.
+[Base de consolidação.]{.field-label} OMS, Health system resilience indicators: an integrated package, edição 2024, indicador 44. Critérios e instrumento local explicitados neste capítulo.
 
 ::: {.callout-note icon=false title="Conceito-chave"}
 Percentual de estabelecimentos com plano de gestão de emergências que inclui a manutenção ou recuperação de serviços rotineiros e essenciais.
@@ -24,7 +24,7 @@ Verificar se a preparação formal identifica funções críticas, impactos dos 
 
 ### Interpretação {.unnumbered .ficha-section}
 
-Valor de 70% indica plano conforme em sete de cada dez estabelecimentos avaliados. Não demonstra que foi difundido, exercitado, financiado ou eficaz.
+Quanto maior o percentual, maior a conformidade documental entre os estabelecimentos com avaliação completa. Não demonstra eficácia durante uma emergência.
 
 ### Usos {.unnumbered .ficha-section}
 
@@ -42,73 +42,86 @@ Valor de 70% indica plano conforme em sete de cada dez estabelecimentos avaliado
 
 ### Fontes de dados {.unnumbered .ficha-section}
 
-- Pacote integrado de indicadores de resiliência dos sistemas de saúde — definição, metadados, numerador, denominador e fonte recomendada ([cadastro](../../backmatter/indice-fontes.qmd#who-resilience-package))
+- Cadastro Nacional de Estabelecimentos de Saúde — Dados cadastrais: identificação e composição do universo da rodada. ([cadastro](../../backmatter/indice-fontes.qmd#cnes))
+- Avaliação local de resiliência — instrumento vazio — Dados a coletar: respostas, inspeção e evidências no instrumento local desta edição. ([cadastro](../../backmatter/indice-fontes.qmd#avaliacao-local-resiliencia))
 
 ### Método de cálculo {.unnumbered .ficha-section}
 
-Definir critérios mínimos; verificar plano vigente e se ele prioriza funções críticas, avalia impactos, define ações, responsabilidades, recursos, comunicação e continuidade ou recuperação de serviços essenciais; contar estabelecimentos conformes, dividir pelos avaliados e multiplicar por 100.
+Aplicar o instrumento local e as regras de universo, evidência e não resposta deste capítulo. Conforme se todos os campos pla_documento, pla_funcoes, pla_impactos, pla_acoes forem sim, com evidência verificável. Percentual=100 N/A. Perguntas ignoradas retiram o registro de A; informar NR. Ausência documental efetivamente verificada é não conformidade; documento solicitado mas não disponibilizado é ignorado.
 
 $$
-P_{plano}=100\times\frac{N(\text{estabelecimentos com plano conforme})}{N(\text{estabelecimentos avaliados})}
+P=100\times N/A,\qquad NR=U-A
 $$
 
 ::: {.indicator-card}
 [Numerador.]{.field-label} Estabelecimentos com plano de gestão de emergências que incorpora continuidade dos serviços.
 
-[Denominador.]{.field-label} Total de estabelecimentos avaliados.
+[Denominador.]{.field-label} A: estabelecimentos elegíveis do universo U com todos os itens exigidos válidos e evidência para este indicador.
 
 [Unidade de medida.]{.field-label} Percentual de estabelecimentos (%).
 
-[Variáveis e categorias de análise.]{.field-label} Vigência; perigos; serviços essenciais; responsabilidades; pessoal; suprimentos; referência e contrarreferência; comunicação; recuperação; exercícios.
+[Variáveis e categorias de análise.]{.field-label} Identificação, rodada, data, evidência e respostas: pla_documento, pla_funcoes, pla_impactos, pla_acoes.
 
-[Granularidade.]{.field-label} Estabelecimento e componente do plano.
+[Granularidade.]{.field-label} Estabelecimento e rodada; agregação pelo universo declarado.
 
-[Periodicidade de atualização.]{.field-label} Anual ou conforme o ciclo de gestão, com verificação extraordinária após eventos e mudanças relevantes.
+[Periodicidade de atualização.]{.field-label} Por rodada de avaliação; publicar a data de cada estabelecimento e os limites da rodada.
 
 [Responsabilidade gerencial.]{.field-label} Gestão do SUS e direção do estabelecimento, com participação da vigilância, atenção, engenharia clínica, infraestrutura, saúde do trabalhador e proteção e defesa civil conforme o indicador.
 
-[Notas.]{.field-label} Existência documental, implementação, cobertura, qualidade, desempenho durante eventos e efetividade sobre a saúde são níveis diferentes de evidência.
+[Notas.]{.field-label} Definição metodológica: OMS, pacote de 2024; dados: avaliação local ainda não realizada. O instrumento deste livro é uma operacionalização autoral documentada, não um formulário oficial da OMS.
 
-[Análise descritiva do indicador.]{.field-label} Apresentar percentual e componentes ausentes, data, perigos cobertos, serviços priorizados, exercícios, correções e diferenças por território e tipo.
+[Análise descritiva do indicador.]{.field-label} Publicar N, A, U, NR, cobertura, percentual, datas e distribuição por município/tipo de estabelecimento; RES-WAS-01 exige cinco componentes e conformidade conjunta.
 
 :::
 
 ### Campos complementares para clima, ambiente e saúde {.unnumbered .ficha-section}
 
 ::: {.indicator-card}
-[Unidade territorial.]{.field-label} Estabelecimento e agregações da rede.
+[Unidade territorial.]{.field-label} Município do estabelecimento e rede definida no universo da rodada.
 
-[Resolução espacial original.]{.field-label} Estabelecimento.
+[Resolução espacial original.]{.field-label} Estabelecimento identificado por CNES.
 
-[Resolução temporal.]{.field-label} Situação na data da avaliação e histórico de revisões e exercícios.
+[Resolução temporal.]{.field-label} Data da avaliação, com janela retrospectiva somente para interrupções.
 
-[Período de referência.]{.field-label} Vigência e data da última atualização do plano.
+[Período de referência.]{.field-label} Vigência documental na data da avaliação.
 
-[Limiar ou valor de referência.]{.field-label} Todos os critérios mínimos definidos no protocolo; plano sem continuidade dos serviços não entra no numerador.
+[Limiar ou valor de referência.]{.field-label} Todos os itens especificados devem ser satisfeitos.
 
 :::
 
 ### Disponibilidade e acesso {.unnumbered .ficha-section}
 
-[Cobertura geográfica.]{.field-label} Aplicável internacionalmente após adaptação; resultados existem apenas para os estabelecimentos e níveis efetivamente avaliados.
+[Protocolo verificado em.]{.field-label} 2026-10-06
 
-[Período disponível.]{.field-label} A partir da implementação local; referência metodológica publicada em 2024.
+[Dependência de dados locais.]{.field-label} Obrigatória: inspeção e verificação documental com o instrumento vazio e o dicionário publicados neste capítulo. O CNES identifica o universo; não contém estas respostas.
 
-[Periodicidade de atualização.]{.field-label} Anual ou conforme o ciclo de gestão, com verificação extraordinária após eventos e mudanças relevantes.
+[Automação.]{.field-label} Condicionada
 
-[Forma de acesso.]{.field-label} Avaliação de estabelecimentos, sistema rotineiro de informação e verificação documental segundo o indicador.
+[Requisitos para o cálculo.]{.field-label} Agregação automatizável após coleta e validação humanas; não inferir respostas pelo CNES ou pela ausência de documento recebido.
 
-[URL ou identificador persistente.]{.field-label} https://www.who.int/publications/i/item/9789240088986
+[Nível de evidência.]{.field-label} Documentação verificada
 
-[Formato dos arquivos.]{.field-label} Formulário eletrônico ou papel, base tabular e documentação comprobatória.
+[Alcance da verificação.]{.field-label} Definição documental conferida no pacote OMS 2024; modelo e regras verificados, sem aplicação em estabelecimentos nem cálculo empírico.
 
-[Necessidade de processamento.]{.field-label} Validar universo, aplicar critérios, calcular numerador e denominador, estratificar e registrar evidências e data.
+[Cobertura geográfica.]{.field-label} Estabelecimentos CNES do universo municipal ou da rede declarada na rodada; não extrapolar para os não avaliados.
+
+[Período disponível.]{.field-label} Somente após coleta local. Nenhuma avaliação real acompanha esta revisão.
+
+[Periodicidade de atualização.]{.field-label} Por rodada de avaliação; publicar a data de cada estabelecimento e os limites da rodada.
+
+[Forma de acesso.]{.field-label} Modelos vazios de universo e avaliação, dicionário de perguntas e regras na seção Instrumento de coleta local deste capítulo.
+
+[URL ou identificador persistente.]{.field-label} https://cnes.datasus.gov.br/
+
+[Formato dos arquivos.]{.field-label} CSV UTF-8; documentos e registros de inspeção identificados por referência e SHA-256.
+
+[Necessidade de processamento.]{.field-label} Validar chaves CNES/rodada, datas, respostas e evidências; aplicar os critérios abaixo e publicar numerador, denominador e não resposta.
 
 ### Qualidade, comparação e saúde {.unnumbered .ficha-section}
 
-[Qualidade e incerteza.]{.field-label} Definir universo elegível, cobertura e instrumento; verificar documentos, datas, funcionalidade e evidências; informar não resposta, amostragem e intervalo quando houver inferência.
+[Qualidade e incerteza.]{.field-label} Por indicador/componente, publicar N conforme/afetado, A com resposta válida completa, U elegível e NR=U−A. Cobertura=100 A/U. Percentual=100 N/A; A=0 implica ausente. Não resposta, documento não disponibilizado e pergunta ignorada não equivalem a ausência de problema.
 
-[Possibilidade de comparação.]{.field-label} Manter definição, critérios de conformidade, janela temporal, universo, instrumento e desagregações; mudanças no número de estabelecimentos avaliados alteram o percentual.
+[Possibilidade de comparação.]{.field-label} Comparar apenas rodadas com critérios, território e universo compatíveis; documentar mudanças do CNES e não resposta. Não ponderar ou extrapolar amostras de conveniência.
 
 [Relação com desfechos de saúde.]{.field-label} Mede capacidade ou interrupção do sistema, não o efeito final na saúde; a relação com desfechos depende do perigo, da continuidade dos serviços e das populações atendidas.
 

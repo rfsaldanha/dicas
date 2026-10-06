@@ -1,21 +1,21 @@
-## Ficha do indicador: Nível de estabelecimento do sistema de alerta precoce, alerta e resposta {#sec-res-alr-01 .ficha-title}
+## Ficha do indicador: Nível nacional brasileiro de alerta precoce e resposta — SPAR C5.1 {#sec-res-alr-01 .ficha-title}
 
 ::: {.indicator-card}
 [Código:]{.field-label} RES-ALR-01 \
-[Título resumido:]{.field-label} Sistema de alerta precoce e resposta \
+[Título resumido:]{.field-label} Alerta precoce e resposta nacional — SPAR C5.1 \
 [Tema:]{.field-label} Capacidade de resposta, adaptação e resiliência \
 [Dimensão:]{.field-label} resposta \
-[Disponibilidade:]{.field-label} [requer avaliação de estabelecimentos]{.availability} [requer adaptação nacional]{.availability}
+[Disponibilidade:]{.field-label} [Calculável com dados abertos]{.availability}
 :::
 
 Contexto e interpretação: [Capacidade de resposta, adaptação e resiliência](../../chapters/part-3/13-resposta-adaptacao-resiliencia.qmd#sec-resposta).
 
 ### Identificação e fundamento {.unnumbered .ficha-section}
 
-[Base de consolidação.]{.field-label} Indicador 21 do pacote integrado de indicadores de resiliência dos sistemas de saúde da OMS, alinhado à capacidade C5.1 do instrumento eSPAR.
+[Base de consolidação.]{.field-label} SPAR, segunda edição, OMS 2021, indicador C5.1; reproduzido no indicador 21 do pacote OMS 2024.
 
 ::: {.callout-note icon=false title="Conceito-chave"}
-Nível de desenvolvimento e implementação da função de vigilância de alerta precoce, desde ausência de diretrizes até implementação em todos os níveis, exercícios, avaliação e atualização periódica.
+Nível ordinal de 1 a 5 declarado pelo Brasil para C5.1 no relatório anual SPAR, segunda edição.
 :::
 
 ### Objetivo {.unnumbered .ficha-section}
@@ -24,7 +24,7 @@ Avaliar a capacidade institucional de detectar, comunicar, analisar e responder 
 
 ### Interpretação {.unnumbered .ficha-section}
 
-A escala varia de 1 a 5. Nível 1 indica diretrizes ausentes ou em elaboração; nível 5 indica implementação nacional, intermediária e local, com exercício, revisão, avaliação e atualização regulares.
+1: diretrizes ausentes/em elaboração; 2: desenvolvidas, implementação insuficiente; 3: implementadas nacionalmente com notificação imediata e semanal; 4: nacional e intermediária; 5: nacional, intermediária e local com exercícios, revisão, avaliação e atualização. A ficha não avalia cada município.
 
 ### Usos {.unnumbered .ficha-section}
 
@@ -36,79 +36,91 @@ A escala varia de 1 a 5. Nível 1 indica diretrizes ausentes ou em elaboração;
 ### Limitações {.unnumbered .ficha-section}
 
 - Autoavaliação pode superestimar capacidade.
-- Uma nota nacional oculta desigualdades locais.
+- O nível nacional oculta desigualdades locais.
 - Existência do sistema não mede antecedência nem alcance de cada alerta.
-- O indicador foi concebido para ameaças de saúde pública e requer adaptação explícita para alertas climáticos.
+- C5.1 mede vigilância de saúde pública; não é indicador específico de alerta climático.
 
 ### Fontes de dados {.unnumbered .ficha-section}
 
-- Pacote integrado de indicadores de resiliência dos sistemas de saúde — definição, metadados, numerador, denominador e fonte recomendada ([cadastro](../../backmatter/indice-fontes.qmd#who-resilience-package))
+- Plataforma eSPAR — C5.1, segunda edição — Dados: relatório anual brasileiro, C5.1, segunda edição; referência do instrumento SPAR 2021. ([cadastro](../../backmatter/indice-fontes.qmd#who-espar))
 
 ### Método de cálculo {.unnumbered .ficha-section}
 
-Aplicar os critérios da capacidade C5.1 do eSPAR. Classificar no maior nível integralmente atendido, do 1 ao 5, verificando diretrizes, implementação, reporte imediato e semanal, cobertura dos níveis administrativos, exercícios, revisão e atualização. Documentar evidências e lacunas.
+Obter no eSPAR o relatório do Brasil (BRA), selecionar o ano e confirmar que usa a segunda edição (2021) e o indicador C5.1. Transcrever o nível nacional publicado, conservando país, ano, edição, código, nível, URL/arquivo, data de acesso e SHA-256. Se a saída apresentar apenas escore 20, 40, 60, 80 ou 100, converter por nível=escore/20 somente quando a legenda do próprio C5.1 confirmar essa correspondência e arquivar essa legenda; não usar média da capacidade C5. Não reconstruir o nível a partir de respostas locais. Nível ausente ou edição incompatível: não disponível, nunca zero ou nível 1.
 
 $$
-Nivel_{EWARS}=\max\{k\in\{1,\ldots,5\}: \text{todos os critérios do nível }k\text{ são atendidos}\}
+L_{BRA,ano}=\text{nível C5.1 publicado}\in\{1,2,3,4,5\}
 $$
 
 ::: {.indicator-card}
-[Numerador.]{.field-label} Não se aplica.
+[Numerador.]{.field-label} Não se aplica: nível ordinal publicado.
 
 [Denominador.]{.field-label} Não se aplica.
 
 [Unidade de medida.]{.field-label} Nível ordinal de 1 a 5.
 
-[Variáveis e categorias de análise.]{.field-label} Diretrizes e procedimentos; implementação nacional, intermediária e local; reporte imediato e semanal; vigilância baseada em indicadores e eventos; exercícios; revisão.
+[Variáveis e categorias de análise.]{.field-label} País BRA, ano, edição SPAR, indicador C5.1, nível, evidência da escala e arquivo de origem.
 
-[Granularidade.]{.field-label} País ou nível administrativo avaliado, com evidências por critério.
+[Granularidade.]{.field-label} País e ano.
 
-[Periodicidade de atualização.]{.field-label} Anual ou conforme o ciclo de gestão, com verificação extraordinária após eventos e mudanças relevantes.
+[Periodicidade de atualização.]{.field-label} Anual, conforme publicação do eSPAR.
 
 [Responsabilidade gerencial.]{.field-label} Gestão do SUS e direção do estabelecimento, com participação da vigilância, atenção, engenharia clínica, infraestrutura, saúde do trabalhador e proteção e defesa civil conforme o indicador.
 
-[Notas.]{.field-label} Existência documental, implementação, cobertura, qualidade, desempenho durante eventos e efetividade sobre a saúde são níveis diferentes de evidência.
+[Notas.]{.field-label} Fonte metodológica: SPAR segunda edição e indicador 21 OMS 2024. Fonte de dados: eSPAR. Nenhum valor brasileiro foi transcrito ou calculado nesta revisão.
 
-[Análise descritiva do indicador.]{.field-label} Mostrar nível, critérios atendidos e ausentes, níveis administrativos cobertos, oportunidade de reporte, exercícios e evolução anual.
+[Análise descritiva do indicador.]{.field-label} Apresentar nível brasileiro, ano, edição, evidência e limitações da autoavaliação; não produzir mapa municipal dessa classificação.
 
 :::
 
 ### Campos complementares para clima, ambiente e saúde {.unnumbered .ficha-section}
 
 ::: {.indicator-card}
-[Unidade territorial.]{.field-label} Nacional e subnacional conforme a aplicação.
+[Unidade territorial.]{.field-label} Brasil. Não atribuir a municípios ou estabelecimentos.
 
-[Resolução espacial original.]{.field-label} Nível administrativo da avaliação.
+[Resolução espacial original.]{.field-label} Nacional.
 
-[Resolução temporal.]{.field-label} Situação no ciclo anual do eSPAR ou avaliação equivalente.
+[Resolução temporal.]{.field-label} Anual.
 
-[Período de referência.]{.field-label} Ciclo de avaliação e data das evidências.
+[Período de referência.]{.field-label} Ano do relatório brasileiro, com segunda edição SPAR confirmada.
 
-[Limiar ou valor de referência.]{.field-label} Cinco níveis cumulativos definidos pela OMS; não calcular média aritmética entre níveis.
+[Limiar ou valor de referência.]{.field-label} Categorias cumulativas C5.1 da segunda edição; não calcular médias ou diferenças percentuais entre níveis.
 
 :::
 
 ### Disponibilidade e acesso {.unnumbered .ficha-section}
 
-[Cobertura geográfica.]{.field-label} Aplicável internacionalmente após adaptação; resultados existem apenas para os estabelecimentos e níveis efetivamente avaliados.
+[Protocolo verificado em.]{.field-label} 2026-10-06
 
-[Período disponível.]{.field-label} A partir da implementação local; referência metodológica publicada em 2024.
+[Dependência de dados locais.]{.field-label} Não depende da coleta local deste livro; depende da publicação nacional brasileira no eSPAR.
 
-[Periodicidade de atualização.]{.field-label} Anual ou conforme o ciclo de gestão, com verificação extraordinária após eventos e mudanças relevantes.
+[Automação.]{.field-label} Condicionada
 
-[Forma de acesso.]{.field-label} Avaliação de estabelecimentos, sistema rotineiro de informação e verificação documental segundo o indicador.
+[Requisitos para o cálculo.]{.field-label} Extração condicionada à exportação do eSPAR e à identificação de C5.1/edição/escala; nenhum valor brasileiro extraído nesta revisão.
 
-[URL ou identificador persistente.]{.field-label} https://www.who.int/publications/i/item/9789240088986
+[Nível de evidência.]{.field-label} Documentação verificada
 
-[Formato dos arquivos.]{.field-label} Formulário eletrônico ou papel, base tabular e documentação comprobatória.
+[Alcance da verificação.]{.field-label} Definição conferida nas referências citadas; nenhuma série deste indicador foi calculada nesta revisão.
 
-[Necessidade de processamento.]{.field-label} Validar universo, aplicar critérios, calcular numerador e denominador, estratificar e registrar evidências e data.
+[Cobertura geográfica.]{.field-label} Brasil.
+
+[Período disponível.]{.field-label} Relatórios que utilizem a segunda edição de 2021; conferir a edição em cada ano.
+
+[Periodicidade de atualização.]{.field-label} Anual, conforme publicação do eSPAR.
+
+[Forma de acesso.]{.field-label} Portal eSPAR, relatório nacional do Brasil e indicador C5.1.
+
+[URL ou identificador persistente.]{.field-label} https://extranet.who.int/e-spar
+
+[Formato dos arquivos.]{.field-label} Relatório ou exportação do eSPAR arquivada com metadados.
+
+[Necessidade de processamento.]{.field-label} Selecionar Brasil/ano/edição/C5.1, validar a escala e transcrever o nível.
 
 ### Qualidade, comparação e saúde {.unnumbered .ficha-section}
 
-[Qualidade e incerteza.]{.field-label} Definir universo elegível, cobertura e instrumento; verificar documentos, datas, funcionalidade e evidências; informar não resposta, amostragem e intervalo quando houver inferência.
+[Qualidade e incerteza.]{.field-label} Verificar país BRA, ano, edição, C5.1 e escala no relatório. Não confundir nível do indicador com média da capacidade C5. Autoavaliação nacional não certifica cada município.
 
-[Possibilidade de comparação.]{.field-label} Manter definição, critérios de conformidade, janela temporal, universo, instrumento e desagregações; mudanças no número de estabelecimentos avaliados alteram o percentual.
+[Possibilidade de comparação.]{.field-label} Comparar apenas anos com segunda edição SPAR, C5.1 e escala idêntica. A variável é ordinal, sem média entre níveis.
 
 [Relação com desfechos de saúde.]{.field-label} Mede capacidade ou interrupção do sistema, não o efeito final na saúde; a relação com desfechos depende do perigo, da continuidade dos serviços e das populações atendidas.
 
@@ -118,4 +130,5 @@ $$
 
 ### Referências metodológicas {.unnumbered .ficha-section}
 
+- [@who2021spar]
 - [@who2024resilienceindicators]

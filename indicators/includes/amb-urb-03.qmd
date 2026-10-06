@@ -1,21 +1,21 @@
-## Ficha do indicador: Intensidade da ilha de calor urbana de superfície (SUHII) {#sec-amb-urb-03 .ficha-title}
+## Ficha do indicador: Intensidade anual da ilha de calor de superfície — YCEO v4, diurna e noturna {#sec-amb-urb-03 .ficha-title}
 
 ::: {.indicator-card}
 [Código:]{.field-label} AMB-URB-03 \
-[Título resumido:]{.field-label} Ilha de calor de superfície — SUHII \
+[Título resumido:]{.field-label} SUHII anual — YCEO v4 \
 [Tema:]{.field-label} Uso e cobertura da terra, vegetação e ambiente urbano \
 [Dimensão:]{.field-label} exposição; vulnerabilidade; resposta \
-[Disponibilidade:]{.field-label} [requer processamento térmico e territorial]{.availability}
+[Disponibilidade:]{.field-label} [Calculável com dados abertos]{.availability}
 :::
 
 Contexto e interpretação: [Uso e cobertura da terra, vegetação e ambiente urbano](../../chapters/part-2/09-uso-cobertura-terra-ambiente-urbano.qmd#sec-uso-terra).
 
 ### Identificação e fundamento {.unnumbered .ficha-section}
 
-[Base de consolidação.]{.field-label} Índice de ilha de calor baseado em temperatura radiométrica de superfície e cobertura da terra, conforme Jin.
+[Base de consolidação.]{.field-label} Produto YCEO Surface Urban Heat Islands, Yearly Pixel v4; contraste urbano–referência calculado pelo método publicado do produtor. Síntese municipal por área é uma adaptação deste livro.
 
 ::: {.callout-note icon=false title="Conceito-chave"}
-Diferença entre temperatura média da superfície na área urbana e temperatura média da superfície em área não urbana de referência comparável, na mesma aquisição.
+Média municipal, nos pixels urbanos cobertos pelo produto, da intensidade anual de ilha de calor de superfície calculada pelo YCEO, com séries diurna e noturna separadas.
 :::
 
 ### Objetivo {.unnumbered .ficha-section}
@@ -42,16 +42,15 @@ Valor positivo indica superfície urbana mais quente que a referência naquele s
 
 ### Fontes de dados {.unnumbered .ficha-section}
 
-- Landsat — produto de temperatura da superfície e cobertura ([cadastro](../../backmatter/indice-fontes.qmd#landsat))
-- MapBiomas Brasil — classificação urbano/não urbano e controle de cobertura ([cadastro](../../backmatter/indice-fontes.qmd#mapbiomas))
-- Instituto Brasileiro de Geografia e Estatística — limite urbano, altitude/cartografia e população para análise de exposição ([cadastro](../../backmatter/indice-fontes.qmd#ibge))
+- YCEO Surface Urban Heat Islands — Yearly Pixel v4 — Produto anual por pixel: bandas Daytime e Nighttime ([cadastro](../../backmatter/indice-fontes.qmd#yceo-uhi-v4))
+- Instituto Brasileiro de Geografia e Estatística — Malha municipal 2022 ([cadastro](../../backmatter/indice-fontes.qmd#ibge))
 
 ### Método de cálculo {.unnumbered .ficha-section}
 
-Selecionar produto validado de temperatura da superfície, mascarar pixels inválidos, delimitar área urbana e referência não urbana com altitude, água, topografia e cobertura controladas e subtrair as médias ponderadas da mesma aquisição.
+Acessar YALE/YCEO/UHI/UHI_yearly_pixel/v4 e selecionar as imagens anuais 2003–2018 pelas datas do catálogo, bandas Daytime e Nighttime. As bandas já contêm SUHII em °C; não subtrair uma nova referência rural nem aplicar escala de reflectância Landsat. Construir a máscara de elegibilidade como a união dos pixels válidos da coleção no período, por banda, e conservá-la fixa. Para cada ano e banda, calcular a média dos pixels válidos ponderada pela área de interseção com o município IBGE 2022. Exigir ≥90% da área elegível municipal válida nesse ano e informar a cobertura; sem pixel elegível, não aplicável. Não misturar dia e noite numa única média. Este filtro de cobertura e a agregação municipal são escolhas operacionais do livro.
 
 $$
-SUHII_t=\overline{LST}_{urb,t}-\overline{LST}_{ref,t}
+SUHII_{m,y,k}=\frac{\sum_g a_{gm}SUHII^{YCEO}_{g,y,k}}{\sum_g a_{gm}},\qquad k\in\{dia,noite\}
 $$
 
 ::: {.indicator-card}
@@ -59,17 +58,17 @@ $$
 
 [Denominador.]{.field-label} Não se aplica.
 
-[Unidade de medida.]{.field-label} Grau Celsius (°C) ou kelvin de diferença.
+[Unidade de medida.]{.field-label} °C de diferença.
 
-[Variáveis e categorias de análise.]{.field-label} LST; urbano; referência; sensor; horário; estação; cobertura; população.
+[Variáveis e categorias de análise.]{.field-label} Ano, banda Daytime/Nighttime, SUHII em °C, máscara elegível, área válida, município e versão.
 
-[Granularidade.]{.field-label} Pixel e resumo urbano por aquisição.
+[Granularidade.]{.field-label} Pixel anual do produto e síntese municipal por área.
 
-[Periodicidade de atualização.]{.field-label} Sazonal ou anual.
+[Periodicidade de atualização.]{.field-label} Edição histórica fechada; nova versão exige nova série.
 
 [Responsabilidade gerencial.]{.field-label} Planejamento urbano e ambiental produz intervenções e cadastros; saúde interpreta exposições e desigualdades; geoinformação mantém métodos.
 
-[Notas.]{.field-label} Verdor espectral, cobertura vegetal, espaço público acessível e uso efetivo são dimensões diferentes.
+[Notas.]{.field-label} A ficha deixa de permitir escolher livremente sensor e entorno rural. A medida é a intensidade do produto YCEO v4 agregada no município, não temperatura do ar nem SUHI municipal recalculada com outra referência.
 
 [Análise descritiva do indicador.]{.field-label} Mostrar distribuição urbana, contraste médio, dia/noite quando houver, estações, população em pontos quentes e sensibilidade à referência.
 
@@ -78,39 +77,51 @@ $$
 ### Campos complementares para clima, ambiente e saúde {.unnumbered .ficha-section}
 
 ::: {.indicator-card}
-[Unidade territorial.]{.field-label} Domicílio ou ponto, zona urbana, bairro, setor censitário ou cidade.
+[Unidade territorial.]{.field-label} Parcela dos aglomerados urbanos do produto dentro de cada município IBGE 2022.
 
-[Resolução espacial original.]{.field-label} A do produto térmico; declarar resolução nativa e reamostrada.
+[Resolução espacial original.]{.field-label} 300 m nominal no produto distribuído; não equivale a observação térmica independente nessa resolução.
 
-[Resolução temporal.]{.field-label} Aquisição instantânea e composições sazonais.
+[Resolução temporal.]{.field-label} Anual, com bandas diurna e noturna separadas.
 
-[Período de referência.]{.field-label} Mesmas datas e horários para urbano e referência.
+[Período de referência.]{.field-label} Ano civil do produto; referência não urbana e seleção dos aglomerados preservadas do YCEO.
 
-[Limiar ou valor de referência.]{.field-label} Zero indica ausência de contraste médio; não há limiar sanitário universal.
+[Limiar ou valor de referência.]{.field-label} Zero indica ausência de contraste térmico no produto; não há corte sanitário universal. Cobertura anual≥90% da área elegível.
 
 :::
 
 ### Disponibilidade e acesso {.unnumbered .ficha-section}
 
-[Cobertura geográfica.]{.field-label} Cidades com cenas válidas e referência comparável.
+[Protocolo verificado em.]{.field-label} 2026-10-03
 
-[Período disponível.]{.field-label} Conforme missão e produto.
+[Dependência de dados locais.]{.field-label} Dispensável para o cálculo; opcional para validação
 
-[Periodicidade de atualização.]{.field-label} Sazonal ou anual.
+[Automação.]{.field-label} Condicionada
 
-[Forma de acesso.]{.field-label} Produtos de temperatura da superfície e cobertura versionados.
+[Requisitos para o cálculo.]{.field-label} Conta e projeto Earth Engine elegíveis para acesso gratuito ao produto histórico; preservar a versão, bandas e cobertura.
 
-[URL ou identificador persistente.]{.field-label} https://doi.org/10.1175/JCLI-D-11-00509.1
+[Nível de evidência.]{.field-label} Documentação verificada
 
-[Formato dos arquivos.]{.field-label} Raster e tabela.
+[Alcance da verificação.]{.field-label} Produto e método documentados; série municipal completa ainda não produzida.
 
-[Necessidade de processamento.]{.field-label} Máscara, emissividade/produto, delimitação urbana e referência, estratificação temporal e ponderação.
+[Cobertura geográfica.]{.field-label} Municípios que interceptam aglomerados urbanos cobertos pelo YCEO; não cobre toda área urbana brasileira.
+
+[Período disponível.]{.field-label} 2003–2018 na versão v4; não apresentar como produto atualizado até o presente.
+
+[Periodicidade de atualização.]{.field-label} Edição histórica fechada; nova versão exige nova série.
+
+[Forma de acesso.]{.field-label} API Google Earth Engine: ee.ImageCollection("YALE/YCEO/UHI/UHI_yearly_pixel/v4"); filtrar ano e selecionar Daytime/Nighttime. Exportar pixels ou somas ponderadas por pixelArea em projeção nativa.
+
+[URL ou identificador persistente.]{.field-label} https://developers.google.com/earth-engine/datasets/catalog/YALE_YCEO_UHI_UHI_yearly_pixel_v4
+
+[Formato dos arquivos.]{.field-label} ImageCollection no Earth Engine; GeoTIFF/CSV exportado.
+
+[Necessidade de processamento.]{.field-label} Selecionar bandas e datas, construir máscara elegível fixa, intersectar municípios e somar SUHII×área e área válida, sem redefinir a referência térmica.
 
 ### Qualidade, comparação e saúde {.unnumbered .ficha-section}
 
-[Qualidade e incerteza.]{.field-label} Relatar sensor, produto, data, nuvens, resolução, classificação, delimitação urbana, população, área de entorno, erros posicionais e análise de sensibilidade.
+[Qualidade e incerteza.]{.field-label} Produto de temperatura de superfície e cobertura urbana, afetado por nuvens, amostragem temporal e referência rural. O detalhamento nominal não resolve temperatura do ar ou exposição individual.
 
-[Possibilidade de comparação.]{.field-label} Manter produto, estação, composição temporal, resolução, definição de verde, limite urbano, população e parâmetros espaciais.
+[Possibilidade de comparação.]{.field-label} Preservar v4, máscara, referência rural original, dia/noite e malha municipal; comparação com outro sensor ou método gera série distinta.
 
 [Relação com desfechos de saúde.]{.field-label} Vegetação e espaços verdes podem influenciar atividade física, contato social, restauração, calor, ruído e poluição, mas efeitos dependem de acesso, qualidade, segurança e contexto.
 
@@ -120,5 +131,5 @@ $$
 
 ### Referências metodológicas {.unnumbered .ficha-section}
 
+- [@yceo2026uhi]
 - [@jin2012uhi]
-- [@who2016greenspace]

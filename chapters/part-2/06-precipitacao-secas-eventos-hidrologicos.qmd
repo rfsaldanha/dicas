@@ -30,7 +30,7 @@ O acumulado mensal descreve volume, mas oculta distribuição. Cem milímetros p
 
 ### Chuvas intensas
 
-Chuva intensa pode ser definida por um limiar absoluto, por percentil local ou por máximo no período. Rx1day (Maior precipitação em um dia) registra a maior acumulação diária; Rx5day (Maior precipitação acumulada em cinco dias consecutivos), a maior soma em cinco dias; R95pTOT soma a chuva ocorrida em dias acima do percentil 95 dos dias úmidos. Esses indicadores descrevem aspectos diferentes [@climdex2024].
+Chuva intensa pode ser definida por um limiar absoluto, por percentil local ou por máximo no período. Rx1day (Maior precipitação em um dia) registra a maior acumulação diária; Rx5day (Maior precipitação acumulada em cinco dias consecutivos), a maior soma em cinco dias; R95p soma a chuva ocorrida em dias acima do percentil 95 dos dias úmidos. Esses indicadores descrevem aspectos diferentes [@climdex2024].
 
 Extremos subdiários são decisivos em pequenas bacias e áreas urbanas. Um máximo diário pode esconder 50 mm concentrados em trinta minutos. Quando a pergunta envolve enxurrada, alagamento rápido ou capacidade de drenagem, dados de dez minutos, horários ou curvas intensidade–duração–frequência são mais adequados que um total diário isolado [@wmo2023climatological; @cemaden2016enxurrada].
 
@@ -165,17 +165,28 @@ Os indicadores consolidados apresentados neste capítulo cobrem pico diário, ac
 
 ::: {#qua-indicadores-precipitacao}
 
-| Indicador e ficha (Parte IV) | Aspecto representado | Uso em saúde pública | Cuidado de interpretação |
+| Indicador | Aspecto representado | Uso em saúde pública | Cuidado de interpretação |
 |---|---|---|---|
-| Rx1day — [CLI-PRC-01](../../chapters/part-4/17-fichas-precipitacao-secas-eventos-hidrologicos.qmd#sec-cli-prc-01) | pico diário | episódios agudos, séries temporais e contexto de alertas | pode ocultar intensidade subdiária |
-| Rx5day — [CLI-PRC-02](../../chapters/part-4/17-fichas-precipitacao-secas-eventos-hidrologicos.qmd#sec-cli-prc-02) | acumulação em cinco dias | persistência, saturação e processos de resposta mais lenta | janela pode não coincidir com a bacia |
-| R95pTOT — [CLI-PRC-03](../../chapters/part-4/17-fichas-precipitacao-secas-eventos-hidrologicos.qmd#sec-cli-prc-03) | volume em dias muito úmidos | concentração da chuva em extremos | depende do período-base |
-| CDD — [CLI-PRC-04](../../chapters/part-4/17-fichas-precipitacao-secas-eventos-hidrologicos.qmd#sec-cli-prc-04) | maior sequência sem dia úmido | persistência seca e contexto de água, alimento, poeira e fogo | não é seca completa |
-| CWD — [CLI-PRC-05](../../chapters/part-4/17-fichas-precipitacao-secas-eventos-hidrologicos.qmd#sec-cli-prc-05) | maior sequência de dias úmidos | umidade persistente, vetores e interrupções | não informa intensidade |
-| SPI — [CLI-SEC-01](../../chapters/part-4/17-fichas-precipitacao-secas-eventos-hidrologicos.qmd#sec-cli-sec-01) | déficit ou excesso padronizado em várias escalas | seca meteorológica, vigilância e estudos de efeitos | não inclui evapotranspiração nem impacto social |
+| Rx1day | pico diário | episódios agudos, séries temporais e contexto de alertas | pode ocultar intensidade subdiária |
+| Rx5day | acumulação em cinco dias | persistência, saturação e processos de resposta mais lenta | janela pode não coincidir com a bacia |
+| R95p | volume em dias muito úmidos | concentração da chuva em extremos | depende do período-base |
+| CDD | maior sequência sem dia úmido | persistência seca e contexto de água, alimento, poeira e fogo | não é seca completa |
+| CWD | maior sequência de dias úmidos | umidade persistente, vetores e interrupções | não informa intensidade |
+| SPI | déficit ou excesso padronizado em várias escalas | seca meteorológica, vigilância e estudos de efeitos | não inclui evapotranspiração nem impacto social |
 
 Indicadores de precipitação e seca usados em saúde pública
+
 :::
+
+## Protocolo de cálculo e disponibilidade
+
+As sete fichas têm o rótulo **Calculável com dados abertos**. A produção principal usa precipitação ERA5-Land desde 1950, com cadastro gratuito no CDS. CHIRPS v3 daily RNL final oferece uma série alternativa desde 1981; sua desagregação diária incorpora ERA5. Produto, versão e base devem acompanhar os valores, sem emendar as duas séries [@chirps2026v3]. Pluviômetros locais permanecem úteis para validação e para séries observadas independentes.
+
+No ERA5-Land, o registro de precipitação das 00 UTC de um dia contém o acumulado das 24 horas anteriores: o valor pertence ao dia anterior e deve ser convertido de metros para milímetros. Somar diretamente os acumulados horários superestima a chuva. Para Rx1day, Rx5day, R95p, CDD, CWD e PRCPTOT, calcular primeiro por célula e depois ponderar pela área municipal IBGE 2022. No SPI-3, agregar espacialmente a precipitação antes das somas mensais e do ajuste probabilístico.
+
+A ficha CLI-PRC-03 passa a usar o nome R95p, em mm. R95pTOT, em %, é uma medida derivada distinta: 100 vezes R95p dividido por PRCPTOT. A nova ficha CLI-PRC-06 especifica esse denominador. CDD e CWD usam a variante anual truncada em 31 de dezembro, explicitamente identificada. Falhas não são dias secos e podem transformar durações observadas em limites inferiores.
+
+O SPI deixa de ter escala e ajuste em aberto: esta edição adota SPI-3, gama de dois parâmetros por máxima verossimilhança, ajuste separado por mês e base 1961–1990. No SPI-3 com CHIRPS, a base é 1982–2011: janeiro e fevereiro de 1981 não têm todos os antecedentes necessários. Para R95p, a base CHIRPS permanece 1981–2010. A ficha exige os 30 acumulados completos de cada mês de término, incluindo antecedentes ao início da base.
 
 `<span id="sec-cli-prc-01"></span>`{=html}
 Consulte a [ficha CLI-PRC-01 — Máxima em um dia — Rx1day](../../chapters/part-4/17-fichas-precipitacao-secas-eventos-hidrologicos.qmd#sec-cli-prc-01), na Parte IV`~(p. #ref(<sec-cli-prc-01>, form: "page", supplement: none))`{=typst}.
@@ -184,7 +195,7 @@ Consulte a [ficha CLI-PRC-01 — Máxima em um dia — Rx1day](../../chapters/pa
 Consulte a [ficha CLI-PRC-02 — Máxima em cinco dias — Rx5day](../../chapters/part-4/17-fichas-precipitacao-secas-eventos-hidrologicos.qmd#sec-cli-prc-02), na Parte IV`~(p. #ref(<sec-cli-prc-02>, form: "page", supplement: none))`{=typst}.
 
 `<span id="sec-cli-prc-03"></span>`{=html}
-Consulte a [ficha CLI-PRC-03 — Chuva em dias muito úmidos — R95pTOT](../../chapters/part-4/17-fichas-precipitacao-secas-eventos-hidrologicos.qmd#sec-cli-prc-03), na Parte IV`~(p. #ref(<sec-cli-prc-03>, form: "page", supplement: none))`{=typst}.
+Consulte a [ficha CLI-PRC-03 — Chuva em dias muito úmidos — R95p](../../chapters/part-4/17-fichas-precipitacao-secas-eventos-hidrologicos.qmd#sec-cli-prc-03), na Parte IV`~(p. #ref(<sec-cli-prc-03>, form: "page", supplement: none))`{=typst}.
 
 `<span id="sec-cli-prc-04"></span>`{=html}
 Consulte a [ficha CLI-PRC-04 — Dias consecutivos secos — CDD](../../chapters/part-4/17-fichas-precipitacao-secas-eventos-hidrologicos.qmd#sec-cli-prc-04), na Parte IV`~(p. #ref(<sec-cli-prc-04>, form: "page", supplement: none))`{=typst}.
@@ -193,7 +204,10 @@ Consulte a [ficha CLI-PRC-04 — Dias consecutivos secos — CDD](../../chapters
 Consulte a [ficha CLI-PRC-05 — Dias consecutivos úmidos — CWD](../../chapters/part-4/17-fichas-precipitacao-secas-eventos-hidrologicos.qmd#sec-cli-prc-05), na Parte IV`~(p. #ref(<sec-cli-prc-05>, form: "page", supplement: none))`{=typst}.
 
 `<span id="sec-cli-sec-01"></span>`{=html}
-Consulte a [ficha CLI-SEC-01 — Seca meteorológica — SPI](../../chapters/part-4/17-fichas-precipitacao-secas-eventos-hidrologicos.qmd#sec-cli-sec-01), na Parte IV`~(p. #ref(<sec-cli-sec-01>, form: "page", supplement: none))`{=typst}.
+Consulte a [ficha CLI-SEC-01 — Seca meteorológica — SPI-3](../../chapters/part-4/17-fichas-precipitacao-secas-eventos-hidrologicos.qmd#sec-cli-sec-01), na Parte IV`~(p. #ref(<sec-cli-sec-01>, form: "page", supplement: none))`{=typst}.
+
+`<span id="sec-cli-prc-06"></span>`{=html}
+Consulte a [ficha CLI-PRC-06 — Precipitação em dias úmidos — PRCPTOT](../../chapters/part-4/17-fichas-precipitacao-secas-eventos-hidrologicos.qmd#sec-cli-prc-06), na Parte IV`~(p. #ref(<sec-cli-prc-06>, form: "page", supplement: none))`{=typst}.
 
 ## Aplicação na gestão
 
@@ -214,6 +228,18 @@ flowchart TD
   C --> EN["Enxurrada:<br/>escoamento rápido, concentrado<br/>e com grande energia"]
 ```
 
+## Localização das fichas operacionais
+
+| Ficha na Parte IV | Indicador |
+|---|---|
+| [CLI-PRC-01](../../chapters/part-4/17-fichas-precipitacao-secas-eventos-hidrologicos.qmd#sec-cli-prc-01) | Máxima em um dia — Rx1day |
+| [CLI-PRC-02](../../chapters/part-4/17-fichas-precipitacao-secas-eventos-hidrologicos.qmd#sec-cli-prc-02) | Máxima em cinco dias — Rx5day |
+| [CLI-PRC-03](../../chapters/part-4/17-fichas-precipitacao-secas-eventos-hidrologicos.qmd#sec-cli-prc-03) | Chuva em dias muito úmidos — R95p |
+| [CLI-PRC-04](../../chapters/part-4/17-fichas-precipitacao-secas-eventos-hidrologicos.qmd#sec-cli-prc-04) | Dias consecutivos secos — CDD |
+| [CLI-PRC-05](../../chapters/part-4/17-fichas-precipitacao-secas-eventos-hidrologicos.qmd#sec-cli-prc-05) | Dias consecutivos úmidos — CWD |
+| [CLI-SEC-01](../../chapters/part-4/17-fichas-precipitacao-secas-eventos-hidrologicos.qmd#sec-cli-sec-01) | Seca meteorológica — SPI-3 |
+| [CLI-PRC-06](../../chapters/part-4/17-fichas-precipitacao-secas-eventos-hidrologicos.qmd#sec-cli-prc-06) | Precipitação em dias úmidos — PRCPTOT |
+
 ## Síntese
 
-Precipitação é um perigo meteorológico; inundação e movimento de massa são processos; exposição descreve quem e o que se encontra na área atingida; desastre e efeito sanitário dependem das consequências. Rx1day, Rx5day, R95pTOT, CDD, CWD e SPI oferecem medidas consolidadas para aspectos específicos. Seu uso em saúde pública requer ligá-los ao mecanismo, ao território, às defasagens e à capacidade de resposta.
+Precipitação é um perigo meteorológico; inundação e movimento de massa são processos; exposição descreve quem e o que se encontra na área atingida; desastre e efeito sanitário dependem das consequências. Rx1day, Rx5day, R95p, CDD, CWD e SPI oferecem medidas consolidadas para aspectos específicos. Seu uso em saúde pública requer ligá-los ao mecanismo, ao território, às defasagens e à capacidade de resposta.

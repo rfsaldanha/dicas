@@ -5,7 +5,7 @@
 [Título resumido:]{.field-label} Índice de Qualidade do Ar — IQAr \
 [Tema:]{.field-label} Qualidade do ar, queimadas e fumaça \
 [Dimensão:]{.field-label} perigo; exposição \
-[Disponibilidade:]{.field-label} [disponível nas redes participantes]{.availability}
+[Disponibilidade:]{.field-label} [Calculável com dados locais centralizados]{.availability}
 :::
 
 Contexto e interpretação: [Qualidade do ar, queimadas e fumaça](../../chapters/part-2/07-qualidade-ar-queimadas-fumaca.qmd#sec-qualidade-ar).
@@ -42,11 +42,20 @@ O índice é classificado em N1 boa (0–40), N2 moderada (41–80), N3 ruim (81
 
 ### Fontes de dados {.unnumbered .ficha-section}
 
-- Sistema Nacional de Gestão da Qualidade do Ar — concentrações monitoradas por métodos de referência ou equivalentes ([cadastro](../../backmatter/indice-fontes.qmd#redes-qualidade-ar))
+- MonitorAr — concentrações horárias das redes participantes — Arquivos anuais de concentrações horárias e identificação de estações; obter validação do órgão produtor ([cadastro](../../backmatter/indice-fontes.qmd#monitorar-mma))
 
 ### Método de cálculo {.unnumbered .ficha-section}
 
-Para cada poluente, obter a concentração no tempo de média regulamentado, localizar sua faixa e interpolar linearmente entre limites de concentração e índice. Selecionar o maior subíndice válido entre MP10, MP2,5, O₃, CO, NO₂ e SO₂.
+Fixar a tabela MMA 2025 abaixo para a série retrospectiva. No dia local, MP10, MP2,5 e SO₂ usam média de 24 h com ≥16 horas válidas; NO₂ usa máximo horário, exigindo ≥16 horas válidas no dia. O₃ e CO usam o maior valor das médias móveis de oito horas terminadas no dia, cada uma com ≥6 horas válidas, exigindo ≥16 janelas válidas; carregar as sete horas anteriores ao dia. Estas regras de completude definem o protocolo retrospectivo do livro. Interpolar linearmente entre os limites contíguos da tabela, sem arredondar a concentração antes do cálculo, e obter o maior subíndice. Conservar o índice contínuo e classificar por intervalos (≤40; >40–80; >80–120; >120–200; >200), evitando ambiguidade no arredondamento. Para apresentação inteira, arredondar aritmeticamente apenas ao final. Acima do maior limite tabelado, registrar >400 e N5, sem extrapolar. Publicar os seis poluentes disponíveis/ausentes: falta de qualquer um recebe flag de IQAr parcial, mesmo que exista um máximo calculável.
+
+| Poluente | Tempo de média | Unidade | Limites C para índices 0; 40; 80; 120; 200; 400 |
+|---|---|---|---|
+| MP10 | 24 h | µg/m³ | 0; 45; 100; 150; 250; 600 |
+| MP2,5 | 24 h | µg/m³ | 0; 15; 50; 75; 125; 300 |
+| O₃ | 8 h | µg/m³ | 0; 100; 130; 160; 200; 800 |
+| CO | 8 h | ppm | 0; 9; 11; 13; 15; 50 |
+| NO₂ | 1 h | µg/m³ | 0; 200; 240; 320; 1130; 3750 |
+| SO₂ | 24 h | µg/m³ | 0; 40; 50; 125; 800; 2620 |
 
 $$
 I_p=I_{ini}+\frac{I_{fin}-I_{ini}}{C_{fin}-C_{ini}}(C_p-C_{ini});\quad IQAr=\max_p(I_p)
@@ -61,13 +70,13 @@ $$
 
 [Variáveis e categorias de análise.]{.field-label} MP10 e MP2,5 em 24 h; O₃ e CO em 8 h; NO₂ em 1 h; SO₂ em 24 h; estação; poluente crítico; classe.
 
-[Granularidade.]{.field-label} Por estação e período de divulgação.
+[Granularidade.]{.field-label} Estação–poluente–hora; município como chave de localização. Não transformar automaticamente valores de estação em média municipal.
 
-[Periodicidade de atualização.]{.field-label} Tempo real, horária ou diária, conforme a Lei nº 14.850/2024 e a operação da rede.
+[Periodicidade de atualização.]{.field-label} Reprocessamento anual dos arquivos horários consolidados; série de saída diária sob tabela fixa de 2025.
 
 [Responsabilidade gerencial.]{.field-label} Órgão ambiental responsável pelo monitoramento e setor saúde responsável pela vigilância dos efeitos e comunicação sanitária.
 
-[Notas.]{.field-label} Concentração, índice de comunicação e estimativa de fonte específica são indicadores distintos e não devem ser convertidos sem a especificação correspondente.
+[Notas.]{.field-label} Esta série recompõe a classificação com uma tabela fixa de 2025 e regras explícitas de completude; não substitui o boletim oficial divulgado em tempo real pela rede. O valor contínuo determina a classe; sua apresentação arredondada pode coincidir com uma fronteira.
 
 [Análise descritiva do indicador.]{.field-label} Informar IQAr, classe, poluente determinante, concentração, estação, horário, tendência e recomendações; manter as concentrações disponíveis.
 
@@ -76,39 +85,51 @@ $$
 ### Campos complementares para clima, ambiente e saúde {.unnumbered .ficha-section}
 
 ::: {.indicator-card}
-[Unidade territorial.]{.field-label} Estação de monitoramento, célula de grade ou território derivado.
+[Unidade territorial.]{.field-label} Estação de monitoramento e seu município de localização, código IBGE de sete dígitos.
 
-[Resolução espacial original.]{.field-label} Ponto de monitoramento; a representatividade depende da tipologia e implantação da estação.
+[Resolução espacial original.]{.field-label} Ponto de estação, com tipo e representatividade documentados.
 
-[Resolução temporal.]{.field-label} Horária ou diária conforme disponibilidade e tempos de média dos poluentes.
+[Resolução temporal.]{.field-label} Diária, com médias móveis horárias nas entradas de O₃ e CO.
 
-[Período de referência.]{.field-label} Período móvel ou diário definido na orientação técnica vigente.
+[Período de referência.]{.field-label} Dia local; tabela fixa MMA 2025 na série retrospectiva.
 
-[Limiar ou valor de referência.]{.field-label} Na orientação de 2025, a classe boa termina em 45 µg/m³ para MP10, 15 µg/m³ para MP2,5, 100 µg/m³ para O₃, 9 ppm para CO, 200 µg/m³ para NO₂ e 40 µg/m³ para SO₂; usar sempre a tabela vigente.
+[Limiar ou valor de referência.]{.field-label} Classes N1 a N5 definidas pela tabela desta ficha. Guardar separadamente o IQAr originalmente divulgado sob normas de cada época.
 
 :::
 
 ### Disponibilidade e acesso {.unnumbered .ficha-section}
 
-[Cobertura geográfica.]{.field-label} Locais cobertos pelas redes estaduais e distrital; não há cobertura homogênea do território nacional.
+[Protocolo verificado em.]{.field-label} 2026-10-03
 
-[Período disponível.]{.field-label} Conforme cada rede e estação.
+[Dependência de dados locais.]{.field-label} Necessária: estações locais com dados centralizados no MonitorAr
 
-[Periodicidade de atualização.]{.field-label} Tempo real, horária ou diária, conforme a Lei nº 14.850/2024 e a operação da rede.
+[Automação.]{.field-label} Condicionada
 
-[Forma de acesso.]{.field-label} Sistemas eletrônicos dos órgãos ambientais e bases consolidadas.
+[Requisitos para o cálculo.]{.field-label} Disponibilidade das estações e poluentes, identificação do fuso e confirmação dos flags de validação pelo produtor.
 
-[URL ou identificador persistente.]{.field-label} https://www.gov.br/mma/pt-br/assuntos/meio-ambiente-urbano-recursos-hidricos-qualidade-ambiental/qualidade-do-ar/indice-de-qualidade-do-ar-iqar/orientacao-tecnica-indice-de-qualidade-do-ar-jan-25.pdf
+[Nível de evidência.]{.field-label} Acesso testado
 
-[Formato dos arquivos.]{.field-label} Painel, boletim e tabela por estação.
+[Alcance da verificação.]{.field-label} CSV e campos municipais acessados. Houve cálculo exploratório de P99 em Leandrinho/BA (2022), mas os flags de validação não foram confirmados; não é um resultado oficial nem uma validação do IQAr completo.
 
-[Necessidade de processamento.]{.field-label} Validar médias, aplicar tabela vigente, calcular subíndices e selecionar poluente crítico.
+[Cobertura geográfica.]{.field-label} Municípios com estações e poluentes efetivamente presentes nos arquivos; cobertura nacional incompleta.
+
+[Período disponível.]{.field-label} Arquivos MonitorAr 2022–2025 localizados; história anterior somente quando disponibilizada pela rede local e identificada separadamente.
+
+[Periodicidade de atualização.]{.field-label} Reprocessamento anual dos arquivos horários consolidados; série de saída diária sob tabela fixa de 2025.
+
+[Forma de acesso.]{.field-label} API CKAN: https://dados.mma.gov.br/api/3/action/package_show?id=ar-puro-monitorar; selecionar os recursos CSV/ZIP anuais e registrar URL, tamanho e data da extração.
+
+[URL ou identificador persistente.]{.field-label} https://dados.mma.gov.br/dataset/ar-puro-monitorar
+
+[Formato dos arquivos.]{.field-label} CSV em ZIP e dicionário de dados; conservar códigos de estação, município, parâmetro, unidade, data/hora e flag de validação.
+
+[Necessidade de processamento.]{.field-label} Conferir unidades; construir médias e máximos nos tempos especificados; aplicar a tabela integral; selecionar o poluente crítico e sinalizar cobertura incompleta.
 
 ### Qualidade, comparação e saúde {.unnumbered .ficha-section}
 
-[Qualidade e incerteza.]{.field-label} Relatar método, calibração, completude, representatividade da estação, componente modelado, resolução, incerteza, versão e condições meteorológicas.
+[Qualidade e incerteza.]{.field-label} Desduplicar estação/poluente/data/hora, conservando a revisão validada mais recente; conflito sem versão resulta em ausente. Concentração negativa, falha ou registro não validado pelo produtor não entra na série definitiva. Preservar o fuso de origem, sem presumir que horário local seja UTC.
 
-[Possibilidade de comparação.]{.field-label} Manter poluente, tempo de média, unidade, método, regra de completude, versão do produto e suporte espacial.
+[Possibilidade de comparação.]{.field-label} Mesma estação, método, poluente, unidade, calendário local e validação; mudança ou relocalização da estação exige quebra de série. Não combinar automaticamente redes e modelos.
 
 [Relação com desfechos de saúde.]{.field-label} A poluição do ar aumenta morbidade e mortalidade cardiovascular e respiratória e está associada a câncer de pulmão, infecções respiratórias e desfechos materno-infantis.
 
@@ -120,3 +141,4 @@ $$
 
 - [@brasil2024conama506]
 - [@brasil2025iqar]
+- [@iema2025iqar]

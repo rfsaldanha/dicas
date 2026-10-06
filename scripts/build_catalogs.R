@@ -73,7 +73,16 @@ required_indicator <- c(
   "defasagens_temporais", "referencias"
 )
 
-indicator_documents <- lapply(yaml_files, yaml::read_yaml)
+# Protocolos versionados usam os campos da ficha sobre os valores comuns.
+# Preserva a leitura dos catálogos legados fora do escopo desta revisão.
+indicator_documents <- lapply(yaml_files, function(path) {
+  document <- yaml::read_yaml(path)
+  entries <- if (!is.null(document$indicators)) document$indicators else list(document)
+  if (any(vapply(entries, function(x) !is.null(x$protocolo_versao), logical(1L)))) {
+    document <- yaml::read_yaml(path, merge.precedence = "override")
+  }
+  document
+})
 indicators <- unlist(lapply(seq_along(indicator_documents), function(i) {
   document <- indicator_documents[[i]]
   entries <- if (!is.null(document$indicators)) document$indicators else list(document)
@@ -84,6 +93,22 @@ for (name in names(indicators)) {
   missing <- setdiff(required_indicator, names(indicators[[name]]))
   if (length(missing)) {
     fail("Campos obrigatórios ausentes em ", name, ": ", paste(missing, collapse = ", "), ".")
+  }
+  indicator <- indicators[[name]]
+  if (!is.null(indicator$protocolo_versao)) {
+    operational <- c("situacao_calculo", "dependencia_dados_locais", "automacao",
+                     "condicoes_automacao", "evidencia_verificacao", "detalhe_verificacao")
+    missing <- setdiff(operational, names(indicator))
+    if (length(missing)) fail("Protocolo incompleto em ", indicator$codigo, ": ", paste(missing, collapse = ", "))
+    labels <- c(abertos = "Calculável com dados abertos",
+                centralizados = "Calculável com dados locais centralizados",
+                locais = "Depende de dados locais")
+    if (!indicator$situacao_calculo %in% names(labels)) fail("Situação inválida em ", indicator$codigo)
+    if (!identical(as_list(indicator$disponibilidade), unname(labels[indicator$situacao_calculo]))) {
+      fail("Rótulo incompatível com a situação em ", indicator$codigo)
+    }
+    if (!indicator$automacao %in% c("Viável", "Condicionada", "Não demonstrada")) fail("Automação inválida em ", indicator$codigo)
+    if (!indicator$evidencia_verificacao %in% c("Documentação verificada", "Acesso testado", "Acesso e cálculo testados")) fail("Evidência inválida em ", indicator$codigo)
   }
   source_entries(indicators[[name]]$fontes_dados, indicators[[name]]$codigo)
 }
@@ -259,6 +284,14 @@ for (indicator in indicators) {
     "",
     "### Disponibilidade e acesso",
     "",
+    if (!is.null(indicator$protocolo_versao)) c(
+      field("Protocolo verificado em", indicator$protocolo_versao),
+      field("Dependência de dados locais", indicator$dependencia_dados_locais),
+      field("Automação", indicator$automacao),
+      field("Requisitos para o cálculo", indicator$condicoes_automacao),
+      field("Nível de evidência", indicator$evidencia_verificacao),
+      field("Alcance da verificação", indicator$detalhe_verificacao)
+    ),
     field("Cobertura geográfica", indicator$cobertura_geografica),
     field("Período disponível", indicator$periodo_disponivel),
     field("Periodicidade de atualização", indicator$periodicidade_atualizacao),

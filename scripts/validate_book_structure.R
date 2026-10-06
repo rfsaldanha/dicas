@@ -27,11 +27,11 @@ validate_book_structure <- function(root = ".", rendered = FALSE) {
   check(length(chapter_paths) == 24L && !anyDuplicated(chapter_paths), "Esperados 24 capítulos únicos.")
   context_paths <- chapter_paths[7:15]
   card_paths <- chapter_paths[16:24]
-  documents <- lapply(sort(list.files(file.path(root, "indicators/data"), pattern = "\\.yml$", full.names = TRUE)), yaml::read_yaml)
+  documents <- lapply(sort(list.files(file.path(root, "indicators/data"), pattern = "\\.yml$", full.names = TRUE)), function(p) yaml::read_yaml(p, merge.precedence = "override"))
   indicators <- unlist(lapply(documents, function(x) if (is.null(x$indicators)) list(x) else x$indicators), recursive = FALSE)
   codes <- vapply(indicators, `[[`, character(1L), "codigo")
-  check(length(codes) == 62L && !anyDuplicated(codes), "Esperadas 62 fichas com códigos únicos.")
-  check(length(yaml::read_yaml(file.path(root, "sources/data/sources.yml"))) == 29L, "Esperadas 29 fontes cadastradas.")
+  check(length(codes) == 64L && !anyDuplicated(codes), "Esperadas 64 fichas com códigos únicos.")
+  check(length(yaml::read_yaml(file.path(root, "sources/data/sources.yml"))) == 52L, "Esperadas 52 fontes cadastradas.")
   included <- unlist(lapply(card_paths, function(path) {
     text <- read_text(path)
     check(grepl("(?m)^# Fichas — ", text, perl = TRUE), paste("Título de capítulo de fichas inválido:", path))
@@ -42,7 +42,7 @@ validate_book_structure <- function(root = ".", rendered = FALSE) {
   for (path in context_paths) {
     check(!grepl("include .*indicators/includes/", read_text(path)), paste("Ficha completa ainda incorporada ao capítulo de contexto:", path))
   }
-  expected_counts <- c(21L, 6L, 4L, 6L, 4L, 4L, 3L, 7L, 7L)
+  expected_counts <- c(23L, 7L, 5L, 9L, 4L, 4L, 2L, 3L, 7L)
   counts <- tabulate(match(vapply(indicators, `[[`, character(1L), "capitulo_fichas"), card_paths), nbins = 9L)
   check(identical(counts, expected_counts), "Distribuição temática das fichas incorreta.")
   for (x in indicators) {

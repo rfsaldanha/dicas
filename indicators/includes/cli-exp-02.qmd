@@ -1,11 +1,11 @@
-## Ficha do indicador: Pessoas-dia de exposição de populações vulneráveis a ondas de calor {#sec-cli-exp-02 .ficha-title}
+## Ficha do indicador: Pessoas-dia de menores de um ano e de pessoas com 65 anos ou mais expostas a ondas de calor {#sec-cli-exp-02 .ficha-title}
 
 ::: {.indicator-card}
 [Código:]{.field-label} CLI-EXP-02 \
 [Título resumido:]{.field-label} Pessoas-dia expostas a ondas de calor \
 [Tema:]{.field-label} Temperatura e condições térmicas \
 [Dimensão:]{.field-label} perigo; exposição \
-[Disponibilidade:]{.field-label} [requer processamento geoespacial]{.availability}
+[Disponibilidade:]{.field-label} [Calculável com dados abertos]{.availability}
 :::
 
 Contexto e interpretação: [Temperatura e condições térmicas](../../chapters/part-2/05-temperatura-condicoes-termicas.qmd#sec-temperatura).
@@ -43,12 +43,12 @@ Uma pessoa-dia equivale a uma pessoa exposta durante um dia. Cem pessoas exposta
 
 ### Fontes de dados {.unnumbered .ficha-section}
 
-- ERA5-Land — temperaturas máxima e mínima diárias em grade para classificar dias de onda ([cadastro](../../backmatter/indice-fontes.qmd#era5-land))
-- Instituto Brasileiro de Geografia e Estatística — população por idade e base territorial para aplicação brasileira ([cadastro](../../backmatter/indice-fontes.qmd#ibge))
+- ERA5-Land — TX e TN diárias na grade ([cadastro](../../backmatter/indice-fontes.qmd#era5-land))
+- WorldPop Global1 — Age/Sex Structures, Brasil — Global1 Age/Sex Structures, Brasil, 2000–2020, grades anuais de população por idade e sexo ([cadastro](../../backmatter/indice-fontes.qmd#worldpop-age))
 
 ### Método de cálculo {.unnumbered .ficha-section}
 
-Em cada célula, identificar sequências de pelo menos dois dias nas quais TX e TN superam os respectivos percentis 95 locais do período 1986–2005. Para cada dia participante, multiplicar o indicador binário pelo número de residentes menores de um ano ou com 65 anos ou mais na célula e somar em dias e células. Calcular também dias médios por pessoa e, quando se pretende separar mudança climática de mudança demográfica, cenário contrafactual com incidência de ondas mantida no nível-base.
+Construir a máscara de ondas na grade ERA5-Land com TX e TN, limiares de toda a base 1986–2005, quantil tipo 8, e sequências ≥2 dias. Somar a população WorldPop de idade 0 e, separadamente, todas as faixas de 65 anos ou mais, ambos os sexos. Intersectar as células populacionais de 100 m com município e célula climática, repartindo a contagem pela fração de área de interseção, sem interpolação bilinear de contagens. Para cada ano de 2000–2020, manter sua população anual constante nos dias e somar população×dias em onda. Publicar as duas faixas separadamente.
 
 $$
 PD_{a,t}=\sum_d\sum_g I(HW_{g,d}=1)\times Pop_{a,g,t}
@@ -57,19 +57,19 @@ $$
 ::: {.indicator-card}
 [Numerador.]{.field-label} Não se aplica; soma de produtos célula-dia.
 
-[Denominador.]{.field-label} População do grupo etário quando expresso adicionalmente como dias de onda por pessoa.
+[Denominador.]{.field-label} Não se aplica à contagem de pessoas-dia; taxas por pessoa são indicadores adicionais e devem ser identificadas separadamente.
 
-[Unidade de medida.]{.field-label} Pessoas-dia; adicionalmente, dias por pessoa exposta ou por pessoa do grupo.
+[Unidade de medida.]{.field-label} Pessoas-dia por ano, por faixa etária.
 
 [Variáveis e categorias de análise.]{.field-label} TX; TN; percentis locais; dia; célula; idade menor de um ano; idade de 65 anos ou mais; sexo e território quando disponíveis.
 
-[Granularidade.]{.field-label} Célula-dia antes da agregação; território-ano na publicação sintética.
+[Granularidade.]{.field-label} Fragmento de interseção população–clima–município, por dia e faixa etária; somar pessoas-dia, sem média territorial por área.
 
-[Periodicidade de atualização.]{.field-label} Anual no Lancet Countdown; conforme ciclo de atualização populacional na aplicação local.
+[Periodicidade de atualização.]{.field-label} Anual, após completar e verificar o último ano de entrada.
 
 [Responsabilidade gerencial.]{.field-label} Serviço meteorológico ou climático responsável pelo perigo, instituição estatística responsável pela população e autoridade de saúde responsável pelo uso.
 
-[Notas.]{.field-label} Extensão e exposição populacional não medem vulnerabilidade nem dano. O mesmo valor pode envolver populações, duração, intensidade e capacidades de proteção muito diferentes.
+[Notas.]{.field-label} Não extrapolar automaticamente as faixas etárias do Censo para todos os anos. Versões Global1 e Global2, e grades constrained/unconstrained, precisam de identificadores de série distintos.
 
 [Análise descritiva do indicador.]{.field-label} Apresentar total de pessoas-dia, dias por pessoa, número de pessoas residentes em áreas expostas, grupos etários, tendência, decomposição entre demografia e frequência térmica e distribuição territorial.
 
@@ -78,39 +78,51 @@ $$
 ### Campos complementares para clima, ambiente e saúde {.unnumbered .ficha-section}
 
 ::: {.indicator-card}
-[Unidade territorial.]{.field-label} Célula populacional e território de agregação.
+[Unidade territorial.]{.field-label} Município IBGE 2022; população coberta pelas interseções de grades.
 
-[Resolução espacial original.]{.field-label} A grade comum entre exposição térmica e população; registrar reamostragem e alocação.
+[Resolução espacial original.]{.field-label} Clima 0,1°; população WorldPop Global1 nominalmente 100 m.
 
-[Resolução temporal.]{.field-label} Entrada diária de temperatura e população anual; saída anual ou por episódio.
+[Resolução temporal.]{.field-label} Entradas horárias; extremos diários em 00–23 UTC; saída anual, salvo estação quente ou produto explicitados.
 
-[Período de referência.]{.field-label} 1986–2005 para os percentis e a comparação de exposição no indicador do Lancet Countdown.
+[Período de referência.]{.field-label} 1986–2005; P95 de todas as TX e todas as TN da base, separadamente, sem janela calendário.
 
-[Limiar ou valor de referência.]{.field-label} Pelo menos dois dias consecutivos com TX e TN acima do percentil 95 da climatologia local.
+[Limiar ou valor de referência.]{.field-label} TX>P95(TX) e TN>P95(TN) simultaneamente por pelo menos dois dias consecutivos.
 
 :::
 
 ### Disponibilidade e acesso {.unnumbered .ficha-section}
 
-[Cobertura geográfica.]{.field-label} Território de análise coberto simultaneamente pelas superfícies de calor e pelos dados populacionais, quando aplicável.
+[Protocolo verificado em.]{.field-label} 2026-10-03
 
-[Período disponível.]{.field-label} Desde 1980 no indicador internacional; aplicação brasileira depende das séries térmicas e populacionais harmonizadas.
+[Dependência de dados locais.]{.field-label} Opcional para validação
 
-[Periodicidade de atualização.]{.field-label} Anual no Lancet Countdown; conforme ciclo de atualização populacional na aplicação local.
+[Automação.]{.field-label} Condicionada
 
-[Forma de acesso.]{.field-label} Dados e descrição no portal do Lancet Countdown; cálculo brasileiro requer grade térmica e população por idade harmonizadas.
+[Requisitos para o cálculo.]{.field-label} API CDS para 2m_temperature e download de todos os arquivos de idade/sexo WorldPop Global1 necessários às faixas <1 e ≥65 anos, de 2000–2020; conservar versão e contagens.
 
-[URL ou identificador persistente.]{.field-label} https://lancetcountdown.org/explore-our-data/
+[Nível de evidência.]{.field-label} Documentação verificada
 
-[Formato dos arquivos.]{.field-label} Grade diária de exposição, superfície populacional e tabela anual por território e idade.
+[Alcance da verificação.]{.field-label} Produto e método documentados; série municipal completa ainda não produzida.
 
-[Necessidade de processamento.]{.field-label} Construir percentis, detectar ondas, harmonizar grades e anos, multiplicar população por dias expostos, agregar e avaliar incerteza demográfica.
+[Cobertura geográfica.]{.field-label} Todos os municípios brasileiros no domínio da grade. Não representa diretamente a exposição individual ou o microclima de cada bairro.
+
+[Período disponível.]{.field-label} 2000–2020 com WorldPop Global1; versão Global2 R2025A é uma série distinta, não uma continuação automática.
+
+[Periodicidade de atualização.]{.field-label} Anual, após completar e verificar o último ano de entrada.
+
+[Forma de acesso.]{.field-label} API CDS para clima e downloads GeoTIFF de idade/sexo no WorldPop Global1, Brasil, unconstrained, 2000–2020.
+
+[URL ou identificador persistente.]{.field-label} https://hub.worldpop.org/Global1_2000-2020_AgeSexStructures
+
+[Formato dos arquivos.]{.field-label} NetCDF/GRIB climático; GeoTIFF de contagens populacionais.
+
+[Necessidade de processamento.]{.field-label} Sobreposição conservativa de população, clima e municípios; máscara diária de ondas; soma anual de pessoas-dia. Não usar população municipal total como se fosse população por faixa etária na grade.
 
 ### Qualidade, comparação e saúde {.unnumbered .ficha-section}
 
-[Qualidade e incerteza.]{.field-label} Documentar definição da onda, período-base, grade, conectividade, área real das células, máscara de terra, fonte e ano da população, imputações, mobilidade não observada e propagação de incerteza.
+[Qualidade e incerteza.]{.field-label} Requer população anual por idade e todos os dias climáticos válidos nas células incluídas na soma. Exigir ≥90% da população da faixa etária no município com série climática completa; publicar a contagem de pessoas-dia somente para a população coberta, junto à cobertura, sem extrapolar para os não cobertos. Abaixo disso, resultado ausente. Não confundir população zero com ausência da grade etária.
 
-[Possibilidade de comparação.]{.field-label} Manter definição térmica, período-base, resolução, projeção, vizinhança espacial, população de referência e agregação temporal; mudanças metodológicas interrompem comparabilidade direta.
+[Possibilidade de comparação.]{.field-label} Fixar versão, calendário UTC, período-base e limites municipais de 2022. Não emendar estação e reanálise. Médias municipais de contagens podem ser fracionárias e não contam episódios sincrônicos do município.
 
 [Relação com desfechos de saúde.]{.field-label} Lactentes e pessoas idosas apresentam maior suscetibilidade a agravos e mortalidade pelo calor; o indicador mede exposição populacional, não casos nem risco individual.
 
