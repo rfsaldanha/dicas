@@ -98,31 +98,26 @@
 
 #let dicas-is-part-title(body) = {
   let value = content-to-string(body)
-  value.starts-with("Parte ") or value == "Elementos pós-textuais"
+  value.starts-with("Parte ")
 }
 
 #let dicas-is-list-title(body) = {
   let value = content-to-string(body)
-  value == "Lista de figuras"
+  value == "Lista de figuras" or value == "Lista de quadros e tabelas"
 }
 
 #let dicas-part-opening(it) = {
   pagebreak(to: "odd")
   let full-title = content-to-string(it.body)
-  let is-part = full-title.starts-with("Parte ")
-  if is-part { dicas-part-counter.step() }
+  dicas-part-counter.step()
   context {
-    let short-title = if is-part {
-      full-title.replace(regex("^Parte\s+[IVXLCDM]+\s+[-–—]+\s+"), "")
-    } else { full-title }
+    let short-title = full-title.replace(regex("^Parte\s+[IVXLCDM]+\s+[-–—]+\s+"), "")
     set par(justify: false, first-line-indent: 0pt, leading: 5pt)
     block(width: 100%, height: 100%, breakable: false)[
       #place(top + left, dy: 30mm)[
         #block(width: 100%)[
           #text(font: "Source Sans 3", size: 10pt, tracking: 0.06em)[
-            #if is-part {
-              [PARTE #numbering("I", dicas-part-counter.get().first())]
-            } else { [CONSULTA E REFERÊNCIAS] }
+            PARTE #numbering("I", dicas-part-counter.get().first())
           ]
           #v(7mm)
           #line(length: 28mm, stroke: 0.5pt + luma(90))

@@ -4,9 +4,9 @@
 
 O identificador `dicas` foi mantido: não havia arquivo, pacote ou configuração conflitante no repositório inicial. O título aparece uma única vez em `_quarto.yml` e é consumido pelas duas saídas.
 
-Os 15 capítulos e os elementos pré-textuais em QMD são compartilhados entre as duas saídas. A extensão Typst acrescenta apenas folha de rosto, verso editorial, paginação e composição gráfica próprias da edição impressa.
+Os 24 capítulos e os elementos pré-textuais em QMD são compartilhados entre as duas saídas. A extensão Typst acrescenta apenas folha de rosto, verso editorial, paginação e composição gráfica próprias da edição impressa.
 
-A organização editorial tem três partes: fundamentos e métodos (capítulos 1–6), dados e indicadores temáticos (7–12) e indicadores integrados de clima, ambiente e saúde (13–15). “Do indicador à decisão pública” encerra a Parte I como capítulo 6. Seu caminho histórico em `chapters/part-4/` é preservado para manter os links; a vinculação às partes e a numeração são definidas nos perfis Quarto.
+A organização editorial tem quatro partes: fundamentos e métodos (capítulos 1–6), dados e indicadores temáticos (7–12), indicadores integrados de clima, ambiente e saúde (13–15) e fichas de indicadores e fontes de dados (16–24). “Do indicador à decisão pública” encerra a Parte I como capítulo 6. Seu caminho histórico em `chapters/part-4/` é preservado para manter os links; a vinculação às partes e a numeração são definidas nos perfis Quarto.
 
 ## Perfis
 
@@ -46,7 +46,7 @@ A composição usa o modelo Typst local e a identidade “Território, evidênci
 
 `references.bib` é a bibliografia única. O estilo local `styles/abnt.csl` aplica o sistema autor-data e contém correções editoriais para datas de páginas web, DOI e pontuação. A saída é validada como configuração do projeto; não se declara conformidade integral com uma edição normativa sem auditoria específica.
 
-Os elementos pós-textuais seguem uma ordem única nas duas saídas: glossário, catálogos, relação de instituições, lista de fichas, listas de quadros e figuras, referências, apêndice metodológico (A) e apêndice sobre estações meteorológicas e de qualidade do ar (B). O apêndice usa identificação alfabética; a bibliografia única reúne todas as obras citadas, inclusive nos apêndices, sob o título “Referências”, antes deles. A impressão usa `citeproc: true` para respeitar a posição de `#refs`. Os nomes históricos dos arquivos são preservados; a ordem nas configurações define a numeração editorial.
+As duas saídas usam a mesma ordem editorial. As listas de figuras e de quadros e tabelas ficam entre siglas e sumário. A Parte IV começa pela lista de fichas por código e pelo índice alfabético, reúne os capítulos 16–24 e termina com o catálogo de fontes, que incorpora a relação de instituições. Glossário e referências são entradas independentes após essa parte, seguidos dos apêndices metodológico (A) e sobre estações meteorológicas e de qualidade do ar (B). Não há uma parte formal de elementos pós-textuais. O apêndice usa identificação alfabética; a bibliografia única reúne todas as obras citadas, inclusive nos apêndices, sob o título “Referências”, antes deles. A impressão usa `citeproc: true` para respeitar a posição de `#refs`. Os nomes históricos dos arquivos são preservados; a ordem nas configurações define a numeração editorial.
 
 ## Publicação
 

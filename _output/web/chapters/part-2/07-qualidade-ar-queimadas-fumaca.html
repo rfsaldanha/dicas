@@ -104,35 +104,6 @@ div.csl-indent {
 <script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
 <link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../../styles/web/styles.css">
 </head>
@@ -375,6 +346,18 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../backmatter/lista-figuras.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lista de figuras</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/lista-tabelas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lista de quadros e tabelas</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../frontmatter/sumario.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sumário</span></a>
   </div>
@@ -511,7 +494,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">Elementos pós-textuais</span></a>
+ <span class="menu-text">Parte IV — Fichas de indicadores e fontes de dados</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -519,8 +502,8 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../backmatter/glossario.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Glossário</span></a>
+  <a href="../../backmatter/lista-fichas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lista de fichas por código e capítulo</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -531,42 +514,78 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/16-fichas-temperatura-condicoes-termicas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Fichas — Temperatura e condições térmicas</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/17-fichas-precipitacao-secas-eventos-hidrologicos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Fichas — Precipitação, secas e eventos hidrológicos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Fichas — Qualidade do ar, queimadas e fumaça</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Fichas — Água, saneamento e qualidade ambiental</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/20-fichas-uso-cobertura-terra-ambiente-urbano.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Fichas — Uso e cobertura da terra, vegetação e ambiente urbano</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/21-fichas-eventos-severos-desastres.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Fichas — Eventos severos e desastres</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/22-fichas-exposicao-vulnerabilidade.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Fichas — Exposição e vulnerabilidade socioambiental</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/23-fichas-efeitos-saude.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Fichas — Efeitos do clima e do ambiente sobre a saúde</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/24-fichas-resposta-adaptacao-resiliencia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Fichas — Capacidade de resposta, adaptação e resiliência</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../backmatter/indice-fontes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Catálogo de fontes de dados</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+      </ul>
+  </li>
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../backmatter/indice-instituicoes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Relação de instituições</span></a>
+  <a href="../../backmatter/glossario.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Glossário</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../backmatter/lista-fichas.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lista de fichas por código e capítulo</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../backmatter/lista-tabelas.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lista de quadros e tabelas</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../backmatter/lista-figuras.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lista de figuras</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../backmatter/referencias.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Referências</span></a>
   </div>
 </li>
-      </ul>
-  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
@@ -610,64 +629,8 @@ window.Quarto = {
   <li><a href="#fumaça-e-transporte-atmosférico" id="toc-fumaça-e-transporte-atmosférico" class="nav-link" data-scroll-target="#fumaça-e-transporte-atmosférico"><span class="header-section-number">9.4</span> Fumaça e transporte atmosférico</a></li>
   <li><a href="#exposição-e-efeitos-agudos-e-crônicos" id="toc-exposição-e-efeitos-agudos-e-crônicos" class="nav-link" data-scroll-target="#exposição-e-efeitos-agudos-e-crônicos"><span class="header-section-number">9.5</span> Exposição e efeitos agudos e crônicos</a></li>
   <li><a href="#fontes-seleção-e-principais-indicadores" id="toc-fontes-seleção-e-principais-indicadores" class="nav-link" data-scroll-target="#fontes-seleção-e-principais-indicadores"><span class="header-section-number">9.6</span> Fontes, seleção e principais indicadores</a></li>
-  <li><a href="#sec-amb-ar-01" id="toc-sec-amb-ar-01" class="nav-link" data-scroll-target="#sec-amb-ar-01"><span class="header-section-number">9.7</span> Ficha do indicador: Concentração média anual de PM2,5 nas cidades, ponderada pela população (ODS 11.6.2)</a>
-  <ul class="collapse">
-  <li><a href="#identificação-e-fundamento" id="toc-identificação-e-fundamento" class="nav-link" data-scroll-target="#identificação-e-fundamento">Identificação e fundamento</a></li>
-  <li><a href="#objetivo" id="toc-objetivo" class="nav-link" data-scroll-target="#objetivo">Objetivo</a></li>
-  <li><a href="#interpretação" id="toc-interpretação" class="nav-link" data-scroll-target="#interpretação">Interpretação</a></li>
-  <li><a href="#usos" id="toc-usos" class="nav-link" data-scroll-target="#usos">Usos</a></li>
-  <li><a href="#limitações" id="toc-limitações" class="nav-link" data-scroll-target="#limitações">Limitações</a></li>
-  <li><a href="#fontes-de-dados" id="toc-fontes-de-dados" class="nav-link" data-scroll-target="#fontes-de-dados">Fontes de dados</a></li>
-  <li><a href="#método-de-cálculo" id="toc-método-de-cálculo" class="nav-link" data-scroll-target="#método-de-cálculo">Método de cálculo</a></li>
-  <li><a href="#campos-complementares-para-clima-ambiente-e-saúde" id="toc-campos-complementares-para-clima-ambiente-e-saúde" class="nav-link" data-scroll-target="#campos-complementares-para-clima-ambiente-e-saúde">Campos complementares para clima, ambiente e saúde</a></li>
-  <li><a href="#disponibilidade-e-acesso" id="toc-disponibilidade-e-acesso" class="nav-link" data-scroll-target="#disponibilidade-e-acesso">Disponibilidade e acesso</a></li>
-  <li><a href="#qualidade-comparação-e-saúde" id="toc-qualidade-comparação-e-saúde" class="nav-link" data-scroll-target="#qualidade-comparação-e-saúde">Qualidade, comparação e saúde</a></li>
-  <li><a href="#referências-metodológicas" id="toc-referências-metodológicas" class="nav-link" data-scroll-target="#referências-metodológicas">Referências metodológicas</a></li>
-  </ul></li>
-  <li><a href="#sec-amb-ar-02" id="toc-sec-amb-ar-02" class="nav-link" data-scroll-target="#sec-amb-ar-02"><span class="header-section-number">9.8</span> Ficha do indicador: Percentil 99 das concentrações médias de 24 horas de PM2,5</a>
-  <ul class="collapse">
-  <li><a href="#identificação-e-fundamento-1" id="toc-identificação-e-fundamento-1" class="nav-link" data-scroll-target="#identificação-e-fundamento-1">Identificação e fundamento</a></li>
-  <li><a href="#objetivo-1" id="toc-objetivo-1" class="nav-link" data-scroll-target="#objetivo-1">Objetivo</a></li>
-  <li><a href="#interpretação-1" id="toc-interpretação-1" class="nav-link" data-scroll-target="#interpretação-1">Interpretação</a></li>
-  <li><a href="#usos-1" id="toc-usos-1" class="nav-link" data-scroll-target="#usos-1">Usos</a></li>
-  <li><a href="#limitações-1" id="toc-limitações-1" class="nav-link" data-scroll-target="#limitações-1">Limitações</a></li>
-  <li><a href="#fontes-de-dados-1" id="toc-fontes-de-dados-1" class="nav-link" data-scroll-target="#fontes-de-dados-1">Fontes de dados</a></li>
-  <li><a href="#método-de-cálculo-1" id="toc-método-de-cálculo-1" class="nav-link" data-scroll-target="#método-de-cálculo-1">Método de cálculo</a></li>
-  <li><a href="#campos-complementares-para-clima-ambiente-e-saúde-1" id="toc-campos-complementares-para-clima-ambiente-e-saúde-1" class="nav-link" data-scroll-target="#campos-complementares-para-clima-ambiente-e-saúde-1">Campos complementares para clima, ambiente e saúde</a></li>
-  <li><a href="#disponibilidade-e-acesso-1" id="toc-disponibilidade-e-acesso-1" class="nav-link" data-scroll-target="#disponibilidade-e-acesso-1">Disponibilidade e acesso</a></li>
-  <li><a href="#qualidade-comparação-e-saúde-1" id="toc-qualidade-comparação-e-saúde-1" class="nav-link" data-scroll-target="#qualidade-comparação-e-saúde-1">Qualidade, comparação e saúde</a></li>
-  <li><a href="#referências-metodológicas-1" id="toc-referências-metodológicas-1" class="nav-link" data-scroll-target="#referências-metodológicas-1">Referências metodológicas</a></li>
-  </ul></li>
-  <li><a href="#sec-amb-ar-03" id="toc-sec-amb-ar-03" class="nav-link" data-scroll-target="#sec-amb-ar-03"><span class="header-section-number">9.9</span> Ficha do indicador: Índice de Qualidade do Ar brasileiro (IQAr)</a>
-  <ul class="collapse">
-  <li><a href="#identificação-e-fundamento-2" id="toc-identificação-e-fundamento-2" class="nav-link" data-scroll-target="#identificação-e-fundamento-2">Identificação e fundamento</a></li>
-  <li><a href="#objetivo-2" id="toc-objetivo-2" class="nav-link" data-scroll-target="#objetivo-2">Objetivo</a></li>
-  <li><a href="#interpretação-2" id="toc-interpretação-2" class="nav-link" data-scroll-target="#interpretação-2">Interpretação</a></li>
-  <li><a href="#usos-2" id="toc-usos-2" class="nav-link" data-scroll-target="#usos-2">Usos</a></li>
-  <li><a href="#limitações-2" id="toc-limitações-2" class="nav-link" data-scroll-target="#limitações-2">Limitações</a></li>
-  <li><a href="#fontes-de-dados-2" id="toc-fontes-de-dados-2" class="nav-link" data-scroll-target="#fontes-de-dados-2">Fontes de dados</a></li>
-  <li><a href="#método-de-cálculo-2" id="toc-método-de-cálculo-2" class="nav-link" data-scroll-target="#método-de-cálculo-2">Método de cálculo</a></li>
-  <li><a href="#campos-complementares-para-clima-ambiente-e-saúde-2" id="toc-campos-complementares-para-clima-ambiente-e-saúde-2" class="nav-link" data-scroll-target="#campos-complementares-para-clima-ambiente-e-saúde-2">Campos complementares para clima, ambiente e saúde</a></li>
-  <li><a href="#disponibilidade-e-acesso-2" id="toc-disponibilidade-e-acesso-2" class="nav-link" data-scroll-target="#disponibilidade-e-acesso-2">Disponibilidade e acesso</a></li>
-  <li><a href="#qualidade-comparação-e-saúde-2" id="toc-qualidade-comparação-e-saúde-2" class="nav-link" data-scroll-target="#qualidade-comparação-e-saúde-2">Qualidade, comparação e saúde</a></li>
-  <li><a href="#referências-metodológicas-2" id="toc-referências-metodológicas-2" class="nav-link" data-scroll-target="#referências-metodológicas-2">Referências metodológicas</a></li>
-  </ul></li>
-  <li><a href="#sec-amb-fum-01" id="toc-sec-amb-fum-01" class="nav-link" data-scroll-target="#sec-amb-fum-01"><span class="header-section-number">9.10</span> Ficha do indicador: Exposição populacional média a PM2,5 atribuível à fumaça de incêndios</a>
-  <ul class="collapse">
-  <li><a href="#identificação-e-fundamento-3" id="toc-identificação-e-fundamento-3" class="nav-link" data-scroll-target="#identificação-e-fundamento-3">Identificação e fundamento</a></li>
-  <li><a href="#objetivo-3" id="toc-objetivo-3" class="nav-link" data-scroll-target="#objetivo-3">Objetivo</a></li>
-  <li><a href="#interpretação-3" id="toc-interpretação-3" class="nav-link" data-scroll-target="#interpretação-3">Interpretação</a></li>
-  <li><a href="#usos-3" id="toc-usos-3" class="nav-link" data-scroll-target="#usos-3">Usos</a></li>
-  <li><a href="#limitações-3" id="toc-limitações-3" class="nav-link" data-scroll-target="#limitações-3">Limitações</a></li>
-  <li><a href="#fontes-de-dados-3" id="toc-fontes-de-dados-3" class="nav-link" data-scroll-target="#fontes-de-dados-3">Fontes de dados</a></li>
-  <li><a href="#método-de-cálculo-3" id="toc-método-de-cálculo-3" class="nav-link" data-scroll-target="#método-de-cálculo-3">Método de cálculo</a></li>
-  <li><a href="#campos-complementares-para-clima-ambiente-e-saúde-3" id="toc-campos-complementares-para-clima-ambiente-e-saúde-3" class="nav-link" data-scroll-target="#campos-complementares-para-clima-ambiente-e-saúde-3">Campos complementares para clima, ambiente e saúde</a></li>
-  <li><a href="#disponibilidade-e-acesso-3" id="toc-disponibilidade-e-acesso-3" class="nav-link" data-scroll-target="#disponibilidade-e-acesso-3">Disponibilidade e acesso</a></li>
-  <li><a href="#qualidade-comparação-e-saúde-3" id="toc-qualidade-comparação-e-saúde-3" class="nav-link" data-scroll-target="#qualidade-comparação-e-saúde-3">Qualidade, comparação e saúde</a></li>
-  <li><a href="#referências-metodológicas-3" id="toc-referências-metodológicas-3" class="nav-link" data-scroll-target="#referências-metodológicas-3">Referências metodológicas</a></li>
-  </ul></li>
-  <li><a href="#alertas-e-aplicação-na-gestão" id="toc-alertas-e-aplicação-na-gestão" class="nav-link" data-scroll-target="#alertas-e-aplicação-na-gestão"><span class="header-section-number">9.11</span> Alertas e aplicação na gestão</a></li>
-  <li><a href="#síntese" id="toc-síntese" class="nav-link" data-scroll-target="#síntese"><span class="header-section-number">9.12</span> Síntese</a></li>
+  <li><a href="#alertas-e-aplicação-na-gestão" id="toc-alertas-e-aplicação-na-gestão" class="nav-link" data-scroll-target="#alertas-e-aplicação-na-gestão"><span class="header-section-number">9.7</span> Alertas e aplicação na gestão</a></li>
+  <li><a href="#síntese" id="toc-síntese" class="nav-link" data-scroll-target="#síntese"><span class="header-section-number">9.8</span> Síntese</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/rfsaldanha/dicas/blob/main/chapters/part-2/07-qualidade-ar-queimadas-fumaca.qmd" class="toc-action"><i class="bi bi-github"></i>Ver o código fonte</a></li><li><a href="https://github.com/rfsaldanha/dicas/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></nav>
     </div>
@@ -911,15 +874,9 @@ Quadro&nbsp;9.1: Indicadores de qualidade do ar, fogo e fumaça usados em saúde
 </figcaption>
 <div aria-describedby="qua-indicadores-ar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
-<colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-</colgroup>
 <thead>
 <tr class="header">
-<th>Indicador</th>
+<th>Indicador e ficha (Parte IV)</th>
 <th>Base metodológica</th>
 <th>Uso em saúde pública</th>
 <th>Cuidado de interpretação</th>
@@ -927,13 +884,13 @@ Quadro&nbsp;9.1: Indicadores de qualidade do ar, fogo e fumaça usados em saúde
 </thead>
 <tbody>
 <tr class="odd">
-<td>PM2,5 anual ponderado pela população</td>
+<td>PM2,5 anual ponderado pela população — <a href="../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.html#sec-amb-ar-01">AMB-AR-01</a></td>
 <td>ODS 11.6.2, custódia OMS</td>
 <td>exposição crônica, desigualdade e carga de doença</td>
 <td>média não descreve episódios</td>
 </tr>
 <tr class="even">
-<td>P99 das médias de 24 h de PM2,5</td>
+<td>P99 das médias de 24 h de PM2,5 — <a href="../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.html#sec-amb-ar-02">AMB-AR-02</a></td>
 <td>diretriz OMS 2021</td>
 <td>exposição de curto prazo e avaliação anual</td>
 <td>não é máximo diário</td>
@@ -945,13 +902,13 @@ Quadro&nbsp;9.1: Indicadores de qualidade do ar, fogo e fumaça usados em saúde
 <td>unidades e tempos não são intercambiáveis</td>
 </tr>
 <tr class="even">
-<td>IQAr brasileiro</td>
+<td>IQAr brasileiro — <a href="../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.html#sec-amb-ar-03">AMB-AR-03</a></td>
 <td>CONAMA nº 506/2024 e orientação de 2025</td>
 <td>comunicação diária ou horária</td>
 <td>depende dos poluentes monitorados e informa o pior subíndice</td>
 </tr>
 <tr class="odd">
-<td>PM2,5 atribuível ao fogo ponderado pela população</td>
+<td>PM2,5 atribuível ao fogo ponderado pela população — <a href="../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.html#sec-amb-fum-01">AMB-FUM-01</a></td>
 <td>Lancet Countdown e estudos de fonte específica</td>
 <td>fumaça, desigualdade e carga atribuível</td>
 <td>depende de modelagem de fonte</td>
@@ -973,462 +930,14 @@ Quadro&nbsp;9.1: Indicadores de qualidade do ar, fogo e fumaça usados em saúde
 </div>
 </figure>
 </div>
-<p>As fichas a seguir documentam os indicadores consolidados com aplicação sanitária direta. Focos e área queimada permanecem como variáveis contextuais até que se adote um produto específico com metadado completo.</p>
+<p>As fichas correspondentes na Parte IV documentam os indicadores consolidados com aplicação sanitária direta. Focos e área queimada permanecem como variáveis contextuais até que se adote um produto específico com metadado completo.</p>
+<p><span id="sec-amb-ar-01"></span> Consulte a <a href="../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.html#sec-amb-ar-01">ficha AMB-AR-01 — PM2,5 anual ponderado — ODS 11.6.2</a>, na Parte IV.</p>
+<p><span id="sec-amb-ar-02"></span> Consulte a <a href="../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.html#sec-amb-ar-02">ficha AMB-AR-02 — PM2,5 de curto prazo — P99 24h</a>, na Parte IV.</p>
+<p><span id="sec-amb-ar-03"></span> Consulte a <a href="../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.html#sec-amb-ar-03">ficha AMB-AR-03 — Índice de Qualidade do Ar — IQAr</a>, na Parte IV.</p>
+<p><span id="sec-amb-fum-01"></span> Consulte a <a href="../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.html#sec-amb-fum-01">ficha AMB-FUM-01 — PM2,5 de fumaça ponderado pela população</a>, na Parte IV.</p>
 </section>
-<section id="sec-amb-ar-01" class="level2 ficha-title" data-number="9.7">
-<h2 class="ficha-title anchored" data-number="9.7" data-anchor-id="sec-amb-ar-01"><span class="header-section-number">9.7</span> Ficha do indicador: Concentração média anual de PM2,5 nas cidades, ponderada pela população (ODS 11.6.2)</h2>
-<div class="indicator-card">
-<p><span class="field-label">Código:</span> AMB-AR-01<br>
-<span class="field-label">Título resumido:</span> PM2,5 anual ponderado — ODS 11.6.2<br>
-<span class="field-label">Tema:</span> Qualidade do ar, queimadas e fumaça<br>
-<span class="field-label">Dimensão:</span> exposição; perigo<br>
-<span class="field-label">Disponibilidade:</span> <span class="availability">disponível em estimativa oficial</span></p>
-</div>
-<section id="identificação-e-fundamento" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="identificação-e-fundamento">Identificação e fundamento</h3>
-<p><span class="field-label">Base de consolidação.</span> Indicador 11.6.2 dos Objetivos de Desenvolvimento Sustentável, sob custódia da Organização Mundial da Saúde.</p>
-<div class="callout callout-style-default callout-note no-icon callout-titled" title="Conceito-chave">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Nota</span>Conceito-chave
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Média anual da concentração de partículas finas com diâmetro aerodinâmico igual ou inferior a 2,5 micrômetros em áreas urbanas, ponderada pela população exposta.</p>
-</div>
-</div>
-</section>
-<section id="objetivo" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="objetivo">Objetivo</h3>
-<p>Monitorar a exposição populacional de longo prazo à poluição atmosférica por PM2,5 e o progresso na redução do impacto ambiental das cidades.</p>
-</section>
-<section id="interpretação" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="interpretação">Interpretação</h3>
-<p>Valores maiores indicam maior concentração média anual ponderada pela distribuição populacional. O indicador representa exposição ambiental populacional e não dose individual.</p>
-</section>
-<section id="usos" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="usos">Usos</h3>
-<ul>
-<li>Monitorar o ODS 11.6.2.</li>
-<li>Comparar exposição populacional de longo prazo entre períodos e territórios quando o método é harmonizado.</li>
-<li>Apoiar avaliação de políticas de qualidade do ar.</li>
-<li>Subsidiar estimativas de carga de doença atribuível à poluição atmosférica.</li>
-</ul>
-</section>
-<section id="limitações" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="limitações">Limitações</h3>
-<ul>
-<li>Cobertura de monitores é desigual e estimativas modeladas dependem de múltiplas fontes e pressupostos.</li>
-<li>A média anual não descreve picos diários nem episódios de fumaça.</li>
-<li>A ponderação populacional não representa mobilidade, microambientes ou desigualdades intraterritoriais.</li>
-<li>Definições de urbano e superfícies populacionais podem variar.</li>
-</ul>
-</section>
-<section id="fontes-de-dados" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="fontes-de-dados">Fontes de dados</h3>
-<ul>
-<li>Banco Mundial de Qualidade do Ar da OMS — estimativas e metadados oficiais do indicador ODS 11.6.2 (<a href="../../backmatter/indice-fontes.html#who-air">cadastro</a>)</li>
-</ul>
-</section>
-<section id="método-de-cálculo" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="método-de-cálculo">Método de cálculo</h3>
-<p>Produzir ou obter uma superfície anual harmonizada de concentração de PM2,5, combinar com a distribuição populacional da mesma referência espacial e temporal e calcular a média ponderada. Na estimativa oficial global, a OMS integra medições, sensoriamento remoto, transporte químico, topografia e população em modelo próprio; reproduções locais não devem ser rotuladas como estimativa oficial sem seguir o metadado.</p>
-<p><span class="math display">\[
-\overline{PM}_{2,5}^{pop} = \frac{\sum_{g=1}^{G} PM_{2,5,g}\,Pop_g}{\sum_{g=1}^{G} Pop_g}
-\]</span></p>
-<div class="indicator-card">
-<p><span class="field-label">Numerador.</span> Soma, nas células ou áreas g, do produto entre concentração média anual de PM2,5 e população.</p>
-<p><span class="field-label">Denominador.</span> População total nas células ou áreas incluídas.</p>
-<p><span class="field-label">Unidade de medida.</span> Microgramas por metro cúbico (µg/m³).</p>
-<p><span class="field-label">Variáveis e categorias de análise.</span> Concentração média anual; população; cidade ou área urbana; tipo de estimativa; ano.</p>
-<p><span class="field-label">Granularidade.</span> Cidade ou território urbano na divulgação; cálculo em grade compatível com as superfícies de concentração e população.</p>
-<p><span class="field-label">Periodicidade de atualização.</span> Periódica, segundo calendário da OMS e do sistema ODS.</p>
-<p><span class="field-label">Responsabilidade gerencial.</span> A OMS é agência custodiante no monitoramento global; autoridades ambientais produzem monitoramento e políticas, e o setor saúde interpreta riscos e impactos.</p>
-<p><span class="field-label">Notas.</span> Esta ficha substitui a média diária genérica pelo indicador oficial ODS 11.6.2. Valores de estações e produtos modelados permanecem dados de entrada ou indicadores distintos.</p>
-<p><span class="field-label">Análise descritiva do indicador.</span> Apresentar nível, tendência e incerteza por edição, comparando com a diretriz de saúde sem tratá-la como limite legal. Desagregar quando a qualidade do modelo permitir.</p>
-</div>
-</section>
-<section id="campos-complementares-para-clima-ambiente-e-saúde" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="campos-complementares-para-clima-ambiente-e-saúde">Campos complementares para clima, ambiente e saúde</h3>
-<div class="indicator-card">
-<p><span class="field-label">Unidade territorial.</span> Área urbana, cidade, país ou agregação regional.</p>
-<p><span class="field-label">Resolução espacial original.</span> A da superfície oficial ou do modelo documentado; medições em estação são entradas e não representam diretamente toda a cidade.</p>
-<p><span class="field-label">Resolução temporal.</span> Anual.</p>
-<p><span class="field-label">Período de referência.</span> Ano civil e versão da população e do modelo correspondentes.</p>
-<p><span class="field-label">Limiar ou valor de referência.</span> A diretriz mundial de qualidade do ar da OMS de 2021 recomenda média anual de 5 µg/m³ para PM2,5; diretriz de saúde não deve ser confundida com padrão jurídico nacional.</p>
-</div>
-</section>
-<section id="disponibilidade-e-acesso" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="disponibilidade-e-acesso">Disponibilidade e acesso</h3>
-<p><span class="field-label">Cobertura geográfica.</span> Estimativas globais por país e cidade conforme a edição; análises subnacionais dependem das fontes disponíveis.</p>
-<p><span class="field-label">Período disponível.</span> Conforme edição do banco e série de estimativas da OMS.</p>
-<p><span class="field-label">Periodicidade de atualização.</span> Periódica, segundo calendário da OMS e do sistema ODS.</p>
-<p><span class="field-label">Forma de acesso.</span> Portal do Observatório Global de Saúde e banco mundial de qualidade do ar da OMS.</p>
-<p><span class="field-label">URL ou identificador persistente.</span> https://www.who.int/data/gho/data/themes/air-pollution/who-air-quality-database</p>
-<p><span class="field-label">Formato dos arquivos.</span> Tabelas e arquivos de dados disponibilizados pela OMS; registrar edição e data de acesso.</p>
-<p><span class="field-label">Necessidade de processamento.</span> Para uso do valor oficial, selecionar edição, território e ano. Para cálculo próprio, exige integração espacial de concentração e população e não deve ser confundido com o indicador oficial.</p>
-</section>
-<section id="qualidade-comparação-e-saúde" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="qualidade-comparação-e-saúde">Qualidade, comparação e saúde</h3>
-<p><span class="field-label">Qualidade e incerteza.</span> Relatar cobertura de monitores, componentes modelados, intervalo de incerteza quando disponível, superfície populacional, definição urbana e revisão entre edições.</p>
-<p><span class="field-label">Possibilidade de comparação.</span> Preferir a mesma edição e método. Revisões do modelo podem alterar retrospectivamente a série; não misturar observação pontual com estimativa populacional.</p>
-<p><span class="field-label">Relação com desfechos de saúde.</span> PM2,5 penetra profundamente no trato respiratório e está relacionado a doenças cardiovasculares e respiratórias, ao câncer de pulmão e à mortalidade. O indicador é usado pela OMS como medida de exposição para avaliação de riscos à saúde.</p>
-<p><span class="field-label">Defasagens temporais relevantes.</span> A média anual é apropriada a exposição crônica. Estudos de efeitos agudos e fumaça devem empregar concentrações diárias ou subdiárias com defasagens específicas.</p>
-<p><span class="field-label">Aplicação na gestão.</span> Monitorar exposição crônica, desigualdades territoriais e resultados de políticas de emissão; combinar com indicadores diários consolidados para comunicação durante episódios.</p>
-</section>
-<section id="referências-metodológicas" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="referências-metodológicas">Referências metodológicas</h3>
-<ul>
-<li><span class="citation" data-cites="who2026pm25">(<a href="../../backmatter/referencias.html#ref-who2026pm25" role="doc-biblioref">World Health Organization, 2026</a>)</span></li>
-<li><span class="citation" data-cites="who2021air">(<a href="../../backmatter/referencias.html#ref-who2021air" role="doc-biblioref">World Health Organization, 2021</a>)</span></li>
-</ul>
-</section>
-</section>
-<section id="sec-amb-ar-02" class="level2 ficha-title" data-number="9.8">
-<h2 class="ficha-title anchored" data-number="9.8" data-anchor-id="sec-amb-ar-02"><span class="header-section-number">9.8</span> Ficha do indicador: Percentil 99 das concentrações médias de 24 horas de PM2,5</h2>
-<div class="indicator-card">
-<p><span class="field-label">Código:</span> AMB-AR-02<br>
-<span class="field-label">Título resumido:</span> PM2,5 de curto prazo — P99 24h<br>
-<span class="field-label">Tema:</span> Qualidade do ar, queimadas e fumaça<br>
-<span class="field-label">Dimensão:</span> perigo; exposição<br>
-<span class="field-label">Disponibilidade:</span> <span class="availability">disponível onde há monitoramento</span> <span class="availability">requer processamento</span></p>
-</div>
-<section id="identificação-e-fundamento-1" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="identificação-e-fundamento-1">Identificação e fundamento</h3>
-<p><span class="field-label">Base de consolidação.</span> Diretriz mundial de qualidade do ar da OMS de 2021 para exposição de curto prazo a PM2,5.</p>
-<div class="callout callout-style-default callout-note no-icon callout-titled" title="Conceito-chave">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Nota</span>Conceito-chave
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Percentil 99 das médias válidas de 24 horas de concentração de material particulado fino no ano.</p>
-</div>
-</div>
-</section>
-<section id="objetivo-1" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="objetivo-1">Objetivo</h3>
-<p>Representar a exposição de curto prazo elevada sem exigir que absolutamente todos os dias permaneçam abaixo do valor-guia.</p>
-</section>
-<section id="interpretação-1" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="interpretação-1">Interpretação</h3>
-<p>O valor anual é comparado ao nível-guia de 15 µg/m³. Como o nível se refere ao percentil 99, corresponde a aproximadamente três ou quatro dias de excedência por ano, e não a um teto diário sem exceções.</p>
-</section>
-<section id="usos-1" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="usos-1">Usos</h3>
-<ul>
-<li>Monitorar exposição aguda a PM2</li>
-<li>5</li>
-<li>Avaliar episódios e políticas de redução.</li>
-<li>Relacionar séries diárias a mortalidade</li>
-<li>Internações e atendimentos.</li>
-</ul>
-</section>
-<section id="limitações-1" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="limitações-1">Limitações</h3>
-<ul>
-<li>A estação representa seu entorno</li>
-<li>Não toda a cidade.</li>
-<li>Requer regra de completude horária e anual.</li>
-<li>O valor-guia da OMS não é automaticamente padrão jurídico.</li>
-<li>O percentil anual não descreve duração contínua dos episódios.</li>
-</ul>
-</section>
-<section id="fontes-de-dados-1" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="fontes-de-dados-1">Fontes de dados</h3>
-<ul>
-<li>Sistema Nacional de Gestão da Qualidade do Ar — concentrações horárias ou diárias de estações de monitoramento (<a href="../../backmatter/indice-fontes.html#redes-qualidade-ar">cadastro</a>)</li>
-<li>Copernicus Atmosphere Monitoring Service — campo modelado condicionado à validação e identificação do produto (<a href="../../backmatter/indice-fontes.html#cams">cadastro</a>)</li>
-</ul>
-</section>
-<section id="método-de-cálculo-1" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="método-de-cálculo-1">Método de cálculo</h3>
-<p>Calcular médias de 24 horas a partir de dados horários válidos segundo protocolo de completude, ordenar as médias diárias válidas do ano e estimar o percentil 99 pelo algoritmo declarado.</p>
-<p><span class="math display">\[
-PM_{2,5}^{P99,24h}=Q_{0,99}\{\overline{PM}_{2,5,d}^{24h}:d\ válido\}
-\]</span></p>
-<div class="indicator-card">
-<p><span class="field-label">Numerador.</span> Não se aplica.</p>
-<p><span class="field-label">Denominador.</span> Não se aplica.</p>
-<p><span class="field-label">Unidade de medida.</span> Microgramas por metro cúbico (µg/m³).</p>
-<p><span class="field-label">Variáveis e categorias de análise.</span> PM2,5 horário; média de 24 horas; estação; dia; ano; método de medição.</p>
-<p><span class="field-label">Granularidade.</span> Média diária por estação e percentil anual por estação ou território qualificado.</p>
-<p><span class="field-label">Periodicidade de atualização.</span> Diária para vigilância e anual para avaliação do percentil.</p>
-<p><span class="field-label">Responsabilidade gerencial.</span> Órgão ambiental responsável pelo monitoramento e setor saúde responsável pela vigilância dos efeitos e comunicação sanitária.</p>
-<p><span class="field-label">Notas.</span> Concentração, índice de comunicação e estimativa de fonte específica são indicadores distintos e não devem ser convertidos sem a especificação correspondente.</p>
-<p><span class="field-label">Análise descritiva do indicador.</span> Mostrar série diária, P99, dias acima do nível-guia, episódios consecutivos, sazonalidade e distribuição por estação.</p>
-</div>
-</section>
-<section id="campos-complementares-para-clima-ambiente-e-saúde-1" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="campos-complementares-para-clima-ambiente-e-saúde-1">Campos complementares para clima, ambiente e saúde</h3>
-<div class="indicator-card">
-<p><span class="field-label">Unidade territorial.</span> Estação de monitoramento, célula de grade ou território derivado.</p>
-<p><span class="field-label">Resolução espacial original.</span> Ponto de monitoramento ou célula do produto modelado.</p>
-<p><span class="field-label">Resolução temporal.</span> Entrada horária; média diária; resumo anual.</p>
-<p><span class="field-label">Período de referência.</span> Ano civil, com regra de completude declarada.</p>
-<p><span class="field-label">Limiar ou valor de referência.</span> Nível-guia OMS 2021 de 15 µg/m³ para o percentil 99 das médias de 24 horas.</p>
-</div>
-</section>
-<section id="disponibilidade-e-acesso-1" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="disponibilidade-e-acesso-1">Disponibilidade e acesso</h3>
-<p><span class="field-label">Cobertura geográfica.</span> A das redes e produtos selecionados; cobertura observacional é heterogênea.</p>
-<p><span class="field-label">Período disponível.</span> Conforme estação ou produto.</p>
-<p><span class="field-label">Periodicidade de atualização.</span> Diária para vigilância e anual para avaliação do percentil.</p>
-<p><span class="field-label">Forma de acesso.</span> Redes ambientais e produtos modelados documentados.</p>
-<p><span class="field-label">URL ou identificador persistente.</span> https://www.who.int/publications/i/item/9789240034228</p>
-<p><span class="field-label">Formato dos arquivos.</span> Tabela horária ou diária e arquivo multidimensional.</p>
-<p><span class="field-label">Necessidade de processamento.</span> Validar horas, calcular médias de 24 horas, verificar completude anual e estimar percentil 99.</p>
-</section>
-<section id="qualidade-comparação-e-saúde-1" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="qualidade-comparação-e-saúde-1">Qualidade, comparação e saúde</h3>
-<p><span class="field-label">Qualidade e incerteza.</span> Relatar método, calibração, completude, representatividade da estação, componente modelado, resolução, incerteza, versão e condições meteorológicas.</p>
-<p><span class="field-label">Possibilidade de comparação.</span> Manter poluente, tempo de média, unidade, método, regra de completude, versão do produto e suporte espacial.</p>
-<p><span class="field-label">Relação com desfechos de saúde.</span> A poluição do ar aumenta morbidade e mortalidade cardiovascular e respiratória e está associada a câncer de pulmão, infecções respiratórias e desfechos materno-infantis.</p>
-<p><span class="field-label">Defasagens temporais relevantes.</span> Preservar concentrações horárias ou diárias para avaliar efeitos agudos e médias de longo prazo para efeitos crônicos.</p>
-<p><span class="field-label">Aplicação na gestão.</span> Apoiar comunicação de risco, vigilância de agravos, avaliação de políticas de emissão e preparação dos serviços.</p>
-</section>
-<section id="referências-metodológicas-1" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="referências-metodológicas-1">Referências metodológicas</h3>
-<ul>
-<li><span class="citation" data-cites="who2021air">(<a href="../../backmatter/referencias.html#ref-who2021air" role="doc-biblioref">World Health Organization, 2021</a>)</span></li>
-<li><span class="citation" data-cites="brasil2024conama506">(<a href="../../backmatter/referencias.html#ref-brasil2024conama506" role="doc-biblioref">Brasil. Conselho Nacional do Meio Ambiente, 2024</a>)</span></li>
-</ul>
-</section>
-</section>
-<section id="sec-amb-ar-03" class="level2 ficha-title" data-number="9.9">
-<h2 class="ficha-title anchored" data-number="9.9" data-anchor-id="sec-amb-ar-03"><span class="header-section-number">9.9</span> Ficha do indicador: Índice de Qualidade do Ar brasileiro (IQAr)</h2>
-<div class="indicator-card">
-<p><span class="field-label">Código:</span> AMB-AR-03<br>
-<span class="field-label">Título resumido:</span> Índice de Qualidade do Ar — IQAr<br>
-<span class="field-label">Tema:</span> Qualidade do ar, queimadas e fumaça<br>
-<span class="field-label">Dimensão:</span> perigo; exposição<br>
-<span class="field-label">Disponibilidade:</span> <span class="availability">disponível nas redes participantes</span></p>
-</div>
-<section id="identificação-e-fundamento-2" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="identificação-e-fundamento-2">Identificação e fundamento</h3>
-<p><span class="field-label">Base de consolidação.</span> Resolução CONAMA nº 506/2024 e orientação técnica do Ministério do Meio Ambiente e Mudança do Clima publicada em 2025.</p>
-<div class="callout callout-style-default callout-note no-icon callout-titled" title="Conceito-chave">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Nota</span>Conceito-chave
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Índice adimensional de comunicação que converte a concentração de cada poluente monitorado em escala comum e adota, para o local e período, o maior subíndice válido.</p>
-</div>
-</div>
-</section>
-<section id="objetivo-2" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="objetivo-2">Objetivo</h3>
-<p>Comunicar à população a condição de curto prazo da qualidade do ar e seus possíveis efeitos adversos à saúde.</p>
-</section>
-<section id="interpretação-2" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="interpretação-2">Interpretação</h3>
-<p>O índice é classificado em N1 boa (0–40), N2 moderada (41–80), N3 ruim (81–120), N4 muito ruim (121–200) e N5 péssima (201–400). O poluente que produz o maior subíndice determina a classificação divulgada.</p>
-</section>
-<section id="usos-2" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="usos-2">Usos</h3>
-<ul>
-<li>Comunicação diária ou horária de risco.</li>
-<li>Orientação de atividades e proteção.</li>
-<li>Acionamento de protocolos ambientais e sanitários.</li>
-</ul>
-</section>
-<section id="limitações-2" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="limitações-2">Limitações</h3>
-<ul>
-<li>Depende do conjunto de poluentes efetivamente monitorados.</li>
-<li>Um mesmo valor pode ser determinado por poluentes diferentes.</li>
-<li>Não substitui concentrações em análise epidemiológica.</li>
-<li>Tabelas e mensagens podem ser atualizadas por norma.</li>
-<li>Valor na estação não representa exposição individual.</li>
-</ul>
-</section>
-<section id="fontes-de-dados-2" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="fontes-de-dados-2">Fontes de dados</h3>
-<ul>
-<li>Sistema Nacional de Gestão da Qualidade do Ar — concentrações monitoradas por métodos de referência ou equivalentes (<a href="../../backmatter/indice-fontes.html#redes-qualidade-ar">cadastro</a>)</li>
-</ul>
-</section>
-<section id="método-de-cálculo-2" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="método-de-cálculo-2">Método de cálculo</h3>
-<p>Para cada poluente, obter a concentração no tempo de média regulamentado, localizar sua faixa e interpolar linearmente entre limites de concentração e índice. Selecionar o maior subíndice válido entre MP10, MP2,5, O₃, CO, NO₂ e SO₂.</p>
-<p><span class="math display">\[
-I_p=I_{ini}+\frac{I_{fin}-I_{ini}}{C_{fin}-C_{ini}}(C_p-C_{ini});\quad IQAr=\max_p(I_p)
-\]</span></p>
-<div class="indicator-card">
-<p><span class="field-label">Numerador.</span> Na interpolação, diferença entre o índice final e inicial multiplicada pelo afastamento da concentração em relação ao limite inicial.</p>
-<p><span class="field-label">Denominador.</span> Amplitude da faixa de concentração do poluente.</p>
-<p><span class="field-label">Unidade de medida.</span> Adimensional.</p>
-<p><span class="field-label">Variáveis e categorias de análise.</span> MP10 e MP2,5 em 24 h; O₃ e CO em 8 h; NO₂ em 1 h; SO₂ em 24 h; estação; poluente crítico; classe.</p>
-<p><span class="field-label">Granularidade.</span> Por estação e período de divulgação.</p>
-<p><span class="field-label">Periodicidade de atualização.</span> Tempo real, horária ou diária, conforme a Lei nº 14.850/2024 e a operação da rede.</p>
-<p><span class="field-label">Responsabilidade gerencial.</span> Órgão ambiental responsável pelo monitoramento e setor saúde responsável pela vigilância dos efeitos e comunicação sanitária.</p>
-<p><span class="field-label">Notas.</span> Concentração, índice de comunicação e estimativa de fonte específica são indicadores distintos e não devem ser convertidos sem a especificação correspondente.</p>
-<p><span class="field-label">Análise descritiva do indicador.</span> Informar IQAr, classe, poluente determinante, concentração, estação, horário, tendência e recomendações; manter as concentrações disponíveis.</p>
-</div>
-</section>
-<section id="campos-complementares-para-clima-ambiente-e-saúde-2" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="campos-complementares-para-clima-ambiente-e-saúde-2">Campos complementares para clima, ambiente e saúde</h3>
-<div class="indicator-card">
-<p><span class="field-label">Unidade territorial.</span> Estação de monitoramento, célula de grade ou território derivado.</p>
-<p><span class="field-label">Resolução espacial original.</span> Ponto de monitoramento; a representatividade depende da tipologia e implantação da estação.</p>
-<p><span class="field-label">Resolução temporal.</span> Horária ou diária conforme disponibilidade e tempos de média dos poluentes.</p>
-<p><span class="field-label">Período de referência.</span> Período móvel ou diário definido na orientação técnica vigente.</p>
-<p><span class="field-label">Limiar ou valor de referência.</span> Na orientação de 2025, a classe boa termina em 45 µg/m³ para MP10, 15 µg/m³ para MP2,5, 100 µg/m³ para O₃, 9 ppm para CO, 200 µg/m³ para NO₂ e 40 µg/m³ para SO₂; usar sempre a tabela vigente.</p>
-</div>
-</section>
-<section id="disponibilidade-e-acesso-2" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="disponibilidade-e-acesso-2">Disponibilidade e acesso</h3>
-<p><span class="field-label">Cobertura geográfica.</span> Locais cobertos pelas redes estaduais e distrital; não há cobertura homogênea do território nacional.</p>
-<p><span class="field-label">Período disponível.</span> Conforme cada rede e estação.</p>
-<p><span class="field-label">Periodicidade de atualização.</span> Tempo real, horária ou diária, conforme a Lei nº 14.850/2024 e a operação da rede.</p>
-<p><span class="field-label">Forma de acesso.</span> Sistemas eletrônicos dos órgãos ambientais e bases consolidadas.</p>
-<p><span class="field-label">URL ou identificador persistente.</span> https://www.gov.br/mma/pt-br/assuntos/meio-ambiente-urbano-recursos-hidricos-qualidade-ambiental/qualidade-do-ar/indice-de-qualidade-do-ar-iqar/orientacao-tecnica-indice-de-qualidade-do-ar-jan-25.pdf</p>
-<p><span class="field-label">Formato dos arquivos.</span> Painel, boletim e tabela por estação.</p>
-<p><span class="field-label">Necessidade de processamento.</span> Validar médias, aplicar tabela vigente, calcular subíndices e selecionar poluente crítico.</p>
-</section>
-<section id="qualidade-comparação-e-saúde-2" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="qualidade-comparação-e-saúde-2">Qualidade, comparação e saúde</h3>
-<p><span class="field-label">Qualidade e incerteza.</span> Relatar método, calibração, completude, representatividade da estação, componente modelado, resolução, incerteza, versão e condições meteorológicas.</p>
-<p><span class="field-label">Possibilidade de comparação.</span> Manter poluente, tempo de média, unidade, método, regra de completude, versão do produto e suporte espacial.</p>
-<p><span class="field-label">Relação com desfechos de saúde.</span> A poluição do ar aumenta morbidade e mortalidade cardiovascular e respiratória e está associada a câncer de pulmão, infecções respiratórias e desfechos materno-infantis.</p>
-<p><span class="field-label">Defasagens temporais relevantes.</span> Preservar concentrações horárias ou diárias para avaliar efeitos agudos e médias de longo prazo para efeitos crônicos.</p>
-<p><span class="field-label">Aplicação na gestão.</span> Apoiar comunicação de risco, vigilância de agravos, avaliação de políticas de emissão e preparação dos serviços.</p>
-</section>
-<section id="referências-metodológicas-2" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="referências-metodológicas-2">Referências metodológicas</h3>
-<ul>
-<li><span class="citation" data-cites="brasil2024conama506">(<a href="../../backmatter/referencias.html#ref-brasil2024conama506" role="doc-biblioref">Brasil. Conselho Nacional do Meio Ambiente, 2024</a>)</span></li>
-<li><span class="citation" data-cites="brasil2025iqar">(<a href="../../backmatter/referencias.html#ref-brasil2025iqar" role="doc-biblioref">Brasil. Ministério do Meio Ambiente e Mudança do Clima, 2025</a>)</span></li>
-</ul>
-</section>
-</section>
-<section id="sec-amb-fum-01" class="level2 ficha-title" data-number="9.10">
-<h2 class="ficha-title anchored" data-number="9.10" data-anchor-id="sec-amb-fum-01"><span class="header-section-number">9.10</span> Ficha do indicador: Exposição populacional média a PM2,5 atribuível à fumaça de incêndios</h2>
-<div class="indicator-card">
-<p><span class="field-label">Código:</span> AMB-FUM-01<br>
-<span class="field-label">Título resumido:</span> PM2,5 de fumaça ponderado pela população<br>
-<span class="field-label">Tema:</span> Qualidade do ar, queimadas e fumaça<br>
-<span class="field-label">Dimensão:</span> perigo; exposição<br>
-<span class="field-label">Disponibilidade:</span> <span class="availability">requer produto de atribuição de fonte</span> <span class="availability">requer processamento geoespacial</span></p>
-</div>
-<section id="identificação-e-fundamento-3" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="identificação-e-fundamento-3">Identificação e fundamento</h3>
-<p><span class="field-label">Base de consolidação.</span> Indicador de fumaça de incêndios do Lancet Countdown, que integra concentração de PM2,5 atribuível ao fogo e população.</p>
-<div class="callout callout-style-default callout-note no-icon callout-titled" title="Conceito-chave">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Nota</span>Conceito-chave
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Média espacial da concentração de PM2,5 atribuída a emissões de incêndios, ponderada pela população residente, em período declarado.</p>
-</div>
-</div>
-</section>
-<section id="objetivo-3" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="objetivo-3">Objetivo</h3>
-<p>Quantificar a intensidade média de exposição populacional à fumaça de incêndios separada, por modelagem, de outras fontes de PM2,5.</p>
-</section>
-<section id="interpretação-3" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="interpretação-3">Interpretação</h3>
-<p>Valor maior indica que a população do território viveu, em média, maior concentração ambiental de PM2,5 atribuível ao fogo. Não representa dose individual nem a concentração total.</p>
-</section>
-<section id="usos-3" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="usos-3">Usos</h3>
-<ul>
-<li>Monitorar exposição a fumaça ao longo do tempo.</li>
-<li>Comparar desigualdades territoriais.</li>
-<li>Apoiar estimativas de mortalidade atribuível e preparação sanitária.</li>
-</ul>
-</section>
-<section id="limitações-3" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="limitações-3">Limitações</h3>
-<ul>
-<li>A atribuição ao fogo é modelada e incerta.</li>
-<li>Satélites podem representar a coluna atmosférica e não apenas a superfície.</li>
-<li>Ponderação residencial não capta mobilidade ou ambiente interno.</li>
-<li>Produtos e inventários de emissão geram estimativas distintas.</li>
-</ul>
-</section>
-<section id="fontes-de-dados-3" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="fontes-de-dados-3">Fontes de dados</h3>
-<ul>
-<li>Copernicus Atmosphere Monitoring Service — modelagem atmosférica, quando o produto separar contribuição do fogo (<a href="../../backmatter/indice-fontes.html#cams">cadastro</a>)</li>
-<li>Programa Queimadas do INPE — informação de ocorrência e emissão usada na atribuição de fonte (<a href="../../backmatter/indice-fontes.html#queimadas-inpe">cadastro</a>)</li>
-<li>Instituto Brasileiro de Geografia e Estatística — população para ponderação no Brasil (<a href="../../backmatter/indice-fontes.html#ibge">cadastro</a>)</li>
-</ul>
-</section>
-<section id="método-de-cálculo-3" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="método-de-cálculo-3">Método de cálculo</h3>
-<p>Obter para cada célula e período a concentração superficial de PM2,5 atribuída a incêndios por produto validado, compatibilizar com população e calcular média ponderada; agregar temporalmente somente depois de preservar os valores diários.</p>
-<p><span class="math display">\[
-\overline{PM}_{2,5}^{fogo,pop}=\frac{\sum_{g}PM_{2,5,g}^{fogo}Pop_g}{\sum_g Pop_g}
-\]</span></p>
-<div class="indicator-card">
-<p><span class="field-label">Numerador.</span> Soma dos produtos entre concentração de PM2,5 atribuível ao fogo e população da célula.</p>
-<p><span class="field-label">Denominador.</span> População total incluída.</p>
-<p><span class="field-label">Unidade de medida.</span> Microgramas por metro cúbico (µg/m³).</p>
-<p><span class="field-label">Variáveis e categorias de análise.</span> PM2,5 de fogo; população; célula; dia, temporada ou ano; produto; território; grupo populacional.</p>
-<p><span class="field-label">Granularidade.</span> Célula diária e território diário, sazonal ou anual.</p>
-<p><span class="field-label">Periodicidade de atualização.</span> Diária ou anual, conforme a finalidade.</p>
-<p><span class="field-label">Responsabilidade gerencial.</span> Órgão ambiental responsável pelo monitoramento e setor saúde responsável pela vigilância dos efeitos e comunicação sanitária.</p>
-<p><span class="field-label">Notas.</span> Concentração, índice de comunicação e estimativa de fonte específica são indicadores distintos e não devem ser convertidos sem a especificação correspondente.</p>
-<p><span class="field-label">Análise descritiva do indicador.</span> Apresentar série diária, média e soma sazonal, dias de maior exposição, população por faixas, desigualdades e incerteza do modelo.</p>
-</div>
-</section>
-<section id="campos-complementares-para-clima-ambiente-e-saúde-3" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="campos-complementares-para-clima-ambiente-e-saúde-3">Campos complementares para clima, ambiente e saúde</h3>
-<div class="indicator-card">
-<p><span class="field-label">Unidade territorial.</span> Estação de monitoramento, célula de grade ou território derivado.</p>
-<p><span class="field-label">Resolução espacial original.</span> A do produto de fumaça e da grade populacional após harmonização.</p>
-<p><span class="field-label">Resolução temporal.</span> Preferencialmente diária; resumo sazonal ou anual.</p>
-<p><span class="field-label">Período de referência.</span> Ano ou temporada, com população correspondente e versão do modelo.</p>
-<p><span class="field-label">Limiar ou valor de referência.</span> Não há limiar universal específico de PM2,5 de fogo; comparações com diretrizes de PM2,5 total devem ser claramente identificadas.</p>
-</div>
-</section>
-<section id="disponibilidade-e-acesso-3" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="disponibilidade-e-acesso-3">Disponibilidade e acesso</h3>
-<p><span class="field-label">Cobertura geográfica.</span> A do produto atmosférico e populacional selecionados.</p>
-<p><span class="field-label">Período disponível.</span> Conforme produto; não interpolar versões sem avaliação.</p>
-<p><span class="field-label">Periodicidade de atualização.</span> Diária ou anual, conforme a finalidade.</p>
-<p><span class="field-label">Forma de acesso.</span> Produto modelado de fonte específica e grade populacional versionada.</p>
-<p><span class="field-label">URL ou identificador persistente.</span> https://doi.org/10.1016/S2468-2667(24)00055-0</p>
-<p><span class="field-label">Formato dos arquivos.</span> Arquivos multidimensionais e tabelas territoriais.</p>
-<p><span class="field-label">Necessidade de processamento.</span> Harmonizar grade, tempo e unidade; ponderar pela população; agregar e propagar incerteza.</p>
-</section>
-<section id="qualidade-comparação-e-saúde-3" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="qualidade-comparação-e-saúde-3">Qualidade, comparação e saúde</h3>
-<p><span class="field-label">Qualidade e incerteza.</span> Relatar método, calibração, completude, representatividade da estação, componente modelado, resolução, incerteza, versão e condições meteorológicas.</p>
-<p><span class="field-label">Possibilidade de comparação.</span> Manter poluente, tempo de média, unidade, método, regra de completude, versão do produto e suporte espacial.</p>
-<p><span class="field-label">Relação com desfechos de saúde.</span> A poluição do ar aumenta morbidade e mortalidade cardiovascular e respiratória e está associada a câncer de pulmão, infecções respiratórias e desfechos materno-infantis.</p>
-<p><span class="field-label">Defasagens temporais relevantes.</span> Preservar concentrações horárias ou diárias para avaliar efeitos agudos e médias de longo prazo para efeitos crônicos.</p>
-<p><span class="field-label">Aplicação na gestão.</span> Apoiar comunicação de risco, vigilância de agravos, avaliação de políticas de emissão e preparação dos serviços.</p>
-</section>
-<section id="referências-metodológicas-3" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="referências-metodológicas-3">Referências metodológicas</h3>
-<ul>
-<li><span class="citation" data-cites="vandaalen2024lancet">(<a href="../../backmatter/referencias.html#ref-vandaalen2024lancet" role="doc-biblioref"><span class="nocase">Daalen et al.</span>, 2024</a>)</span></li>
-<li><span class="citation" data-cites="who2021air">(<a href="../../backmatter/referencias.html#ref-who2021air" role="doc-biblioref">World Health Organization, 2021</a>)</span></li>
-</ul>
-</section>
-</section>
-<section id="alertas-e-aplicação-na-gestão" class="level2 page-columns page-full" data-number="9.11">
-<h2 data-number="9.11" class="anchored" data-anchor-id="alertas-e-aplicação-na-gestão"><span class="header-section-number">9.11</span> Alertas e aplicação na gestão</h2>
+<section id="alertas-e-aplicação-na-gestão" class="level2 page-columns page-full" data-number="9.7">
+<h2 data-number="9.7" class="anchored" data-anchor-id="alertas-e-aplicação-na-gestão"><span class="header-section-number">9.7</span> Alertas e aplicação na gestão</h2>
 <p>O IQAr organiza comunicação, enquanto concentrações preservam informação para análise técnica. Durante fumaça, o painel deve mostrar PM2,5 observado e previsto, estações, poluente determinante, trajetória da pluma, duração, população e serviços expostos. O nível de ação deve estar ligado a medidas factíveis, responsáveis e avaliação posterior <span class="citation" data-cites="brasil2025iqar who2021air">(<a href="../../backmatter/referencias.html#ref-brasil2025iqar" role="doc-biblioref">Brasil. Ministério do Meio Ambiente e Mudança do Clima, 2025</a>; <a href="../../backmatter/referencias.html#ref-who2021air" role="doc-biblioref">World Health Organization, 2021</a>)</span>.</p>
 <p>Uma rotina pode incluir:</p>
 <ol type="1">
@@ -1466,8 +975,8 @@ Figura&nbsp;9.2: Do foco de fogo à dose: medidas que não devem ser confundidas
 </div>
 </div>
 </section>
-<section id="síntese" class="level2" data-number="9.12">
-<h2 data-number="9.12" class="anchored" data-anchor-id="síntese"><span class="header-section-number">9.12</span> Síntese</h2>
+<section id="síntese" class="level2" data-number="9.8">
+<h2 data-number="9.8" class="anchored" data-anchor-id="síntese"><span class="header-section-number">9.8</span> Síntese</h2>
 <p>Qualidade do ar é representada por poluentes e tempos de média específicos. PM2,5 anual ponderado, P99 de 24 horas, IQAr e PM2,5 de fogo ponderado pela população respondem a perguntas distintas de saúde pública. Focos e área queimada descrevem o fogo; apenas medições ou modelos atmosféricos qualificados aproximam a fumaça no ar respirável.</p>
 
 

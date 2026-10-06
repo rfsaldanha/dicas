@@ -68,6 +68,31 @@ if command -v pdftotext >/dev/null 2>&1; then
   text_file=$(mktemp)
   trap 'rm -f "$text_file" ${image_list:-}' EXIT HUP INT TERM
   pdftotext -layout "$pdf" "$text_file"
+  if ! awk '
+    /^[[:space:]]*PARTE [IVXLCDM]+[[:space:]]*$/ {
+      gsub(/^[[:space:]]*PARTE |[[:space:]]*$/, "")
+      parts = parts (parts ? "," : "") $0
+    }
+    END { exit !(parts == "I,II,III,IV") }
+  ' "$text_file"; then
+    printf 'As quatro aberturas de parte estão ausentes ou fora de ordem.\n' >&2
+    exit 1
+  fi
+  if ! awk '
+    /^[[:space:]]*CAPÍTULO [0-9]+[[:space:]]*$/ {
+      gsub(/^[[:space:]]*CAPÍTULO |[[:space:]]*$/, "")
+      count++
+      if ($0 + 0 != count) invalid = 1
+    }
+    END { exit !(count == 24 && !invalid) }
+  ' "$text_file"; then
+    printf 'A numeração dos capítulos deve ir de 1 a 24 no PDF.\n' >&2
+    exit 1
+  fi
+  if grep -E 'Elementos pós-textuais|p[.] página|IV\(p[.]' "$text_file" >/dev/null; then
+    printf 'Divisão antiga ou remissão de página malformada no PDF.\n' >&2
+    exit 1
+  fi
   for title in "Agradecimentos" "Apresentação" "Prefácio do autor" \
     "Lista de siglas" "Sumário" "Como utilizar este livro" \
     "Dos dados aos indicadores" "Temperatura e condições" \

@@ -182,6 +182,25 @@ local function apply_quadro_column_widths(tbl)
   -- comprimi-la até o texto invadir a célula seguinte. Reservamos 17% para
   -- essa coluna nos quadros de três e quatro colunas e distribuímos o restante
   -- de acordo com sua posição; os demais mantêm o cálculo automático.
+  local first = tbl.head and tbl.head.rows and tbl.head.rows[1]
+  if first and first.cells then
+    local labels = {}
+    for _, cell in ipairs(first.cells) do
+      table.insert(labels, normalized_cell_text(cell))
+    end
+    local signature = table.concat(labels, "|")
+    local catalog_widths = {
+      ["código|indicador|contexto|fichas|página"] = {0.18, 0.39, 0.15, 0.12, 0.16},
+      ["indicador|código|página"] = {0.60, 0.22, 0.18},
+    }
+    local widths = catalog_widths[signature]
+    if widths then
+      for i, width in ipairs(widths) do
+        tbl.colspecs[i] = {tbl.colspecs[i][1], width}
+      end
+      return
+    end
+  end
   local column_count = #tbl.colspecs
   if column_count ~= 3 and column_count ~= 4 then
     return

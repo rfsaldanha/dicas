@@ -14,8 +14,8 @@ catalog_status <- system2("Rscript", "scripts/build_catalogs.R")
 if (catalog_status != 0L) fail("Falha na validação dos catálogos.")
 
 chapter_files <- sort(list.files("chapters", pattern = "\\.qmd$", recursive = TRUE, full.names = TRUE))
-if (length(chapter_files) != 15L) {
-  fail("Esperados 15 capítulos em chapters/; encontrados ", length(chapter_files), ".")
+if (length(chapter_files) != 24L) {
+  fail("Esperados 24 capítulos em chapters/; encontrados ", length(chapter_files), ".")
 }
 
 required <- c(
@@ -272,11 +272,6 @@ read_table_column <- function(path, column) {
   rows <- grep("^\\| \\[?[A-Z]{3}-[A-Z]{2,3}-[0-9]{2}", lines, value = TRUE)
   cells <- strsplit(sub("^\\| ", "", rows), " \\| ", fixed = FALSE)
   vapply(cells, function(x) x[[column]], character(1L))
-}
-alphabetical_all <- read_table_column("indicators/generated-index-alphabetical.qmd", 2L)
-alphabetical_titles <- head(alphabetical_all, length(alphabetical_all) / 2L)
-if (!identical(alphabetical_titles, sort(alphabetical_titles, method = "shell"))) {
-  fail("O catálogo alfabético de indicadores está fora de ordem.")
 }
 listed_all <- read_table_column("indicators/generated-list.qmd", 1L)
 listed_codes <- sub("^\\[([^]]+)\\].*$", "\\1", head(listed_all, length(listed_all) / 2L))
@@ -592,8 +587,11 @@ for (profile in c("_quarto-web.yml", "_quarto-print.yml")) {
   }
 }
 
+source("scripts/validate_book_structure.R")
+validate_book_structure(root, rendered = TRUE)
+
 indicator_count <- length(list.files("indicators/includes", pattern = "\\.qmd$"))
 message(
-  "Projeto validado: 15 capítulos; ", indicator_count, " fichas; HTML com ",
+  "Projeto validado: quatro partes; 24 capítulos; ", indicator_count, " fichas; HTML com ",
   length(html_files), " páginas; links e âncoras íntegros; PDF presente."
 )

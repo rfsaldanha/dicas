@@ -104,35 +104,6 @@ div.csl-indent {
 <script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
 <link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../../styles/web/styles.css">
 </head>
@@ -375,6 +346,18 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../backmatter/lista-figuras.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lista de figuras</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/lista-tabelas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lista de quadros e tabelas</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../frontmatter/sumario.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sumário</span></a>
   </div>
@@ -511,7 +494,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">Elementos pós-textuais</span></a>
+ <span class="menu-text">Parte IV — Fichas de indicadores e fontes de dados</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -519,8 +502,8 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../backmatter/glossario.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Glossário</span></a>
+  <a href="../../backmatter/lista-fichas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lista de fichas por código e capítulo</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -531,42 +514,78 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/16-fichas-temperatura-condicoes-termicas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Fichas — Temperatura e condições térmicas</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/17-fichas-precipitacao-secas-eventos-hidrologicos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Fichas — Precipitação, secas e eventos hidrológicos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Fichas — Qualidade do ar, queimadas e fumaça</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Fichas — Água, saneamento e qualidade ambiental</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/20-fichas-uso-cobertura-terra-ambiente-urbano.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Fichas — Uso e cobertura da terra, vegetação e ambiente urbano</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/21-fichas-eventos-severos-desastres.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Fichas — Eventos severos e desastres</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/22-fichas-exposicao-vulnerabilidade.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Fichas — Exposição e vulnerabilidade socioambiental</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/23-fichas-efeitos-saude.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Fichas — Efeitos do clima e do ambiente sobre a saúde</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/24-fichas-resposta-adaptacao-resiliencia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Fichas — Capacidade de resposta, adaptação e resiliência</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../backmatter/indice-fontes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Catálogo de fontes de dados</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+      </ul>
+  </li>
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../backmatter/indice-instituicoes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Relação de instituições</span></a>
+  <a href="../../backmatter/glossario.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Glossário</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../backmatter/lista-fichas.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lista de fichas por código e capítulo</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../backmatter/lista-tabelas.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lista de quadros e tabelas</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../backmatter/lista-figuras.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lista de figuras</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../backmatter/referencias.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Referências</span></a>
   </div>
 </li>
-      </ul>
-  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
@@ -612,92 +631,8 @@ window.Quarto = {
   <li><a href="#efeitos-sobre-a-saúde-e-suas-vias" id="toc-efeitos-sobre-a-saúde-e-suas-vias" class="nav-link" data-scroll-target="#efeitos-sobre-a-saúde-e-suas-vias"><span class="header-section-number">10.4</span> Efeitos sobre a saúde e suas vias</a></li>
   <li><a href="#segurança-hídrica" id="toc-segurança-hídrica" class="nav-link" data-scroll-target="#segurança-hídrica"><span class="header-section-number">10.5</span> Segurança hídrica</a></li>
   <li><a href="#fontes-seleção-e-principais-indicadores" id="toc-fontes-seleção-e-principais-indicadores" class="nav-link" data-scroll-target="#fontes-seleção-e-principais-indicadores"><span class="header-section-number">10.6</span> Fontes, seleção e principais indicadores</a></li>
-  <li><a href="#sec-san-agu-01" id="toc-sec-san-agu-01" class="nav-link" data-scroll-target="#sec-san-agu-01"><span class="header-section-number">10.7</span> Ficha do indicador: Proporção da população que utiliza serviços de água potável geridos de forma segura (ODS 6.1.1)</a>
-  <ul class="collapse">
-  <li><a href="#identificação-e-fundamento" id="toc-identificação-e-fundamento" class="nav-link" data-scroll-target="#identificação-e-fundamento">Identificação e fundamento</a></li>
-  <li><a href="#objetivo" id="toc-objetivo" class="nav-link" data-scroll-target="#objetivo">Objetivo</a></li>
-  <li><a href="#interpretação" id="toc-interpretação" class="nav-link" data-scroll-target="#interpretação">Interpretação</a></li>
-  <li><a href="#usos" id="toc-usos" class="nav-link" data-scroll-target="#usos">Usos</a></li>
-  <li><a href="#limitações" id="toc-limitações" class="nav-link" data-scroll-target="#limitações">Limitações</a></li>
-  <li><a href="#fontes-de-dados" id="toc-fontes-de-dados" class="nav-link" data-scroll-target="#fontes-de-dados">Fontes de dados</a></li>
-  <li><a href="#método-de-cálculo" id="toc-método-de-cálculo" class="nav-link" data-scroll-target="#método-de-cálculo">Método de cálculo</a></li>
-  <li><a href="#campos-complementares-para-clima-ambiente-e-saúde" id="toc-campos-complementares-para-clima-ambiente-e-saúde" class="nav-link" data-scroll-target="#campos-complementares-para-clima-ambiente-e-saúde">Campos complementares para clima, ambiente e saúde</a></li>
-  <li><a href="#disponibilidade-e-acesso" id="toc-disponibilidade-e-acesso" class="nav-link" data-scroll-target="#disponibilidade-e-acesso">Disponibilidade e acesso</a></li>
-  <li><a href="#qualidade-comparação-e-saúde" id="toc-qualidade-comparação-e-saúde" class="nav-link" data-scroll-target="#qualidade-comparação-e-saúde">Qualidade, comparação e saúde</a></li>
-  <li><a href="#referências-metodológicas" id="toc-referências-metodológicas" class="nav-link" data-scroll-target="#referências-metodológicas">Referências metodológicas</a></li>
-  </ul></li>
-  <li><a href="#sec-san-esg-01" id="toc-sec-san-esg-01" class="nav-link" data-scroll-target="#sec-san-esg-01"><span class="header-section-number">10.8</span> Ficha do indicador: Proporção da população que utiliza serviços de saneamento geridos de forma segura (ODS 6.2.1a)</a>
-  <ul class="collapse">
-  <li><a href="#identificação-e-fundamento-1" id="toc-identificação-e-fundamento-1" class="nav-link" data-scroll-target="#identificação-e-fundamento-1">Identificação e fundamento</a></li>
-  <li><a href="#objetivo-1" id="toc-objetivo-1" class="nav-link" data-scroll-target="#objetivo-1">Objetivo</a></li>
-  <li><a href="#interpretação-1" id="toc-interpretação-1" class="nav-link" data-scroll-target="#interpretação-1">Interpretação</a></li>
-  <li><a href="#usos-1" id="toc-usos-1" class="nav-link" data-scroll-target="#usos-1">Usos</a></li>
-  <li><a href="#limitações-1" id="toc-limitações-1" class="nav-link" data-scroll-target="#limitações-1">Limitações</a></li>
-  <li><a href="#fontes-de-dados-1" id="toc-fontes-de-dados-1" class="nav-link" data-scroll-target="#fontes-de-dados-1">Fontes de dados</a></li>
-  <li><a href="#método-de-cálculo-1" id="toc-método-de-cálculo-1" class="nav-link" data-scroll-target="#método-de-cálculo-1">Método de cálculo</a></li>
-  <li><a href="#campos-complementares-para-clima-ambiente-e-saúde-1" id="toc-campos-complementares-para-clima-ambiente-e-saúde-1" class="nav-link" data-scroll-target="#campos-complementares-para-clima-ambiente-e-saúde-1">Campos complementares para clima, ambiente e saúde</a></li>
-  <li><a href="#disponibilidade-e-acesso-1" id="toc-disponibilidade-e-acesso-1" class="nav-link" data-scroll-target="#disponibilidade-e-acesso-1">Disponibilidade e acesso</a></li>
-  <li><a href="#qualidade-comparação-e-saúde-1" id="toc-qualidade-comparação-e-saúde-1" class="nav-link" data-scroll-target="#qualidade-comparação-e-saúde-1">Qualidade, comparação e saúde</a></li>
-  <li><a href="#referências-metodológicas-1" id="toc-referências-metodológicas-1" class="nav-link" data-scroll-target="#referências-metodológicas-1">Referências metodológicas</a></li>
-  </ul></li>
-  <li><a href="#sec-san-hig-01" id="toc-sec-san-hig-01" class="nav-link" data-scroll-target="#sec-san-hig-01"><span class="header-section-number">10.9</span> Ficha do indicador: Proporção da população com instalação básica para lavagem das mãos com água e sabão (ODS 6.2.1b)</a>
-  <ul class="collapse">
-  <li><a href="#identificação-e-fundamento-2" id="toc-identificação-e-fundamento-2" class="nav-link" data-scroll-target="#identificação-e-fundamento-2">Identificação e fundamento</a></li>
-  <li><a href="#objetivo-2" id="toc-objetivo-2" class="nav-link" data-scroll-target="#objetivo-2">Objetivo</a></li>
-  <li><a href="#interpretação-2" id="toc-interpretação-2" class="nav-link" data-scroll-target="#interpretação-2">Interpretação</a></li>
-  <li><a href="#usos-2" id="toc-usos-2" class="nav-link" data-scroll-target="#usos-2">Usos</a></li>
-  <li><a href="#limitações-2" id="toc-limitações-2" class="nav-link" data-scroll-target="#limitações-2">Limitações</a></li>
-  <li><a href="#fontes-de-dados-2" id="toc-fontes-de-dados-2" class="nav-link" data-scroll-target="#fontes-de-dados-2">Fontes de dados</a></li>
-  <li><a href="#método-de-cálculo-2" id="toc-método-de-cálculo-2" class="nav-link" data-scroll-target="#método-de-cálculo-2">Método de cálculo</a></li>
-  <li><a href="#campos-complementares-para-clima-ambiente-e-saúde-2" id="toc-campos-complementares-para-clima-ambiente-e-saúde-2" class="nav-link" data-scroll-target="#campos-complementares-para-clima-ambiente-e-saúde-2">Campos complementares para clima, ambiente e saúde</a></li>
-  <li><a href="#disponibilidade-e-acesso-2" id="toc-disponibilidade-e-acesso-2" class="nav-link" data-scroll-target="#disponibilidade-e-acesso-2">Disponibilidade e acesso</a></li>
-  <li><a href="#qualidade-comparação-e-saúde-2" id="toc-qualidade-comparação-e-saúde-2" class="nav-link" data-scroll-target="#qualidade-comparação-e-saúde-2">Qualidade, comparação e saúde</a></li>
-  <li><a href="#referências-metodológicas-2" id="toc-referências-metodológicas-2" class="nav-link" data-scroll-target="#referências-metodológicas-2">Referências metodológicas</a></li>
-  </ul></li>
-  <li><a href="#sec-san-agu-02" id="toc-sec-san-agu-02" class="nav-link" data-scroll-target="#sec-san-agu-02"><span class="header-section-number">10.10</span> Ficha do indicador: Proporção de amostras de água para consumo humano com ausência de Escherichia coli</a>
-  <ul class="collapse">
-  <li><a href="#identificação-e-fundamento-3" id="toc-identificação-e-fundamento-3" class="nav-link" data-scroll-target="#identificação-e-fundamento-3">Identificação e fundamento</a></li>
-  <li><a href="#objetivo-3" id="toc-objetivo-3" class="nav-link" data-scroll-target="#objetivo-3">Objetivo</a></li>
-  <li><a href="#interpretação-3" id="toc-interpretação-3" class="nav-link" data-scroll-target="#interpretação-3">Interpretação</a></li>
-  <li><a href="#usos-3" id="toc-usos-3" class="nav-link" data-scroll-target="#usos-3">Usos</a></li>
-  <li><a href="#limitações-3" id="toc-limitações-3" class="nav-link" data-scroll-target="#limitações-3">Limitações</a></li>
-  <li><a href="#fontes-de-dados-3" id="toc-fontes-de-dados-3" class="nav-link" data-scroll-target="#fontes-de-dados-3">Fontes de dados</a></li>
-  <li><a href="#método-de-cálculo-3" id="toc-método-de-cálculo-3" class="nav-link" data-scroll-target="#método-de-cálculo-3">Método de cálculo</a></li>
-  <li><a href="#campos-complementares-para-clima-ambiente-e-saúde-3" id="toc-campos-complementares-para-clima-ambiente-e-saúde-3" class="nav-link" data-scroll-target="#campos-complementares-para-clima-ambiente-e-saúde-3">Campos complementares para clima, ambiente e saúde</a></li>
-  <li><a href="#disponibilidade-e-acesso-3" id="toc-disponibilidade-e-acesso-3" class="nav-link" data-scroll-target="#disponibilidade-e-acesso-3">Disponibilidade e acesso</a></li>
-  <li><a href="#qualidade-comparação-e-saúde-3" id="toc-qualidade-comparação-e-saúde-3" class="nav-link" data-scroll-target="#qualidade-comparação-e-saúde-3">Qualidade, comparação e saúde</a></li>
-  <li><a href="#referências-metodológicas-3" id="toc-referências-metodológicas-3" class="nav-link" data-scroll-target="#referências-metodológicas-3">Referências metodológicas</a></li>
-  </ul></li>
-  <li><a href="#sec-san-agu-03" id="toc-sec-san-agu-03" class="nav-link" data-scroll-target="#sec-san-agu-03"><span class="header-section-number">10.11</span> Ficha do indicador: Proporção de amostras com residual de agente desinfetante em conformidade</a>
-  <ul class="collapse">
-  <li><a href="#identificação-e-fundamento-4" id="toc-identificação-e-fundamento-4" class="nav-link" data-scroll-target="#identificação-e-fundamento-4">Identificação e fundamento</a></li>
-  <li><a href="#objetivo-4" id="toc-objetivo-4" class="nav-link" data-scroll-target="#objetivo-4">Objetivo</a></li>
-  <li><a href="#interpretação-4" id="toc-interpretação-4" class="nav-link" data-scroll-target="#interpretação-4">Interpretação</a></li>
-  <li><a href="#usos-4" id="toc-usos-4" class="nav-link" data-scroll-target="#usos-4">Usos</a></li>
-  <li><a href="#limitações-4" id="toc-limitações-4" class="nav-link" data-scroll-target="#limitações-4">Limitações</a></li>
-  <li><a href="#fontes-de-dados-4" id="toc-fontes-de-dados-4" class="nav-link" data-scroll-target="#fontes-de-dados-4">Fontes de dados</a></li>
-  <li><a href="#método-de-cálculo-4" id="toc-método-de-cálculo-4" class="nav-link" data-scroll-target="#método-de-cálculo-4">Método de cálculo</a></li>
-  <li><a href="#campos-complementares-para-clima-ambiente-e-saúde-4" id="toc-campos-complementares-para-clima-ambiente-e-saúde-4" class="nav-link" data-scroll-target="#campos-complementares-para-clima-ambiente-e-saúde-4">Campos complementares para clima, ambiente e saúde</a></li>
-  <li><a href="#disponibilidade-e-acesso-4" id="toc-disponibilidade-e-acesso-4" class="nav-link" data-scroll-target="#disponibilidade-e-acesso-4">Disponibilidade e acesso</a></li>
-  <li><a href="#qualidade-comparação-e-saúde-4" id="toc-qualidade-comparação-e-saúde-4" class="nav-link" data-scroll-target="#qualidade-comparação-e-saúde-4">Qualidade, comparação e saúde</a></li>
-  <li><a href="#referências-metodológicas-4" id="toc-referências-metodológicas-4" class="nav-link" data-scroll-target="#referências-metodológicas-4">Referências metodológicas</a></li>
-  </ul></li>
-  <li><a href="#sec-san-agu-04" id="toc-sec-san-agu-04" class="nav-link" data-scroll-target="#sec-san-agu-04"><span class="header-section-number">10.12</span> Ficha do indicador: Proporção de amostras de turbidez em conformidade com o padrão de potabilidade</a>
-  <ul class="collapse">
-  <li><a href="#identificação-e-fundamento-5" id="toc-identificação-e-fundamento-5" class="nav-link" data-scroll-target="#identificação-e-fundamento-5">Identificação e fundamento</a></li>
-  <li><a href="#objetivo-5" id="toc-objetivo-5" class="nav-link" data-scroll-target="#objetivo-5">Objetivo</a></li>
-  <li><a href="#interpretação-5" id="toc-interpretação-5" class="nav-link" data-scroll-target="#interpretação-5">Interpretação</a></li>
-  <li><a href="#usos-5" id="toc-usos-5" class="nav-link" data-scroll-target="#usos-5">Usos</a></li>
-  <li><a href="#limitações-5" id="toc-limitações-5" class="nav-link" data-scroll-target="#limitações-5">Limitações</a></li>
-  <li><a href="#fontes-de-dados-5" id="toc-fontes-de-dados-5" class="nav-link" data-scroll-target="#fontes-de-dados-5">Fontes de dados</a></li>
-  <li><a href="#método-de-cálculo-5" id="toc-método-de-cálculo-5" class="nav-link" data-scroll-target="#método-de-cálculo-5">Método de cálculo</a></li>
-  <li><a href="#campos-complementares-para-clima-ambiente-e-saúde-5" id="toc-campos-complementares-para-clima-ambiente-e-saúde-5" class="nav-link" data-scroll-target="#campos-complementares-para-clima-ambiente-e-saúde-5">Campos complementares para clima, ambiente e saúde</a></li>
-  <li><a href="#disponibilidade-e-acesso-5" id="toc-disponibilidade-e-acesso-5" class="nav-link" data-scroll-target="#disponibilidade-e-acesso-5">Disponibilidade e acesso</a></li>
-  <li><a href="#qualidade-comparação-e-saúde-5" id="toc-qualidade-comparação-e-saúde-5" class="nav-link" data-scroll-target="#qualidade-comparação-e-saúde-5">Qualidade, comparação e saúde</a></li>
-  <li><a href="#referências-metodológicas-5" id="toc-referências-metodológicas-5" class="nav-link" data-scroll-target="#referências-metodológicas-5">Referências metodológicas</a></li>
-  </ul></li>
-  <li><a href="#aplicação-na-gestão" id="toc-aplicação-na-gestão" class="nav-link" data-scroll-target="#aplicação-na-gestão"><span class="header-section-number">10.13</span> Aplicação na gestão</a></li>
-  <li><a href="#síntese" id="toc-síntese" class="nav-link" data-scroll-target="#síntese"><span class="header-section-number">10.14</span> Síntese</a></li>
+  <li><a href="#aplicação-na-gestão" id="toc-aplicação-na-gestão" class="nav-link" data-scroll-target="#aplicação-na-gestão"><span class="header-section-number">10.7</span> Aplicação na gestão</a></li>
+  <li><a href="#síntese" id="toc-síntese" class="nav-link" data-scroll-target="#síntese"><span class="header-section-number">10.8</span> Síntese</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/rfsaldanha/dicas/blob/main/chapters/part-2/08-agua-saneamento-qualidade-ambiental.qmd" class="toc-action"><i class="bi bi-github"></i>Ver o código fonte</a></li><li><a href="https://github.com/rfsaldanha/dicas/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></nav>
     </div>
@@ -922,15 +857,9 @@ Quadro&nbsp;10.2: Indicadores de água, saneamento e higiene usados em saúde p�
 </figcaption>
 <div aria-describedby="qua-indicadores-wash-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
-<colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-</colgroup>
 <thead>
 <tr class="header">
-<th>Indicador</th>
+<th>Indicador e ficha (Parte IV)</th>
 <th>Base metodológica</th>
 <th>Uso em saúde pública</th>
 <th>Cuidado de interpretação</th>
@@ -938,37 +867,37 @@ Quadro&nbsp;10.2: Indicadores de água, saneamento e higiene usados em saúde p�
 </thead>
 <tbody>
 <tr class="odd">
-<td>Água gerida de forma segura, ODS 6.1.1</td>
+<td>Água gerida de forma segura, ODS 6.1.1 — <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-agu-01">SAN-AGU-01</a></td>
 <td>JMP/ODS</td>
 <td>acesso, disponibilidade e qualidade</td>
 <td>valor é limitado pelo componente menos coberto</td>
 </tr>
 <tr class="even">
-<td>Saneamento gerido de forma segura, ODS 6.2.1a</td>
+<td>Saneamento gerido de forma segura, ODS 6.2.1a — <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-esg-01">SAN-ESG-01</a></td>
 <td>JMP/ODS</td>
 <td>cadeia de excretas e desigualdade</td>
 <td>conexão não prova tratamento</td>
 </tr>
 <tr class="odd">
-<td>Instalação para lavagem das mãos, ODS 6.2.1b</td>
+<td>Instalação para lavagem das mãos, ODS 6.2.1b — <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-hig-01">SAN-HIG-01</a></td>
 <td>JMP/ODS</td>
 <td>meios domésticos para higiene</td>
 <td>não mede comportamento</td>
 </tr>
 <tr class="even">
-<td>Amostras sem E. coli</td>
+<td>Amostras sem E. coli — <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-agu-02">SAN-AGU-02</a></td>
 <td>Vigiagua/Sisagua e norma de potabilidade</td>
 <td>contaminação fecal e resposta</td>
 <td>depende da cobertura do plano</td>
 </tr>
 <tr class="odd">
-<td>Residual de desinfetante conforme</td>
+<td>Residual de desinfetante conforme — <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-agu-03">SAN-AGU-03</a></td>
 <td>Vigiagua/Sisagua</td>
 <td>barreira sentinela na distribuição</td>
 <td>agente e faixa devem ser identificados</td>
 </tr>
 <tr class="even">
-<td>Turbidez conforme</td>
+<td>Turbidez conforme — <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-agu-04">SAN-AGU-04</a></td>
 <td>Vigiagua/Sisagua</td>
 <td>tratamento e integridade</td>
 <td>limiar varia por etapa e tecnologia</td>
@@ -984,689 +913,20 @@ Quadro&nbsp;10.2: Indicadores de água, saneamento e higiene usados em saúde p�
 </div>
 </figure>
 </div>
-</section>
-<section id="sec-san-agu-01" class="level2 ficha-title" data-number="10.7">
-<h2 class="ficha-title anchored" data-number="10.7" data-anchor-id="sec-san-agu-01"><span class="header-section-number">10.7</span> Ficha do indicador: Proporção da população que utiliza serviços de água potável geridos de forma segura (ODS 6.1.1)</h2>
-<div class="indicator-card">
-<p><span class="field-label">Código:</span> SAN-AGU-01<br>
-<span class="field-label">Título resumido:</span> Água gerida de forma segura — ODS 6.1.1<br>
-<span class="field-label">Tema:</span> Água, saneamento e qualidade ambiental<br>
-<span class="field-label">Dimensão:</span> exposição; vulnerabilidade; resposta<br>
-<span class="field-label">Disponibilidade:</span> <span class="availability">disponível em estimativa oficial</span></p>
-</div>
-<section id="identificação-e-fundamento" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="identificação-e-fundamento">Identificação e fundamento</h3>
-<p><span class="field-label">Base de consolidação.</span> Indicador ODS 6.1.1, sob custódia do Programa Conjunto OMS/UNICEF de Monitoramento de Água, Saneamento e Higiene.</p>
-<div class="callout callout-style-default callout-note no-icon callout-titled" title="Conceito-chave">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Nota</span>Conceito-chave
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Proporção da população que usa fonte melhorada de água localizada no domicílio ou terreno, disponível quando necessária e livre de contaminação fecal e química prioritária.</p>
-</div>
-</div>
-</section>
-<section id="objetivo" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="objetivo">Objetivo</h3>
-<p>Monitorar acesso universal e equitativo a serviço de água que reúna acessibilidade, disponibilidade e qualidade.</p>
-</section>
-<section id="interpretação" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="interpretação">Interpretação</h3>
-<p>O serviço é classificado como gerido de forma segura apenas quando atende simultaneamente aos três critérios. O valor global é estimado de maneira conservadora a partir dos componentes disponíveis.</p>
-</section>
-<section id="usos" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="usos">Usos</h3>
-<ul>
-<li>Monitorar o ODS 6.1.1.</li>
-<li>Comparar desigualdades urbano-rurais e sociais.</li>
-<li>Planejar expansão e melhoria do abastecimento.</li>
-</ul>
-</section>
-<section id="limitações" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="limitações">Limitações</h3>
-<ul>
-<li>Nem todos os países dispõem de todos os componentes.</li>
-<li>A estimativa nacional pode ocultar intermitência local.</li>
-<li>Qualidade costuma usar E. coli e químicos prioritários</li>
-<li>Não todo o padrão de potabilidade.</li>
-<li>Fonte principal declarada não mede consumo individual.</li>
-</ul>
-</section>
-<section id="fontes-de-dados" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="fontes-de-dados">Fontes de dados</h3>
-<ul>
-<li>Programa Conjunto OMS/UNICEF de Monitoramento do Abastecimento de Água, Saneamento e Higiene — estimativa internacional oficial e metadado ODS (<a href="../../backmatter/indice-fontes.html#jmp">cadastro</a>)</li>
-<li>Sistema Nacional de Informações em Saneamento Básico — informação administrativa nacional complementar sobre serviços (<a href="../../backmatter/indice-fontes.html#sinisa">cadastro</a>)</li>
-<li>Instituto Brasileiro de Geografia e Estatística — censos e pesquisas domiciliares usados em análises nacionais (<a href="../../backmatter/indice-fontes.html#ibge">cadastro</a>)</li>
-</ul>
-</section>
-<section id="método-de-cálculo" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="método-de-cálculo">Método de cálculo</h3>
-<p>Estimar a proporção que usa fonte melhorada e, entre usuários, as proporções com fonte no local, água disponível quando necessária e livre de contaminação. Multiplicar cada componente pela cobertura de fonte melhorada e usar o menor valor disponível conforme o método JMP.</p>
-<p><span class="math display">\[
-ODS6.1.1=100\times\min(P_{local},P_{disponível},P_{sem\ contaminação})
-\]</span></p>
-<div class="indicator-card">
-<p><span class="field-label">Numerador.</span> População estimada que usa fonte melhorada e atende simultaneamente aos componentes de serviço seguro.</p>
-<p><span class="field-label">Denominador.</span> População total do território.</p>
-<p><span class="field-label">Unidade de medida.</span> Percentual (%).</p>
-<p><span class="field-label">Variáveis e categorias de análise.</span> Fonte melhorada; localização; disponibilidade; E. coli; arsênio e fluoreto quando disponíveis; urbano/rural; grupo socioeconômico.</p>
-<p><span class="field-label">Granularidade.</span> Estimativa nacional, urbana e rural; outras desagregações conforme dados.</p>
-<p><span class="field-label">Periodicidade de atualização.</span> Periódica.</p>
-<p><span class="field-label">Responsabilidade gerencial.</span> Titulares e prestadores de saneamento, autoridades reguladoras e setor saúde, conforme a competência de cada indicador.</p>
-<p><span class="field-label">Notas.</span> Indicadores de cobertura, qualidade da água e desempenho da vigilância respondem a perguntas diferentes e devem ser apresentados em conjunto.</p>
-<p><span class="field-label">Análise descritiva do indicador.</span> Mostrar valor total, componentes, urbano/rural, grupos sociais, fonte dos dados e intervalo entre anos observados e estimados.</p>
-</div>
-</section>
-<section id="campos-complementares-para-clima-ambiente-e-saúde" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="campos-complementares-para-clima-ambiente-e-saúde">Campos complementares para clima, ambiente e saúde</h3>
-<div class="indicator-card">
-<p><span class="field-label">Unidade territorial.</span> País; desagregações subnacionais quando metodologicamente suportadas.</p>
-<p><span class="field-label">Resolução espacial original.</span> A das pesquisas, censos e dados administrativos integrados.</p>
-<p><span class="field-label">Resolução temporal.</span> Anual estimada.</p>
-<p><span class="field-label">Período de referência.</span> Ano da estimativa e fontes subjacentes documentadas.</p>
-<p><span class="field-label">Limiar ou valor de referência.</span> Atender aos três critérios de serviço gerido de forma segura.</p>
-</div>
-</section>
-<section id="disponibilidade-e-acesso" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="disponibilidade-e-acesso">Disponibilidade e acesso</h3>
-<p><span class="field-label">Cobertura geográfica.</span> Global no JMP; detalhamento nacional depende das fontes brasileiras.</p>
-<p><span class="field-label">Período disponível.</span> Estimativas JMP desde 2000, conforme disponibilidade.</p>
-<p><span class="field-label">Periodicidade de atualização.</span> Periódica.</p>
-<p><span class="field-label">Forma de acesso.</span> Portal WASH Data e fontes nacionais.</p>
-<p><span class="field-label">URL ou identificador persistente.</span> https://washdata.org/topics/drinking-water</p>
-<p><span class="field-label">Formato dos arquivos.</span> Tabelas, arquivos de estimativas e relatórios.</p>
-<p><span class="field-label">Necessidade de processamento.</span> Para o valor oficial, selecionar edição. Para análise local, harmonizar fonte, população, disponibilidade e qualidade sem rotular como ODS oficial indevidamente.</p>
-</section>
-<section id="qualidade-comparação-e-saúde" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="qualidade-comparação-e-saúde">Qualidade, comparação e saúde</h3>
-<p><span class="field-label">Qualidade e incerteza.</span> Relatar fonte, cobertura, população de referência, dados ausentes, plano amostral, qualidade laboratorial, regras de classificação e revisão.</p>
-<p><span class="field-label">Possibilidade de comparação.</span> Manter definição de serviço, população, forma de abastecimento, ponto de coleta, parâmetro, padrão vigente, período e método.</p>
-<p><span class="field-label">Relação com desfechos de saúde.</span> Água segura, saneamento e higiene reduzem exposição a patógenos e substâncias químicas e sustentam alimentação, cuidado, dignidade e funcionamento dos serviços de saúde.</p>
-<p><span class="field-label">Defasagens temporais relevantes.</span> Distinguir condição do serviço, resultado de amostra e desfecho; surtos e agravos podem ocorrer com defasagens e múltiplas vias.</p>
-<p><span class="field-label">Aplicação na gestão.</span> Identificar lacunas de serviço e qualidade, priorizar inspeção e resposta, acompanhar desigualdades e avaliar políticas.</p>
-</section>
-<section id="referências-metodológicas" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="referências-metodológicas">Referências metodológicas</h3>
-<ul>
-<li><span class="citation" data-cites="un2026sdg611">(<a href="../../backmatter/referencias.html#ref-un2026sdg611" role="doc-biblioref">United Nations Statistics Division, 2026a</a>)</span></li>
-<li><span class="citation" data-cites="jmp2026water">(<a href="../../backmatter/referencias.html#ref-jmp2026water" role="doc-biblioref">World Health Organization; United Nations Children’s Fund, 2026</a>)</span></li>
-</ul>
-</section>
-</section>
-<section id="sec-san-esg-01" class="level2 ficha-title" data-number="10.8">
-<h2 class="ficha-title anchored" data-number="10.8" data-anchor-id="sec-san-esg-01"><span class="header-section-number">10.8</span> Ficha do indicador: Proporção da população que utiliza serviços de saneamento geridos de forma segura (ODS 6.2.1a)</h2>
-<div class="indicator-card">
-<p><span class="field-label">Código:</span> SAN-ESG-01<br>
-<span class="field-label">Título resumido:</span> Saneamento gerido de forma segura — ODS 6.2.1a<br>
-<span class="field-label">Tema:</span> Água, saneamento e qualidade ambiental<br>
-<span class="field-label">Dimensão:</span> exposição; vulnerabilidade; resposta<br>
-<span class="field-label">Disponibilidade:</span> <span class="availability">disponível em estimativa oficial</span></p>
-</div>
-<section id="identificação-e-fundamento-1" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="identificação-e-fundamento-1">Identificação e fundamento</h3>
-<p><span class="field-label">Base de consolidação.</span> Componente de saneamento do indicador ODS 6.2.1, sob custódia do Programa Conjunto OMS/UNICEF.</p>
-<div class="callout callout-style-default callout-note no-icon callout-titled" title="Conceito-chave">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Nota</span>Conceito-chave
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Proporção da população que usa instalação sanitária melhorada não compartilhada, da qual excretas são tratadas e dispostas com segurança no local ou removidas e tratadas fora dele.</p>
-</div>
-</div>
-</section>
-<section id="objetivo-1" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="objetivo-1">Objetivo</h3>
-<p>Monitorar acesso a saneamento que inclua contenção, esvaziamento, transporte e tratamento seguro das excretas.</p>
-</section>
-<section id="interpretação-1" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="interpretação-1">Interpretação</h3>
-<p>Conexão à rede não basta: o indicador considera o destino e tratamento. Soluções no local podem qualificar-se quando manejadas com segurança.</p>
-</section>
-<section id="usos-1" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="usos-1">Usos</h3>
-<ul>
-<li>Monitorar ODS 6.2.1a.</li>
-<li>Planejar coleta e tratamento de esgoto e lodo fecal.</li>
-<li>Avaliar desigualdades e risco sanitário.</li>
-</ul>
-</section>
-<section id="limitações-1" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="limitações-1">Limitações</h3>
-<ul>
-<li>Dados sobre toda a cadeia são incompletos.</li>
-<li>Taxas de tratamento podem ser estimadas.</li>
-<li>Não mede diretamente exposição em cada domicílio.</li>
-<li>Instalação compartilhada é excluída do nível básico no método global.</li>
-</ul>
-</section>
-<section id="fontes-de-dados-1" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="fontes-de-dados-1">Fontes de dados</h3>
-<ul>
-<li>Programa Conjunto OMS/UNICEF de Monitoramento do Abastecimento de Água, Saneamento e Higiene — estimativa internacional e metadado ODS (<a href="../../backmatter/indice-fontes.html#jmp">cadastro</a>)</li>
-<li>Sistema Nacional de Informações em Saneamento Básico — informação nacional sobre esgotamento e tratamento (<a href="../../backmatter/indice-fontes.html#sinisa">cadastro</a>)</li>
-<li>Instituto Brasileiro de Geografia e Estatística — censos e pesquisas domiciliares (<a href="../../backmatter/indice-fontes.html#ibge">cadastro</a>)</li>
-</ul>
-</section>
-<section id="método-de-cálculo-1" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="método-de-cálculo-1">Método de cálculo</h3>
-<p>Estimar usuários de instalações melhoradas não compartilhadas e somar as parcelas cujas excretas são dispostas com segurança no local, transportadas por rede e tratadas ou removidas de sistemas não conectados e tratadas.</p>
-<p><span class="math display">\[
-ODS6.2.1a=100\times\frac{Pop_{in\ situ\ seguro}+Pop_{rede\ tratado}+Pop_{lodo\ tratado}}{Pop_{total}}
-\]</span></p>
-<div class="indicator-card">
-<p><span class="field-label">Numerador.</span> População que usa instalação melhorada não compartilhada com excretas manejadas com segurança.</p>
-<p><span class="field-label">Denominador.</span> População total.</p>
-<p><span class="field-label">Unidade de medida.</span> Percentual (%).</p>
-<p><span class="field-label">Variáveis e categorias de análise.</span> Tipo de instalação; compartilhamento; contenção; esvaziamento; transporte; tratamento; urbano/rural.</p>
-<p><span class="field-label">Granularidade.</span> Nacional, urbana e rural no JMP; local conforme sistemas administrativos.</p>
-<p><span class="field-label">Periodicidade de atualização.</span> Periódica.</p>
-<p><span class="field-label">Responsabilidade gerencial.</span> Titulares e prestadores de saneamento, autoridades reguladoras e setor saúde, conforme a competência de cada indicador.</p>
-<p><span class="field-label">Notas.</span> Indicadores de cobertura, qualidade da água e desempenho da vigilância respondem a perguntas diferentes e devem ser apresentados em conjunto.</p>
-<p><span class="field-label">Análise descritiva do indicador.</span> Apresentar cobertura e componentes por urbano/rural, renda e território, distinguindo rede, soluções locais e tratamento.</p>
-</div>
-</section>
-<section id="campos-complementares-para-clima-ambiente-e-saúde-1" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="campos-complementares-para-clima-ambiente-e-saúde-1">Campos complementares para clima, ambiente e saúde</h3>
-<div class="indicator-card">
-<p><span class="field-label">Unidade territorial.</span> País ou território subnacional qualificado.</p>
-<p><span class="field-label">Resolução espacial original.</span> A das pesquisas e registros administrativos.</p>
-<p><span class="field-label">Resolução temporal.</span> Anual estimada.</p>
-<p><span class="field-label">Período de referência.</span> Ano da estimativa e fontes subjacentes.</p>
-<p><span class="field-label">Limiar ou valor de referência.</span> Instalação melhorada não compartilhada e manejo seguro de excretas.</p>
-</div>
-</section>
-<section id="disponibilidade-e-acesso-1" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="disponibilidade-e-acesso-1">Disponibilidade e acesso</h3>
-<p><span class="field-label">Cobertura geográfica.</span> Global; detalhe nacional conforme fontes.</p>
-<p><span class="field-label">Período disponível.</span> Conforme série JMP e fontes nacionais.</p>
-<p><span class="field-label">Periodicidade de atualização.</span> Periódica.</p>
-<p><span class="field-label">Forma de acesso.</span> Portal WASH Data e sistemas nacionais.</p>
-<p><span class="field-label">URL ou identificador persistente.</span> https://unstats.un.org/sdgs/metadata/?Goal=6&amp;Target=6.2</p>
-<p><span class="field-label">Formato dos arquivos.</span> Tabelas e relatórios.</p>
-<p><span class="field-label">Necessidade de processamento.</span> Integrar tipo de instalação e destino de excretas; não inferir tratamento a partir de conexão.</p>
-</section>
-<section id="qualidade-comparação-e-saúde-1" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="qualidade-comparação-e-saúde-1">Qualidade, comparação e saúde</h3>
-<p><span class="field-label">Qualidade e incerteza.</span> Relatar fonte, cobertura, população de referência, dados ausentes, plano amostral, qualidade laboratorial, regras de classificação e revisão.</p>
-<p><span class="field-label">Possibilidade de comparação.</span> Manter definição de serviço, população, forma de abastecimento, ponto de coleta, parâmetro, padrão vigente, período e método.</p>
-<p><span class="field-label">Relação com desfechos de saúde.</span> Água segura, saneamento e higiene reduzem exposição a patógenos e substâncias químicas e sustentam alimentação, cuidado, dignidade e funcionamento dos serviços de saúde.</p>
-<p><span class="field-label">Defasagens temporais relevantes.</span> Distinguir condição do serviço, resultado de amostra e desfecho; surtos e agravos podem ocorrer com defasagens e múltiplas vias.</p>
-<p><span class="field-label">Aplicação na gestão.</span> Identificar lacunas de serviço e qualidade, priorizar inspeção e resposta, acompanhar desigualdades e avaliar políticas.</p>
-</section>
-<section id="referências-metodológicas-1" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="referências-metodológicas-1">Referências metodológicas</h3>
-<ul>
-<li><span class="citation" data-cites="un2026sdg621">(<a href="../../backmatter/referencias.html#ref-un2026sdg621" role="doc-biblioref">United Nations Statistics Division, 2026b</a>)</span></li>
-</ul>
-</section>
-</section>
-<section id="sec-san-hig-01" class="level2 ficha-title" data-number="10.9">
-<h2 class="ficha-title anchored" data-number="10.9" data-anchor-id="sec-san-hig-01"><span class="header-section-number">10.9</span> Ficha do indicador: Proporção da população com instalação básica para lavagem das mãos com água e sabão (ODS 6.2.1b)</h2>
-<div class="indicator-card">
-<p><span class="field-label">Código:</span> SAN-HIG-01<br>
-<span class="field-label">Título resumido:</span> Instalação para higiene — ODS 6.2.1b<br>
-<span class="field-label">Tema:</span> Água, saneamento e qualidade ambiental<br>
-<span class="field-label">Dimensão:</span> exposição; vulnerabilidade; resposta<br>
-<span class="field-label">Disponibilidade:</span> <span class="availability">disponível onde há pesquisa compatível</span></p>
-</div>
-<section id="identificação-e-fundamento-2" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="identificação-e-fundamento-2">Identificação e fundamento</h3>
-<p><span class="field-label">Base de consolidação.</span> Componente de higiene do indicador ODS 6.2.1, sob custódia do Programa Conjunto OMS/UNICEF.</p>
-<div class="callout callout-style-default callout-note no-icon callout-titled" title="Conceito-chave">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Nota</span>Conceito-chave
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Proporção da população que vive em domicílio com instalação para lavagem das mãos onde água e sabão são observados no momento da pesquisa.</p>
-</div>
-</div>
-</section>
-<section id="objetivo-2" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="objetivo-2">Objetivo</h3>
-<p>Monitorar disponibilidade doméstica dos meios básicos para higiene das mãos.</p>
-</section>
-<section id="interpretação-2" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="interpretação-2">Interpretação</h3>
-<p>Valor maior indica maior cobertura de instalações com insumos no momento observado. Não mede frequência nem técnica de lavagem.</p>
-</section>
-<section id="usos-2" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="usos-2">Usos</h3>
-<ul>
-<li>Monitorar ODS 6.2.1b.</li>
-<li>Planejar políticas de água e higiene.</li>
-<li>Avaliar desigualdades e preparação para surtos.</li>
-</ul>
-</section>
-<section id="limitações-2" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="limitações-2">Limitações</h3>
-<ul>
-<li>Observação pontual pode variar no tempo.</li>
-<li>Não mede comportamento.</li>
-<li>Produtos de limpeza alternativos exigem classificação do protocolo.</li>
-<li>Valor domiciliar não representa escolas ou serviços de saúde.</li>
-</ul>
-</section>
-<section id="fontes-de-dados-2" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="fontes-de-dados-2">Fontes de dados</h3>
-<ul>
-<li>Programa Conjunto OMS/UNICEF de Monitoramento do Abastecimento de Água, Saneamento e Higiene — estimativa internacional e metadado ODS (<a href="../../backmatter/indice-fontes.html#jmp">cadastro</a>)</li>
-<li>Instituto Brasileiro de Geografia e Estatística — pesquisas domiciliares nacionais quando incluírem os componentes (<a href="../../backmatter/indice-fontes.html#ibge">cadastro</a>)</li>
-</ul>
-</section>
-<section id="método-de-cálculo-2" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="método-de-cálculo-2">Método de cálculo</h3>
-<p>Em pesquisa representativa, observar a presença de instalação no domicílio e verificar água e sabão; ponderar pessoas residentes nos domicílios qualificados.</p>
-<p><span class="math display">\[
-ODS6.2.1b=100\times\frac{Pop_{domicílios\ com\ instalação,\ água\ e\ sabão}}{Pop_{total}}
-\]</span></p>
-<div class="indicator-card">
-<p><span class="field-label">Numerador.</span> População em domicílios com instalação observada, água e sabão.</p>
-<p><span class="field-label">Denominador.</span> População total pesquisada e ponderada.</p>
-<p><span class="field-label">Unidade de medida.</span> Percentual (%).</p>
-<p><span class="field-label">Variáveis e categorias de análise.</span> Instalação; água; sabão; urbano/rural; renda; região.</p>
-<p><span class="field-label">Granularidade.</span> Domicílio na coleta e população/território na estimativa.</p>
-<p><span class="field-label">Periodicidade de atualização.</span> Periódica.</p>
-<p><span class="field-label">Responsabilidade gerencial.</span> Titulares e prestadores de saneamento, autoridades reguladoras e setor saúde, conforme a competência de cada indicador.</p>
-<p><span class="field-label">Notas.</span> Indicadores de cobertura, qualidade da água e desempenho da vigilância respondem a perguntas diferentes e devem ser apresentados em conjunto.</p>
-<p><span class="field-label">Análise descritiva do indicador.</span> Desagregar por urbano/rural, renda, região e presença de cada componente, com intervalos amostrais.</p>
-</div>
-</section>
-<section id="campos-complementares-para-clima-ambiente-e-saúde-2" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="campos-complementares-para-clima-ambiente-e-saúde-2">Campos complementares para clima, ambiente e saúde</h3>
-<div class="indicator-card">
-<p><span class="field-label">Unidade territorial.</span> País ou domínio amostral.</p>
-<p><span class="field-label">Resolução espacial original.</span> A do desenho da pesquisa.</p>
-<p><span class="field-label">Resolução temporal.</span> Inquérito periódico e estimativa anual quando modelada.</p>
-<p><span class="field-label">Período de referência.</span> Data da coleta ou ano da estimativa.</p>
-<p><span class="field-label">Limiar ou valor de referência.</span> Presença simultânea de instalação, água e sabão.</p>
-</div>
-</section>
-<section id="disponibilidade-e-acesso-2" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="disponibilidade-e-acesso-2">Disponibilidade e acesso</h3>
-<p><span class="field-label">Cobertura geográfica.</span> Global com disponibilidade desigual; nacional conforme pesquisa.</p>
-<p><span class="field-label">Período disponível.</span> Conforme ciclos de inquérito.</p>
-<p><span class="field-label">Periodicidade de atualização.</span> Periódica.</p>
-<p><span class="field-label">Forma de acesso.</span> Portal WASH Data e microdados/pesquisas nacionais.</p>
-<p><span class="field-label">URL ou identificador persistente.</span> https://unstats.un.org/sdgs/metadata/?Goal=6&amp;Target=6.2</p>
-<p><span class="field-label">Formato dos arquivos.</span> Tabelas e microdados sob regras da pesquisa.</p>
-<p><span class="field-label">Necessidade de processamento.</span> Aplicar desenho amostral e ponderar população; preservar componentes separados.</p>
-</section>
-<section id="qualidade-comparação-e-saúde-2" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="qualidade-comparação-e-saúde-2">Qualidade, comparação e saúde</h3>
-<p><span class="field-label">Qualidade e incerteza.</span> Relatar fonte, cobertura, população de referência, dados ausentes, plano amostral, qualidade laboratorial, regras de classificação e revisão.</p>
-<p><span class="field-label">Possibilidade de comparação.</span> Manter definição de serviço, população, forma de abastecimento, ponto de coleta, parâmetro, padrão vigente, período e método.</p>
-<p><span class="field-label">Relação com desfechos de saúde.</span> Água segura, saneamento e higiene reduzem exposição a patógenos e substâncias químicas e sustentam alimentação, cuidado, dignidade e funcionamento dos serviços de saúde.</p>
-<p><span class="field-label">Defasagens temporais relevantes.</span> Distinguir condição do serviço, resultado de amostra e desfecho; surtos e agravos podem ocorrer com defasagens e múltiplas vias.</p>
-<p><span class="field-label">Aplicação na gestão.</span> Identificar lacunas de serviço e qualidade, priorizar inspeção e resposta, acompanhar desigualdades e avaliar políticas.</p>
-</section>
-<section id="referências-metodológicas-2" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="referências-metodológicas-2">Referências metodológicas</h3>
-<ul>
-<li><span class="citation" data-cites="un2026sdg621">(<a href="../../backmatter/referencias.html#ref-un2026sdg621" role="doc-biblioref">United Nations Statistics Division, 2026b</a>)</span></li>
-</ul>
-</section>
-</section>
-<section id="sec-san-agu-02" class="level2 ficha-title" data-number="10.10">
-<h2 class="ficha-title anchored" data-number="10.10" data-anchor-id="sec-san-agu-02"><span class="header-section-number">10.10</span> Ficha do indicador: Proporção de amostras de água para consumo humano com ausência de Escherichia coli</h2>
-<div class="indicator-card">
-<p><span class="field-label">Código:</span> SAN-AGU-02<br>
-<span class="field-label">Título resumido:</span> Amostras sem E. coli<br>
-<span class="field-label">Tema:</span> Água, saneamento e qualidade ambiental<br>
-<span class="field-label">Dimensão:</span> exposição; vulnerabilidade; resposta<br>
-<span class="field-label">Disponibilidade:</span> <span class="availability">disponível em dados administrativos</span></p>
-</div>
-<section id="identificação-e-fundamento-3" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="identificação-e-fundamento-3">Identificação e fundamento</h3>
-<p><span class="field-label">Base de consolidação.</span> Indicador de qualidade bacteriológica utilizado no Sisagua e no Vigiagua, conforme a norma brasileira de potabilidade.</p>
-<div class="callout callout-style-default callout-note no-icon callout-titled" title="Conceito-chave">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Nota</span>Conceito-chave
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Percentual de amostras válidas de água para consumo humano nas quais E. coli está ausente em 100 mL, no universo e período definidos.</p>
-</div>
-</div>
-</section>
-<section id="objetivo-3" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="objetivo-3">Objetivo</h3>
-<p>Detectar evidência de contaminação fecal e acompanhar a conformidade microbiológica da água distribuída ou consumida.</p>
-</section>
-<section id="interpretação-3" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="interpretação-3">Interpretação</h3>
-<p>Valor próximo de 100% indica maior proporção de resultados conformes. Uma amostra positiva exige avaliação e ação conforme ponto, forma de abastecimento e protocolo; a proporção não elimina o significado de eventos isolados.</p>
-</section>
-<section id="usos-3" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="usos-3">Usos</h3>
-<ul>
-<li>Vigilância da qualidade da água.</li>
-<li>Identificação de formas de abastecimento e pontos críticos.</li>
-<li>Investigação de surtos e avaliação de intervenções.</li>
-</ul>
-</section>
-<section id="limitações-3" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="limitações-3">Limitações</h3>
-<ul>
-<li>Resultado representa local e momento da coleta.</li>
-<li>Plano de amostragem pode não cobrir áreas vulneráveis.</li>
-<li>Ausência do indicador não garante ausência de todos os patógenos.</li>
-<li>Agregar controle e vigilância pode ocultar diferenças.</li>
-</ul>
-</section>
-<section id="fontes-de-dados-3" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="fontes-de-dados-3">Fontes de dados</h3>
-<ul>
-<li>Programa Nacional de Vigilância da Qualidade da Água para Consumo Humano — registros de vigilância e controle no Sisagua (<a href="../../backmatter/indice-fontes.html#vigiagua">cadastro</a>)</li>
-</ul>
-</section>
-<section id="método-de-cálculo-3" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="método-de-cálculo-3">Método de cálculo</h3>
-<p>Selecionar amostras válidas no período, forma de abastecimento, origem institucional e ponto de coleta definidos; contar as com ausência de E. coli em 100 mL e dividir pelo total analisado.</p>
-<p><span class="math display">\[
-P_{E.coli\ ausente}=100\times\frac{N_{amostras\ sem\ E.coli}}{N_{amostras\ válidas\ analisadas}}
-\]</span></p>
-<div class="indicator-card">
-<p><span class="field-label">Numerador.</span> Número de amostras válidas com ausência de E. coli em 100 mL.</p>
-<p><span class="field-label">Denominador.</span> Total de amostras válidas analisadas para E. coli no universo.</p>
-<p><span class="field-label">Unidade de medida.</span> Percentual (%).</p>
-<p><span class="field-label">Variáveis e categorias de análise.</span> Resultado; ponto; SAA, SAC ou SAI; vigilância ou controle; município; mês; laboratório.</p>
-<p><span class="field-label">Granularidade.</span> Amostra e resumo por forma de abastecimento, município e período.</p>
-<p><span class="field-label">Periodicidade de atualização.</span> Contínua no sistema; arquivos públicos por competência.</p>
-<p><span class="field-label">Responsabilidade gerencial.</span> Titulares e prestadores de saneamento, autoridades reguladoras e setor saúde, conforme a competência de cada indicador.</p>
-<p><span class="field-label">Notas.</span> Indicadores de cobertura, qualidade da água e desempenho da vigilância respondem a perguntas diferentes e devem ser apresentados em conjunto.</p>
-<p><span class="field-label">Análise descritiva do indicador.</span> Mostrar número de amostras, proporção conforme, positivos por ponto e forma, cobertura do plano e tendência.</p>
-</div>
-</section>
-<section id="campos-complementares-para-clima-ambiente-e-saúde-3" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="campos-complementares-para-clima-ambiente-e-saúde-3">Campos complementares para clima, ambiente e saúde</h3>
-<div class="indicator-card">
-<p><span class="field-label">Unidade territorial.</span> Ponto de coleta, forma de abastecimento e município.</p>
-<p><span class="field-label">Resolução espacial original.</span> Coordenada/endereço do ponto quando disponível.</p>
-<p><span class="field-label">Resolução temporal.</span> Data da coleta; resumo mensal, trimestral ou anual.</p>
-<p><span class="field-label">Período de referência.</span> Período de monitoramento e norma de potabilidade vigente.</p>
-<p><span class="field-label">Limiar ou valor de referência.</span> Ausência de E. coli em 100 mL.</p>
-</div>
-</section>
-<section id="disponibilidade-e-acesso-3" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="disponibilidade-e-acesso-3">Disponibilidade e acesso</h3>
-<p><span class="field-label">Cobertura geográfica.</span> Brasil, condicionada à alimentação e execução dos planos.</p>
-<p><span class="field-label">Período disponível.</span> Bases públicas de vigilância a partir de 2014 no conjunto consultado.</p>
-<p><span class="field-label">Periodicidade de atualização.</span> Contínua no sistema; arquivos públicos por competência.</p>
-<p><span class="field-label">Forma de acesso.</span> Sisagua, painéis Vigiagua e Portal de Dados Abertos do SUS.</p>
-<p><span class="field-label">URL ou identificador persistente.</span> https://dadosabertos.saude.gov.br/dataset/sisagua-vigilancia-parametros-basicos</p>
-<p><span class="field-label">Formato dos arquivos.</span> CSV e painéis.</p>
-<p><span class="field-label">Necessidade de processamento.</span> Deduplicar, filtrar resultados válidos, harmonizar categorias e calcular com denominador explícito.</p>
-</section>
-<section id="qualidade-comparação-e-saúde-3" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="qualidade-comparação-e-saúde-3">Qualidade, comparação e saúde</h3>
-<p><span class="field-label">Qualidade e incerteza.</span> Relatar fonte, cobertura, população de referência, dados ausentes, plano amostral, qualidade laboratorial, regras de classificação e revisão.</p>
-<p><span class="field-label">Possibilidade de comparação.</span> Manter definição de serviço, população, forma de abastecimento, ponto de coleta, parâmetro, padrão vigente, período e método.</p>
-<p><span class="field-label">Relação com desfechos de saúde.</span> Água segura, saneamento e higiene reduzem exposição a patógenos e substâncias químicas e sustentam alimentação, cuidado, dignidade e funcionamento dos serviços de saúde.</p>
-<p><span class="field-label">Defasagens temporais relevantes.</span> Distinguir condição do serviço, resultado de amostra e desfecho; surtos e agravos podem ocorrer com defasagens e múltiplas vias.</p>
-<p><span class="field-label">Aplicação na gestão.</span> Identificar lacunas de serviço e qualidade, priorizar inspeção e resposta, acompanhar desigualdades e avaliar políticas.</p>
-</section>
-<section id="referências-metodológicas-3" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="referências-metodológicas-3">Referências metodológicas</h3>
-<ul>
-<li><span class="citation" data-cites="brasil2021portaria888">(<a href="../../backmatter/referencias.html#ref-brasil2021portaria888" role="doc-biblioref">Brasil. Ministério da Saúde, 2021</a>)</span></li>
-<li><span class="citation" data-cites="brasil2024agua">(<a href="../../backmatter/referencias.html#ref-brasil2024agua" role="doc-biblioref">Brasil. Ministério da Saúde, 2024</a>)</span></li>
-<li><span class="citation" data-cites="oliveira2019sisagua">(<a href="../../backmatter/referencias.html#ref-oliveira2019sisagua" role="doc-biblioref">Oliveira Júnior et al., 2019</a>)</span></li>
-</ul>
-</section>
-</section>
-<section id="sec-san-agu-03" class="level2 ficha-title" data-number="10.11">
-<h2 class="ficha-title anchored" data-number="10.11" data-anchor-id="sec-san-agu-03"><span class="header-section-number">10.11</span> Ficha do indicador: Proporção de amostras com residual de agente desinfetante em conformidade</h2>
-<div class="indicator-card">
-<p><span class="field-label">Código:</span> SAN-AGU-03<br>
-<span class="field-label">Título resumido:</span> Residual de desinfetante conforme<br>
-<span class="field-label">Tema:</span> Água, saneamento e qualidade ambiental<br>
-<span class="field-label">Dimensão:</span> exposição; vulnerabilidade; resposta<br>
-<span class="field-label">Disponibilidade:</span> <span class="availability">disponível em dados administrativos</span></p>
-</div>
-<section id="identificação-e-fundamento-4" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="identificação-e-fundamento-4">Identificação e fundamento</h3>
-<p><span class="field-label">Base de consolidação.</span> Indicador sentinela do Vigiagua e grupo de indicador do Sisagua para residual de desinfetante.</p>
-<div class="callout callout-style-default callout-note no-icon callout-titled" title="Conceito-chave">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Nota</span>Conceito-chave
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Percentual de amostras válidas cujo residual do desinfetante medido se encontra na faixa exigida pela norma para o agente e ponto correspondentes.</p>
-</div>
-</div>
-</section>
-<section id="objetivo-4" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="objetivo-4">Objetivo</h3>
-<p>Acompanhar manutenção da barreira de desinfecção na distribuição e nos pontos de consumo.</p>
-</section>
-<section id="interpretação-4" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="interpretação-4">Interpretação</h3>
-<p>Valor maior indica maior conformidade dos resultados amostrados. Residual abaixo do mínimo pode sinalizar perda de proteção; valor alto pode exigir avaliação de operação, subprodutos e aceitabilidade.</p>
-</section>
-<section id="usos-4" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="usos-4">Usos</h3>
-<ul>
-<li>Vigilância sentinela da distribuição.</li>
-<li>Priorização de inspeção e recoleta.</li>
-<li>Avaliação de integridade e operação do abastecimento.</li>
-</ul>
-</section>
-<section id="limitações-4" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="limitações-4">Limitações</h3>
-<ul>
-<li>Faixas variam com agente e situação.</li>
-<li>Um resultado conforme não garante qualidade microbiológica.</li>
-<li>Horário</li>
-<li>Temperatura e técnica de campo afetam a medição.</li>
-<li>Agregação pode ocultar trechos críticos.</li>
-</ul>
-</section>
-<section id="fontes-de-dados-4" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="fontes-de-dados-4">Fontes de dados</h3>
-<ul>
-<li>Programa Nacional de Vigilância da Qualidade da Água para Consumo Humano — resultados de parâmetros básicos no Sisagua (<a href="../../backmatter/indice-fontes.html#vigiagua">cadastro</a>)</li>
-</ul>
-</section>
-<section id="método-de-cálculo-4" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="método-de-cálculo-4">Método de cálculo</h3>
-<p>Para cada amostra válida, identificar agente desinfetante e limite aplicável na norma vigente, classificar o resultado e dividir o número conforme pelo total analisado no mesmo universo.</p>
-<p><span class="math display">\[
-P_{RAD\ conforme}=100\times\frac{N_{amostras\ RAD\ conforme}}{N_{amostras\ RAD\ válidas}}
-\]</span></p>
-<div class="indicator-card">
-<p><span class="field-label">Numerador.</span> Amostras válidas com residual de agente desinfetante dentro dos limites aplicáveis.</p>
-<p><span class="field-label">Denominador.</span> Amostras válidas analisadas para o agente no universo.</p>
-<p><span class="field-label">Unidade de medida.</span> Percentual (%); concentração original em mg/L.</p>
-<p><span class="field-label">Variáveis e categorias de análise.</span> Agente; concentração; ponto; forma de abastecimento; vigilância/controle; data; município.</p>
-<p><span class="field-label">Granularidade.</span> Amostra e resumo por sistema/solução, município e período.</p>
-<p><span class="field-label">Periodicidade de atualização.</span> Contínua e por publicação de arquivos.</p>
-<p><span class="field-label">Responsabilidade gerencial.</span> Titulares e prestadores de saneamento, autoridades reguladoras e setor saúde, conforme a competência de cada indicador.</p>
-<p><span class="field-label">Notas.</span> Indicadores de cobertura, qualidade da água e desempenho da vigilância respondem a perguntas diferentes e devem ser apresentados em conjunto.</p>
-<p><span class="field-label">Análise descritiva do indicador.</span> Apresentar concentração, conformidade, distribuição de valores, pontos baixos/altos, forma e execução do plano.</p>
-</div>
-</section>
-<section id="campos-complementares-para-clima-ambiente-e-saúde-4" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="campos-complementares-para-clima-ambiente-e-saúde-4">Campos complementares para clima, ambiente e saúde</h3>
-<div class="indicator-card">
-<p><span class="field-label">Unidade territorial.</span> Ponto de coleta, forma de abastecimento e município.</p>
-<p><span class="field-label">Resolução espacial original.</span> Ponto de coleta.</p>
-<p><span class="field-label">Resolução temporal.</span> Momento da coleta; resumo periódico.</p>
-<p><span class="field-label">Período de referência.</span> Período e norma vigente.</p>
-<p><span class="field-label">Limiar ou valor de referência.</span> A norma exige, no mínimo, 0,2 mg/L de cloro residual livre, 2 mg/L de cloro residual combinado ou 0,2 mg/L de dióxido de cloro na distribuição e pontos de consumo; verificar também limites máximos e condições específicas.</p>
-</div>
-</section>
-<section id="disponibilidade-e-acesso-4" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="disponibilidade-e-acesso-4">Disponibilidade e acesso</h3>
-<p><span class="field-label">Cobertura geográfica.</span> Brasil, condicionada ao monitoramento.</p>
-<p><span class="field-label">Período disponível.</span> Conforme Sisagua e arquivos públicos.</p>
-<p><span class="field-label">Periodicidade de atualização.</span> Contínua e por publicação de arquivos.</p>
-<p><span class="field-label">Forma de acesso.</span> Sisagua, painéis e dados abertos.</p>
-<p><span class="field-label">URL ou identificador persistente.</span> https://www.gov.br/saude/pt-br/composicao/svsa/saude-ambiental/vigiagua/monitoramento-da-qualidade-da-agua</p>
-<p><span class="field-label">Formato dos arquivos.</span> CSV, painel e relatórios.</p>
-<p><span class="field-label">Necessidade de processamento.</span> Identificar agente e norma, validar unidade, classificar resultados e calcular cobertura e conformidade separadamente.</p>
-</section>
-<section id="qualidade-comparação-e-saúde-4" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="qualidade-comparação-e-saúde-4">Qualidade, comparação e saúde</h3>
-<p><span class="field-label">Qualidade e incerteza.</span> Relatar fonte, cobertura, população de referência, dados ausentes, plano amostral, qualidade laboratorial, regras de classificação e revisão.</p>
-<p><span class="field-label">Possibilidade de comparação.</span> Manter definição de serviço, população, forma de abastecimento, ponto de coleta, parâmetro, padrão vigente, período e método.</p>
-<p><span class="field-label">Relação com desfechos de saúde.</span> Água segura, saneamento e higiene reduzem exposição a patógenos e substâncias químicas e sustentam alimentação, cuidado, dignidade e funcionamento dos serviços de saúde.</p>
-<p><span class="field-label">Defasagens temporais relevantes.</span> Distinguir condição do serviço, resultado de amostra e desfecho; surtos e agravos podem ocorrer com defasagens e múltiplas vias.</p>
-<p><span class="field-label">Aplicação na gestão.</span> Identificar lacunas de serviço e qualidade, priorizar inspeção e resposta, acompanhar desigualdades e avaliar políticas.</p>
-</section>
-<section id="referências-metodológicas-4" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="referências-metodológicas-4">Referências metodológicas</h3>
-<ul>
-<li><span class="citation" data-cites="brasil2021portaria888">(<a href="../../backmatter/referencias.html#ref-brasil2021portaria888" role="doc-biblioref">Brasil. Ministério da Saúde, 2021</a>)</span></li>
-<li><span class="citation" data-cites="brasil2024agua">(<a href="../../backmatter/referencias.html#ref-brasil2024agua" role="doc-biblioref">Brasil. Ministério da Saúde, 2024</a>)</span></li>
-<li><span class="citation" data-cites="oliveira2019sisagua">(<a href="../../backmatter/referencias.html#ref-oliveira2019sisagua" role="doc-biblioref">Oliveira Júnior et al., 2019</a>)</span></li>
-</ul>
-</section>
-</section>
-<section id="sec-san-agu-04" class="level2 ficha-title" data-number="10.12">
-<h2 class="ficha-title anchored" data-number="10.12" data-anchor-id="sec-san-agu-04"><span class="header-section-number">10.12</span> Ficha do indicador: Proporção de amostras de turbidez em conformidade com o padrão de potabilidade</h2>
-<div class="indicator-card">
-<p><span class="field-label">Código:</span> SAN-AGU-04<br>
-<span class="field-label">Título resumido:</span> Turbidez conforme<br>
-<span class="field-label">Tema:</span> Água, saneamento e qualidade ambiental<br>
-<span class="field-label">Dimensão:</span> exposição; vulnerabilidade; resposta<br>
-<span class="field-label">Disponibilidade:</span> <span class="availability">disponível em dados administrativos</span></p>
-</div>
-<section id="identificação-e-fundamento-5" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="identificação-e-fundamento-5">Identificação e fundamento</h3>
-<p><span class="field-label">Base de consolidação.</span> Indicador sentinela do Vigiagua e grupo de indicador do Sisagua para turbidez.</p>
-<div class="callout callout-style-default callout-note no-icon callout-titled" title="Conceito-chave">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Nota</span>Conceito-chave
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Percentual de resultados válidos de turbidez que atendem ao valor máximo permitido aplicável à etapa, tecnologia de tratamento e ponto de coleta.</p>
-</div>
-</div>
-</section>
-<section id="objetivo-5" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="objetivo-5">Objetivo</h3>
-<p>Acompanhar desempenho do tratamento e integridade do abastecimento por um parâmetro que também interfere na eficácia da desinfecção.</p>
-</section>
-<section id="interpretação-5" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="interpretação-5">Interpretação</h3>
-<p>Valor maior indica maior conformidade entre amostras. A interpretação deve separar saída do tratamento e distribuição e considerar a tecnologia.</p>
-</section>
-<section id="usos-5" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="usos-5">Usos</h3>
-<ul>
-<li>Avaliar tratamento e distribuição.</li>
-<li>Priorizar inspeção e ações corretivas.</li>
-<li>Acompanhar risco após chuva</li>
-<li>Inundação ou alteração do manancial.</li>
-</ul>
-</section>
-<section id="limitações-5" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="limitações-5">Limitações</h3>
-<ul>
-<li>Não é medida direta de patógenos.</li>
-<li>Limites variam por tecnologia e ponto.</li>
-<li>Agregação entre etapas é inadequada.</li>
-<li>Falta de amostragem pode produzir falsa aparência de conformidade.</li>
-</ul>
-</section>
-<section id="fontes-de-dados-5" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="fontes-de-dados-5">Fontes de dados</h3>
-<ul>
-<li>Programa Nacional de Vigilância da Qualidade da Água para Consumo Humano — resultados de turbidez no Sisagua (<a href="../../backmatter/indice-fontes.html#vigiagua">cadastro</a>)</li>
-</ul>
-</section>
-<section id="método-de-cálculo-5" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="método-de-cálculo-5">Método de cálculo</h3>
-<p>Classificar cada resultado válido segundo o valor máximo permitido aplicável à tecnologia e ao ponto na norma vigente; dividir resultados conformes pelo total analisado no universo homogêneo.</p>
-<p><span class="math display">\[
-P_{turbidez\ conforme}=100\times\frac{N_{resultados\leq VMP_{aplicável}}}{N_{resultados\ válidos}}
-\]</span></p>
-<div class="indicator-card">
-<p><span class="field-label">Numerador.</span> Resultados válidos de turbidez iguais ou inferiores ao valor máximo aplicável.</p>
-<p><span class="field-label">Denominador.</span> Total de resultados válidos no mesmo universo tecnológico e operacional.</p>
-<p><span class="field-label">Unidade de medida.</span> Percentual (%); valor original em unidade de turbidez.</p>
-<p><span class="field-label">Variáveis e categorias de análise.</span> Turbidez; etapa; tecnologia; ponto; forma de abastecimento; data; município.</p>
-<p><span class="field-label">Granularidade.</span> Amostra e resumo por etapa, sistema/solução, município e período.</p>
-<p><span class="field-label">Periodicidade de atualização.</span> Contínua e por publicação de arquivos.</p>
-<p><span class="field-label">Responsabilidade gerencial.</span> Titulares e prestadores de saneamento, autoridades reguladoras e setor saúde, conforme a competência de cada indicador.</p>
-<p><span class="field-label">Notas.</span> Indicadores de cobertura, qualidade da água e desempenho da vigilância respondem a perguntas diferentes e devem ser apresentados em conjunto.</p>
-<p><span class="field-label">Análise descritiva do indicador.</span> Apresentar conformidade por etapa e tecnologia, distribuição dos valores, extremos, cobertura amostral e relação temporal com eventos.</p>
-</div>
-</section>
-<section id="campos-complementares-para-clima-ambiente-e-saúde-5" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="campos-complementares-para-clima-ambiente-e-saúde-5">Campos complementares para clima, ambiente e saúde</h3>
-<div class="indicator-card">
-<p><span class="field-label">Unidade territorial.</span> Ponto de coleta e forma de abastecimento.</p>
-<p><span class="field-label">Resolução espacial original.</span> Ponto de coleta.</p>
-<p><span class="field-label">Resolução temporal.</span> Momento da coleta; resumo periódico.</p>
-<p><span class="field-label">Período de referência.</span> Período de monitoramento e norma vigente.</p>
-<p><span class="field-label">Limiar ou valor de referência.</span> Valor máximo permitido correspondente à tecnologia, etapa e ponto segundo a Portaria GM/MS nº 888/2021; não aplicar um único limiar a todos os registros.</p>
-</div>
-</section>
-<section id="disponibilidade-e-acesso-5" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="disponibilidade-e-acesso-5">Disponibilidade e acesso</h3>
-<p><span class="field-label">Cobertura geográfica.</span> Brasil, condicionada ao monitoramento.</p>
-<p><span class="field-label">Período disponível.</span> Conforme Sisagua e arquivos públicos.</p>
-<p><span class="field-label">Periodicidade de atualização.</span> Contínua e por publicação de arquivos.</p>
-<p><span class="field-label">Forma de acesso.</span> Sisagua, painéis e dados abertos.</p>
-<p><span class="field-label">URL ou identificador persistente.</span> https://dadosabertos.saude.gov.br/dataset/sisagua-vigilancia-parametros-basicos</p>
-<p><span class="field-label">Formato dos arquivos.</span> CSV, painel e relatórios.</p>
-<p><span class="field-label">Necessidade de processamento.</span> Harmonizar etapa, tecnologia e unidade, aplicar VMP correspondente e calcular execução do plano e conformidade.</p>
-</section>
-<section id="qualidade-comparação-e-saúde-5" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="qualidade-comparação-e-saúde-5">Qualidade, comparação e saúde</h3>
-<p><span class="field-label">Qualidade e incerteza.</span> Relatar fonte, cobertura, população de referência, dados ausentes, plano amostral, qualidade laboratorial, regras de classificação e revisão.</p>
-<p><span class="field-label">Possibilidade de comparação.</span> Manter definição de serviço, população, forma de abastecimento, ponto de coleta, parâmetro, padrão vigente, período e método.</p>
-<p><span class="field-label">Relação com desfechos de saúde.</span> Água segura, saneamento e higiene reduzem exposição a patógenos e substâncias químicas e sustentam alimentação, cuidado, dignidade e funcionamento dos serviços de saúde.</p>
-<p><span class="field-label">Defasagens temporais relevantes.</span> Distinguir condição do serviço, resultado de amostra e desfecho; surtos e agravos podem ocorrer com defasagens e múltiplas vias.</p>
-<p><span class="field-label">Aplicação na gestão.</span> Identificar lacunas de serviço e qualidade, priorizar inspeção e resposta, acompanhar desigualdades e avaliar políticas.</p>
-</section>
-<section id="referências-metodológicas-5" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="referências-metodológicas-5">Referências metodológicas</h3>
-<ul>
-<li><span class="citation" data-cites="brasil2021portaria888">(<a href="../../backmatter/referencias.html#ref-brasil2021portaria888" role="doc-biblioref">Brasil. Ministério da Saúde, 2021</a>)</span></li>
-<li><span class="citation" data-cites="brasil2024agua">(<a href="../../backmatter/referencias.html#ref-brasil2024agua" role="doc-biblioref">Brasil. Ministério da Saúde, 2024</a>)</span></li>
-<li><span class="citation" data-cites="oliveira2019sisagua">(<a href="../../backmatter/referencias.html#ref-oliveira2019sisagua" role="doc-biblioref">Oliveira Júnior et al., 2019</a>)</span></li>
-</ul>
-</section>
-</section>
-<section id="aplicação-na-gestão" class="level2" data-number="10.13">
-<h2 data-number="10.13" class="anchored" data-anchor-id="aplicação-na-gestão"><span class="header-section-number">10.13</span> Aplicação na gestão</h2>
+<p><span id="sec-san-agu-01"></span> Consulte a <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-agu-01">ficha SAN-AGU-01 — Água gerida de forma segura — ODS 6.1.1</a>, na Parte IV.</p>
+<p><span id="sec-san-esg-01"></span> Consulte a <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-esg-01">ficha SAN-ESG-01 — Saneamento gerido de forma segura — ODS 6.2.1a</a>, na Parte IV.</p>
+<p><span id="sec-san-hig-01"></span> Consulte a <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-hig-01">ficha SAN-HIG-01 — Instalação para higiene — ODS 6.2.1b</a>, na Parte IV.</p>
+<p><span id="sec-san-agu-02"></span> Consulte a <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-agu-02">ficha SAN-AGU-02 — Amostras sem E. coli</a>, na Parte IV.</p>
+<p><span id="sec-san-agu-03"></span> Consulte a <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-agu-03">ficha SAN-AGU-03 — Residual de desinfetante conforme</a>, na Parte IV.</p>
+<p><span id="sec-san-agu-04"></span> Consulte a <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-agu-04">ficha SAN-AGU-04 — Turbidez conforme</a>, na Parte IV.</p>
+</section>
+<section id="aplicação-na-gestão" class="level2" data-number="10.7">
+<h2 data-number="10.7" class="anchored" data-anchor-id="aplicação-na-gestão"><span class="header-section-number">10.7</span> Aplicação na gestão</h2>
 <p>Um diagnóstico municipal deve mostrar cobertura do serviço, seus componentes, execução da vigilância e resultados de qualidade. Prioridades surgem de combinações: baixa cobertura e alta contaminação; alta cobertura com intermitência; boa média municipal e pontos críticos persistentes; ou poucos dados em territórios vulnerabilizados.</p>
 <p>O fluxo de ação inclui verificar resultado, localizar ponto e forma, avaliar repetição e população, comunicar responsáveis, realizar recoleta e inspeção, adotar medidas corretivas e documentar encerramento. Painéis devem permitir distinguir ausência de problema de ausência de amostragem.</p>
 </section>
-<section id="síntese" class="level2" data-number="10.14">
-<h2 data-number="10.14" class="anchored" data-anchor-id="síntese"><span class="header-section-number">10.14</span> Síntese</h2>
+<section id="síntese" class="level2" data-number="10.8">
+<h2 data-number="10.8" class="anchored" data-anchor-id="síntese"><span class="header-section-number">10.8</span> Síntese</h2>
 <p>Serviço seguro exige mais que infraestrutura. Os ODS 6.1.1 e 6.2.1 medem condições populacionais; E. coli, residual de desinfetante e turbidez apoiam vigilância do sistema. Cobertura do serviço, cobertura amostral e conformidade precisam permanecer separadas para orientar proteção da saúde.</p>
 
 

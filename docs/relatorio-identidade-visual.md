@@ -1,5 +1,7 @@
 # Prova da identidade visual
 
+> Registro de uma etapa anterior. A organização vigente em quatro partes está documentada em [Arquitetura do projeto](arquitetura.md); as contagens e verificações abaixo descrevem aquela etapa.
+
 Verificação realizada em 3 de outubro de 2026. A identidade “Território, evidência e cuidado” foi aplicada à capa frontal, ao miolo e à edição web. As regras de manutenção estão no [guia editorial](guia-editorial.md#identidade-visual-território-evidência-e-cuidado).
 
 ## Arquivos para revisão

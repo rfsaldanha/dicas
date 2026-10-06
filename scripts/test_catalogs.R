@@ -12,7 +12,7 @@ main <- function() {
     if (!isTRUE(ok)) stop(message, call. = FALSE)
   }
   for (path in c("scripts/build_catalogs.R", "_quarto-web.yml", "_quarto-print.yml",
-                 "indicators/data", "sources/data")) {
+                 "indicators/data", "sources/data", "chapters", "backmatter", "scripts/validate_book_structure.R")) {
     target <- file.path(fixture, path)
     dir.create(dirname(target), recursive = TRUE, showWarnings = FALSE)
     source <- file.path(root, path)
@@ -40,6 +40,8 @@ main <- function() {
   }
 
   run()
+  source(file.path(root, "scripts/validate_book_structure.R"))
+  validate_book_structure(fixture)
   initial <- snapshot()
   check(nrow(initial) == 66L, "A geração inicial deve produzir 62 fichas e quatro catálogos.")
   # Datas antigas tornam uma regravação detectável mesmo em discos de baixa resolução temporal.
@@ -72,6 +74,16 @@ main <- function() {
   retained <- after$path != expected[1L]
   check(identical(after[retained, ], restored[retained, ]), "A reposição de uma ficha regravou outros arquivos.")
 
+  valid_destination <- entry$capitulo_fichas
+  for (invalid in c(entry$capitulo, "chapters/part-4/ausente.qmd",
+                    "chapters/part-4/16-fichas-temperatura-condicoes-termicas.qmd")) {
+    entry$capitulo_fichas <- invalid
+    if (grouped) document$indicators[[1L]] <- entry else document <- entry
+    yaml::write_yaml(document, input)
+    run(success = FALSE)
+    check(identical(restored, snapshot()), "Destino inválido alterou os arquivos gerados.")
+  }
+  entry$capitulo_fichas <- valid_destination
   entry$codigo <- "codigo-invalido"
   if (grouped) document$indicators[[1L]] <- entry else document <- entry
   yaml::write_yaml(document, input)

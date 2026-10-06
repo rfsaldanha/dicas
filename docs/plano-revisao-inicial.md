@@ -1,5 +1,7 @@
 # Plano de conferência da versão inicial consolidada
 
+> Registro de uma etapa anterior. A organização vigente em quatro partes está documentada em [Arquitetura do projeto](arquitetura.md); as contagens e verificações abaixo descrevem aquela etapa.
+
 > Documento histórico da fase 0.1.0. O plano foi concluído e é mantido apenas para rastreabilidade; o estado atual está descrito em `docs/relatorio-versao-para-revisao.md`.
 
 ## Objetivo

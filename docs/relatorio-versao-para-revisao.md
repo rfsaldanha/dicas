@@ -1,5 +1,7 @@
 # Relatório da versão para revisão editorial
 
+> Registro de uma etapa anterior. A organização vigente em quatro partes está documentada em [Arquitetura do projeto](arquitetura.md); as contagens e verificações abaixo descrevem aquela etapa.
+
 ## Identificação
 
 - Versão editorial: 0.9.0 — revisão completa.

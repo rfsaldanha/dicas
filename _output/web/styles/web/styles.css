@@ -324,3 +324,12 @@ table th { font-family: var(--dicas-sans); font-weight: 600; }
   .book-start { display: none; }
   .indicator-card, .framebox, div.callout { background: #f7f7f7; }
 }
+
+/* Os títulos completos das partes e capítulos devem caber no menu móvel. */
+@media (max-width: 991.98px) {
+  #quarto-sidebar { max-width: 100vw; }
+  #quarto-sidebar .sidebar-item-text {
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+}

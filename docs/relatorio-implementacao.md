@@ -1,5 +1,7 @@
 # Relatório de implementação
 
+> Registro de uma etapa anterior. A organização vigente em quatro partes está documentada em [Arquitetura do projeto](arquitetura.md); as contagens e verificações abaixo descrevem aquela etapa.
+
 ## Entrega consolidada
 
 O repositório contém um Quarto Book completo com 15 capítulos em três partes, elementos pré e pós-textuais, 62 fichas integradas aos capítulos, 25 fontes cadastradas, bibliografia, identidade web, formato Typst e validadores. “Do indicador à decisão pública” é o capítulo 6 e encerra a Parte I.

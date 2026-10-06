@@ -10,7 +10,7 @@ O público principal inclui profissionais de secretarias de saúde, vigilância 
 
 ## Estado do projeto
 
-Esta é a versão editorial 0.9.0, preparada para revisão completa. Os 15 capítulos estão escritos; 62 fichas de indicadores consolidados estão integradas aos capítulos; 25 fontes possuem cadastro detalhado; e as referências citadas estão configuradas no estilo ABNT. As indicações de arte original permanecem marcadas no próprio texto.
+Esta é a versão editorial 0.9.0, preparada para revisão completa. Os 24 capítulos estão organizados em quatro partes; 62 fichas de indicadores consolidados e 29 fontes com cadastro detalhado estão reunidas na Parte IV; e as referências citadas estão configuradas no estilo ABNT.
 
 Comece pelo [guia de revisão](docs/guia-de-revisao.md) e consulte o [relatório da versão](docs/relatorio-versao-para-revisao.md).
 
@@ -18,7 +18,7 @@ Comece pelo [guia de revisão](docs/guia-de-revisao.md) e consulte o [relatório
 
 - Arquivo `_quarto.yml`: metadados centrais e configuração compartilhada.
 - Arquivos `_quarto-web.yml` e `_quarto-print.yml`: ordem do livro e configuração de cada saída.
-- Diretório `chapters/`: 15 capítulos organizados em três partes; a Parte I termina com “Do indicador à decisão pública”, no capítulo 6. Os caminhos históricos são preservados, e os perfis Quarto definem a organização editorial.
+- Diretório `chapters/`: 24 capítulos organizados em quatro partes; a Parte I termina com “Do indicador à decisão pública”, no capítulo 6. Os caminhos históricos são preservados, e os perfis Quarto definem a organização editorial.
 - Diretórios `frontmatter/` e `backmatter/`: elementos pré e pós-textuais compartilhados.
 - Diretório `frontmatter/`: fonte única dos elementos pré-textuais das duas edições.
 - Diretório `indicators/data/`: fichas estruturadas em YAML.
@@ -72,7 +72,7 @@ make
 3. Preencha todos os campos com informação verificada; quando um recurso não documentar uma característica, registre explicitamente “não informado” e a limitação correspondente.
 4. Cadastre todas as fontes referenciadas.
 5. Execute `make catalogs`; a página e os índices serão regenerados.
-6. Integre o arquivo gerado ao capítulo temático correspondente.
+6. Indique `capitulo` (contexto nas partes II/III) e `capitulo_fichas` (destino na Parte IV), incorpore o arquivo gerado ao capítulo de fichas e acrescente a remissão no capítulo de contexto.
 
 ## Adicionar uma fonte
 

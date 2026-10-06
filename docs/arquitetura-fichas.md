@@ -2,7 +2,7 @@
 
 ## Solução escolhida
 
-Cada conjunto de fichas é mantido em YAML em `indicators/data/`. O script `scripts/build_catalogs.R` valida os registros, resolve IDs de fontes, produz trechos Quarto em `indicators/includes/` e atualiza os índices. Os trechos são incorporados ao capítulo do fenômeno, e não publicados como capítulos autônomos.
+Cada conjunto de fichas é mantido em YAML em `indicators/data/`. O script `scripts/build_catalogs.R` valida os registros, resolve IDs de fontes, produz trechos Quarto em `indicators/includes/` e atualiza os índices. Os trechos são incorporados aos nove capítulos de fichas da Parte IV, numerados de 16 a 24. O campo `capitulo` identifica o capítulo de contexto nas partes II/III; `capitulo_fichas` identifica o destino da ficha. Ambos são obrigatórios. Os identificadores `sec-<código>` pertencem às fichas; os antigos destinos mantêm âncoras HTML junto das remissões, sem duplicar identificadores na impressão.
 
 Essa abordagem foi escolhida porque:
 
@@ -44,7 +44,7 @@ O selo indica esforço de obtenção, não qualidade.
 4. Adicionar referências verificadas a `references.bib`.
 5. Executar `make catalogs`.
 6. Revisar a página gerada em HTML e PDF.
-7. Incluir o trecho gerado no capítulo temático correspondente.
+7. Incluir o trecho gerado no capítulo de fichas da Parte IV e referenciá-lo no capítulo de contexto.
 
 Arquivos em `indicators/includes/` são gerados e não devem ser editados manualmente.
 
@@ -89,4 +89,4 @@ Essa separação evita atribuir a uma instituição características que pertenc
 
 ## Catálogo da edição
 
-A versão 0.9.0 contém 62 fichas integradas. O catálogo cobre temperatura e ondas de calor, precipitação e seca, qualidade do ar e fumaça, água e saneamento, vegetação e ambiente urbano, desastres, vulnerabilidade, efeitos em saúde e resiliência do sistema de saúde. Cada ficha declara a referência metodológica que sustenta sua definição.
+A versão 0.9.0 contém 62 fichas na Parte IV e 29 fontes cadastradas. O catálogo cobre temperatura e ondas de calor, precipitação e seca, qualidade do ar e fumaça, água e saneamento, vegetação e ambiente urbano, desastres, vulnerabilidade, efeitos em saúde e resiliência do sistema de saúde. Cada ficha declara a referência metodológica que sustenta sua definição.

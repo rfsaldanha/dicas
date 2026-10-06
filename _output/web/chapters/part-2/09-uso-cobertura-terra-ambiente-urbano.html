@@ -104,35 +104,6 @@ div.csl-indent {
 <script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
 <link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../../styles/web/styles.css">
 </head>
@@ -375,6 +346,18 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../backmatter/lista-figuras.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lista de figuras</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/lista-tabelas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lista de quadros e tabelas</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../frontmatter/sumario.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sumário</span></a>
   </div>
@@ -511,7 +494,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">Elementos pós-textuais</span></a>
+ <span class="menu-text">Parte IV — Fichas de indicadores e fontes de dados</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -519,8 +502,8 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../backmatter/glossario.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Glossário</span></a>
+  <a href="../../backmatter/lista-fichas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lista de fichas por código e capítulo</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -531,42 +514,78 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/16-fichas-temperatura-condicoes-termicas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Fichas — Temperatura e condições térmicas</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/17-fichas-precipitacao-secas-eventos-hidrologicos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Fichas — Precipitação, secas e eventos hidrológicos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Fichas — Qualidade do ar, queimadas e fumaça</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Fichas — Água, saneamento e qualidade ambiental</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/20-fichas-uso-cobertura-terra-ambiente-urbano.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Fichas — Uso e cobertura da terra, vegetação e ambiente urbano</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/21-fichas-eventos-severos-desastres.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Fichas — Eventos severos e desastres</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/22-fichas-exposicao-vulnerabilidade.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Fichas — Exposição e vulnerabilidade socioambiental</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/23-fichas-efeitos-saude.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Fichas — Efeitos do clima e do ambiente sobre a saúde</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/24-fichas-resposta-adaptacao-resiliencia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Fichas — Capacidade de resposta, adaptação e resiliência</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../backmatter/indice-fontes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Catálogo de fontes de dados</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+      </ul>
+  </li>
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../backmatter/indice-instituicoes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Relação de instituições</span></a>
+  <a href="../../backmatter/glossario.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Glossário</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../backmatter/lista-fichas.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lista de fichas por código e capítulo</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../backmatter/lista-tabelas.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lista de quadros e tabelas</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../backmatter/lista-figuras.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lista de figuras</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../backmatter/referencias.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Referências</span></a>
   </div>
 </li>
-      </ul>
-  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
@@ -606,64 +625,8 @@ window.Quarto = {
   <li><a href="#fragmentação-vetores-e-zoonoses" id="toc-fragmentação-vetores-e-zoonoses" class="nav-link" data-scroll-target="#fragmentação-vetores-e-zoonoses"><span class="header-section-number">11.4</span> Fragmentação, vetores e zoonoses</a></li>
   <li><a href="#benefícios-riscos-e-desigualdades-na-saúde" id="toc-benefícios-riscos-e-desigualdades-na-saúde" class="nav-link" data-scroll-target="#benefícios-riscos-e-desigualdades-na-saúde"><span class="header-section-number">11.5</span> Benefícios, riscos e desigualdades na saúde</a></li>
   <li><a href="#fontes-seleção-e-principais-indicadores" id="toc-fontes-seleção-e-principais-indicadores" class="nav-link" data-scroll-target="#fontes-seleção-e-principais-indicadores"><span class="header-section-number">11.6</span> Fontes, seleção e principais indicadores</a></li>
-  <li><a href="#sec-amb-veg-01" id="toc-sec-amb-veg-01" class="nav-link" data-scroll-target="#sec-amb-veg-01"><span class="header-section-number">11.7</span> Ficha do indicador: Índice de Vegetação por Diferença Normalizada residencial médio (NDVI)</a>
-  <ul class="collapse">
-  <li><a href="#identificação-e-fundamento" id="toc-identificação-e-fundamento" class="nav-link" data-scroll-target="#identificação-e-fundamento">Identificação e fundamento</a></li>
-  <li><a href="#objetivo" id="toc-objetivo" class="nav-link" data-scroll-target="#objetivo">Objetivo</a></li>
-  <li><a href="#interpretação" id="toc-interpretação" class="nav-link" data-scroll-target="#interpretação">Interpretação</a></li>
-  <li><a href="#usos" id="toc-usos" class="nav-link" data-scroll-target="#usos">Usos</a></li>
-  <li><a href="#limitações" id="toc-limitações" class="nav-link" data-scroll-target="#limitações">Limitações</a></li>
-  <li><a href="#fontes-de-dados" id="toc-fontes-de-dados" class="nav-link" data-scroll-target="#fontes-de-dados">Fontes de dados</a></li>
-  <li><a href="#método-de-cálculo" id="toc-método-de-cálculo" class="nav-link" data-scroll-target="#método-de-cálculo">Método de cálculo</a></li>
-  <li><a href="#campos-complementares-para-clima-ambiente-e-saúde" id="toc-campos-complementares-para-clima-ambiente-e-saúde" class="nav-link" data-scroll-target="#campos-complementares-para-clima-ambiente-e-saúde">Campos complementares para clima, ambiente e saúde</a></li>
-  <li><a href="#disponibilidade-e-acesso" id="toc-disponibilidade-e-acesso" class="nav-link" data-scroll-target="#disponibilidade-e-acesso">Disponibilidade e acesso</a></li>
-  <li><a href="#qualidade-comparação-e-saúde" id="toc-qualidade-comparação-e-saúde" class="nav-link" data-scroll-target="#qualidade-comparação-e-saúde">Qualidade, comparação e saúde</a></li>
-  <li><a href="#referências-metodológicas" id="toc-referências-metodológicas" class="nav-link" data-scroll-target="#referências-metodológicas">Referências metodológicas</a></li>
-  </ul></li>
-  <li><a href="#sec-amb-urb-01" id="toc-sec-amb-urb-01" class="nav-link" data-scroll-target="#sec-amb-urb-01"><span class="header-section-number">11.8</span> Ficha do indicador: Parcela média da área construída da cidade que corresponde a espaço aberto para uso público (ODS 11.7.1)</a>
-  <ul class="collapse">
-  <li><a href="#identificação-e-fundamento-1" id="toc-identificação-e-fundamento-1" class="nav-link" data-scroll-target="#identificação-e-fundamento-1">Identificação e fundamento</a></li>
-  <li><a href="#objetivo-1" id="toc-objetivo-1" class="nav-link" data-scroll-target="#objetivo-1">Objetivo</a></li>
-  <li><a href="#interpretação-1" id="toc-interpretação-1" class="nav-link" data-scroll-target="#interpretação-1">Interpretação</a></li>
-  <li><a href="#usos-1" id="toc-usos-1" class="nav-link" data-scroll-target="#usos-1">Usos</a></li>
-  <li><a href="#limitações-1" id="toc-limitações-1" class="nav-link" data-scroll-target="#limitações-1">Limitações</a></li>
-  <li><a href="#fontes-de-dados-1" id="toc-fontes-de-dados-1" class="nav-link" data-scroll-target="#fontes-de-dados-1">Fontes de dados</a></li>
-  <li><a href="#método-de-cálculo-1" id="toc-método-de-cálculo-1" class="nav-link" data-scroll-target="#método-de-cálculo-1">Método de cálculo</a></li>
-  <li><a href="#campos-complementares-para-clima-ambiente-e-saúde-1" id="toc-campos-complementares-para-clima-ambiente-e-saúde-1" class="nav-link" data-scroll-target="#campos-complementares-para-clima-ambiente-e-saúde-1">Campos complementares para clima, ambiente e saúde</a></li>
-  <li><a href="#disponibilidade-e-acesso-1" id="toc-disponibilidade-e-acesso-1" class="nav-link" data-scroll-target="#disponibilidade-e-acesso-1">Disponibilidade e acesso</a></li>
-  <li><a href="#qualidade-comparação-e-saúde-1" id="toc-qualidade-comparação-e-saúde-1" class="nav-link" data-scroll-target="#qualidade-comparação-e-saúde-1">Qualidade, comparação e saúde</a></li>
-  <li><a href="#referências-metodológicas-1" id="toc-referências-metodológicas-1" class="nav-link" data-scroll-target="#referências-metodológicas-1">Referências metodológicas</a></li>
-  </ul></li>
-  <li><a href="#sec-amb-urb-02" id="toc-sec-amb-urb-02" class="nav-link" data-scroll-target="#sec-amb-urb-02"><span class="header-section-number">11.9</span> Ficha do indicador: Proporção da população urbana residente a até 300 metros de espaço verde acessível com pelo menos 1 hectare</a>
-  <ul class="collapse">
-  <li><a href="#identificação-e-fundamento-2" id="toc-identificação-e-fundamento-2" class="nav-link" data-scroll-target="#identificação-e-fundamento-2">Identificação e fundamento</a></li>
-  <li><a href="#objetivo-2" id="toc-objetivo-2" class="nav-link" data-scroll-target="#objetivo-2">Objetivo</a></li>
-  <li><a href="#interpretação-2" id="toc-interpretação-2" class="nav-link" data-scroll-target="#interpretação-2">Interpretação</a></li>
-  <li><a href="#usos-2" id="toc-usos-2" class="nav-link" data-scroll-target="#usos-2">Usos</a></li>
-  <li><a href="#limitações-2" id="toc-limitações-2" class="nav-link" data-scroll-target="#limitações-2">Limitações</a></li>
-  <li><a href="#fontes-de-dados-2" id="toc-fontes-de-dados-2" class="nav-link" data-scroll-target="#fontes-de-dados-2">Fontes de dados</a></li>
-  <li><a href="#método-de-cálculo-2" id="toc-método-de-cálculo-2" class="nav-link" data-scroll-target="#método-de-cálculo-2">Método de cálculo</a></li>
-  <li><a href="#campos-complementares-para-clima-ambiente-e-saúde-2" id="toc-campos-complementares-para-clima-ambiente-e-saúde-2" class="nav-link" data-scroll-target="#campos-complementares-para-clima-ambiente-e-saúde-2">Campos complementares para clima, ambiente e saúde</a></li>
-  <li><a href="#disponibilidade-e-acesso-2" id="toc-disponibilidade-e-acesso-2" class="nav-link" data-scroll-target="#disponibilidade-e-acesso-2">Disponibilidade e acesso</a></li>
-  <li><a href="#qualidade-comparação-e-saúde-2" id="toc-qualidade-comparação-e-saúde-2" class="nav-link" data-scroll-target="#qualidade-comparação-e-saúde-2">Qualidade, comparação e saúde</a></li>
-  <li><a href="#referências-metodológicas-2" id="toc-referências-metodológicas-2" class="nav-link" data-scroll-target="#referências-metodológicas-2">Referências metodológicas</a></li>
-  </ul></li>
-  <li><a href="#sec-amb-urb-03" id="toc-sec-amb-urb-03" class="nav-link" data-scroll-target="#sec-amb-urb-03"><span class="header-section-number">11.10</span> Ficha do indicador: Intensidade da ilha de calor urbana de superfície (SUHII)</a>
-  <ul class="collapse">
-  <li><a href="#identificação-e-fundamento-3" id="toc-identificação-e-fundamento-3" class="nav-link" data-scroll-target="#identificação-e-fundamento-3">Identificação e fundamento</a></li>
-  <li><a href="#objetivo-3" id="toc-objetivo-3" class="nav-link" data-scroll-target="#objetivo-3">Objetivo</a></li>
-  <li><a href="#interpretação-3" id="toc-interpretação-3" class="nav-link" data-scroll-target="#interpretação-3">Interpretação</a></li>
-  <li><a href="#usos-3" id="toc-usos-3" class="nav-link" data-scroll-target="#usos-3">Usos</a></li>
-  <li><a href="#limitações-3" id="toc-limitações-3" class="nav-link" data-scroll-target="#limitações-3">Limitações</a></li>
-  <li><a href="#fontes-de-dados-3" id="toc-fontes-de-dados-3" class="nav-link" data-scroll-target="#fontes-de-dados-3">Fontes de dados</a></li>
-  <li><a href="#método-de-cálculo-3" id="toc-método-de-cálculo-3" class="nav-link" data-scroll-target="#método-de-cálculo-3">Método de cálculo</a></li>
-  <li><a href="#campos-complementares-para-clima-ambiente-e-saúde-3" id="toc-campos-complementares-para-clima-ambiente-e-saúde-3" class="nav-link" data-scroll-target="#campos-complementares-para-clima-ambiente-e-saúde-3">Campos complementares para clima, ambiente e saúde</a></li>
-  <li><a href="#disponibilidade-e-acesso-3" id="toc-disponibilidade-e-acesso-3" class="nav-link" data-scroll-target="#disponibilidade-e-acesso-3">Disponibilidade e acesso</a></li>
-  <li><a href="#qualidade-comparação-e-saúde-3" id="toc-qualidade-comparação-e-saúde-3" class="nav-link" data-scroll-target="#qualidade-comparação-e-saúde-3">Qualidade, comparação e saúde</a></li>
-  <li><a href="#referências-metodológicas-3" id="toc-referências-metodológicas-3" class="nav-link" data-scroll-target="#referências-metodológicas-3">Referências metodológicas</a></li>
-  </ul></li>
-  <li><a href="#aplicação-na-gestão" id="toc-aplicação-na-gestão" class="nav-link" data-scroll-target="#aplicação-na-gestão"><span class="header-section-number">11.11</span> Aplicação na gestão</a></li>
-  <li><a href="#síntese" id="toc-síntese" class="nav-link" data-scroll-target="#síntese"><span class="header-section-number">11.12</span> Síntese</a></li>
+  <li><a href="#aplicação-na-gestão" id="toc-aplicação-na-gestão" class="nav-link" data-scroll-target="#aplicação-na-gestão"><span class="header-section-number">11.7</span> Aplicação na gestão</a></li>
+  <li><a href="#síntese" id="toc-síntese" class="nav-link" data-scroll-target="#síntese"><span class="header-section-number">11.8</span> Síntese</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/rfsaldanha/dicas/blob/main/chapters/part-2/09-uso-cobertura-terra-ambiente-urbano.qmd" class="toc-action"><i class="bi bi-github"></i>Ver o código fonte</a></li><li><a href="https://github.com/rfsaldanha/dicas/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></nav>
     </div>
@@ -814,15 +777,9 @@ Quadro&nbsp;11.1: Indicadores de vegetação e ambiente urbano usados em saúde 
 </figcaption>
 <div aria-describedby="qua-indicadores-urbano-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
-<colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-</colgroup>
 <thead>
 <tr class="header">
-<th>Indicador</th>
+<th>Indicador e ficha (Parte IV)</th>
 <th>Base metodológica</th>
 <th>Uso em saúde pública</th>
 <th>Cuidado de interpretação</th>
@@ -830,25 +787,25 @@ Quadro&nbsp;11.1: Indicadores de vegetação e ambiente urbano usados em saúde 
 </thead>
 <tbody>
 <tr class="odd">
-<td>NDVI residencial médio</td>
+<td>NDVI residencial médio — <a href="../../chapters/part-4/20-fichas-uso-cobertura-terra-ambiente-urbano.html#sec-amb-veg-01">AMB-VEG-01</a></td>
 <td>epidemiologia de verdor e mortalidade</td>
 <td>exposição residencial e desigualdade</td>
 <td>não mede acesso, qualidade ou uso</td>
 </tr>
 <tr class="even">
-<td>ODS 11.7.1</td>
+<td>ODS 11.7.1 — <a href="../../chapters/part-4/20-fichas-uso-cobertura-terra-ambiente-urbano.html#sec-amb-urb-01">AMB-URB-01</a></td>
 <td>ONU-Habitat/ODS</td>
 <td>oferta territorial de espaço público e acesso populacional a até 400 m caminháveis</td>
 <td>apresentar separadamente as duas séries; espaço aberto não é necessariamente verde</td>
 </tr>
 <tr class="odd">
-<td>População a até 300 m de verde ≥1 ha</td>
+<td>População a até 300 m de verde ≥1 ha — <a href="../../chapters/part-4/20-fichas-uso-cobertura-terra-ambiente-urbano.html#sec-amb-urb-02">AMB-URB-02</a></td>
 <td>ferramenta OMS Europa</td>
 <td>proximidade e planejamento</td>
 <td>depende de rede, entrada e qualidade</td>
 </tr>
 <tr class="even">
-<td>SUHII</td>
+<td>SUHII — <a href="../../chapters/part-4/20-fichas-uso-cobertura-terra-ambiente-urbano.html#sec-amb-urb-03">AMB-URB-03</a></td>
 <td>climatologia urbana por sensoriamento</td>
 <td>heterogeneidade térmica e mitigação</td>
 <td>superfície não é temperatura do ar</td>
@@ -877,469 +834,13 @@ Quadro&nbsp;11.1: Indicadores de vegetação e ambiente urbano usados em saúde 
 </figure>
 </div>
 <p>As fichas cobrem medidas com especificação consolidada. Cobertura de copa, impermeabilização e fragmentação devem ser documentadas quando um produto e um protocolo concretos forem adotados; não se propõem versões genéricas.</p>
+<p><span id="sec-amb-veg-01"></span> Consulte a <a href="../../chapters/part-4/20-fichas-uso-cobertura-terra-ambiente-urbano.html#sec-amb-veg-01">ficha AMB-VEG-01 — Verdor residencial — NDVI</a>, na Parte IV.</p>
+<p><span id="sec-amb-urb-01"></span> Consulte a <a href="../../chapters/part-4/20-fichas-uso-cobertura-terra-ambiente-urbano.html#sec-amb-urb-01">ficha AMB-URB-01 — Espaço público aberto — ODS 11.7.1</a>, na Parte IV.</p>
+<p><span id="sec-amb-urb-02"></span> Consulte a <a href="../../chapters/part-4/20-fichas-uso-cobertura-terra-ambiente-urbano.html#sec-amb-urb-02">ficha AMB-URB-02 — Acesso próximo a espaço verde</a>, na Parte IV.</p>
+<p><span id="sec-amb-urb-03"></span> Consulte a <a href="../../chapters/part-4/20-fichas-uso-cobertura-terra-ambiente-urbano.html#sec-amb-urb-03">ficha AMB-URB-03 — Ilha de calor de superfície — SUHII</a>, na Parte IV.</p>
 </section>
-<section id="sec-amb-veg-01" class="level2 ficha-title" data-number="11.7">
-<h2 class="ficha-title anchored" data-number="11.7" data-anchor-id="sec-amb-veg-01"><span class="header-section-number">11.7</span> Ficha do indicador: Índice de Vegetação por Diferença Normalizada residencial médio (NDVI)</h2>
-<div class="indicator-card">
-<p><span class="field-label">Código:</span> AMB-VEG-01<br>
-<span class="field-label">Título resumido:</span> Verdor residencial — NDVI<br>
-<span class="field-label">Tema:</span> Uso e cobertura da terra, vegetação e ambiente urbano<br>
-<span class="field-label">Dimensão:</span> exposição; vulnerabilidade; resposta<br>
-<span class="field-label">Disponibilidade:</span> <span class="availability">requer processamento de sensoriamento remoto</span></p>
-</div>
-<section id="identificação-e-fundamento" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="identificação-e-fundamento">Identificação e fundamento</h3>
-<p><span class="field-label">Base de consolidação.</span> NDVI em áreas de entorno residencial, medida de exposição a verdor mais usada em estudos epidemiológicos de espaços verdes.</p>
-<div class="callout callout-style-default callout-note no-icon callout-titled" title="Conceito-chave">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Nota</span>Conceito-chave
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Média do NDVI dos pixels válidos dentro de uma área de entorno do endereço, ponto ou unidade residencial durante a janela temporal definida.</p>
-</div>
-</div>
-</section>
-<section id="objetivo" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="objetivo">Objetivo</h3>
-<p>Representar densidade de vegetação fotossinteticamente ativa no entorno residencial de maneira reprodutível.</p>
-</section>
-<section id="interpretação" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="interpretação">Interpretação</h3>
-<p>Valores maiores indicam maior verdor espectral no produto e período. NDVI varia teoricamente de −1 a 1; não mede acesso, qualidade, espécie, sombra ou uso.</p>
-</section>
-<section id="usos" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="usos">Usos</h3>
-<ul>
-<li>Estudos de mortalidade e doenças crônicas.</li>
-<li>Avaliação de desigualdade de verdor.</li>
-<li>Análise de modificação de efeitos de calor e poluição.</li>
-</ul>
-</section>
-<section id="limitações" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="limitações">Limitações</h3>
-<ul>
-<li>Satura em vegetação densa.</li>
-<li>É afetado por nuvens</li>
-<li>Solo e fenologia.</li>
-<li>A área de entorno residencial ignora mobilidade.</li>
-<li>Água e superfícies não vegetadas alteram média.</li>
-<li>O tamanho da área de entorno muda a exposição.</li>
-</ul>
-</section>
-<section id="fontes-de-dados" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="fontes-de-dados">Fontes de dados</h3>
-<ul>
-<li>Landsat — reflectância multiespectral para NDVI (<a href="../../backmatter/indice-fontes.html#landsat">cadastro</a>)</li>
-<li>Instituto Brasileiro de Geografia e Estatística — endereços agregados, setores e população quando aplicável (<a href="../../backmatter/indice-fontes.html#ibge">cadastro</a>)</li>
-</ul>
-</section>
-<section id="método-de-cálculo" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="método-de-cálculo">Método de cálculo</h3>
-<p>Obter reflectância corrigida no vermelho e infravermelho próximo, mascarar nuvens e pixels inválidos, calcular NDVI, compor a janela temporal e obter a média dos pixels na área de entorno previamente definida.</p>
-<p><span class="math display">\[
-NDVI=\frac{\rho_{NIR}-\rho_{red}}{\rho_{NIR}+\rho_{red}};\quad \overline{NDVI}_b=\frac{\sum_{g\in b}w_gNDVI_g}{\sum_{g\in b}w_g}
-\]</span></p>
-<div class="indicator-card">
-<p><span class="field-label">Numerador.</span> Na fórmula espectral, diferença entre reflectância no infravermelho próximo e vermelho; na área de entorno, soma ponderada dos NDVI válidos.</p>
-<p><span class="field-label">Denominador.</span> Na fórmula espectral, soma das reflectâncias; na área de entorno, soma dos pesos ou áreas válidas.</p>
-<p><span class="field-label">Unidade de medida.</span> Adimensional.</p>
-<p><span class="field-label">Variáveis e categorias de análise.</span> Reflectância; NDVI; área de entorno; endereço; estação; ano; grupo populacional.</p>
-<p><span class="field-label">Granularidade.</span> Pixel de entrada e valor por ponto ou unidade.</p>
-<p><span class="field-label">Periodicidade de atualização.</span> Sazonal ou anual.</p>
-<p><span class="field-label">Responsabilidade gerencial.</span> Planejamento urbano e ambiental produz intervenções e cadastros; saúde interpreta exposições e desigualdades; geoinformação mantém métodos.</p>
-<p><span class="field-label">Notas.</span> Verdor espectral, cobertura vegetal, espaço público acessível e uso efetivo são dimensões diferentes.</p>
-<p><span class="field-label">Análise descritiva do indicador.</span> Mostrar distribuição por áreas de entorno alternativas, grupos sociais, sazonalidade e mapa sem divulgar endereços individuais.</p>
-</div>
-</section>
-<section id="campos-complementares-para-clima-ambiente-e-saúde" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="campos-complementares-para-clima-ambiente-e-saúde">Campos complementares para clima, ambiente e saúde</h3>
-<div class="indicator-card">
-<p><span class="field-label">Unidade territorial.</span> Domicílio ou ponto, zona urbana, bairro, setor censitário ou cidade.</p>
-<p><span class="field-label">Resolução espacial original.</span> A do produto; 30 m em produtos multiespectrais Landsat usuais.</p>
-<p><span class="field-label">Resolução temporal.</span> Cena e composição sazonal ou anual.</p>
-<p><span class="field-label">Período de referência.</span> Janela correspondente à exposição epidemiológica.</p>
-<p><span class="field-label">Limiar ou valor de referência.</span> Não há ponto de corte sanitário universal; analisar continuamente e por quantis pré-especificados.</p>
-</div>
-</section>
-<section id="disponibilidade-e-acesso" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="disponibilidade-e-acesso">Disponibilidade e acesso</h3>
-<p><span class="field-label">Cobertura geográfica.</span> Global no Landsat; análise depende de nuvens e geocodificação.</p>
-<p><span class="field-label">Período disponível.</span> Conforme missão e produto selecionados.</p>
-<p><span class="field-label">Periodicidade de atualização.</span> Sazonal ou anual.</p>
-<p><span class="field-label">Forma de acesso.</span> Produtos Landsat de reflectância de superfície.</p>
-<p><span class="field-label">URL ou identificador persistente.</span> https://doi.org/10.1016/S2542-5196(19)30215-3</p>
-<p><span class="field-label">Formato dos arquivos.</span> GeoTIFF e tabela por unidade.</p>
-<p><span class="field-label">Necessidade de processamento.</span> Correção ou seleção do produto, máscara, composição, áreas de entorno, ponderação e controle de geocodificação.</p>
-</section>
-<section id="qualidade-comparação-e-saúde" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="qualidade-comparação-e-saúde">Qualidade, comparação e saúde</h3>
-<p><span class="field-label">Qualidade e incerteza.</span> Relatar sensor, produto, data, nuvens, resolução, classificação, delimitação urbana, população, área de entorno, erros posicionais e análise de sensibilidade.</p>
-<p><span class="field-label">Possibilidade de comparação.</span> Manter produto, estação, composição temporal, resolução, definição de verde, limite urbano, população e parâmetros espaciais.</p>
-<p><span class="field-label">Relação com desfechos de saúde.</span> Vegetação e espaços verdes podem influenciar atividade física, contato social, restauração, calor, ruído e poluição, mas efeitos dependem de acesso, qualidade, segurança e contexto.</p>
-<p><span class="field-label">Defasagens temporais relevantes.</span> Distinguir exposição contemporânea, histórica e intervenção; atualizar endereço, vegetação e população de maneira compatível.</p>
-<p><span class="field-label">Aplicação na gestão.</span> Identificar desigualdades, priorizar arborização e espaços públicos, avaliar intervenções e integrar planejamento calor–saúde.</p>
-</section>
-<section id="referências-metodológicas" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="referências-metodológicas">Referências metodológicas</h3>
-<ul>
-<li><span class="citation" data-cites="rojasrueda2019greenspace">(<a href="../../backmatter/referencias.html#ref-rojasrueda2019greenspace" role="doc-biblioref">Rojas-Rueda et al., 2019</a>)</span></li>
-<li><span class="citation" data-cites="who2016greenspace">(<a href="../../backmatter/referencias.html#ref-who2016greenspace" role="doc-biblioref">World Health Organization Regional Office for Europe, 2016</a>)</span></li>
-</ul>
-</section>
-</section>
-<section id="sec-amb-urb-01" class="level2 ficha-title" data-number="11.8">
-<h2 class="ficha-title anchored" data-number="11.8" data-anchor-id="sec-amb-urb-01"><span class="header-section-number">11.8</span> Ficha do indicador: Parcela média da área construída da cidade que corresponde a espaço aberto para uso público (ODS 11.7.1)</h2>
-<div class="indicator-card">
-<p><span class="field-label">Código:</span> AMB-URB-01<br>
-<span class="field-label">Título resumido:</span> Espaço público aberto — ODS 11.7.1<br>
-<span class="field-label">Tema:</span> Uso e cobertura da terra, vegetação e ambiente urbano<br>
-<span class="field-label">Dimensão:</span> exposição; vulnerabilidade; resposta<br>
-<span class="field-label">Disponibilidade:</span> <span class="availability">requer cadastro e processamento geoespacial</span></p>
-</div>
-<section id="identificação-e-fundamento-1" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="identificação-e-fundamento-1">Identificação e fundamento</h3>
-<p><span class="field-label">Base de consolidação.</span> Indicador ODS 11.7.1 sob custódia do Programa das Nações Unidas para os Assentamentos Humanos.</p>
-<div class="callout callout-style-default callout-note no-icon callout-titled" title="Conceito-chave">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Nota</span>Conceito-chave
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>O indicador reúne duas séries complementares. A primeira mede a parcela da área construída da cidade destinada a espaços públicos, compreendendo espaços públicos abertos verificados e áreas destinadas a ruas. A segunda mede a parcela da população urbana com acesso conveniente a espaços públicos abertos.</p>
-</div>
-</div>
-</section>
-<section id="objetivo-1" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="objetivo-1">Objetivo</h3>
-<p>Monitorar a oferta territorial de espaços públicos e o acesso universal a espaços públicos abertos, seguros, inclusivos e acessíveis.</p>
-</section>
-<section id="interpretação-1" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="interpretação-1">Interpretação</h3>
-<p>Na série territorial, valor maior indica maior parcela da cidade destinada a espaços públicos abertos e ruas. Na série de acesso, valor maior indica maior parcela da população situada a até 400 m caminháveis de um espaço público aberto. Nenhuma das séries informa automaticamente qualidade, vegetação, segurança ou uso efetivo.</p>
-</section>
-<section id="usos-1" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="usos-1">Usos</h3>
-<ul>
-<li>Monitorar as duas séries do ODS 11.7.1.</li>
-<li>Comparar cidades com método harmonizado.</li>
-<li>Planejar oferta e distribuição de espaços públicos.</li>
-<li>Examinar desigualdades de acesso por sexo, idade e deficiência.</li>
-</ul>
-</section>
-<section id="limitações-1" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="limitações-1">Limitações</h3>
-<ul>
-<li>A delimitação da cidade ou área urbana afeta o denominador.</li>
-<li>Espaços identificados por imagem exigem verificação de uso público e gratuidade.</li>
-<li>Espaço público aberto pode não ser verde.</li>
-<li>Cadastro incompleto, rede caminhável inadequada e imagem defasada geram erro.</li>
-<li>A série territorial e a série de acesso não devem ser fundidas em uma única medida.</li>
-</ul>
-</section>
-<section id="fontes-de-dados-1" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="fontes-de-dados-1">Fontes de dados</h3>
-<ul>
-<li>Programa de Indicadores Urbanos do UN-Habitat — metadados oficiais, delimitação urbana e protocolo de cálculo do ODS 11.7.1 (<a href="../../backmatter/indice-fontes.html#unhabitat-urban">cadastro</a>)</li>
-<li>MapBiomas Brasil — apoio à delimitação de cobertura e área urbana, sem substituir a verificação dos espaços públicos (<a href="../../backmatter/indice-fontes.html#mapbiomas">cadastro</a>)</li>
-<li>Instituto Brasileiro de Geografia e Estatística — limites, população e desagregações (<a href="../../backmatter/indice-fontes.html#ibge">cadastro</a>)</li>
-</ul>
-</section>
-<section id="método-de-cálculo-1" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="método-de-cálculo-1">Método de cálculo</h3>
-<p>Delimitar a cidade ou área urbana pelo protocolo ODS; identificar e verificar os espaços públicos abertos; estimar a área total destinada a ruas; somar as duas áreas e dividi-las pela área total delimitada. Calcular separadamente a população que alcança um espaço público aberto por percurso caminhável de até 400 m, dividindo-a pela população urbana total e desagregando o resultado por sexo, idade e deficiência.</p>
-<p><span class="math display">\[
-\begin{aligned}
-ODS11.7.1_{área}
-  &amp;=100\times\frac{A_{espaços\ públicos\ abertos}+A_{ruas}}{A_{cidade}},\\
-ODS11.7.1_{acesso}
-  &amp;=100\times\frac{Pop_{\leq 400\,m\ caminháveis}}{Pop_{urbana}}.
-\end{aligned}
-\]</span></p>
-<div class="indicator-card">
-<p><span class="field-label">Numerador.</span> Na série territorial, soma da área dos espaços públicos abertos verificados com a área destinada a ruas; na série de acesso, população urbana a até 400 m caminháveis de um espaço público aberto.</p>
-<p><span class="field-label">Denominador.</span> Na série territorial, área total da cidade ou área urbana delimitada; na série de acesso, população urbana total da mesma área.</p>
-<p><span class="field-label">Unidade de medida.</span> Percentual (%).</p>
-<p><span class="field-label">Variáveis e categorias de análise.</span> Limite da cidade; espaço público aberto verificado; área destinada a ruas; rede caminhável; distância de 400 m; população; sexo; idade; deficiência.</p>
-<p><span class="field-label">Granularidade.</span> Polígono de espaço, área de ruas, segmento de rede, unidade populacional e cidade.</p>
-<p><span class="field-label">Periodicidade de atualização.</span> Por ciclo de monitoramento ODS ou planejamento urbano.</p>
-<p><span class="field-label">Responsabilidade gerencial.</span> Planejamento urbano e ambiental produz intervenções e cadastros; saúde interpreta exposições e desigualdades; geoinformação mantém métodos.</p>
-<p><span class="field-label">Notas.</span> Verdor espectral, cobertura vegetal, espaço público acessível e uso efetivo são dimensões diferentes.</p>
-<p><span class="field-label">Análise descritiva do indicador.</span> Apresentar separadamente a parcela territorial de espaços públicos e a parcela populacional com acesso; detalhar os componentes espaço aberto e ruas, desagregar acesso por grupo e mostrar a distribuição intraurbana.</p>
-</div>
-</section>
-<section id="campos-complementares-para-clima-ambiente-e-saúde-1" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="campos-complementares-para-clima-ambiente-e-saúde-1">Campos complementares para clima, ambiente e saúde</h3>
-<div class="indicator-card">
-<p><span class="field-label">Unidade territorial.</span> Domicílio ou ponto, zona urbana, bairro, setor censitário ou cidade.</p>
-<p><span class="field-label">Resolução espacial original.</span> A dos cadastros e imagens usados na delimitação.</p>
-<p><span class="field-label">Resolução temporal.</span> Atualização periódica por edição.</p>
-<p><span class="field-label">Período de referência.</span> Ano dos cadastros, imagens e população.</p>
-<p><span class="field-label">Limiar ou valor de referência.</span> Não há limiar sanitário universal; monitorar nível, distribuição e acesso.</p>
-</div>
-</section>
-<section id="disponibilidade-e-acesso-1" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="disponibilidade-e-acesso-1">Disponibilidade e acesso</h3>
-<p><span class="field-label">Cobertura geográfica.</span> Cidades com dados suficientes; estimativa oficial deve seguir o metadado ODS.</p>
-<p><span class="field-label">Período disponível.</span> Conforme cadastros e imagens.</p>
-<p><span class="field-label">Periodicidade de atualização.</span> Por ciclo de monitoramento ODS ou planejamento urbano.</p>
-<p><span class="field-label">Forma de acesso.</span> Dados municipais, IBGE, sensoriamento e plataforma ODS.</p>
-<p><span class="field-label">URL ou identificador persistente.</span> https://unstats.un.org/sdgs/metadata/files/Metadata-11-07-01.pdf</p>
-<p><span class="field-label">Formato dos arquivos.</span> Vetores geoespaciais, tabelas e relatórios.</p>
-<p><span class="field-label">Necessidade de processamento.</span> Delimitar a área urbana, validar espaços públicos, estimar a área de ruas, construir percursos caminháveis de 400 m, interpolar ou agregar a população e documentar omissões.</p>
-</section>
-<section id="qualidade-comparação-e-saúde-1" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="qualidade-comparação-e-saúde-1">Qualidade, comparação e saúde</h3>
-<p><span class="field-label">Qualidade e incerteza.</span> Relatar sensor, produto, data, nuvens, resolução, classificação, delimitação urbana, população, área de entorno, erros posicionais e análise de sensibilidade.</p>
-<p><span class="field-label">Possibilidade de comparação.</span> Manter produto, estação, composição temporal, resolução, definição de verde, limite urbano, população e parâmetros espaciais.</p>
-<p><span class="field-label">Relação com desfechos de saúde.</span> Vegetação e espaços verdes podem influenciar atividade física, contato social, restauração, calor, ruído e poluição, mas efeitos dependem de acesso, qualidade, segurança e contexto.</p>
-<p><span class="field-label">Defasagens temporais relevantes.</span> Distinguir exposição contemporânea, histórica e intervenção; atualizar endereço, vegetação e população de maneira compatível.</p>
-<p><span class="field-label">Aplicação na gestão.</span> Identificar desigualdades, priorizar arborização e espaços públicos, avaliar intervenções e integrar planejamento calor–saúde.</p>
-</section>
-<section id="referências-metodológicas-1" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="referências-metodológicas-1">Referências metodológicas</h3>
-<ul>
-<li><span class="citation" data-cites="un2026sdg1171">(<a href="../../backmatter/referencias.html#ref-un2026sdg1171" role="doc-biblioref">United Nations Statistics Division, 2026</a>)</span></li>
-<li><span class="citation" data-cites="who2016greenspace">(<a href="../../backmatter/referencias.html#ref-who2016greenspace" role="doc-biblioref">World Health Organization Regional Office for Europe, 2016</a>)</span></li>
-</ul>
-</section>
-</section>
-<section id="sec-amb-urb-02" class="level2 ficha-title" data-number="11.9">
-<h2 class="ficha-title anchored" data-number="11.9" data-anchor-id="sec-amb-urb-02"><span class="header-section-number">11.9</span> Ficha do indicador: Proporção da população urbana residente a até 300 metros de espaço verde acessível com pelo menos 1 hectare</h2>
-<div class="indicator-card">
-<p><span class="field-label">Código:</span> AMB-URB-02<br>
-<span class="field-label">Título resumido:</span> Acesso próximo a espaço verde<br>
-<span class="field-label">Tema:</span> Uso e cobertura da terra, vegetação e ambiente urbano<br>
-<span class="field-label">Dimensão:</span> exposição; vulnerabilidade; resposta<br>
-<span class="field-label">Disponibilidade:</span> <span class="availability">requer processamento de rede e população</span></p>
-</div>
-<section id="identificação-e-fundamento-2" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="identificação-e-fundamento-2">Identificação e fundamento</h3>
-<p><span class="field-label">Base de consolidação.</span> Indicador de acessibilidade a espaço verde detalhado no relatório da OMS Europa sobre espaços verdes urbanos e saúde.</p>
-<div class="callout callout-style-default callout-note no-icon callout-titled" title="Conceito-chave">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Nota</span>Conceito-chave
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Percentual da população urbana cujo local de residência está dentro de uma área de acesso de 300 m à entrada ou limite acessível de espaço verde com área mínima de 1 ha.</p>
-</div>
-</div>
-</section>
-<section id="objetivo-2" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="objetivo-2">Objetivo</h3>
-<p>Medir proximidade residencial a espaço verde de porte mínimo por critério reproduzível.</p>
-</section>
-<section id="interpretação-2" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="interpretação-2">Interpretação</h3>
-<p>Valor maior indica maior cobertura potencial de proximidade. Não comprova acesso real, qualidade, segurança, gratuidade ou uso.</p>
-</section>
-<section id="usos-2" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="usos-2">Usos</h3>
-<ul>
-<li>Planejar espaços verdes e rotas.</li>
-<li>Monitorar desigualdades territoriais.</li>
-<li>Avaliar intervenções urbanas relacionadas à saúde.</li>
-</ul>
-</section>
-<section id="limitações-2" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="limitações-2">Limitações</h3>
-<ul>
-<li>Distância linear pode divergir da rede caminhável.</li>
-<li>Entradas e barreiras podem estar ausentes.</li>
-<li>Limiar de 300 m/1 ha é convenção de planejamento.</li>
-<li>População residencial não inclui mobilidade.</li>
-</ul>
-</section>
-<section id="fontes-de-dados-2" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="fontes-de-dados-2">Fontes de dados</h3>
-<ul>
-<li>MapBiomas Brasil — apoio à identificação de cobertura vegetal (<a href="../../backmatter/indice-fontes.html#mapbiomas">cadastro</a>)</li>
-<li>Landsat — verificação de vegetação e atualização (<a href="../../backmatter/indice-fontes.html#landsat">cadastro</a>)</li>
-<li>Instituto Brasileiro de Geografia e Estatística — população, malha e rede/endereço quando disponíveis (<a href="../../backmatter/indice-fontes.html#ibge">cadastro</a>)</li>
-</ul>
-</section>
-<section id="método-de-cálculo-2" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="método-de-cálculo-2">Método de cálculo</h3>
-<p>Selecionar espaços verdes de pelo menos 1 ha com acesso público, construir área de serviço de 300 m pela rede caminhável — ou área linear de entorno claramente identificada —, intersectar com população e dividir a população coberta pela urbana total.</p>
-<p><span class="math display">\[
-P_{verde300}=100\times\frac{\sum_g Pop_g I(g\ acessa\ verde_{\geq1ha}\ em\leq300m)}{\sum_g Pop_g}
-\]</span></p>
-<div class="indicator-card">
-<p><span class="field-label">Numerador.</span> População urbana em unidades cobertas pela área de acesso.</p>
-<p><span class="field-label">Denominador.</span> População urbana total na área analisada.</p>
-<p><span class="field-label">Unidade de medida.</span> Percentual (%).</p>
-<p><span class="field-label">Variáveis e categorias de análise.</span> Espaço verde; área; acesso; rede; distância; população; idade; renda; raça/cor; deficiência.</p>
-<p><span class="field-label">Granularidade.</span> Entrada ou polígono de espaço, segmento de rede e célula/setor populacional.</p>
-<p><span class="field-label">Periodicidade de atualização.</span> Anual ou por revisão do plano urbano.</p>
-<p><span class="field-label">Responsabilidade gerencial.</span> Planejamento urbano e ambiental produz intervenções e cadastros; saúde interpreta exposições e desigualdades; geoinformação mantém métodos.</p>
-<p><span class="field-label">Notas.</span> Verdor espectral, cobertura vegetal, espaço público acessível e uso efetivo são dimensões diferentes.</p>
-<p><span class="field-label">Análise descritiva do indicador.</span> Mostrar cobertura total e por grupos, bairros sem acesso, distância média e sensibilidade a limiar e método.</p>
-</div>
-</section>
-<section id="campos-complementares-para-clima-ambiente-e-saúde-2" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="campos-complementares-para-clima-ambiente-e-saúde-2">Campos complementares para clima, ambiente e saúde</h3>
-<div class="indicator-card">
-<p><span class="field-label">Unidade territorial.</span> Domicílio ou ponto, zona urbana, bairro, setor censitário ou cidade.</p>
-<p><span class="field-label">Resolução espacial original.</span> A dos cadastros e da superfície populacional.</p>
-<p><span class="field-label">Resolução temporal.</span> Atualização periódica.</p>
-<p><span class="field-label">Período de referência.</span> Mesmo ano ou anos compatíveis para espaço, rede e população.</p>
-<p><span class="field-label">Limiar ou valor de referência.</span> Espaço verde acessível ≥1 ha e distância ≤300 m, segundo a aplicação metodológica declarada.</p>
-</div>
-</section>
-<section id="disponibilidade-e-acesso-2" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="disponibilidade-e-acesso-2">Disponibilidade e acesso</h3>
-<p><span class="field-label">Cobertura geográfica.</span> Áreas urbanas com cadastro e população detalhados.</p>
-<p><span class="field-label">Período disponível.</span> Conforme fontes locais.</p>
-<p><span class="field-label">Periodicidade de atualização.</span> Anual ou por revisão do plano urbano.</p>
-<p><span class="field-label">Forma de acesso.</span> Cadastros municipais, dados de cobertura e população.</p>
-<p><span class="field-label">URL ou identificador persistente.</span> https://www.who.int/europe/publications/i/item/WHO-EURO-2016-3352-43111-60341</p>
-<p><span class="field-label">Formato dos arquivos.</span> Vetor geoespacial, raster populacional e tabela.</p>
-<p><span class="field-label">Necessidade de processamento.</span> Validar espaços e entradas, construir rede/área, interpolar população e testar sensibilidades.</p>
-</section>
-<section id="qualidade-comparação-e-saúde-2" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="qualidade-comparação-e-saúde-2">Qualidade, comparação e saúde</h3>
-<p><span class="field-label">Qualidade e incerteza.</span> Relatar sensor, produto, data, nuvens, resolução, classificação, delimitação urbana, população, área de entorno, erros posicionais e análise de sensibilidade.</p>
-<p><span class="field-label">Possibilidade de comparação.</span> Manter produto, estação, composição temporal, resolução, definição de verde, limite urbano, população e parâmetros espaciais.</p>
-<p><span class="field-label">Relação com desfechos de saúde.</span> Vegetação e espaços verdes podem influenciar atividade física, contato social, restauração, calor, ruído e poluição, mas efeitos dependem de acesso, qualidade, segurança e contexto.</p>
-<p><span class="field-label">Defasagens temporais relevantes.</span> Distinguir exposição contemporânea, histórica e intervenção; atualizar endereço, vegetação e população de maneira compatível.</p>
-<p><span class="field-label">Aplicação na gestão.</span> Identificar desigualdades, priorizar arborização e espaços públicos, avaliar intervenções e integrar planejamento calor–saúde.</p>
-</section>
-<section id="referências-metodológicas-2" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="referências-metodológicas-2">Referências metodológicas</h3>
-<ul>
-<li><span class="citation" data-cites="who2016greenspace">(<a href="../../backmatter/referencias.html#ref-who2016greenspace" role="doc-biblioref">World Health Organization Regional Office for Europe, 2016</a>)</span></li>
-</ul>
-</section>
-</section>
-<section id="sec-amb-urb-03" class="level2 ficha-title" data-number="11.10">
-<h2 class="ficha-title anchored" data-number="11.10" data-anchor-id="sec-amb-urb-03"><span class="header-section-number">11.10</span> Ficha do indicador: Intensidade da ilha de calor urbana de superfície (SUHII)</h2>
-<div class="indicator-card">
-<p><span class="field-label">Código:</span> AMB-URB-03<br>
-<span class="field-label">Título resumido:</span> Ilha de calor de superfície — SUHII<br>
-<span class="field-label">Tema:</span> Uso e cobertura da terra, vegetação e ambiente urbano<br>
-<span class="field-label">Dimensão:</span> exposição; vulnerabilidade; resposta<br>
-<span class="field-label">Disponibilidade:</span> <span class="availability">requer processamento térmico e territorial</span></p>
-</div>
-<section id="identificação-e-fundamento-3" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="identificação-e-fundamento-3">Identificação e fundamento</h3>
-<p><span class="field-label">Base de consolidação.</span> Índice de ilha de calor baseado em temperatura radiométrica de superfície e cobertura da terra, conforme Jin.</p>
-<div class="callout callout-style-default callout-note no-icon callout-titled" title="Conceito-chave">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Nota</span>Conceito-chave
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Diferença entre temperatura média da superfície na área urbana e temperatura média da superfície em área não urbana de referência comparável, na mesma aquisição.</p>
-</div>
-</div>
-</section>
-<section id="objetivo-3" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="objetivo-3">Objetivo</h3>
-<p>Quantificar o contraste térmico de superfície associado à urbanização e mapear heterogeneidade territorial.</p>
-</section>
-<section id="interpretação-3" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="interpretação-3">Interpretação</h3>
-<p>Valor positivo indica superfície urbana mais quente que a referência naquele sensor, data e horário. Não equivale à ilha de calor do ar nem à exposição térmica humana.</p>
-</section>
-<section id="usos-3" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="usos-3">Usos</h3>
-<ul>
-<li>Avaliar materiais e cobertura urbana.</li>
-<li>Priorizar mitigação e arborização.</li>
-<li>Contextualizar risco de calor com população e dados do ar.</li>
-</ul>
-</section>
-<section id="limitações-3" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="limitações-3">Limitações</h3>
-<ul>
-<li>Referência rural determina o resultado.</li>
-<li>Temperatura da superfície difere da temperatura do ar.</li>
-<li>Nuvens e horário limitam amostragem.</li>
-<li>Emissividade e resolução introduzem erro.</li>
-<li>Uma cena não representa noite ou estação.</li>
-</ul>
-</section>
-<section id="fontes-de-dados-3" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="fontes-de-dados-3">Fontes de dados</h3>
-<ul>
-<li>Landsat — produto de temperatura da superfície e cobertura (<a href="../../backmatter/indice-fontes.html#landsat">cadastro</a>)</li>
-<li>MapBiomas Brasil — classificação urbano/não urbano e controle de cobertura (<a href="../../backmatter/indice-fontes.html#mapbiomas">cadastro</a>)</li>
-<li>Instituto Brasileiro de Geografia e Estatística — limite urbano, altitude/cartografia e população para análise de exposição (<a href="../../backmatter/indice-fontes.html#ibge">cadastro</a>)</li>
-</ul>
-</section>
-<section id="método-de-cálculo-3" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="método-de-cálculo-3">Método de cálculo</h3>
-<p>Selecionar produto validado de temperatura da superfície, mascarar pixels inválidos, delimitar área urbana e referência não urbana com altitude, água, topografia e cobertura controladas e subtrair as médias ponderadas da mesma aquisição.</p>
-<p><span class="math display">\[
-SUHII_t=\overline{LST}_{urb,t}-\overline{LST}_{ref,t}
-\]</span></p>
-<div class="indicator-card">
-<p><span class="field-label">Numerador.</span> Não se aplica.</p>
-<p><span class="field-label">Denominador.</span> Não se aplica.</p>
-<p><span class="field-label">Unidade de medida.</span> Grau Celsius (°C) ou kelvin de diferença.</p>
-<p><span class="field-label">Variáveis e categorias de análise.</span> LST; urbano; referência; sensor; horário; estação; cobertura; população.</p>
-<p><span class="field-label">Granularidade.</span> Pixel e resumo urbano por aquisição.</p>
-<p><span class="field-label">Periodicidade de atualização.</span> Sazonal ou anual.</p>
-<p><span class="field-label">Responsabilidade gerencial.</span> Planejamento urbano e ambiental produz intervenções e cadastros; saúde interpreta exposições e desigualdades; geoinformação mantém métodos.</p>
-<p><span class="field-label">Notas.</span> Verdor espectral, cobertura vegetal, espaço público acessível e uso efetivo são dimensões diferentes.</p>
-<p><span class="field-label">Análise descritiva do indicador.</span> Mostrar distribuição urbana, contraste médio, dia/noite quando houver, estações, população em pontos quentes e sensibilidade à referência.</p>
-</div>
-</section>
-<section id="campos-complementares-para-clima-ambiente-e-saúde-3" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="campos-complementares-para-clima-ambiente-e-saúde-3">Campos complementares para clima, ambiente e saúde</h3>
-<div class="indicator-card">
-<p><span class="field-label">Unidade territorial.</span> Domicílio ou ponto, zona urbana, bairro, setor censitário ou cidade.</p>
-<p><span class="field-label">Resolução espacial original.</span> A do produto térmico; declarar resolução nativa e reamostrada.</p>
-<p><span class="field-label">Resolução temporal.</span> Aquisição instantânea e composições sazonais.</p>
-<p><span class="field-label">Período de referência.</span> Mesmas datas e horários para urbano e referência.</p>
-<p><span class="field-label">Limiar ou valor de referência.</span> Zero indica ausência de contraste médio; não há limiar sanitário universal.</p>
-</div>
-</section>
-<section id="disponibilidade-e-acesso-3" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="disponibilidade-e-acesso-3">Disponibilidade e acesso</h3>
-<p><span class="field-label">Cobertura geográfica.</span> Cidades com cenas válidas e referência comparável.</p>
-<p><span class="field-label">Período disponível.</span> Conforme missão e produto.</p>
-<p><span class="field-label">Periodicidade de atualização.</span> Sazonal ou anual.</p>
-<p><span class="field-label">Forma de acesso.</span> Produtos de temperatura da superfície e cobertura versionados.</p>
-<p><span class="field-label">URL ou identificador persistente.</span> https://doi.org/10.1175/JCLI-D-11-00509.1</p>
-<p><span class="field-label">Formato dos arquivos.</span> Raster e tabela.</p>
-<p><span class="field-label">Necessidade de processamento.</span> Máscara, emissividade/produto, delimitação urbana e referência, estratificação temporal e ponderação.</p>
-</section>
-<section id="qualidade-comparação-e-saúde-3" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="qualidade-comparação-e-saúde-3">Qualidade, comparação e saúde</h3>
-<p><span class="field-label">Qualidade e incerteza.</span> Relatar sensor, produto, data, nuvens, resolução, classificação, delimitação urbana, população, área de entorno, erros posicionais e análise de sensibilidade.</p>
-<p><span class="field-label">Possibilidade de comparação.</span> Manter produto, estação, composição temporal, resolução, definição de verde, limite urbano, população e parâmetros espaciais.</p>
-<p><span class="field-label">Relação com desfechos de saúde.</span> Vegetação e espaços verdes podem influenciar atividade física, contato social, restauração, calor, ruído e poluição, mas efeitos dependem de acesso, qualidade, segurança e contexto.</p>
-<p><span class="field-label">Defasagens temporais relevantes.</span> Distinguir exposição contemporânea, histórica e intervenção; atualizar endereço, vegetação e população de maneira compatível.</p>
-<p><span class="field-label">Aplicação na gestão.</span> Identificar desigualdades, priorizar arborização e espaços públicos, avaliar intervenções e integrar planejamento calor–saúde.</p>
-</section>
-<section id="referências-metodológicas-3" class="level3 unnumbered ficha-section">
-<h3 class="unnumbered ficha-section anchored" data-anchor-id="referências-metodológicas-3">Referências metodológicas</h3>
-<ul>
-<li><span class="citation" data-cites="jin2012uhi">(<a href="../../backmatter/referencias.html#ref-jin2012uhi" role="doc-biblioref">Jin, 2012</a>)</span></li>
-<li><span class="citation" data-cites="who2016greenspace">(<a href="../../backmatter/referencias.html#ref-who2016greenspace" role="doc-biblioref">World Health Organization Regional Office for Europe, 2016</a>)</span></li>
-</ul>
-</section>
-</section>
-<section id="aplicação-na-gestão" class="level2 page-columns page-full" data-number="11.11">
-<h2 data-number="11.11" class="anchored" data-anchor-id="aplicação-na-gestão"><span class="header-section-number">11.11</span> Aplicação na gestão</h2>
+<section id="aplicação-na-gestão" class="level2 page-columns page-full" data-number="11.7">
+<h2 data-number="11.7" class="anchored" data-anchor-id="aplicação-na-gestão"><span class="header-section-number">11.7</span> Aplicação na gestão</h2>
 <p>Uma análise municipal pode começar com NDVI, espaços públicos, acesso e SUHII, mas precisa acrescentar população, moradia, renda, idade, mobilidade e equipamentos. Áreas prioritárias são aquelas em que déficit ambiental coincide com maior exposição e menor capacidade de proteção.</p>
 <p>Avaliar intervenção exige linha de base e comparação: área plantada não é copa formada; parque entregue não é parque usado; redução de LST (Temperatura da superfície terrestre) em uma cena não garante redução de exposição. Registre manutenção, sobrevivência, acesso, percepção e resultados distributivos.</p>
 <div class="cell page-columns page-full" data-layout-align="default">
@@ -1366,8 +867,8 @@ Figura&nbsp;11.2: Camadas complementares para analisar ambiente urbano e saúde
 </div>
 </div>
 </section>
-<section id="síntese" class="level2" data-number="11.12">
-<h2 data-number="11.12" class="anchored" data-anchor-id="síntese"><span class="header-section-number">11.12</span> Síntese</h2>
+<section id="síntese" class="level2" data-number="11.8">
+<h2 data-number="11.8" class="anchored" data-anchor-id="síntese"><span class="header-section-number">11.8</span> Síntese</h2>
 <p>Uso e cobertura alteram caminhos de exposição, mas não constituem risco sanitário por si. NDVI, as duas séries do ODS 11.7.1, acesso próximo ao verde e SUHII são indicadores consolidados para dimensões específicas. Planejamento orientado à saúde deve combinar quantidade, distribuição, qualidade, acesso, população e avaliação de intervenções.</p>
 
 

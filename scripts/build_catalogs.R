@@ -66,7 +66,7 @@ required_indicator <- c(
   "tema", "objetivo", "dimensoes", "unidade_medida", "unidade_territorial",
   "resolucao_temporal", "disponibilidade", "qualidade_incerteza",
   "comparabilidade", "relacao_saude", "aplicacao_gestao",
-  "capitulo", "referencia_metodologica", "numerador", "denominador",
+  "capitulo", "capitulo_fichas", "referencia_metodologica", "numerador", "denominador",
   "resolucao_espacial_original", "periodo_referencia", "limiar_referencia",
   "cobertura_geografica", "periodo_disponivel", "forma_acesso",
   "url_persistente", "formatos", "necessidade_processamento",
@@ -136,12 +136,49 @@ if (length(unknown_sources)) {
   fail("Fontes citadas nas fichas sem cadastro: ", paste(unknown_sources, collapse = ", "), ".")
 }
 
+# A ordem editorial é a mesma nas duas saídas e independe do prefixo do arquivo.
+configured_chapters <- function(profile) {
+  config <- yaml::read_yaml(file.path(root, profile))
+  paths <- unlist(lapply(config$book$chapters, function(entry) {
+    if (is.character(entry)) entry else if (!is.null(entry$chapters)) unlist(entry$chapters) else entry$href
+  }), use.names = FALSE)
+  paths[grepl("^chapters/", paths)]
+}
+chapter_paths <- configured_chapters("_quarto-web.yml")
+if (!identical(chapter_paths, configured_chapters("_quarto-print.yml"))) {
+  fail("A ordem dos capítulos difere entre web e impressão.")
+}
+chapter_numbers <- setNames(seq_along(chapter_paths), chapter_paths)
+
+chapter_info <- function(path) {
+  full_path <- file.path(root, path)
+  if (!file.exists(full_path)) fail("Capítulo não encontrado: ", path)
+  heading <- grep("^# ", readLines(full_path, warn = FALSE, encoding = "UTF-8"), value = TRUE)
+  if (length(heading) != 1L || !grepl("\\{#sec-", heading)) {
+    fail("Capítulo sem título e identificador estável: ", path)
+  }
+  list(title = sub(" \\{.*$", "", sub("^# ", "", heading)),
+       anchor = sub(".*\\{#([^ }]+).*", "\\1", heading))
+}
+chapter_metadata <- setNames(lapply(chapter_paths, chapter_info), chapter_paths)
+for (indicator in indicators) {
+  context <- as.character(indicator$capitulo)
+  target <- as.character(indicator$capitulo_fichas)
+  if (!context %in% chapter_paths || !target %in% chapter_paths ||
+      !grepl("^chapters/part-[23]/", context) || !grepl("^chapters/part-4/", target) ||
+      !startsWith(chapter_metadata[[target]]$title, "Fichas — ") ||
+      unname(chapter_numbers[target]) != unname(chapter_numbers[context]) + 9L) {
+    fail("Vínculo de contexto/fichas inválido para ", indicator$codigo, ".")
+  }
+}
+
 field <- function(label, value) {
   c(paste0("[", label, ".]{.field-label} ", as_text(value)), "")
 }
 
 for (indicator in indicators) {
   slug <- tolower(as.character(indicator$codigo))
+  context <- chapter_metadata[[as.character(indicator$capitulo)]]
   entries <- source_entries(indicator$fontes_dados, indicator$codigo)
   source_lines <- vapply(entries, function(entry) {
     paste0(
@@ -159,6 +196,9 @@ for (indicator in indicators) {
     paste0("[Dimensão:]{.field-label} ", paste(as_list(indicator$dimensoes), collapse = "; "), " \\"),
     paste0("[Disponibilidade:]{.field-label} ", paste0("[", as_list(indicator$disponibilidade), "]{.availability}", collapse = " ")),
     ":::",
+    "",
+    paste0("Contexto e interpretação: [", context$title, "](../../",
+           indicator$capitulo, "#", context$anchor, ")."),
     "",
     "### Identificação e fundamento",
     "",
@@ -245,86 +285,56 @@ for (indicator in indicators) {
   write_utf8(ficha, file.path(root, "indicators", "includes", paste0(slug, ".qmd")))
 }
 
-indicator_row <- function(x) {
-  slug <- tolower(as.character(x$codigo))
-  paste0(
-    "| [", x$codigo, "](../", x$capitulo, "#sec-", slug, ") | ",
-    x$titulo_completo, " | ", x$tema, " | ",
-    paste(as_list(x$dimensoes), collapse = "; "), " | ",
-    paste(as_list(x$disponibilidade), collapse = "; "), " |"
-  )
-}
 indicator_page_ref <- function(x) {
-  slug <- tolower(as.character(x$codigo))
-  paste0("`#ref(<sec-", slug, ">, form: \"page\")`{=typst}")
+  paste0("`#ref(<sec-", tolower(x$codigo), ">, form: \"page\", supplement: none)`{=typst}")
 }
-indicator_row_print_index <- function(x) {
-  paste0(
-    "| ", x$titulo_resumido, " | ", x$codigo, " | ",
-    indicator_page_ref(x), " |"
-  )
+chapter_link <- function(path) {
+  paste0("[cap. ", unname(chapter_numbers[path]), "](../", path, ")")
 }
-# A ordem editorial é a mesma nas duas saídas e independe do prefixo do arquivo.
-configured_chapters <- function(profile) {
-  config <- yaml::read_yaml(file.path(root, profile))
-  paths <- unlist(lapply(config$book$chapters, function(entry) {
-    if (is.character(entry)) entry else if (!is.null(entry$chapters)) unlist(entry$chapters) else entry$href
-  }), use.names = FALSE)
-  paths[grepl("^chapters/", paths)]
+indicator_row_html <- function(x, kind) {
+  link <- paste0("[", x$codigo, "](../", x$capitulo_fichas, "#sec-", tolower(x$codigo), ")")
+  if (kind == "index") {
+    paste0("| ", x$titulo_resumido, " | ", link, " | ", x$tema, " |")
+  } else {
+    paste0("| ", link, " | ", x$titulo_resumido, " | ", chapter_link(x$capitulo),
+           " | ", chapter_link(x$capitulo_fichas), " |")
+  }
 }
-chapter_paths <- configured_chapters("_quarto-web.yml")
-if (!identical(chapter_paths, configured_chapters("_quarto-print.yml"))) {
-  fail("A ordem dos capítulos difere entre web e impressão.")
+indicator_row_print <- function(x, kind) {
+  if (kind == "index") {
+    paste0("| ", x$titulo_resumido, " | ", x$codigo, " | ", indicator_page_ref(x), " |")
+  } else {
+    paste0("| ", x$codigo, " | ", x$titulo_resumido, " | ",
+           unname(chapter_numbers[x$capitulo]), " | ",
+           unname(chapter_numbers[x$capitulo_fichas]), " | ", indicator_page_ref(x), " |")
+  }
 }
-chapter_numbers <- setNames(seq_along(chapter_paths), chapter_paths)
-indicator_row_print_list <- function(x) {
-  chapter_number <- unname(chapter_numbers[as.character(x$capitulo)])
-  if (is.na(chapter_number)) fail("Capítulo da ficha ausente na configuração: ", x$capitulo)
-  paste0(
-    "| ", x$codigo, " | ", x$titulo_resumido, " | cap. ",
-    as.integer(chapter_number), " | ", indicator_page_ref(x), " |"
-  )
-}
-
-titles <- vapply(indicators, function(x) as.character(x$titulo_completo), character(1L))
-title_order <- order(tolower(titles), method = "shell")
 short_titles <- vapply(indicators, function(x) as.character(x$titulo_resumido), character(1L))
 short_title_order <- order(tolower(short_titles), method = "shell")
 code_order <- order(codes, method = "radix")
 
-indicator_document <- function(entries, print_kind = c("index", "list"), print_entries = entries) {
-  print_kind <- match.arg(print_kind)
-  print_header <- if (print_kind == "index") {
+indicator_document <- function(entries, kind = c("index", "list")) {
+  kind <- match.arg(kind)
+  html_header <- if (kind == "index") {
+    c("| Indicador | Código | Tema |", "|---|---|---|")
+  } else {
+    c("| Código | Indicador | Contexto | Fichas |", "|---|---|---|---|")
+  }
+  print_header <- if (kind == "index") {
     c("| Indicador | Código | Página |", "|---|---|---|")
   } else {
-    c("| Código | Indicador | Capítulo | Página |", "|---|---|---|---|")
-  }
-  print_rows <- if (print_kind == "index") {
-    vapply(print_entries, indicator_row_print_index, character(1L))
-  } else {
-    vapply(print_entries, indicator_row_print_list, character(1L))
+    c("| Código | Indicador | Contexto | Fichas | Página |", "|---|---|---|---|---|")
   }
   c(
-  "<!-- Arquivo gerado por scripts/build_catalogs.R. -->",
-  "",
-  "::: {.content-visible .quadro-grid when-format=\"html\"}",
-  "| Código | Indicador | Tema | Dimensão | Disponibilidade |",
-  "|---|---|---|---|---|",
-  vapply(entries, indicator_row, character(1L)),
-  ":::",
-  "",
-  "::: {.content-visible .quadro-grid when-format=\"typst\"}",
-  print_header,
-  print_rows,
-  ":::"
+    "<!-- Arquivo gerado por scripts/build_catalogs.R. -->", "",
+    "::: {.content-visible .quadro-grid when-format=\"html\"}",
+    html_header, vapply(entries, indicator_row_html, character(1L), kind = kind), ":::", "",
+    "::: {.content-visible .quadro-grid when-format=\"typst\"}",
+    print_header, vapply(entries, indicator_row_print, character(1L), kind = kind), ":::"
   )
 }
 write_utf8(
-  indicator_document(
-    indicators[title_order],
-    "index",
-    indicators[short_title_order]
-  ),
+  indicator_document(indicators[short_title_order], "index"),
   file.path(root, "indicators", "generated-index-alphabetical.qmd")
 )
 write_utf8(
