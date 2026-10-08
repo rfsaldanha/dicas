@@ -6,7 +6,7 @@ O identificador `dicas` foi mantido: não havia arquivo, pacote ou configuraçã
 
 Os 24 capítulos e os elementos pré-textuais em QMD são compartilhados entre as duas saídas. A extensão Typst acrescenta apenas folha de rosto, verso editorial, paginação e composição gráfica próprias da edição impressa.
 
-A organização editorial tem quatro partes: fundamentos e métodos (capítulos 1–6), dados e indicadores temáticos (7–12), indicadores integrados de clima, ambiente e saúde (13–15) e fichas de indicadores e fontes de dados (16–24). “Do indicador à decisão pública” encerra a Parte I como capítulo 6. Seu caminho histórico em `chapters/part-4/` é preservado para manter os links; a vinculação às partes e a numeração são definidas nos perfis Quarto.
+A organização editorial tem quatro partes: fundamentos e métodos (capítulos 1–6), dados e indicadores temáticos (7–12), indicadores integrados de clima, ambiente e saúde (13–15) e fichas de indicadores e fontes de dados (16–24). “Do indicador à decisão pública” encerra a Parte I como capítulo 6. Seu caminho é `chapters/part-1/06-indicador-decisao.qmd`. As pastas correspondem às partes e os prefixos dos arquivos, de `01` a `24`, acompanham a ordem definida nos perfis Quarto.
 
 ## Perfis
 
@@ -18,7 +18,9 @@ O perfil web é padrão, portanto `quarto render` produz o site. `quarto render 
 
 ## Diretórios
 
-Os capítulos vivem em `chapters/part-*`; pré e pós-textuais ficam separados. Fichas e fontes distinguem dados autoritativos (`data/`) de artefatos gerados (`pages/` e `generated/`). A extensão Typst local fica versionada em `_extensions/dicas-print/`.
+Os capítulos vivem em `chapters/part-*`; pré e pós-textuais ficam separados. Fichas e fontes distinguem dados autoritativos (`data/`) de artefatos gerados (`includes/` e `generated/`). A extensão Typst local fica versionada em `_extensions/dicas-print/`.
+
+Os capítulos renomeados declaram os endereços HTML anteriores em `aliases`. O Quarto gera redirecionamentos que preservam os fragmentos dos links; os identificadores de seções, figuras, quadros e fichas permanecem estáveis. Os códigos de produção das ilustrações continuam independentes da numeração editorial das figuras, conforme o guia editorial.
 
 Diretórios vazios propostos no briefing não foram criados. Figuras, tabelas e dados analíticos deverão surgir quando houver recursos reais com proveniência.
 
@@ -46,7 +48,7 @@ A composição usa o modelo Typst local e a identidade “Território, evidênci
 
 `references.bib` é a bibliografia única. O estilo local `styles/abnt.csl` aplica o sistema autor-data e contém correções editoriais para datas de páginas web, DOI e pontuação. A saída é validada como configuração do projeto; não se declara conformidade integral com uma edição normativa sem auditoria específica.
 
-As duas saídas usam a mesma ordem editorial. As listas de figuras e de quadros e tabelas ficam entre siglas e sumário. A Parte IV começa pela lista de fichas por código e pelo índice alfabético, reúne os capítulos 16–24 e termina com o catálogo de fontes, que incorpora a relação de instituições. Glossário e referências são entradas independentes após essa parte, seguidos dos apêndices metodológico (A) e sobre estações meteorológicas e de qualidade do ar (B). Não há uma parte formal de elementos pós-textuais. O apêndice usa identificação alfabética; a bibliografia única reúne todas as obras citadas, inclusive nos apêndices, sob o título “Referências”, antes deles. A impressão usa `citeproc: true` para respeitar a posição de `#refs`. Os nomes históricos dos arquivos são preservados; a ordem nas configurações define a numeração editorial.
+As duas saídas usam a mesma ordem editorial. As listas de figuras e de quadros e tabelas ficam entre siglas e sumário. A Parte IV começa pela lista de fichas por código e pelo índice alfabético, reúne os capítulos 16–24 e termina com o catálogo de fontes, que incorpora a relação de instituições. Glossário e referências são entradas independentes após essa parte, seguidos dos apêndices metodológico (A) e sobre estações meteorológicas e de qualidade do ar (B). Não há uma parte formal de elementos pós-textuais. O apêndice usa identificação alfabética; a bibliografia única reúne todas as obras citadas, inclusive nos apêndices, sob o título “Referências”, antes deles. A impressão usa `citeproc: true` para respeitar a posição de `#refs`. A ordem nas configurações define a numeração editorial, e o validador confere sua correspondência com os nomes e as pastas dos arquivos.
 
 ## Publicação
 

@@ -161,7 +161,7 @@ if (length(unknown_sources)) {
   fail("Fontes citadas nas fichas sem cadastro: ", paste(unknown_sources, collapse = ", "), ".")
 }
 
-# A ordem editorial é a mesma nas duas saídas e independe do prefixo do arquivo.
+# A ordem editorial vem dos perfis; os prefixos dos arquivos acompanham essa ordem.
 configured_chapters <- function(profile) {
   config <- yaml::read_yaml(file.path(root, profile))
   paths <- unlist(lapply(config$book$chapters, function(entry) {

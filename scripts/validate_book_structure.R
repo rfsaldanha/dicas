@@ -25,6 +25,12 @@ validate_book_structure <- function(root = ".", rendered = FALSE) {
   paths <- unlist(lapply(parts[[1]], `[[`, "chapters"), use.names = FALSE)
   chapter_paths <- paths[startsWith(paths, "chapters/")]
   check(length(chapter_paths) == 24L && !anyDuplicated(chapter_paths), "Esperados 24 capítulos únicos.")
+  check(identical(sub("-.*$", "", basename(chapter_paths)), sprintf("%02d", seq_along(chapter_paths))),
+    "Os prefixos dos arquivos devem acompanhar a numeração editorial de 01 a 24.")
+  check(identical(dirname(chapter_paths), rep(paste0("chapters/part-", 1:4), c(6L, 6L, 3L, 9L))),
+    "Cada capítulo deve estar na pasta da sua parte editorial.")
+  disk_paths <- paste0("chapters/", list.files(file.path(root, "chapters"), pattern = "\\.qmd$", recursive = TRUE))
+  check(setequal(chapter_paths, disk_paths), "Os arquivos de chapters/ devem corresponder aos capítulos configurados.")
   context_paths <- chapter_paths[7:15]
   card_paths <- chapter_paths[16:24]
   documents <- lapply(sort(list.files(file.path(root, "indicators/data"), pattern = "\\.yml$", full.names = TRUE)), function(p) yaml::read_yaml(p, merge.precedence = "override"))
@@ -73,6 +79,24 @@ validate_book_structure <- function(root = ".", rendered = FALSE) {
   check(identical(titles, rep(short[order(tolower(short), method = "shell")], 2L)), "Índice deve usar títulos resumidos na mesma ordem em HTML e PDF.")
   check(grepl("include indice-instituicoes.qmd", read_text("backmatter/indice-fontes.qmd"), fixed = TRUE), "Instituições devem integrar o catálogo de fontes.")
   if (rendered) {
+    for (i in seq_along(chapter_paths)) {
+      path <- chapter_paths[[i]]
+      html <- read_text(file.path("_output/web", sub("qmd$", "html", path)))
+      check(grepl(paste0('<span class="chapter-number">', i, '</span>'), html, fixed = TRUE),
+        paste("Número de capítulo incorreto no HTML:", path))
+      lines <- readLines(file.path(root, path), warn = FALSE, encoding = "UTF-8")
+      if (identical(lines[[1L]], "---")) {
+        end <- which(lines == "---")[[2L]]
+        metadata <- yaml::yaml.load(paste(lines[seq.int(2L, end - 1L)], collapse = "\n"))
+        for (alias in metadata$aliases) {
+          redirect <- read_text(file.path("_output/web", sub("^/", "", alias)))
+          check(grepl("window.location.replace(redirect)", redirect, fixed = TRUE) &&
+                grepl(sub("qmd$", "html", basename(path)), redirect, fixed = TRUE) &&
+                grepl("window.location.hash", redirect, fixed = TRUE),
+            paste("Redirecionamento ausente ou incorreto:", alias))
+        }
+      }
+    }
     home <- read_text("_output/web/index.html")
     check(!grepl("Elementos pós-textuais", home, fixed = TRUE), "A antiga parte ainda aparece na navegação.")
     check(!grepl('href="./backmatter/indice-instituicoes.html"', home, fixed = TRUE), "Instituições ainda aparecem como página independente.")

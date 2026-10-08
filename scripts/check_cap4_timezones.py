@@ -9,7 +9,7 @@ ROOT = Path(__file__).resolve().parent.parent
 
 def main():
     document = json.loads((ROOT / 'data-raw/figures/conversoes-utc-cap4.json').read_text())
-    source = (ROOT / 'chapters/part-1/03-espaco-tempo-qualidade.qmd').read_text()
+    source = (ROOT / 'chapters/part-1/04-espaco-tempo-qualidade.qmd').read_text()
     for row in document['rows']:
         zone = ZoneInfo(row['zone'])
         for entry in row['conversions']:

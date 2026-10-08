@@ -366,7 +366,7 @@ if (!grepl("fig-quadrantes-impacto", paragraphs[[3L]], fixed = TRUE) ||
   fail("Quadrantes ou Quadro 1.3 fora da posição prevista no capítulo 1.")
 }
 chapter_two_html <- paste(readLines(
-  file.path(html_root, "chapters/part-1/01b-mudanca-climatica-resposta-sus.html"),
+  file.path(html_root, "chapters/part-1/02-mudanca-climatica-resposta-sus.html"),
   warn = FALSE, encoding = "UTF-8"
 ), collapse = "\n")
 # A arte 07-grades integra o capítulo 3; o inventário de produção permanece completo.
@@ -383,7 +383,7 @@ if (grepl('id="sec-grades-planejamento-sus"', chapter_two_html, fixed = TRUE) ||
     grepl('id="fig-dados-grade-sus"', chapter_two_html, fixed = TRUE)) {
   fail("A seção sobre dados em grade ou sua figura ainda está no capítulo 2.")
 }
-chapter_three_path <- "chapters/part-1/02-dados-variaveis-indices-indicadores.qmd"
+chapter_three_path <- "chapters/part-1/03-dados-variaveis-indices-indicadores.qmd"
 chapter_three_source <- paste(readLines(chapter_three_path, warn = FALSE, encoding = "UTF-8"), collapse = "\n")
 chapter_three_html <- paste(readLines(
   file.path(html_root, sub("[.]qmd$", ".html", chapter_three_path)),
@@ -426,7 +426,7 @@ if (grepl("ARTE CAP[23]-", gsub("(?s)<!--.*?-->", "", chapter_three_html, perl =
   fail("Instruções de produção do capítulo 3 aparecem no conteúdo renderizado.")
 }
 
-chapter_four_path <- "chapters/part-1/03-espaco-tempo-qualidade.qmd"
+chapter_four_path <- "chapters/part-1/04-espaco-tempo-qualidade.qmd"
 chapter_four_source <- paste(readLines(chapter_four_path, warn = FALSE, encoding = "UTF-8"), collapse = "\n")
 chapter_four_html <- paste(readLines(
   file.path(html_root, sub("[.]qmd$", ".html", chapter_four_path)),
@@ -470,7 +470,7 @@ if (grepl("ARTE CAP4-", gsub("(?s)<!--.*?-->", "", chapter_four_html, perl = TRU
   fail("Instruções de produção do capítulo 4 aparecem no conteúdo renderizado.")
 }
 
-chapter_five_path <- "chapters/part-1/04-fontes-fichas.qmd"
+chapter_five_path <- "chapters/part-1/05-fontes-fichas.qmd"
 chapter_five_source <- paste(readLines(chapter_five_path, warn = FALSE, encoding = "UTF-8"), collapse = "\n")
 chapter_five_html <- paste(readLines(
   file.path(html_root, sub("[.]qmd$", ".html", chapter_five_path)),

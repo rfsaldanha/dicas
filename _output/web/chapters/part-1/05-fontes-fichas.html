@@ -1,0 +1,1878 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Guia técnico sobre conceitos, dados e indicadores de clima e ambiente aplicados à vigilância e à gestão em saúde pública.">
+
+<title>5&nbsp; Fontes de dados e fichas de indicadores – Dados e Indicadores de Clima e Ambiente para a Saúde</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 1em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../chapters/part-1/06-indicador-decisao.html" rel="next">
+<link href="../../chapters/part-1/04-espaco-tempo-qualidade.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-bb162014f31ff550f3668977ab0f7733.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-fdd2e9c9119fd81cafe9a82057eefc34.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-bb162014f31ff550f3668977ab0f7733.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Nenhum resultado",
+    "search-matching-documents-text": "documentos correspondentes",
+    "search-copy-link-title": "Copiar link para a busca",
+    "search-hide-matches-text": "Esconder correspondências adicionais",
+    "search-more-match-text": "mais correspondência neste documento",
+    "search-more-matches-text": "mais correspondências neste documento",
+    "search-clear-button-title": "Limpar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Procurar"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles/web/styles.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/part-1/01-clima-ambiente-saude.html">Parte I — Fundamentos e métodos</a></li><li class="breadcrumb-item"><a href="../../chapters/part-1/05-fontes-fichas.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Fontes de dados e fichas de indicadores</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Procurar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">Dados e Indicadores de Clima e Ambiente para a Saúde</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/rfsaldanha/dicas" title="Código fonte" class="quarto-navigation-tool px-1" aria-label="Código fonte"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo escuro"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Procurar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bem-vindo</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/ficha-tecnica.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ficha técnica</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/apresentacao.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Apresentação</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/prefacio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prefácio do autor</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/agradecimentos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Agradecimentos</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/siglas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lista de siglas</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/lista-figuras.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lista de figuras</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/lista-tabelas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lista de quadros e tabelas</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/sumario.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sumário</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/como-usar.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Como utilizar este livro</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Parte I — Fundamentos e métodos</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/01-clima-ambiente-saude.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Clima, ambiente e saúde pública</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/02-mudanca-climatica-resposta-sus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Mudança climática, planejamento e resposta do SUS</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/03-dados-variaveis-indices-indicadores.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Dos dados aos indicadores: como representar clima, ambiente e saúde</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/04-espaco-tempo-qualidade.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Compatibilizando dados: espaço, tempo e qualidade</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/05-fontes-fichas.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Fontes de dados e fichas de indicadores</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/06-indicador-decisao.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Do indicador à decisão pública</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Parte II — Dados e indicadores temáticos</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/07-temperatura-condicoes-termicas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Temperatura e condições térmicas</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/08-precipitacao-secas-eventos-hidrologicos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Precipitação, secas e eventos hidrológicos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/09-qualidade-ar-queimadas-fumaca.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Qualidade do ar, queimadas e fumaça</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/10-agua-saneamento-qualidade-ambiental.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Água, saneamento e qualidade ambiental</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/11-uso-cobertura-terra-ambiente-urbano.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Uso e cobertura da terra, vegetação e ambiente urbano</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/12-eventos-severos-desastres.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Eventos meteorológicos severos e desastres</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Parte III — Indicadores integrados de clima, ambiente e saúde</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-3/13-exposicao-vulnerabilidade.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Exposição e vulnerabilidade socioambiental</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-3/14-efeitos-saude.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Efeitos do clima e do ambiente sobre a saúde</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-3/15-resposta-adaptacao-resiliencia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Capacidade de resposta, adaptação e resiliência</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Parte IV — Fichas de indicadores e fontes de dados</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/lista-fichas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lista de fichas por código e capítulo</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/indice-indicadores.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Índice alfabético de indicadores</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/16-fichas-temperatura-condicoes-termicas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Fichas — Temperatura e condições térmicas</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/17-fichas-precipitacao-secas-eventos-hidrologicos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Fichas — Precipitação, secas e eventos hidrológicos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Fichas — Qualidade do ar, queimadas e fumaça</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Fichas — Água, saneamento e qualidade ambiental</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/20-fichas-uso-cobertura-terra-ambiente-urbano.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Fichas — Uso e cobertura da terra, vegetação e ambiente urbano</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/21-fichas-eventos-severos-desastres.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Fichas — Eventos severos e desastres</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/22-fichas-exposicao-vulnerabilidade.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Fichas — Exposição e vulnerabilidade socioambiental</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/23-fichas-efeitos-saude.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Fichas — Efeitos do clima e do ambiente sobre a saúde</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/24-fichas-resposta-adaptacao-resiliencia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Fichas — Capacidade de resposta, adaptação e resiliência</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/indice-fontes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Catálogo de fontes de dados</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/glossario.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Glossário</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/referencias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Referências</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Apêndices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/apendice-metodologico.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Apêndice metodológico</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/apendice-estacoes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Estações meteorológicas e de qualidade do ar</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Índice</h2>
+   
+  <ul>
+  <li><a href="#identificar-a-fonte-além-do-nome-da-instituição" id="toc-identificar-a-fonte-além-do-nome-da-instituição" class="nav-link active" data-scroll-target="#identificar-a-fonte-além-do-nome-da-instituição"><span class="header-section-number">5.1</span> Identificar a fonte além do nome da instituição</a></li>
+  <li><a href="#reconhecer-como-o-dado-foi-produzido" id="toc-reconhecer-como-o-dado-foi-produzido" class="nav-link" data-scroll-target="#reconhecer-como-o-dado-foi-produzido"><span class="header-section-number">5.2</span> Reconhecer como o dado foi produzido</a></li>
+  <li><a href="#selecionar-fontes-para-uma-finalidade-definida" id="toc-selecionar-fontes-para-uma-finalidade-definida" class="nav-link" data-scroll-target="#selecionar-fontes-para-uma-finalidade-definida"><span class="header-section-number">5.3</span> Selecionar fontes para uma finalidade definida</a></li>
+  <li><a href="#sec-proveniencia-fichas" id="toc-sec-proveniencia-fichas" class="nav-link" data-scroll-target="#sec-proveniencia-fichas"><span class="header-section-number">5.4</span> Acesso, preservação e proveniência</a>
+  <ul class="collapse">
+  <li><a href="#painéis-serviços-e-arquivos" id="toc-painéis-serviços-e-arquivos" class="nav-link" data-scroll-target="#painéis-serviços-e-arquivos"><span class="header-section-number">5.4.1</span> Painéis, serviços e arquivos</a></li>
+  <li><a href="#reconstruir-o-caminho-até-o-resultado" id="toc-reconstruir-o-caminho-até-o-resultado" class="nav-link" data-scroll-target="#reconstruir-o-caminho-até-o-resultado"><span class="header-section-number">5.4.2</span> Reconstruir o caminho até o resultado</a></li>
+  </ul></li>
+  <li><a href="#usar-indicadores-publicados-ou-calcular-uma-variante" id="toc-usar-indicadores-publicados-ou-calcular-uma-variante" class="nav-link" data-scroll-target="#usar-indicadores-publicados-ou-calcular-uma-variante"><span class="header-section-number">5.5</span> Usar indicadores publicados ou calcular uma variante</a></li>
+  <li><a href="#do-repertório-temático-às-fichas-do-catálogo" id="toc-do-repertório-temático-às-fichas-do-catálogo" class="nav-link" data-scroll-target="#do-repertório-temático-às-fichas-do-catálogo"><span class="header-section-number">5.6</span> Do repertório temático às fichas do catálogo</a></li>
+  <li><a href="#sec-ficha-ripsa" id="toc-sec-ficha-ripsa" class="nav-link" data-scroll-target="#sec-ficha-ripsa"><span class="header-section-number">5.7</span> A ficha de qualificação da RIPSA e sua contribuição para este livro</a>
+  <ul class="collapse">
+  <li><a href="#organizar-os-campos-sem-repetir-informações" id="toc-organizar-os-campos-sem-repetir-informações" class="nav-link" data-scroll-target="#organizar-os-campos-sem-repetir-informações"><span class="header-section-number">5.7.1</span> Organizar os campos sem repetir informações</a></li>
+  <li><a href="#ler-uma-ficha-junto-das-fontes" id="toc-ler-uma-ficha-junto-das-fontes" class="nav-link" data-scroll-target="#ler-uma-ficha-junto-das-fontes"><span class="header-section-number">5.7.2</span> Ler uma ficha junto das fontes</a></li>
+  </ul></li>
+  <li><a href="#validar-atualizar-e-manter-a-interpretação" id="toc-validar-atualizar-e-manter-a-interpretação" class="nav-link" data-scroll-target="#validar-atualizar-e-manter-a-interpretação"><span class="header-section-number">5.8</span> Validar, atualizar e manter a interpretação</a>
+  <ul class="collapse">
+  <li><a href="#distinguir-atualização-de-dados-e-revisão-de-método" id="toc-distinguir-atualização-de-dados-e-revisão-de-método" class="nav-link" data-scroll-target="#distinguir-atualização-de-dados-e-revisão-de-método"><span class="header-section-number">5.8.1</span> Distinguir atualização de dados e revisão de método</a></li>
+  </ul></li>
+  <li><a href="#consultar-as-fichas-e-preparar-o-uso" id="toc-consultar-as-fichas-e-preparar-o-uso" class="nav-link" data-scroll-target="#consultar-as-fichas-e-preparar-o-uso"><span class="header-section-number">5.9</span> Consultar as fichas e preparar o uso</a></li>
+  <li><a href="#síntese" id="toc-síntese" class="nav-link" data-scroll-target="#síntese"><span class="header-section-number">5.10</span> Síntese</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/rfsaldanha/dicas/blob/main/chapters/part-1/05-fontes-fichas.qmd" class="toc-action"><i class="bi bi-github"></i>Ver o código fonte</a></li><li><a href="https://github.com/rfsaldanha/dicas/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default has-chapter-opening"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/part-1/01-clima-ambiente-saude.html">Parte I — Fundamentos e métodos</a></li><li class="breadcrumb-item"><a href="../../chapters/part-1/05-fontes-fichas.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Fontes de dados e fichas de indicadores</span></a></li></ol></nav>
+<div class="chapter-opening">
+  <img src="../../assets/openings/cap5-fontes-fichas-web.webp" alt="Paisagem hipotética sem pessoas de um pequeno núcleo urbano: instalação de monitoramento ambiental, estação meteorológica em gramado aberto, sensor junto ao rio e estabelecimento de saúde integrado às ruas, casas e prédios. A cena remete a diferentes origens dos dados." width="2400" height="600" class="no-lightbox" fetchpriority="high">
+</div>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-fontes-fichas" class="quarto-section-identifier"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Fontes de dados e fichas de indicadores</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Uma ficha confiável começa antes da fórmula. É preciso definir a pergunta, identificar uma medida adequada e verificar se os dados disponíveis permitem produzi-la. O <a href="03-dados-variaveis-indices-indicadores.html" class="quarto-xref"><span>Capítulo 3</span></a> apresentou os componentes e as propriedades dos indicadores; o <a href="04-espaco-tempo-qualidade.html" class="quarto-xref"><span>Capítulo 4</span></a> discutiu a compatibilidade entre espaço, tempo e qualidade. Este capítulo reúne esses cuidados em um percurso de trabalho: selecionar fontes, documentar o processamento, ler e preencher fichas e manter os resultados ao longo do tempo.</p>
+<p>Fonte, referência metodológica e ficha cumprem funções distintas. A fonte fornece registros ou estimativas; a referência metodológica especifica a medida; a literatura de aplicação sustenta seus usos e limites; a ficha conecta essas informações. Uma página institucional pode ajudar a localizar o dado sem explicar a fórmula, e um artigo que utiliza um indicador pode não ser a publicação que o definiu.</p>
+<p>Na produção brasileira sobre indicadores, Jannuzzi ressalta a necessidade de escolher medidas em função da pergunta e da etapa da política pública. Essa orientação ajuda a evitar que a facilidade de acesso a uma base determine, sozinha, o que será acompanhado <span class="citation" data-cites="jannuzzi2005indicadores">(<a href="../../backmatter/referencias.html#ref-jannuzzi2005indicadores" role="doc-biblioref">Jannuzzi, 2005</a>)</span>. A documentação deve permitir que outra equipe compreenda por que a fonte e o método foram escolhidos, reproduza as operações e reconheça os limites do resultado.</p>
+<p>O <a href="../../backmatter/apendice-estacoes.html">Apêndice B</a> apresenta instrumentos, redes observacionais e caminhos de acesso aos dados do INMET e de qualidade do ar, com exemplos reais comentados.</p>
+<section id="identificar-a-fonte-além-do-nome-da-instituição" class="level2 page-columns page-full" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="identificar-a-fonte-além-do-nome-da-instituição"><span class="header-section-number">5.1</span> Identificar a fonte além do nome da instituição</h2>
+<p>Fonte de dados é o recurso do qual se obtêm os registros ou as estimativas empregados na análise. Ela deve ser descrita em uma cadeia que distingue produção, produto e acesso. Uma rede de estações produz observações; uma base reúne os registros; um portal oferece acesso; uma consulta seleciona uma parte do conteúdo. Essas funções podem estar sob responsabilidade de uma mesma organização ou de várias.</p>
+<p>O Instituto Nacional de Meteorologia (INMET) e o Instituto Brasileiro de Geografia e Estatística (IBGE) são instituições. Informar seus nomes é necessário, mas insuficiente para identificar o que foi utilizado. De modo semelhante, citar apenas o Departamento de Informática do Sistema Único de Saúde (DATASUS) não distingue sistemas, tabelas, arquivos e datas de extração. A referência precisa chegar ao produto, à variável e ao recorte efetivamente usados.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Conceito-chave: responsabilidades na cadeia do dado">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Conceito-chave: responsabilidades na cadeia do dado
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Produtor é quem gera o dado; custodiante é quem responde por sua manutenção; distribuidor oferece o acesso; a equipe usuária seleciona, processa e interpreta. Esses papéis podem se sobrepor. Um cálculo próprio baseado em dados oficiais deve identificar tanto o produtor dos dados quanto a equipe responsável pela transformação e pelo resultado <span class="citation" data-cites="w3c2013prov">(<a href="../../backmatter/referencias.html#ref-w3c2013prov" role="doc-biblioref">World Wide Web Consortium, 2013</a>)</span>.</p>
+</div>
+</div>
+<p>O <a href="#qua-entidade-recurso" class="quarto-xref">Quadro&nbsp;<span>5.1</span></a> organiza os níveis de identificação. Eles são perguntas de documentação, e não uma hierarquia administrativa universal: alguns produtos não pertencem a um programa formal, e uma plataforma pode distribuir bases de diferentes produtores.</p>
+<div id="qua-entidade-recurso" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-qua figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-qua" id="qua-entidade-recurso-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Quadro&nbsp;5.1: Entidade responsável e recurso usado
+</figcaption>
+<div aria-describedby="qua-entidade-recurso-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Nível</th>
+<th>Pergunta</th>
+<th>O que registrar</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Instituição responsável</td>
+<td>Quem produz, mantém ou distribui?</td>
+<td>Nome oficial e papel de cada organização</td>
+</tr>
+<tr class="even">
+<td>Programa ou sistema</td>
+<td>Para qual finalidade o registro é produzido?</td>
+<td>Nome, finalidade, universo e fluxo de produção</td>
+</tr>
+<tr class="odd">
+<td>Produto ou base</td>
+<td>Qual conjunto foi utilizado?</td>
+<td>Título, edição, coleção ou versão e cobertura</td>
+</tr>
+<tr class="even">
+<td>Variável</td>
+<td>Que característica entra no cálculo?</td>
+<td>Nome ou código, definição, unidade e códigos de qualidade</td>
+</tr>
+<tr class="odd">
+<td>Via de acesso</td>
+<td>Como o conteúdo foi obtido?</td>
+<td>Arquivo, tabela, serviço, catálogo ou painel e endereço</td>
+</tr>
+<tr class="even">
+<td>Extração</td>
+<td>Que parte do produto foi usada?</td>
+<td>Data e hora, filtros, arquivos, parâmetros e identificação da cópia</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>A <a href="#fig-identificacao-fonte" class="quarto-xref">Figura&nbsp;<span>5.1</span></a> mostra a passagem de uma referência ampla para uma extração identificável. Leia os blocos de cima para baixo: cada pergunta acrescenta informação que o nome da instituição não fornece. As cenas de observação, arquivo e consulta ilustram atividades da cadeia; não representam uma instituição ou base específica. Os papéis podem ser distribuídos entre diferentes organizações.</p>
+<div id="fig-identificacao-fonte" class="lightbox quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" alt="Seis blocos detalham instituição responsável, programa ou sistema, produto e versão, variável, via de acesso e extração datada. Cenas conceituais de observação, arquivo e consulta acompanham as perguntas. As setas indicam detalhamento documental, não subordinação institucional. As cenas mostram observação em terreno aberto, arquivo e consulta, com bairros de prédios, casas e vegetação ao fundo." data-print-width="120mm" data-print-src="arte-cap5-01-identificacao-print.png">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-identificacao-fonte-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<a href="../../assets/figures/arte-cap5-01-identificacao.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-1" title="Figura&nbsp;5.1: Da instituição à extração que pode ser reconstruída"><img src="../../assets/figures/arte-cap5-01-identificacao.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Seis blocos detalham instituição responsável, programa ou sistema, produto e versão, variável, via de acesso e extração datada. Cenas conceituais de observação, arquivo e consulta acompanham as perguntas. As setas indicam detalhamento documental, não subordinação institucional. As cenas mostram observação em terreno aberto, arquivo e consulta, com bairros de prédios, casas e vegetação ao fundo."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-identificacao-fonte-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;5.1: Da instituição à extração que pode ser reconstruída
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte: Elaboração própria; cenas conceituais, sem dados observados. Direção editorial: autor da obra; ilustração: ferramenta integrada image_gen; composição: edição desta obra. Licença dos arquivos autorais: GPL-3.0; fontes citadas mantêm suas licenças. Prompts e originais preservados no repositório. Revisão urbana da aquarela: image_gen, com o original e a referência visual da série.</span></p>
+<!--
+ARTE CAP5-01 — Revisão urbana v2
+Finalidade e descrição acessível: Seis blocos detalham instituição responsável, programa ou sistema, produto e versão, variável, via de acesso e extração datada. Cenas conceituais de observação, arquivo e consulta acompanham as perguntas. As setas indicam detalhamento documental, não subordinação institucional. As cenas mostram observação em terreno aberto, arquivo e consulta, com bairros de prédios, casas e vegetação ao fundo.
+Arte incorporada: assets/figures/arte-cap5-01-identificacao.svg.
+Impressão: assets/figures/arte-cap5-01-identificacao-print.png.
+Original da edição: assets/figures/arte-cap5-01-v1.png; preservado junto das versões anteriores.
+Aquarela revisada: assets/figures/arte-cap5-01-v2.png.
+Prompt completo utilizado: assets/figures/arte-cap5-01-v2.prompt.txt.
+Referência de estilo: assets/references/aquarela-grafite-nanquim.png.
+Produção: ferramenta integrada image_gen; original e referência de estilo inspecionados e fornecidos por referenced_image_paths.
+Montagem: scripts/build_cap5_art.py 01; rótulos, setas e identificadores editáveis preservados.
+Exportação: Chromium com fontes e raster incorporados; ImageMagick para PNG de 8 bits em cinza.
+Revisão: presença urbana, continuidade da aquarela, anatomia, recortes e relações conceituais. Cenários hipotéticos, sem novos dados observados.
+Licença dos arquivos autorais: GPL-3.0; fontes citadas mantêm suas condições de uso.
+
+Use case: precise-object-edit. Arte didática em aquarela para livro brasileiro sobre clima, ambiente e saúde.
+Entradas: imagem 1 é o ORIGINAL a editar, referência obrigatória de composição; imagem 2 é APENAS referência do estilo da série.
+Pedido: aumentar a presença urbana, preservando a aquarela naturalista, paleta suave de azuis, verdes, ocres e terracota, textura de papel, contornos delicados de grafite/nanquim e contraste adequado também em cinza. A cidade é brasileira e hipotética, sem marcos reconhecíveis.
+Revisão específica: Conserve a página vertical e as três cenas conectadas: estação e técnico no topo, arquivo no meio, profissional ao computador embaixo. Na cena superior, mantenha a estação em campo aberto e inclua prédios próximos no bairro ao fundo, casas e vias urbanas. Na janela do arquivo intermediário e na vista atrás do computador inferior, repita esse bairro misto com edifícios, árvores e rio. Preserve técnicos, gestos, estantes, pastas sem rótulos, tela inteiramente branca e documentos. Não mude alturas, cortes ou posições das três cenas.
+Invariantes: conserve enquadramento, proporção, escala das figuras humanas, anatomia natural, quantidade e posição das vinhetas, objetos conceituais e espaços brancos. Alterar cenários e arquitetura somente conforme o pedido. Não adicionar texto, títulos, legendas, setas, números, marcas ou molduras; serão aplicados como vetores editáveis. Não fundir cenas e não recortar personagens. Manter boa nitidez na impressão.
+Formato: mesma proporção do original 1086 × 1448; resolução igual ou superior. Uma única imagem final editada.
+-->
+<p>Uma fonte deve ser identificada no nível que permite reconstruir o uso. A data de acesso não substitui a versão: a primeira informa quando houve a consulta; a segunda distingue uma edição do produto. Quando não há versionamento pelo produtor, registre essa limitação, preserve a extração permitida e identifique-a de forma inequívoca. Metadados, proveniência, licenças e identificadores persistentes sustentam a reutilização dos dados <span class="citation" data-cites="w3c2017dwbp">(<a href="../../backmatter/referencias.html#ref-w3c2017dwbp" role="doc-biblioref">World Wide Web Consortium, 2017</a>)</span>.</p>
+</section>
+<section id="reconhecer-como-o-dado-foi-produzido" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="reconhecer-como-o-dado-foi-produzido"><span class="header-section-number">5.2</span> Reconhecer como o dado foi produzido</h2>
+<p>A natureza da produção condiciona o que se pode inferir. Medição por instrumento, declaração em entrevista, registro de atendimento e estimativa por modelo podem ser fontes úteis, mas descrevem objetos diferentes. A avaliação começa pela correspondência entre o conteúdo disponível e o conceito do indicador.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Conceito-chave: dados primários e secundários">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Conceito-chave: dados primários e secundários
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Em uma pesquisa, costuma-se chamar de primários os dados coletados para sua própria finalidade e de secundários aqueles já produzidos para outra finalidade. Na descrição da linhagem, também se distingue o registro de origem dos produtos dele derivados. É necessário explicitar o sentido adotado: dados originais de uma estação podem ser secundários para uma pesquisa que apenas os reutiliza. O rótulo não determina qualidade nem dispensa a descrição da produção.</p>
+</div>
+</div>
+<p>Uma observação instrumental depende de instalação, calibração e controle de qualidade. Um produto de sensoriamento remoto depende também do sensor, do algoritmo e da coleção. Uma reanálise combina observações e modelo por assimilação de dados; seus valores são estimativas, e não medições em cada célula da grade <span class="citation" data-cites="hersbach2020era5">(<a href="../../backmatter/referencias.html#ref-hersbach2020era5" role="doc-biblioref"><span class="nocase">Hersbach et al.</span>, 2020</a>)</span>. Esses aspectos devem aparecer na ficha quando afetarem a interpretação, com os cuidados de suporte e agregação discutidos no <a href="04-espaco-tempo-qualidade.html" class="quarto-xref"><span>Capítulo 4</span></a>.</p>
+<p>Registros administrativos respondem a finalidades de serviço, gestão ou vigilância. O número registrado pode depender de acesso, cobertura do sistema, critérios de inclusão e práticas de preenchimento. Em inquéritos amostrais, estimativas populacionais dependem do desenho, dos pesos e do tratamento da não resposta. Disponibilidade de microdados não autoriza ignorar essas condições nem tratar todos os registros como observações independentes de uma amostra aleatória simples.</p>
+<p>Lima, Schramm, Coeli e Silva sistematizaram dimensões de qualidade aplicadas aos sistemas de informação em saúde brasileiros, incluindo cobertura, completitude, consistência, confiabilidade, validade e oportunidade <span class="citation" data-cites="lima2009qualidade">(<a href="../../backmatter/referencias.html#ref-lima2009qualidade" role="doc-biblioref">Lima et al., 2009</a>)</span>. A distinção entre cobertura e completitude é especialmente útil: uma base pode ter campos bem preenchidos nos registros recebidos e ainda deixar de captar parte dos eventos de interesse. Uma avaliação deve declarar qual dimensão examinou, para qual variável, território e período; a conclusão não se estende automaticamente à base inteira.</p>
+<p>Previsões e projeções exigem documentação adicional. Para uma previsão, guarde a rodada, o momento de emissão, o horizonte e o período de validade. Para uma projeção, identifique cenário, modelos, período de referência e método de regionalização. A previsão recebida antes de um evento e a série consolidada depois dele cumprem funções diferentes; projeções expressam futuros condicionais às hipóteses adotadas <span class="citation" data-cites="wmoWho2015heat ipcc2022glossario">(<a href="../../backmatter/referencias.html#ref-ipcc2022glossario" role="doc-biblioref">Matthews et al., 2022</a>; <a href="../../backmatter/referencias.html#ref-wmoWho2015heat" role="doc-biblioref">World Meteorological Organization; World Health Organization, 2015</a>)</span>.</p>
+<p>Combinar fontes pode ampliar a compreensão, mas exige examinar sua dependência. Dois painéis podem distribuir a mesma base; um produto derivado e sua reanálise de origem compartilham parte da informação. Concordância entre eles não equivale a confirmação independente. Quando os valores divergem, investigue definição, cobertura, período, revisão e processamento antes de escolher uma série <span class="citation" data-cites="w3c2013prov">(<a href="../../backmatter/referencias.html#ref-w3c2013prov" role="doc-biblioref">World Wide Web Consortium, 2013</a>)</span>.</p>
+</section>
+<section id="selecionar-fontes-para-uma-finalidade-definida" class="level2 page-columns page-full" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="selecionar-fontes-para-uma-finalidade-definida"><span class="header-section-number">5.3</span> Selecionar fontes para uma finalidade definida</h2>
+<p>A escolha da fonte começa pela especificação do indicador e pelo uso esperado. Antes de comparar produtos, escreva qual variável é necessária, em que unidade, para quais territórios e períodos e com qual atraso máximo aceitável. Requisitos de uma análise de tendência podem ser diferentes dos de uma rotina de alerta.</p>
+<p>O <a href="#qua-criterios-fonte" class="quarto-xref">Quadro&nbsp;<span>5.2</span></a> orienta essa avaliação. Os critérios devem ser aplicados à edição e ao recorte pretendidos; reputação institucional e aparência do portal não bastam para estabelecer adequação.</p>
+<div id="qua-criterios-fonte" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-qua figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-qua" id="qua-criterios-fonte-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Quadro&nbsp;5.2: Critérios para selecionar a fonte de cálculo
+</figcaption>
+<div aria-describedby="qua-criterios-fonte-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Critério</th>
+<th>Pergunta de avaliação</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Responsabilidade</td>
+<td>Quem produz, mantém e responde pelo recurso?</td>
+</tr>
+<tr class="even">
+<td>Correspondência conceitual</td>
+<td>A variável representa o que a definição do indicador exige?</td>
+</tr>
+<tr class="odd">
+<td>Cobertura e suporte</td>
+<td>Espaço, tempo e população atendem à finalidade?</td>
+</tr>
+<tr class="even">
+<td>Qualidade</td>
+<td>Há documentação, controles e avaliação no contexto de uso?</td>
+</tr>
+<tr class="odd">
+<td>Oportunidade</td>
+<td>O atraso de disponibilização permite a decisão prevista?</td>
+</tr>
+<tr class="even">
+<td>Identificação e preservação</td>
+<td>É possível reconhecer a edição e reconstruir a extração?</td>
+</tr>
+<tr class="odd">
+<td>Integração</td>
+<td>Unidades, códigos, calendários e formatos são compatíveis ou conversíveis?</td>
+</tr>
+<tr class="even">
+<td>Condições de uso</td>
+<td>O acesso, o processamento e o compartilhamento pretendidos são permitidos?</td>
+</tr>
+<tr class="odd">
+<td>Continuidade</td>
+<td>Há atualização, responsáveis e informação sobre mudanças?</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>A seleção deve separar requisitos indispensáveis de vantagens desejáveis. Correspondência conceitual, cobertura suficiente para o uso e condições de acesso precisam ser atendidas. Entre as fontes elegíveis, podem-se comparar atraso, resolução, estabilidade e custo de manutenção. Uma soma de pontos não deve permitir que facilidade de acesso compense uma variável incompatível.</p>
+<p>A <a href="#fig-selecao-fontes" class="quarto-xref">Figura&nbsp;<span>5.2</span></a> apresenta essa sequência. Primeiro define-se a pergunta e verificam-se os requisitos; uma fonte incompatível exige procurar outra opção ou rever a pergunta, com justificativa. A comparação de vantagens só ocorre entre alternativas elegíveis. O retorno lateral representa revisão da escolha, e não autorização para flexibilizar critérios apenas porque o resultado de uma fonte parece conveniente.</p>
+<div id="fig-selecao-fontes" class="lightbox quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" alt="Fluxo parte da pergunta e dos requisitos de uso, examina fontes candidatas e separa opções incompatíveis das elegíveis. Apenas as elegíveis passam à comparação de vantagens e à escolha documentada. A revisão da pergunta ou a busca de outra fonte retorna ao início. Três profissionais examinam documentos; pela janela aparecem uma área aberta de observação e quarteirões com prédios, casas e árvores." data-print-width="120mm" data-print-src="arte-cap5-02-selecao-print.png">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-selecao-fontes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<a href="../../assets/figures/arte-cap5-02-selecao.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-2" title="Figura&nbsp;5.2: Selecionar a fonte conforme a pergunta e os requisitos de uso"><img src="../../assets/figures/arte-cap5-02-selecao.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Fluxo parte da pergunta e dos requisitos de uso, examina fontes candidatas e separa opções incompatíveis das elegíveis. Apenas as elegíveis passam à comparação de vantagens e à escolha documentada. A revisão da pergunta ou a busca de outra fonte retorna ao início. Três profissionais examinam documentos; pela janela aparecem uma área aberta de observação e quarteirões com prédios, casas e árvores."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-selecao-fontes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;5.2: Selecionar a fonte conforme a pergunta e os requisitos de uso
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte: Elaboração própria; cenas conceituais, sem dados observados. Direção editorial: autor da obra; ilustração: ferramenta integrada image_gen; composição: edição desta obra. Licença dos arquivos autorais: GPL-3.0; fontes citadas mantêm suas licenças. Prompts e originais preservados no repositório. Revisão urbana da aquarela: image_gen, com o original e a referência visual da série.</span></p>
+<!--
+ARTE CAP5-02 — Revisão urbana v2
+Finalidade e descrição acessível: Fluxo parte da pergunta e dos requisitos de uso, examina fontes candidatas e separa opções incompatíveis das elegíveis. Apenas as elegíveis passam à comparação de vantagens e à escolha documentada. A revisão da pergunta ou a busca de outra fonte retorna ao início. Três profissionais examinam documentos; pela janela aparecem uma área aberta de observação e quarteirões com prédios, casas e árvores.
+Arte incorporada: assets/figures/arte-cap5-02-selecao.svg.
+Impressão: assets/figures/arte-cap5-02-selecao-print.png.
+Original da edição: assets/figures/arte-cap5-02-v1.png; preservado junto das versões anteriores.
+Aquarela revisada: assets/figures/arte-cap5-02-v2.png.
+Prompt completo utilizado: assets/figures/arte-cap5-02-v2.prompt.txt.
+Referência de estilo: assets/references/aquarela-grafite-nanquim.png.
+Produção: ferramenta integrada image_gen; original e referência de estilo inspecionados e fornecidos por referenced_image_paths.
+Montagem: scripts/build_cap5_art.py 02; rótulos, setas e identificadores editáveis preservados.
+Exportação: Chromium com fontes e raster incorporados; ImageMagick para PNG de 8 bits em cinza.
+Revisão: presença urbana, continuidade da aquarela, anatomia, recortes e relações conceituais. Cenários hipotéticos, sem novos dados observados.
+Licença dos arquivos autorais: GPL-3.0; fontes citadas mantêm suas condições de uso.
+
+Use case: precise-object-edit. Arte didática em aquarela para livro brasileiro sobre clima, ambiente e saúde.
+Entradas: imagem 1 é o ORIGINAL a editar, referência obrigatória de composição; imagem 2 é APENAS referência do estilo da série.
+Pedido: aumentar a presença urbana, preservando a aquarela naturalista, paleta suave de azuis, verdes, ocres e terracota, textura de papel, contornos delicados de grafite/nanquim e contraste adequado também em cinza. A cidade é brasileira e hipotética, sem marcos reconhecíveis.
+Revisão específica: Mude apenas a vista pela janela: preserve a estação em área aberta com vegetação e acrescente além dela quarteirões brasileiros com prédios residenciais de 4–8 pavimentos, casas, ruas e árvores. Edifícios perceptíveis e próximos, com afastamento suficiente da estação. Preserve exatamente os três profissionais, rostos, mãos, poses, mesa, três pastas, folha branca central, mapa abstrato sem nomes e margens brancas. Não acrescente dados, selos, marcas ou novos objetos na mesa.
+Invariantes: conserve enquadramento, proporção, escala das figuras humanas, anatomia natural, quantidade e posição das vinhetas, objetos conceituais e espaços brancos. Alterar cenários e arquitetura somente conforme o pedido. Não adicionar texto, títulos, legendas, setas, números, marcas ou molduras; serão aplicados como vetores editáveis. Não fundir cenas e não recortar personagens. Manter boa nitidez na impressão.
+Formato: mesma proporção do original 1086 × 1448; resolução igual ou superior. Uma única imagem final editada.
+-->
+<p>Considere uma equipe que procura uma série de temperatura do ar para acompanhar condições térmicas relevantes à vigilância. Uma imagem de temperatura da superfície não substitui essa variável apenas por apresentar maior detalhe espacial. Uma grade pode ampliar a cobertura territorial, mas precisa de avaliação compatível com o uso; uma estação oferece observação local, sem representar automaticamente todo o município. A escolha exige registrar essas diferenças e justificar o método de atribuição territorial <span class="citation" data-cites="wmo2023climatological hersbach2020era5">(<a href="../../backmatter/referencias.html#ref-hersbach2020era5" role="doc-biblioref"><span class="nocase">Hersbach et al.</span>, 2020</a>; <a href="../../backmatter/referencias.html#ref-wmo2023climatological" role="doc-biblioref">World Meteorological Organization, 2023</a>)</span>.</p>
+<p>Combinações devem definir a função de cada entrada: fonte de cálculo, referência de comparação, informação auxiliar ou alternativa de contingência. Uma série consolidada pode apoiar tendências e outra, mais oportuna, acompanhar a situação recente. Elas devem permanecer identificadas. Para mudar a fonte no meio de uma série, planeje a comparação no período de sobreposição, quando disponível, e documente os efeitos sobre a comparabilidade.</p>
+<p>Registre também por que alternativas plausíveis foram descartadas. Incompatibilidade conceitual, cobertura insuficiente, atraso excessivo ou falta de documentação são razões verificáveis. Se nenhuma fonte atender aos requisitos, a ficha deve informar a limitação; preencher a lacuna com um valor sem sustentação não resolve a ausência de dados.</p>
+</section>
+<section id="sec-proveniencia-fichas" class="level2 page-columns page-full" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="sec-proveniencia-fichas"><span class="header-section-number">5.4</span> Acesso, preservação e proveniência</h2>
+<section id="painéis-serviços-e-arquivos" class="level3" data-number="5.4.1">
+<h3 data-number="5.4.1" class="anchored" data-anchor-id="painéis-serviços-e-arquivos"><span class="header-section-number">5.4.1</span> Painéis, serviços e arquivos</h3>
+<p>O painel é uma interface de consulta; pode arredondar valores, aplicar filtros e ocultar etapas do cálculo. Uma interface de programação de aplicações (API) permite automatizar consultas, mas sua resposta depende de parâmetros, paginação, versão e momento do acesso. Um repositório reúne depósitos cuja autoria e documentação precisam ser examinadas individualmente. Um arquivo datado pode ser mais fácil de preservar, mas continua a exigir dicionário e identificação de origem <span class="citation" data-cites="w3c2017dwbp">(<a href="../../backmatter/referencias.html#ref-w3c2017dwbp" role="doc-biblioref">World Wide Web Consortium, 2017</a>)</span>.</p>
+<p>A transparência envolve tanto os dados quanto as condições de acesso. Os princípios FAIR, do inglês <em>Findable, Accessible, Interoperable and Reusable</em>, orientam encontrabilidade, acessibilidade, interoperabilidade e reutilização. Acessibilidade pode incluir procedimentos de autenticação e autorização; não significa que todo dado deva ser aberto. Esses princípios favorecem a reutilização, mas não certificam a validade de uma medida para qualquer finalidade <span class="citation" data-cites="wilkinson2016fair">(<a href="../../backmatter/referencias.html#ref-wilkinson2016fair" role="doc-biblioref"><span class="nocase">Wilkinson et al.</span>, 2016</a>)</span>.</p>
+<p>Para documentar uma extração, registre:</p>
+<ul>
+<li>Produto, edição ou versão e endereço de acesso, também chamado URL (<em>Uniform Resource Locator</em>);</li>
+<li>Arquivos ou consultas, variáveis, filtros, parâmetros e ordenação quando relevante;</li>
+<li>Data e hora da extração, com fuso, e período a que os dados se referem;</li>
+<li>Formato, codificação de caracteres, unidades, calendário e dicionário de campos;</li>
+<li>Paginação, limites do serviço, falhas e verificações de que a extração foi concluída;</li>
+<li>Condições de uso e local de preservação da cópia, quando permitido;</li>
+<li>Versão do código e das ferramentas usadas para obter e preparar os dados.</li>
+</ul>
+<p>O formato também requer cuidado. Um arquivo de valores separados por vírgulas (CSV) normalmente não descreve, por si só, tipos e unidades. Códigos territoriais podem perder zeros à esquerda ao serem lidos como números. Datas ambíguas podem ser interpretadas em ordem incorreta, e códigos de ausência podem ser confundidos com observações. Preserve o original e faça conversões em uma cópia de trabalho, com regras explícitas.</p>
+<p>Uma contribuição brasileira para essa etapa é o pacote <code>microdatasus</code>, apresentado por Saldanha, Bastos e Barcellos para download e pré-processamento de microdados distribuídos pelo DATASUS <span class="citation" data-cites="saldanha2019microdatasus">(<a href="../../backmatter/referencias.html#ref-saldanha2019microdatasus" role="doc-biblioref">Saldanha; Bastos; Barcellos, 2019</a>)</span>. Ao usar uma ferramenta desse tipo, cite tanto a base quanto o software. Registre a versão empregada e as transformações realizadas: automatizar acesso e recodificação não decide qual população, desfecho ou recorte é adequado à pergunta.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Boa prática: preservar a extração verificável">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Dica</span>Boa prática: preservar a extração verificável
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Guarde, quando permitido, os arquivos originais, o dicionário e um manifesto que relacione nomes, origem, data de obtenção e identificadores. Uma soma de verificação (<em>hash</em>) ajuda a detectar se o conteúdo de um arquivo mudou; não demonstra a qualidade dos dados nem substitui a identificação da fonte. Credenciais e dados protegidos devem permanecer fora da documentação pública.</p>
+</div>
+</div>
+</section>
+<section id="reconstruir-o-caminho-até-o-resultado" class="level3 page-columns page-full" data-number="5.4.2">
+<h3 data-number="5.4.2" class="anchored" data-anchor-id="reconstruir-o-caminho-até-o-resultado"><span class="header-section-number">5.4.2</span> Reconstruir o caminho até o resultado</h3>
+<p>Proveniência é o registro de como um resultado foi produzido: quais entradas foram usadas, quais operações ocorreram e quem assumiu cada responsabilidade. O modelo PROV do Consórcio World Wide Web organiza essa descrição em entidades, atividades e agentes <span class="citation" data-cites="w3c2013prov">(<a href="../../backmatter/referencias.html#ref-w3c2013prov" role="doc-biblioref">World Wide Web Consortium, 2013</a>)</span>. Na prática, é preciso conectar arquivo de origem, extração, tratamento, cálculo, verificações e publicação.</p>
+<p>A <a href="#fig-proveniencia" class="quarto-xref">Figura&nbsp;<span>5.3</span></a> representa esse percurso. A coluna de etapas permite acompanhar o resultado desde a versão da fonte até a revisão; a documentação registra o que foi utilizado e decidido em cada passagem. O retorno ao início indica que atualizações podem exigir nova extração e recálculo. A sequência não transforma uma verificação de software em validação científica: a adequação do conceito e da interpretação precisa ser examinada durante todo o trabalho.</p>
+<div id="fig-proveniencia" class="lightbox quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" alt="Oito etapas ligam fonte e versão, extração datada, originais preservados, tratamento e qualidade, cálculo, validação, publicação e uso, e revisão. Uma faixa indica a documentação de todas as etapas e uma seta retorna da revisão à fonte. Uma profissional compara duas folhas diante de um computador; a janela mostra uma estação em terreno aberto e prédios residenciais ao fundo." data-print-width="120mm" data-print-src="arte-cap5-03-proveniencia-print.png">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-proveniencia-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<a href="../../assets/figures/arte-cap5-03-proveniencia.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-3" title="Figura&nbsp;5.3: Cadeia mínima de proveniência de um indicador"><img src="../../assets/figures/arte-cap5-03-proveniencia.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Oito etapas ligam fonte e versão, extração datada, originais preservados, tratamento e qualidade, cálculo, validação, publicação e uso, e revisão. Uma faixa indica a documentação de todas as etapas e uma seta retorna da revisão à fonte. Uma profissional compara duas folhas diante de um computador; a janela mostra uma estação em terreno aberto e prédios residenciais ao fundo."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-proveniencia-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;5.3: Cadeia mínima de proveniência de um indicador
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte: Elaboração própria; cenas conceituais, sem dados observados. Direção editorial: autor da obra; ilustração: ferramenta integrada image_gen; composição: edição desta obra. Licença dos arquivos autorais: GPL-3.0; fontes citadas mantêm suas licenças. Prompts e originais preservados no repositório. Revisão urbana da aquarela: image_gen, com o original e a referência visual da série.</span></p>
+<!--
+ARTE CAP5-03 — Revisão urbana v2
+Finalidade e descrição acessível: Oito etapas ligam fonte e versão, extração datada, originais preservados, tratamento e qualidade, cálculo, validação, publicação e uso, e revisão. Uma faixa indica a documentação de todas as etapas e uma seta retorna da revisão à fonte. Uma profissional compara duas folhas diante de um computador; a janela mostra uma estação em terreno aberto e prédios residenciais ao fundo.
+Arte incorporada: assets/figures/arte-cap5-03-proveniencia.svg.
+Impressão: assets/figures/arte-cap5-03-proveniencia-print.png.
+Original da edição: assets/figures/arte-cap5-03-v1.png; preservado junto das versões anteriores.
+Aquarela revisada: assets/figures/arte-cap5-03-v2.png.
+Prompt completo utilizado: assets/figures/arte-cap5-03-v2.prompt.txt.
+Referência de estilo: assets/references/aquarela-grafite-nanquim.png.
+Produção: ferramenta integrada image_gen; original e referência de estilo inspecionados e fornecidos por referenced_image_paths.
+Montagem: scripts/build_cap5_art.py 03; rótulos, setas e identificadores editáveis preservados.
+Exportação: Chromium com fontes e raster incorporados; ImageMagick para PNG de 8 bits em cinza.
+Revisão: presença urbana, continuidade da aquarela, anatomia, recortes e relações conceituais. Cenários hipotéticos, sem novos dados observados.
+Licença dos arquivos autorais: GPL-3.0; fontes citadas mantêm suas condições de uso.
+
+Use case: precise-object-edit. Arte didática em aquarela para livro brasileiro sobre clima, ambiente e saúde.
+Entradas: imagem 1 é o ORIGINAL a editar, referência obrigatória de composição; imagem 2 é APENAS referência do estilo da série.
+Pedido: aumentar a presença urbana, preservando a aquarela naturalista, paleta suave de azuis, verdes, ocres e terracota, textura de papel, contornos delicados de grafite/nanquim e contraste adequado também em cinza. A cidade é brasileira e hipotética, sem marcos reconhecíveis.
+Revisão específica: Mude somente a paisagem pela janela: preserve a estação meteorológica e seu recinto aberto, acrescente além dela prédios de apartamentos próximos de 4–8 pavimentos, casas e arborização de um bairro urbano brasileiro. Preserve a profissional, duas folhas totalmente brancas nas mãos, laptop com tela branca, arquivo de pastas sem rótulos, caixas, livros, plantas e moldura da janela. Não acrescente texto, gráficos, logotipos ou sinais de aprovação.
+Invariantes: conserve enquadramento, proporção, escala das figuras humanas, anatomia natural, quantidade e posição das vinhetas, objetos conceituais e espaços brancos. Alterar cenários e arquitetura somente conforme o pedido. Não adicionar texto, títulos, legendas, setas, números, marcas ou molduras; serão aplicados como vetores editáveis. Não fundir cenas e não recortar personagens. Manter boa nitidez na impressão.
+Formato: mesma proporção do original 1086 × 1448; resolução igual ou superior. Uma única imagem final editada.
+-->
+<p>Além de guardar o código, documente as decisões que ele executa. Seleção de estações, retirada de registros, tratamento de ausências, definição de limiar, uso de pesos e agregação territorial modificam o resultado. Uma justificativa deve permitir entender a escolha, enquanto o código permite reproduzir a operação. A equipe deve conseguir identificar os dados descartados ou transformados e a razão de cada tratamento.</p>
+<p>O conjunto preservado deve reunir entradas permitidas, manifesto, dicionários, parâmetros, código, versões das dependências, registros das verificações e saída publicada. Quando não for possível redistribuir a entrada, documente o procedimento legítimo de acesso e as restrições à reprodução. Separar arquivo original, base preparada e resultado evita que uma correção elimine a evidência do estado anterior.</p>
+</section>
+</section>
+<section id="usar-indicadores-publicados-ou-calcular-uma-variante" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="usar-indicadores-publicados-ou-calcular-uma-variante"><span class="header-section-number">5.5</span> Usar indicadores publicados ou calcular uma variante</h2>
+<p>Sistemas oficiais e observatórios também fornecem indicadores prontos. Utilizá-los pode preservar comparabilidade e reduzir processamento, desde que sejam conhecidos definição, método, universo, versão e limitações. Recalcular não é necessariamente melhor: a equipe local pode não ter acesso aos ajustes, pesos ou registros considerados na publicação <span class="citation" data-cites="ripsa2026 un2014statistics">(<a href="../../backmatter/referencias.html#ref-ripsa2026" role="doc-biblioref">Organização Pan-Americana da Saúde, 2026</a>; <a href="../../backmatter/referencias.html#ref-un2014statistics" role="doc-biblioref">United Nations General Assembly, 2014</a>)</span>.</p>
+<p>Há três situações que precisam ser identificadas na ficha:</p>
+<ol type="1">
+<li>Uso do valor publicado: selecionam-se indicador, edição, território e período, preservando sua definição e atribuindo o resultado ao produtor.</li>
+<li>Reprodução do método: executam-se as regras publicadas para conferir ou obter o resultado; a equipe documenta entradas, diferenças e verificações.</li>
+<li>Adaptação: alteram-se componentes, população, período de referência ou outra regra substantiva; a variante recebe identificação e justificativa próprias.</li>
+</ol>
+<p>No caso da concentração média anual de material particulado com diâmetro aerodinâmico igual ou inferior a 2,5 µm (PM2,5), a ficha AMB-AR-01 trata do indicador 11.6.2 dos Objetivos de Desenvolvimento Sustentável (ODS). Uma média de monitor local e uma média populacional obtida por modelo não são valores intercambiáveis. Uma estimativa própria não deve ser atribuída à Organização Mundial da Saúde (OMS), agência custodiante do indicador, apenas porque usa uma fórmula semelhante <span class="citation" data-cites="who2026pm25">(<a href="../../backmatter/referencias.html#ref-who2026pm25" role="doc-biblioref">World Health Organization, 2026</a>)</span>.</p>
+<p>Antes de adotar ou reproduzir um resultado, compare conceito, unidade, população, suporte espacial, período e edição. Em caso de divergência, investigue também arredondamento, critérios de inclusão, atualizações e revisões. A identificação de cálculo próprio deve acompanhar o valor, a ficha e a visualização em que ele aparece.</p>
+</section>
+<section id="do-repertório-temático-às-fichas-do-catálogo" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="do-repertório-temático-às-fichas-do-catálogo"><span class="header-section-number">5.6</span> Do repertório temático às fichas do catálogo</h2>
+<p>Os capítulos temáticos apresentam mecanismos, relações com a saúde e um repertório de indicadores com remissões às fichas da Parte IV. Esse repertório permite distinguir medidas de ocorrência, frequência, duração, intensidade, exposição, efeitos e resposta. A seleção não procura um indicador capaz de resumir todas essas dimensões: busca medidas cujo significado corresponda à pergunta <span class="citation" data-cites="jannuzzi2005indicadores">(<a href="../../backmatter/referencias.html#ref-jannuzzi2005indicadores" role="doc-biblioref">Jannuzzi, 2005</a>)</span>.</p>
+<p>Para ondas de calor, por exemplo, contar episódios, somar dias participantes e identificar a duração máxima responde a perguntas diferentes. Uma medida de estresse térmico ou de população exposta acrescenta outras informações. As definições de cada família são discutidas no <a href="../part-2/07-temperatura-condicoes-termicas.html" class="quarto-xref"><span>Capítulo 7</span></a>, e suas especificações estão nas fichas da Parte IV; aqui, interessa reconhecer que proximidade temática não implica equivalência metodológica.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Nota técnica: o que cada referência sustenta">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Nota técnica: o que cada referência sustenta
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A referência metodológica define a medida e seu cálculo; a documentação da fonte descreve os dados de entrada; estudos de validação examinam desempenho; a literatura epidemiológica sustenta interpretações sobre saúde; documentos operacionais registram usos em vigilância ou gestão. Um estudo de associação não estabelece sozinho um protocolo, e a documentação de uma fórmula não demonstra seus efeitos sanitários.</p>
+</div>
+</div>
+<p>O <a href="#qua-criterios-indicador" class="quarto-xref">Quadro&nbsp;<span>5.3</span></a> explicita os requisitos de inclusão no catálogo. Eles orientam a seleção editorial; não constituem uma certificação emitida pelas instituições citadas.</p>
+<div id="qua-criterios-indicador" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-qua figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-qua" id="qua-criterios-indicador-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Quadro&nbsp;5.3: Requisitos de inclusão de um indicador no catálogo
+</figcaption>
+<div aria-describedby="qua-criterios-indicador-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Requisito</th>
+<th>Evidência necessária</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Existência verificável</td>
+<td>Definição localizável em metadado oficial, norma ou literatura científica</td>
+</tr>
+<tr class="even">
+<td>Especificação explícita</td>
+<td>Conceito, entradas, método, unidade e regras de inclusão descritos</td>
+</tr>
+<tr class="odd">
+<td>Relevância</td>
+<td>Dimensão e finalidade de uso identificadas</td>
+</tr>
+<tr class="even">
+<td>Aplicação sanitária</td>
+<td>Uso documentado ou interpretação fundamentada para pesquisa, vigilância ou gestão</td>
+</tr>
+<tr class="odd">
+<td>Reprodução possível</td>
+<td>Dados e decisões críticas identificáveis, com condições de acesso declaradas</td>
+</tr>
+<tr class="even">
+<td>Qualidade avaliável</td>
+<td>Cobertura, limitações e fontes de incerteza passíveis de exame</td>
+</tr>
+<tr class="odd">
+<td>Contribuição própria</td>
+<td>Significado que não apenas duplica outra medida</td>
+</tr>
+<tr class="even">
+<td>Adaptações transparentes</td>
+<td>Variantes distinguidas da especificação de origem</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Quando não se encontra definição suficiente, quando o mesmo nome reúne métodos incompatíveis ou quando a aplicação depende de dados indisponíveis sem alternativa validada, a inclusão deve ser adiada ou delimitada. Isso não invalida a proposta; explicita que ainda não há sustentação para uma ficha completa. O livro não cria indicadores para preencher espaços do catálogo nem inventa resultados para ilustrar sua aplicação.</p>
+</section>
+<section id="sec-ficha-ripsa" class="level2 page-columns page-full" data-number="5.7">
+<h2 data-number="5.7" class="anchored" data-anchor-id="sec-ficha-ripsa"><span class="header-section-number">5.7</span> A ficha de qualificação da RIPSA e sua contribuição para este livro</h2>
+<p>A Rede Interagencial de Informações para a Saúde (RIPSA) articula instituições produtoras e usuárias de informações para a saúde no Brasil. Sua Ficha de Qualificação do Indicador (FQI) organiza a documentação que acompanha cada medida: ajuda o leitor a reconhecer o que está sendo representado e a equipe a reproduzir o cálculo e avaliar os usos possíveis. A terceira edição de <em>Indicadores Básicos para a Saúde no Brasil</em>, conhecida como <em>Livro Verde</em>, apresenta a versão com 16 campos <span class="citation" data-cites="ripsa2026">(<a href="../../backmatter/referencias.html#ref-ripsa2026" role="doc-biblioref">Organização Pan-Americana da Saúde, 2026, p. 27–28</a>)</span>.</p>
+<p>A FQI da RIPSA serviu de inspiração e referência estrutural para as fichas deste livro. Sua contribuição central é reunir o número e as condições de sua interpretação em uma mesma documentação. Uma fórmula isolada não informa, por exemplo, quais registros podem entrar no cálculo, quando uma comparação deixa de ser válida ou quem deve acompanhar a atualização.</p>
+<p>O <a href="#qua-campos-fqi-ripsa" class="quarto-xref">Quadro&nbsp;<span>5.4</span></a> apresenta os campos e sua função. Trata-se de uma síntese explicativa da estrutura de 2026, não de uma ficha oficial preenchida nem de um novo indicador da Rede.</p>
+<div id="qua-campos-fqi-ripsa" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-qua figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-qua" id="qua-campos-fqi-ripsa-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Quadro&nbsp;5.4: Campos da Ficha de Qualificação do Indicador da RIPSA: síntese explicativa a partir da edição de 2026 <span class="citation" data-cites="ripsa2026">(<a href="../../backmatter/referencias.html#ref-ripsa2026" role="doc-biblioref">Organização Pan-Americana da Saúde, 2026, p. 27–28</a>)</span>
+</figcaption>
+<div aria-describedby="qua-campos-fqi-ripsa-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Campo da FQI</th>
+<th>Função na leitura do indicador</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Código da RIPSA</td>
+<td>Identificar a medida no catálogo da Rede.</td>
+</tr>
+<tr class="even">
+<td>Título completo</td>
+<td>Nomear precisamente o que é mensurado.</td>
+</tr>
+<tr class="odd">
+<td>Título resumido</td>
+<td>Permitir identificação em apresentações compactas.</td>
+</tr>
+<tr class="even">
+<td>Conceito</td>
+<td>Delimitar a dimensão representada.</td>
+</tr>
+<tr class="odd">
+<td>Interpretação</td>
+<td>Orientar a leitura do resultado.</td>
+</tr>
+<tr class="even">
+<td>Usos</td>
+<td>Indicar finalidades de aplicação.</td>
+</tr>
+<tr class="odd">
+<td>Limitações</td>
+<td>Registrar restrições e cuidados.</td>
+</tr>
+<tr class="even">
+<td>Fontes de dados</td>
+<td>Identificar as bases de entrada.</td>
+</tr>
+<tr class="odd">
+<td>Fórmula de cálculo</td>
+<td>Expressar a operação matemática.</td>
+</tr>
+<tr class="even">
+<td>Método de cálculo</td>
+<td>Explicar os procedimentos de produção.</td>
+</tr>
+<tr class="odd">
+<td>Variáveis e categorias de análise</td>
+<td>Definir os recortes analíticos.</td>
+</tr>
+<tr class="even">
+<td>Granularidade</td>
+<td>Especificar a desagregação territorial recomendada.</td>
+</tr>
+<tr class="odd">
+<td>Periodicidade de atualização</td>
+<td>Informar a frequência de renovação.</td>
+</tr>
+<tr class="even">
+<td>Responsabilidade gerencial</td>
+<td>Identificar a gestão do acompanhamento.</td>
+</tr>
+<tr class="odd">
+<td>Notas</td>
+<td>Acrescentar esclarecimentos.</td>
+</tr>
+<tr class="even">
+<td>Análise descritiva do indicador</td>
+<td>Contextualizar o comportamento e sua apresentação.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Para ler uma ficha, convém confrontar campos que parecem próximos. Retomando o exemplo didático do <a href="03-dados-variaveis-indices-indicadores.html" class="quarto-xref"><span>Capítulo 3</span></a> — número anual de dias com temperatura máxima do ar acima de um limiar <span class="math inline">\(L\)</span> justificado para a aplicação —, o conceito é a frequência de dias que atendem ao critério; a interpretação explica o que significa uma contagem maior. O uso pode ser acompanhar a frequência ao longo do tempo; a limitação lembra que essa contagem não demonstra adoecimento. A fórmula expressa a soma dos dias elegíveis que ultrapassam <span class="math inline">\(L\)</span>, enquanto o método deve especificar seleção da série, cobertura mínima, controle de qualidade e tratamento de ausências. São perguntas complementares, não campos intercambiáveis.</p>
+<p>A <a href="#fig-ficha-ripsa-livro" class="quarto-xref">Figura&nbsp;<span>5.4</span></a> agrupa a documentação em cinco blocos para facilitar sua leitura. Os blocos são uma organização didática deste livro, não uma classificação oficial adicional da RIPSA. A seta de inspiração indica a origem metodológica; a faixa inferior mostra as informações acrescentadas para representar clima, ambiente e suas relações com a saúde.</p>
+<div id="fig-ficha-ripsa-livro" class="lightbox quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" alt="Organograma editorial: a ficha da RIPSA inspira a ficha do livro. Cinco blocos organizam identificação, significado, cálculo, recortes e gestão e comunicação. Uma faixa apresenta as extensões de clima, ambiente e saúde. Os códigos e as adaptações são próprios do livro. Duas profissionais examinam uma ficha diante de uma janela voltada para prédios, casas e árvores." data-print-width="120mm" data-print-src="arte-cap3-05-ficha-print.png">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-ficha-ripsa-livro-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<a href="../../assets/figures/arte-cap3-05-ficha.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-4" title="Figura&nbsp;5.4: Da ficha de qualificação da RIPSA às fichas deste livro"><img src="../../assets/figures/arte-cap3-05-ficha.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Organograma editorial: a ficha da RIPSA inspira a ficha do livro. Cinco blocos organizam identificação, significado, cálculo, recortes e gestão e comunicação. Uma faixa apresenta as extensões de clima, ambiente e saúde. Os códigos e as adaptações são próprios do livro. Duas profissionais examinam uma ficha diante de uma janela voltada para prédios, casas e árvores."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ficha-ripsa-livro-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;5.4: Da ficha de qualificação da RIPSA às fichas deste livro
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte: Organização didática própria inspirada na FQI da RIPSA (Organização Pan-Americana da Saúde, 2026, p.&nbsp;27–28). Direção editorial: autor da obra; ilustração: ferramenta integrada image_gen; composição e revisão: edição desta obra. Licença dos arquivos autorais: GPL-3.0; fontes citadas mantêm suas licenças. Prompts e originais preservados no repositório. Revisão urbana da aquarela: image_gen, com o original e a referência visual da série.</span></p>
+<!--
+ARTE CAP3-05 — Revisão urbana v2
+Finalidade e descrição acessível: Organograma editorial: a ficha da RIPSA inspira a ficha do livro. Cinco blocos organizam identificação, significado, cálculo, recortes e gestão e comunicação. Uma faixa apresenta as extensões de clima, ambiente e saúde. Os códigos e as adaptações são próprios do livro. Duas profissionais examinam uma ficha diante de uma janela voltada para prédios, casas e árvores.
+Arte incorporada: assets/figures/arte-cap3-05-ficha.svg.
+Impressão: assets/figures/arte-cap3-05-ficha-print.png.
+Original da edição: assets/figures/arte-cap3-05-v1.png; preservado junto das versões anteriores.
+Aquarela revisada: assets/figures/arte-cap3-05-v2.png.
+Prompt completo utilizado: assets/figures/arte-cap3-05-v2.prompt.txt.
+Referência de estilo: assets/references/aquarela-grafite-nanquim.png.
+Produção: ferramenta integrada image_gen; original e referência de estilo inspecionados e fornecidos por referenced_image_paths.
+Montagem: scripts/build_cap3_art.py 05; rótulos, setas e identificadores editáveis preservados.
+Exportação: Chromium com fontes e raster incorporados; ImageMagick para PNG de 8 bits em cinza.
+Revisão: presença urbana, continuidade da aquarela, anatomia, recortes e relações conceituais. Cenários hipotéticos, sem novos dados observados.
+Licença dos arquivos autorais: GPL-3.0; fontes citadas mantêm suas condições de uso.
+
+Use case: precise-object-edit. Arte didática em aquarela para livro brasileiro sobre clima, ambiente e saúde.
+Entradas: imagem 1 é o ORIGINAL a editar, referência obrigatória de composição; imagem 2 é APENAS referência do estilo da série.
+Pedido: aumentar a presença urbana, preservando a aquarela naturalista, paleta suave de azuis, verdes, ocres e terracota, textura de papel, contornos delicados de grafite/nanquim e contraste adequado também em cinza. A cidade é brasileira e hipotética, sem marcos reconhecíveis.
+Revisão específica: Mude somente a paisagem pela janela atrás das duas profissionais: bairro brasileiro misto com prédios residenciais próximos de 5–10 pavimentos, pequenas casas, uma rua e árvores, perceptíveis sem competir com as pessoas. Preserve exatamente as duas mulheres, rostos, poses, mãos, lupa, folha de qualificação em branco, papéis, livros, mesa, plantas internas, moldura da janela e margens brancas. Não desenhe texto nem símbolos de aprovação.
+Invariantes: conserve enquadramento, proporção, escala das figuras humanas, anatomia natural, quantidade e posição das vinhetas, objetos conceituais e espaços brancos. Alterar cenários e arquitetura somente conforme o pedido. Não adicionar texto, títulos, legendas, setas, números, marcas ou molduras; serão aplicados como vetores editáveis. Não fundir cenas e não recortar personagens. Manter boa nitidez na impressão.
+Formato: mesma proporção do original 1086 × 1448; resolução igual ou superior. Uma única imagem final editada.
+-->
+<p>Nas fichas deste livro, o código é um identificador editorial próprio: não corresponde a um código oficial da RIPSA e não implica inclusão no catálogo da Rede. O núcleo é adaptado e ampliado com resolução espacial e temporal, período e limiar de referência, acesso e processamento, qualidade e incerteza, comparabilidade, defasagens e aplicação na gestão. Granularidade descreve a desagregação recomendada do resultado; resolução espacial original descreve o suporte do dado de entrada. A disponibilidade de uma malha fina não garante que o indicador seja válido em qualquer recorte pequeno.</p>
+<p>Também é necessário distinguir documentar uma análise de apresentar resultados. A FQI oficial prevê uma análise descritiva contextualizada. As fichas deste livro orientam quais distribuições, recortes e verificações devem acompanhar o indicador; resultados dependentes de território e período só podem ser apresentados quando houver dados identificados e análise realizada. Preencher a ficha não certifica a qualidade da base nem transforma o indicador em protocolo operacional.</p>
+<section id="organizar-os-campos-sem-repetir-informações" class="level3" data-number="5.7.1">
+<h3 data-number="5.7.1" class="anchored" data-anchor-id="organizar-os-campos-sem-repetir-informações"><span class="header-section-number">5.7.1</span> Organizar os campos sem repetir informações</h3>
+<p>A ficha deve permitir três verificações: identidade, reprodução e interpretação. Na primeira, duas equipes reconhecem se estão tratando da mesma medida. Na segunda, conseguem reconstruir o cálculo com as entradas e regras documentadas. Na terceira, identificam as conclusões sustentadas e as que ultrapassariam o indicador. A presença dos campos, por si só, não garante esses resultados.</p>
+<p>O <a href="#qua-blocos-ficha" class="quarto-xref">Quadro&nbsp;<span>5.5</span></a> detalha a organização funcional das fichas da obra. Esses blocos ampliam a apresentação didática da <a href="#fig-ficha-ripsa-livro" class="quarto-xref">Figura&nbsp;<span>5.4</span></a> e ajudam a localizar informações; não substituem os campos da FQI nem criam uma classificação oficial da RIPSA.</p>
+<div id="qua-blocos-ficha" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-qua figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-qua" id="qua-blocos-ficha-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Quadro&nbsp;5.5: Blocos das fichas de indicadores
+</figcaption>
+<div aria-describedby="qua-blocos-ficha-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Bloco</th>
+<th>Conteúdo</th>
+<th>Pergunta que deve responder</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Identificação</td>
+<td>Código editorial, títulos, tema e referência metodológica</td>
+<td>Qual medida está sendo usada?</td>
+</tr>
+<tr class="even">
+<td>Significado</td>
+<td>Conceito, objetivo, interpretação e usos</td>
+<td>O que representa e para que serve?</td>
+</tr>
+<tr class="odd">
+<td>Cálculo</td>
+<td>Fórmula, método, entradas, unidade e regras de inclusão</td>
+<td>Como se chega ao resultado?</td>
+</tr>
+<tr class="even">
+<td>Recortes</td>
+<td>Variáveis, categorias, território e granularidade</td>
+<td>Para quais unidades e grupos se pode analisar?</td>
+</tr>
+<tr class="odd">
+<td>Tempo e espaço</td>
+<td>Resoluções originais, suporte, agregação, período e limiares</td>
+<td>Quais compatibilizações são necessárias?</td>
+</tr>
+<tr class="even">
+<td>Fontes</td>
+<td>Produto, edição, acesso e processamento</td>
+<td>De onde vieram os dados?</td>
+</tr>
+<tr class="odd">
+<td>Qualidade</td>
+<td>Cobertura, incerteza, comparabilidade e limitações</td>
+<td>O que restringe a leitura do resultado?</td>
+</tr>
+<tr class="even">
+<td>Saúde e gestão</td>
+<td>Relação com desfechos, defasagens e aplicação</td>
+<td>Como o resultado pode apoiar a ação?</td>
+</tr>
+<tr class="odd">
+<td>Manutenção e comunicação</td>
+<td>Atualização, responsabilidades, notas e análise descritiva</td>
+<td>Quem acompanha e como apresenta o indicador?</td>
+</tr>
+<tr class="even">
+<td>Referências</td>
+<td>Especificação, documentação e literatura de aplicação</td>
+<td>Que evidência sustenta cada parte da ficha?</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Campos não aplicáveis precisam ser distinguidos de informação desconhecida. Uma contagem pode não ter denominador; isso deve ser indicado, sem criar um denominador artificial. Uma fonte cuja incerteza não foi quantificada tem uma limitação a registrar, não uma incerteza nula. Expressões como “não informado pelo produtor” e “não aplicável a esta medida” descrevem situações diferentes.</p>
+<p>Para clima e ambiente, a ficha precisa explicitar ainda o suporte da entrada, o método de agregação, o período de referência e as regras de limiar ou sequência quando existirem. Fuso, calendário, ausências e defasagens podem alterar o cálculo e o uso. Remeter ao manual é útil, mas as escolhas adotadas na aplicação devem estar identificadas na própria ficha ou em documentação vinculada.</p>
+</section>
+<section id="ler-uma-ficha-junto-das-fontes" class="level3" data-number="5.7.2">
+<h3 data-number="5.7.2" class="anchored" data-anchor-id="ler-uma-ficha-junto-das-fontes"><span class="header-section-number">5.7.2</span> Ler uma ficha junto das fontes</h3>
+<p>A leitura pode começar por quatro perguntas: o conceito corresponde ao problema; os usos incluem a finalidade pretendida; as limitações permitem aquela comparação; e as fontes atendem ao recorte necessário? Só então convém examinar a fórmula e o processamento. Essa ordem evita que a possibilidade de executar uma operação seja confundida com sua adequação.</p>
+<p>Considere novamente a ficha AMB-AR-01. Sua resolução temporal anual orienta análises de exposição de longo prazo; não informa, sozinha, a intensidade de um episódio diário de fumaça. A ponderação populacional exige identificar também a população de referência. Mudar essa entrada pode alterar a síntese mesmo sem mudança na superfície de concentração. Esse exercício de leitura relaciona conceito, método, tempo e limitações sem atribuir resultados a um território inexistente <span class="citation" data-cites="who2026pm25">(<a href="../../backmatter/referencias.html#ref-who2026pm25" role="doc-biblioref">World Health Organization, 2026</a>)</span>.</p>
+<p>As fontes devem ser consultadas em conjunto com as referências metodológicas. Endereço de download, manual, artigo de definição e estudo de aplicação podem ser documentos diferentes. Registre autoria, título, edição e ano; acrescente identificador de objeto digital (DOI), endereço e data de acesso quando cabíveis. Uma página inicial institucional não substitui a referência específica que sustenta a afirmação.</p>
+</section>
+</section>
+<section id="validar-atualizar-e-manter-a-interpretação" class="level2" data-number="5.8">
+<h2 data-number="5.8" class="anchored" data-anchor-id="validar-atualizar-e-manter-a-interpretação"><span class="header-section-number">5.8</span> Validar, atualizar e manter a interpretação</h2>
+<p>Antes de publicar ou usar uma ficha em uma rotina, recomenda-se revisão de quatro aspectos: correspondência entre conceito e fenômeno; coerência do cálculo; sustentação das interpretações sanitárias; e viabilidade de acesso, atualização e resposta. Esses aspectos se relacionam: uma fórmula correta pode usar uma variável inadequada, e uma estimativa válida pode chegar tarde para a decisão.</p>
+<p>A revisão é favorecida por colaboração entre áreas. Especialistas ambientais examinam a medida do fenômeno; epidemiologia verifica desfechos, populações e inferências; geografia revisa suporte e agregação; a equipe de dados examina acesso, processamento e rastreabilidade; a gestão define responsabilidades e condições de uso. A divisão deve ser ajustada à equipe disponível, com responsabilidades explícitas.</p>
+<p>Verificações automáticas ajudam a detectar campos ausentes, identificadores duplicados, referências inexistentes, unidades incompatíveis e falhas de processamento. Elas precisam ser acompanhadas de análise dos dados: cobertura, completitude, consistência, duplicidade e oportunidade, conforme o sistema e a finalidade <span class="citation" data-cites="lima2009qualidade who2023dqa">(<a href="../../backmatter/referencias.html#ref-lima2009qualidade" role="doc-biblioref">Lima et al., 2009</a>; <a href="../../backmatter/referencias.html#ref-who2023dqa" role="doc-biblioref">World Health Organization, 2023</a>)</span>. Para índices compostos, também se avalia a sensibilidade a normalização, pesos e agregação <span class="citation" data-cites="oecd2008composite">(<a href="../../backmatter/referencias.html#ref-oecd2008composite" role="doc-biblioref">Organisation for Economic Co-operation and Development; European Union; European Commission. Joint Research Centre, 2008</a>)</span>.</p>
+<section id="distinguir-atualização-de-dados-e-revisão-de-método" class="level3" data-number="5.8.1">
+<h3 data-number="5.8.1" class="anchored" data-anchor-id="distinguir-atualização-de-dados-e-revisão-de-método"><span class="header-section-number">5.8.1</span> Distinguir atualização de dados e revisão de método</h3>
+<p>Uma nova observação pode ampliar a série sem alterar a definição. A chegada de registros atrasados pode corrigir períodos anteriores. Já mudanças de algoritmo, população de referência, malha territorial ou critério de inclusão podem exigir recálculo e comprometer comparações entre versões. O histórico deve permitir distinguir essas situações.</p>
+<p>Cada revisão deve registrar:</p>
+<ul>
+<li>Data, responsável e versão da ficha ou do produto;</li>
+<li>Campos, fontes ou procedimentos alterados;</li>
+<li>Motivo e documentação que sustentam a mudança;</li>
+<li>Períodos, territórios e resultados afetados;</li>
+<li>Necessidade de recálculo e compatibilidade com a versão anterior;</li>
+<li>Forma de comunicar a alteração aos usuários.</li>
+</ul>
+<p>A substituição silenciosa de valores impede avaliar se a mudança decorre do fenômeno, de registros adicionais ou da mensuração. Preserve versões anteriores quando permitido e mantenha uma nota de revisão ligada ao resultado atualizado <span class="citation" data-cites="w3c2017dwbp">(<a href="../../backmatter/referencias.html#ref-w3c2017dwbp" role="doc-biblioref">World Wide Web Consortium, 2017</a>)</span>. A rotina também deve prever quem acompanha a disponibilidade da fonte, como identifica atrasos e como sinaliza uma interrupção.</p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled" title="Atenção: ausência de atualização não é estabilidade">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Aviso</span>Atenção: ausência de atualização não é estabilidade
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Um painel que mantém o último valor não demonstra que a situação permaneceu igual. Exiba o período de referência e a data da última atualização bem-sucedida. Se a fonte atrasar ou falhar, comunique a condição; não substitua o dado ausente por zero nem apresente um valor antigo como atual.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="consultar-as-fichas-e-preparar-o-uso" class="level2" data-number="5.9">
+<h2 data-number="5.9" class="anchored" data-anchor-id="consultar-as-fichas-e-preparar-o-uso"><span class="header-section-number">5.9</span> Consultar as fichas e preparar o uso</h2>
+<p>As fichas estão reunidas na Parte IV, em nove capítulos que seguem a sequência temática das partes II e III. A <a href="../../backmatter/lista-fichas.html">lista de fichas</a> e o <a href="../../backmatter/indice-fontes.html">catálogo de fontes</a> facilitam a localização, mas a interpretação depende também do contexto apresentado no capítulo.</p>
+<p>Para uma aplicação, selecione a dimensão necessária, leia conceito e limitações, confira fontes e versão e avalie se o recorte espacial e temporal atende à pergunta. Depois, documente os procedimentos, examine a qualidade e vincule o resultado a responsabilidades de acompanhamento. Um indicador adequado ao monitoramento não se transforma automaticamente em gatilho de alerta: esse uso requer critérios e procedimentos próprios, discutidos no <a href="06-indicador-decisao.html" class="quarto-xref"><span>Capítulo 6</span></a>.</p>
+</section>
+<section id="síntese" class="level2" data-number="5.10">
+<h2 data-number="5.10" class="anchored" data-anchor-id="síntese"><span class="header-section-number">5.10</span> Síntese</h2>
+<p>Uma fonte está suficientemente documentada quando se consegue identificar o produto, reconhecer a edição e reconstruir a extração e o processamento. Uma ficha é útil quando conecta essa evidência ao conceito, ao cálculo, às limitações e à finalidade do indicador. A inspiração da RIPSA oferece uma estrutura comum; as extensões de clima e ambiente tornam explícitas as escolhas de suporte, tempo, referência e incerteza.</p>
+<p>A qualidade desse conjunto depende também da manutenção. Saber quem verifica uma mudança, quais resultados precisam ser recalculados e como a revisão será comunicada é parte do uso responsável da informação, desde a primeira publicação até as atualizações seguintes.</p>
+<p>Com fontes e fichas documentadas, o próximo passo é vincular os indicadores às decisões que devem apoiar. O <a href="06-indicador-decisao.html" class="quarto-xref"><span>Capítulo 6</span></a> encerra os fundamentos e métodos com um roteiro para selecionar painéis, definir regras de ação, atribuir responsabilidades e avaliar resultados.</p>
+
+
+<div id="refs" class="references csl-bib-body" data-entry-spacing="1" role="list" style="display: none">
+<div id="ref-hersbach2020era5" class="csl-entry" role="listitem">
+<span class="nocase">HERSBACH, Hans <em>et al.</em></span> The ERA5 global reanalysis. <strong>Quarterly Journal of the Royal Meteorological Society</strong>, v. 146, n. 730, p. 1999–2049, 2020. Disponível em: &lt;https://doi.org/<a href="https://doi.org/10.1002/qj.3803">10.1002/qj.3803</a>&gt;.
+</div>
+<div id="ref-jannuzzi2005indicadores" class="csl-entry" role="listitem">
+JANNUZZI, Paulo de Martino. Indicadores para diagnóstico, monitoramento e avaliação de programas sociais no Brasil. <strong>Revista do Serviço Público</strong>, v. 56, n. 2, p. 137–160, 2005. Disponível em: &lt;https://doi.org/<a href="https://doi.org/10.21874/rsp.v56i2.222">10.21874/rsp.v56i2.222</a>&gt;.
+</div>
+<div id="ref-lima2009qualidade" class="csl-entry" role="listitem">
+LIMA, Claudia Risso de Araujo <em>et al.</em> Revisão das dimensões de qualidade dos dados e métodos aplicados na avaliação dos sistemas de informação em saúde. <strong>Cadernos de Saúde Pública</strong>, v. 25, n. 10, p. 2095–2109, 2009. Disponível em: &lt;https://doi.org/<a href="https://doi.org/10.1590/s0102-311x2009001000002">10.1590/s0102-311x2009001000002</a>&gt;.
+</div>
+<div id="ref-ipcc2022glossario" class="csl-entry" role="listitem">
+MATTHEWS, J. B. Robin <em>et al.</em> <a href="https://doi.org/10.1017/9781009325844.029">Annex II: Glossary</a>. <em>In</em>: PÖRTNER, Hans-Otto <em>et al.</em> (Orgs). <strong>Climate Change 2022: Impacts, Adaptation and Vulnerability</strong>. Cambridge: Cambridge University Press, 2022. p. 2897–2930.
+</div>
+<div id="ref-oecd2008composite" class="csl-entry" role="listitem">
+ORGANISATION FOR ECONOMIC CO-OPERATION AND DEVELOPMENT; EUROPEAN UNION; EUROPEAN COMMISSION. JOINT RESEARCH CENTRE. <strong><a href="https://doi.org/10.1787/9789264043466-en">Handbook on constructing composite indicators: methodology and user guide</a></strong>. Paris: OECD Publishing, 2008.
+</div>
+<div id="ref-ripsa2026" class="csl-entry" role="listitem">
+ORGANIZAÇÃO PAN-AMERICANA DA SAÚDE. <strong><a href="https://doi.org/10.37774/9789275731659">Indicadores Básicos para a Saúde no Brasil: conceitos e aplicações</a></strong>. 3. ed. Brasília, DF: Organização Pan-Americana da Saúde, 2026.
+</div>
+<div id="ref-saldanha2019microdatasus" class="csl-entry" role="listitem">
+SALDANHA, Raphael de Freitas; BASTOS, Ronaldo Rocha; BARCELLOS, Christovam. Microdatasus: pacote para download e pré-processamento de microdados do Departamento de Informática do SUS (DATASUS). <strong>Cadernos de Saúde Pública</strong>, v. 35, n. 9, p. e00032419, 2019. Disponível em: &lt;https://doi.org/<a href="https://doi.org/10.1590/0102-311X00032419">10.1590/0102-311X00032419</a>&gt;.
+</div>
+<div id="ref-un2014statistics" class="csl-entry" role="listitem">
+UNITED NATIONS GENERAL ASSEMBLY. <strong>Fundamental Principles of Official Statistics: resolution A/RES/68/261</strong>. New York, United Nations, 2014. Disponível em: &lt;<a href="https://unstats.un.org/fpos">https://unstats.un.org/fpos</a>&gt;. Acesso em: 4 ago. 2026.
+</div>
+<div id="ref-wilkinson2016fair" class="csl-entry" role="listitem">
+<span class="nocase">WILKINSON, Mark D. <em>et al.</em></span> The FAIR Guiding Principles for scientific data management and stewardship. <strong>Scientific Data</strong>, v. 3, p. 160018, 2016. Disponível em: &lt;https://doi.org/<a href="https://doi.org/10.1038/sdata.2016.18">10.1038/sdata.2016.18</a>&gt;.
+</div>
+<div id="ref-who2023dqa" class="csl-entry" role="listitem">
+WORLD HEALTH ORGANIZATION. <strong><a href="https://www.who.int/publications/i/item/9789240047365">Data quality assurance: module 1: framework and metrics</a></strong>. Geneva: World Health Organization, 2023.
+</div>
+<div id="ref-who2026pm25" class="csl-entry" role="listitem">
+WORLD HEALTH ORGANIZATION. <strong>WHO Ambient Air Quality Database: update 2026</strong>. 2026. Disponível em: &lt;<a href="https://www.who.int/data/gho/data/themes/air-pollution/who-air-quality-database">https://www.who.int/data/gho/data/themes/air-pollution/who-air-quality-database</a>&gt;. Acesso em: 28 jul. 2026.
+</div>
+<div id="ref-wmo2023climatological" class="csl-entry" role="listitem">
+WORLD METEOROLOGICAL ORGANIZATION. <strong><a href="https://community.wmo.int/site/knowledge-hub/programmes-and-initiatives/climate-services/climate-data">Guide to climatological practices</a></strong>. Geneva: World Meteorological Organization, 2023.
+</div>
+<div id="ref-wmoWho2015heat" class="csl-entry" role="listitem">
+WORLD METEOROLOGICAL ORGANIZATION; WORLD HEALTH ORGANIZATION. <strong><a href="https://www.who.int/publications/m/item/heatwaves-and-health--guidance-on-warning-system-development">Heatwaves and health: guidance on warning-system development</a></strong>. Geneva: World Meteorological Organization, 2015.
+</div>
+<div id="ref-w3c2013prov" class="csl-entry" role="listitem">
+WORLD WIDE WEB CONSORTIUM. <strong>PROV-O: The PROV Ontology</strong>. 30 abr. 2013. Disponível em: &lt;<a href="https://www.w3.org/TR/prov-o/">https://www.w3.org/TR/prov-o/</a>&gt;. Acesso em: 4 ago. 2026.
+</div>
+<div id="ref-w3c2017dwbp" class="csl-entry" role="listitem">
+WORLD WIDE WEB CONSORTIUM. <strong>Data on the Web Best Practices</strong>. 31 jan. 2017. Disponível em: &lt;<a href="https://www.w3.org/TR/dwbp/">https://www.w3.org/TR/dwbp/</a>&gt;. Acesso em: 4 ago. 2026.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiada");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiada");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../chapters/part-1/04-espaco-tempo-qualidade.html" class="pagination-link" aria-label="Compatibilizando dados: espaço, tempo e qualidade">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Compatibilizando dados: espaço, tempo e qualidade</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../chapters/part-1/06-indicador-decisao.html" class="pagination-link" aria-label="Do indicador à decisão pública">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Do indicador à decisão pública</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/rfsaldanha/dicas/blob/main/chapters/part-1/05-fontes-fichas.qmd" class="toc-action"><i class="bi bi-github"></i>Ver o código fonte</a></li><li><a href="https://github.com/rfsaldanha/dicas/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></div></div></footer><script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>

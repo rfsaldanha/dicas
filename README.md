@@ -18,7 +18,7 @@ Comece pelo [guia de revisão](docs/guia-de-revisao.md) e consulte o [relatório
 
 - Arquivo `_quarto.yml`: metadados centrais e configuração compartilhada.
 - Arquivos `_quarto-web.yml` e `_quarto-print.yml`: ordem do livro e configuração de cada saída.
-- Diretório `chapters/`: 24 capítulos organizados em quatro partes; a Parte I termina com “Do indicador à decisão pública”, no capítulo 6. Os caminhos históricos são preservados, e os perfis Quarto definem a organização editorial.
+- Diretório `chapters/`: 24 capítulos organizados em quatro partes; a Parte I termina com “Do indicador à decisão pública”, no capítulo 6. As pastas correspondem às partes e os prefixos dos arquivos, de `01` a `24`, acompanham a ordem dos perfis Quarto. Os endereços HTML anteriores redirecionam para os atuais.
 - Diretórios `frontmatter/` e `backmatter/`: elementos pré e pós-textuais compartilhados.
 - Diretório `frontmatter/`: fonte única dos elementos pré-textuais das duas edições.
 - Diretório `indicators/data/`: fichas estruturadas em YAML.
@@ -60,10 +60,10 @@ make
 
 ## Adicionar um capítulo
 
-1. Crie o `.qmd` no diretório da parte correspondente.
+1. Crie o `.qmd` no diretório da parte correspondente, com prefixo numérico de dois dígitos igual à sua posição no livro.
 2. Use um título de nível 1 e um identificador estável.
 3. Acrescente o caminho à parte correta em `_quarto-web.yml` e `_quarto-print.yml`, conforme as saídas em que o capítulo deve aparecer.
-4. Atualize a matriz editorial e execute `make`.
+4. Ao alterar a ordem, ajuste os prefixos, os vínculos das fichas e as referências aos arquivos; declare os endereços HTML anteriores em `aliases` para preservar os links. Atualize a matriz editorial e execute `make`.
 
 ## Adicionar uma ficha
 

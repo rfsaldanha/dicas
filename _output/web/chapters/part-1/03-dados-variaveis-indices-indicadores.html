@@ -1,0 +1,2079 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Guia técnico sobre conceitos, dados e indicadores de clima e ambiente aplicados à vigilância e à gestão em saúde pública.">
+
+<title>3&nbsp; Dos dados aos indicadores: como representar clima, ambiente e saúde – Dados e Indicadores de Clima e Ambiente para a Saúde</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 1em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../chapters/part-1/04-espaco-tempo-qualidade.html" rel="next">
+<link href="../../chapters/part-1/02-mudanca-climatica-resposta-sus.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-bb162014f31ff550f3668977ab0f7733.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-fdd2e9c9119fd81cafe9a82057eefc34.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-bb162014f31ff550f3668977ab0f7733.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Nenhum resultado",
+    "search-matching-documents-text": "documentos correspondentes",
+    "search-copy-link-title": "Copiar link para a busca",
+    "search-hide-matches-text": "Esconder correspondências adicionais",
+    "search-more-match-text": "mais correspondência neste documento",
+    "search-more-matches-text": "mais correspondências neste documento",
+    "search-clear-button-title": "Limpar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Procurar"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles/web/styles.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/part-1/01-clima-ambiente-saude.html">Parte I — Fundamentos e métodos</a></li><li class="breadcrumb-item"><a href="../../chapters/part-1/03-dados-variaveis-indices-indicadores.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Dos dados aos indicadores: como representar clima, ambiente e saúde</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Procurar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">Dados e Indicadores de Clima e Ambiente para a Saúde</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/rfsaldanha/dicas" title="Código fonte" class="quarto-navigation-tool px-1" aria-label="Código fonte"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo escuro"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Procurar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bem-vindo</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/ficha-tecnica.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ficha técnica</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/apresentacao.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Apresentação</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/prefacio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prefácio do autor</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/agradecimentos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Agradecimentos</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/siglas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lista de siglas</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/lista-figuras.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lista de figuras</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/lista-tabelas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lista de quadros e tabelas</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/sumario.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sumário</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/como-usar.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Como utilizar este livro</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Parte I — Fundamentos e métodos</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/01-clima-ambiente-saude.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Clima, ambiente e saúde pública</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/02-mudanca-climatica-resposta-sus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Mudança climática, planejamento e resposta do SUS</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/03-dados-variaveis-indices-indicadores.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Dos dados aos indicadores: como representar clima, ambiente e saúde</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/04-espaco-tempo-qualidade.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Compatibilizando dados: espaço, tempo e qualidade</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/05-fontes-fichas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Fontes de dados e fichas de indicadores</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/06-indicador-decisao.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Do indicador à decisão pública</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Parte II — Dados e indicadores temáticos</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/07-temperatura-condicoes-termicas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Temperatura e condições térmicas</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/08-precipitacao-secas-eventos-hidrologicos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Precipitação, secas e eventos hidrológicos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/09-qualidade-ar-queimadas-fumaca.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Qualidade do ar, queimadas e fumaça</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/10-agua-saneamento-qualidade-ambiental.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Água, saneamento e qualidade ambiental</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/11-uso-cobertura-terra-ambiente-urbano.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Uso e cobertura da terra, vegetação e ambiente urbano</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/12-eventos-severos-desastres.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Eventos meteorológicos severos e desastres</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Parte III — Indicadores integrados de clima, ambiente e saúde</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-3/13-exposicao-vulnerabilidade.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Exposição e vulnerabilidade socioambiental</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-3/14-efeitos-saude.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Efeitos do clima e do ambiente sobre a saúde</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-3/15-resposta-adaptacao-resiliencia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Capacidade de resposta, adaptação e resiliência</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Parte IV — Fichas de indicadores e fontes de dados</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/lista-fichas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lista de fichas por código e capítulo</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/indice-indicadores.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Índice alfabético de indicadores</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/16-fichas-temperatura-condicoes-termicas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Fichas — Temperatura e condições térmicas</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/17-fichas-precipitacao-secas-eventos-hidrologicos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Fichas — Precipitação, secas e eventos hidrológicos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Fichas — Qualidade do ar, queimadas e fumaça</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Fichas — Água, saneamento e qualidade ambiental</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/20-fichas-uso-cobertura-terra-ambiente-urbano.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Fichas — Uso e cobertura da terra, vegetação e ambiente urbano</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/21-fichas-eventos-severos-desastres.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Fichas — Eventos severos e desastres</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/22-fichas-exposicao-vulnerabilidade.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Fichas — Exposição e vulnerabilidade socioambiental</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/23-fichas-efeitos-saude.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Fichas — Efeitos do clima e do ambiente sobre a saúde</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/24-fichas-resposta-adaptacao-resiliencia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Fichas — Capacidade de resposta, adaptação e resiliência</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/indice-fontes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Catálogo de fontes de dados</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/glossario.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Glossário</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/referencias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Referências</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Apêndices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/apendice-metodologico.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Apêndice metodológico</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/apendice-estacoes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Estações meteorológicas e de qualidade do ar</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Índice</h2>
+   
+  <ul>
+  <li><a href="#do-fenômeno-ao-indicador" id="toc-do-fenômeno-ao-indicador" class="nav-link active" data-scroll-target="#do-fenômeno-ao-indicador"><span class="header-section-number">3.1</span> Do fenômeno ao indicador</a></li>
+  <li><a href="#o-que-um-dado-ambiental-realmente-representa" id="toc-o-que-um-dado-ambiental-realmente-representa" class="nav-link" data-scroll-target="#o-que-um-dado-ambiental-realmente-representa"><span class="header-section-number">3.2</span> O que um dado ambiental realmente representa</a>
+  <ul class="collapse">
+  <li><a href="#forma-da-variável-e-unidade" id="toc-forma-da-variável-e-unidade" class="nav-link" data-scroll-target="#forma-da-variável-e-unidade"><span class="header-section-number">3.2.1</span> Forma da variável e unidade</a></li>
+  <li><a href="#das-observações-aos-episódios-regras-de-transformação-temporal" id="toc-das-observações-aos-episódios-regras-de-transformação-temporal" class="nav-link" data-scroll-target="#das-observações-aos-episódios-regras-de-transformação-temporal"><span class="header-section-number">3.2.2</span> Das observações aos episódios: regras de transformação temporal</a></li>
+  <li><a href="#quando-precisamos-de-um-substituto" id="toc-quando-precisamos-de-um-substituto" class="nav-link" data-scroll-target="#quando-precisamos-de-um-substituto"><span class="header-section-number">3.2.3</span> Quando precisamos de um substituto</a></li>
+  <li><a href="#como-o-valor-foi-produzido-e-a-que-tempo-ele-se-refere" id="toc-como-o-valor-foi-produzido-e-a-que-tempo-ele-se-refere" class="nav-link" data-scroll-target="#como-o-valor-foi-produzido-e-a-que-tempo-ele-se-refere"><span class="header-section-number">3.2.4</span> Como o valor foi produzido e a que tempo ele se refere</a></li>
+  <li><a href="#sec-grades-planejamento-sus" id="toc-sec-grades-planejamento-sus" class="nav-link" data-scroll-target="#sec-grades-planejamento-sus"><span class="header-section-number">3.2.5</span> O que são dados em grade e o que permitem enxergar</a></li>
+  </ul></li>
+  <li><a href="#quando-uma-variável-não-basta-índices" id="toc-quando-uma-variável-não-basta-índices" class="nav-link" data-scroll-target="#quando-uma-variável-não-basta-índices"><span class="header-section-number">3.3</span> Quando uma variável não basta: índices</a></li>
+  <li><a href="#o-que-torna-uma-medida-um-indicador" id="toc-o-que-torna-uma-medida-um-indicador" class="nav-link" data-scroll-target="#o-que-torna-uma-medida-um-indicador"><span class="header-section-number">3.4</span> O que torna uma medida um indicador</a>
+  <ul class="collapse">
+  <li><a href="#a-anatomia-de-um-indicador" id="toc-a-anatomia-de-um-indicador" class="nav-link" data-scroll-target="#a-anatomia-de-um-indicador"><span class="header-section-number">3.4.1</span> A anatomia de um indicador</a></li>
+  <li><a href="#propriedades-em-função-da-finalidade" id="toc-propriedades-em-função-da-finalidade" class="nav-link" data-scroll-target="#propriedades-em-função-da-finalidade"><span class="header-section-number">3.4.2</span> Propriedades em função da finalidade</a></li>
+  <li><a href="#numerador-denominador-e-população-de-referência" id="toc-numerador-denominador-e-população-de-referência" class="nav-link" data-scroll-target="#numerador-denominador-e-população-de-referência"><span class="header-section-number">3.4.3</span> Numerador, denominador e população de referência</a></li>
+  <li><a href="#quantidade-absoluta-e-medida-relativa-contam-histórias-diferentes" id="toc-quantidade-absoluta-e-medida-relativa-contam-histórias-diferentes" class="nav-link" data-scroll-target="#quantidade-absoluta-e-medida-relativa-contam-histórias-diferentes"><span class="header-section-number">3.4.4</span> Quantidade absoluta e medida relativa contam histórias diferentes</a></li>
+  <li><a href="#unidade-de-observação-não-é-necessariamente-unidade-de-análise" id="toc-unidade-de-observação-não-é-necessariamente-unidade-de-análise" class="nav-link" data-scroll-target="#unidade-de-observação-não-é-necessariamente-unidade-de-análise"><span class="header-section-number">3.4.5</span> Unidade de observação não é necessariamente unidade de análise</a></li>
+  <li><a href="#comparar-não-é-o-mesmo-que-classificar" id="toc-comparar-não-é-o-mesmo-que-classificar" class="nav-link" data-scroll-target="#comparar-não-é-o-mesmo-que-classificar"><span class="header-section-number">3.4.6</span> Comparar não é o mesmo que classificar</a></li>
+  </ul></li>
+  <li><a href="#onde-o-indicador-está-na-cadeia-entre-ambiente-e-saúde" id="toc-onde-o-indicador-está-na-cadeia-entre-ambiente-e-saúde" class="nav-link" data-scroll-target="#onde-o-indicador-está-na-cadeia-entre-ambiente-e-saúde"><span class="header-section-number">3.5</span> Onde o indicador está na cadeia entre ambiente e saúde</a>
+  <ul class="collapse">
+  <li><a href="#indicador-ambiental-e-indicador-de-saúde-ambiental" id="toc-indicador-ambiental-e-indicador-de-saúde-ambiental" class="nav-link" data-scroll-target="#indicador-ambiental-e-indicador-de-saúde-ambiental"><span class="header-section-number">3.5.1</span> Indicador ambiental e indicador de saúde ambiental</a></li>
+  </ul></li>
+  <li><a href="#do-indicador-ao-uso" id="toc-do-indicador-ao-uso" class="nav-link" data-scroll-target="#do-indicador-ao-uso"><span class="header-section-number">3.6</span> Do indicador ao uso</a></li>
+  <li><a href="#síntese" id="toc-síntese" class="nav-link" data-scroll-target="#síntese"><span class="header-section-number">3.7</span> Síntese</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/rfsaldanha/dicas/blob/main/chapters/part-1/03-dados-variaveis-indices-indicadores.qmd" class="toc-action"><i class="bi bi-github"></i>Ver o código fonte</a></li><li><a href="https://github.com/rfsaldanha/dicas/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default has-chapter-opening"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/part-1/01-clima-ambiente-saude.html">Parte I — Fundamentos e métodos</a></li><li class="breadcrumb-item"><a href="../../chapters/part-1/03-dados-variaveis-indices-indicadores.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Dos dados aos indicadores: como representar clima, ambiente e saúde</span></a></li></ol></nav>
+<div class="chapter-opening">
+  <img src="../../assets/openings/cap3-dados-indicadores-web.webp" alt="Paisagem hipotética sem pessoas: estação meteorológica em amplo terreno de grama baixa, com abrigo ventilado de sensores, pluviômetro e mastro com anemômetro. Ao fundo, curso d’água, vegetação e cidade, com edifícios e árvores afastados dos instrumentos." width="2400" height="600" class="no-lightbox" fetchpriority="high">
+</div>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-dados-indicadores" class="quarto-section-identifier"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Dos dados aos indicadores: como representar clima, ambiente e saúde</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Os capítulos anteriores (<a href="01-clima-ambiente-saude.html" class="quarto-xref"><span>Capítulo 1</span></a> e <a href="02-mudanca-climatica-resposta-sus.html" class="quarto-xref"><span>Capítulo 2</span></a>) apresentaram clima e ambiente como condições que participam da produção da saúde nos territórios. Para que essas relações possam ser acompanhadas pela vigilância, analisadas pela pesquisa ou incorporadas à gestão, é necessário representá-las por meio de dados e medidas. Essa passagem da realidade para o número, porém, não é automática. Todo dado resulta de escolhas sobre o que observar, onde, quando e como observar; todo indicador acrescenta outras escolhas: o que aquele valor pretende representar, como deve ser interpretado e para qual finalidade será utilizado.</p>
+<p>Essa distinção é importante porque os fenômenos de interesse para a saúde pública são, em geral, mais complexos do que as variáveis disponíveis para descrevê-los. A temperatura registrada por uma estação é um dado meteorológico. Uma sequência de dias muito quentes pode caracterizar um episódio de calor. A distribuição das pessoas no território acrescenta uma dimensão de exposição. Condições de moradia, idade, trabalho e acesso a serviços ajudam a compreender por que uma mesma condição térmica pode produzir consequências diferentes. Em cada etapa, o número muda de significado porque muda a pergunta que ele procura responder.</p>
+<p>Este capítulo acompanha essa cadeia de representação, do fenômeno à informação usada na decisão, e oferece critérios práticos para reconhecer o que um valor representa, como foi produzido, a que espaço, período e população se refere e até onde sua interpretação pode chegar. Esses critérios serão retomados nas fichas e fontes de dados apresentadas ao longo do livro <span class="citation" data-cites="ripsa2026 who2023dqa">(<a href="../../backmatter/referencias.html#ref-ripsa2026" role="doc-biblioref">Organização Pan-Americana da Saúde, 2026</a>; <a href="../../backmatter/referencias.html#ref-who2023dqa" role="doc-biblioref">World Health Organization, 2023</a>)</span>.</p>
+<p>A <a href="#fig-cadeia-representacao" class="quarto-xref">Figura&nbsp;<span>3.1</span></a> resume esse percurso. Leia as etapas de cima para baixo: a pergunta delimita um conceito, orienta a escolha da variável e dá sentido aos registros e às operações. A documentação acompanha todo o percurso, enquanto o retorno à pergunta mostra que a utilidade do resultado pode exigir rever a definição ou o método. As setas organizam um trabalho de representação; não quantificam perda de informação nem garantem que a decisão decorra automaticamente do número <span class="citation" data-cites="jannuzzi2005indicadores">(<a href="../../backmatter/referencias.html#ref-jannuzzi2005indicadores" role="doc-biblioref">Jannuzzi, 2005</a>)</span>.</p>
+<div id="fig-cadeia-representacao" class="lightbox quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-width="120mm" data-print-src="arte-cap3-01-cadeia-print.png" alt="Sete etapas ligam fenômeno, conceito, variável, dado, medida derivada, indicador e informação para decisão. Uma cena de observação acompanha o fluxo. A documentação atravessa as etapas e uma seta retorna à pergunta inicial. A cena combina estação em terreno aberto, profissionais, rio e bairro com prédios, casas, ruas e vegetação.">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-cadeia-representacao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<a href="../../assets/figures/arte-cap3-01-cadeia.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-1" title="Figura&nbsp;3.1: Do fenômeno à informação para decisão"><img src="../../assets/figures/arte-cap3-01-cadeia.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Sete etapas ligam fenômeno, conceito, variável, dado, medida derivada, indicador e informação para decisão. Uma cena de observação acompanha o fluxo. A documentação atravessa as etapas e uma seta retorna à pergunta inicial. A cena combina estação em terreno aberto, profissionais, rio e bairro com prédios, casas, ruas e vegetação."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cadeia-representacao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;3.1: Do fenômeno à informação para decisão
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte: Elaboração própria; cenas conceituais, sem dados observados. Direção editorial: autor da obra; ilustração: ferramenta integrada image_gen; composição e revisão: edição desta obra. Licença dos arquivos autorais: GPL-3.0; fontes citadas mantêm suas licenças. Prompts e originais preservados no repositório. Revisão urbana da aquarela: image_gen, com o original e a referência visual da série.</span></p>
+<!--
+ARTE CAP3-01 — Revisão urbana v2
+Finalidade e descrição acessível: Sete etapas ligam fenômeno, conceito, variável, dado, medida derivada, indicador e informação para decisão. Uma cena de observação acompanha o fluxo. A documentação atravessa as etapas e uma seta retorna à pergunta inicial. A cena combina estação em terreno aberto, profissionais, rio e bairro com prédios, casas, ruas e vegetação.
+Arte incorporada: assets/figures/arte-cap3-01-cadeia.svg.
+Impressão: assets/figures/arte-cap3-01-cadeia-print.png.
+Original da edição: assets/figures/arte-cap3-01-v1.png; preservado junto das versões anteriores.
+Aquarela revisada: assets/figures/arte-cap3-01-v2.png.
+Prompt completo utilizado: assets/figures/arte-cap3-01-v2.prompt.txt.
+Referência de estilo: assets/references/aquarela-grafite-nanquim.png.
+Produção: ferramenta integrada image_gen; original e referência de estilo inspecionados e fornecidos por referenced_image_paths.
+Montagem: scripts/build_cap3_art.py 01; rótulos, setas e identificadores editáveis preservados.
+Exportação: Chromium com fontes e raster incorporados; ImageMagick para PNG de 8 bits em cinza.
+Revisão: presença urbana, continuidade da aquarela, anatomia, recortes e relações conceituais. Cenários hipotéticos, sem novos dados observados.
+Licença dos arquivos autorais: GPL-3.0; fontes citadas mantêm suas condições de uso.
+
+Use case: precise-object-edit. Arte didática em aquarela para livro brasileiro sobre clima, ambiente e saúde.
+Entradas: imagem 1 é o ORIGINAL a editar, referência obrigatória de composição; imagem 2 é APENAS referência do estilo da série.
+Pedido: aumentar a presença urbana, preservando a aquarela naturalista, paleta suave de azuis, verdes, ocres e terracota, textura de papel, contornos delicados de grafite/nanquim e contraste adequado também em cinza. A cidade é brasileira e hipotética, sem marcos reconhecíveis.
+Revisão específica: Preserve a composição vertical única, as duas profissionais e a folha branca em primeiro plano, a estação meteorológica, as pessoas na encosta, o rio, a ponte, sol e chuva. Transforme parte do bairro intermediário em quarteirões urbanos com edifícios residenciais próximos de 4–10 pavimentos, casas, comércio térreo, calçadas e árvores. Os prédios devem ser claramente perceptíveis no meio da cena, não apenas minúsculos no horizonte. Preserve trechos abertos e vegetação; a estação permanece em terreno aberto. Não adicione diagramas ou textos.
+Invariantes: conserve enquadramento, proporção, escala das figuras humanas, anatomia natural, quantidade e posição das vinhetas, objetos conceituais e espaços brancos. Alterar cenários e arquitetura somente conforme o pedido. Não adicionar texto, títulos, legendas, setas, números, marcas ou molduras; serão aplicados como vetores editáveis. Não fundir cenas e não recortar personagens. Manter boa nitidez na impressão.
+Formato: mesma proporção do original 1086 × 1448; resolução igual ou superior. Uma única imagem final editada.
+-->
+<section id="do-fenômeno-ao-indicador" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="do-fenômeno-ao-indicador"><span class="header-section-number">3.1</span> Do fenômeno ao indicador</h2>
+<p>Antes de definir os termos utilizados neste capítulo, é importante reconhecer que medida, índice e indicador não possuem fronteiras universais. Na climatologia, muitas medidas derivadas são tradicionalmente chamadas de <em>índices climáticos</em>; em saúde pública, taxas, proporções e contagens podem ser chamadas de indicadores; em outros campos, o termo <em>índice</em> é reservado principalmente a medidas compostas <span class="citation" data-cites="wmo2023climatological ripsa2026 oecd2008composite">(<a href="../../backmatter/referencias.html#ref-oecd2008composite" role="doc-biblioref">Organisation for Economic Co-operation and Development; European Union; European Commission. Joint Research Centre, 2008</a>; <a href="../../backmatter/referencias.html#ref-ripsa2026" role="doc-biblioref">Organização Pan-Americana da Saúde, 2026</a>; <a href="../../backmatter/referencias.html#ref-wmo2023climatological" role="doc-biblioref">World Meteorological Organization, 2023</a>)</span>.</p>
+<p>Neste livro, adotamos uma convenção operacional. Variável é uma característica capaz de assumir diferentes valores; dado é um registro produzido sobre essa característica em determinado espaço e tempo; medida é o resultado de uma operação aplicada a um ou mais dados; índice é uma medida derivada cuja construção envolve transformação, síntese ou combinação e que costuma receber uma denominação própria; e indicador é uma medida ou índice utilizado deliberadamente para representar uma dimensão relevante e apoiar interpretação, comparação, monitoramento ou decisão. Informação surge quando esses elementos são interpretados em contexto. Mais importante do que o rótulo é conseguir reconstruir como o valor foi produzido e o que ele pode representar.</p>
+<p>Essa convenção privilegia as medidas quantitativas usadas neste livro, mas não esgota o campo dos indicadores. Minayo destaca que indicadores qualitativos também podem ser construídos a partir de categorias fundamentadas no contexto e na experiência dos participantes. Sua interpretação exige explicitar como essas categorias foram produzidas e validadas; atribuir um código numérico a uma categoria não basta para transformá-la em quantidade <span class="citation" data-cites="minayo2009indicadores">(<a href="../../backmatter/referencias.html#ref-minayo2009indicadores" role="doc-biblioref">Minayo, 2009</a>)</span>.</p>
+<p>Se uma estação registra a temperatura do ar em determinado local e horário, a temperatura é a variável e o valor registrado, acompanhado dessas referências, é o dado. O registro pode gerar uma máxima diária, uma média ou a identificação de um dia acima de um valor previamente definido. Quando uma dessas medidas é associada a uma definição, uma interpretação e uma finalidade — por exemplo, acompanhar condições térmicas relevantes para a vigilância — ela pode funcionar como indicador <span class="citation" data-cites="ripsa2026">(<a href="../../backmatter/referencias.html#ref-ripsa2026" role="doc-biblioref">Organização Pan-Americana da Saúde, 2026</a>)</span>. Já a informação surge quando o valor é colocado em contexto: duração esperada do episódio, população exposta, grupos mais suscetíveis e capacidade de resposta dos serviços.</p>
+<div id="qua-cadeia-medicao" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-qua figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-qua" id="qua-cadeia-medicao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Quadro&nbsp;3.1: Da realidade observada à informação para decisão
+</figcaption>
+<div aria-describedby="qua-cadeia-medicao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Camada</th>
+<th>O que acontece</th>
+<th>Exemplo com calor</th>
+<th>Pergunta de controle</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Fenômeno</td>
+<td>delimita-se o processo de interesse</td>
+<td>condições térmicas potencialmente danosas</td>
+<td>O que se pretende compreender ou acompanhar?</td>
+</tr>
+<tr class="even">
+<td>Conceito</td>
+<td>seleciona-se uma dimensão do fenômeno</td>
+<td>perigo térmico</td>
+<td>O conceito está claramente definido?</td>
+</tr>
+<tr class="odd">
+<td>Variável</td>
+<td>escolhe-se algo que possa ser observado ou estimado</td>
+<td>temperatura do ar</td>
+<td>Que característica será medida e em qual unidade?</td>
+</tr>
+<tr class="even">
+<td>Dado</td>
+<td>registra-se um valor em determinado espaço e tempo</td>
+<td>valor de temperatura com identificação da estação, data e horário</td>
+<td>Como, onde e quando esse valor foi produzido?</td>
+</tr>
+<tr class="odd">
+<td>Medida derivada</td>
+<td>aplica-se uma regra de cálculo</td>
+<td>temperatura máxima diária ou contagem de dias acima de um valor definido</td>
+<td>Que transformação foi realizada?</td>
+</tr>
+<tr class="even">
+<td>Indicador</td>
+<td>associa-se a medida a um objetivo e a uma interpretação</td>
+<td>número anual de dias que atendem a um critério térmico definido</td>
+<td>Para que uso essa medida é adequada?</td>
+</tr>
+<tr class="odd">
+<td>Informação para decisão</td>
+<td>combina-se o indicador com o contexto</td>
+<td>alerta, população exposta, capacidade dos serviços e ações pactuadas</td>
+<td>Quem precisa fazer o quê e em que momento?</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>A cadeia pode ser simples ou integrar várias bases; o essencial é que seja reconstruível. Em sistemas públicos, transparência metodológica e prevenção do uso incorreto fazem parte da qualidade da informação <span class="citation" data-cites="un2014statistics">(<a href="../../backmatter/referencias.html#ref-un2014statistics" role="doc-biblioref">United Nations General Assembly, 2014</a>)</span>. A Rede Interagencial de Informações para a Saúde (RIPSA) desenvolveu uma ficha de qualificação que reúne definição, interpretação, cálculo, fontes e limites de uso <span class="citation" data-cites="ripsa2026">(<a href="../../backmatter/referencias.html#ref-ripsa2026" role="doc-biblioref">Organização Pan-Americana da Saúde, 2026</a>)</span>. Essa contribuição inspirou a organização das fichas deste livro, apresentada no <a href="05-fontes-fichas.html#sec-ficha-ripsa" class="quarto-xref"><span>Seção 5.7</span></a>, no capítulo sobre fontes e fichas.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Conceito-chave: metadados">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Conceito-chave: metadados
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Metadados são as informações necessárias para compreender, localizar, comparar e utilizar corretamente um conjunto de dados ou indicador. Incluem, por exemplo, definição da variável, unidade, fonte, método de produção, cobertura espacial e temporal, frequência de atualização, códigos de ausência, procedimentos de qualidade e versão. Sem metadados, um arquivo pode conter muitos valores e ainda assim ser difícil — ou perigoso — de interpretar. Documentar metadados é parte da qualidade e da rastreabilidade da informação <span class="citation" data-cites="w3c2013prov wilkinson2016fair who2023dqa">(<a href="../../backmatter/referencias.html#ref-wilkinson2016fair" role="doc-biblioref"><span class="nocase">Wilkinson et al.</span>, 2016</a>; <a href="../../backmatter/referencias.html#ref-who2023dqa" role="doc-biblioref">World Health Organization, 2023</a>; <a href="../../backmatter/referencias.html#ref-w3c2013prov" role="doc-biblioref">World Wide Web Consortium, 2013</a>)</span>.</p>
+</div>
+</div>
+</section>
+<section id="o-que-um-dado-ambiental-realmente-representa" class="level2 page-columns page-full" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="o-que-um-dado-ambiental-realmente-representa"><span class="header-section-number">3.2</span> O que um dado ambiental realmente representa</h2>
+<p>O significado de um valor depende da grandeza que ele representa, do método usado para produzi-lo e de sua organização no espaço e no tempo. Distinguir essas dimensões ajuda a interpretar bases climáticas, ambientais e de saúde antes de combiná-las.</p>
+<p>Considere novamente a temperatura. Uma estação meteorológica mede a temperatura do ar em um ponto específico e sob determinadas condições de instalação. Um produto em grade organiza valores que, conforme o método e os metadados, podem representar estimativas em pontos da malha ou valores referidos a células. Um sensor em satélite pode, por sua vez, observar radiação e permitir estimar características da superfície. Todos esses produtos podem ser tecnicamente válidos e úteis, mas não representam necessariamente a mesma grandeza nem respondem à mesma pergunta <span class="citation" data-cites="iso2023geoquality wmo2023climatological">(<a href="../../backmatter/referencias.html#ref-iso2023geoquality" role="doc-biblioref">International Organization for Standardization, 2023</a>; <a href="../../backmatter/referencias.html#ref-wmo2023climatological" role="doc-biblioref">World Meteorological Organization, 2023</a>)</span>.</p>
+<p>Neste capítulo, interessa reconhecer essas diferenças conceituais, compreender as operações aplicadas aos valores e examinar sua organização em grade. As implicações de localização, resolução, agregação espacial e compatibilidade temporal serão aprofundadas no <a href="04-espaco-tempo-qualidade.html" class="quarto-xref"><span>Capítulo 4</span></a>.</p>
+<section id="forma-da-variável-e-unidade" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="forma-da-variável-e-unidade"><span class="header-section-number">3.2.1</span> Forma da variável e unidade</h3>
+<p>A forma da variável limita as operações que fazem sentido. Temperatura e concentração são grandezas quantitativas; número de atendimentos é uma contagem; cobertura da terra pode ser categórica; classes como “baixo”, “moderado” e “alto” possuem ordem, mas não uma distância numérica conhecida. Atribuir códigos numéricos às categorias facilita o armazenamento, mas não cria distâncias mensuráveis entre elas.</p>
+<p>A unidade também faz parte do significado. Graus Celsius, milímetros de chuva, porcentagens e taxas por 100 mil habitantes não são apenas números acompanhados de rótulos: informam como a quantidade foi construída e o que pode ser comparado.</p>
+<p>Grande parte das medidas usadas em saúde pública, climatologia e ambiente é construída a partir de um conjunto relativamente pequeno de operações. Reconhecê-las ajuda a entender o que cada número está dizendo.</p>
+<div id="qua-gramatica-medidas" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-qua figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-qua" id="qua-gramatica-medidas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Quadro&nbsp;3.2: Formas frequentes de transformar dados em medidas e indicadores
+</figcaption>
+<div aria-describedby="qua-gramatica-medidas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Forma</th>
+<th>Pergunta que responde</th>
+<th>Exemplo</th>
+<th>Principal cuidado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Contagem</td>
+<td>Quantos ocorreram?</td>
+<td>número de dias que atenderam ao critério</td>
+<td>depende da definição do evento e do período observado</td>
+</tr>
+<tr class="even">
+<td>Proporção ou percentual</td>
+<td>Que parte do conjunto apresenta a condição?</td>
+<td>parcela da população residente na área de interesse</td>
+<td>numerador e denominador devem representar o mesmo universo</td>
+</tr>
+<tr class="odd">
+<td>Razão</td>
+<td>Como duas quantidades se relacionam?</td>
+<td>número de habitantes por estabelecimento de saúde</td>
+<td>numerador e denominador podem representar universos diferentes; a interpretação deve ser explícita</td>
+</tr>
+<tr class="even">
+<td>Taxa</td>
+<td>Com que frequência eventos ocorrem em uma população e período?</td>
+<td>eventos em relação à população de referência no período</td>
+<td>exige população de referência, período e definição consistente do evento</td>
+</tr>
+<tr class="odd">
+<td>Média ou mediana</td>
+<td>Qual é o nível típico no período ou território?</td>
+<td>temperatura média diária</td>
+<td>pode ocultar extremos e heterogeneidade</td>
+</tr>
+<tr class="even">
+<td>Máximo ou mínimo</td>
+<td>Qual foi o extremo observado?</td>
+<td>maior temperatura registrada no dia</td>
+<td>é sensível à frequência das observações e a valores espúrios</td>
+</tr>
+<tr class="odd">
+<td>Acumulado</td>
+<td>Quanto se acumulou ao longo do intervalo?</td>
+<td>chuva acumulada no intervalo definido</td>
+<td>o período e os limites temporais precisam ser claros</td>
+</tr>
+<tr class="even">
+<td>Percentil</td>
+<td>Onde o valor se situa em relação a uma distribuição?</td>
+<td>valor correspondente ao percentil 95 de uma série</td>
+<td>depende dos dados e do período usados como referência</td>
+</tr>
+<tr class="odd">
+<td>Anomalia</td>
+<td>Quanto o valor difere de uma referência?</td>
+<td>diferença entre temperatura e média de referência</td>
+<td>a referência faz parte da medida</td>
+</tr>
+<tr class="even">
+<td>Frequência de excedência</td>
+<td>Quantas vezes um valor de referência foi ultrapassado?</td>
+<td>dias acima de um critério definido</td>
+<td>a origem e a finalidade do critério devem ser conhecidas</td>
+</tr>
+<tr class="odd">
+<td>Duração ou persistência</td>
+<td>Por quanto tempo a condição se manteve?</td>
+<td>tempo de permanência de uma condição sem interrupção</td>
+<td>regras sobre início, fim e interrupção alteram o resultado</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</section>
+<section id="das-observações-aos-episódios-regras-de-transformação-temporal" class="level3 page-columns page-full" data-number="3.2.2">
+<h3 data-number="3.2.2" class="anchored" data-anchor-id="das-observações-aos-episódios-regras-de-transformação-temporal"><span class="header-section-number">3.2.2</span> Das observações aos episódios: regras de transformação temporal</h3>
+<p>A <a href="#fig-escala-temporal" class="quarto-xref">Figura&nbsp;<span>3.2</span></a> mostra como observações de temperatura podem dar origem a medidas sobre episódios persistentes de calor. Cada passagem exige uma regra e muda a pergunta respondida pelo resultado. O esquema descreve uma possibilidade de construção; as definições padronizadas e suas exigências serão apresentadas no <a href="../part-2/07-temperatura-condicoes-termicas.html" class="quarto-xref"><span>Capítulo 7</span></a>.</p>
+<div id="fig-escala-temporal" class="lightbox quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-width="120mm" data-print-src="arte-cap3-02-tempo-print.png" alt="Seis linhas alinhadas ligam observações horárias, máximo entre observações válidas do dia, critério térmico, identificação de sequências, delimitação de episódios e medidas de frequência e duração. Na etapa 4, um calendário ilustrativo usa círculos preenchidos para dias que atendem ao critério, círculos vazios para os que não atendem e interrogação para dado ausente. Um grupo de dias observados consecutivos é destacado, sem incluir a lacuna nem estabelecer duração mínima de episódio. Aquarelas e calendário não representam dados observados.">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-escala-temporal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<a href="../../assets/figures/arte-cap3-02-tempo.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-2" title="Figura&nbsp;3.2: Da observação horária às medidas de episódios"><img src="../../assets/figures/arte-cap3-02-tempo.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Seis linhas alinhadas ligam observações horárias, máximo entre observações válidas do dia, critério térmico, identificação de sequências, delimitação de episódios e medidas de frequência e duração. Na etapa 4, um calendário ilustrativo usa círculos preenchidos para dias que atendem ao critério, círculos vazios para os que não atendem e interrogação para dado ausente. Um grupo de dias observados consecutivos é destacado, sem incluir a lacuna nem estabelecer duração mínima de episódio. Aquarelas e calendário não representam dados observados."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-escala-temporal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;3.2: Da observação horária às medidas de episódios
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte: Elaboração própria; cenas conceituais, sem dados observados. Direção editorial: autor da obra; ilustração: ferramenta integrada image_gen; composição e revisão: edição desta obra. Licença dos arquivos autorais: GPL-3.0; fontes citadas mantêm suas licenças. Prompts e originais preservados no repositório. Revisão editorial: cenas, recortes e elementos vetoriais conforme registro de produção.</span></p>
+<!--
+ARTE CAP3-02 — Revisão editorial de 2026-10-03
+Finalidade e descrição acessível: Seis linhas alinhadas ligam observações horárias, máximo entre observações válidas do dia, critério térmico, identificação de sequências, delimitação de episódios e medidas de frequência e duração. Na etapa 4, um calendário ilustrativo usa círculos preenchidos para dias que atendem ao critério, círculos vazios para os que não atendem e interrogação para dado ausente. Um grupo de dias observados consecutivos é destacado, sem incluir a lacuna nem estabelecer duração mínima de episódio. Aquarelas e calendário não representam dados observados.
+Identificador preservado: fig-escala-temporal.
+Arte incorporada: assets/figures/arte-cap3-02-tempo.svg.
+Impressão: assets/figures/arte-cap3-02-tempo-print.png, em escala de cinza.
+Aquarela utilizada: assets/figures/arte-cap3-02-v2.png.
+Prompt completo da aquarela: assets/figures/arte-cap3-02-v2.prompt.txt.
+Referência de estilo: assets/references/aquarela-grafite-nanquim.png.
+Produção da aquarela: ferramenta integrada image_gen; versão não informada.
+Montagem reproduzível: scripts/build_cap3_art.py 02; textos, símbolos e conexões em SVG editável.
+Exportação: scripts/render_figure.py; Chromium com fontes e raster incorporados; ImageMagick para PNG de 8 bits em cinza.
+Revisão: Revisão editorial: recortes individuais de cinco vinhetas de v2, seis linhas alinhadas, textos com quebras explícitas e substituição do varal por calendário SVG editável; símbolos distinguem critério atendido, não atendido e dado ausente também em cinza. Nenhuma nova aquarela foi gerada para esta composição.
+Histórico: originais e prompts anteriores preservados; proveniência em assets/figures/arte-cap3-manifest.json.
+Licença dos arquivos autorais: GPL-3.0; fontes citadas mantêm suas condições de uso.
+-->
+<ol type="1">
+<li>Observações horárias: identificar a grandeza, a estação ou o suporte espacial, os horários e os registros válidos. O conjunto de medições disponíveis determina o que poderá ser resumido.</li>
+<li>Máximo entre observações válidas do dia: definir os limites do dia e o requisito de cobertura antes de selecionar o maior valor. Esse máximo amostrado pode não captar um pico ocorrido entre medições e não equivale necessariamente à máxima diária obtida por um instrumento com registro contínuo.</li>
+<li>Aplicação do critério térmico: comparar o resumo diário com uma referência documentada. É preciso informar se o limiar é absoluto ou relativo a uma distribuição, qual período sustenta essa referência e se a regra usa “maior que” ou “maior ou igual a”.</li>
+<li>Identificação de sequências: verificar a continuidade dos dias que atendem ao critério. Um registro ausente não permite concluir que a condição cessou; a regra de tratamento dessas lacunas precisa estar especificada.</li>
+<li>Delimitação de episódios: aplicar a duração mínima e as regras de início, término e separação. Uma sequência curta pode não atender à definição escolhida. Um dia quente isolado não constitui automaticamente uma onda de calor.</li>
+<li>Medidas de frequência e duração: contar os episódios identificados e descrever sua persistência no período. O número de episódios, o total de dias participantes e a duração do episódio mais longo são saídas distintas, mesmo quando derivadas das mesmas observações.</li>
+</ol>
+<p>O número de episódios responde quantas ocorrências distintas foram delimitadas; o total de dias participantes informa por quanto tempo, ao todo, as condições definidas estiveram presentes; a duração máxima descreve a maior sequência. Duas séries podem coincidir em uma dessas medidas e diferir nas demais. Por isso, o nome do indicador deve explicitar qual operação foi realizada, sem tomar qualquer uma delas como medida completa da intensidade do calor ou de seus efeitos sobre a saúde.</p>
+<p>O calendário da etapa 4 é um exemplo ilustrativo, sem dados observados: círculos preenchidos indicam dias que atendem ao critério, círculos vazios indicam dias que não atendem e o ponto de interrogação indica ausência de registro. O agrupamento destaca dias observados consecutivos; a lacuna não confirma uma interrupção nem autoriza prolongar a sequência. A quantidade de dias desenhada não estabelece a duração mínima de um episódio, definida na etapa 5. Para aplicar o fluxo, a equipe deve documentar também o fuso, a completude e o tratamento de episódios que atravessam os limites do período de análise. O <a href="04-espaco-tempo-qualidade.html" class="quarto-xref"><span>Capítulo 4</span></a> aprofunda essas decisões <span class="citation" data-cites="wmo2023climatological">(<a href="../../backmatter/referencias.html#ref-wmo2023climatological" role="doc-biblioref">World Meteorological Organization, 2023</a>)</span>.</p>
+</section>
+<section id="quando-precisamos-de-um-substituto" class="level3 page-columns page-full" data-number="3.2.3">
+<h3 data-number="3.2.3" class="anchored" data-anchor-id="quando-precisamos-de-um-substituto"><span class="header-section-number">3.2.3</span> Quando precisamos de um substituto</h3>
+<p>Nem tudo que gostaríamos de conhecer está diretamente disponível nos dados. Nesses casos, uma variável pode ser usada como aproximação, ou <em>proxy</em>, de outra informação.</p>
+<p>O endereço de residência, por exemplo, pode ser usado para aproximar onde uma pessoa passa parte do tempo, embora não represente seus deslocamentos. A cobertura de vegetação em um mapa pode aproximar uma característica do ambiente urbano, mas não garante que todas as pessoas tenham acesso a sombra no horário de maior calor. Uma variável de renda pode informar parte das condições materiais de uma população, sem resumir todas as possibilidades de proteção e acesso a serviços.</p>
+<p>O problema não é utilizar <em>proxies</em>; muitas análises dependem deles. O problema é esquecer que são aproximações. Uma <em>proxy</em> é defensável quando existe uma relação conceitual clara com aquilo que se pretende representar e quando suas limitações permanecem explícitas. Disponibilidade não é sinônimo de validade. A seleção exige uma justificativa substantiva, verificação de sua adequação no contexto e exame de quem pode ser mal representado <span class="citation" data-cites="jannuzzi2005indicadores barcellos2006vigilancia">(<a href="../../backmatter/referencias.html#ref-barcellos2006vigilancia" role="doc-biblioref">Barcellos; Quitério, 2006</a>; <a href="../../backmatter/referencias.html#ref-jannuzzi2005indicadores" role="doc-biblioref">Jannuzzi, 2005</a>)</span>.</p>
+<p>A <a href="#fig-proxy-limites" class="quarto-xref">Figura&nbsp;<span>3.3</span></a> apresenta um parque arborizado que pertence a um condomínio particular, cercado por um bairro com muitos prédios, superfícies de concreto e asfalto e quase nenhuma arborização nas ruas. As duas vistas mostram o mesmo lugar: de cima, a vegetação do parque é reconhecível; na rua, a cerca e o portão fechado impedem que os moradores vizinhos acessem essa área de sombra. Um indicador de cobertura vegetal que contabilize áreas públicas e privadas inclui a vegetação do parque no cálculo do bairro, independentemente de quem possa entrar nele.</p>
+<p>Esse indicador descreve uma condição ambiental, mas não mede o acesso dos vizinhos à sombra. Interpretá-lo como se representasse uma área verde disponível a todos ampliaria seu significado além do que o método sustenta. Para avaliar acesso, seriam necessárias informações sobre entradas, restrições, percursos, horários e condições de permanência. A restrição de entrada não elimina possíveis benefícios ambientais da vegetação no entorno; mostra que cobertura vegetal e acesso ao parque são dimensões diferentes. A cena é hipotética e não estima a cobertura do bairro nem a exposição individual.</p>
+<div id="fig-proxy-limites" class="lightbox quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-width="120mm" data-print-src="arte-cap3-03-proxy-print.png" alt="Duas vistas correspondentes do mesmo bairro hipotético mostram um parque densamente arborizado dentro de um condomínio particular, delimitado por cerca e portão fechado. Fora do parque, prédios, fachadas de concreto, asfalto e calçadas predominantemente cinza compõem um entorno quase sem arborização. Na vista da rua, dois moradores vizinhos estão do lado de fora do portão. A indicação de acesso exclusivo aos moradores do condomínio contrasta com a inclusão da vegetação privada no indicador de cobertura do bairro. A cena não estima cobertura nem exposição individual.">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-proxy-limites-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<a href="../../assets/figures/arte-cap3-03-proxy.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-3" title="Figura&nbsp;3.3: Vegetação contabilizada não garante acesso à sombra"><img src="../../assets/figures/arte-cap3-03-proxy.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Duas vistas correspondentes do mesmo bairro hipotético mostram um parque densamente arborizado dentro de um condomínio particular, delimitado por cerca e portão fechado. Fora do parque, prédios, fachadas de concreto, asfalto e calçadas predominantemente cinza compõem um entorno quase sem arborização. Na vista da rua, dois moradores vizinhos estão do lado de fora do portão. A indicação de acesso exclusivo aos moradores do condomínio contrasta com a inclusão da vegetação privada no indicador de cobertura do bairro. A cena não estima cobertura nem exposição individual."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-proxy-limites-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;3.3: Vegetação contabilizada não garante acesso à sombra
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte: Elaboração própria; cenas conceituais, sem dados observados. Direção editorial: autor da obra; ilustração: ferramenta integrada image_gen; composição e revisão: edição desta obra. Licença dos arquivos autorais: GPL-3.0; fontes citadas mantêm suas licenças. Prompts e originais preservados no repositório.</span></p>
+<!--
+ARTE CAP3-03 — Revisão editorial de 2026-10-03
+Finalidade e descrição acessível: Duas vistas correspondentes do mesmo bairro hipotético mostram um parque densamente arborizado dentro de um condomínio particular, delimitado por cerca e portão fechado. Fora do parque, prédios, fachadas de concreto, asfalto e calçadas predominantemente cinza compõem um entorno quase sem arborização. Na vista da rua, dois moradores vizinhos estão do lado de fora do portão. A indicação de acesso exclusivo aos moradores do condomínio contrasta com a inclusão da vegetação privada no indicador de cobertura do bairro. A cena não estima cobertura nem exposição individual.
+Identificador preservado: fig-proxy-limites.
+Arte incorporada: assets/figures/arte-cap3-03-proxy.svg.
+Impressão: assets/figures/arte-cap3-03-proxy-print.png, em escala de cinza.
+Aquarela utilizada: assets/figures/arte-cap3-03-v4.png.
+Prompt completo da aquarela: assets/figures/arte-cap3-03-v4.prompt.txt.
+Referência de estilo: assets/references/aquarela-grafite-nanquim.png.
+Produção da aquarela: ferramenta integrada image_gen; versão não informada.
+Montagem reproduzível: scripts/build_cap3_art.py 03; textos, símbolos e conexões em SVG editável.
+Exportação: scripts/render_figure.py; Chromium com fontes e raster incorporados; ImageMagick para PNG de 8 bits em cinza.
+Revisão: Revisão editorial em duas etapas: v3 reconstrói o parque privado e as duas vistas correspondentes; v4 atende à orientação adicional do autor, com entorno externo mais denso, quase sem arborização e predominantemente cinza. Portão fechado, vizinhos externos e vegetação interna preservados; rótulos editáveis e contraste em cinza conferidos.
+Histórico: originais e prompts anteriores preservados; proveniência em assets/figures/arte-cap3-manifest.json.
+Licença dos arquivos autorais: GPL-3.0; fontes citadas mantêm suas condições de uso.
+-->
+<p>Uma verificação útil é comparar a <em>proxy</em> com observações mais próximas do conceito, quando disponíveis, e examinar se a relação se mantém entre territórios e grupos. Se isso não puder ser feito, a justificativa e a limitação devem acompanhar o indicador. A aproximação não deve ganhar, no título ou na conclusão, um significado mais amplo do que aquele sustentado pelo método.</p>
+</section>
+<section id="como-o-valor-foi-produzido-e-a-que-tempo-ele-se-refere" class="level3" data-number="3.2.4">
+<h3 data-number="3.2.4" class="anchored" data-anchor-id="como-o-valor-foi-produzido-e-a-que-tempo-ele-se-refere"><span class="header-section-number">3.2.4</span> Como o valor foi produzido e a que tempo ele se refere</h3>
+<p>Expressões como observado, estimado, modelado, previsto e projetado aparecem com frequência em bases climáticas, ambientais e de saúde, mas não formam categorias mutuamente exclusivas. Uma previsão geralmente é produzida por um modelo; uma projeção também. Para interpretar esses produtos, é mais útil separar duas perguntas: como o valor foi produzido? e a que referência temporal ou finalidade ele se destina?</p>
+<div id="qua-producao-valor" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-qua figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-qua" id="qua-producao-valor-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Quadro&nbsp;3.3: Natureza da produção do valor
+</figcaption>
+<div aria-describedby="qua-producao-valor-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Como o valor foi produzido?</th>
+<th>Significado</th>
+<th>Exemplo típico</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Observado diretamente</td>
+<td>um instrumento ou registro captou a grandeza ou ocorrência segundo um procedimento definido</td>
+<td>temperatura medida por sensor; atendimento registrado em sistema</td>
+</tr>
+<tr class="even">
+<td>Derivado ou estimado</td>
+<td>o valor foi calculado ou inferido a partir de outras informações e de um método</td>
+<td>umidade calculada; população entre dois censos estimada</td>
+</tr>
+<tr class="odd">
+<td>Modelado</td>
+<td>o valor depende substantivamente de um modelo que representa processos ou relações</td>
+<td>condição ambiental estimada para uma grade</td>
+</tr>
+<tr class="even">
+<td>Híbrido</td>
+<td>observações e modelos são combinados de forma estruturada</td>
+<td>produto que integra medições e modelagem</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<div id="qua-referencia-temporal" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-qua figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-qua" id="qua-referencia-temporal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Quadro&nbsp;3.4: Referência temporal e finalidade do produto
+</figcaption>
+<div aria-describedby="qua-referencia-temporal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Referência ou finalidade temporal</th>
+<th>O que pretende representar</th>
+<th>Exemplo de uso</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Histórico observado ou reconstruído</td>
+<td>condições passadas</td>
+<td>descrição de eventos e séries históricas</td>
+</tr>
+<tr class="even">
+<td>Monitoramento atual</td>
+<td>condição recente ou presente</td>
+<td>acompanhamento diário ou quase em tempo real</td>
+</tr>
+<tr class="odd">
+<td>Previsão</td>
+<td>condição futura em horizonte operacional</td>
+<td>condição esperada nos próximos dias</td>
+</tr>
+<tr class="even">
+<td>Projeção</td>
+<td>futuros condicionados a cenários, hipóteses e modelos</td>
+<td>mudanças possíveis nas próximas décadas</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Os dois eixos se combinam: um valor histórico pode ser observado ou reconstruído; um valor futuro pode ser previsto por um modelo operacional ou projetado sob cenários. Essas categorias também não formam uma escala de “melhor” para “pior”. Uma observação pontual pode representar mal um território, enquanto uma estimativa modelada pode ser mais adequada para outra finalidade.</p>
+<div class="callout callout-style-default callout-warning callout-titled" title="Atenção">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Aviso</span>Atenção
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Uma série visualmente contínua pode reunir valores produzidos de maneiras diferentes. Não substitua silenciosamente observações ausentes por estimativas, previsões ou projeções sem registrar a mudança e avaliar suas consequências para a interpretação.</p>
+</div>
+</div>
+<p>Incerteza, completude e qualidade também acompanham essas escolhas e serão aprofundadas no <a href="04-espaco-tempo-qualidade.html" class="quarto-xref"><span>Capítulo 4</span></a>. Aqui basta reter uma regra: a quantidade de casas decimais de um resultado não informa, por si só, quanto sabemos sobre ele. O <a href="05-fontes-fichas.html" class="quarto-xref"><span>Capítulo 5</span></a> retomará a documentação das fontes, versões e métodos.</p>
+<p>Além de conhecer o método de produção e a referência temporal, é preciso compreender como os valores estão organizados no espaço. A organização em grade, comum a produtos obtidos por diferentes métodos, permite examinar essa dimensão.</p>
+</section>
+<section id="sec-grades-planejamento-sus" class="level3 page-columns page-full" data-number="3.2.5">
+<h3 data-number="3.2.5" class="anchored" data-anchor-id="sec-grades-planejamento-sus"><span class="header-section-number">3.2.5</span> O que são dados em grade e o que permitem enxergar</h3>
+<p>Dados em grade organizam valores em posições de uma malha espacial. Em uma grade regular, essa organização pode ser imaginada como linhas e colunas sobre um território: cada posição tem coordenadas, e os valores estão associados a uma variável e a um instante ou intervalo. Uma sequência dessas camadas permite acompanhar mudanças no tempo. Em imagens digitais, o termo pixel designa o elemento da imagem associado a essa representação espacial.</p>
+<p>A grade descreve uma forma de organização, não um método único de produção. Seus valores podem resultar de interpolação entre estações, de observações por sensores, de modelos ou de combinações dessas informações. Uma reanálise, por exemplo, combina observações e um sistema de modelagem e assimilação para reconstruir condições passadas. Ter um valor disponível em cada posição da grade não significa que exista ali um instrumento de medição <span class="citation" data-cites="hersbach2020era5">(<a href="../../backmatter/referencias.html#ref-hersbach2020era5" role="doc-biblioref"><span class="nocase">Hersbach et al.</span>, 2020</a>)</span>.</p>
+<p>O significado espacial do valor precisa ser consultado nos metadados. Conforme o produto, ele pode representar uma estimativa em um ponto da malha, uma média em uma célula ou outra operação sobre uma área. Não se deve supor que todo valor em grade seja uma média, nem que descreva igualmente cada lugar ou pessoa dentro da célula. Coordenadas, limites das células e operações espaciais e temporais fazem parte dessa interpretação <span class="citation" data-cites="eaton2024cf">(<a href="../../backmatter/referencias.html#ref-eaton2024cf" role="doc-biblioref"><span class="nocase">Eaton et al.</span>, 2024</a>)</span>.</p>
+<p>Para planejar uma resposta ao calor, a gestão pode relacionar uma grade de temperatura a moradias, unidades de saúde e trajetos. Isso ajuda a localizar condições ambientais relevantes, mas não observa diretamente a temperatura de cada casa nem a exposição de cada morador. A resolução nominal informa o espaçamento ou tamanho declarado da malha; não garante igual capacidade de distinguir diferenças entre ruas. Ampliar a imagem na tela ou subdividir células não acrescenta observações ao produto original. A compatibilização entre grades, municípios e população será aprofundada no <a href="04-espaco-tempo-qualidade.html" class="quarto-xref"><span>Capítulo 4</span></a>.</p>
+<p>A <a href="#fig-dados-grade-sus" class="quarto-xref">Figura&nbsp;<span>3.4</span></a> distingue o ponto de observação, a organização em grade e a diversidade de ambientes dentro de uma célula. A ampliação do desenho não acrescenta observações ao produto.</p>
+<div id="fig-dados-grade-sus" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-width="110mm" data-print-src="arte-cap2-07-grades-print.png" alt="Três cenas distinguem uma estação meteorológica em área aberta, uma malha sobre um território hipotético com prédios, casas, quadras, rio e áreas verdes e ambientes diversos dentro de uma célula, vistos em uma rua urbana. A malha não pressupõe instrumento em cada célula nem valor idêntico em cada residência. Camadas ilustram momentos distintos, sem temperaturas ou escala quantitativa.">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-dados-grade-sus-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<img src="../../assets/figures/arte-cap2-07-grades.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Três cenas distinguem uma estação meteorológica em área aberta, uma malha sobre um território hipotético com prédios, casas, quadras, rio e áreas verdes e ambientes diversos dentro de uma célula, vistos em uma rua urbana. A malha não pressupõe instrumento em cada célula nem valor idêntico em cada residência. Camadas ilustram momentos distintos, sem temperaturas ou escala quantitativa.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dados-grade-sus-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;3.4: Dados em grade: organização espacial, temporal e limites de interpretação
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte e composição: elaboração própria, com ilustração gerada por inteligência artificial. Licença: a mesma dos textos autorais da obra.</span></p>
+<!--
+ARTE CAP2-07 — Revisão urbana v2
+Finalidade e leitura: Três cenas distinguem uma estação meteorológica em área aberta, uma malha sobre um território hipotético com prédios, casas, quadras, rio e áreas verdes e ambientes diversos dentro de uma célula, vistos em uma rua urbana. A malha não pressupõe instrumento em cada célula nem valor idêntico em cada residência. Camadas ilustram momentos distintos, sem temperaturas ou escala quantitativa.
+Identificador preservado: fig-dados-grade-sus.
+Arte incorporada: assets/figures/arte-cap2-07-grades.svg.
+Versão de impressão: assets/figures/arte-cap2-07-grades-print.png, em escala de cinza.
+Aquarela utilizada: assets/figures/arte-cap2-07-v2.png.
+Original anterior preservado: assets/figures/arte-cap2-07-v1.png.
+Prompt anterior preservado: assets/figures/arte-cap2-07-v1.prompt.txt.
+Prompt efetivamente utilizado: assets/figures/arte-cap2-07-v2.prompt.txt.
+Referência visual: assets/references/aquarela-grafite-nanquim.png; original v1 como referência de composição.
+Produção: edição com a ferramenta integrada image_gen; versão da ferramenta não informada.
+Composição reproduzível: scripts/build_cap2_art.py 07; exportação por scripts/render_figure.py.
+Rótulos e relações conceituais editáveis; fontes e aquarela incorporadas verificadas antes da exportação.
+Montagem e revisão: Compor uma malha regular apenas no painel central. Usar “Observação em um ponto”, “Valores organizados em uma malha” e “Ambientes diferentes dentro de uma célula”. Não ligar a estação à grade como se toda grade fosse interpolada de estações; acrescentar “O método de produção varia conforme o produto”. Junto à célula, escrever “O valor pode representar um ponto, uma média ou outra operação: conferir os metadados”. Nas camadas inferiores, usar “Momentos distintos”, sem datas ou valores. Acrescentar “Célula não é medição em cada residência” e “Mais zoom não cria novas observações”. No exemplo, a variável em grade é temperatura do ar; não usar temperatura de telhados como substituto. A dimensão da célula é esquemática e não representa a resolução de um produto específico.
+Prompt completo:
+Use case: precise-object-edit.
+Asset type: ilustração científica editorial para livro brasileiro sobre clima, ambiente e saúde.
+Input images: Imagem 1 é o original a EDITAR, referência obrigatória de composição, personagens e função; Imagem 2 é SOMENTE referência de ESTILO (aquarela-grafite-nanquim.png), não copiar sua cena.
+Style/medium: Ilustração editorial em aquarela tradicional translúcida, combinada com traços finos e espontâneos de lápis grafite e nanquim. Contornos parcialmente abertos, hachuras leves e marcas discretas de rascunho. Textura sutil de papel aquarela, pigmentação irregular e transições suaves. Paleta de verdes naturais, azuis acinzentados, ocres e terracota, com saturação moderada. Preservar áreas de papel branco e bordas irregulares que se dissolvem no fundo. Pessoas com proporções naturais e diversidade de tons de pele. Linguagem visual madura, acolhedora e adequada à divulgação científica para adultos.
+Primary request: Revisar esta imagem para trazer uma cidade brasileira contemporânea, inteiramente hipotética, para o plano principal. Prédios e infraestrutura urbana precisam ser claramente reconhecíveis, não apenas uma silhueta distante no horizonte. Preservar a linguagem de aquarela e a ideia científica do original.
+Constraints: Manter ordem, quantidade e separação das vinhetas; preservar identidade, roupas e gestos dos personagens existentes, perspectiva e margens de papel branco, salvo as mudanças explicitamente solicitadas abaixo. Pessoas e mãos anatomicamente coerentes. Densidade urbana legível, sem excesso de detalhes. Mostrar diferentes condições de proteção em ambientes urbanos sem caricaturas ou equivalência automática entre cidade e dano. Não desenhar palavras, letras, números, logotipos, marcas d'água, setas, grades analíticas, legendas ou novos gráficos. Textos e conexões serão acrescentados como vetores. Contraste deve funcionar em escala de cinza. Não inventar dados quantitativos nem representar uma cidade real.
+
+Composition/framing: Horizontal 3:2, resolução 1536 × 1024 pixels ou maior. Preservar três vinhetas na faixa superior, de x=0 a um terço, um terço a dois terços, dois terços a largura total; a paisagem termina até y=700/1024. Preservar os três planos coloridos abstratos separados na faixa inferior entre y=715/1024 e y=945/1024, sem dados, texto ou grades.
+Scene/backdrop: Vinheta esquerda mantém profissional e estação meteorológica em terreno aberto junto a unidade de saúde. Vinheta central: vista elevada de território misto com quarteirões densos, edifícios residenciais e comerciais de alturas variadas, casas, praças arborizadas e rio; prédios devem ocupar parte substancial do território, com ruas e quadras reconhecíveis. Vinheta direita: cena ao nível da rua com pessoas, calçadas, árvores e edifícios próximos de 4 a 8 andares junto de casas e comércio sem placas; mostrar sombra e trechos expostos ao sol na mesma área. O detalhe da direita deve compartilhar o tipo de prédios e vegetação do panorama central. A grade será acrescentada editorialmente, não desenhá-la na aquarela.
+-->
+<p>Reconhecer a grandeza, o método de produção e o espaço e o tempo representados pelos dados orienta as operações que podem ser feitas com eles. A partir dessa compreensão, é possível examinar transformações e combinações de medidas para responder a perguntas que uma única variável não consegue representar. Essa é a passagem para a construção de índices.</p>
+</section>
+</section>
+<section id="quando-uma-variável-não-basta-índices" class="level2 page-columns page-full" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="quando-uma-variável-não-basta-índices"><span class="header-section-number">3.3</span> Quando uma variável não basta: índices</h2>
+<p>Às vezes, uma única variável ou uma operação simples não é suficiente para representar a pergunta de interesse. Pode ser necessário transformar uma variável segundo uma regra, combinar duas ou mais medidas ou resumir várias dimensões em um único valor. Em muitas áreas, resultados desse tipo recebem o nome de índice.</p>
+<p>Os índices podem ter construções muito diferentes. Um deles pode apenas transformar uma série para uma escala comum; outro pode combinar um valor de referência com uma regra de duração; outro pode reunir vários componentes em uma medida composta. Os capítulos temáticos mostrarão exemplos concretos para condições térmicas, chuva e seca, qualidade do ar e vulnerabilidade. Neste ponto, o importante é compreender que o nome “índice” não revela sozinho como o valor foi construído.</p>
+<p>Para índices compostos, a construção deve começar por um modelo conceitual, e não pela disponibilidade das colunas em uma base de dados. Primeiro se define o que se pretende representar; depois se escolhem componentes e regras de transformação e combinação <span class="citation" data-cites="jannuzzi2005indicadores oecd2008composite">(<a href="../../backmatter/referencias.html#ref-jannuzzi2005indicadores" role="doc-biblioref">Jannuzzi, 2005</a>; <a href="../../backmatter/referencias.html#ref-oecd2008composite" role="doc-biblioref">Organisation for Economic Co-operation and Development; European Union; European Commission. Joint Research Centre, 2008</a>)</span>.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Boa prática: examinar a construção do índice">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Boa prática: examinar a construção do índice
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Verifique pelo menos seis decisões: direção dos componentes — se valores altos significam situação favorável ou desfavorável; normalização — como escalas diferentes foram tornadas comparáveis; ponderação — quanto cada componente contribui; agregação — se um resultado favorável pode compensar outro desfavorável; redundância — se variáveis muito semelhantes acabam dando peso excessivo à mesma dimensão; e dados ausentes — como componentes faltantes foram tratados. Classificações e rankings acrescentam ainda outra escolha e não devem sugerir uma precisão maior do que aquela sustentada pelos dados <span class="citation" data-cites="oecd2008composite">(<a href="../../backmatter/referencias.html#ref-oecd2008composite" role="doc-biblioref">Organisation for Economic Co-operation and Development; European Union; European Commission. Joint Research Centre, 2008</a>)</span>.</p>
+</div>
+</div>
+<p>Considere um índice hipotético para resumir condições de funcionamento de serviços durante uma emergência. Se ele combinar disponibilidade de água, energia, acesso e pessoal em uma única média, um serviço com muitos profissionais pode obter uma pontuação final razoável mesmo sem fonte alternativa de energia. Se a eletricidade for indispensável para manter equipamentos críticos, essa compensação pode ser inadequada. O problema não está na matemática em si, mas no significado que ela atribui aos componentes.</p>
+<p>A <a href="#fig-indice-componentes" class="quarto-xref">Figura&nbsp;<span>3.5</span></a> apresenta essa questão sem atribuir notas aos serviços. Leia primeiro os quatro componentes e, depois, a ligação com a síntese: ao combinar dimensões, é necessário decidir se uma pode compensar outra. O retorno aos componentes permite identificar uma interrupção de energia que uma média poderia diluir. A escolha entre média, regras não compensatórias ou apresentação separada deve decorrer da finalidade e do modelo conceitual, e não da preferência por um ranking.</p>
+<div id="fig-indice-componentes" class="lightbox quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-width="120mm" data-print-src="arte-cap3-04-indice-print.png" alt="Quatro cenas conceituais representam água, energia, acesso e pessoal. Os componentes podem alimentar uma síntese, mas devem permanecer consultáveis. Um equipamento sem energia ilustra que uma condição indispensável não é compensada automaticamente por outra favorável. As quatro cenas mostram a mesma unidade de saúde de dois pavimentos em contexto urbano, com prédios vizinhos.">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-indice-componentes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<a href="../../assets/figures/arte-cap3-04-indice.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-4" title="Figura&nbsp;3.5: Uma síntese deve permitir o retorno aos componentes"><img src="../../assets/figures/arte-cap3-04-indice.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Quatro cenas conceituais representam água, energia, acesso e pessoal. Os componentes podem alimentar uma síntese, mas devem permanecer consultáveis. Um equipamento sem energia ilustra que uma condição indispensável não é compensada automaticamente por outra favorável. As quatro cenas mostram a mesma unidade de saúde de dois pavimentos em contexto urbano, com prédios vizinhos."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-indice-componentes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;3.5: Uma síntese deve permitir o retorno aos componentes
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte: Elaboração própria; cenas conceituais, sem dados observados. Direção editorial: autor da obra; ilustração: ferramenta integrada image_gen; composição e revisão: edição desta obra. Licença dos arquivos autorais: GPL-3.0; fontes citadas mantêm suas licenças. Prompts e originais preservados no repositório. Revisão urbana da aquarela: image_gen, com o original e a referência visual da série.</span></p>
+<!--
+ARTE CAP3-04 — Revisão urbana v2
+Finalidade e descrição acessível: Quatro cenas conceituais representam água, energia, acesso e pessoal. Os componentes podem alimentar uma síntese, mas devem permanecer consultáveis. Um equipamento sem energia ilustra que uma condição indispensável não é compensada automaticamente por outra favorável. As quatro cenas mostram a mesma unidade de saúde de dois pavimentos em contexto urbano, com prédios vizinhos.
+Arte incorporada: assets/figures/arte-cap3-04-indice.svg.
+Impressão: assets/figures/arte-cap3-04-indice-print.png.
+Original da edição: assets/figures/arte-cap3-04-v1.png; preservado junto das versões anteriores.
+Aquarela revisada: assets/figures/arte-cap3-04-v2.png.
+Prompt completo utilizado: assets/figures/arte-cap3-04-v2.prompt.txt.
+Referência de estilo: assets/references/aquarela-grafite-nanquim.png.
+Produção: ferramenta integrada image_gen; original e referência de estilo inspecionados e fornecidos por referenced_image_paths.
+Montagem: scripts/build_cap3_art.py 04; rótulos, setas e identificadores editáveis preservados.
+Exportação: Chromium com fontes e raster incorporados; ImageMagick para PNG de 8 bits em cinza.
+Revisão: presença urbana, continuidade da aquarela, anatomia, recortes e relações conceituais. Cenários hipotéticos, sem novos dados observados.
+Licença dos arquivos autorais: GPL-3.0; fontes citadas mantêm suas condições de uso.
+
+Use case: precise-object-edit. Arte didática em aquarela para livro brasileiro sobre clima, ambiente e saúde.
+Entradas: imagem 1 é o ORIGINAL a editar, referência obrigatória de composição; imagem 2 é APENAS referência do estilo da série.
+Pedido: aumentar a presença urbana, preservando a aquarela naturalista, paleta suave de azuis, verdes, ocres e terracota, textura de papel, contornos delicados de grafite/nanquim e contraste adequado também em cinza. A cidade é brasileira e hipotética, sem marcos reconhecíveis.
+Revisão específica: Conserve as quatro vinhetas quadradas 2×2 e as pessoas. Na vista superior esquerda, mantenha o reservatório e tubulações conectadas à MESMA unidade de saúde, agora com arquitetura urbana de dois pavimentos e prédios vizinhos ao fundo. Na vista inferior esquerda, represente a entrada acessível dessa mesma unidade, coerente com a fachada, e calçada urbana, preservando o caminho livre. Na reunião inferior direita, mostre prédios atrás das árvores. Na cena superior direita, apenas acrescente fachada urbana pela janela; mantenha a profissional segurando o plugue FORA da tomada, equipamento desligado, cabo, tomada, posição e gesto. Não acrescente alarmes ou sinais de aprovação.
+Invariantes: conserve enquadramento, proporção, escala das figuras humanas, anatomia natural, quantidade e posição das vinhetas, objetos conceituais e espaços brancos. Alterar cenários e arquitetura somente conforme o pedido. Não adicionar texto, títulos, legendas, setas, números, marcas ou molduras; serão aplicados como vetores editáveis. Não fundir cenas e não recortar personagens. Manter boa nitidez na impressão.
+Formato: mesma proporção do original 1254 × 1254; resolução igual ou superior. Uma única imagem final editada.
+-->
+<p>Por isso, índices compostos devem ser acompanhados, sempre que possível, de seus componentes e de comparações que mostrem se o resultado muda sob escolhas metodológicas plausíveis — as chamadas análises de sensibilidade. Um índice não é automaticamente melhor do que um conjunto de medidas simples; às vezes, manter as dimensões separadas preserva melhor as diferenças que interessam à decisão.</p>
+</section>
+<section id="o-que-torna-uma-medida-um-indicador" class="level2 page-columns page-full" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="o-que-torna-uma-medida-um-indicador"><span class="header-section-number">3.4</span> O que torna uma medida um indicador</h2>
+<p>Um indicador existe para responder a uma pergunta. Antes de calculá-lo, portanto, é útil explicitar quatro elementos: o que se pretende representar, como a medida será obtida, como deverá ser interpretada e para que será utilizada <span class="citation" data-cites="ripsa2026">(<a href="../../backmatter/referencias.html#ref-ripsa2026" role="doc-biblioref">Organização Pan-Americana da Saúde, 2026</a>)</span>.</p>
+<section id="a-anatomia-de-um-indicador" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="a-anatomia-de-um-indicador"><span class="header-section-number">3.4.1</span> A anatomia de um indicador</h3>
+<p>Uma forma prática de avaliar um indicador é “desmontá-lo” em seus componentes. Para não depender de conceitos que serão apresentados nos capítulos temáticos, o exemplo a seguir usa uma definição simbólica: número anual de dias em que a temperatura máxima diária do ar ultrapassa um limiar <span class="math inline">\(L\)</span>. O símbolo representa um critério que precisaria ser escolhido e justificado para a aplicação; não estabelece um limite universal de risco à saúde.</p>
+<div id="qua-anatomia-indicador" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-qua figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-qua" id="qua-anatomia-indicador-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Quadro&nbsp;3.5: Anatomia de um indicador: um exemplo deliberadamente simples
+</figcaption>
+<div aria-describedby="qua-anatomia-indicador-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Elemento</th>
+<th>Exemplo didático: dias acima de um limiar <span class="math inline">\(L\)</span></th>
+<th>Pergunta que o leitor deve fazer</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Nome</td>
+<td>número anual de dias com temperatura máxima acima de <span class="math inline">\(L\)</span></td>
+<td>O nome descreve claramente o que está sendo contado?</td>
+</tr>
+<tr class="even">
+<td>Conceito</td>
+<td>frequência de dias que atendem ao critério térmico especificado</td>
+<td>Que dimensão se pretende representar?</td>
+</tr>
+<tr class="odd">
+<td>Variável de entrada</td>
+<td>temperatura máxima diária do ar</td>
+<td>Que grandeza foi medida ou estimada?</td>
+</tr>
+<tr class="even">
+<td>Definição operacional</td>
+<td>dia em que a temperatura máxima é maior que <span class="math inline">\(L\)</span></td>
+<td>Que regra transforma o dado em ocorrência?</td>
+</tr>
+<tr class="odd">
+<td>Cálculo</td>
+<td>contagem dos dias que atendem ao critério no ano</td>
+<td>Qual operação é realizada?</td>
+</tr>
+<tr class="even">
+<td>Unidade</td>
+<td>dias por ano</td>
+<td>Em que unidade o resultado deve ser lido?</td>
+</tr>
+<tr class="odd">
+<td>Fonte</td>
+<td>série diária de temperatura máxima</td>
+<td>De onde vêm os dados?</td>
+</tr>
+<tr class="even">
+<td>Unidade espacial</td>
+<td>estação ou território, conforme a fonte e o método de agregação</td>
+<td>A que espaço o valor final se refere?</td>
+</tr>
+<tr class="odd">
+<td>Interpretação</td>
+<td>valores maiores indicam mais dias acima do critério adotado</td>
+<td>O que significa aumentar ou diminuir?</td>
+</tr>
+<tr class="even">
+<td>Limitações</td>
+<td>o limiar precisa de justificativa; a contagem não representa sozinha persistência, exposição individual ou efeitos na saúde</td>
+<td>O que o indicador não permite concluir?</td>
+</tr>
+<tr class="odd">
+<td>Qualidade e incerteza</td>
+<td>dependem da completude, consistência e representatividade da série</td>
+<td>Que limitações da fonte chegam ao resultado?</td>
+</tr>
+<tr class="even">
+<td>Versão e reprodutibilidade</td>
+<td>fonte, regra de cálculo e período precisam ser identificados</td>
+<td>Outra equipe conseguiria reproduzir o valor?</td>
+</tr>
+<tr class="odd">
+<td>Uso previsto</td>
+<td>descrição e comparação da frequência de dias acima do critério</td>
+<td>Para que análise a medida foi concebida?</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>O exemplo mostra que até uma contagem aparentemente trivial depende de uma variável, um critério, um período, uma fonte e uma regra de interpretação. Indicadores térmicos padronizados e definições específicas para episódios persistentes de calor serão apresentados no <a href="../part-2/07-temperatura-condicoes-termicas.html" class="quarto-xref"><span>Capítulo 7</span></a>; aqui, o objetivo é apenas aprender a reconhecer os elementos que precisam acompanhar qualquer indicador. Essa explicitação é a base da ficha de qualificação <span class="citation" data-cites="ripsa2026">(<a href="../../backmatter/referencias.html#ref-ripsa2026" role="doc-biblioref">Organização Pan-Americana da Saúde, 2026</a>)</span>. A estrutura da RIPSA e sua adaptação às fichas deste livro são apresentadas no <a href="05-fontes-fichas.html#sec-ficha-ripsa" class="quarto-xref"><span>Seção 5.7</span></a>, no capítulo dedicado a fontes e documentação. Aqui, seguimos com as propriedades necessárias para avaliar a adequação de um indicador ao uso.</p>
+</section>
+<section id="propriedades-em-função-da-finalidade" class="level3" data-number="3.4.2">
+<h3 data-number="3.4.2" class="anchored" data-anchor-id="propriedades-em-função-da-finalidade"><span class="header-section-number">3.4.2</span> Propriedades em função da finalidade</h3>
+<p>A adequação de um indicador depende de sua finalidade. Para facilitar a avaliação, algumas propriedades podem ser agrupadas em perguntas práticas:</p>
+<div id="qua-propriedades-indicadores" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-qua figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-qua" id="qua-propriedades-indicadores-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Quadro&nbsp;3.6: Propriedades de um indicador em função do uso, em diálogo com Jannuzzi <span class="citation" data-cites="jannuzzi2005indicadores">(<a href="../../backmatter/referencias.html#ref-jannuzzi2005indicadores" role="doc-biblioref">Jannuzzi, 2005</a>)</span>
+</figcaption>
+<div aria-describedby="qua-propriedades-indicadores-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Propriedade</th>
+<th>Pergunta prática</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Relevância</td>
+<td>O indicador representa um problema importante para a pergunta de saúde ou gestão?</td>
+</tr>
+<tr class="even">
+<td>Validade</td>
+<td>A medida corresponde adequadamente ao conceito que se pretende representar?</td>
+</tr>
+<tr class="odd">
+<td>Confiabilidade</td>
+<td>Os procedimentos de medição ou registro produzem resultados consistentes em condições equivalentes?</td>
+</tr>
+<tr class="even">
+<td>Reprodutibilidade</td>
+<td>Os dados e as regras documentados permitem que outra equipe reconstrua o resultado?</td>
+</tr>
+<tr class="odd">
+<td>Comparabilidade</td>
+<td>A definição permite comparar períodos, territórios ou grupos sem misturar mudanças metodológicas?</td>
+</tr>
+<tr class="even">
+<td>Sensibilidade a mudanças</td>
+<td>O indicador responde quando o fenômeno relevante se modifica?</td>
+</tr>
+<tr class="odd">
+<td>Oportunidade</td>
+<td>A atualização chega a tempo da decisão que pretende apoiar?</td>
+</tr>
+<tr class="even">
+<td>Interpretabilidade</td>
+<td>O significado, a unidade, a referência e as limitações são compreensíveis?</td>
+</tr>
+<tr class="odd">
+<td>Viabilidade</td>
+<td>Os dados e procedimentos necessários podem ser mantidos de forma sustentável?</td>
+</tr>
+<tr class="even">
+<td>Utilidade para ação</td>
+<td>O resultado ajuda a definir prioridade, resposta, planejamento ou acompanhamento?</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Nenhum indicador maximiza todas essas propriedades ao mesmo tempo. Uma medida muito oportuna pode ser preliminar; uma estimativa mais precisa pode chegar tarde para uma resposta imediata; uma definição padronizada facilita comparações, mas pode perder sensibilidade a particularidades locais. Em sistemas públicos de informação, a qualidade deve ser entendida como adequação ao uso, com os compromissos metodológicos explicitados <span class="citation" data-cites="un2014statistics who2023dqa">(<a href="../../backmatter/referencias.html#ref-un2014statistics" role="doc-biblioref">United Nations General Assembly, 2014</a>; <a href="../../backmatter/referencias.html#ref-who2023dqa" role="doc-biblioref">World Health Organization, 2023</a>)</span>.</p>
+</section>
+<section id="numerador-denominador-e-população-de-referência" class="level3 page-columns page-full" data-number="3.4.3">
+<h3 data-number="3.4.3" class="anchored" data-anchor-id="numerador-denominador-e-população-de-referência"><span class="header-section-number">3.4.3</span> Numerador, denominador e população de referência</h3>
+<p>Muitos indicadores de saúde parecem simples até que se examina o denominador. Contagens respondem “quantos?” e não têm denominador explícito. Em uma proporção, o numerador é parte do conjunto do denominador; o percentual é essa fração multiplicada por cem. Uma razão relaciona quantidades sem exigir inclusão de uma na outra, como habitantes por estabelecimento. Taxas descrevem a ocorrência de eventos em relação à população e ao tempo de referência. Em epidemiologia, uma taxa de incidência pode usar pessoa-tempo; em estatísticas de rotina, muitas taxas usam a população de referência como aproximação do tempo sob risco no período. Multiplicar uma medida por cem ou por cem mil apenas muda a escala de apresentação: não define, por si só, seu tipo <span class="citation" data-cites="ripsa2026">(<a href="../../backmatter/referencias.html#ref-ripsa2026" role="doc-biblioref">Organização Pan-Americana da Saúde, 2026</a>)</span>.</p>
+<p>Na proporção de estabelecimentos com plano de contingência, por exemplo, numerador e denominador precisam usar a mesma lista de unidades, território e data de referência. O mesmo vale para indicadores populacionais: residentes, pessoas presentes, trabalhadores expostos, leitos cadastrados e leitos em funcionamento representam universos diferentes. Quando o denominador é estimado, sua versão e limitações acompanham a taxa <span class="citation" data-cites="ripsa2026 who2001standard">(<a href="../../backmatter/referencias.html#ref-who2001standard" role="doc-biblioref">Ahmad et al., 2001</a>; <a href="../../backmatter/referencias.html#ref-ripsa2026" role="doc-biblioref">Organização Pan-Americana da Saúde, 2026</a>)</span>.</p>
+<p>A <a href="#fig-numerador-denominador" class="quarto-xref">Figura&nbsp;<span>3.6</span></a> mostra a relação de inclusão necessária para uma proporção. O conjunto externo é a lista de estabelecimentos elegíveis; o interno contém aqueles que atendem ao critério de possuir plano de contingência. A fórmula só tem sentido se ambos usarem a mesma definição de estabelecimento, o mesmo território e a mesma data. O ícone não representa quantidade, e a área dos conjuntos não codifica um percentual.</p>
+<div id="fig-numerador-denominador" class="lightbox quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-width="120mm" data-print-src="arte-cap3-06-denominador-print.png" alt="Um conjunto externo representa os estabelecimentos elegíveis e um subconjunto interno aqueles com plano de contingência. A fórmula usa o subconjunto no numerador e o total elegível no denominador, com território, data e critérios comuns. O desenho não representa quantidades. Uma única unidade de saúde urbana de dois pavimentos, com entrada acessível, acompanha uma pasta em branco.">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-numerador-denominador-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<a href="../../assets/figures/arte-cap3-06-denominador.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-5" title="Figura&nbsp;3.6: Uma proporção exige numerador e denominador compatíveis"><img src="../../assets/figures/arte-cap3-06-denominador.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Um conjunto externo representa os estabelecimentos elegíveis e um subconjunto interno aqueles com plano de contingência. A fórmula usa o subconjunto no numerador e o total elegível no denominador, com território, data e critérios comuns. O desenho não representa quantidades. Uma única unidade de saúde urbana de dois pavimentos, com entrada acessível, acompanha uma pasta em branco."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-numerador-denominador-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;3.6: Uma proporção exige numerador e denominador compatíveis
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte: Elaboração própria; cenas conceituais, sem dados observados. Direção editorial: autor da obra; ilustração: ferramenta integrada image_gen; composição e revisão: edição desta obra. Licença dos arquivos autorais: GPL-3.0; fontes citadas mantêm suas licenças. Prompts e originais preservados no repositório. Revisão urbana da aquarela: image_gen, com o original e a referência visual da série.</span></p>
+<!--
+ARTE CAP3-06 — Revisão urbana v2
+Finalidade e descrição acessível: Um conjunto externo representa os estabelecimentos elegíveis e um subconjunto interno aqueles com plano de contingência. A fórmula usa o subconjunto no numerador e o total elegível no denominador, com território, data e critérios comuns. O desenho não representa quantidades. Uma única unidade de saúde urbana de dois pavimentos, com entrada acessível, acompanha uma pasta em branco.
+Arte incorporada: assets/figures/arte-cap3-06-denominador.svg.
+Impressão: assets/figures/arte-cap3-06-denominador-print.png.
+Original da edição: assets/figures/arte-cap3-06-v1.png; preservado junto das versões anteriores.
+Aquarela revisada: assets/figures/arte-cap3-06-v2.png.
+Prompt completo utilizado: assets/figures/arte-cap3-06-v2.prompt.txt.
+Referência de estilo: assets/references/aquarela-grafite-nanquim.png.
+Produção: ferramenta integrada image_gen; original e referência de estilo inspecionados e fornecidos por referenced_image_paths.
+Montagem: scripts/build_cap3_art.py 06; rótulos, setas e identificadores editáveis preservados.
+Exportação: Chromium com fontes e raster incorporados; ImageMagick para PNG de 8 bits em cinza.
+Revisão: presença urbana, continuidade da aquarela, anatomia, recortes e relações conceituais. Cenários hipotéticos, sem novos dados observados.
+Licença dos arquivos autorais: GPL-3.0; fontes citadas mantêm suas condições de uso.
+
+Use case: precise-object-edit. Arte didática em aquarela para livro brasileiro sobre clima, ambiente e saúde.
+Entradas: imagem 1 é o ORIGINAL a editar, referência obrigatória de composição; imagem 2 é APENAS referência do estilo da série.
+Pedido: aumentar a presença urbana, preservando a aquarela naturalista, paleta suave de azuis, verdes, ocres e terracota, textura de papel, contornos delicados de grafite/nanquim e contraste adequado também em cinza. A cidade é brasileira e hipotética, sem marcos reconhecíveis.
+Revisão específica: Conserve o MESMO único edifício de saúde, o jardim acessível e a pasta aberta em primeiro plano. Transforme a arquitetura desse único edifício em unidade urbana compacta de DOIS pavimentos, com janelas simples no piso superior e entrada térrea com a mesma rampa, corrimãos e portas. Inclua calçada urbana pavimentada e guia na borda do jardim. Não adicione outros edifícios, outras unidades, pessoas, números ou quantidades que possam ser confundidos com os conjuntos didáticos da montagem. Preserve a pasta em branco, árvores, enquadramento e margens brancas.
+Invariantes: conserve enquadramento, proporção, escala das figuras humanas, anatomia natural, quantidade e posição das vinhetas, objetos conceituais e espaços brancos. Alterar cenários e arquitetura somente conforme o pedido. Não adicionar texto, títulos, legendas, setas, números, marcas ou molduras; serão aplicados como vetores editáveis. Não fundir cenas e não recortar personagens. Manter boa nitidez na impressão.
+Formato: mesma proporção do original 1536 × 1024; resolução igual ou superior. Uma única imagem final editada.
+-->
+<p>Ausência de informação sobre o plano não equivale à confirmação de que ele inexiste. A ficha deve distinguir a situação desconhecida e informar como ela afeta o cálculo e a cobertura. Se a opção metodológica for calcular a proporção apenas entre unidades com situação conhecida, esse universo precisa aparecer no denominador e no título ou na interpretação. Se não houver unidades elegíveis, a proporção é indefinida; não deve ser publicada como zero.</p>
+<p>Em populações pequenas, a inclusão de poucos eventos pode alterar muito uma taxa. É necessário examinar contagem, denominador e estabilidade em conjunto. Quando os registros são de atendimentos ou internações, a repetição de eventos para uma mesma pessoa também impede interpretar diretamente a contagem como número de indivíduos doentes.</p>
+</section>
+<section id="quantidade-absoluta-e-medida-relativa-contam-histórias-diferentes" class="level3" data-number="3.4.4">
+<h3 data-number="3.4.4" class="anchored" data-anchor-id="quantidade-absoluta-e-medida-relativa-contam-histórias-diferentes"><span class="header-section-number">3.4.4</span> Quantidade absoluta e medida relativa contam histórias diferentes</h3>
+<p>Um território pode concentrar uma parcela maior de seus moradores em áreas sujeitas a inundação, enquanto outro reúne um contingente absoluto maior nessas áreas. A proporção ajuda a caracterizar o peso relativo da exposição; a contagem ajuda a dimensionar necessidades de abrigo, transporte e assistência. As prioridades dependem da pergunta e de outras condições do território. Quando a decisão envolve magnitude e participação relativa, apresentar ambas evita que uma ordenação seja tomada como resposta para finalidades diferentes.</p>
+</section>
+<section id="unidade-de-observação-não-é-necessariamente-unidade-de-análise" class="level3 page-columns page-full" data-number="3.4.5">
+<h3 data-number="3.4.5" class="anchored" data-anchor-id="unidade-de-observação-não-é-necessariamente-unidade-de-análise"><span class="header-section-number">3.4.5</span> Unidade de observação não é necessariamente unidade de análise</h3>
+<div class="callout callout-style-default callout-important no-icon callout-titled" title="Conceito-chave: observação, análise e população-alvo">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Importante</span>Conceito-chave: observação, análise e população-alvo
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Unidade de observação é aquilo que gera o registro: uma estação, uma célula de grade, uma amostra de água, um atendimento, um estabelecimento ou uma pessoa.</p>
+<p>Unidade de análise é aquilo que recebe a medida final: dia, município, região, serviço ou grupo populacional.</p>
+<p>População-alvo é o conjunto ao qual se pretende aplicar a interpretação. Essas unidades podem coincidir, mas frequentemente não coincidem.</p>
+</div>
+</div>
+<p>Uma estação produz observações pontuais, mas uma “temperatura média municipal” resulta de uma regra espacial aplicada a um conjunto de observações ou células. Um registro de internação é um evento administrativo, enquanto uma taxa municipal pode pretender descrever a ocorrência desses eventos entre residentes. Uma amostra de água representa um ponto e um momento, enquanto a proporção de conformidade procura resumir o desempenho de um sistema durante um período.</p>
+<p>A <a href="#fig-observacao-analise-populacao" class="quarto-xref">Figura&nbsp;<span>3.7</span></a> separa essas três perguntas por meio de vistas do mesmo bairro. A estação, instalada em um lote aberto, produz registros pontuais e reaparece na vista elevada do território; as ruas, casas e edifícios correspondentes situam os moradores nesse mesmo lugar. O bairro é a unidade à qual se pretende atribuir uma medida construída por um método espacial, e seus moradores constituem a população-alvo da interpretação. A conexão visual não garante representatividade: passar do registro da estação para a medida territorial exige procedimentos e hipóteses explícitos. Um valor atribuído ao bairro não é uma medição em cada domicílio e não reproduz automaticamente os trajetos e ambientes internos das pessoas.</p>
+<div id="fig-observacao-analise-populacao" class="lightbox quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-width="120mm" data-print-src="arte-cap3-07-unidades-print.png" alt="Três vistas do mesmo bairro urbano hipotético distinguem unidade de observação, unidade de análise e população-alvo. A estação meteorológica aparece em um lote aberto na primeira cena e reaparece nesse lote na vista elevada central. Os mesmos prédios terracota e creme, casas de portas azuis e ruas situam os moradores da terceira cena no território analisado. A proximidade espacial não garante representatividade; atribuir uma medida ao bairro exige método, e o valor territorial não mede a exposição de cada pessoa.">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-observacao-analise-populacao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<a href="../../assets/figures/arte-cap3-07-unidades.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-6" title="Figura&nbsp;3.7: Observar, analisar e definir a população-alvo"><img src="../../assets/figures/arte-cap3-07-unidades.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Três vistas do mesmo bairro urbano hipotético distinguem unidade de observação, unidade de análise e população-alvo. A estação meteorológica aparece em um lote aberto na primeira cena e reaparece nesse lote na vista elevada central. Os mesmos prédios terracota e creme, casas de portas azuis e ruas situam os moradores da terceira cena no território analisado. A proximidade espacial não garante representatividade; atribuir uma medida ao bairro exige método, e o valor territorial não mede a exposição de cada pessoa."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-observacao-analise-populacao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;3.7: Observar, analisar e definir a população-alvo
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte: Elaboração própria; cenas conceituais, sem dados observados. Direção editorial: autor da obra; ilustração: ferramenta integrada image_gen; composição e revisão: edição desta obra. Licença dos arquivos autorais: GPL-3.0; fontes citadas mantêm suas licenças. Prompts e originais preservados no repositório.</span></p>
+<!--
+ARTE CAP3-07 — Revisão editorial de 2026-10-03
+Finalidade e descrição acessível: Três vistas do mesmo bairro urbano hipotético distinguem unidade de observação, unidade de análise e população-alvo. A estação meteorológica aparece em um lote aberto na primeira cena e reaparece nesse lote na vista elevada central. Os mesmos prédios terracota e creme, casas de portas azuis e ruas situam os moradores da terceira cena no território analisado. A proximidade espacial não garante representatividade; atribuir uma medida ao bairro exige método, e o valor territorial não mede a exposição de cada pessoa.
+Identificador preservado: fig-observacao-analise-populacao.
+Arte incorporada: assets/figures/arte-cap3-07-unidades.svg.
+Impressão: assets/figures/arte-cap3-07-unidades-print.png, em escala de cinza.
+Aquarela utilizada: assets/figures/arte-cap3-07-v3.png.
+Prompt completo da aquarela: assets/figures/arte-cap3-07-v3.prompt.txt.
+Referência de estilo: assets/references/aquarela-grafite-nanquim.png.
+Produção da aquarela: ferramenta integrada image_gen; versão não informada.
+Montagem reproduzível: scripts/build_cap3_art.py 07; textos, símbolos e conexões em SVG editável.
+Exportação: scripts/render_figure.py; Chromium com fontes e raster incorporados; ImageMagick para PNG de 8 bits em cinza.
+Revisão: Revisão editorial: estação em lote aberto dentro do bairro, visível novamente na vista elevada; edifícios e casas correspondentes nas três vinhetas; composição integral sem corte superior do original. Relação entre observação, análise e população-alvo preservada sem pressupor representatividade automática.
+Histórico: originais e prompts anteriores preservados; proveniência em assets/figures/arte-cap3-manifest.json.
+Licença dos arquivos autorais: GPL-3.0; fontes citadas mantêm suas condições de uso.
+-->
+<div class="callout callout-style-default callout-warning no-icon callout-titled" title="O valor do território não é o valor de cada pessoa">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Aviso</span>O valor do território não é o valor de cada pessoa
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Falácia ecológica é a inferência indevida sobre indivíduos a partir de relações observadas entre grupos ou territórios. Considere um exemplo hipotético: municípios com temperaturas mais altas apresentam maior mortalidade. Essa associação municipal não demonstra que as pessoas mais expostas ao calor foram aquelas que morreram, nem permite transferir diretamente a relação observada entre municípios para seus habitantes <span class="citation" data-cites="piantadosi1988ecological">(<a href="../../backmatter/referencias.html#ref-piantadosi1988ecological" role="doc-biblioref">Piantadosi; Byar; Green, 1988</a>)</span>.</p>
+<p>Uma concentração média municipal de um poluente não significa que todos os habitantes entraram em contato com aquele valor. Uma temperatura média do bairro não reproduz a exposição térmica de cada morador: pessoas trabalham, estudam e se deslocam, e os ambientes internos podem diferir dos externos. Além disso, médias semelhantes podem ocultar distribuições muito diferentes do perigo e da proteção entre bairros e grupos sociais.</p>
+<p>Indicadores territoriais são fundamentais para vigilância e planejamento, mas sua interpretação deve respeitar o nível para o qual foram construídos. Conclusões individuais exigem dados, hipóteses e métodos adicionais <span class="citation" data-cites="hernan2020causal">(<a href="../../backmatter/referencias.html#ref-hernan2020causal" role="doc-biblioref">Hernán; Robins, 2020</a>)</span>. Para localizar desigualdades, também é necessário verificar se a desagregação espacial e populacional disponível é suficiente. O <a href="04-espaco-tempo-qualidade.html" class="quarto-xref"><span>Capítulo 4</span></a> aprofunda a falácia ecológica e as implicações da agregação territorial.</p>
+</div>
+</div>
+</section>
+<section id="comparar-não-é-o-mesmo-que-classificar" class="level3" data-number="3.4.6">
+<h3 data-number="3.4.6" class="anchored" data-anchor-id="comparar-não-é-o-mesmo-que-classificar"><span class="header-section-number">3.4.6</span> Comparar não é o mesmo que classificar</h3>
+<p>Classificar uma medida contínua em faixas como “baixo”, “moderado” e “alto” introduz pontos de corte. Eles podem vir de uma norma, de evidência sanitária, da distribuição estatística ou de uma decisão operacional — origens com significados diferentes. Um percentil indica posição relativa; um padrão legal, conformidade; um limiar sanitário, uma referência de risco; e um gatilho operacional, o momento de iniciar uma ação. A origem e a finalidade do corte devem estar explícitas.</p>
+</section>
+</section>
+<section id="onde-o-indicador-está-na-cadeia-entre-ambiente-e-saúde" class="level2 page-columns page-full" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="onde-o-indicador-está-na-cadeia-entre-ambiente-e-saúde"><span class="header-section-number">3.5</span> Onde o indicador está na cadeia entre ambiente e saúde</h2>
+<p>Nos capítulos anteriores, perigo, exposição, vulnerabilidade, efeitos e capacidade de resposta foram apresentados como dimensões que ajudam a organizar as relações entre ambiente e saúde. Ao construir um indicador, é útil perguntar qual parte dessa cadeia está sendo representada. Essa pergunta impede que uma medida de uma etapa seja interpretada como se descrevesse o problema inteiro.</p>
+<p>Na <a href="#fig-indicadores-cadeia-risco" class="quarto-xref">Figura&nbsp;<span>3.8</span></a>, o calor intenso organiza todas as cenas. A rua sob calor representa o perigo; as pessoas esperando ônibus sob sol direto, sem cobertura, representam a exposição naquele lugar e momento. A moradia com proteção térmica limitada ilustra uma condição de vulnerabilidade, enquanto o serviço com poucos recursos exemplifica baixa capacidade de resposta. Essas quatro entradas convergem para uma leitura do risco, ligada a possíveis efeitos sobre a saúde. O atendimento por mal-estar aparece como uma possibilidade: estar exposto não significa adoecer inevitavelmente. As setas organizam conceitos; não expressam uma soma ou probabilidade calculada e não substituem análise empírica da relação entre exposição e saúde.</p>
+<div id="fig-indicadores-cadeia-risco" class="lightbox quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-width="120mm" data-print-src="arte-cap3-08-risco-print.png" alt="Cinco cenas hipotéticas usam calor intenso como exemplo comum. Uma rua sob sol forte representa perigo; três pessoas esperando ônibus sem cobertura, sob sol direto, representam exposição; uma moradia com proteção térmica limitada representa vulnerabilidade; um serviço com poucos recursos representa baixa capacidade de resposta. Quatro setas convergem para risco à saúde, ligado ao possível atendimento de uma pessoa com mal-estar. As setas organizam conceitos, sem equação ou causalidade comprovada; exposição não implica adoecimento inevitável.">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-indicadores-cadeia-risco-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<a href="../../assets/figures/arte-cap3-08-risco.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-7" title="Figura&nbsp;3.8: Dimensões dos indicadores na leitura do risco à saúde"><img src="../../assets/figures/arte-cap3-08-risco.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Cinco cenas hipotéticas usam calor intenso como exemplo comum. Uma rua sob sol forte representa perigo; três pessoas esperando ônibus sem cobertura, sob sol direto, representam exposição; uma moradia com proteção térmica limitada representa vulnerabilidade; um serviço com poucos recursos representa baixa capacidade de resposta. Quatro setas convergem para risco à saúde, ligado ao possível atendimento de uma pessoa com mal-estar. As setas organizam conceitos, sem equação ou causalidade comprovada; exposição não implica adoecimento inevitável."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-indicadores-cadeia-risco-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;3.8: Dimensões dos indicadores na leitura do risco à saúde
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte: Elaboração própria; cenas conceituais, sem dados observados. Direção editorial: autor da obra; ilustração: ferramenta integrada image_gen; composição e revisão: edição desta obra. Licença dos arquivos autorais: GPL-3.0; fontes citadas mantêm suas licenças. Prompts e originais preservados no repositório. Revisão editorial: cenas, recortes e elementos vetoriais conforme registro de produção.</span></p>
+<!--
+ARTE CAP3-08 — Revisão editorial de 2026-10-03
+Finalidade e descrição acessível: Cinco cenas hipotéticas usam calor intenso como exemplo comum. Uma rua sob sol forte representa perigo; três pessoas esperando ônibus sem cobertura, sob sol direto, representam exposição; uma moradia com proteção térmica limitada representa vulnerabilidade; um serviço com poucos recursos representa baixa capacidade de resposta. Quatro setas convergem para risco à saúde, ligado ao possível atendimento de uma pessoa com mal-estar. As setas organizam conceitos, sem equação ou causalidade comprovada; exposição não implica adoecimento inevitável.
+Identificador preservado: fig-indicadores-cadeia-risco.
+Arte incorporada: assets/figures/arte-cap3-08-risco.svg.
+Impressão: assets/figures/arte-cap3-08-risco-print.png, em escala de cinza.
+Aquarela utilizada: assets/figures/arte-cap3-08-v3.png.
+Prompt completo da aquarela: assets/figures/arte-cap3-08-v3.prompt.txt.
+Referência de estilo: assets/references/aquarela-grafite-nanquim.png.
+Produção da aquarela: ferramenta integrada image_gen; versão não informada.
+Montagem reproduzível: scripts/build_cap3_art.py 08; textos, símbolos e conexões em SVG editável.
+Exportação: scripts/render_figure.py; Chromium com fontes e raster incorporados; ImageMagick para PNG de 8 bits em cinza.
+Revisão: Revisão editorial: cinco vinhetas reconstruídas para calor intenso, pessoas expostas ao sol em ponto sem cobertura, proteção térmica limitada da moradia, recursos limitados do serviço e possível atendimento. Recortes individuais preservam cada cena; conceitos, setas e ressalva sobre adoecimento não inevitável mantidos.
+Histórico: originais e prompts anteriores preservados; proveniência em assets/figures/arte-cap3-manifest.json.
+Licença dos arquivos autorais: GPL-3.0; fontes citadas mantêm suas condições de uso.
+-->
+<p>Um indicador de perigo pode descrever intensidade, frequência ou duração de uma condição ambiental. Um indicador de exposição acrescenta quem ou o que se encontra no lugar e no tempo do perigo. Indicadores de vulnerabilidade descrevem condições que aumentam suscetibilidade ou reduzem proteção. Indicadores de efeito registram alterações de saúde, e indicadores de capacidade descrevem recursos e funcionamento necessários para responder. Os conceitos de exposição e vulnerabilidade serão aprofundados no <a href="../part-3/13-exposicao-vulnerabilidade.html" class="quarto-xref"><span>Capítulo 13</span></a>; os efeitos, no <a href="../part-3/14-efeitos-saude.html" class="quarto-xref"><span>Capítulo 14</span></a>; e a capacidade de resposta, no <a href="../part-3/15-resposta-adaptacao-resiliencia.html" class="quarto-xref"><span>Capítulo 15</span></a>.</p>
+<p>Um indicador pode combinar dimensões, mas isso deve ser explícito. Uma temperatura elevada descreve principalmente uma condição ambiental; cruzada com a distribuição da população, pode aproximar exposição. Acrescentar condições sociais e de infraestrutura muda novamente o significado da medida.</p>
+<p>Sobral e Freitas mostram a importância de organizar indicadores em um modelo que articule determinantes socioambientais, exposição, efeitos e ação. Seu trabalho discute a abordagem Força Motriz–Pressão–Situação–Exposição–Efeito–Ação; a figura deste capítulo é uma síntese didática distinta, voltada às dimensões usadas no livro. A contribuição comum é exigir clareza sobre a posição e o alcance de cada indicador, evitando que uma medida isolada represente todo o processo <span class="citation" data-cites="sobral2010modelo">(<a href="../../backmatter/referencias.html#ref-sobral2010modelo" role="doc-biblioref">Sobral; Freitas, 2010</a>)</span>.</p>
+<section id="indicador-ambiental-e-indicador-de-saúde-ambiental" class="level3" data-number="3.5.1">
+<h3 data-number="3.5.1" class="anchored" data-anchor-id="indicador-ambiental-e-indicador-de-saúde-ambiental"><span class="header-section-number">3.5.1</span> Indicador ambiental e indicador de saúde ambiental</h3>
+<p>Um indicador ambiental caracteriza uma condição ou mudança no ambiente. Um indicador de saúde ambiental aproxima explicitamente ambiente e saúde ao representar, por exemplo, exposição populacional, condições de vulnerabilidade, efeitos sanitários ou capacidade de resposta. Barcellos e Quitério destacam que a exposição envolve relações entre sociedade e ambiente; essa perspectiva orienta a escolha de indicadores e a organização da vigilância, além da simples disponibilidade de medições ambientais <span class="citation" data-cites="barcellos2006vigilancia">(<a href="../../backmatter/referencias.html#ref-barcellos2006vigilancia" role="doc-biblioref">Barcellos; Quitério, 2006</a>)</span>.</p>
+<p>Considere a poluição do ar apenas como exemplo conceitual. Uma concentração média no território descreve uma condição ambiental. Dar maior peso às áreas mais povoadas produz uma medida mais próxima da exposição residencial da população. O número de atendimentos respiratórios descreve um evento de saúde. Colocar essas medidas lado a lado não demonstra, por si só, que uma causou a outra; essa ligação exige uma pergunta analítica e métodos apropriados, assunto do <a href="../part-3/14-efeitos-saude.html" class="quarto-xref"><span>Capítulo 14</span></a>.</p>
+</section>
+</section>
+<section id="do-indicador-ao-uso" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="do-indicador-ao-uso"><span class="header-section-number">3.6</span> Do indicador ao uso</h2>
+<p>A finalidade influencia a escolha de um indicador, mas o indicador não determina sozinho a decisão. Uma medida simples, atualizada e compreendida pode ser mais útil para uma necessidade imediata do que um índice complexo que chega tarde; para planejamento de longo prazo, outras medidas e períodos podem ser necessários.</p>
+<p>Neste capítulo, o ponto essencial é apenas este: a pergunta de uso deve ser conhecida antes da escolha do indicador. Ela ajuda a definir que fenômeno representar, que população e período interessam e que nível de detalhe é necessário. Espaço, tempo e qualidade serão aprofundados no <a href="04-espaco-tempo-qualidade.html" class="quarto-xref"><span>Capítulo 4</span></a>; fontes e fichas, no <a href="05-fontes-fichas.html" class="quarto-xref"><span>Capítulo 5</span></a>.</p>
+<p>A ligação entre indicadores, linhas de base, critérios de ação, responsabilidades, protocolos e avaliação será desenvolvida no <a href="06-indicador-decisao.html" class="quarto-xref"><span>Capítulo 6</span></a>. A seleção das medidas deve acompanhar as necessidades de diagnóstico, monitoramento e avaliação, que exigem informações diferentes <span class="citation" data-cites="jannuzzi2005indicadores">(<a href="../../backmatter/referencias.html#ref-jannuzzi2005indicadores" role="doc-biblioref">Jannuzzi, 2005</a>)</span>.</p>
+</section>
+<section id="síntese" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="síntese"><span class="header-section-number">3.7</span> Síntese</h2>
+<p>Entre um fenômeno e sua representação numérica existe uma cadeia: variáveis definem características; dados registram valores; medidas transformam registros; índices realizam transformações ou sínteses; indicadores associam medidas a conceitos e finalidades; informação surge quando esses elementos são interpretados em contexto. Os nomes variam entre áreas, mas a necessidade de reconstruir o caminho permanece.</p>
+<p>Antes de utilizar um indicador, convém saber o que ele pretende representar; como os dados foram produzidos; que operações geraram a medida; qual população ou denominador está envolvido; quais limitações permanecem; e para que uso ele foi construído.</p>
+<p>As fichas inspiradas na RIPSA tornam essas perguntas consultáveis ao longo do livro. Sua leitura ajuda a verificar a correspondência entre conceito, método e uso antes de comparar medidas de temperatura, chuva, poluição, exposição, efeitos ou capacidade de resposta. O próximo passo é compreender como espaço, tempo e qualidade condicionam a possibilidade de combinar essas medidas, tema do <a href="04-espaco-tempo-qualidade.html" class="quarto-xref"><span>Capítulo 4</span></a>.</p>
+
+
+<div id="refs" class="references csl-bib-body" data-entry-spacing="1" role="list" style="display: none">
+<div id="ref-who2001standard" class="csl-entry" role="listitem">
+AHMAD, Omar B. <em>et al.</em> <strong><a href="https://cdn.who.int/media/docs/default-source/gho-documents/global-health-estimates/gpe_discussion_paper_series_paper31_2001_age_standardization_rates.pdf">Age standardization of rates: a new WHO standard</a></strong>. Geneva: World Health Organization, 2001.
+</div>
+<div id="ref-barcellos2006vigilancia" class="csl-entry" role="listitem">
+BARCELLOS, Christovam; QUITÉRIO, Luiz Antônio Dias. Vigilância ambiental em saúde e sua implantação no Sistema Único de Saúde. <strong>Revista de Saúde Pública</strong>, v. 40, n. 1, p. 170–177, 2006. Disponível em: &lt;https://doi.org/<a href="https://doi.org/10.1590/S0034-89102006000100025">10.1590/S0034-89102006000100025</a>&gt;.
+</div>
+<div id="ref-eaton2024cf" class="csl-entry" role="listitem">
+<span class="nocase">EATON, Brian <em>et al.</em></span> <strong><a href="https://doi.org/10.5281/zenodo.14275599">NetCDF Climate and Forecast (CF) Metadata Conventions</a></strong>. <em>[S.l.]</em>: CF Community, 2024.
+</div>
+<div id="ref-hernan2020causal" class="csl-entry" role="listitem">
+HERNÁN, Miguel A.; ROBINS, James M. <strong><a href="https://miguelhernan.org/whatifbook">Causal inference: what if</a></strong>. Boca Raton: Chapman &amp; Hall/CRC, 2020.
+</div>
+<div id="ref-hersbach2020era5" class="csl-entry" role="listitem">
+<span class="nocase">HERSBACH, Hans <em>et al.</em></span> The ERA5 global reanalysis. <strong>Quarterly Journal of the Royal Meteorological Society</strong>, v. 146, n. 730, p. 1999–2049, 2020. Disponível em: &lt;https://doi.org/<a href="https://doi.org/10.1002/qj.3803">10.1002/qj.3803</a>&gt;.
+</div>
+<div id="ref-iso2023geoquality" class="csl-entry" role="listitem">
+INTERNATIONAL ORGANIZATION FOR STANDARDIZATION. <strong>ISO 19157-1:2023 — Geographic information — Data quality — Part 1: General requirements</strong>. Geneva, International Organization for Standardization, 2023. Disponível em: &lt;<a href="https://www.iso.org/standard/78900.html">https://www.iso.org/standard/78900.html</a>&gt;. Acesso em: 4 ago. 2026.
+</div>
+<div id="ref-jannuzzi2005indicadores" class="csl-entry" role="listitem">
+JANNUZZI, Paulo de Martino. Indicadores para diagnóstico, monitoramento e avaliação de programas sociais no Brasil. <strong>Revista do Serviço Público</strong>, v. 56, n. 2, p. 137–160, 2005. Disponível em: &lt;https://doi.org/<a href="https://doi.org/10.21874/rsp.v56i2.222">10.21874/rsp.v56i2.222</a>&gt;.
+</div>
+<div id="ref-minayo2009indicadores" class="csl-entry" role="listitem">
+MINAYO, Maria Cecília de Souza. Construção de indicadores qualitativos para avaliação de mudanças. <strong>Revista Brasileira de Educação Médica</strong>, v. 33, n. supl. 1, p. 83–91, 2009. Disponível em: &lt;https://doi.org/<a href="https://doi.org/10.1590/S0100-55022009000500009">10.1590/S0100-55022009000500009</a>&gt;.
+</div>
+<div id="ref-oecd2008composite" class="csl-entry" role="listitem">
+ORGANISATION FOR ECONOMIC CO-OPERATION AND DEVELOPMENT; EUROPEAN UNION; EUROPEAN COMMISSION. JOINT RESEARCH CENTRE. <strong><a href="https://doi.org/10.1787/9789264043466-en">Handbook on constructing composite indicators: methodology and user guide</a></strong>. Paris: OECD Publishing, 2008.
+</div>
+<div id="ref-ripsa2026" class="csl-entry" role="listitem">
+ORGANIZAÇÃO PAN-AMERICANA DA SAÚDE. <strong><a href="https://doi.org/10.37774/9789275731659">Indicadores Básicos para a Saúde no Brasil: conceitos e aplicações</a></strong>. 3. ed. Brasília, DF: Organização Pan-Americana da Saúde, 2026.
+</div>
+<div id="ref-piantadosi1988ecological" class="csl-entry" role="listitem">
+PIANTADOSI, Steven; BYAR, David P.; GREEN, Sylvan B. The ecological fallacy. <strong>American Journal of Epidemiology</strong>, v. 127, n. 5, p. 893–904, 1988. Disponível em: &lt;https://doi.org/<a href="https://doi.org/10.1093/oxfordjournals.aje.a114892">10.1093/oxfordjournals.aje.a114892</a>&gt;.
+</div>
+<div id="ref-sobral2010modelo" class="csl-entry" role="listitem">
+SOBRAL, André; FREITAS, Carlos Machado de. Modelo de organização de indicadores para operacionalização dos determinantes socioambientais da saúde. <strong>Saúde e Sociedade</strong>, v. 19, n. 1, p. 35–47, 2010. Disponível em: &lt;https://doi.org/<a href="https://doi.org/10.1590/S0104-12902010000100004">10.1590/S0104-12902010000100004</a>&gt;.
+</div>
+<div id="ref-un2014statistics" class="csl-entry" role="listitem">
+UNITED NATIONS GENERAL ASSEMBLY. <strong>Fundamental Principles of Official Statistics: resolution A/RES/68/261</strong>. New York, United Nations, 2014. Disponível em: &lt;<a href="https://unstats.un.org/fpos">https://unstats.un.org/fpos</a>&gt;. Acesso em: 4 ago. 2026.
+</div>
+<div id="ref-wilkinson2016fair" class="csl-entry" role="listitem">
+<span class="nocase">WILKINSON, Mark D. <em>et al.</em></span> The FAIR Guiding Principles for scientific data management and stewardship. <strong>Scientific Data</strong>, v. 3, p. 160018, 2016. Disponível em: &lt;https://doi.org/<a href="https://doi.org/10.1038/sdata.2016.18">10.1038/sdata.2016.18</a>&gt;.
+</div>
+<div id="ref-who2023dqa" class="csl-entry" role="listitem">
+WORLD HEALTH ORGANIZATION. <strong><a href="https://www.who.int/publications/i/item/9789240047365">Data quality assurance: module 1: framework and metrics</a></strong>. Geneva: World Health Organization, 2023.
+</div>
+<div id="ref-wmo2023climatological" class="csl-entry" role="listitem">
+WORLD METEOROLOGICAL ORGANIZATION. <strong><a href="https://community.wmo.int/site/knowledge-hub/programmes-and-initiatives/climate-services/climate-data">Guide to climatological practices</a></strong>. Geneva: World Meteorological Organization, 2023.
+</div>
+<div id="ref-w3c2013prov" class="csl-entry" role="listitem">
+WORLD WIDE WEB CONSORTIUM. <strong>PROV-O: The PROV Ontology</strong>. 30 abr. 2013. Disponível em: &lt;<a href="https://www.w3.org/TR/prov-o/">https://www.w3.org/TR/prov-o/</a>&gt;. Acesso em: 4 ago. 2026.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiada");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiada");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../chapters/part-1/02-mudanca-climatica-resposta-sus.html" class="pagination-link" aria-label="Mudança climática, planejamento e resposta do SUS">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Mudança climática, planejamento e resposta do SUS</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../chapters/part-1/04-espaco-tempo-qualidade.html" class="pagination-link" aria-label="Compatibilizando dados: espaço, tempo e qualidade">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Compatibilizando dados: espaço, tempo e qualidade</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/rfsaldanha/dicas/blob/main/chapters/part-1/03-dados-variaveis-indices-indicadores.qmd" class="toc-action"><i class="bi bi-github"></i>Ver o código fonte</a></li><li><a href="https://github.com/rfsaldanha/dicas/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></div></div></footer><script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>

@@ -1,0 +1,1452 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Guia técnico sobre conceitos, dados e indicadores de clima e ambiente aplicados à vigilância e à gestão em saúde pública.">
+
+<title>15&nbsp; Capacidade de resposta, adaptação e resiliência – Dados e Indicadores de Clima e Ambiente para a Saúde</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 1em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../backmatter/lista-fichas.html" rel="next">
+<link href="../../chapters/part-3/14-efeitos-saude.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-bb162014f31ff550f3668977ab0f7733.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-fdd2e9c9119fd81cafe9a82057eefc34.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-bb162014f31ff550f3668977ab0f7733.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Nenhum resultado",
+    "search-matching-documents-text": "documentos correspondentes",
+    "search-copy-link-title": "Copiar link para a busca",
+    "search-hide-matches-text": "Esconder correspondências adicionais",
+    "search-more-match-text": "mais correspondência neste documento",
+    "search-more-matches-text": "mais correspondências neste documento",
+    "search-clear-button-title": "Limpar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Procurar"
+  }
+}</script>
+<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="../../styles/web/styles.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/part-3/13-exposicao-vulnerabilidade.html">Parte III — Indicadores integrados de clima, ambiente e saúde</a></li><li class="breadcrumb-item"><a href="../../chapters/part-3/15-resposta-adaptacao-resiliencia.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Capacidade de resposta, adaptação e resiliência</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Procurar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">Dados e Indicadores de Clima e Ambiente para a Saúde</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/rfsaldanha/dicas" title="Código fonte" class="quarto-navigation-tool px-1" aria-label="Código fonte"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo escuro"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Procurar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bem-vindo</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/ficha-tecnica.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ficha técnica</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/apresentacao.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Apresentação</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/prefacio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prefácio do autor</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/agradecimentos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Agradecimentos</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/siglas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lista de siglas</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/lista-figuras.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lista de figuras</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/lista-tabelas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lista de quadros e tabelas</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/sumario.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sumário</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/como-usar.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Como utilizar este livro</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Parte I — Fundamentos e métodos</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/01-clima-ambiente-saude.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Clima, ambiente e saúde pública</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/02-mudanca-climatica-resposta-sus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Mudança climática, planejamento e resposta do SUS</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/03-dados-variaveis-indices-indicadores.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Dos dados aos indicadores: como representar clima, ambiente e saúde</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/04-espaco-tempo-qualidade.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Compatibilizando dados: espaço, tempo e qualidade</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/05-fontes-fichas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Fontes de dados e fichas de indicadores</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/06-indicador-decisao.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Do indicador à decisão pública</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Parte II — Dados e indicadores temáticos</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/07-temperatura-condicoes-termicas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Temperatura e condições térmicas</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/08-precipitacao-secas-eventos-hidrologicos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Precipitação, secas e eventos hidrológicos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/09-qualidade-ar-queimadas-fumaca.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Qualidade do ar, queimadas e fumaça</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/10-agua-saneamento-qualidade-ambiental.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Água, saneamento e qualidade ambiental</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/11-uso-cobertura-terra-ambiente-urbano.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Uso e cobertura da terra, vegetação e ambiente urbano</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/12-eventos-severos-desastres.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Eventos meteorológicos severos e desastres</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Parte III — Indicadores integrados de clima, ambiente e saúde</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-3/13-exposicao-vulnerabilidade.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Exposição e vulnerabilidade socioambiental</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-3/14-efeitos-saude.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Efeitos do clima e do ambiente sobre a saúde</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-3/15-resposta-adaptacao-resiliencia.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Capacidade de resposta, adaptação e resiliência</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Parte IV — Fichas de indicadores e fontes de dados</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/lista-fichas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lista de fichas por código e capítulo</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/indice-indicadores.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Índice alfabético de indicadores</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/16-fichas-temperatura-condicoes-termicas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Fichas — Temperatura e condições térmicas</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/17-fichas-precipitacao-secas-eventos-hidrologicos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Fichas — Precipitação, secas e eventos hidrológicos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Fichas — Qualidade do ar, queimadas e fumaça</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Fichas — Água, saneamento e qualidade ambiental</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/20-fichas-uso-cobertura-terra-ambiente-urbano.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Fichas — Uso e cobertura da terra, vegetação e ambiente urbano</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/21-fichas-eventos-severos-desastres.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Fichas — Eventos severos e desastres</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/22-fichas-exposicao-vulnerabilidade.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Fichas — Exposição e vulnerabilidade socioambiental</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/23-fichas-efeitos-saude.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Fichas — Efeitos do clima e do ambiente sobre a saúde</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/24-fichas-resposta-adaptacao-resiliencia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Fichas — Capacidade de resposta, adaptação e resiliência</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/indice-fontes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Catálogo de fontes de dados</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/glossario.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Glossário</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/referencias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Referências</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Apêndices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/apendice-metodologico.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Apêndice metodológico</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/apendice-estacoes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Estações meteorológicas e de qualidade do ar</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Índice</h2>
+   
+  <ul>
+  <li><a href="#o-que-deve-ser-medido" id="toc-o-que-deve-ser-medido" class="nav-link active" data-scroll-target="#o-que-deve-ser-medido"><span class="header-section-number">15.1</span> O que deve ser medido</a></li>
+  <li><a href="#governança-e-responsabilidade" id="toc-governança-e-responsabilidade" class="nav-link" data-scroll-target="#governança-e-responsabilidade"><span class="header-section-number">15.2</span> Governança e responsabilidade</a></li>
+  <li><a href="#perfis-de-risco" id="toc-perfis-de-risco" class="nav-link" data-scroll-target="#perfis-de-risco"><span class="header-section-number">15.3</span> Perfis de risco</a></li>
+  <li><a href="#alertas-vigilância-e-comunicação" id="toc-alertas-vigilância-e-comunicação" class="nav-link" data-scroll-target="#alertas-vigilância-e-comunicação"><span class="header-section-number">15.4</span> Alertas, vigilância e comunicação</a></li>
+  <li><a href="#planos-de-emergência-e-continuidade" id="toc-planos-de-emergência-e-continuidade" class="nav-link" data-scroll-target="#planos-de-emergência-e-continuidade"><span class="header-section-number">15.5</span> Planos de emergência e continuidade</a>
+  <ul class="collapse">
+  <li><a href="#continuidade-dos-serviços-essenciais" id="toc-continuidade-dos-serviços-essenciais" class="nav-link" data-scroll-target="#continuidade-dos-serviços-essenciais"><span class="header-section-number">15.5.1</span> Continuidade dos serviços essenciais</a></li>
+  </ul></li>
+  <li><a href="#água-e-energia-em-estabelecimentos" id="toc-água-e-energia-em-estabelecimentos" class="nav-link" data-scroll-target="#água-e-energia-em-estabelecimentos"><span class="header-section-number">15.6</span> Água e energia em estabelecimentos</a></li>
+  <li><a href="#serviços-básicos-nos-estabelecimentos" id="toc-serviços-básicos-nos-estabelecimentos" class="nav-link" data-scroll-target="#serviços-básicos-nos-estabelecimentos"><span class="header-section-number">15.7</span> Serviços básicos nos estabelecimentos</a></li>
+  <li><a href="#força-de-trabalho-e-capacidade-operacional" id="toc-força-de-trabalho-e-capacidade-operacional" class="nav-link" data-scroll-target="#força-de-trabalho-e-capacidade-operacional"><span class="header-section-number">15.8</span> Força de trabalho e capacidade operacional</a></li>
+  <li><a href="#laboratórios-produtos-e-cadeias-de-suprimento" id="toc-laboratórios-produtos-e-cadeias-de-suprimento" class="nav-link" data-scroll-target="#laboratórios-produtos-e-cadeias-de-suprimento"><span class="header-section-number">15.9</span> Laboratórios, produtos e cadeias de suprimento</a></li>
+  <li><a href="#resposta-recuperação-e-adaptação" id="toc-resposta-recuperação-e-adaptação" class="nav-link" data-scroll-target="#resposta-recuperação-e-adaptação"><span class="header-section-number">15.10</span> Resposta, recuperação e adaptação</a></li>
+  <li><a href="#principais-indicadores-usados-na-avaliação-da-resiliência" id="toc-principais-indicadores-usados-na-avaliação-da-resiliência" class="nav-link" data-scroll-target="#principais-indicadores-usados-na-avaliação-da-resiliência"><span class="header-section-number">15.11</span> Principais indicadores usados na avaliação da resiliência</a></li>
+  <li><a href="#conjunto-mínimo-para-gestão" id="toc-conjunto-mínimo-para-gestão" class="nav-link" data-scroll-target="#conjunto-mínimo-para-gestão"><span class="header-section-number">15.12</span> Conjunto mínimo para gestão</a></li>
+  <li><a href="#síntese" id="toc-síntese" class="nav-link" data-scroll-target="#síntese"><span class="header-section-number">15.13</span> Síntese</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/rfsaldanha/dicas/blob/main/chapters/part-3/15-resposta-adaptacao-resiliencia.qmd" class="toc-action"><i class="bi bi-github"></i>Ver o código fonte</a></li><li><a href="https://github.com/rfsaldanha/dicas/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/part-3/13-exposicao-vulnerabilidade.html">Parte III — Indicadores integrados de clima, ambiente e saúde</a></li><li class="breadcrumb-item"><a href="../../chapters/part-3/15-resposta-adaptacao-resiliencia.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Capacidade de resposta, adaptação e resiliência</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-resposta" class="quarto-section-identifier"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Capacidade de resposta, adaptação e resiliência</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Conceito-chave: resiliência do sistema de saúde">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Conceito-chave: resiliência do sistema de saúde
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Um sistema de saúde resiliente mantém funções essenciais diante de choques e estressores, adapta sua organização e aprende com a experiência. Resiliência não significa retornar exatamente à situação anterior. Se a situação anterior continha serviços frágeis, desigualdades e infraestrutura exposta, recuperar-se deve incluir correção dessas condições.</p>
+</div>
+</div>
+<p>O marco operacional da OMS (Organização Mundial da Saúde) organiza a resiliência climática em componentes como governança, força de trabalho, avaliação de riscos, vigilância, infraestrutura, tecnologias, financiamento e gestão de emergências <span class="citation" data-cites="who2023framework">(<a href="../../backmatter/referencias.html#ref-who2023framework" role="doc-biblioref">World Health Organization, 2023</a>)</span>. O pacote integrado de indicadores de resiliência dos sistemas de saúde acrescenta medidas com definições, numeradores, denominadores e fontes recomendadas <span class="citation" data-cites="who2024resilienceindicators">(<a href="../../backmatter/referencias.html#ref-who2024resilienceindicators" role="doc-biblioref">World Health Organization, 2024</a>)</span>. Este capítulo apresenta diretamente sete dessas medidas, selecionadas por sua aplicação a riscos climáticos, ambientais e à continuidade do cuidado.</p>
+<div class="cell page-columns page-full" data-layout-align="default">
+<div class="cell-output-display column-page-right">
+<div id="fig-ciclo-resiliencia-saude" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ciclo-resiliencia-saude-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-ciclo-resiliencia-saude">%%{init: {"htmlLabels": false, "flowchart": {"htmlLabels": false}}}%%
+flowchart TD
+  A["Antecipar&lt;br/&gt;perfil de riscos e alerta"] --&gt; P["Preparar&lt;br/&gt;pessoas, planos e recursos"]
+  P --&gt; B["Absorver&lt;br/&gt;manter serviços essenciais"]
+  B --&gt; R["Responder&lt;br/&gt;coordenar e ampliar capacidade"]
+  R --&gt; C["Recuperar&lt;br/&gt;restabelecer com segurança"]
+  C --&gt; D["Adaptar e transformar&lt;br/&gt;corrigir vulnerabilidades"]
+  D --&gt; A
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ciclo-resiliencia-saude-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;15.1: Ciclo de capacidades do sistema de saúde diante de choques e estressores
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<section id="o-que-deve-ser-medido" class="level2" data-number="15.1">
+<h2 data-number="15.1" class="anchored" data-anchor-id="o-que-deve-ser-medido"><span class="header-section-number">15.1</span> O que deve ser medido</h2>
+<p>Capacidade de resposta não é uma variável única. Recursos, processos, produtos, desempenho e resultados ocupam posições distintas <span class="citation" data-cites="who2024resilienceindicators cdc2024evaluation">(<a href="../../backmatter/referencias.html#ref-cdc2024evaluation" role="doc-biblioref">Centers for Disease Control and Prevention, 2024</a>; <a href="../../backmatter/referencias.html#ref-who2024resilienceindicators" role="doc-biblioref">World Health Organization, 2024</a>)</span>:</p>
+<div id="qua-niveis-resiliencia" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-qua figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-qua" id="qua-niveis-resiliencia-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Quadro&nbsp;15.1: Níveis complementares para avaliar capacidade e resiliência
+</figcaption>
+<div aria-describedby="qua-niveis-resiliencia-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Nível</th>
+<th>Exemplo</th>
+<th>O que demonstra</th>
+<th>O que não demonstra</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Estrutura</td>
+<td>pessoa focal designada, reservatório, gerador</td>
+<td>Recurso ou responsabilidade existente</td>
+<td>Funcionamento em emergência</td>
+</tr>
+<tr class="even">
+<td>Processo</td>
+<td>perfil de riscos atualizado, plano elaborado e exercitado</td>
+<td>Atividade institucional realizada</td>
+<td>Continuidade efetiva</td>
+</tr>
+<tr class="odd">
+<td>Produto</td>
+<td>alerta emitido e recebido, equipe ativada</td>
+<td>Entrega operacional</td>
+<td>Redução do dano</td>
+</tr>
+<tr class="even">
+<td>Desempenho</td>
+<td>tempo de ativação, horas de interrupção, serviços mantidos</td>
+<td>Comportamento durante o evento</td>
+<td>Efeito final isolado</td>
+</tr>
+<tr class="odd">
+<td>Resultado</td>
+<td>menor interrupção, recuperação mais rápida</td>
+<td>Consequência para o sistema</td>
+<td>Causalidade sem comparação adequada</td>
+</tr>
+<tr class="even">
+<td>Efeito em saúde</td>
+<td>eventos evitados ou carga reduzida</td>
+<td>Benefício populacional estimado</td>
+<td>Contribuição exclusiva de uma medida sem desenho</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Uma lista de planos não mede preparação completa. Um gerador instalado não garante partida, combustível, autonomia e ligação às cargas críticas. Um alerta emitido não garante que tenha chegado em formato acessível, sido compreendido ou produzido uma ação possível. A avaliação deve ligar estrutura, implementação e desempenho <span class="citation" data-cites="who2024resilienceindicators cdc2024evaluation">(<a href="../../backmatter/referencias.html#ref-cdc2024evaluation" role="doc-biblioref">Centers for Disease Control and Prevention, 2024</a>; <a href="../../backmatter/referencias.html#ref-who2024resilienceindicators" role="doc-biblioref">World Health Organization, 2024</a>)</span>.</p>
+</section>
+<section id="governança-e-responsabilidade" class="level2" data-number="15.2">
+<h2 data-number="15.2" class="anchored" data-anchor-id="governança-e-responsabilidade"><span class="header-section-number">15.2</span> Governança e responsabilidade</h2>
+<p>Emergências atravessam vigilância, atenção primária, urgência, hospitais, assistência farmacêutica, laboratório, regulação, infraestrutura, comunicação, saúde do trabalhador e gestão. Sem responsabilidade definida, tarefas críticas podem ficar sem dono ou ser duplicadas <span class="citation" data-cites="who2023framework who2021edrmresearch">(<a href="../../backmatter/referencias.html#ref-who2021edrmresearch" role="doc-biblioref">World Health Organization, 2022</a>, <a href="../../backmatter/referencias.html#ref-who2023framework" role="doc-biblioref">2023</a>)</span>.</p>
+<p>O indicador da OMS sobre equipe ou pessoa focal mede se há designação formal para gestão de emergências e continuidade dos serviços. Os termos de referência são essenciais: uma portaria com nome, mas sem atribuição, autoridade ou substituição, oferece pouca capacidade. Além do percentual, a análise deve verificar treinamento, tempo protegido, acesso à direção, meios de comunicação e suplência.</p>
+<p><span id="sec-res-gov-01"></span> Consulte a <a href="../../chapters/part-4/24-fichas-resposta-adaptacao-resiliencia.html#sec-res-gov-01">ficha RES-GOV-01 — Ponto focal de emergência e continuidade</a>, na Parte IV.</p>
+<p>O estabelecimento não é autossuficiente. Continuidade depende de transporte sanitário, regulação, referência e contrarreferência, laboratórios, fornecedores, telecomunicação, água, energia, limpeza, resíduos e segurança. Cada plano local deve identificar dependências externas, contatos, alternativas e critérios de escalonamento <span class="citation" data-cites="who2023framework who2024resilienceindicators">(<a href="../../backmatter/referencias.html#ref-who2023framework" role="doc-biblioref">World Health Organization, 2023</a>, <a href="../../backmatter/referencias.html#ref-who2024resilienceindicators" role="doc-biblioref">2024</a>)</span>.</p>
+<p>No SUS (Sistema Único de Saúde), municípios e estados possuem atribuições diferentes e capacidades compartilhadas. A unidade de avaliação deve respeitar a organização regional: perguntar apenas se cada unidade tem um recurso pode ocultar uma solução de rede; presumir que um recurso regional atende a todos pode ocultar tempo de deslocamento e perda simultânea de acesso.</p>
+</section>
+<section id="perfis-de-risco" class="level2" data-number="15.3">
+<h2 data-number="15.3" class="anchored" data-anchor-id="perfis-de-risco"><span class="header-section-number">15.3</span> Perfis de risco</h2>
+<p>Um perfil de riscos de estabelecimento liga perigos do território à fragilidade dos edifícios, equipamentos, processos e pessoas <span class="citation" data-cites="who2023framework who2024resilienceindicators">(<a href="../../backmatter/referencias.html#ref-who2023framework" role="doc-biblioref">World Health Organization, 2023</a>, <a href="../../backmatter/referencias.html#ref-who2024resilienceindicators" role="doc-biblioref">2024</a>)</span>. Deve considerar:</p>
+<ul>
+<li>Natureza, intensidade, duração e probabilidade dos perigos;</li>
+<li>Segurança estrutural e não estrutural;</li>
+<li>Acesso, rotas e possibilidade de isolamento;</li>
+<li>Dependência de água, energia, comunicação e fornecedores;</li>
+<li>Capacidade de aumento temporário da demanda;</li>
+<li>Serviços que não podem ser interrompidos;</li>
+<li>Populações que dependem de tecnologias ou cuidado contínuo;</li>
+<li>Medidas existentes e riscos residuais.</li>
+</ul>
+<p>O indicador 20 da OMS calcula o percentual de estabelecimentos com perfil documentado e atualizado. A publicação usa atualização nos últimos cinco anos como exemplo, mas o ciclo local deve reagir a obras, mudança de serviço, novos mapas de perigo e eventos. Uma unidade inundada após a última avaliação não deve aguardar cinco anos.</p>
+<p><span id="sec-res-ris-01"></span> Consulte a <a href="../../chapters/part-4/24-fichas-resposta-adaptacao-resiliencia.html#sec-res-ris-01">ficha RES-RIS-01 — Perfil de riscos do estabelecimento</a>, na Parte IV.</p>
+<p>O perfil só é útil se gerar uma lista priorizada de mitigação. Cada risco deve ter responsável, ação, custo, prazo, dependência e risco residual. Medidas simples — fixação de equipamentos, elevação de tomadas e insumos, limpeza de drenagem, proteção de arquivos e revisão de contatos — podem ser acompanhadas junto a obras estruturais de longo prazo.</p>
+<p>Priorizar apenas pela probabilidade é insuficiente. Uma interrupção rara pode ser intolerável quando ameaça unidade de terapia intensiva (UTI), diálise, parto, cadeia de frio ou fornecimento de oxigênio. Criticidade combina probabilidade, consequência, duração, população atendida, possibilidade de substituição e tempo para recuperar <span class="citation" data-cites="who2024resilienceindicators who2021edrmresearch">(<a href="../../backmatter/referencias.html#ref-who2021edrmresearch" role="doc-biblioref">World Health Organization, 2022</a>, <a href="../../backmatter/referencias.html#ref-who2024resilienceindicators" role="doc-biblioref">2024</a>)</span>.</p>
+</section>
+<section id="alertas-vigilância-e-comunicação" class="level2" data-number="15.4">
+<h2 data-number="15.4" class="anchored" data-anchor-id="alertas-vigilância-e-comunicação"><span class="header-section-number">15.4</span> Alertas, vigilância e comunicação</h2>
+<p>Sistemas de alerta precoce transformam sinais em decisão antes que o dano se amplie. A vigilância baseada em indicadores usa dados estruturados e regulares; a vigilância baseada em eventos examina informações não estruturadas sobre ameaças emergentes. Ambas exigem triagem, verificação, análise, comunicação e resposta <span class="citation" data-cites="who2023framework who2021edrmresearch">(<a href="../../backmatter/referencias.html#ref-who2021edrmresearch" role="doc-biblioref">World Health Organization, 2022</a>, <a href="../../backmatter/referencias.html#ref-who2023framework" role="doc-biblioref">2023</a>)</span>.</p>
+<p>O indicador 21 da OMS adota a escala C5.1 do SPAR, segunda edição (2021). A ficha transcreve o nível nacional brasileiro informado no eSPAR; não o extrapola aos municípios <span class="citation" data-cites="who2021spar">(<a href="../../backmatter/referencias.html#ref-who2021spar" role="doc-biblioref">World Health Organization, 2021</a>)</span>. Os cinco níveis são cumulativos: diretrizes ausentes ou em elaboração; diretrizes existentes, porém incompletamente implementadas; implementação nacional; implementação nacional e intermediária; e implementação até o nível local, exercitada, avaliada e atualizada. O nível não deve ser tratado como nota contínua nem convertido em percentual.</p>
+<p><span id="sec-res-alr-01"></span> Consulte a <a href="../../chapters/part-4/24-fichas-resposta-adaptacao-resiliencia.html#sec-res-alr-01">ficha RES-ALR-01 — Alerta precoce e resposta nacional — SPAR C5.1</a>, na Parte IV.</p>
+<p>Para calor, fumaça, qualidade da água, inundação e eventos severos, o sistema precisa conectar fontes ambientais à vigilância e à assistência. Um protocolo deve declarar:</p>
+<ol type="1">
+<li>Variável e fonte monitoradas;</li>
+<li>Limiar ou regra de classificação;</li>
+<li>Território e população;</li>
+<li>Antecedência e validade do alerta;</li>
+<li>Autoridade que decide;</li>
+<li>Destinatários e canais redundantes;</li>
+<li>Ações esperadas por nível;</li>
+<li>Confirmação de recebimento;</li>
+<li>Critérios de encerramento;</li>
+<li>Avaliação após o evento.</li>
+</ol>
+<p>A antecedência ideal varia. Um alerta de calor com dias de antecedência permite ajustar equipes, contato com pessoas de maior risco, água e horários. Uma falha de qualidade da água pode exigir bloqueio imediato. Avisos longos demais perdem credibilidade; avisos tardios não permitem ação <span class="citation" data-cites="who2023framework wmoWho2015heat">(<a href="../../backmatter/referencias.html#ref-who2023framework" role="doc-biblioref">World Health Organization, 2023</a>; <a href="../../backmatter/referencias.html#ref-wmoWho2015heat" role="doc-biblioref">World Meteorological Organization; World Health Organization, 2015</a>)</span>.</p>
+<p>Cobertura nominal de telefone ou internet não representa alcance. Mensagens precisam de linguagem clara, Libras e outros formatos acessíveis, idiomas pertinentes, canais comunitários e ações viáveis para quem não pode interromper trabalho, comprar equipamento ou se deslocar. Comunicação de risco sem oferta de proteção pode transferir responsabilidade para a população.</p>
+</section>
+<section id="planos-de-emergência-e-continuidade" class="level2" data-number="15.5">
+<h2 data-number="15.5" class="anchored" data-anchor-id="planos-de-emergência-e-continuidade"><span class="header-section-number">15.5</span> Planos de emergência e continuidade</h2>
+<p>O plano de emergência coordena resposta ao perigo. O plano de continuidade identifica funções críticas, recursos mínimos e alternativas para mantê-las ou recuperá-las. Eles podem estar integrados, desde que os serviços essenciais não sejam um apêndice genérico <span class="citation" data-cites="who2023framework who2024resilienceindicators">(<a href="../../backmatter/referencias.html#ref-who2023framework" role="doc-biblioref">World Health Organization, 2023</a>, <a href="../../backmatter/referencias.html#ref-who2024resilienceindicators" role="doc-biblioref">2024</a>)</span>.</p>
+<p>O indicador 44 da OMS mede estabelecimentos com plano de gestão de emergências que incorpora continuidade dos serviços. Uma verificação robusta procura prioridades assistenciais, cadeia de comando, contatos, pessoal mínimo, suprimentos, referência, transporte, informação, comunicação, critérios de suspensão e sequência de recuperação.</p>
+<p><span id="sec-res-pla-01"></span> Consulte a <a href="../../chapters/part-4/24-fichas-resposta-adaptacao-resiliencia.html#sec-res-pla-01">ficha RES-PLA-01 — Plano de emergência com continuidade</a>, na Parte IV.</p>
+<p>Planos devem ser testados. Exercícios de mesa percorrem decisões e responsabilidades; simulações funcionais testam partes do processo; exercícios em escala ampliada testam coordenação e logística. A modalidade deve corresponder ao risco e não colocar pacientes em perigo <span class="citation" data-cites="who2021edrmresearch">(<a href="../../backmatter/referencias.html#ref-who2021edrmresearch" role="doc-biblioref">World Health Organization, 2022</a>)</span>.</p>
+<p>Depois de cada exercício ou evento, a equipe deve registrar: o que se esperava, o que ocorreu, decisões, tempos, falhas, improvisações, impactos, responsáveis e prazos de correção. O número de exercícios é um indicador de atividade, não de qualidade. O resultado importante é o fechamento das ações corretivas e a melhoria verificada no ciclo seguinte.</p>
+<section id="continuidade-dos-serviços-essenciais" class="level3" data-number="15.5.1">
+<h3 data-number="15.5.1" class="anchored" data-anchor-id="continuidade-dos-serviços-essenciais"><span class="header-section-number">15.5.1</span> Continuidade dos serviços essenciais</h3>
+<p>“Serviço essencial” não é uma lista fixa e nacional. Deve ser definido segundo necessidades da população, rede disponível, dependência temporal e consequências da interrupção. Vacinação, pré-natal, parto, urgência, saúde mental, dispensação de medicamentos, diálise, oxigenoterapia e vigilância podem ter criticidades diferentes por território <span class="citation" data-cites="who2023framework who2024resilienceindicators">(<a href="../../backmatter/referencias.html#ref-who2023framework" role="doc-biblioref">World Health Organization, 2023</a>, <a href="../../backmatter/referencias.html#ref-who2024resilienceindicators" role="doc-biblioref">2024</a>)</span>.</p>
+<p>O plano deve identificar nominalmente os serviços essenciais do estabelecimento e as ações que sustentam sua continuidade. A ficha verifica esse conteúdo documental com itens fixos; produção assistencial, perdas e recuperação exigem registros próprios e não compõem novos indicadores operacionais neste catálogo.</p>
+</section>
+</section>
+<section id="água-e-energia-em-estabelecimentos" class="level2" data-number="15.6">
+<h2 data-number="15.6" class="anchored" data-anchor-id="água-e-energia-em-estabelecimentos"><span class="header-section-number">15.6</span> Água e energia em estabelecimentos</h2>
+<p>Água segura e energia contínua sustentam prevenção de infecção, limpeza, esterilização, laboratório, alimentação, refrigeração, iluminação, equipamentos, climatização, tecnologia e comunicação. Interrupções ambientais e falhas de infraestrutura podem ocorrer juntas: enchentes contaminam fontes e desligam energia; secas reduzem abastecimento; calor eleva demanda elétrica <span class="citation" data-cites="who2023framework who2024resilienceindicators">(<a href="../../backmatter/referencias.html#ref-who2023framework" role="doc-biblioref">World Health Organization, 2023</a>, <a href="../../backmatter/referencias.html#ref-who2024resilienceindicators" role="doc-biblioref">2024</a>)</span>.</p>
+<p>Os indicadores 28 e 29 da OMS usam uma janela simples: percentual de estabelecimentos com interrupção na semana anterior. Essa definição favorece coleta rotineira e detecção rápida. Ela precisa ser complementada por duração, recorrência e impacto, pois uma oscilação breve e uma falha de dois dias entram igualmente no numerador básico.</p>
+<p><span id="sec-res-wat-01"></span> Consulte a <a href="../../chapters/part-4/24-fichas-resposta-adaptacao-resiliencia.html#sec-res-wat-01">ficha RES-WAT-01 — Interrupção de água em estabelecimentos</a>, na Parte IV.</p>
+<p><span id="sec-res-ene-01"></span> Consulte a <a href="../../chapters/part-4/24-fichas-resposta-adaptacao-resiliencia.html#sec-res-ene-01">ficha RES-ENE-01 — Interrupção de energia em estabelecimentos</a>, na Parte IV.</p>
+<p>Redundância deve ser testada como sistema. Para água, importa origem segura, reservação, tratamento, pressão, pontos de uso e plano de abastecimento alternativo. Para energia, importam partida automática, manutenção, combustível, autonomia, capacidade, prioridade de circuitos e proteção contra o mesmo perigo que derrubou a rede.</p>
+<p>Um gerador no subsolo de área inundável ou uma cisterna exposta à contaminação adicionam falsa segurança. A independência entre fonte principal e alternativa deve fazer parte do perfil de riscos. Testes precisam simular carga e duração, não apenas ligar o equipamento por alguns minutos <span class="citation" data-cites="who2024resilienceindicators who2021edrmresearch">(<a href="../../backmatter/referencias.html#ref-who2021edrmresearch" role="doc-biblioref">World Health Organization, 2022</a>, <a href="../../backmatter/referencias.html#ref-who2024resilienceindicators" role="doc-biblioref">2024</a>)</span>.</p>
+</section>
+<section id="serviços-básicos-nos-estabelecimentos" class="level2" data-number="15.7">
+<h2 data-number="15.7" class="anchored" data-anchor-id="serviços-básicos-nos-estabelecimentos"><span class="header-section-number">15.7</span> Serviços básicos nos estabelecimentos</h2>
+<p>A ficha RES-WAS-01 usa os cinco componentes do indicador 30 da OMS 2024: água de fonte melhorada no terreno e disponível; sanitários melhorados e utilizáveis, destinados à equipe, separados por sexo com higiene menstrual e acessíveis; higiene das mãos nos pontos de cuidado e a até cinco metros dos sanitários; segregação, tratamento e destinação seguros de resíduos; protocolos de limpeza e equipe treinada. Os critérios de cada pergunta, as evidências e o denominador efetivamente avaliado estão na Parte IV <span class="citation" data-cites="who2024resilienceindicators">(<a href="../../backmatter/referencias.html#ref-who2024resilienceindicators" role="doc-biblioref">World Health Organization, 2024</a>)</span>.</p>
+<p><span id="sec-res-was-01"></span> Consulte a <a href="../../chapters/part-4/24-fichas-resposta-adaptacao-resiliencia.html#sec-res-was-01">ficha RES-WAS-01 — Serviços básicos de água, saneamento, higiene, resíduos e limpeza</a>, na Parte IV.</p>
+<p><span id="sec-res-inf-01"></span> O código RES-INF-01 está <a href="../../chapters/part-4/24-fichas-resposta-adaptacao-resiliencia.html#sec-res-inf-01">reservado, com nota de substituição</a>.</p>
+<p>Publicar os cinco percentuais e a conformidade conjunta. Um componente não compensa outro; ausência de resposta não conta como ausência de falha. Esta medida não certifica toda a infraestrutura. Segurança estrutural, energia e tecnologia exigem avaliações específicas.</p>
+</section>
+<section id="força-de-trabalho-e-capacidade-operacional" class="level2" data-number="15.8">
+<h2 data-number="15.8" class="anchored" data-anchor-id="força-de-trabalho-e-capacidade-operacional"><span class="header-section-number">15.8</span> Força de trabalho e capacidade operacional</h2>
+<p>Pessoas mantêm o sistema. Preparação deve considerar número, competências, distribuição, saúde ocupacional, transporte, responsabilidades familiares, descanso e apoio psicossocial. Eventos extensos afetam trabalhadores e suas famílias ao mesmo tempo em que aumentam a demanda <span class="citation" data-cites="who2023framework who2021edrmresearch">(<a href="../../backmatter/referencias.html#ref-who2021edrmresearch" role="doc-biblioref">World Health Organization, 2022</a>, <a href="../../backmatter/referencias.html#ref-who2023framework" role="doc-biblioref">2023</a>)</span>.</p>
+<p>Contar profissionais cadastrados mede estoque nominal, não presença em turno nem capacidade de mobilização. A gestão deve documentar escalas, competências, suplência e proteção da equipe como elementos do plano. Esses registros não constituem fichas adicionais nesta edição. As decisões devem respeitar vínculos e categorias sem supor que todos podem exercer a mesma função. Realocação exige competência, supervisão e proteção. Metas de produtividade não podem substituir segurança do trabalhador.</p>
+</section>
+<section id="laboratórios-produtos-e-cadeias-de-suprimento" class="level2" data-number="15.9">
+<h2 data-number="15.9" class="anchored" data-anchor-id="laboratórios-produtos-e-cadeias-de-suprimento"><span class="header-section-number">15.9</span> Laboratórios, produtos e cadeias de suprimento</h2>
+<p>Capacidade laboratorial inclui coleta, transporte, processamento, biossegurança, energia, água, reagentes, pessoal, informação e devolução do resultado. O “número de laboratórios” pouco informa sem escopo, qualidade, tempo de resposta e funcionamento durante o choque <span class="citation" data-cites="who2023framework who2021edrmresearch">(<a href="../../backmatter/referencias.html#ref-who2021edrmresearch" role="doc-biblioref">World Health Organization, 2022</a>, <a href="../../backmatter/referencias.html#ref-who2023framework" role="doc-biblioref">2023</a>)</span>.</p>
+<p>Para cada exame prioritário, devem ser definidos capacidade diária, tempo entre coleta e resultado, percentual de amostras adequadas, estoque, autonomia e contingência. Na vigilância de água ou surtos após desastre, transporte e comunicação podem ser o elo limitante.</p>
+<p>Medicamentos, vacinas, oxigênio, hemoderivados, filtros, reagentes e equipamentos dependem de fornecedores e rotas. Dias de estoque precisam ser estimados com demanda de emergência, não apenas consumo médio. Dois fornecedores que usam a mesma estrada não constituem redundância independente.</p>
+</section>
+<section id="resposta-recuperação-e-adaptação" class="level2 page-columns page-full" data-number="15.10">
+<h2 data-number="15.10" class="anchored" data-anchor-id="resposta-recuperação-e-adaptação"><span class="header-section-number">15.10</span> Resposta, recuperação e adaptação</h2>
+<p>Durante uma emergência, o acompanhamento deve ser frequente e orientado à decisão. Um quadro situacional pode reunir perigos, estabelecimentos afetados, serviços interrompidos, demanda, pessoal, água, energia, estoque, transferências, população sem acesso, ações e necessidades. Cada item deve ter horário de atualização e responsável.</p>
+<p>Recuperação começa durante a resposta. O tempo até restabelecer um serviço é uma medida importante, mas “restabelecido” requer critério: capacidade parcial, plena, segura ou adaptada. Reabrir rapidamente sem água segura, equipe ou documentação pode aumentar o dano.</p>
+<p>Adaptação é a mudança deliberada que reduz risco futuro. Instalar sombreamento, elevar equipamentos, redesenhar rotas, descentralizar estoque, ajustar protocolos e ampliar vigilância são medidas diferentes. Seu acompanhamento precisa de linha de base, entrega, cobertura, prazo, manutenção e resultado. O número de ações listadas em um plano não mede implementação <span class="citation" data-cites="who2023framework cdc2024evaluation">(<a href="../../backmatter/referencias.html#ref-cdc2024evaluation" role="doc-biblioref">Centers for Disease Control and Prevention, 2024</a>; <a href="../../backmatter/referencias.html#ref-who2023framework" role="doc-biblioref">World Health Organization, 2023</a>)</span>.</p>
+<div class="cell page-columns page-full" data-layout-align="default">
+<div class="cell-output-display column-page-right">
+<div id="fig-ciclo-melhoria-capacidade" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ciclo-melhoria-capacidade-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-ciclo-melhoria-capacidade">%%{init: {"htmlLabels": false, "flowchart": {"htmlLabels": false}}}%%
+flowchart TD
+  R["Risco ou falha identificada"] --&gt; A["Ação corretiva definida"]
+  A --&gt; G["Responsável, recurso e prazo"]
+  G --&gt; I["Implementação verificada"]
+  I --&gt; T["Teste, exercício ou evento real"]
+  T --&gt; Q{"Funcionou conforme o critério?"}
+  Q --&gt;|sim| M["Manter e monitorar"]
+  Q --&gt;|não| C["Corrigir desenho ou execução"]
+  C --&gt; A
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ciclo-melhoria-capacidade-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;15.2: Ciclo mínimo de melhoria da capacidade institucional
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Resiliência não pode ser inferida apenas pela existência de recursos antes do choque. É necessário observar preparação, desempenho durante a perturbação, recuperação e mudança posterior. Um plano pode existir e não ser acionado; uma unidade pode manter atendimento reduzindo qualidade; um serviço pode reabrir sem segurança; uma obra pode corrigir a última falha e criar nova dependência. O conjunto de indicadores precisa acompanhar o ciclo inteiro <span class="citation" data-cites="who2023framework who2024resilienceindicators">(<a href="../../backmatter/referencias.html#ref-who2023framework" role="doc-biblioref">World Health Organization, 2023</a>, <a href="../../backmatter/referencias.html#ref-who2024resilienceindicators" role="doc-biblioref">2024</a>)</span>.</p>
+<div class="callout callout-style-default callout-important no-icon callout-titled" title="Conceito-chave: capacidade nominal, prontidão e desempenho">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Importante</span>Conceito-chave: capacidade nominal, prontidão e desempenho
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Capacidade nominal é o recurso ou arranjo formalmente disponível. Prontidão é a condição de usar esse recurso no tempo necessário. Desempenho é o que o sistema efetivamente manteve, entregou ou recuperou sob uma situação definida. Inventário, teste e evento real fornecem evidências diferentes e devem permanecer separados.</p>
+</div>
+</div>
+<p>Testes devem ser construídos a partir de funções críticas. Para cada função, identificam-se dependências de pessoas, espaço, água, energia, informação, insumos, transporte e referência. Em seguida, definem-se duração do cenário, carga esperada, alternativas e critérios de falha. Um exercício que apenas confirma contatos não testa autonomia elétrica; ligar um gerador sem carga não testa continuidade; possuir estoque sem rota de reposição não testa cadeia de suprimento <span class="citation" data-cites="who2021edrmresearch">(<a href="../../backmatter/referencias.html#ref-who2021edrmresearch" role="doc-biblioref">World Health Organization, 2022</a>)</span>.</p>
+<p>Dependências comuns precisam ser examinadas. Dois serviços podem ter alternativas que usam a mesma estrada, subestação, reservatório, provedor ou equipe. Essa correlação cria falha simultânea e falsa redundância. Mapear dependências ajuda a priorizar diversidade de rotas, localização segura, acordos de apoio e capacidade de operar isoladamente por período definido.</p>
+<p>A avaliação durante o evento deve registrar não só interrupção total. Redução de horário, adiamento, transferência, perda de qualidade, aumento de espera e suspensão de componentes também são degradações. Para cada serviço, convém acompanhar início, duração, capacidade remanescente, população sem acesso, solução temporária e retorno seguro. Percentuais agregados de unidades em funcionamento podem ocultar serviços essenciais indisponíveis.</p>
+<p>Recuperação precisa produzir aprendizagem verificável. Cada falha deve gerar ação corretiva com causa, responsável, recurso, prazo e evidência de fechamento. Repetição em exercício ou evento real testa se a correção funcionou. O indicador de ações concluídas só tem sentido quando a conclusão exige verificação, e não apenas mudança de status administrativo <span class="citation" data-cites="cdc2024evaluation">(<a href="../../backmatter/referencias.html#ref-cdc2024evaluation" role="doc-biblioref">Centers for Disease Control and Prevention, 2024</a>)</span>.</p>
+<p>Adaptação acrescenta horizonte futuro. Obras, protocolos e redes devem ser avaliados diante de perigos plausíveis ao longo de sua vida útil, sem depender de um único cenário. Medidas flexíveis e revisáveis podem ser combinadas com investimentos de longa duração. O monitoramento deve indicar quando premissas deixaram de ser válidas e acionar revisão.</p>
+<p>Um painel equilibrado reúne estrutura, processo, desempenho e resultado. Estrutura mostra o que existe; processo, o que foi preparado e testado; desempenho, o que funcionou; resultado, quanto tempo e dano foram reduzidos. Atribuir benefício à intervenção requer comparação e controle da intensidade do choque. Sem isso, menor impacto pode refletir evento menos severo, e maior impacto pode ocorrer apesar de uma resposta eficaz em situação extrema <span class="citation" data-cites="cdc2024evaluation hernan2020causal">(<a href="../../backmatter/referencias.html#ref-cdc2024evaluation" role="doc-biblioref">Centers for Disease Control and Prevention, 2024</a>; <a href="../../backmatter/referencias.html#ref-hernan2020causal" role="doc-biblioref">Hernán; Robins, 2020</a>)</span>.</p>
+</section>
+<section id="principais-indicadores-usados-na-avaliação-da-resiliência" class="level2" data-number="15.11">
+<h2 data-number="15.11" class="anchored" data-anchor-id="principais-indicadores-usados-na-avaliação-da-resiliência"><span class="header-section-number">15.11</span> Principais indicadores usados na avaliação da resiliência</h2>
+<div id="qua-indicadores-resiliencia" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-qua figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-qua" id="qua-indicadores-resiliencia-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Quadro&nbsp;15.2: Indicadores de capacidade e resiliência apresentados no capítulo
+</figcaption>
+<div aria-describedby="qua-indicadores-resiliencia-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Ficha (Parte IV)</th>
+<th>Indicador consolidado</th>
+<th>Finalidade e tipo predominante</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="../../chapters/part-4/24-fichas-resposta-adaptacao-resiliencia.html#sec-res-gov-01">RES-GOV-01</a></td>
+<td>Estabelecimentos com equipe ou pessoa focal para emergência e continuidade</td>
+<td>Identificar responsabilidade pela emergência e continuidade; estrutura</td>
+</tr>
+<tr class="even">
+<td><a href="../../chapters/part-4/24-fichas-resposta-adaptacao-resiliencia.html#sec-res-ris-01">RES-RIS-01</a></td>
+<td>Estabelecimentos com perfil de riscos atualizado</td>
+<td>Verificar preparação baseada nos riscos; estrutura e processo</td>
+</tr>
+<tr class="odd">
+<td><a href="../../chapters/part-4/24-fichas-resposta-adaptacao-resiliencia.html#sec-res-alr-01">RES-ALR-01</a></td>
+<td>Nível de estabelecimento do sistema de alerta precoce e resposta</td>
+<td>Avaliar a implantação do alerta e da resposta; estrutura</td>
+</tr>
+<tr class="even">
+<td><a href="../../chapters/part-4/24-fichas-resposta-adaptacao-resiliencia.html#sec-res-wat-01">RES-WAT-01</a></td>
+<td>Estabelecimentos com interrupção de água na semana anterior</td>
+<td>Monitorar a continuidade do abastecimento de água; estrutura e desempenho</td>
+</tr>
+<tr class="odd">
+<td><a href="../../chapters/part-4/24-fichas-resposta-adaptacao-resiliencia.html#sec-res-ene-01">RES-ENE-01</a></td>
+<td>Estabelecimentos com interrupção de energia na semana anterior</td>
+<td>Monitorar a continuidade do fornecimento de energia; estrutura e desempenho</td>
+</tr>
+<tr class="even">
+<td><a href="../../chapters/part-4/24-fichas-resposta-adaptacao-resiliencia.html#sec-res-pla-01">RES-PLA-01</a></td>
+<td>Estabelecimentos com plano de emergência que incorpora continuidade</td>
+<td>Verificar planejamento para manter serviços essenciais; processo</td>
+</tr>
+<tr class="odd">
+<td><a href="../../chapters/part-4/24-fichas-resposta-adaptacao-resiliencia.html#sec-res-was-01">RES-WAS-01</a></td>
+<td>Serviços básicos de água, saneamento, higiene, resíduos e limpeza</td>
+<td>Conformidade nos cinco componentes e conjunta</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>As sete fichas têm critérios fixos. Seis dependem de avaliação local, com modelos vazios e dicionário na Parte IV; o nível SPAR depende do relatório nacional. O CNES identifica o universo dos estabelecimentos, enquanto as respostas exigem inspeção e evidência. O prazo de revisão de cinco anos de RES-RIS-01 é uma escolha operacional baseada no exemplo da OMS. Para água e energia, a janela inclui D−7 a D−1, excluindo o dia D da avaliação.</p>
+</section>
+<section id="conjunto-mínimo-para-gestão" class="level2" data-number="15.12">
+<h2 data-number="15.12" class="anchored" data-anchor-id="conjunto-mínimo-para-gestão"><span class="header-section-number">15.12</span> Conjunto mínimo para gestão</h2>
+<p>Um painel de capacidade deve permitir abrir o percentual e chegar ao estabelecimento e ao critério, com acesso protegido quando necessário. Para cada medida, deve informar:</p>
+<ol type="1">
+<li>Universo elegível e cobertura da avaliação;</li>
+<li>Definição de conformidade;</li>
+<li>Evidência e data;</li>
+<li>Numerador, denominador e não resposta;</li>
+<li>Distribuição territorial e por tipo de estabelecimento;</li>
+<li>Componente que falhou;</li>
+<li>Gravidade e risco assistencial;</li>
+<li>Ação, responsável, recurso e prazo;</li>
+<li>Resultado do teste ou evento;</li>
+<li>Situação da correção.</li>
+</ol>
+<p>Percentuais altos podem coexistir com risco concentrado. Se uma falha se concentra no único hospital de referência, o percentual agregado pode esconder sua importância assistencial. O painel deve combinar cobertura, criticidade e dependência da rede.</p>
+<p>A resiliência se torna mensurável quando cada capacidade é vinculada a evidências e ações: quem coordena, quais riscos foram avaliados, que alerta funciona, que serviço deve continuar, qual infraestrutura sustenta o cuidado e o que foi corrigido depois do teste. As fichas, os instrumentos e as regras de reprodução estão reunidos na Parte IV.</p>
+</section>
+<section id="síntese" class="level2" data-number="15.13">
+<h2 data-number="15.13" class="anchored" data-anchor-id="síntese"><span class="header-section-number">15.13</span> Síntese</h2>
+<p>Capacidade e resiliência não se resumem à existência de planos. A avaliação deve combinar estrutura, processo, desempenho e resultado, abrir percentuais até os critérios e estabelecimentos relevantes e demonstrar que falhas identificadas foram corrigidas e novamente testadas.</p>
+
+
+<div id="refs" class="references csl-bib-body" data-entry-spacing="1" role="list" style="display: none">
+<div id="ref-cdc2024evaluation" class="csl-entry" role="listitem">
+CENTERS FOR DISEASE CONTROL AND PREVENTION. <strong>CDC Program Evaluation Framework, 2024</strong>. 20 ago. 2024. Disponível em: &lt;<a href="https://www.cdc.gov/mmwr/volumes/73/rr/rr7306a1.htm">https://www.cdc.gov/mmwr/volumes/73/rr/rr7306a1.htm</a>&gt;. Acesso em: 4 ago. 2026.
+</div>
+<div id="ref-hernan2020causal" class="csl-entry" role="listitem">
+HERNÁN, Miguel A.; ROBINS, James M. <strong><a href="https://miguelhernan.org/whatifbook">Causal inference: what if</a></strong>. Boca Raton: Chapman &amp; Hall/CRC, 2020.
+</div>
+<div id="ref-who2021spar" class="csl-entry" role="listitem">
+WORLD HEALTH ORGANIZATION. <strong><a href="https://cdn.who.int/media/docs/default-source/health-security-preparedness/cap/spar/9789240040120-eng-new.pdf">International Health Regulations (2005): State Party self-assessment annual reporting tool</a></strong>. 2. ed. Geneva: World Health Organization, 2021.
+</div>
+<div id="ref-who2021edrmresearch" class="csl-entry" role="listitem">
+WORLD HEALTH ORGANIZATION. <strong><a href="https://wkc.who.int/resources/publications/i/item/9789240057968">WHO guidance on research methods for health emergency and disaster risk management</a></strong>. Geneva: World Health Organization, 2022.
+</div>
+<div id="ref-who2023framework" class="csl-entry" role="listitem">
+WORLD HEALTH ORGANIZATION. <strong><a href="https://www.who.int/publications/i/item/9789240081888">Operational framework for building climate resilient and low carbon health systems</a></strong>. Geneva: World Health Organization, 2023.
+</div>
+<div id="ref-who2024resilienceindicators" class="csl-entry" role="listitem">
+WORLD HEALTH ORGANIZATION. <strong><a href="https://www.who.int/publications/i/item/9789240088986">Health system resilience indicators: an integrated package for measuring and monitoring health system resilience in countries</a></strong>. Geneva: World Health Organization, 2024.
+</div>
+<div id="ref-wmoWho2015heat" class="csl-entry" role="listitem">
+WORLD METEOROLOGICAL ORGANIZATION; WORLD HEALTH ORGANIZATION. <strong><a href="https://www.who.int/publications/m/item/heatwaves-and-health--guidance-on-warning-system-development">Heatwaves and health: guidance on warning-system development</a></strong>. Geneva: World Meteorological Organization, 2015.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiada");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiada");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../chapters/part-3/14-efeitos-saude.html" class="pagination-link" aria-label="Efeitos do clima e do ambiente sobre a saúde">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Efeitos do clima e do ambiente sobre a saúde</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../backmatter/lista-fichas.html" class="pagination-link" aria-label="Lista de fichas por código e capítulo">
+        <span class="nav-page-text">Lista de fichas por código e capítulo</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/rfsaldanha/dicas/blob/main/chapters/part-3/15-resposta-adaptacao-resiliencia.qmd" class="toc-action"><i class="bi bi-github"></i>Ver o código fonte</a></li><li><a href="https://github.com/rfsaldanha/dicas/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></div></div></footer></body></html>
