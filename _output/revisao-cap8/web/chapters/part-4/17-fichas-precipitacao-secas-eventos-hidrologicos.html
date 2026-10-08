@@ -1,0 +1,1992 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Guia técnico sobre conceitos, dados e indicadores de clima e ambiente aplicados à vigilância e à gestão em saúde pública.">
+
+<title>17&nbsp; Fichas — Precipitação, secas e eventos hidrológicos – Dados e Indicadores de Clima e Ambiente para a Saúde</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 1em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.html" rel="next">
+<link href="../../chapters/part-4/16-fichas-temperatura-condicoes-termicas.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-bb162014f31ff550f3668977ab0f7733.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-fdd2e9c9119fd81cafe9a82057eefc34.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-bb162014f31ff550f3668977ab0f7733.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Nenhum resultado",
+    "search-matching-documents-text": "documentos correspondentes",
+    "search-copy-link-title": "Copiar link para a busca",
+    "search-hide-matches-text": "Esconder correspondências adicionais",
+    "search-more-match-text": "mais correspondência neste documento",
+    "search-more-matches-text": "mais correspondências neste documento",
+    "search-clear-button-title": "Limpar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Procurar"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles/web/styles.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../backmatter/lista-fichas.html">Parte IV — Fichas de indicadores e fontes de dados</a></li><li class="breadcrumb-item"><a href="../../chapters/part-4/17-fichas-precipitacao-secas-eventos-hidrologicos.html"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Fichas — Precipitação, secas e eventos hidrológicos</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Procurar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">Dados e Indicadores de Clima e Ambiente para a Saúde</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/rfsaldanha/dicas" title="Código fonte" class="quarto-navigation-tool px-1" aria-label="Código fonte"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo escuro"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Procurar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bem-vindo</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/ficha-tecnica.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ficha técnica</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/apresentacao.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Apresentação</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/prefacio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prefácio do autor</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/agradecimentos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Agradecimentos</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/siglas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lista de siglas</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/lista-figuras.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lista de figuras</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/lista-tabelas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lista de quadros e tabelas</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/sumario.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sumário</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/como-usar.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Como utilizar este livro</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Parte I — Fundamentos e métodos</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/01-clima-ambiente-saude.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Clima, ambiente e saúde pública</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/02-mudanca-climatica-resposta-sus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Mudança climática, planejamento e resposta do SUS</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/03-dados-variaveis-indices-indicadores.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Dos dados aos indicadores: como representar clima, ambiente e saúde</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/04-espaco-tempo-qualidade.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Compatibilizando dados: espaço, tempo e qualidade</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/05-fontes-fichas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Fontes de dados e fichas de indicadores</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/06-indicador-decisao.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Do indicador à decisão pública</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Parte II — Dados e indicadores temáticos</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/07-temperatura-condicoes-termicas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Temperatura e condições térmicas</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/08-precipitacao-secas-eventos-hidrologicos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Precipitação, secas e eventos hidrológicos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/09-qualidade-ar-queimadas-fumaca.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Qualidade do ar, queimadas e fumaça</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/10-agua-saneamento-qualidade-ambiental.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Água, saneamento e qualidade ambiental</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/11-uso-cobertura-terra-ambiente-urbano.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Uso e cobertura da terra, vegetação e ambiente urbano</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/12-eventos-severos-desastres.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Eventos meteorológicos severos e desastres</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Parte III — Indicadores integrados de clima, ambiente e saúde</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-3/13-exposicao-vulnerabilidade.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Exposição e vulnerabilidade socioambiental</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-3/14-efeitos-saude.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Efeitos do clima e do ambiente sobre a saúde</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-3/15-resposta-adaptacao-resiliencia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Capacidade de resposta, adaptação e resiliência</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Parte IV — Fichas de indicadores e fontes de dados</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/lista-fichas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lista de fichas por código e capítulo</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/indice-indicadores.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Índice alfabético de indicadores</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/16-fichas-temperatura-condicoes-termicas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Fichas — Temperatura e condições térmicas</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/17-fichas-precipitacao-secas-eventos-hidrologicos.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Fichas — Precipitação, secas e eventos hidrológicos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Fichas — Qualidade do ar, queimadas e fumaça</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Fichas — Água, saneamento e qualidade ambiental</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/20-fichas-uso-cobertura-terra-ambiente-urbano.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Fichas — Uso e cobertura da terra, vegetação e ambiente urbano</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/21-fichas-eventos-severos-desastres.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Fichas — Eventos severos e desastres</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/22-fichas-exposicao-vulnerabilidade.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Fichas — Exposição e vulnerabilidade socioambiental</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/23-fichas-efeitos-saude.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Fichas — Efeitos do clima e do ambiente sobre a saúde</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/24-fichas-resposta-adaptacao-resiliencia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Fichas — Capacidade de resposta, adaptação e resiliência</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/indice-fontes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Catálogo de fontes de dados</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/glossario.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Glossário</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/referencias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Referências</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Apêndices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/apendice-metodologico.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Apêndice metodológico</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/apendice-estacoes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Estações meteorológicas e de qualidade do ar</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Índice</h2>
+   
+  <ul class="collapse">
+  <li><a href="#sec-cli-prc-01" id="toc-sec-cli-prc-01" class="nav-link active" data-scroll-target="#sec-cli-prc-01"><span class="header-section-number">17.1</span> Ficha do indicador: Maior precipitação em um dia (Rx1day)</a></li>
+  <li><a href="#sec-cli-prc-02" id="toc-sec-cli-prc-02" class="nav-link" data-scroll-target="#sec-cli-prc-02"><span class="header-section-number">17.2</span> Ficha do indicador: Maior precipitação acumulada em cinco dias consecutivos (Rx5day)</a></li>
+  <li><a href="#sec-cli-prc-03" id="toc-sec-cli-prc-03" class="nav-link" data-scroll-target="#sec-cli-prc-03"><span class="header-section-number">17.3</span> Ficha do indicador: Precipitação total em dias muito úmidos (R95p)</a></li>
+  <li><a href="#sec-cli-prc-04" id="toc-sec-cli-prc-04" class="nav-link" data-scroll-target="#sec-cli-prc-04"><span class="header-section-number">17.4</span> Ficha do indicador: Maior número de dias consecutivos secos (CDD)</a></li>
+  <li><a href="#sec-cli-prc-05" id="toc-sec-cli-prc-05" class="nav-link" data-scroll-target="#sec-cli-prc-05"><span class="header-section-number">17.5</span> Ficha do indicador: Maior número de dias consecutivos úmidos (CWD)</a></li>
+  <li><a href="#sec-cli-sec-01" id="toc-sec-cli-sec-01" class="nav-link" data-scroll-target="#sec-cli-sec-01"><span class="header-section-number">17.6</span> Ficha do indicador: Índice Padronizado de Precipitação de três meses (SPI-3)</a></li>
+  <li><a href="#sec-cli-prc-06" id="toc-sec-cli-prc-06" class="nav-link" data-scroll-target="#sec-cli-prc-06"><span class="header-section-number">17.7</span> Ficha do indicador: Precipitação total anual em dias úmidos (PRCPTOT)</a></li>
+  </ul>
+<div class="toc-actions"><ul class="collapse"><li><a href="https://github.com/rfsaldanha/dicas/blob/main/chapters/part-4/17-fichas-precipitacao-secas-eventos-hidrologicos.qmd" class="toc-action"><i class="bi bi-github"></i>Ver o código fonte</a></li><li><a href="https://github.com/rfsaldanha/dicas/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../backmatter/lista-fichas.html">Parte IV — Fichas de indicadores e fontes de dados</a></li><li class="breadcrumb-item"><a href="../../chapters/part-4/17-fichas-precipitacao-secas-eventos-hidrologicos.html"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Fichas — Precipitação, secas e eventos hidrológicos</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-fichas-precipitacao-secas-eventos-hidrologicos" class="quarto-section-identifier"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Fichas — Precipitação, secas e eventos hidrológicos</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Este capítulo reúne as fichas de precipitação, secas e eventos hidrológicos. A interpretação do tema, a comparação entre medidas e suas aplicações estão no <a href="../../chapters/part-2/08-precipitacao-secas-eventos-hidrologicos.html">capítulo de contexto</a>: <a href="../part-2/08-precipitacao-secas-eventos-hidrologicos.html" class="quarto-xref"><span>Capítulo 8</span></a>.</p>
+<section id="sec-cli-prc-01" class="level2 ficha-title" data-number="17.1">
+<h2 class="ficha-title anchored" data-number="17.1" data-anchor-id="sec-cli-prc-01"><span class="header-section-number">17.1</span> Ficha do indicador: Maior precipitação em um dia (Rx1day)</h2>
+<div class="indicator-card">
+<p><span class="field-label">Código:</span> CLI-PRC-01<br>
+<span class="field-label">Título resumido:</span> Máxima em um dia — Rx1day<br>
+<span class="field-label">Tema:</span> Precipitação, secas e eventos hidrológicos<br>
+<span class="field-label">Dimensão:</span> perigo; exposição<br>
+<span class="field-label">Disponibilidade:</span> <span class="availability">Calculável com dados abertos</span></p>
+</div>
+<p>Contexto e interpretação: <a href="../../chapters/part-2/08-precipitacao-secas-eventos-hidrologicos.html#sec-precipitacao">Precipitação, secas e eventos hidrológicos</a>.</p>
+<section id="identificação-e-fundamento" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="identificação-e-fundamento">Identificação e fundamento</h3>
+<p><span class="field-label">Base de consolidação.</span> Índice Rx1day do conjunto ETCCDI, documentado pelo Climdex.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Conceito-chave">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Conceito-chave
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Maior total de precipitação acumulada em um dia dentro do mês, estação ou ano.</p>
+</div>
+</div>
+</section>
+<section id="objetivo" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="objetivo">Objetivo</h3>
+<p>Representar o maior acumulado diário do período de maneira comparável.</p>
+</section>
+<section id="interpretação" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="interpretação">Interpretação</h3>
+<p>Valor maior indica um pico diário mais elevado, mas não determina sozinho inundação, enxurrada ou deslizamento.</p>
+</section>
+<section id="usos" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="usos">Usos</h3>
+<ul>
+<li>Monitorar extremos de chuva.</li>
+<li>Relacionar picos de precipitação a agravos e interrupções.</li>
+<li>Contextualizar episódios hidrológicos.</li>
+</ul>
+</section>
+<section id="limitações" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="limitações">Limitações</h3>
+<ul>
+<li>Ignora os demais dias do período.</li>
+<li>Pode diluir extremos subdiários.</li>
+<li>Depende do horário de fechamento do dia.</li>
+<li>A resposta hidrológica depende de solo</li>
+<li>Bacia</li>
+<li>Drenagem e chuva antecedente.</li>
+</ul>
+</section>
+<section id="fontes-de-dados" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="fontes-de-dados">Fontes de dados</h3>
+<ul>
+<li>ERA5-Land — ERA5-Land hourly, total_precipitation; acumulado de 24 h às 00 UTC do dia seguinte (<a href="../../backmatter/indice-fontes.html#era5-land">cadastro</a>)</li>
+<li>CHIRPS v3 — daily RNL final — CHIRPS v3 daily RNL final, série alternativa em grade (<a href="../../backmatter/indice-fontes.html#chirps-v3">cadastro</a>)</li>
+<li>Instituto Nacional de Meteorologia — Pluviômetros para validação e séries observadas separadas (<a href="../../backmatter/indice-fontes.html#inmet">cadastro</a>)</li>
+</ul>
+</section>
+<section id="método-de-cálculo" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="método-de-cálculo">Método de cálculo</h3>
+<p>Obter PR diário pelo protocolo de acumulação. Selecionar o maior PR entre 1º de janeiro e 31 de dezembro por célula; depois aplicar média por área municipal. Publicar data do máximo na célula e fração de dias válidos.</p>
+<p><span class="math display">\[
+Rx1day_p=\max_{d\in p}(PR_d)
+\]</span></p>
+<div class="indicator-card">
+<p><span class="field-label">Numerador.</span> Não se aplica.</p>
+<p><span class="field-label">Denominador.</span> Não se aplica.</p>
+<p><span class="field-label">Unidade de medida.</span> Milímetros (mm).</p>
+<p><span class="field-label">Variáveis e categorias de análise.</span> Precipitação diária; dia do calendário; mês; estação; ano; estação ou célula de grade.</p>
+<p><span class="field-label">Granularidade.</span> Calcular o índice anual em cada célula e depois a média ponderada pela área de interseção municipal; SPI é a exceção descrita em sua ficha.</p>
+<p><span class="field-label">Periodicidade de atualização.</span> Anual para os índices; mensal para SPI-3.</p>
+<p><span class="field-label">Responsabilidade gerencial.</span> Serviço meteorológico ou hidrológico responsável pelo dado e órgão de saúde que qualifique o uso sanitário.</p>
+<p><span class="field-label">Notas.</span> A média municipal de extremos e durações não é o extremo ou a duração da chuva média municipal. A ficha SPI-3 especifica a ordem inversa. Não interpretar qualquer destes índices como ocorrência comprovada de inundação.</p>
+<p><span class="field-label">Análise descritiva do indicador.</span> Apresentar valor, data, completude, localização e comparação com distribuição histórica e condições antecedentes.</p>
+</div>
+</section>
+<section id="campos-complementares-para-clima-ambiente-e-saúde" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="campos-complementares-para-clima-ambiente-e-saúde">Campos complementares para clima, ambiente e saúde</h3>
+<div class="indicator-card">
+<p><span class="field-label">Unidade territorial.</span> Célula; síntese municipal pela malha IBGE 2022.</p>
+<p><span class="field-label">Resolução espacial original.</span> ERA5-Land 0,1°; CHIRPS v3 0,05°. Não misturar produtos em uma mesma série.</p>
+<p><span class="field-label">Resolução temporal.</span> Precipitação diária em UTC; saída anual por ano civil.</p>
+<p><span class="field-label">Período de referência.</span> Sem período-base para esta medida; exceções percentílicas são explicitadas na ficha.</p>
+<p><span class="field-label">Limiar ou valor de referência.</span> Não se aplica; é um máximo.</p>
+</div>
+</section>
+<section id="disponibilidade-e-acesso" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="disponibilidade-e-acesso">Disponibilidade e acesso</h3>
+<p><span class="field-label">Protocolo verificado em.</span> 2026-10-03</p>
+<p><span class="field-label">Dependência de dados locais.</span> Opcional para validação</p>
+<p><span class="field-label">Automação.</span> Condicionada</p>
+<p><span class="field-label">Requisitos para o cálculo.</span> Credencial gratuita CDS e aceite da licença; alternativa CHIRPS por HTTP sem cadastro. Séries observadas exigem registros diários locais completos.</p>
+<p><span class="field-label">Nível de evidência.</span> Documentação verificada</p>
+<p><span class="field-label">Alcance da verificação.</span> Produto e método documentados; série municipal completa ainda não produzida.</p>
+<p><span class="field-label">Cobertura geográfica.</span> Municípios brasileiros no domínio das grades; estações têm cobertura restrita à rede e não representam automaticamente toda a área municipal.</p>
+<p><span class="field-label">Período disponível.</span> ERA5-Land: 1950–presente; CHIRPS v3: 1981–presente. Publicar anos completos até 2025 e identificar 2026 como parcial.</p>
+<p><span class="field-label">Periodicidade de atualização.</span> Anual para os índices; mensal para SPI-3.</p>
+<p><span class="field-label">Forma de acesso.</span> API CDS, reanalysis-era5-land, variable=total_precipitation, product_type=reanalysis, time=00:00. Para o dia d usar o acumulado do registro às 00 UTC de d+1, correspondente às 24 horas anteriores, e multiplicar metros por 1000. Não somar os acumulados horários sem desacumulação. CHIRPS: download HTTP dos rasters daily RNL final v3.</p>
+<p><span class="field-label">URL ou identificador persistente.</span> https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land</p>
+<p><span class="field-label">Formato dos arquivos.</span> NetCDF/GRIB ERA5-Land; GeoTIFF ou NetCDF CHIRPS; CSV/Parquet municipal.</p>
+<p><span class="field-label">Necessidade de processamento.</span> Reconstruir precipitação diária com a convenção de acumulação do produto; controlar falhas; calcular a estatística por célula e ponderar por área municipal, salvo SPI.</p>
+</section>
+<section id="qualidade-comparação-e-saúde" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="qualidade-comparação-e-saúde">Qualidade, comparação e saúde</h3>
+<p><span class="field-label">Qualidade e incerteza.</span> Precipitação negativa ou sem registro é ausente, nunca dia seco. Ano com mais de 15 dias ausentes, ou mais de três em qualquer mês, é inválido; estes critérios não eliminam o viés de lacunas restantes. Publicar fração observada e marcar índices de sequência como limite inferior se houver lacuna. Exigir ≥90% da área municipal válida. Regras de cobertura são escolhas editoriais.</p>
+<p><span class="field-label">Possibilidade de comparação.</span> Preservar produto, versão, fechamento UTC, limiar de 1 mm e malha IBGE 2022. CHIRPS v3 RNL usa desagregação diária apoiada em ERA5 e não constitui validação inteiramente independente. Séries v2/v3 e pluviômetros permanecem separadas.</p>
+<p><span class="field-label">Relação com desfechos de saúde.</span> Extremos e persistência de chuva ou ausência de chuva ajudam a caracterizar perigos relacionados a água, saneamento, vetores, segurança alimentar e acesso a serviços; não equivalem ao efeito sanitário.</p>
+<p><span class="field-label">Defasagens temporais relevantes.</span> Preservar série diária e datas para testar janelas compatíveis com o mecanismo e o desfecho.</p>
+<p><span class="field-label">Aplicação na gestão.</span> Caracterizar sazonalidade e extremos, apoiar vigilância de agravos sensíveis ao clima e contextualizar alertas hidrometeorológicos.</p>
+</section>
+<section id="referências-metodológicas" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="referências-metodológicas">Referências metodológicas</h3>
+<ul>
+<li><span class="citation" data-cites="climdex2024">(<a href="../../backmatter/referencias.html#ref-climdex2024" role="doc-biblioref">Climdex, <em>[S.d.]</em></a>)</span></li>
+<li><span class="citation" data-cites="levy2016waterborne">(<a href="../../backmatter/referencias.html#ref-levy2016waterborne" role="doc-biblioref">Levy et al., 2016</a>)</span></li>
+</ul>
+</section>
+</section>
+<section id="sec-cli-prc-02" class="level2 ficha-title" data-number="17.2">
+<h2 class="ficha-title anchored" data-number="17.2" data-anchor-id="sec-cli-prc-02"><span class="header-section-number">17.2</span> Ficha do indicador: Maior precipitação acumulada em cinco dias consecutivos (Rx5day)</h2>
+<div class="indicator-card">
+<p><span class="field-label">Código:</span> CLI-PRC-02<br>
+<span class="field-label">Título resumido:</span> Máxima em cinco dias — Rx5day<br>
+<span class="field-label">Tema:</span> Precipitação, secas e eventos hidrológicos<br>
+<span class="field-label">Dimensão:</span> perigo; exposição<br>
+<span class="field-label">Disponibilidade:</span> <span class="availability">Calculável com dados abertos</span></p>
+</div>
+<p>Contexto e interpretação: <a href="../../chapters/part-2/08-precipitacao-secas-eventos-hidrologicos.html#sec-precipitacao">Precipitação, secas e eventos hidrológicos</a>.</p>
+<section id="identificação-e-fundamento-1" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="identificação-e-fundamento-1">Identificação e fundamento</h3>
+<p><span class="field-label">Base de consolidação.</span> Índice Rx5day do conjunto ETCCDI, documentado pelo Climdex.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Conceito-chave">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Conceito-chave
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Maior soma de precipitação em qualquer janela móvel de cinco dias consecutivos do período.</p>
+</div>
+</div>
+</section>
+<section id="objetivo-1" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="objetivo-1">Objetivo</h3>
+<p>Representar acumulação persistente de chuva em janela curta.</p>
+</section>
+<section id="interpretação-1" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="interpretação-1">Interpretação</h3>
+<p>Valor maior indica maior acumulação máxima em cinco dias. Não revela a distribuição interna da chuva nem a saturação real do solo.</p>
+</section>
+<section id="usos-1" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="usos-1">Usos</h3>
+<ul>
+<li>Monitorar extremos persistentes.</li>
+<li>Contextualizar inundações e movimentos de massa.</li>
+<li>Avaliar exposição em estudos de saúde.</li>
+</ul>
+</section>
+<section id="limitações-1" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="limitações-1">Limitações</h3>
+<ul>
+<li>Janela fixa pode não coincidir com o tempo de resposta da bacia.</li>
+<li>Falhas dentro da janela afetam o máximo.</li>
+<li>Não substitui umidade do solo</li>
+<li>Vazão ou nível do rio.</li>
+</ul>
+</section>
+<section id="fontes-de-dados-1" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="fontes-de-dados-1">Fontes de dados</h3>
+<ul>
+<li>ERA5-Land — ERA5-Land hourly, total_precipitation; acumulado de 24 h às 00 UTC do dia seguinte (<a href="../../backmatter/indice-fontes.html#era5-land">cadastro</a>)</li>
+<li>CHIRPS v3 — daily RNL final — CHIRPS v3 daily RNL final, série alternativa em grade (<a href="../../backmatter/indice-fontes.html#chirps-v3">cadastro</a>)</li>
+<li>Instituto Nacional de Meteorologia — Pluviômetros para validação e séries observadas separadas (<a href="../../backmatter/indice-fontes.html#inmet">cadastro</a>)</li>
+</ul>
+</section>
+<section id="método-de-cálculo-1" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="método-de-cálculo-1">Método de cálculo</h3>
+<p>Para cada dia d do ano, somar PR de d−4 a d, exigindo cinco dias válidos. Carregar os quatro últimos dias do ano anterior. Atribuir a janela ao dia final d e selecionar a maior soma entre janelas cujo término pertence ao ano; agregar os máximos das células por área municipal.</p>
+<p><span class="math display">\[
+Rx5day_p=\max_{d\in p}\left(\sum_{k=0}^{4}PR_{d-k}\right)
+\]</span></p>
+<div class="indicator-card">
+<p><span class="field-label">Numerador.</span> Não se aplica.</p>
+<p><span class="field-label">Denominador.</span> Não se aplica.</p>
+<p><span class="field-label">Unidade de medida.</span> Milímetros (mm).</p>
+<p><span class="field-label">Variáveis e categorias de análise.</span> Precipitação diária; dia do calendário; mês; estação; ano; estação ou célula de grade.</p>
+<p><span class="field-label">Granularidade.</span> Calcular o índice anual em cada célula e depois a média ponderada pela área de interseção municipal; SPI é a exceção descrita em sua ficha.</p>
+<p><span class="field-label">Periodicidade de atualização.</span> Anual para os índices; mensal para SPI-3.</p>
+<p><span class="field-label">Responsabilidade gerencial.</span> Serviço meteorológico ou hidrológico responsável pelo dado e órgão de saúde que qualifique o uso sanitário.</p>
+<p><span class="field-label">Notas.</span> A média municipal de extremos e durações não é o extremo ou a duração da chuva média municipal. A ficha SPI-3 especifica a ordem inversa. Não interpretar qualquer destes índices como ocorrência comprovada de inundação.</p>
+<p><span class="field-label">Análise descritiva do indicador.</span> Mostrar Rx5day, datas inicial e final, contribuição de cada dia e condições antecedentes.</p>
+</div>
+</section>
+<section id="campos-complementares-para-clima-ambiente-e-saúde-1" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="campos-complementares-para-clima-ambiente-e-saúde-1">Campos complementares para clima, ambiente e saúde</h3>
+<div class="indicator-card">
+<p><span class="field-label">Unidade territorial.</span> Célula; síntese municipal pela malha IBGE 2022.</p>
+<p><span class="field-label">Resolução espacial original.</span> ERA5-Land 0,1°; CHIRPS v3 0,05°. Não misturar produtos em uma mesma série.</p>
+<p><span class="field-label">Resolução temporal.</span> Precipitação diária em UTC; saída anual por ano civil.</p>
+<p><span class="field-label">Período de referência.</span> Sem período-base para esta medida; exceções percentílicas são explicitadas na ficha.</p>
+<p><span class="field-label">Limiar ou valor de referência.</span> Não se aplica; é um máximo móvel.</p>
+</div>
+</section>
+<section id="disponibilidade-e-acesso-1" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="disponibilidade-e-acesso-1">Disponibilidade e acesso</h3>
+<p><span class="field-label">Protocolo verificado em.</span> 2026-10-03</p>
+<p><span class="field-label">Dependência de dados locais.</span> Opcional para validação</p>
+<p><span class="field-label">Automação.</span> Condicionada</p>
+<p><span class="field-label">Requisitos para o cálculo.</span> Credencial gratuita CDS e aceite da licença; alternativa CHIRPS por HTTP sem cadastro. Séries observadas exigem registros diários locais completos.</p>
+<p><span class="field-label">Nível de evidência.</span> Documentação verificada</p>
+<p><span class="field-label">Alcance da verificação.</span> Produto e método documentados; série municipal completa ainda não produzida.</p>
+<p><span class="field-label">Cobertura geográfica.</span> Municípios brasileiros no domínio das grades; estações têm cobertura restrita à rede e não representam automaticamente toda a área municipal.</p>
+<p><span class="field-label">Período disponível.</span> ERA5-Land: 1950–presente; CHIRPS v3: 1981–presente. Publicar anos completos até 2025 e identificar 2026 como parcial.</p>
+<p><span class="field-label">Periodicidade de atualização.</span> Anual para os índices; mensal para SPI-3.</p>
+<p><span class="field-label">Forma de acesso.</span> API CDS, reanalysis-era5-land, variable=total_precipitation, product_type=reanalysis, time=00:00. Para o dia d usar o acumulado do registro às 00 UTC de d+1, correspondente às 24 horas anteriores, e multiplicar metros por 1000. Não somar os acumulados horários sem desacumulação. CHIRPS: download HTTP dos rasters daily RNL final v3.</p>
+<p><span class="field-label">URL ou identificador persistente.</span> https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land</p>
+<p><span class="field-label">Formato dos arquivos.</span> NetCDF/GRIB ERA5-Land; GeoTIFF ou NetCDF CHIRPS; CSV/Parquet municipal.</p>
+<p><span class="field-label">Necessidade de processamento.</span> Reconstruir precipitação diária com a convenção de acumulação do produto; controlar falhas; calcular a estatística por célula e ponderar por área municipal, salvo SPI.</p>
+</section>
+<section id="qualidade-comparação-e-saúde-1" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="qualidade-comparação-e-saúde-1">Qualidade, comparação e saúde</h3>
+<p><span class="field-label">Qualidade e incerteza.</span> Precipitação negativa ou sem registro é ausente, nunca dia seco. Ano com mais de 15 dias ausentes, ou mais de três em qualquer mês, é inválido; estes critérios não eliminam o viés de lacunas restantes. Publicar fração observada e marcar índices de sequência como limite inferior se houver lacuna. Exigir ≥90% da área municipal válida. Regras de cobertura são escolhas editoriais.</p>
+<p><span class="field-label">Possibilidade de comparação.</span> Preservar produto, versão, fechamento UTC, limiar de 1 mm e malha IBGE 2022. CHIRPS v3 RNL usa desagregação diária apoiada em ERA5 e não constitui validação inteiramente independente. Séries v2/v3 e pluviômetros permanecem separadas.</p>
+<p><span class="field-label">Relação com desfechos de saúde.</span> Extremos e persistência de chuva ou ausência de chuva ajudam a caracterizar perigos relacionados a água, saneamento, vetores, segurança alimentar e acesso a serviços; não equivalem ao efeito sanitário.</p>
+<p><span class="field-label">Defasagens temporais relevantes.</span> Preservar série diária e datas para testar janelas compatíveis com o mecanismo e o desfecho.</p>
+<p><span class="field-label">Aplicação na gestão.</span> Caracterizar sazonalidade e extremos, apoiar vigilância de agravos sensíveis ao clima e contextualizar alertas hidrometeorológicos.</p>
+</section>
+<section id="referências-metodológicas-1" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="referências-metodológicas-1">Referências metodológicas</h3>
+<ul>
+<li><span class="citation" data-cites="climdex2024">(<a href="../../backmatter/referencias.html#ref-climdex2024" role="doc-biblioref">Climdex, <em>[S.d.]</em></a>)</span></li>
+<li><span class="citation" data-cites="who2014floods">(<a href="../../backmatter/referencias.html#ref-who2014floods" role="doc-biblioref">World Health Organization Regional Office for Europe, 2014</a>)</span></li>
+</ul>
+</section>
+</section>
+<section id="sec-cli-prc-03" class="level2 ficha-title" data-number="17.3">
+<h2 class="ficha-title anchored" data-number="17.3" data-anchor-id="sec-cli-prc-03"><span class="header-section-number">17.3</span> Ficha do indicador: Precipitação total em dias muito úmidos (R95p)</h2>
+<div class="indicator-card">
+<p><span class="field-label">Código:</span> CLI-PRC-03<br>
+<span class="field-label">Título resumido:</span> Chuva em dias muito úmidos — R95p<br>
+<span class="field-label">Tema:</span> Precipitação, secas e eventos hidrológicos<br>
+<span class="field-label">Dimensão:</span> perigo; exposição<br>
+<span class="field-label">Disponibilidade:</span> <span class="availability">Calculável com dados abertos</span></p>
+</div>
+<p>Contexto e interpretação: <a href="../../chapters/part-2/08-precipitacao-secas-eventos-hidrologicos.html#sec-precipitacao">Precipitação, secas e eventos hidrológicos</a>.</p>
+<section id="identificação-e-fundamento-2" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="identificação-e-fundamento-2">Identificação e fundamento</h3>
+<p><span class="field-label">Base de consolidação.</span> ETCCDI/Climdex e nomenclatura Climpact: R95p é uma soma em mm; R95pTOT é a contribuição percentual em relação a PRCPTOT.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Conceito-chave">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Conceito-chave
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Soma da precipitação nos dias úmidos do período em que o total diário excede o percentil 95 dos dias úmidos do período-base.</p>
+</div>
+</div>
+</section>
+<section id="objetivo-2" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="objetivo-2">Objetivo</h3>
+<p>Quantificar o volume de chuva concentrado nos dias climatologicamente muito úmidos.</p>
+</section>
+<section id="interpretação-2" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="interpretação-2">Interpretação</h3>
+<p>Valor maior pode resultar de mais dias acima do percentil, de dias mais intensos ou de ambos; deve ser acompanhado por frequência e contribuição percentual.</p>
+</section>
+<section id="usos-2" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="usos-2">Usos</h3>
+<ul>
+<li>Monitorar concentração da chuva em extremos.</li>
+<li>Avaliar mudanças no regime de precipitação.</li>
+<li>Caracterizar exposições relacionadas a chuva intensa.</li>
+</ul>
+</section>
+<section id="limitações-2" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="limitações-2">Limitações</h3>
+<ul>
+<li>Depende do período-base e do limiar de dia úmido.</li>
+<li>Soma não separa frequência e intensidade.</li>
+<li>Comparação exige implementação percentílica harmonizada.</li>
+</ul>
+</section>
+<section id="fontes-de-dados-2" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="fontes-de-dados-2">Fontes de dados</h3>
+<ul>
+<li>ERA5-Land — ERA5-Land hourly, total_precipitation; acumulado de 24 h às 00 UTC do dia seguinte (<a href="../../backmatter/indice-fontes.html#era5-land">cadastro</a>)</li>
+<li>CHIRPS v3 — daily RNL final — CHIRPS v3 daily RNL final, série alternativa em grade (<a href="../../backmatter/indice-fontes.html#chirps-v3">cadastro</a>)</li>
+<li>Instituto Nacional de Meteorologia — Pluviômetros para validação e séries observadas separadas (<a href="../../backmatter/indice-fontes.html#inmet">cadastro</a>)</li>
+</ul>
+</section>
+<section id="método-de-cálculo-2" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="método-de-cálculo-2">Método de cálculo</h3>
+<p>Selecionar todos os dias com PR≥1 mm na base 1961–1990. Estimar seu P95 pelo quantil tipo 8, sem janela calendário. Somar, no ano, toda a precipitação dos dias com PR estritamente maior que esse limiar. Para a série alternativa CHIRPS v3, usar 1981–2010 e identificá-la como outra série. Calcular por célula antes da média municipal.</p>
+<p><span class="math display">\[
+R95p_y=\sum_{d\in y}PR_d I(PR_d&gt;P95_{wet})
+\]</span></p>
+<div class="indicator-card">
+<p><span class="field-label">Numerador.</span> Não se aplica; soma de precipitação qualificada.</p>
+<p><span class="field-label">Denominador.</span> Não se aplica.</p>
+<p><span class="field-label">Unidade de medida.</span> Milímetros (mm) por período.</p>
+<p><span class="field-label">Variáveis e categorias de análise.</span> Precipitação diária; dia do calendário; mês; estação; ano; estação ou célula de grade.</p>
+<p><span class="field-label">Granularidade.</span> Calcular o índice anual em cada célula e depois a média ponderada pela área de interseção municipal; SPI é a exceção descrita em sua ficha.</p>
+<p><span class="field-label">Periodicidade de atualização.</span> Anual para os índices; mensal para SPI-3.</p>
+<p><span class="field-label">Responsabilidade gerencial.</span> Serviço meteorológico ou hidrológico responsável pelo dado e órgão de saúde que qualifique o uso sanitário.</p>
+<p><span class="field-label">Notas.</span> Esta ficha calcula R95p em mm. A medida adicional R95pTOT=100×R95p/PRCPTOT tem unidade %, usa CLI-PRC-06 como denominador e é ausente quando PRCPTOT=0; não trocar o nome mantendo a unidade.</p>
+<p><span class="field-label">Análise descritiva do indicador.</span> Publicar R95p em mm e, se calculada, sua contribuição percentual R95pTOT em coluna distinta, com a base explícita.</p>
+</div>
+</section>
+<section id="campos-complementares-para-clima-ambiente-e-saúde-2" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="campos-complementares-para-clima-ambiente-e-saúde-2">Campos complementares para clima, ambiente e saúde</h3>
+<div class="indicator-card">
+<p><span class="field-label">Unidade territorial.</span> Célula; síntese municipal pela malha IBGE 2022.</p>
+<p><span class="field-label">Resolução espacial original.</span> ERA5-Land 0,1°; CHIRPS v3 0,05°. Não misturar produtos em uma mesma série.</p>
+<p><span class="field-label">Resolução temporal.</span> Precipitação diária em UTC; saída anual por ano civil.</p>
+<p><span class="field-label">Período de referência.</span> ERA5-Land: 1961–1990; alternativa CHIRPS v3: 1981–2010, explicitamente distinta.</p>
+<p><span class="field-label">Limiar ou valor de referência.</span> Percentil 95 da precipitação em dias úmidos, definidos por PR ≥ 1 mm.</p>
+</div>
+</section>
+<section id="disponibilidade-e-acesso-2" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="disponibilidade-e-acesso-2">Disponibilidade e acesso</h3>
+<p><span class="field-label">Protocolo verificado em.</span> 2026-10-03</p>
+<p><span class="field-label">Dependência de dados locais.</span> Opcional para validação</p>
+<p><span class="field-label">Automação.</span> Condicionada</p>
+<p><span class="field-label">Requisitos para o cálculo.</span> Credencial gratuita CDS e aceite da licença; alternativa CHIRPS por HTTP sem cadastro. Séries observadas exigem registros diários locais completos.</p>
+<p><span class="field-label">Nível de evidência.</span> Documentação verificada</p>
+<p><span class="field-label">Alcance da verificação.</span> Produto e método documentados; série municipal completa ainda não produzida.</p>
+<p><span class="field-label">Cobertura geográfica.</span> Municípios brasileiros no domínio das grades; estações têm cobertura restrita à rede e não representam automaticamente toda a área municipal.</p>
+<p><span class="field-label">Período disponível.</span> ERA5-Land: 1950–presente; CHIRPS v3: 1981–presente. Publicar anos completos até 2025 e identificar 2026 como parcial.</p>
+<p><span class="field-label">Periodicidade de atualização.</span> Anual para os índices; mensal para SPI-3.</p>
+<p><span class="field-label">Forma de acesso.</span> API CDS, reanalysis-era5-land, variable=total_precipitation, product_type=reanalysis, time=00:00. Para o dia d usar o acumulado do registro às 00 UTC de d+1, correspondente às 24 horas anteriores, e multiplicar metros por 1000. Não somar os acumulados horários sem desacumulação. CHIRPS: download HTTP dos rasters daily RNL final v3.</p>
+<p><span class="field-label">URL ou identificador persistente.</span> https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land</p>
+<p><span class="field-label">Formato dos arquivos.</span> NetCDF/GRIB ERA5-Land; GeoTIFF ou NetCDF CHIRPS; CSV/Parquet municipal.</p>
+<p><span class="field-label">Necessidade de processamento.</span> Reconstruir precipitação diária com a convenção de acumulação do produto; controlar falhas; calcular a estatística por célula e ponderar por área municipal, salvo SPI.</p>
+</section>
+<section id="qualidade-comparação-e-saúde-2" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="qualidade-comparação-e-saúde-2">Qualidade, comparação e saúde</h3>
+<p><span class="field-label">Qualidade e incerteza.</span> Precipitação negativa ou sem registro é ausente, nunca dia seco. Ano com mais de 15 dias ausentes, ou mais de três em qualquer mês, é inválido; estes critérios não eliminam o viés de lacunas restantes. Publicar fração observada e marcar índices de sequência como limite inferior se houver lacuna. Exigir ≥90% da área municipal válida. Regras de cobertura são escolhas editoriais.</p>
+<p><span class="field-label">Possibilidade de comparação.</span> Preservar produto, versão, fechamento UTC, limiar de 1 mm e malha IBGE 2022. CHIRPS v3 RNL usa desagregação diária apoiada em ERA5 e não constitui validação inteiramente independente. Séries v2/v3 e pluviômetros permanecem separadas.</p>
+<p><span class="field-label">Relação com desfechos de saúde.</span> Extremos e persistência de chuva ou ausência de chuva ajudam a caracterizar perigos relacionados a água, saneamento, vetores, segurança alimentar e acesso a serviços; não equivalem ao efeito sanitário.</p>
+<p><span class="field-label">Defasagens temporais relevantes.</span> Preservar série diária e datas para testar janelas compatíveis com o mecanismo e o desfecho.</p>
+<p><span class="field-label">Aplicação na gestão.</span> Caracterizar sazonalidade e extremos, apoiar vigilância de agravos sensíveis ao clima e contextualizar alertas hidrometeorológicos.</p>
+</section>
+<section id="referências-metodológicas-2" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="referências-metodológicas-2">Referências metodológicas</h3>
+<ul>
+<li><span class="citation" data-cites="climdex2024">(<a href="../../backmatter/referencias.html#ref-climdex2024" role="doc-biblioref">Climdex, <em>[S.d.]</em></a>)</span></li>
+<li><span class="citation" data-cites="climpact2026">(<a href="../../backmatter/referencias.html#ref-climpact2026" role="doc-biblioref">Climpact, 2026</a>)</span></li>
+</ul>
+</section>
+</section>
+<section id="sec-cli-prc-04" class="level2 ficha-title" data-number="17.4">
+<h2 class="ficha-title anchored" data-number="17.4" data-anchor-id="sec-cli-prc-04"><span class="header-section-number">17.4</span> Ficha do indicador: Maior número de dias consecutivos secos (CDD)</h2>
+<div class="indicator-card">
+<p><span class="field-label">Código:</span> CLI-PRC-04<br>
+<span class="field-label">Título resumido:</span> Dias consecutivos secos — CDD<br>
+<span class="field-label">Tema:</span> Precipitação, secas e eventos hidrológicos<br>
+<span class="field-label">Dimensão:</span> perigo; exposição<br>
+<span class="field-label">Disponibilidade:</span> <span class="availability">Calculável com dados abertos</span></p>
+</div>
+<p>Contexto e interpretação: <a href="../../chapters/part-2/08-precipitacao-secas-eventos-hidrologicos.html#sec-precipitacao">Precipitação, secas e eventos hidrológicos</a>.</p>
+<section id="identificação-e-fundamento-3" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="identificação-e-fundamento-3">Identificação e fundamento</h3>
+<p><span class="field-label">Base de consolidação.</span> Índice Consecutive Dry Days do conjunto ETCCDI, documentado pelo Climdex.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Conceito-chave">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Conceito-chave
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Maior sequência de dias consecutivos com precipitação diária inferior a 1 mm no período.</p>
+</div>
+</div>
+</section>
+<section id="objetivo-3" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="objetivo-3">Objetivo</h3>
+<p>Medir a duração máxima de um período sem dia úmido segundo o limiar ETCCDI.</p>
+</section>
+<section id="interpretação-3" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="interpretação-3">Interpretação</h3>
+<p>Valor maior indica intervalo seco contínuo mais longo, não necessariamente seca agrícola, hidrológica ou socioeconômica.</p>
+</section>
+<section id="usos-3" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="usos-3">Usos</h3>
+<ul>
+<li>Caracterizar persistência da ausência de chuva.</li>
+<li>Monitorar mudança em extremos secos.</li>
+<li>Contextualizar disponibilidade de água</li>
+<li>Poeira</li>
+<li>Fogo e vetores.</li>
+</ul>
+</section>
+<section id="limitações-3" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="limitações-3">Limitações</h3>
+<ul>
+<li>Limiar de 1 mm é climatológico</li>
+<li>Não uma necessidade hídrica.</li>
+<li>Falhas quebram sequências.</li>
+<li>Uma sequência pode cruzar anos.</li>
+<li>Não incorpora evapotranspiração</li>
+<li>Armazenamento ou demanda.</li>
+</ul>
+</section>
+<section id="fontes-de-dados-3" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="fontes-de-dados-3">Fontes de dados</h3>
+<ul>
+<li>ERA5-Land — ERA5-Land hourly, total_precipitation; acumulado de 24 h às 00 UTC do dia seguinte (<a href="../../backmatter/indice-fontes.html#era5-land">cadastro</a>)</li>
+<li>CHIRPS v3 — daily RNL final — CHIRPS v3 daily RNL final, série alternativa em grade (<a href="../../backmatter/indice-fontes.html#chirps-v3">cadastro</a>)</li>
+<li>Instituto Nacional de Meteorologia — Pluviômetros para validação e séries observadas separadas (<a href="../../backmatter/indice-fontes.html#inmet">cadastro</a>)</li>
+</ul>
+</section>
+<section id="método-de-cálculo-3" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="método-de-cálculo-3">Método de cálculo</h3>
+<p>Classificar cada dia válido por PR&lt;1 mm. Dentro de cada ano civil, identificar sequências consecutivas e selecionar a maior duração. Truncar explicitamente as sequências em 31/12: esta é a variante anual adotada neste livro, diferente de implementações que permitem a passagem entre anos. Sem dia qualificado, zero. Lacuna interrompe a sequência e exige flag de limite inferior; aplicar o filtro de completude antes da publicação. Agregar as durações das células por área.</p>
+<p><span class="math display">\[
+CDD_p=\max_{e\subset p}\{|e|:\ PR_d&lt;1\ mm\ \forall d\in e\}
+\]</span></p>
+<div class="indicator-card">
+<p><span class="field-label">Numerador.</span> Não se aplica.</p>
+<p><span class="field-label">Denominador.</span> Não se aplica.</p>
+<p><span class="field-label">Unidade de medida.</span> Dias.</p>
+<p><span class="field-label">Variáveis e categorias de análise.</span> Precipitação diária; dia do calendário; mês; estação; ano; estação ou célula de grade.</p>
+<p><span class="field-label">Granularidade.</span> Calcular o índice anual em cada célula e depois a média ponderada pela área de interseção municipal; SPI é a exceção descrita em sua ficha.</p>
+<p><span class="field-label">Periodicidade de atualização.</span> Anual para os índices; mensal para SPI-3.</p>
+<p><span class="field-label">Responsabilidade gerencial.</span> Serviço meteorológico ou hidrológico responsável pelo dado e órgão de saúde que qualifique o uso sanitário.</p>
+<p><span class="field-label">Notas.</span> Usar o identificador de variante anual truncada junto ao nome CDD/CWD. Não combinar esta série com durações de episódios completos que atravessam anos.</p>
+<p><span class="field-label">Análise descritiva do indicador.</span> Mostrar CDD, datas, recorrência, tendência e relação com SPI e indicadores setoriais sem tratá-los como equivalentes.</p>
+</div>
+</section>
+<section id="campos-complementares-para-clima-ambiente-e-saúde-3" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="campos-complementares-para-clima-ambiente-e-saúde-3">Campos complementares para clima, ambiente e saúde</h3>
+<div class="indicator-card">
+<p><span class="field-label">Unidade territorial.</span> Célula; síntese municipal pela malha IBGE 2022.</p>
+<p><span class="field-label">Resolução espacial original.</span> ERA5-Land 0,1°; CHIRPS v3 0,05°. Não misturar produtos em uma mesma série.</p>
+<p><span class="field-label">Resolução temporal.</span> Precipitação diária em UTC; saída anual por ano civil.</p>
+<p><span class="field-label">Período de referência.</span> Sem período-base para esta medida; exceções percentílicas são explicitadas na ficha.</p>
+<p><span class="field-label">Limiar ou valor de referência.</span> PR &lt; 1 mm.</p>
+</div>
+</section>
+<section id="disponibilidade-e-acesso-3" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="disponibilidade-e-acesso-3">Disponibilidade e acesso</h3>
+<p><span class="field-label">Protocolo verificado em.</span> 2026-10-03</p>
+<p><span class="field-label">Dependência de dados locais.</span> Opcional para validação</p>
+<p><span class="field-label">Automação.</span> Condicionada</p>
+<p><span class="field-label">Requisitos para o cálculo.</span> Credencial gratuita CDS e aceite da licença; alternativa CHIRPS por HTTP sem cadastro. Séries observadas exigem registros diários locais completos.</p>
+<p><span class="field-label">Nível de evidência.</span> Documentação verificada</p>
+<p><span class="field-label">Alcance da verificação.</span> Produto e método documentados; série municipal completa ainda não produzida.</p>
+<p><span class="field-label">Cobertura geográfica.</span> Municípios brasileiros no domínio das grades; estações têm cobertura restrita à rede e não representam automaticamente toda a área municipal.</p>
+<p><span class="field-label">Período disponível.</span> ERA5-Land: 1950–presente; CHIRPS v3: 1981–presente. Publicar anos completos até 2025 e identificar 2026 como parcial.</p>
+<p><span class="field-label">Periodicidade de atualização.</span> Anual para os índices; mensal para SPI-3.</p>
+<p><span class="field-label">Forma de acesso.</span> API CDS, reanalysis-era5-land, variable=total_precipitation, product_type=reanalysis, time=00:00. Para o dia d usar o acumulado do registro às 00 UTC de d+1, correspondente às 24 horas anteriores, e multiplicar metros por 1000. Não somar os acumulados horários sem desacumulação. CHIRPS: download HTTP dos rasters daily RNL final v3.</p>
+<p><span class="field-label">URL ou identificador persistente.</span> https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land</p>
+<p><span class="field-label">Formato dos arquivos.</span> NetCDF/GRIB ERA5-Land; GeoTIFF ou NetCDF CHIRPS; CSV/Parquet municipal.</p>
+<p><span class="field-label">Necessidade de processamento.</span> Reconstruir precipitação diária com a convenção de acumulação do produto; controlar falhas; calcular a estatística por célula e ponderar por área municipal, salvo SPI.</p>
+</section>
+<section id="qualidade-comparação-e-saúde-3" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="qualidade-comparação-e-saúde-3">Qualidade, comparação e saúde</h3>
+<p><span class="field-label">Qualidade e incerteza.</span> Precipitação negativa ou sem registro é ausente, nunca dia seco. Ano com mais de 15 dias ausentes, ou mais de três em qualquer mês, é inválido; estes critérios não eliminam o viés de lacunas restantes. Publicar fração observada e marcar índices de sequência como limite inferior se houver lacuna. Exigir ≥90% da área municipal válida. Regras de cobertura são escolhas editoriais.</p>
+<p><span class="field-label">Possibilidade de comparação.</span> Preservar produto, versão, fechamento UTC, limiar de 1 mm e malha IBGE 2022. CHIRPS v3 RNL usa desagregação diária apoiada em ERA5 e não constitui validação inteiramente independente. Séries v2/v3 e pluviômetros permanecem separadas.</p>
+<p><span class="field-label">Relação com desfechos de saúde.</span> Extremos e persistência de chuva ou ausência de chuva ajudam a caracterizar perigos relacionados a água, saneamento, vetores, segurança alimentar e acesso a serviços; não equivalem ao efeito sanitário.</p>
+<p><span class="field-label">Defasagens temporais relevantes.</span> Preservar série diária e datas para testar janelas compatíveis com o mecanismo e o desfecho.</p>
+<p><span class="field-label">Aplicação na gestão.</span> Caracterizar sazonalidade e extremos, apoiar vigilância de agravos sensíveis ao clima e contextualizar alertas hidrometeorológicos.</p>
+</section>
+<section id="referências-metodológicas-3" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="referências-metodológicas-3">Referências metodológicas</h3>
+<ul>
+<li><span class="citation" data-cites="climdex2024">(<a href="../../backmatter/referencias.html#ref-climdex2024" role="doc-biblioref">Climdex, <em>[S.d.]</em></a>)</span></li>
+<li><span class="citation" data-cites="who2026drought">(<a href="../../backmatter/referencias.html#ref-who2026drought" role="doc-biblioref">World Health Organization, <em>[S.d.]</em></a>)</span></li>
+</ul>
+</section>
+</section>
+<section id="sec-cli-prc-05" class="level2 ficha-title" data-number="17.5">
+<h2 class="ficha-title anchored" data-number="17.5" data-anchor-id="sec-cli-prc-05"><span class="header-section-number">17.5</span> Ficha do indicador: Maior número de dias consecutivos úmidos (CWD)</h2>
+<div class="indicator-card">
+<p><span class="field-label">Código:</span> CLI-PRC-05<br>
+<span class="field-label">Título resumido:</span> Dias consecutivos úmidos — CWD<br>
+<span class="field-label">Tema:</span> Precipitação, secas e eventos hidrológicos<br>
+<span class="field-label">Dimensão:</span> perigo; exposição<br>
+<span class="field-label">Disponibilidade:</span> <span class="availability">Calculável com dados abertos</span></p>
+</div>
+<p>Contexto e interpretação: <a href="../../chapters/part-2/08-precipitacao-secas-eventos-hidrologicos.html#sec-precipitacao">Precipitação, secas e eventos hidrológicos</a>.</p>
+<section id="identificação-e-fundamento-4" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="identificação-e-fundamento-4">Identificação e fundamento</h3>
+<p><span class="field-label">Base de consolidação.</span> Índice Consecutive Wet Days do conjunto ETCCDI, documentado pelo Climdex.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Conceito-chave">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Conceito-chave
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Maior sequência de dias consecutivos com precipitação diária igual ou superior a 1 mm no período.</p>
+</div>
+</div>
+</section>
+<section id="objetivo-4" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="objetivo-4">Objetivo</h3>
+<p>Medir a maior persistência de dias com precipitação mensurável.</p>
+</section>
+<section id="interpretação-4" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="interpretação-4">Interpretação</h3>
+<p>Valor maior indica mais dias úmidos consecutivos, mas não implica chuva intensa nem inundação.</p>
+</section>
+<section id="usos-4" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="usos-4">Usos</h3>
+<ul>
+<li>Caracterizar persistência de chuva.</li>
+<li>Contextualizar condições favoráveis a umidade</li>
+<li>Vetores e interrupções.</li>
+<li>Complementar Rx1day e Rx5day.</li>
+</ul>
+</section>
+<section id="limitações-4" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="limitações-4">Limitações</h3>
+<ul>
+<li>Dias pouco chuvosos contam como úmidos.</li>
+<li>Não representa volume total.</li>
+<li>Falhas quebram sequências.</li>
+<li>Relevância sanitária depende do mecanismo e da defasagem.</li>
+</ul>
+</section>
+<section id="fontes-de-dados-4" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="fontes-de-dados-4">Fontes de dados</h3>
+<ul>
+<li>ERA5-Land — ERA5-Land hourly, total_precipitation; acumulado de 24 h às 00 UTC do dia seguinte (<a href="../../backmatter/indice-fontes.html#era5-land">cadastro</a>)</li>
+<li>CHIRPS v3 — daily RNL final — CHIRPS v3 daily RNL final, série alternativa em grade (<a href="../../backmatter/indice-fontes.html#chirps-v3">cadastro</a>)</li>
+<li>Instituto Nacional de Meteorologia — Pluviômetros para validação e séries observadas separadas (<a href="../../backmatter/indice-fontes.html#inmet">cadastro</a>)</li>
+</ul>
+</section>
+<section id="método-de-cálculo-4" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="método-de-cálculo-4">Método de cálculo</h3>
+<p>Classificar cada dia válido por PR≥1 mm. Dentro de cada ano civil, identificar sequências consecutivas e selecionar a maior duração. Truncar explicitamente as sequências em 31/12: esta é a variante anual adotada neste livro, diferente de implementações que permitem a passagem entre anos. Sem dia qualificado, zero. Lacuna interrompe a sequência e exige flag de limite inferior; aplicar o filtro de completude antes da publicação. Agregar as durações das células por área.</p>
+<p><span class="math display">\[
+CWD_p=\max_{e\subset p}\{|e|:\ PR_d\geq1\ mm\ \forall d\in e\}
+\]</span></p>
+<div class="indicator-card">
+<p><span class="field-label">Numerador.</span> Não se aplica.</p>
+<p><span class="field-label">Denominador.</span> Não se aplica.</p>
+<p><span class="field-label">Unidade de medida.</span> Dias.</p>
+<p><span class="field-label">Variáveis e categorias de análise.</span> Precipitação diária; dia do calendário; mês; estação; ano; estação ou célula de grade.</p>
+<p><span class="field-label">Granularidade.</span> Calcular o índice anual em cada célula e depois a média ponderada pela área de interseção municipal; SPI é a exceção descrita em sua ficha.</p>
+<p><span class="field-label">Periodicidade de atualização.</span> Anual para os índices; mensal para SPI-3.</p>
+<p><span class="field-label">Responsabilidade gerencial.</span> Serviço meteorológico ou hidrológico responsável pelo dado e órgão de saúde que qualifique o uso sanitário.</p>
+<p><span class="field-label">Notas.</span> Usar o identificador de variante anual truncada junto ao nome CDD/CWD. Não combinar esta série com durações de episódios completos que atravessam anos.</p>
+<p><span class="field-label">Análise descritiva do indicador.</span> Apresentar CWD com chuva total da sequência, Rx1day, datas e distribuição espacial.</p>
+</div>
+</section>
+<section id="campos-complementares-para-clima-ambiente-e-saúde-4" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="campos-complementares-para-clima-ambiente-e-saúde-4">Campos complementares para clima, ambiente e saúde</h3>
+<div class="indicator-card">
+<p><span class="field-label">Unidade territorial.</span> Célula; síntese municipal pela malha IBGE 2022.</p>
+<p><span class="field-label">Resolução espacial original.</span> ERA5-Land 0,1°; CHIRPS v3 0,05°. Não misturar produtos em uma mesma série.</p>
+<p><span class="field-label">Resolução temporal.</span> Precipitação diária em UTC; saída anual por ano civil.</p>
+<p><span class="field-label">Período de referência.</span> Sem período-base para esta medida; exceções percentílicas são explicitadas na ficha.</p>
+<p><span class="field-label">Limiar ou valor de referência.</span> PR ≥ 1 mm.</p>
+</div>
+</section>
+<section id="disponibilidade-e-acesso-4" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="disponibilidade-e-acesso-4">Disponibilidade e acesso</h3>
+<p><span class="field-label">Protocolo verificado em.</span> 2026-10-03</p>
+<p><span class="field-label">Dependência de dados locais.</span> Opcional para validação</p>
+<p><span class="field-label">Automação.</span> Condicionada</p>
+<p><span class="field-label">Requisitos para o cálculo.</span> Credencial gratuita CDS e aceite da licença; alternativa CHIRPS por HTTP sem cadastro. Séries observadas exigem registros diários locais completos.</p>
+<p><span class="field-label">Nível de evidência.</span> Documentação verificada</p>
+<p><span class="field-label">Alcance da verificação.</span> Produto e método documentados; série municipal completa ainda não produzida.</p>
+<p><span class="field-label">Cobertura geográfica.</span> Municípios brasileiros no domínio das grades; estações têm cobertura restrita à rede e não representam automaticamente toda a área municipal.</p>
+<p><span class="field-label">Período disponível.</span> ERA5-Land: 1950–presente; CHIRPS v3: 1981–presente. Publicar anos completos até 2025 e identificar 2026 como parcial.</p>
+<p><span class="field-label">Periodicidade de atualização.</span> Anual para os índices; mensal para SPI-3.</p>
+<p><span class="field-label">Forma de acesso.</span> API CDS, reanalysis-era5-land, variable=total_precipitation, product_type=reanalysis, time=00:00. Para o dia d usar o acumulado do registro às 00 UTC de d+1, correspondente às 24 horas anteriores, e multiplicar metros por 1000. Não somar os acumulados horários sem desacumulação. CHIRPS: download HTTP dos rasters daily RNL final v3.</p>
+<p><span class="field-label">URL ou identificador persistente.</span> https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land</p>
+<p><span class="field-label">Formato dos arquivos.</span> NetCDF/GRIB ERA5-Land; GeoTIFF ou NetCDF CHIRPS; CSV/Parquet municipal.</p>
+<p><span class="field-label">Necessidade de processamento.</span> Reconstruir precipitação diária com a convenção de acumulação do produto; controlar falhas; calcular a estatística por célula e ponderar por área municipal, salvo SPI.</p>
+</section>
+<section id="qualidade-comparação-e-saúde-4" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="qualidade-comparação-e-saúde-4">Qualidade, comparação e saúde</h3>
+<p><span class="field-label">Qualidade e incerteza.</span> Precipitação negativa ou sem registro é ausente, nunca dia seco. Ano com mais de 15 dias ausentes, ou mais de três em qualquer mês, é inválido; estes critérios não eliminam o viés de lacunas restantes. Publicar fração observada e marcar índices de sequência como limite inferior se houver lacuna. Exigir ≥90% da área municipal válida. Regras de cobertura são escolhas editoriais.</p>
+<p><span class="field-label">Possibilidade de comparação.</span> Preservar produto, versão, fechamento UTC, limiar de 1 mm e malha IBGE 2022. CHIRPS v3 RNL usa desagregação diária apoiada em ERA5 e não constitui validação inteiramente independente. Séries v2/v3 e pluviômetros permanecem separadas.</p>
+<p><span class="field-label">Relação com desfechos de saúde.</span> Extremos e persistência de chuva ou ausência de chuva ajudam a caracterizar perigos relacionados a água, saneamento, vetores, segurança alimentar e acesso a serviços; não equivalem ao efeito sanitário.</p>
+<p><span class="field-label">Defasagens temporais relevantes.</span> Preservar série diária e datas para testar janelas compatíveis com o mecanismo e o desfecho.</p>
+<p><span class="field-label">Aplicação na gestão.</span> Caracterizar sazonalidade e extremos, apoiar vigilância de agravos sensíveis ao clima e contextualizar alertas hidrometeorológicos.</p>
+</section>
+<section id="referências-metodológicas-4" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="referências-metodológicas-4">Referências metodológicas</h3>
+<ul>
+<li><span class="citation" data-cites="climdex2024">(<a href="../../backmatter/referencias.html#ref-climdex2024" role="doc-biblioref">Climdex, <em>[S.d.]</em></a>)</span></li>
+<li><span class="citation" data-cites="levy2016waterborne">(<a href="../../backmatter/referencias.html#ref-levy2016waterborne" role="doc-biblioref">Levy et al., 2016</a>)</span></li>
+</ul>
+</section>
+</section>
+<section id="sec-cli-sec-01" class="level2 ficha-title" data-number="17.6">
+<h2 class="ficha-title anchored" data-number="17.6" data-anchor-id="sec-cli-sec-01"><span class="header-section-number">17.6</span> Ficha do indicador: Índice Padronizado de Precipitação de três meses (SPI-3)</h2>
+<div class="indicator-card">
+<p><span class="field-label">Código:</span> CLI-SEC-01<br>
+<span class="field-label">Título resumido:</span> Seca meteorológica — SPI-3<br>
+<span class="field-label">Tema:</span> Precipitação, secas e eventos hidrológicos<br>
+<span class="field-label">Dimensão:</span> perigo; exposição<br>
+<span class="field-label">Disponibilidade:</span> <span class="availability">Calculável com dados abertos</span></p>
+</div>
+<p>Contexto e interpretação: <a href="../../chapters/part-2/08-precipitacao-secas-eventos-hidrologicos.html#sec-precipitacao">Precipitação, secas e eventos hidrológicos</a>.</p>
+<section id="identificação-e-fundamento-5" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="identificação-e-fundamento-5">Identificação e fundamento</h3>
+<p><span class="field-label">Base de consolidação.</span> SPI recomendado pela OMM; escala fixada em três meses, distribuição gama de dois parâmetros e ajuste de máxima verossimilhança.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Conceito-chave">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Conceito-chave
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Anomalia padronizada do acumulado de precipitação de três meses da área municipal em relação à distribuição do mesmo trimestre final na base.</p>
+</div>
+</div>
+</section>
+<section id="objetivo-5" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="objetivo-5">Objetivo</h3>
+<p>Comparar déficit ou excesso de precipitação entre períodos, escalas temporais e climas distintos.</p>
+</section>
+<section id="interpretação-5" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="interpretação-5">Interpretação</h3>
+<p>SPI igual a zero representa condição próxima da mediana ajustada; valores negativos indicam déficit e positivos, excesso. Na classificação usual, SPI ≤ −1 inicia uma condição de seca que persiste até retornar a valor positivo.</p>
+</section>
+<section id="usos-5" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="usos-5">Usos</h3>
+<ul>
+<li>Monitorar início</li>
+<li>Duração e intensidade de seca meteorológica.</li>
+<li>Comparar territórios em escala padronizada.</li>
+<li>Contextualizar impactos sobre água</li>
+<li>Alimento</li>
+<li>Saúde mental e serviços.</li>
+</ul>
+</section>
+<section id="limitações-5" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="limitações-5">Limitações</h3>
+<ul>
+<li>Usa apenas precipitação.</li>
+<li>Requer série longa e relativamente consistente.</li>
+<li>Distribuição ajustada e tratamento de zeros influenciam o resultado.</li>
+<li>Escalas distintas representam processos distintos.</li>
+<li>Não mede diretamente seca hidrológica</li>
+<li>Agrícola ou impacto social.</li>
+</ul>
+</section>
+<section id="fontes-de-dados-5" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="fontes-de-dados-5">Fontes de dados</h3>
+<ul>
+<li>ERA5-Land — ERA5-Land hourly, total_precipitation; acumulado de 24 h às 00 UTC do dia seguinte (<a href="../../backmatter/indice-fontes.html#era5-land">cadastro</a>)</li>
+<li>CHIRPS v3 — daily RNL final — CHIRPS v3 daily RNL final, série alternativa em grade (<a href="../../backmatter/indice-fontes.html#chirps-v3">cadastro</a>)</li>
+<li>Instituto Nacional de Meteorologia — Pluviômetros para validação e séries observadas separadas (<a href="../../backmatter/indice-fontes.html#inmet">cadastro</a>)</li>
+</ul>
+</section>
+<section id="método-de-cálculo-5" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="método-de-cálculo-5">Método de cálculo</h3>
+<p>Usar a mesma máscara municipal de células válidas em toda a base e análise, com cobertura ≥90% da área. Obter a precipitação média diária municipal ponderada pela área; um mês exige todos os dias válidos. Somar o mês corrente e os dois anteriores. Para cada mês de término separadamente, usar os 30 acumulados completos de 1961–1990: q=proporção de zeros; ajustar gama de dois parâmetros por máxima verossimilhança apenas aos valores positivos. Calcular H(x)=q+(1−q)G(x) e SPI-3=Φ⁻¹(H(x)). Base sem 30 acumulados completos, menos de dois valores positivos distintos, variância nula ou falha de convergência resulta em ausente. H=0 ou 1 produz valor não finito, que deve ser sinalizado, sem truncamento arbitrário. Manter arquivo dos parâmetros por município e mês.</p>
+<p><span class="math display">\[
+\begin{aligned}X_{m,t}&amp;=P_{m,t}+P_{m,t-1}+P_{m,t-2}\\H_m(x)&amp;=q_m+(1-q_m)G(x;\alpha_m,\theta_m)\\SPI3_{m,t}&amp;=\Phi^{-1}(H_m(X_{m,t}))\end{aligned}
+\]</span></p>
+<div class="indicator-card">
+<p><span class="field-label">Numerador.</span> Não se aplica.</p>
+<p><span class="field-label">Denominador.</span> Não se aplica; transformação probabilística, não razão de totais.</p>
+<p><span class="field-label">Unidade de medida.</span> Adimensional (desvios na escala normal padrão).</p>
+<p><span class="field-label">Variáveis e categorias de análise.</span> Precipitação acumulada; escala k; mês; local; classe de seca; episódio.</p>
+<p><span class="field-label">Granularidade.</span> Primeiro média diária da precipitação ponderada pela área municipal; depois somas mensais e trimestrais, ajuste e transformação do SPI. Não obter SPI municipal pela média de SPI das células.</p>
+<p><span class="field-label">Periodicidade de atualização.</span> Anual para os índices; mensal para SPI-3.</p>
+<p><span class="field-label">Responsabilidade gerencial.</span> Serviço meteorológico ou hidrológico responsável pelo dado e órgão de saúde que qualifique o uso sanitário.</p>
+<p><span class="field-label">Notas.</span> SPI-6 e SPI-12 são outros indicadores, obtidos com janelas e ajustes próprios. Não nomear uma série apenas SPI sem informar sua escala.</p>
+<p><span class="field-label">Análise descritiva do indicador.</span> Apresentar séries de SPI-1, SPI-3, SPI-6 ou SPI-12 conforme mecanismo, duração e intensidade dos episódios, área afetada e associação com indicadores sanitários.</p>
+</div>
+</section>
+<section id="campos-complementares-para-clima-ambiente-e-saúde-5" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="campos-complementares-para-clima-ambiente-e-saúde-5">Campos complementares para clima, ambiente e saúde</h3>
+<div class="indicator-card">
+<p><span class="field-label">Unidade territorial.</span> Célula; síntese municipal pela malha IBGE 2022.</p>
+<p><span class="field-label">Resolução espacial original.</span> ERA5-Land 0,1°; CHIRPS v3 0,05°. Não misturar produtos em uma mesma série.</p>
+<p><span class="field-label">Resolução temporal.</span> Mensal, a partir da soma dos três meses terminados no mês de referência.</p>
+<p><span class="field-label">Período de referência.</span> 1961–1990 para ERA5-Land; CHIRPS v3 exige outra série, com base 1982–2011. Incluir novembro/dezembro anteriores ao primeiro ano da base.</p>
+<p><span class="field-label">Limiar ou valor de referência.</span> SPI≤−1: seca moderada ou mais intensa; ≤−1,5: severa; ≤−2: extrema. Valores positivos representam condição úmida.</p>
+</div>
+</section>
+<section id="disponibilidade-e-acesso-5" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="disponibilidade-e-acesso-5">Disponibilidade e acesso</h3>
+<p><span class="field-label">Protocolo verificado em.</span> 2026-10-03</p>
+<p><span class="field-label">Dependência de dados locais.</span> Opcional para validação</p>
+<p><span class="field-label">Automação.</span> Condicionada</p>
+<p><span class="field-label">Requisitos para o cálculo.</span> Credencial gratuita CDS e aceite da licença; alternativa CHIRPS por HTTP sem cadastro. Séries observadas exigem registros diários locais completos.</p>
+<p><span class="field-label">Nível de evidência.</span> Documentação verificada</p>
+<p><span class="field-label">Alcance da verificação.</span> Produto e método documentados; série municipal completa ainda não produzida.</p>
+<p><span class="field-label">Cobertura geográfica.</span> Municípios brasileiros no domínio das grades; estações têm cobertura restrita à rede e não representam automaticamente toda a área municipal.</p>
+<p><span class="field-label">Período disponível.</span> ERA5-Land: 1950–presente; CHIRPS v3: 1981–presente. Publicar anos completos até 2025 e identificar 2026 como parcial.</p>
+<p><span class="field-label">Periodicidade de atualização.</span> Anual para os índices; mensal para SPI-3.</p>
+<p><span class="field-label">Forma de acesso.</span> API CDS, reanalysis-era5-land, variable=total_precipitation, product_type=reanalysis, time=00:00. Para o dia d usar o acumulado do registro às 00 UTC de d+1, correspondente às 24 horas anteriores, e multiplicar metros por 1000. Não somar os acumulados horários sem desacumulação. CHIRPS: download HTTP dos rasters daily RNL final v3.</p>
+<p><span class="field-label">URL ou identificador persistente.</span> https://library.wmo.int/idurl/4/39629</p>
+<p><span class="field-label">Formato dos arquivos.</span> NetCDF/GRIB ERA5-Land; GeoTIFF ou NetCDF CHIRPS; CSV/Parquet municipal.</p>
+<p><span class="field-label">Necessidade de processamento.</span> Agregação espacial da precipitação antes da transformação; somas mensais completas; ajuste gama estratificado por mês de término; armazenamento dos parâmetros e flags.</p>
+</section>
+<section id="qualidade-comparação-e-saúde-5" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="qualidade-comparação-e-saúde-5">Qualidade, comparação e saúde</h3>
+<p><span class="field-label">Qualidade e incerteza.</span> Exigir meses completos e 30 acumulados válidos para cada mês da base; não preencher faltas com zero. Não misturar estimativas de gama, escala temporal ou base. Especificações de elegibilidade e agregação são escolhas operacionais deste livro.</p>
+<p><span class="field-label">Possibilidade de comparação.</span> Preservar produto, versão, fechamento UTC, limiar de 1 mm e malha IBGE 2022. CHIRPS v3 RNL usa desagregação diária apoiada em ERA5 e não constitui validação inteiramente independente. Séries v2/v3 e pluviômetros permanecem separadas.</p>
+<p><span class="field-label">Relação com desfechos de saúde.</span> Extremos e persistência de chuva ou ausência de chuva ajudam a caracterizar perigos relacionados a água, saneamento, vetores, segurança alimentar e acesso a serviços; não equivalem ao efeito sanitário.</p>
+<p><span class="field-label">Defasagens temporais relevantes.</span> Preservar série diária e datas para testar janelas compatíveis com o mecanismo e o desfecho.</p>
+<p><span class="field-label">Aplicação na gestão.</span> Caracterizar sazonalidade e extremos, apoiar vigilância de agravos sensíveis ao clima e contextualizar alertas hidrometeorológicos.</p>
+</section>
+<section id="referências-metodológicas-5" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="referências-metodológicas-5">Referências metodológicas</h3>
+<ul>
+<li><span class="citation" data-cites="wmo2012spi">(<a href="../../backmatter/referencias.html#ref-wmo2012spi" role="doc-biblioref">Svoboda; Hayes; Wood, 2012</a>)</span></li>
+<li><span class="citation" data-cites="wmo2016drought">(<a href="../../backmatter/referencias.html#ref-wmo2016drought" role="doc-biblioref">Svoboda; Fuchs, 2016</a>)</span></li>
+<li><span class="citation" data-cites="who2026drought">(<a href="../../backmatter/referencias.html#ref-who2026drought" role="doc-biblioref">World Health Organization, <em>[S.d.]</em></a>)</span></li>
+</ul>
+</section>
+</section>
+<section id="sec-cli-prc-06" class="level2 ficha-title" data-number="17.7">
+<h2 class="ficha-title anchored" data-number="17.7" data-anchor-id="sec-cli-prc-06"><span class="header-section-number">17.7</span> Ficha do indicador: Precipitação total anual em dias úmidos (PRCPTOT)</h2>
+<div class="indicator-card">
+<p><span class="field-label">Código:</span> CLI-PRC-06<br>
+<span class="field-label">Título resumido:</span> Precipitação em dias úmidos — PRCPTOT<br>
+<span class="field-label">Tema:</span> Precipitação, secas e eventos hidrológicos<br>
+<span class="field-label">Dimensão:</span> perigo; exposição<br>
+<span class="field-label">Disponibilidade:</span> <span class="availability">Calculável com dados abertos</span></p>
+</div>
+<p>Contexto e interpretação: <a href="../../chapters/part-2/08-precipitacao-secas-eventos-hidrologicos.html#sec-precipitacao">Precipitação, secas e eventos hidrológicos</a>.</p>
+<section id="identificação-e-fundamento-6" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="identificação-e-fundamento-6">Identificação e fundamento</h3>
+<p><span class="field-label">Base de consolidação.</span> Índice ETCCDI/Climdex PRCPTOT.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Conceito-chave">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Conceito-chave
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Soma anual da precipitação diária dos dias com pelo menos 1 mm.</p>
+</div>
+</div>
+</section>
+<section id="objetivo-6" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="objetivo-6">Objetivo</h3>
+<p>Descrever o volume anual dos dias úmidos e fornecer denominador à contribuição dos extremos.</p>
+</section>
+<section id="interpretação-6" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="interpretação-6">Interpretação</h3>
+<p>Maior valor indica maior volume de chuva nos dias úmidos; não mede por si só disponibilidade de água.</p>
+</section>
+<section id="usos-6" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="usos-6">Usos</h3>
+<ul>
+<li>Monitorar totais anuais de precipitação.</li>
+<li>Calcular a contribuição percentual dos dias muito úmidos.</li>
+</ul>
+</section>
+<section id="limitações-6" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="limitações-6">Limitações</h3>
+<ul>
+<li>Exclui precipitação de dias com menos de 1 mm.</li>
+<li>Falhas podem subestimar a soma; publicar completude.</li>
+</ul>
+</section>
+<section id="fontes-de-dados-6" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="fontes-de-dados-6">Fontes de dados</h3>
+<ul>
+<li>ERA5-Land — ERA5-Land hourly, total_precipitation; acumulado de 24 h às 00 UTC do dia seguinte (<a href="../../backmatter/indice-fontes.html#era5-land">cadastro</a>)</li>
+<li>CHIRPS v3 — daily RNL final — CHIRPS v3 daily RNL final, série alternativa em grade (<a href="../../backmatter/indice-fontes.html#chirps-v3">cadastro</a>)</li>
+<li>Instituto Nacional de Meteorologia — Pluviômetros para validação e séries observadas separadas (<a href="../../backmatter/indice-fontes.html#inmet">cadastro</a>)</li>
+</ul>
+</section>
+<section id="método-de-cálculo-6" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="método-de-cálculo-6">Método de cálculo</h3>
+<p>Somar PR dos dias com PR≥1 mm em cada ano civil, por célula. Aplicar as regras de acumulação e qualidade do capítulo, depois calcular a média municipal por área. Sem dia úmido em ano válido, zero.</p>
+<p><span class="math display">\[
+PRCPTOT_y=\sum_{d\in y}PR_d I(PR_d\geq1\,\mathrm{mm})
+\]</span></p>
+<div class="indicator-card">
+<p><span class="field-label">Numerador.</span> Soma dos acumulados diários qualificados.</p>
+<p><span class="field-label">Denominador.</span> Não se aplica.</p>
+<p><span class="field-label">Unidade de medida.</span> mm por ano.</p>
+<p><span class="field-label">Variáveis e categorias de análise.</span> Precipitação diária em mm; dia úmido; célula, município, ano, produto e versão.</p>
+<p><span class="field-label">Granularidade.</span> Calcular o índice anual em cada célula e depois a média ponderada pela área de interseção municipal; SPI é a exceção descrita em sua ficha.</p>
+<p><span class="field-label">Periodicidade de atualização.</span> Anual para os índices; mensal para SPI-3.</p>
+<p><span class="field-label">Responsabilidade gerencial.</span> Serviço climático produtor da precipitação e instituição responsável pela publicação municipal.</p>
+<p><span class="field-label">Notas.</span> A média municipal de extremos e durações não é o extremo ou a duração da chuva média municipal. A ficha SPI-3 especifica a ordem inversa. Não interpretar qualquer destes índices como ocorrência comprovada de inundação.</p>
+<p><span class="field-label">Análise descritiva do indicador.</span> Publicar total, completude e produto ao lado de R95p.</p>
+</div>
+</section>
+<section id="campos-complementares-para-clima-ambiente-e-saúde-6" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="campos-complementares-para-clima-ambiente-e-saúde-6">Campos complementares para clima, ambiente e saúde</h3>
+<div class="indicator-card">
+<p><span class="field-label">Unidade territorial.</span> Célula; síntese municipal pela malha IBGE 2022.</p>
+<p><span class="field-label">Resolução espacial original.</span> ERA5-Land 0,1°; CHIRPS v3 0,05°. Não misturar produtos em uma mesma série.</p>
+<p><span class="field-label">Resolução temporal.</span> Precipitação diária em UTC; saída anual por ano civil.</p>
+<p><span class="field-label">Período de referência.</span> Sem período-base para esta medida; exceções percentílicas são explicitadas na ficha.</p>
+<p><span class="field-label">Limiar ou valor de referência.</span> Dia úmido: PR≥1 mm.</p>
+</div>
+</section>
+<section id="disponibilidade-e-acesso-6" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="disponibilidade-e-acesso-6">Disponibilidade e acesso</h3>
+<p><span class="field-label">Protocolo verificado em.</span> 2026-10-03</p>
+<p><span class="field-label">Dependência de dados locais.</span> Opcional para validação</p>
+<p><span class="field-label">Automação.</span> Condicionada</p>
+<p><span class="field-label">Requisitos para o cálculo.</span> Cadastro gratuito e credencial CDS; download das variáveis e processamento conforme a ficha.</p>
+<p><span class="field-label">Nível de evidência.</span> Documentação verificada</p>
+<p><span class="field-label">Alcance da verificação.</span> Produto e método documentados; série municipal completa ainda não produzida.</p>
+<p><span class="field-label">Cobertura geográfica.</span> Municípios brasileiros no domínio das grades; estações têm cobertura restrita à rede e não representam automaticamente toda a área municipal.</p>
+<p><span class="field-label">Período disponível.</span> ERA5-Land: 1950–presente; CHIRPS v3: 1981–presente. Publicar anos completos até 2025 e identificar 2026 como parcial.</p>
+<p><span class="field-label">Periodicidade de atualização.</span> Anual para os índices; mensal para SPI-3.</p>
+<p><span class="field-label">Forma de acesso.</span> API CDS, reanalysis-era5-land, variable=total_precipitation, product_type=reanalysis, time=00:00. Para o dia d usar o acumulado do registro às 00 UTC de d+1, correspondente às 24 horas anteriores, e multiplicar metros por 1000. Não somar os acumulados horários sem desacumulação. CHIRPS: download HTTP dos rasters daily RNL final v3.</p>
+<p><span class="field-label">URL ou identificador persistente.</span> https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land</p>
+<p><span class="field-label">Formato dos arquivos.</span> NetCDF/GRIB ERA5-Land; GeoTIFF ou NetCDF CHIRPS; CSV/Parquet municipal.</p>
+<p><span class="field-label">Necessidade de processamento.</span> Reconstruir precipitação diária com a convenção de acumulação do produto; controlar falhas; calcular a estatística por célula e ponderar por área municipal, salvo SPI.</p>
+</section>
+<section id="qualidade-comparação-e-saúde-6" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="qualidade-comparação-e-saúde-6">Qualidade, comparação e saúde</h3>
+<p><span class="field-label">Qualidade e incerteza.</span> Precipitação negativa ou sem registro é ausente, nunca dia seco. Ano com mais de 15 dias ausentes, ou mais de três em qualquer mês, é inválido; estes critérios não eliminam o viés de lacunas restantes. Publicar fração observada e marcar índices de sequência como limite inferior se houver lacuna. Exigir ≥90% da área municipal válida. Regras de cobertura são escolhas editoriais.</p>
+<p><span class="field-label">Possibilidade de comparação.</span> Preservar produto, versão, fechamento UTC, limiar de 1 mm e malha IBGE 2022. CHIRPS v3 RNL usa desagregação diária apoiada em ERA5 e não constitui validação inteiramente independente. Séries v2/v3 e pluviômetros permanecem separadas.</p>
+<p><span class="field-label">Relação com desfechos de saúde.</span> Contextualiza disponibilidade hídrica e sazonalidade; não equivale a exposição ou dano sanitário.</p>
+<p><span class="field-label">Defasagens temporais relevantes.</span> Em estudos de saúde, definir a priori defasagens e médias móveis conforme desfecho e literatura; o índice anual não deve substituir a série diária em análises de efeitos agudos.</p>
+<p><span class="field-label">Aplicação na gestão.</span> Acompanhar o regime pluviométrico e contextualizar disponibilidade hídrica, drenagem e vigilância de agravos relacionados à água; não substituir previsão ou modelagem hidrológica.</p>
+</section>
+<section id="referências-metodológicas-6" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="referências-metodológicas-6">Referências metodológicas</h3>
+<ul>
+<li><span class="citation" data-cites="climdex2024">(<a href="../../backmatter/referencias.html#ref-climdex2024" role="doc-biblioref">Climdex, <em>[S.d.]</em></a>)</span></li>
+</ul>
+
+
+<div id="refs" class="references csl-bib-body" data-entry-spacing="1" role="list" style="display: none">
+<div id="ref-climdex2024" class="csl-entry" role="listitem">
+CLIMDEX. <strong>Indices</strong>. <em>[S.d.]</em>. Disponível em: &lt;<a href="https://www.climdex.org/learn/indices/">https://www.climdex.org/learn/indices/</a>&gt;. Acesso em: 8 out. 2026.
+</div>
+<div id="ref-climpact2026" class="csl-entry" role="listitem">
+CLIMPACT. <strong>Climpact2: implementação de índices ET-SCI e climdex.hw</strong>. 2026. Disponível em: &lt;<a href="https://github.com/ARCCSS-extremes/climpact2/blob/master/ancillary/climpact2.etsci-functions.r">https://github.com/ARCCSS-extremes/climpact2/blob/master/ancillary/climpact2.etsci-functions.r</a>&gt;. Acesso em: 3 out. 2026.
+</div>
+<div id="ref-levy2016waterborne" class="csl-entry" role="listitem">
+LEVY, Karen <em>et al.</em> Untangling the impacts of climate change on waterborne diseases: a systematic review of relationships between diarrheal diseases and temperature, rainfall, flooding, and drought. <strong>Environmental Science &amp; Technology</strong>, v. 50, n. 10, p. 4905–4922, 2016. Disponível em: &lt;https://doi.org/<a href="https://doi.org/10.1021/acs.est.5b06186">10.1021/acs.est.5b06186</a>&gt;.
+</div>
+<div id="ref-wmo2016drought" class="csl-entry" role="listitem">
+SVOBODA, Mark; FUCHS, Brian A. <strong><a href="https://library.wmo.int/idurl/4/55184">Handbook of drought indicators and indices</a></strong>. Geneva: World Meteorological Organization; Global Water Partnership, 2016.
+</div>
+<div id="ref-wmo2012spi" class="csl-entry" role="listitem">
+SVOBODA, Mark; HAYES, Michael; WOOD, David. <strong><a href="https://library.wmo.int/idurl/4/39629">Standardized Precipitation Index user guide</a></strong>. Geneva: World Meteorological Organization, 2012.
+</div>
+<div id="ref-who2026drought" class="csl-entry" role="listitem">
+WORLD HEALTH ORGANIZATION. <strong>Drought</strong>. <em>[S.d.]</em>. Disponível em: &lt;<a href="https://www.who.int/health-topics/drought">https://www.who.int/health-topics/drought</a>&gt;. Acesso em: 8 out. 2026.
+</div>
+<div id="ref-who2014floods" class="csl-entry" role="listitem">
+WORLD HEALTH ORGANIZATION REGIONAL OFFICE FOR EUROPE. <strong>Floods and health: fact sheets for health professionals</strong>. 2014. Disponível em: &lt;<a href="https://www.who.int/europe/publications/i/item/WHO-EURO--2014-8519-48291-71705">https://www.who.int/europe/publications/i/item/WHO-EURO--2014-8519-48291-71705</a>&gt;. Acesso em: 28 jul. 2026.
+</div>
+</div>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiada");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiada");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../chapters/part-4/16-fichas-temperatura-condicoes-termicas.html" class="pagination-link" aria-label="Fichas — Temperatura e condições térmicas">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Fichas — Temperatura e condições térmicas</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.html" class="pagination-link" aria-label="Fichas — Qualidade do ar, queimadas e fumaça">
+        <span class="nav-page-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Fichas — Qualidade do ar, queimadas e fumaça</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/rfsaldanha/dicas/blob/main/chapters/part-4/17-fichas-precipitacao-secas-eventos-hidrologicos.qmd" class="toc-action"><i class="bi bi-github"></i>Ver o código fonte</a></li><li><a href="https://github.com/rfsaldanha/dicas/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></div></div></footer></body></html>

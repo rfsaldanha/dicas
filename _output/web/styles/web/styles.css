@@ -333,3 +333,18 @@ table th { font-family: var(--dicas-sans); font-weight: 600; }
     overflow-wrap: anywhere;
   }
 }
+
+/* As tabelas do capítulo 12 conservam colunas legíveis em tela estreita. */
+@media (max-width: 767px) {
+  .desastre-table { max-width: 100%; overflow-x: auto; }
+  .desastre-table table {
+    display: table;
+    min-width: 42rem;
+    max-width: none;
+    table-layout: fixed;
+  }
+  .desastre-table th, .desastre-table td {
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+}

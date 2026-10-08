@@ -168,7 +168,7 @@
 
 // Vinhetas dos capítulos de fundamentos, identificadas pelo título editorial.
 #let dicas-chapter-openings = (
-  "Do indicador à decisão pública": (
+  "Análise de situação de saúde e decisão pública": (
     source: "assets/openings/cap6-indicador-decisao-turner-print.png",
     alt: "Paisagem pictórica de uma cidade brasileira hipotética à margem de um rio, sem pessoas. Uma ponte e vias ribeirinhas conectam bairros e edifícios públicos entre áreas verdes. Luz dourada atravessa a bruma e se reflete na água, em contraste com nuvens azul-acinzentadas e chuva distante.",
   ),
@@ -180,15 +180,15 @@
     source: "assets/openings/cap2-planejamento-resposta-sus-print.png",
     alt: "Paisagem urbana hipotética sem pessoas: unidade de saúde com entrada coberta e rampa, ruas arborizadas, casas e prédios, drenagem, jardim de chuva e reservatório de água, sob nuvens de chuva ao fundo. A infraestrutura remete ao acesso e ao funcionamento dos serviços diante das condições climáticas.",
   ),
-  "Dos dados aos indicadores: como representar clima, ambiente e saúde": (
+  "Dados, variáveis, índices e indicadores": (
     source: "assets/openings/cap3-dados-indicadores-print.png",
     alt: "Paisagem hipotética sem pessoas: estação meteorológica em amplo terreno de grama baixa, com abrigo ventilado de sensores, pluviômetro e mastro com anemômetro. Ao fundo, curso d’água, vegetação e cidade, com edifícios e árvores afastados dos instrumentos.",
   ),
-  "Compatibilizando dados: espaço, tempo e qualidade": (
+  "Integração de dados: espaço, tempo e qualidade": (
     source: "assets/openings/cap4-espaco-tempo-qualidade-print.png",
     alt: "Panorama hipotético sem pessoas de uma bacia com encosta arborizada, área agrícola, rio no vale e bairro denso. Pequenos conjuntos de instrumentos ocupam terrenos abertos em cotas distintas, destacando diferenças de relevo, entorno e representatividade das observações.",
   ),
-  "Fontes de dados e fichas de indicadores": (
+  "Seleção de fontes e qualificação de indicadores": (
     source: "assets/openings/cap5-fontes-fichas-print.png",
     alt: "Paisagem hipotética sem pessoas de um pequeno núcleo urbano: instalação de monitoramento ambiental, estação meteorológica em gramado aberto, sensor junto ao rio e estabelecimento de saúde integrado às ruas, casas e prédios. A cena remete a diferentes origens dos dados.",
   ),

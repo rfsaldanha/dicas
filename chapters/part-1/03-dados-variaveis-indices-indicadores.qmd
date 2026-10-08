@@ -10,7 +10,7 @@ chapter-opening:
   alt: "Paisagem hipotética sem pessoas: estação meteorológica em amplo terreno de grama baixa, com abrigo ventilado de sensores, pluviômetro e mastro com anemômetro. Ao fundo, curso d’água, vegetação e cidade, com edifícios e árvores afastados dos instrumentos."
 ---
 
-# Dos dados aos indicadores: como representar clima, ambiente e saúde {#sec-dados-indicadores}
+# Dados, variáveis, índices e indicadores {#sec-dados-indicadores}
 
 Os capítulos anteriores (@sec-clima-ambiente-saude e @sec-mudanca-climatica-resposta-sus) apresentaram clima e ambiente como condições que participam da produção da saúde nos territórios. Para que essas relações possam ser acompanhadas pela vigilância, analisadas pela pesquisa ou incorporadas à gestão, é necessário representá-las por meio de dados e medidas. Essa passagem da realidade para o número, porém, não é automática. Todo dado resulta de escolhas sobre o que observar, onde, quando e como observar; todo indicador acrescenta outras escolhas: o que aquele valor pretende representar, como deve ser interpretado e para qual finalidade será utilizado.
 
@@ -49,6 +49,8 @@ Formato: mesma proporção do original 1086 × 1448; resolução igual ou superi
 
 ## Do fenômeno ao indicador
 
+O guia brasileiro de construção de indicadores de saúde ambiental sistematiza as distinções entre dado, indicador e índice, relacionando-as à produção de informação para a decisão [@brasil2011saudeambiental, p. 25–42].
+
 Antes de definir os termos utilizados neste capítulo, é importante reconhecer que medida, índice e indicador não possuem fronteiras universais. Na climatologia, muitas medidas derivadas são tradicionalmente chamadas de *índices climáticos*; em saúde pública, taxas, proporções e contagens podem ser chamadas de indicadores; em outros campos, o termo *índice* é reservado principalmente a medidas compostas [@wmo2023climatological; @ripsa2026; @oecd2008composite].
 
 Neste livro, adotamos uma convenção operacional. Variável é uma característica capaz de assumir diferentes valores; dado é um registro produzido sobre essa característica em determinado espaço e tempo; medida é o resultado de uma operação aplicada a um ou mais dados; índice é uma medida derivada cuja construção envolve transformação, síntese ou combinação e que costuma receber uma denominação própria; e indicador é uma medida ou índice utilizado deliberadamente para representar uma dimensão relevante e apoiar interpretação, comparação, monitoramento ou decisão. Informação surge quando esses elementos são interpretados em contexto. Mais importante do que o rótulo é conseguir reconstruir como o valor foi produzido e o que ele pode representar.
@@ -73,7 +75,7 @@ Da realidade observada à informação para decisão
 
 :::
 
-A cadeia pode ser simples ou integrar várias bases; o essencial é que seja reconstruível. Em sistemas públicos, transparência metodológica e prevenção do uso incorreto fazem parte da qualidade da informação [@un2014statistics]. A Rede Interagencial de Informações para a Saúde (RIPSA) desenvolveu uma ficha de qualificação que reúne definição, interpretação, cálculo, fontes e limites de uso [@ripsa2026]. Essa contribuição inspirou a organização das fichas deste livro, apresentada no @sec-ficha-ripsa, no capítulo sobre fontes e fichas.
+A cadeia pode ser simples ou integrar várias bases; o essencial é que seja reconstruível. Em sistemas públicos, transparência metodológica e prevenção do uso incorreto fazem parte da qualidade da informação [@un2014statistics]. A Rede Interagencial de Informações para a Saúde (RIPSA) desenvolveu uma ficha de qualificação que reúne definição, interpretação, cálculo, fontes e limites de uso [@ripsa2026]. Essa contribuição inspirou a organização das fichas deste livro, apresentada no @sec-ficha-ripsa, no capítulo sobre seleção de fontes e qualificação de indicadores.
 
 ::: {.callout-note icon=false title="Conceito-chave: metadados"}
 Metadados são as informações necessárias para compreender, localizar, comparar e utilizar corretamente um conjunto de dados ou indicador. Incluem, por exemplo, definição da variável, unidade, fonte, método de produção, cobertura espacial e temporal, frequência de atualização, códigos de ausência, procedimentos de qualidade e versão. Sem metadados, um arquivo pode conter muitos valores e ainda assim ser difícil — ou perigoso — de interpretar. Documentar metadados é parte da qualidade e da rastreabilidade da informação [@w3c2013prov; @wilkinson2016fair; @who2023dqa].
@@ -350,7 +352,7 @@ O exemplo mostra que até uma contagem aparentemente trivial depende de uma vari
 
 ### Propriedades em função da finalidade
 
-A adequação de um indicador depende de sua finalidade. Para facilitar a avaliação, algumas propriedades podem ser agrupadas em perguntas práticas:
+A adequação de um indicador depende de sua finalidade. O guia de saúde ambiental discute propriedades como validade, cobertura, comunicabilidade e periodicidade de atualização [@brasil2011saudeambiental, p. 49–52]. Para facilitar a avaliação, algumas propriedades podem ser agrupadas em perguntas práticas:
 
 ::: {#qua-propriedades-indicadores}
 
@@ -378,6 +380,8 @@ Nenhum indicador maximiza todas essas propriedades ao mesmo tempo. Uma medida mu
 Muitos indicadores de saúde parecem simples até que se examina o denominador. Contagens respondem “quantos?” e não têm denominador explícito. Em uma proporção, o numerador é parte do conjunto do denominador; o percentual é essa fração multiplicada por cem. Uma razão relaciona quantidades sem exigir inclusão de uma na outra, como habitantes por estabelecimento. Taxas descrevem a ocorrência de eventos em relação à população e ao tempo de referência. Em epidemiologia, uma taxa de incidência pode usar pessoa-tempo; em estatísticas de rotina, muitas taxas usam a população de referência como aproximação do tempo sob risco no período. Multiplicar uma medida por cem ou por cem mil apenas muda a escala de apresentação: não define, por si só, seu tipo [@ripsa2026].
 
 Na proporção de estabelecimentos com plano de contingência, por exemplo, numerador e denominador precisam usar a mesma lista de unidades, território e data de referência. O mesmo vale para indicadores populacionais: residentes, pessoas presentes, trabalhadores expostos, leitos cadastrados e leitos em funcionamento representam universos diferentes. Quando o denominador é estimado, sua versão e limitações acompanham a taxa [@ripsa2026; @who2001standard].
+
+A prática do módulo 1 do ASISA-Queimadas exemplifica essa compatibilização ao calcular taxas municipais de internação respiratória com população e internações da mesma faixa etária e ano [@gracie2024asisa, p. 149].
 
 A @fig-numerador-denominador mostra a relação de inclusão necessária para uma proporção. O conjunto externo é a lista de estabelecimentos elegíveis; o interno contém aqueles que atendem ao critério de possuir plano de contingência. A fórmula só tem sentido se ambos usarem a mesma definição de estabelecimento, o mesmo território e a mesma data. O ícone não representa quantidade, e a área dos conjuntos não codifica um percentual.
 
@@ -498,7 +502,7 @@ Sobral e Freitas mostram a importância de organizar indicadores em um modelo qu
 
 ### Indicador ambiental e indicador de saúde ambiental
 
-Um indicador ambiental caracteriza uma condição ou mudança no ambiente. Um indicador de saúde ambiental aproxima explicitamente ambiente e saúde ao representar, por exemplo, exposição populacional, condições de vulnerabilidade, efeitos sanitários ou capacidade de resposta. Barcellos e Quitério destacam que a exposição envolve relações entre sociedade e ambiente; essa perspectiva orienta a escolha de indicadores e a organização da vigilância, além da simples disponibilidade de medições ambientais [@barcellos2006vigilancia].
+Um indicador ambiental caracteriza uma condição ou mudança no ambiente. Um indicador de saúde ambiental aproxima explicitamente ambiente e saúde ao representar, por exemplo, exposição populacional, condições de vulnerabilidade, efeitos sanitários ou capacidade de resposta [@brasil2011saudeambiental, p. 75–78]. Barcellos e Quitério destacam que a exposição envolve relações entre sociedade e ambiente; essa perspectiva orienta a escolha de indicadores e a organização da vigilância, além da simples disponibilidade de medições ambientais [@barcellos2006vigilancia].
 
 Considere a poluição do ar apenas como exemplo conceitual. Uma concentração média no território descreve uma condição ambiental. Dar maior peso às áreas mais povoadas produz uma medida mais próxima da exposição residencial da população. O número de atendimentos respiratórios descreve um evento de saúde. Colocar essas medidas lado a lado não demonstra, por si só, que uma causou a outra; essa ligação exige uma pergunta analítica e métodos apropriados, assunto do @sec-efeitos-saude [@hernan2020causal].
 

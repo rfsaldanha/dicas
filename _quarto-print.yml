@@ -3,6 +3,7 @@ reference-section-title: "Referências"
 project:
   output-dir: _output/print
   post-render:
+    - sh scripts/optimize_pdf.sh
     - sh scripts/check_pdf.sh
 
 book:
@@ -18,7 +19,7 @@ book:
     - backmatter/lista-tabelas.qmd
     - frontmatter/sumario.qmd
     - frontmatter/como-usar.qmd
-    - part: "Parte I — Fundamentos e métodos"
+    - part: "Parte I — Fundamentos, métodos e decisão em saúde"
       chapters:
         - chapters/part-1/01-clima-ambiente-saude.qmd
         - chapters/part-1/02-mudanca-climatica-resposta-sus.qmd
@@ -26,7 +27,7 @@ book:
         - chapters/part-1/04-espaco-tempo-qualidade.qmd
         - chapters/part-1/05-fontes-fichas.qmd
         - chapters/part-1/06-indicador-decisao.qmd
-    - part: "Parte II — Dados e indicadores temáticos"
+    - part: "Parte II — Fenômenos e indicadores de clima e ambiente"
       chapters:
         - chapters/part-2/07-temperatura-condicoes-termicas.qmd
         - chapters/part-2/08-precipitacao-secas-eventos-hidrologicos.qmd
@@ -34,7 +35,7 @@ book:
         - chapters/part-2/10-agua-saneamento-qualidade-ambiental.qmd
         - chapters/part-2/11-uso-cobertura-terra-ambiente-urbano.qmd
         - chapters/part-2/12-eventos-severos-desastres.qmd
-    - part: "Parte III — Indicadores integrados de clima, ambiente e saúde"
+    - part: "Parte III — Exposição, vulnerabilidade, efeitos e resposta em saúde"
       chapters:
         - chapters/part-3/13-exposicao-vulnerabilidade.qmd
         - chapters/part-3/14-efeitos-saude.qmd

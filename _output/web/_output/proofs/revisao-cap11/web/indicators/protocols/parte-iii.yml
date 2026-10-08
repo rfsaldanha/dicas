@@ -1,0 +1,158 @@
+versao: '2026-10-06'
+fichas_parte_iii:
+- EXP-VUL-01
+- EXP-HAB-02
+- EFE-MOR-01
+- EFE-MOR-02
+- EFE-MOB-01
+- RES-GOV-01
+- RES-RIS-01
+- RES-PLA-01
+- RES-WAT-01
+- RES-ENE-01
+- RES-WAS-01
+- RES-ALR-01
+codigos_reservados:
+  EXP-VUL-02: Retirado do catálogo operacional brasileiro. O SVI/CDC permanece como comparação metodológica
+    no capítulo de contexto; seus percentis norte-americanos não serão recalculados para municípios brasileiros.
+  EXP-HAB-01: Substituído por EXP-HAB-02, adensamento domiciliar do Censo 2022. A nova medida não equivale
+    ao ODS 11.1.1 completo.
+  EFE-EXC-01: 'Retirado do catálogo operacional: estimar óbitos esperados requer especificação de modelo e
+    referência. A distinção entre observado e excesso permanece no capítulo de contexto.'
+  EFE-EXC-02: Retirado do catálogo operacional junto ao excesso absoluto; P-score depende da mesma estimativa
+    de esperado.
+  EFE-ATR-01: 'Retirado do catálogo operacional: atribuição à temperatura exige modelo de exposição–resposta,
+    defasagens e contrafactual próprios do estudo.'
+  EFE-CAR-01: 'Retirado do catálogo operacional: DALYs atribuíveis dependem de modelos, tábuas de vida, pesos
+    de incapacidade e contrafactuais não fixados neste catálogo.'
+  RES-INF-01: Substituído por RES-WAS-01, com os cinco critérios explícitos do indicador 30 da OMS. A medida
+    anterior dependia de um padrão de infraestrutura não especificado.
+habitacao:
+  tabela: 9933
+  ano: 2022
+  variavel: 381
+  nivel: N6
+  classificacao: 1975
+  numerador: 73090
+  denominador: 73086
+  totais:
+    '63': 95826
+    '125': 2932
+  sinais:
+    '-': 0
+    X: null
+    '...': null
+    ..: null
+    ? ''
+    : null
+mortalidade:
+  causas:
+    cardiovasculares:
+    - I00-I99
+    respiratorias_cronicas:
+    - J30-J35
+    - J37-J98
+  tipo_obito: '2'
+  multiplicador: 100000
+  idade_ignorada: Separar; incluir na bruta e excluir da padronizada.
+  populacao: popsvs2024br.def
+  pesos: pesos-oms-2001.csv
+  soma_percentuais: 100.03
+internacoes:
+  tipo_aih_incluir: '1'
+  tipo_aih_excluir: '5'
+  ano: ANO_CMPT
+  municipio: MUNIC_RES
+  causa: DIAG_PRINC
+  multiplicador: 10000
+  grupos:
+    neoplasias:
+    - C00-C97
+    - D46
+    diabetes:
+    - E10-E14
+    hipertensivas:
+    - I10-I15
+    isquemicas:
+    - I20-I25
+    cerebrovasculares:
+    - I60-I69
+    pneumonia:
+    - J12-J18
+coleta_local:
+  respostas:
+  - sim
+  - nao
+  - ignorado
+  janela_dias_anteriores:
+  - 7
+  - 1
+  ris_anos: 5
+  grupos:
+    gov:
+      gov_designacao: Há ato de designação de equipe ou responsável vigente na data da avaliação?
+      gov_emergencia: As atribuições documentadas incluem liderar/coordenar a gestão de emergências?
+      gov_continuidade: As atribuições documentadas incluem a continuidade dos serviços essenciais?
+    ris:
+      ris_documento: Existe perfil de riscos documentado?
+      ris_estrutural: A avaliação documentada examina a segurança estrutural?
+      ris_nao_estrutural: Examina elementos não estruturais (equipamentos, instalações e outros)?
+      ris_funcional: Examina a capacidade funcional do serviço?
+      ris_preparacao: Examina a preparação para emergências?
+      ris_ameacas: Identifica natureza e extensão das ameaças à oferta, qualidade e uso dos serviços?
+      ris_probabilidade: Registra a probabilidade das ameaças?
+      ris_impactos: Registra interrupções possíveis e seus custos/consequências?
+      ris_mitigacao: Avalia a efetividade das medidas de mitigação existentes?
+    pla:
+      pla_documento: Existe plano documentado de gestão de emergências vigente, aprovado e não substituído?
+      pla_funcoes: Identifica funções e serviços essenciais que devem continuar?
+      pla_impactos: Descreve como os perigos podem afetar essas funções?
+      pla_acoes: Define ações, responsáveis e recursos para manter ou recuperar essas funções e serviços?
+    wat:
+      wat_interrupcao: Houve qualquer interrupção de abastecimento de água corrente ou de outra fonte segura
+        entre D−7 e D−1, inclusive?
+    ene:
+      ene_interrupcao: Houve qualquer interrupção do fornecimento de energia elétrica entre D−7 e D−1, inclusive,
+        mesmo com acionamento de fonte alternativa?
+    was_agua:
+      was_agua_melhorada: 'A fonte é melhorada: rede canalizada, poço tubular, poço escavado protegido, nascente
+        protegida, chuva coletada ou água envasada/entregue?'
+      was_agua_local: Essa fonte está dentro do terreno do estabelecimento?
+      was_agua_disponivel: Há água disponível dessa fonte no momento da avaliação?
+    was_saneamento:
+      was_san_melhorado: Os sanitários usam descarga para rede/fossa séptica/fossa, latrina melhorada ventilada,
+        latrina com laje ou sanitário de compostagem?
+      was_san_utilizavel: Os sanitários exigidos estão acessíveis, funcionais e garantem privacidade (porta
+        fechável, sem grandes aberturas)?
+      was_san_equipe: Há ao menos um sanitário destinado à equipe?
+      was_san_sexo_menstrual: Há sanitários separados por sexo e, no destinado a mulheres, água e sabão em
+        espaço privado e recipiente coberto para descarte de materiais menstruais?
+      was_san_mobilidade: Há ao menos um sanitário acessível a pessoas com mobilidade reduzida (rota sem barreiras,
+        porta/passagem e espaço para cadeira de rodas, barras de apoio)?
+    was_higiene:
+      was_hig_cuidado: Todos os pontos de cuidado inspecionados têm instalação funcional para higiene das mãos
+        com água e sabão e/ou preparação alcoólica?
+      was_hig_sanitarios: Há instalação funcional com água e sabão e/ou preparação alcoólica a no máximo cinco
+        metros dos sanitários?
+    was_residuos:
+      was_res_tres: 'Nos pontos de geração, há segregação correta em três recipientes: comuns, infecciosos
+        e perfurocortantes?'
+      was_res_perfuro: 'Perfurocortantes têm tratamento e destinação seguros: tratamento em autoclave/incineração
+        apropriada ou encapsulamento, seguido de destinação licenciada?'
+      was_res_infeccioso: Resíduos infecciosos têm tratamento seguro por autoclave, micro-ondas ou incineração
+        apropriada e destinação licenciada, internamente ou por prestador comprovado?
+    was_limpeza:
+      was_lim_protocolo: Há protocolo escrito disponível com procedimentos de limpeza de pisos, superfícies
+        e instalações sanitárias?
+      was_lim_treinamento: Todos os trabalhadores com responsabilidade de limpeza receberam treinamento nesses
+        procedimentos, comprovado por registro?
+  denominador: Respostas completas válidas por indicador/componente; conjunto WASH exige todos.
+  sem_denominador: Ausente com motivo; não zero.
+  metadados:
+    protocolo_versao: Texto fixo 2026-10-06.
+    cnes: Texto de sete dígitos, preservando zeros iniciais.
+    municipio_ibge: Texto de sete dígitos validado na tabela IBGE e no universo.
+    rodada: Identificador textual da rodada, igual ao arquivo do universo.
+    data_avaliacao: Data ISO AAAA-MM-DD da inspeção/entrevista.
+    avaliador_id: Identificador interno do avaliador; manter nomes pessoais fora da publicação.
+    ris_data_revisao: Data ISO da última revisão documentada do perfil; necessária se ris_documento=sim.

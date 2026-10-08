@@ -95,7 +95,7 @@ if command -v pdftotext >/dev/null 2>&1; then
   fi
   for title in "Agradecimentos" "Apresentação" "Prefácio do autor" \
     "Lista de siglas" "Sumário" "Como utilizar este livro" \
-    "Dos dados aos indicadores" "Temperatura e condições" \
+    "Dados, variáveis" "Temperatura e condições" \
     "Temperatura máxima diária" "Título resumido" "Responsabilidade gerencial" \
     "Análise descritiva do indicador" "Tipo de registro" \
     "Referências" "Catálogo de fontes de dados"; do

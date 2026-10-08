@@ -1,0 +1,1817 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Guia técnico sobre conceitos, dados e indicadores de clima e ambiente aplicados à vigilância e à gestão em saúde pública.">
+
+<title>1&nbsp; Clima, ambiente e saúde pública – Dados e Indicadores de Clima e Ambiente para a Saúde</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 1em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../chapters/part-1/02-mudanca-climatica-resposta-sus.html" rel="next">
+<link href="../../frontmatter/como-usar.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-bb162014f31ff550f3668977ab0f7733.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-fdd2e9c9119fd81cafe9a82057eefc34.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-bb162014f31ff550f3668977ab0f7733.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Nenhum resultado",
+    "search-matching-documents-text": "documentos correspondentes",
+    "search-copy-link-title": "Copiar link para a busca",
+    "search-hide-matches-text": "Esconder correspondências adicionais",
+    "search-more-match-text": "mais correspondência neste documento",
+    "search-more-matches-text": "mais correspondências neste documento",
+    "search-clear-button-title": "Limpar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Procurar"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles/web/styles.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/part-1/01-clima-ambiente-saude.html">Parte I — Fundamentos e métodos</a></li><li class="breadcrumb-item"><a href="../../chapters/part-1/01-clima-ambiente-saude.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Clima, ambiente e saúde pública</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Procurar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">Dados e Indicadores de Clima e Ambiente para a Saúde</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/rfsaldanha/dicas" title="Código fonte" class="quarto-navigation-tool px-1" aria-label="Código fonte"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo escuro"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Procurar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bem-vindo</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/ficha-tecnica.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ficha técnica</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/apresentacao.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Apresentação</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/prefacio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prefácio do autor</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/agradecimentos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Agradecimentos</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/siglas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lista de siglas</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/lista-figuras.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lista de figuras</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/lista-tabelas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lista de quadros e tabelas</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/sumario.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sumário</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/como-usar.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Como utilizar este livro</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Parte I — Fundamentos e métodos</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/01-clima-ambiente-saude.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Clima, ambiente e saúde pública</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/02-mudanca-climatica-resposta-sus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Mudança climática, planejamento e resposta do SUS</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/03-dados-variaveis-indices-indicadores.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Dos dados aos indicadores: como representar clima, ambiente e saúde</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/04-espaco-tempo-qualidade.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Compatibilizando dados: espaço, tempo e qualidade</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/05-fontes-fichas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Fontes de dados e fichas de indicadores</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/06-indicador-decisao.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Do indicador à decisão pública</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Parte II — Dados e indicadores temáticos</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/07-temperatura-condicoes-termicas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Temperatura e condições térmicas</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/08-precipitacao-secas-eventos-hidrologicos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Precipitação, secas e eventos hidrológicos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/09-qualidade-ar-queimadas-fumaca.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Qualidade do ar, queimadas e fumaça</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/10-agua-saneamento-qualidade-ambiental.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Água, saneamento e qualidade ambiental</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/11-uso-cobertura-terra-ambiente-urbano.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Uso e cobertura da terra, vegetação e ambiente urbano</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/12-eventos-severos-desastres.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Eventos meteorológicos severos e desastres</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Parte III — Indicadores integrados de clima, ambiente e saúde</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-3/13-exposicao-vulnerabilidade.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Exposição e vulnerabilidade socioambiental</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-3/14-efeitos-saude.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Efeitos do clima e do ambiente sobre a saúde</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-3/15-resposta-adaptacao-resiliencia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Capacidade de resposta, adaptação e resiliência</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Parte IV — Fichas de indicadores e fontes de dados</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/lista-fichas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lista de fichas por código e capítulo</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/indice-indicadores.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Índice alfabético de indicadores</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/16-fichas-temperatura-condicoes-termicas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Fichas — Temperatura e condições térmicas</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/17-fichas-precipitacao-secas-eventos-hidrologicos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Fichas — Precipitação, secas e eventos hidrológicos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Fichas — Qualidade do ar, queimadas e fumaça</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Fichas — Água, saneamento e qualidade ambiental</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/20-fichas-uso-cobertura-terra-ambiente-urbano.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Fichas — Uso e cobertura da terra, vegetação e ambiente urbano</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/21-fichas-eventos-severos-desastres.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Fichas — Eventos severos e desastres</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/22-fichas-exposicao-vulnerabilidade.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Fichas — Exposição e vulnerabilidade socioambiental</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/23-fichas-efeitos-saude.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Fichas — Efeitos do clima e do ambiente sobre a saúde</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/24-fichas-resposta-adaptacao-resiliencia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Fichas — Capacidade de resposta, adaptação e resiliência</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/indice-fontes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Catálogo de fontes de dados</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/glossario.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Glossário</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/referencias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Referências</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Apêndices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/apendice-metodologico.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Apêndice metodológico</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/apendice-estacoes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Estações meteorológicas e de qualidade do ar</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Índice</h2>
+   
+  <ul>
+  <li><a href="#tempo-clima-e-ambiente-três-maneiras-de-olhar-o-território" id="toc-tempo-clima-e-ambiente-três-maneiras-de-olhar-o-território" class="nav-link active" data-scroll-target="#tempo-clima-e-ambiente-três-maneiras-de-olhar-o-território"><span class="header-section-number">1.1</span> Tempo, clima e ambiente: três maneiras de olhar o território</a></li>
+  <li><a href="#dos-determinantes-aos-caminhos-entre-ambiente-e-saúde" id="toc-dos-determinantes-aos-caminhos-entre-ambiente-e-saúde" class="nav-link" data-scroll-target="#dos-determinantes-aos-caminhos-entre-ambiente-e-saúde"><span class="header-section-number">1.2</span> Dos determinantes aos caminhos entre ambiente e saúde</a>
+  <ul class="collapse">
+  <li><a href="#sec-trajetorias-impacto" id="toc-sec-trajetorias-impacto" class="nav-link" data-scroll-target="#sec-trajetorias-impacto"><span class="header-section-number">1.2.1</span> Efeitos diretos, indiretos e trajetórias no tempo</a></li>
+  </ul></li>
+  <li><a href="#perigo-exposição-vulnerabilidade-e-risco-por-que-as-palavras-importam" id="toc-perigo-exposição-vulnerabilidade-e-risco-por-que-as-palavras-importam" class="nav-link" data-scroll-target="#perigo-exposição-vulnerabilidade-e-risco-por-que-as-palavras-importam"><span class="header-section-number">1.3</span> Perigo, exposição, vulnerabilidade e risco: por que as palavras importam</a>
+  <ul class="collapse">
+  <li><a href="#perigo-não-é-desastre" id="toc-perigo-não-é-desastre" class="nav-link" data-scroll-target="#perigo-não-é-desastre"><span class="header-section-number">1.3.1</span> Perigo não é desastre</a></li>
+  <li><a href="#exposição-é-contato-situado" id="toc-exposição-é-contato-situado" class="nav-link" data-scroll-target="#exposição-é-contato-situado"><span class="header-section-number">1.3.2</span> Exposição é contato situado</a></li>
+  <li><a href="#vulnerabilidade-não-é-um-rótulo" id="toc-vulnerabilidade-não-é-um-rótulo" class="nav-link" data-scroll-target="#vulnerabilidade-não-é-um-rótulo"><span class="header-section-number">1.3.3</span> Vulnerabilidade não é um rótulo</a></li>
+  </ul></li>
+  <li><a href="#desigualdades-fazem-parte-da-explicação-do-risco" id="toc-desigualdades-fazem-parte-da-explicação-do-risco" class="nav-link" data-scroll-target="#desigualdades-fazem-parte-da-explicação-do-risco"><span class="header-section-number">1.4</span> Desigualdades fazem parte da explicação do risco</a>
+  <ul class="collapse">
+  <li><a href="#justiça-ambiental-e-climática" id="toc-justiça-ambiental-e-climática" class="nav-link" data-scroll-target="#justiça-ambiental-e-climática"><span class="header-section-number">1.4.1</span> Justiça ambiental e climática</a></li>
+  </ul></li>
+  <li><a href="#síntese" id="toc-síntese" class="nav-link" data-scroll-target="#síntese"><span class="header-section-number">1.5</span> Síntese</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/rfsaldanha/dicas/blob/main/chapters/part-1/01-clima-ambiente-saude.qmd" class="toc-action"><i class="bi bi-github"></i>Ver o código fonte</a></li><li><a href="https://github.com/rfsaldanha/dicas/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default has-chapter-opening"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/part-1/01-clima-ambiente-saude.html">Parte I — Fundamentos e métodos</a></li><li class="breadcrumb-item"><a href="../../chapters/part-1/01-clima-ambiente-saude.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Clima, ambiente e saúde pública</span></a></li></ol></nav>
+<div class="chapter-opening">
+  <img src="../../assets/openings/cap1-clima-ambiente-saude-web.webp" alt="Aquarela panorâmica de um bairro brasileiro hipotético, sem pessoas: casas e prédios, ruas arborizadas, rio com margens vegetadas e ponte, sob sol à esquerda e nuvens de chuva à direita. Uma pequena edificação com rampa integra a paisagem." width="2400" height="600" class="no-lightbox" fetchpriority="high">
+</div>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-clima-ambiente-saude" class="quarto-section-identifier"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Clima, ambiente e saúde pública</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<!--
+DIREÇÃO DE ARTE — CAPÍTULO 1
+
+Abertura: vinheta panorâmica 4:1 integrada ao título, sem numeração de figura. Original, prompt e créditos em assets/openings; montagem em scripts/build_chapter_opening.sh. A cena é hipotética. Na web, o bloco de título usa includes/chapter-opening/title-block.html; no PDF, a composição está em _extensions/dicas-print/typst-show.typ.
+
+O capítulo reúne doze figuras: nove composições com aquarelas e três diagramas vetoriais. Os códigos ARTE CAP1 identificam arquivos de produção e não correspondem à numeração editorial, calculada pela ordem das figuras. Preservar os identificadores publicados.
+
+Padrão das aquarelas: aquarela tradicional translúcida, traços finos de grafite e nanquim, contornos abertos, hachuras leves e pigmentação irregular. Paleta de verdes naturais, azuis acinzentados, ocres e terracota, com branco de papel. Direção permanente: docs/guia-editorial.md. Referência visual: assets/references/aquarela-grafite-nanquim.png. Compor rótulos e conexões como elementos editáveis.
+
+Artes preservadas: CAP1-01 cadeia entre ambiente e saúde; CAP1-02 trajetórias de uma inundação; CAP1-03 exposição ao calor; CAP1-04 medida ambiental e dose; CAP1-05 territórios e proteção; CAP1-06 justiça ambiental e climática.
+Novas artes: CAP1-07 tempo, clima e ambiente; CAP1-08 quadrantes; CAP1-09 curvas de impacto; CAP1-10 Venn do risco; CAP1-11 caracterização do perigo; CAP1-12 desigualdades.
+Produção das novas artes: scripts/build_cap1_revision.py; prompts e manifestos preservados em assets/figures. A composição CAP1-12 usa 90% da largura na impressão para manter a resolução efetiva do original acima de 300 ppi.
+-->
+<p>A saúde se produz nas condições concretas em que as pessoas vivem. As possibilidades de adoecer, recuperar-se e viver com saúde dependem da alimentação, da moradia, do trabalho, da renda, das relações sociais, das condições ambientais e do acesso ao cuidado. A abordagem dos determinantes da saúde procura compreender como essas condições se combinam e por que seus efeitos se distribuem de maneira desigual entre pessoas e territórios <span class="citation" data-cites="who2010sdhframework">(<a href="../../backmatter/referencias.html#ref-who2010sdhframework" role="doc-biblioref">Solar; Irwin, 2010</a>)</span>.</p>
+<p>Os determinantes ambientais fazem parte dessa produção social da saúde. Abrangem componentes físicos, químicos, biológicos e construídos: qualidade do ar e da água, saneamento, vegetação, uso da terra, contaminantes, condições térmicas e infraestrutura. A distribuição desses componentes resulta tanto de processos naturais quanto de decisões sobre produção, ocupação do território, habitação e serviços públicos <span class="citation" data-cites="brasilsaudeambiental">(<a href="../../backmatter/referencias.html#ref-brasilsaudeambiental" role="doc-biblioref">Brasil. Ministério da Saúde, 2026</a>)</span>. Uma mesma condição ambiental pode representar possibilidades muito diferentes de exposição e proteção conforme o contexto em que ocorre <span class="citation" data-cites="gracie2024asisa">(<a href="../../backmatter/referencias.html#ref-gracie2024asisa" role="doc-biblioref">Gracie; Rodrigues, 2024, p. 11–16</a>)</span>.</p>
+<p>O clima participa desse conjunto por diversos caminhos. O calor pode impor uma carga térmica ao organismo; alterações de chuva podem modificar a disponibilidade de água; secas podem comprometer a produção de alimentos; inundações podem interromper transportes e serviços. A mudança climática modifica esses caminhos ao alterar padrões de ocorrência dos perigos e as condições que sustentam a vida cotidiana <span class="citation" data-cites="ipcc2022saude who2023climatehealth">(<a href="../../backmatter/referencias.html#ref-ipcc2022saude" role="doc-biblioref">Cissé et al., 2022</a>; <a href="../../backmatter/referencias.html#ref-who2023climatehealth" role="doc-biblioref">World Health Organization, 2023b</a>)</span>. Por isso, interpretar seus efeitos exige articular fenômenos físicos, processos sociais e organização territorial.</p>
+<p>A análise dos efeitos do clima precisa considerar as transformações ambientais, as condições de vida e a capacidade de atuação do poder público. A relação entre esses processos situa os riscos em um contexto social mais amplo:</p>
+<blockquote class="blockquote">
+<p>[…] os riscos associados às mudanças climáticas globais não podem ser avaliados em separado do contexto globalização, mudanças ambientais e precarização de sistemas de governo.</p>
+<p><span class="citation" data-cites="barcellos2009clima">(<a href="../../backmatter/referencias.html#ref-barcellos2009clima" role="doc-biblioref">Barcellos et al., 2009, p. 285</a>)</span></p>
+</blockquote>
+<p>Para a vigilância e a gestão do Sistema Único de Saúde (SUS), essa perspectiva exige perguntar qual é o perigo, quem está exposto, durante quanto tempo e com que possibilidades de proteção. Uma concentração de material particulado com diâmetro aerodinâmico igual ou inferior a 2,5 micrômetros (PM2,5), por exemplo, descreve uma condição do ar. Seu significado sanitário depende também da presença de pessoas, de suas atividades e das condições de suscetibilidade e cuidado.</p>
+<p>Este capítulo distingue tempo, clima e ambiente, acompanha os caminhos e as temporalidades dos impactos e discute perigo, exposição, vulnerabilidade, risco e justiça. O capítulo seguinte examina como essas relações orientam o planejamento e a resposta do SUS. Cada indicador será interpretado pelo que consegue representar desses processos e pelas decisões que pode apoiar.</p>
+<section id="tempo-clima-e-ambiente-três-maneiras-de-olhar-o-território" class="level2 page-columns page-full" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="tempo-clima-e-ambiente-três-maneiras-de-olhar-o-território"><span class="header-section-number">1.1</span> Tempo, clima e ambiente: três maneiras de olhar o território</h2>
+<p>No uso cotidiano, tempo e clima costumam aparecer como sinônimos. Para trabalhar com dados, porém, a diferença é importante.</p>
+<p>Tempo meteorológico descreve o estado da atmosfera em determinado lugar e momento. A chuva prevista para a tarde, a temperatura observada às 15 horas, a baixa umidade de uma sequência de dias e uma rajada de vento são informações sobre o tempo. São especialmente úteis para decisões de curto prazo: emitir um alerta, reorganizar uma equipe, preparar uma unidade ou orientar a população.</p>
+<p>Clima descreve como essas condições se comportam ao longo de períodos mais extensos. Não se resume a uma média. Inclui sazonalidade, distribuição dos valores, variabilidade, frequência de extremos e persistência dos eventos. Quando perguntamos se os dias muito quentes se tornaram mais frequentes nas últimas décadas, ou em que meses a chuva intensa costuma ocorrer, estamos fazendo uma pergunta climática <span class="citation" data-cites="wmo2023climatological wmo2017normals">(<a href="../../backmatter/referencias.html#ref-wmo2017normals" role="doc-biblioref">World Meteorological Organization, 2017</a>, <a href="../../backmatter/referencias.html#ref-wmo2023climatological" role="doc-biblioref">2023</a>)</span>.</p>
+<p>O ambiente reúne as condições naturais e construídas nas quais as exposições ocorrem. Para a saúde pública, interessa compreender como essas condições são produzidas e transformadas por decisões sobre ocupação do solo, habitação, transporte, energia e saneamento.</p>
+<p>Entre uma temperatura registrada e a condição experimentada pelas pessoas existem os microclimas de moradias, ruas, locais de trabalho e transporte. Sombra, ventilação, materiais e fontes locais de calor contribuem para essas diferenças. A seção sobre exposição examinará suas consequências para a interpretação dos dados.</p>
+<p>A <a href="#fig-tempo-clima-ambiente" class="quarto-xref">Figura&nbsp;<span>1.1</span></a> retoma essas três perguntas em um território hipotético. As vistas repetidas sugerem a observação ao longo do tempo, mas não bastam para caracterizar o clima: isso exige séries históricas que permitam reconhecer padrões, variabilidade e extremos.</p>
+<div id="fig-tempo-clima-ambiente" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" alt="Três painéis em aquarela mostram um bairro hipotético. À esquerda, chuva em um momento; no centro, vistas repetidas da mesma rua sob chuva, sol e vento; à direita, rio, vegetação, moradias, prédios e serviços. Os rótulos distinguem condições do momento, padrões em séries históricas e condições naturais e construídas. As três vistas centrais não constituem uma série climática." data-print-src="arte-cap1-07-tempo-clima-ambiente-print.png">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-tempo-clima-ambiente-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<a href="../../assets/figures/arte-cap1-07-tempo-clima-ambiente.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-1" title="Figura&nbsp;1.1: Tempo, clima e ambiente: três leituras do mesmo território"><img src="../../assets/figures/arte-cap1-07-tempo-clima-ambiente.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Três painéis em aquarela mostram um bairro hipotético. À esquerda, chuva em um momento; no centro, vistas repetidas da mesma rua sob chuva, sol e vento; à direita, rio, vegetação, moradias, prédios e serviços. Os rótulos distinguem condições do momento, padrões em séries históricas e condições naturais e construídas. As três vistas centrais não constituem uma série climática."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-tempo-clima-ambiente-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;1.1: Tempo, clima e ambiente: três leituras do mesmo território
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte e composição: elaboração própria, com aquarela gerada pela ferramenta image_gen. Licença: a mesma dos textos autorais da obra.</span></p>
+<!--
+ARTE CAP1-07 — Revisão conceitual do capítulo.
+Composição: scripts/build_cap1_revision.py.
+Metadados, descrição acessível e proveniência: assets/figures/arte-cap1-revisao-manifest.json.
+SVG: assets/figures/arte-cap1-07-tempo-clima-ambiente.svg.
+Impressão: assets/figures/arte-cap1-07-tempo-clima-ambiente-print.png.
+Original: assets/figures/arte-cap1-07-v1.png.
+Prompt completo efetivamente utilizado: assets/figures/arte-cap1-07-v1.prompt.txt.
+Referência de estilo: assets/references/aquarela-grafite-nanquim.png.
+Produção: image_gen; versão não informada. Rótulos editáveis acrescentados na montagem.
+-->
+<div id="qua-tempo-clima-ambiente" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-qua figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-qua" id="qua-tempo-clima-ambiente-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Quadro&nbsp;1.1: Distinções operacionais entre tempo, clima e ambiente
+</figcaption>
+<div aria-describedby="qua-tempo-clima-ambiente-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Conceito</th>
+<th>Pergunta prática</th>
+<th>Escala frequente</th>
+<th>Exemplo para a saúde</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Tempo meteorológico</td>
+<td>O que está ocorrendo ou poderá ocorrer nas próximas horas e dias?</td>
+<td>Minutos a dias</td>
+<td>Haverá chuva intensa amanhã? É necessário preparar equipes ou serviços?</td>
+</tr>
+<tr class="even">
+<td>Clima</td>
+<td>Como as condições variam, se repetem e mudam ao longo do tempo?</td>
+<td>Meses a décadas</td>
+<td>Os episódios de calor intenso estão mais frequentes? Em que época do ano ocorrem?</td>
+</tr>
+<tr class="odd">
+<td>Ambiente</td>
+<td>Que condições do território favorecem exposição, proteção ou dano?</td>
+<td>Do local ao global; do instante a décadas</td>
+<td>Onde há maior concentração de PM2,5, menor cobertura de água segura ou menos áreas verdes?</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>A informação ambiental se torna operacional quando responde a uma pergunta de saúde, chega no momento adequado e encontra capacidade de ação <span class="citation" data-cites="wmoWho2015heat who2023framework">(<a href="../../backmatter/referencias.html#ref-who2023framework" role="doc-biblioref">World Health Organization, 2023a</a>; <a href="../../backmatter/referencias.html#ref-wmoWho2015heat" role="doc-biblioref">World Meteorological Organization; World Health Organization, 2015</a>)</span>.</p>
+</section>
+<section id="dos-determinantes-aos-caminhos-entre-ambiente-e-saúde" class="level2 page-columns page-full" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="dos-determinantes-aos-caminhos-entre-ambiente-e-saúde"><span class="header-section-number">1.2</span> Dos determinantes aos caminhos entre ambiente e saúde</h2>
+<p>Reconhecer clima e ambiente como determinantes da saúde é apenas o ponto de partida. Para trabalhar com dados, é necessário transformar essa ideia ampla em caminhos que possam ser descritos, observados e, quando possível, monitorados. Entre uma condição ambiental e um desfecho de saúde geralmente existem etapas intermediárias: o fenômeno precisa ocorrer em determinado território, pessoas precisam estar expostas, essa exposição precisa produzir uma alteração relevante e diferentes condições podem ampliar ou reduzir suas consequências.</p>
+<p>No SUS, a vigilância em saúde ambiental procura justamente identificar e acompanhar fatores ambientais capazes de interferir na saúde humana para orientar prevenção, promoção e resposta <span class="citation" data-cites="brasilsaudeambiental">(<a href="../../backmatter/referencias.html#ref-brasilsaudeambiental" role="doc-biblioref">Brasil. Ministério da Saúde, 2026</a>)</span>. Para quem trabalha com dados, a consequência prática é importante: não basta encontrar uma correlação entre uma variável ambiental e um desfecho; é preciso reconstruir, tanto quanto os dados permitirem, o caminho que liga os dois.</p>
+<p>Uma chuva intensa, por exemplo, interage com relevo, impermeabilização, drenagem e ocupação das margens de rios. Uma eventual inundação pode provocar contato com água contaminada, deslocar famílias e comprometer transporte, energia e serviços. Os efeitos sanitários dependem dessas interações e podem persistir depois do evento.</p>
+<p>Cada etapa requer dados e ações diferentes: informação meteorológica para antecipação; população e território para localizar exposição; registros de saúde para acompanhar agravos; infraestrutura e redes de abastecimento para avaliar a continuidade dos serviços.</p>
+<p>O marco de forças motrizes, pressões, estado, exposição, efeitos e ação, conhecido pela sigla inglesa DPSEEA (<em>Driving Forces, Pressures, State, Exposure, Effects and Action</em>), organiza relações entre desenvolvimento, ambiente e saúde. Esse marco ajuda a localizar intervenções tanto nas condições de exposição e nos efeitos quanto nas políticas que produzem pressões ambientais <span class="citation" data-cites="corvalan1999links">(<a href="../../backmatter/referencias.html#ref-corvalan1999links" role="doc-biblioref">Corvalán; Kjellström; Smith, 1999</a>)</span>.</p>
+<p>No Brasil, o livro <em>Saúde ambiental: guia básico para construção de indicadores</em> desenvolve esse modelo como Força Motriz–Pressão–Situação–Exposição–Efeito–Ação (FPSEEA), empregando “situação” para o estado do ambiente e relacionando seus componentes à vigilância em saúde ambiental <span class="citation" data-cites="brasil2011saudeambiental">(<a href="../../backmatter/referencias.html#ref-brasil2011saudeambiental" role="doc-biblioref">Brasil. Ministério da Saúde, 2011, p. 92–94</a>)</span>.</p>
+<p>Em uma área sujeita a inundações, por exemplo, decisões de ocupação do solo podem pressionar a drenagem e modificar o estado do ambiente. A presença de moradores e serviços nessa área configura exposição; os danos dependem também das condições de proteção. A ação pode envolver ordenamento territorial, saneamento, alerta, continuidade assistencial e cuidado. Assim, o marco ajuda a escolher o que acompanhar e onde intervir, sem pressupor uma sequência rígida ou uma causa única para cada agravo <span class="citation" data-cites="who2003environmentalindicators">(<a href="../../backmatter/referencias.html#ref-who2003environmentalindicators" role="doc-biblioref">World Health Organization, 2003</a>)</span>.</p>
+<div id="qua-determinantes-cadeias" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-qua figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-qua" id="qua-determinantes-cadeias-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Quadro&nbsp;1.2: Exemplos de cadeias entre condições ambientais, efeitos sanitários e ação pública
+</figcaption>
+<div aria-describedby="qua-determinantes-cadeias-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Situação</th>
+<th>O que acontece entre o ambiente e a saúde</th>
+<th>Possíveis efeitos</th>
+<th>Exemplos de resposta pública</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Calor persistente</td>
+<td>Maior carga térmica; menor possibilidade de dissipar calor; aumento da demanda elétrica</td>
+<td>Doença relacionada ao calor; agravamento cardiovascular e renal; acidentes de trabalho</td>
+<td>Alertas; proteção no trabalho; busca ativa; preparação dos serviços</td>
+</tr>
+<tr class="even">
+<td>Chuva intensa</td>
+<td>Alagamento, inundação, deslizamento, contaminação e interrupção da mobilidade</td>
+<td>Lesões, óbitos, doenças relacionadas à água e sofrimento mental</td>
+<td>Alerta; evacuação; água segura; vigilância pós-evento</td>
+</tr>
+<tr class="odd">
+<td>Seca e queimadas</td>
+<td>Escassez de água, perda de produção, aumento de poeira e fumaça</td>
+<td>Insegurança alimentar; doenças respiratórias; agravos relacionados à água</td>
+<td>Segurança hídrica; vigilância da qualidade do ar; assistência social e sanitária</td>
+</tr>
+<tr class="even">
+<td>Poluição atmosférica</td>
+<td>Inalação de partículas e gases em concentrações e períodos variados</td>
+<td>Agravos respiratórios e cardiovasculares; mortalidade prematura</td>
+<td>Monitoramento; redução de emissões; comunicação e proteção de grupos mais expostos</td>
+</tr>
+<tr class="odd">
+<td>Saneamento inadequado</td>
+<td>Maior probabilidade de contato com água, alimentos ou solo contaminados</td>
+<td>Doenças diarreicas, parasitoses e outros agravos</td>
+<td>Abastecimento seguro; esgotamento; vigilância e controle</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>A <a href="#fig-cadeia-risco" class="quarto-xref">Figura&nbsp;<span>1.2</span></a> reúne cinco componentes: perigo ou condição ambiental; exposição; efeitos; vigilância e resposta; e vulnerabilidades e capacidades de proteção. Uma inundação hipotética ilustra suas relações no território. O esquema ajuda a identificar as informações necessárias para compreender o risco e os pontos em que a ação pública pode modificá-lo.</p>
+<p>A leitura principal desce do perigo à resposta. O bloco da base e as setas de retorno destacam a influência da proteção e das intervenções, sem estabelecer uma sequência obrigatória de acontecimentos.</p>
+<div id="fig-cadeia-risco" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" alt="Cinco cenas hipotéticas em aquarela ilustram perigo, exposição, efeitos, resposta e proteção. As setas ligam perigo e proteção à exposição, exposição a efeitos e efeitos à resposta. Duas setas pontilhadas indicam a ação sobre exposição e proteção. As cenas se passam em bairro urbano com prédios residenciais, casas, comércio, calçadas e arborização." data-print-src="arte-cap1-01-diagrama-print.png">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-cadeia-risco-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<a href="../../assets/figures/arte-cap1-01-diagrama.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-2" title="Figura&nbsp;1.2: Do fenômeno ambiental à ação em saúde"><img src="../../assets/figures/arte-cap1-01-diagrama.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Cinco cenas hipotéticas em aquarela ilustram perigo, exposição, efeitos, resposta e proteção. As setas ligam perigo e proteção à exposição, exposição a efeitos e efeitos à resposta. Duas setas pontilhadas indicam a ação sobre exposição e proteção. As cenas se passam em bairro urbano com prédios residenciais, casas, comércio, calçadas e arborização."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cadeia-risco-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;1.2: Do fenômeno ambiental à ação em saúde
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte e composição: elaboração própria, com ilustração gerada por inteligência artificial. Licença: a mesma dos textos autorais da obra. Revisão urbana da aquarela: image_gen, com o original e a referência visual da série.</span></p>
+<!--
+ARTE CAP1-01 — Revisão urbana v3
+Finalidade e descrição acessível: Cinco cenas hipotéticas em aquarela ilustram perigo, exposição, efeitos, resposta e proteção. As setas ligam perigo e proteção à exposição, exposição a efeitos e efeitos à resposta. Duas setas pontilhadas indicam a ação sobre exposição e proteção. As cenas se passam em bairro urbano com prédios residenciais, casas, comércio, calçadas e arborização.
+Arte incorporada: assets/figures/arte-cap1-01-diagrama.svg.
+Impressão: assets/figures/arte-cap1-01-diagrama-print.png.
+Original da edição: assets/figures/arte-cap1-01-v2.png; preservado junto das versões anteriores.
+Aquarela revisada: assets/figures/arte-cap1-01-v3.png.
+Prompt completo utilizado: assets/figures/arte-cap1-01-v3.prompt.txt.
+Referência de estilo: assets/references/aquarela-grafite-nanquim.png.
+Produção: ferramenta integrada image_gen; original e referência de estilo inspecionados e fornecidos por referenced_image_paths.
+Montagem: scripts/build_cap1_art.py; rótulos, setas e identificadores editáveis preservados.
+Exportação: Chromium com fontes e raster incorporados; ImageMagick para PNG de 8 bits em cinza.
+Revisão: presença urbana, continuidade da aquarela, anatomia, recortes e relações conceituais. Cenários hipotéticos, sem novos dados observados.
+Licença dos arquivos autorais: GPL-3.0; fontes citadas mantêm suas condições de uso.
+
+Use case: precise-object-edit. Arte didática em aquarela para livro brasileiro sobre clima, ambiente e saúde.
+Entradas: imagem 1 é o ORIGINAL a editar, referência obrigatória de composição; imagem 2 é APENAS referência do estilo da série.
+Pedido: aumentar a presença urbana, preservando a aquarela naturalista, paleta suave de azuis, verdes, ocres e terracota, textura de papel, contornos delicados de grafite/nanquim e contraste adequado também em cinza. A cidade é brasileira e hipotética, sem marcos reconhecíveis.
+Revisão específica: Conserve as CINCO vinhetas e sua posição escalonada na página vertical. Na inundação superior, substitua parte das casas por prédios de 4–8 andares próximos, térreos comerciais e calçadas urbanas, preservando chuva, carro e água. Na cena de exposição à direita, situe a mesma família e unidade de saúde em bairro urbano com edifícios residenciais. Na cena de curativo à esquerda, acrescente edifícios na vista externa. Na resposta comunitária, mantenha tenda, pessoas e suprimentos, acrescentando fachadas urbanas ao fundo. Na proteção inferior, misture casas, edifícios próximos, arborização e calçadas acessíveis; conserve a família e o serviço de saúde. Não preencha os corredores brancos entre as cenas.
+Invariantes: conserve enquadramento, proporção, escala das figuras humanas, anatomia natural, quantidade e posição das vinhetas, objetos conceituais e espaços brancos. Alterar cenários e arquitetura somente conforme o pedido. Não adicionar texto, títulos, legendas, setas, números, marcas ou molduras; serão aplicados como vetores editáveis. Não fundir cenas e não recortar personagens. Manter boa nitidez na impressão.
+Formato: mesma proporção do original 1122 × 1402; resolução igual ou superior. Uma única imagem final editada.
+-->
+<p>No alto, a cena da água avançando sobre a rua caracteriza o perigo. Sua descrição requer informações sobre intensidade, extensão, duração e momento de ocorrência. A pergunta seguinte, “quem e o que está exposto?”, acrescenta moradores, trajetos e estabelecimentos ao território atingido. Para uma inundação, isso significa relacionar a área alcançada pela água à localização e ao funcionamento desses elementos. Dados de chuva, sozinhos, não informam quem entrou em contato com a água nem quais serviços ficaram inacessíveis.</p>
+<p>O bloco de efeitos inclui tanto os agravos às pessoas quanto as consequências para o território e os serviços. A lesão ilustrada é uma possibilidade; a interrupção do atendimento ou do acesso ao cuidado também precisa ser acompanhada. Registros de atendimentos, informações sobre interrupções e observações de campo ajudam a distinguir o perigo observado das consequências efetivamente verificadas. A seta da exposição para os efeitos indica uma relação a investigar, sem afirmar que toda pessoa exposta sofrerá dano.</p>
+<p>Na base, moradia, água segura, apoio social e acesso à unidade de saúde ilustram condições que podem modificar a exposição e a gravidade dos efeitos. Embora a seta desse bloco chegue à exposição, vulnerabilidades e capacidades de proteção atravessam toda a análise: influenciam quem consegue evitar o contato, obter cuidado e recuperar-se. Sua posição na figura não significa que surjam apenas depois do evento.</p>
+<p>O bloco de vigilância, prevenção, cuidado e resposta reúne possibilidades de ação. As setas pontilhadas mostram dois retornos: reduzir a exposição e fortalecer a proteção. Alertas acompanhados de meios para agir, reorganização do atendimento e continuidade do abastecimento exemplificam intervenções nesses pontos. O acompanhamento de seus resultados produz aprendizado para a preparação seguinte. A figura organiza componentes do risco, sem estimar probabilidades ou detalhar a evolução temporal dos efeitos; essa última questão será desenvolvida a seguir.</p>
+<section id="sec-trajetorias-impacto" class="level3 page-columns page-full" data-number="1.2.1">
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="sec-trajetorias-impacto"><span class="header-section-number">1.2.1</span> Efeitos diretos, indiretos e trajetórias no tempo</h3>
+<p>Para compreender um efeito em saúde, precisamos distinguir duas perguntas: por qual caminho ele foi produzido e como se manifesta ao longo do tempo? Um trauma causado pela ação física de uma inundação pode deixar uma sequela prolongada. Uma interrupção de energia que comprometa um cuidado dependente de equipamento pode gerar uma consequência imediata, embora mediada pela infraestrutura. Portanto, “direto” não significa necessariamente “imediato”, e “indireto” não equivale a “tardio”. A <a href="#fig-quadrantes-impacto" class="quarto-xref">Figura&nbsp;<span>1.3</span></a> organiza essas duas perguntas.</p>
+<div id="fig-quadrantes-impacto" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" alt="Gráfico de quatro quadrantes sem escala numérica. Na horizontal, efeitos imediatos ou de curto prazo à esquerda e prolongados ou cumulativos à direita; na vertical, mecanismo direto acima e indireto abaixo. Os exemplos são trauma pela água, sequela do trauma, interrupção do cuidado por falta de energia e agravamento associado à interrupção de tratamentos. Não há sequência obrigatória entre quadrantes." data-print-src="arte-cap1-08-quadrantes-print.png">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-quadrantes-impacto-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<a href="../../assets/figures/arte-cap1-08-quadrantes.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-3" title="Figura&nbsp;1.3: Mecanismo e temporalidade: dois eixos para analisar os impactos"><img src="../../assets/figures/arte-cap1-08-quadrantes.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Gráfico de quatro quadrantes sem escala numérica. Na horizontal, efeitos imediatos ou de curto prazo à esquerda e prolongados ou cumulativos à direita; na vertical, mecanismo direto acima e indireto abaixo. Os exemplos são trauma pela água, sequela do trauma, interrupção do cuidado por falta de energia e agravamento associado à interrupção de tratamentos. Não há sequência obrigatória entre quadrantes."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-quadrantes-impacto-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;1.3: Mecanismo e temporalidade: dois eixos para analisar os impactos
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte e autoria: elaboração própria. Licença: a mesma dos textos autorais da obra.</span></p>
+<!--
+ARTE CAP1-08 — Revisão conceitual do capítulo.
+Composição: scripts/build_cap1_revision.py.
+Metadados, descrição acessível e proveniência: assets/figures/arte-cap1-revisao-manifest.json.
+SVG: assets/figures/arte-cap1-08-quadrantes.svg.
+Impressão: assets/figures/arte-cap1-08-quadrantes-print.png.
+-->
+<p>O <a href="#qua-trajetorias-impacto" class="quarto-xref">Quadro&nbsp;<span>1.3</span></a> apresenta uma proposta conceitual em desenvolvimento, organizada a partir dessas duas dimensões. Os quatro domínios servem como posições de análise em uma trajetória; não constituem uma classificação validada de pessoas, doenças ou eventos. Sua aplicação exige explicitar o perigo de referência e sustentar cada ligação com evidências.</p>
+<div id="qua-trajetorias-impacto" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-qua figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-qua" id="qua-trajetorias-impacto-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Quadro&nbsp;1.3: Domínios analíticos de caminhos e temporalidades dos impactos
+</figcaption>
+<div aria-describedby="qua-trajetorias-impacto-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Mecanismo predominante</th>
+<th>Efeitos imediatos ou de curto prazo</th>
+<th>Efeitos prolongados ou cumulativos</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Direto</td>
+<td>Trauma pela ação física da água; adoecimento agudo pela carga térmica</td>
+<td>Sequela física do trauma; consequências persistentes de uma lesão relacionada à exposição</td>
+</tr>
+<tr class="even">
+<td>Indireto</td>
+<td>Descontinuidade de cuidado por falha de energia, transporte ou abastecimento</td>
+<td>Agravamento associado à interrupção persistente de tratamentos; consequências da perda de moradia e renda</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Os exemplos do quadro são didáticos e não estabelecem frequência, probabilidade ou atribuição causal. Diferentes domínios podem coexistir, e uma pessoa pode enfrentar mais de um deles. A contribuição dessa leitura está em acompanhar trajetórias de impacto: processos nos quais se encadeiam ou se combinam efeitos, mediações e condições de recuperação. Uma mesma lesão não muda retroativamente de causa quando deixa uma sequela; a trajetória passa a incluir novas consequências e necessidades de cuidado.</p>
+<p>O mecanismo predominante é o primeiro eixo. Efeitos diretos decorrem principalmente da ação do perigo sobre a pessoa, como a carga térmica do calor ou a força da água. Efeitos indiretos envolvem mudanças em sistemas ambientais, sociais, econômicos ou institucionais: abastecimento, alimentos, vetores, renda, mobilidade e serviços de saúde. Essa distinção depende de explicitar o ponto de partida. A inalação de fumaça é uma exposição direta ao poluente; quando a pergunta parte da seca, a queimada e a emissão de partículas são mediações do caminho até o agravo. As condições sociais atravessam ambos os mecanismos <span class="citation" data-cites="barcellos2009clima ipcc2022saude">(<a href="../../backmatter/referencias.html#ref-barcellos2009clima" role="doc-biblioref">Barcellos et al., 2009</a>; <a href="../../backmatter/referencias.html#ref-ipcc2022saude" role="doc-biblioref">Cissé et al., 2022</a>)</span>.</p>
+<p>O segundo eixo descreve a temporalidade predominante. É preciso distinguir o início do efeito, sua duração e a acumulação produzida por exposições repetidas. Um efeito pode começar durante o evento e persistir depois dele; outro pode aparecer após um intervalo. “Prolongado”, portanto, não é sinônimo de início tardio. Também é necessário separar a duração do fenômeno físico da duração de suas consequências sanitárias. Não se adotam aqui cortes universais em dias ou meses: a janela de observação deve corresponder ao mecanismo e ao desfecho estudados.</p>
+<p>Freitas e colaboradores, entre eles Carlos Machado de Freitas, Diego Ricardo Xavier Silva e Christovam Barcellos, organizaram impactos e respostas em três horizontes: horas–dias, semanas–meses e meses–anos. Sua Figura 1 adapta uma proposta de Redmond e relaciona resgate e traumas agudos, vigilância e retomada dos serviços, cuidado prolongado e reconstrução <span class="citation" data-cites="freitas2014desastres redmond2005natural">(<a href="../../backmatter/referencias.html#ref-freitas2014desastres" role="doc-biblioref">Freitas et al., 2014</a>; <a href="../../backmatter/referencias.html#ref-redmond2005natural" role="doc-biblioref">Redmond, 2005</a>)</span>.</p>
+<p>A <a href="#fig-curvas-impacto-desastres" class="quarto-xref">Figura&nbsp;<span>1.4</span></a> retoma essa organização. O original apresenta blocos temporais; as curvas foram acrescentadas nesta adaptação para ilustrar a sobreposição dos impactos. Não expressam números de casos, probabilidades ou intensidades comparáveis, e as distâncias no eixo do tempo não representam intervalos proporcionais.</p>
+<div id="fig-curvas-impacto-desastres" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" alt="Esquema com eixo vertical Impactos e horizontal Escala temporal, sem valores numéricos. Três curvas editoriais se sobrepõem: A, contínua, destaca resgate, trauma e óbitos; B, tracejada, cuidado e vigilância de doenças transmissíveis e não transmissíveis e retomada dos serviços; C, pontilhada, condições crônicas, efeitos psicossociais, reabilitação e reconstrução. Os horizontes são horas a dias, semanas a meses e meses a anos. As curvas foram acrescentadas ao esquema temporal de Freitas et al. (2014), não são dados observados e não definem limites universais." data-print-src="arte-cap1-09-curvas-impacto-print.png">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-curvas-impacto-desastres-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<a href="../../assets/figures/arte-cap1-09-curvas-impacto.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-4" title="Figura&nbsp;1.4: Impactos e respostas em diferentes tempos após um desastre"><img src="../../assets/figures/arte-cap1-09-curvas-impacto.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Esquema com eixo vertical Impactos e horizontal Escala temporal, sem valores numéricos. Três curvas editoriais se sobrepõem: A, contínua, destaca resgate, trauma e óbitos; B, tracejada, cuidado e vigilância de doenças transmissíveis e não transmissíveis e retomada dos serviços; C, pontilhada, condições crônicas, efeitos psicossociais, reabilitação e reconstrução. Os horizontes são horas a dias, semanas a meses e meses a anos. As curvas foram acrescentadas ao esquema temporal de Freitas et al. (2014), não são dados observados e não definem limites universais."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-curvas-impacto-desastres-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;1.4: Impactos e respostas em diferentes tempos após um desastre
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte conceitual: Freitas et al.&nbsp;(2014), Figura 1, adaptada pelos autores de Redmond (2005). Redesenho e curvas didáticas: elaboração própria; não reproduzem dados observados. Licença da composição autoral: a mesma dos textos da obra.</span></p>
+<!--
+ARTE CAP1-09 — Revisão conceitual do capítulo.
+Composição: scripts/build_cap1_revision.py.
+Metadados, descrição acessível e proveniência: assets/figures/arte-cap1-revisao-manifest.json.
+SVG: assets/figures/arte-cap1-09-curvas-impacto.svg.
+Impressão: assets/figures/arte-cap1-09-curvas-impacto-print.png.
+A figura original apresenta blocos temporais, não curvas. As curvas foram acrescentadas nesta composição como recurso didático, sem escala quantitativa.
+-->
+<p>Os horizontes orientam o acompanhamento, sem delimitar fases rígidas. Uma necessidade de reabilitação ou de cuidado em saúde mental pode começar durante o evento e persistir por muito tempo. Reduzir os atendimentos de urgência não significa que todas as necessidades tenham cessado. A vigilância precisa acompanhar a continuidade do cuidado e a recuperação das condições de vida, com janelas adequadas a cada desfecho.</p>
+<p>Considere uma inundação. Durante o evento, a água pode causar trauma e dificultar o acesso a uma unidade. Ao mesmo tempo, uma falha de energia ou a perda de medicamentos pode comprometer um tratamento. São caminhos distintos, com consequências que podem surgir no mesmo período. Posteriormente, a necessidade de reabilitação de uma lesão pode coexistir com dificuldades de moradia, renda e acompanhamento clínico. A trajetória não exige que todos atravessem essas etapas nem que elas ocorram nessa ordem. A análise das inundações de 2024 no Rio Grande do Sul ilustra a importância de examinar conjuntamente população, infraestrutura e vulnerabilidades <span class="citation" data-cites="xavier2025inundacoes">(<a href="../../backmatter/referencias.html#ref-xavier2025inundacoes" role="doc-biblioref">Xavier et al., 2025</a>)</span>.</p>
+<p>Trajetórias podem se ramificar quando um mesmo perigo produz consequências diferentes conforme a exposição e a proteção. Podem convergir quando fenômenos distintos comprometem o mesmo serviço ou necessidade de saúde. Podem ainda ser recorrentes: um novo evento alcança famílias ou serviços antes da recuperação do anterior. Essa possibilidade exige acompanhar perdas acumuladas, continuidade do cuidado e capacidade de recuperação, sem presumir que todo evento produzirá agravamento progressivo.</p>
+<p>A perspectiva também se aplica a processos graduais. Uma alteração persistente no regime de chuvas pode modificar a disponibilidade de água e as condições de produção de alimentos, sem um desastre que marque claramente seu início. A observação precisa combinar sinais ambientais, condições de vida e desfechos ao longo do tempo. A matriz ajuda a formular perguntas e identificar momentos de intervenção; os dados e os métodos determinarão quais relações podem ser demonstradas. No capítulo seguinte, essa leitura fundamentará a discussão da vigilância e da adaptação contínua.</p>
+<p>A <a href="#fig-trajetorias-inundacao" class="quarto-xref">Figura&nbsp;<span>1.5</span></a> reúne esses caminhos em um exemplo didático. A inundação se ramifica em consequências distintas; a interrupção do cuidado e a perda de moradia podem convergir em dificuldades de acompanhamento. A seta pontilhada representa um novo evento durante a recuperação. As possibilidades de apoio não são desfechos garantidos, e a disposição das cenas não define etapas obrigatórias nem intervalos fixos de tempo.</p>
+<div id="fig-trajetorias-inundacao" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" alt="Vinhetas em aquarela mostram uma inundação com três ramificações: lesão, falha de energia e acesso e perda de moradia. A lesão pode exigir reabilitação. A falha de serviços pode interromper o cuidado e, junto da perda de moradia, dificultar o acompanhamento. Retomada do tratamento e recuperação da moradia aparecem como possibilidades de apoio. Uma seta pontilhada liga um novo episódio de chuva à família ainda em recuperação. Os caminhos podem coexistir e não têm escala temporal fixa; processos graduais também podem iniciar trajetórias. Prédios, comércio, casas e calçadas situam as trajetórias em um bairro urbano hipotético." data-print-src="arte-cap1-02-trajetorias-print.png">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-trajetorias-inundacao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<a href="../../assets/figures/arte-cap1-02-trajetorias.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-5" title="Figura&nbsp;1.5: Trajetórias possíveis após uma inundação"><img src="../../assets/figures/arte-cap1-02-trajetorias.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Vinhetas em aquarela mostram uma inundação com três ramificações: lesão, falha de energia e acesso e perda de moradia. A lesão pode exigir reabilitação. A falha de serviços pode interromper o cuidado e, junto da perda de moradia, dificultar o acompanhamento. Retomada do tratamento e recuperação da moradia aparecem como possibilidades de apoio. Uma seta pontilhada liga um novo episódio de chuva à família ainda em recuperação. Os caminhos podem coexistir e não têm escala temporal fixa; processos graduais também podem iniciar trajetórias. Prédios, comércio, casas e calçadas situam as trajetórias em um bairro urbano hipotético."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-trajetorias-inundacao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;1.5: Trajetórias possíveis após uma inundação
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte e composição: elaboração própria, com ilustração gerada por inteligência artificial. Licença: a mesma dos textos autorais da obra. Revisão urbana da aquarela: image_gen, com o original e a referência visual da série.</span></p>
+<!--
+ARTE CAP1-02 — Revisão urbana v2
+Finalidade e descrição acessível: Vinhetas em aquarela mostram uma inundação com três ramificações: lesão, falha de energia e acesso e perda de moradia. A lesão pode exigir reabilitação. A falha de serviços pode interromper o cuidado e, junto da perda de moradia, dificultar o acompanhamento. Retomada do tratamento e recuperação da moradia aparecem como possibilidades de apoio. Uma seta pontilhada liga um novo episódio de chuva à família ainda em recuperação. Os caminhos podem coexistir e não têm escala temporal fixa; processos graduais também podem iniciar trajetórias. Prédios, comércio, casas e calçadas situam as trajetórias em um bairro urbano hipotético.
+Arte incorporada: assets/figures/arte-cap1-02-trajetorias.svg.
+Impressão: assets/figures/arte-cap1-02-trajetorias-print.png.
+Original da edição: assets/figures/arte-cap1-02-v1.png; preservado junto das versões anteriores.
+Aquarela revisada: assets/figures/arte-cap1-02-v2.png.
+Prompt completo utilizado: assets/figures/arte-cap1-02-v2.prompt.txt.
+Referência de estilo: assets/references/aquarela-grafite-nanquim.png.
+Produção: ferramenta integrada image_gen; original e referência de estilo inspecionados e fornecidos por referenced_image_paths.
+Montagem: scripts/build_cap1_trajectories.py; rótulos, setas e identificadores editáveis preservados.
+Exportação: Chromium com fontes e raster incorporados; ImageMagick para PNG de 8 bits em cinza.
+Revisão: presença urbana, continuidade da aquarela, anatomia, recortes e relações conceituais. Cenários hipotéticos, sem novos dados observados.
+Licença dos arquivos autorais: GPL-3.0; fontes citadas mantêm suas condições de uso.
+
+Use case: precise-object-edit. Arte didática em aquarela para livro brasileiro sobre clima, ambiente e saúde.
+Entradas: imagem 1 é o ORIGINAL a editar, referência obrigatória de composição; imagem 2 é APENAS referência do estilo da série.
+Pedido: aumentar a presença urbana, preservando a aquarela naturalista, paleta suave de azuis, verdes, ocres e terracota, textura de papel, contornos delicados de grafite/nanquim e contraste adequado também em cinza. A cidade é brasileira e hipotética, sem marcos reconhecíveis.
+Revisão específica: Conserve as OITO vinhetas exatamente nos recortes atuais: coluna esquerda com topo branco, inundação no meio e nova chuva embaixo; coluna central com lesão, serviço interrompido e família desalojada; direita com reabilitação, retomada do cuidado e reparo de moradia. Troque parte das casas das cenas de inundação e interrupção por prédios residenciais próximos com térreos comerciais e calçadas. Preserve água, barreiras e postes. Nas janelas das cenas clínicas, mostre prédios e árvores. No reparo inferior direito, mantenha os trabalhadores reparando uma moradia térrea em rua urbana com edifícios vizinhos. Na nova chuva, faça o panorama combinar com esse bairro misto. Preserve todas as pessoas, poses, objetos de cuidado e corredores brancos; não mude a quantidade nem a posição das cenas.
+Invariantes: conserve enquadramento, proporção, escala das figuras humanas, anatomia natural, quantidade e posição das vinhetas, objetos conceituais e espaços brancos. Alterar cenários e arquitetura somente conforme o pedido. Não adicionar texto, títulos, legendas, setas, números, marcas ou molduras; serão aplicados como vetores editáveis. Não fundir cenas e não recortar personagens. Manter boa nitidez na impressão.
+Formato: mesma proporção do original 1536 × 1024; resolução igual ou superior. Uma única imagem final editada.
+-->
+</section>
+</section>
+<section id="perigo-exposição-vulnerabilidade-e-risco-por-que-as-palavras-importam" class="level2 page-columns page-full" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="perigo-exposição-vulnerabilidade-e-risco-por-que-as-palavras-importam"><span class="header-section-number">1.3</span> Perigo, exposição, vulnerabilidade e risco: por que as palavras importam</h2>
+<p>Distinguir os componentes do risco evita erros de interpretação. Ausência de desastre registrado não comprova ausência de perigo; concentração ambiental não equivale a dose individual; uma característica da pessoa não explica sozinha sua vulnerabilidade. Essas distinções orientam a escolha dos indicadores e das intervenções.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Conceito-chave: perigo, exposição, vulnerabilidade e risco">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Conceito-chave: perigo, exposição, vulnerabilidade e risco
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Perigo é a possível ocorrência de um evento, processo ou condição capaz de causar dano. Uma onda de calor, uma inundação, concentração elevada de um poluente ou escassez de água podem ser descritas como perigos em contextos específicos.</p>
+<p>Exposição diz respeito à presença de pessoas, atividades, ecossistemas, infraestrutura ou serviços em situações nas quais o perigo pode alcançá-los. Estar no mesmo município não significa necessariamente estar igualmente exposto.</p>
+<p>Vulnerabilidade corresponde à propensão a sofrer efeitos adversos e envolve suscetibilidade e limitações de proteção. Ela depende do perigo considerado e das condições concretas de vida.</p>
+<p>Risco resulta da interação entre esses componentes e das consequências que se pretende evitar. Ele muda quando mudam o perigo, a exposição, a vulnerabilidade ou a capacidade de resposta <span class="citation" data-cites="ipcc2022glossario undrr2017terminology">(<a href="../../backmatter/referencias.html#ref-ipcc2022glossario" role="doc-biblioref">Matthews et al., 2022</a>; <a href="../../backmatter/referencias.html#ref-undrr2017terminology" role="doc-biblioref">United Nations Office for Disaster Risk Reduction, 2017a</a>)</span>.</p>
+</div>
+</div>
+<p>A <a href="#fig-venn-risco" class="quarto-xref">Figura&nbsp;<span>1.6</span></a> representa a interação entre os três componentes. O risco não é uma característica isolada do evento ou da pessoa: depende de como perigo, exposição e vulnerabilidade se encontram. O Venn é uma síntese conceitual; o tamanho dos círculos e das interseções não mede probabilidades nem permite calcular o risco.</p>
+<div id="fig-venn-risco" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" alt="Três círculos parcialmente sobrepostos representam perigo, exposição e vulnerabilidade. Risco ocupa a interseção dos três. Rótulos, posições e diferentes tracejados permitem distinguir os componentes sem depender de cor. Áreas e interseções não representam probabilidades ou quantidades." data-print-src="arte-cap1-10-venn-risco-print.png">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-venn-risco-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<a href="../../assets/figures/arte-cap1-10-venn-risco.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-6" title="Figura&nbsp;1.6: Perigo, exposição e vulnerabilidade interagem na produção do risco"><img src="../../assets/figures/arte-cap1-10-venn-risco.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Três círculos parcialmente sobrepostos representam perigo, exposição e vulnerabilidade. Risco ocupa a interseção dos três. Rótulos, posições e diferentes tracejados permitem distinguir os componentes sem depender de cor. Áreas e interseções não representam probabilidades ou quantidades."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-venn-risco-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;1.6: Perigo, exposição e vulnerabilidade interagem na produção do risco
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte conceitual: IPCC (2022) e UNDRR (2017). Composição: elaboração própria. Licença: a mesma dos textos autorais da obra.</span></p>
+<!--
+ARTE CAP1-10 — Revisão conceitual do capítulo.
+Composição: scripts/build_cap1_revision.py.
+Metadados, descrição acessível e proveniência: assets/figures/arte-cap1-revisao-manifest.json.
+SVG: assets/figures/arte-cap1-10-venn-risco.svg.
+Impressão: assets/figures/arte-cap1-10-venn-risco-print.png.
+-->
+<section id="perigo-não-é-desastre" class="level3 page-columns page-full" data-number="1.3.1">
+<h3 data-number="1.3.1" class="anchored" data-anchor-id="perigo-não-é-desastre"><span class="header-section-number">1.3.1</span> Perigo não é desastre</h3>
+<p>Perigo designa um processo, fenômeno, evento ou condição com potencial para causar dano à saúde, aos bens, aos serviços ou ao ambiente. Pode estar associado a processos naturais, a atividades humanas ou à combinação entre ambos. Uma inundação, por exemplo, envolve a dinâmica da água, mas sua intensidade e extensão também podem ser modificadas pela impermeabilização, pela drenagem e pelas intervenções nos cursos d’água <span class="citation" data-cites="undrr2017hazard ipcc2022glossario">(<a href="../../backmatter/referencias.html#ref-ipcc2022glossario" role="doc-biblioref">Matthews et al., 2022</a>; <a href="../../backmatter/referencias.html#ref-undrr2017hazard" role="doc-biblioref">United Nations Office for Disaster Risk Reduction, 2017b</a>)</span>.</p>
+<p>Caracterizar um perigo exige mais do que nomeá-lo. É preciso descrever onde pode ocorrer, sua intensidade ou magnitude, a área alcançada, a duração e a frequência ou probabilidade de ocorrência. As medidas dependem do fenômeno: a chuva acumulada e a profundidade da água respondem a perguntas diferentes; no calor, a persistência e as condições noturnas complementam a temperatura máxima; para um poluente, importam a concentração e o período de referência da medição.</p>
+<p>Há perigos de início súbito, como uma enxurrada, e processos que se desenvolvem gradualmente, como uma seca. Eles também podem ocorrer em conjunto ou em sequência. A seca pode favorecer condições para queimadas, cuja fumaça introduz um perigo adicional para a qualidade do ar. Essa cadeia precisa ser explicitada: observar pouca chuva não equivale a medir a concentração de partículas que chega a uma população <span class="citation" data-cites="undrr2017hazard">(<a href="../../backmatter/referencias.html#ref-undrr2017hazard" role="doc-biblioref">United Nations Office for Disaster Risk Reduction, 2017b</a>)</span>.</p>
+<p>A <a href="#fig-caracterizacao-perigo" class="quarto-xref">Figura&nbsp;<span>1.7</span></a> reúne perguntas para descrever três situações. Os limiares e as janelas de observação devem ser justificados para a finalidade do indicador e o contexto considerado. Uma classificação meteorológica, um nível de alerta e um critério sanitário podem responder a finalidades distintas; nenhum deles demonstra, sozinho, que ocorreu dano.</p>
+<div id="fig-caracterizacao-perigo" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" alt="Três aquarelas hipotéticas mostram chuva e inundação de um bairro, calor sobre uma rua e poluição do ar em área urbana. Perguntas distinguem chuva, profundidade e extensão da água; intensidade e duração do calor e alívio noturno; concentração e permanência de poluentes. Localização, frequência e probabilidade completam a caracterização. Não se representam medidas observadas." data-print-src="arte-cap1-11-perigos-print.png">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-caracterizacao-perigo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<a href="../../assets/figures/arte-cap1-11-perigos.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-7" title="Figura&nbsp;1.7: Caracterizar o perigo: intensidade, duração e território"><img src="../../assets/figures/arte-cap1-11-perigos.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Três aquarelas hipotéticas mostram chuva e inundação de um bairro, calor sobre uma rua e poluição do ar em área urbana. Perguntas distinguem chuva, profundidade e extensão da água; intensidade e duração do calor e alívio noturno; concentração e permanência de poluentes. Localização, frequência e probabilidade completam a caracterização. Não se representam medidas observadas."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-caracterizacao-perigo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;1.7: Caracterizar o perigo: intensidade, duração e território
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte e composição: elaboração própria, com aquarela gerada pela ferramenta image_gen. Licença: a mesma dos textos autorais da obra.</span></p>
+<!--
+ARTE CAP1-11 — Revisão conceitual do capítulo.
+Composição: scripts/build_cap1_revision.py.
+Metadados, descrição acessível e proveniência: assets/figures/arte-cap1-revisao-manifest.json.
+SVG: assets/figures/arte-cap1-11-perigos.svg.
+Impressão: assets/figures/arte-cap1-11-perigos-print.png.
+Original: assets/figures/arte-cap1-11-v1.png.
+Prompt completo efetivamente utilizado: assets/figures/arte-cap1-11-v1.prompt.txt.
+Referência de estilo: assets/references/aquarela-grafite-nanquim.png.
+Produção: image_gen; versão não informada. Rótulos editáveis acrescentados na montagem.
+-->
+<p>Risco acrescenta a possibilidade de consequências adversas à análise do perigo, considerando quem ou o que está exposto e suas condições de vulnerabilidade. Desastre corresponde à grave perturbação do funcionamento de uma comunidade ou sociedade produzida pela interação de eventos perigosos com essas condições. Um perigo pode existir sem que se registre um desastre, e efeitos sobre a saúde podem ocorrer sem alcançar essa dimensão de perturbação <span class="citation" data-cites="ipcc2022glossario undrr2017terminology">(<a href="../../backmatter/referencias.html#ref-ipcc2022glossario" role="doc-biblioref">Matthews et al., 2022</a>; <a href="../../backmatter/referencias.html#ref-undrr2017terminology" role="doc-biblioref">United Nations Office for Disaster Risk Reduction, 2017a</a>)</span>.</p>
+<p>Por isso, uma base de desastres não substitui uma série meteorológica ou ambiental. A primeira registra consequências segundo critérios e capacidades de registro; a segunda descreve condições medidas ou estimadas. Ausência de desastre registrado não comprova ausência de perigo. Para avaliar o risco, a informação ambiental precisa ser articulada à presença de pessoas, às possibilidades de proteção e aos desfechos que se pretende evitar.</p>
+</section>
+<section id="exposição-é-contato-situado" class="level3 page-columns page-full" data-number="1.3.2">
+<h3 data-number="1.3.2" class="anchored" data-anchor-id="exposição-é-contato-situado"><span class="header-section-number">1.3.2</span> Exposição é contato situado</h3>
+<p>A exposição depende do encontro entre uma pessoa e uma condição ambiental em determinado lugar e período. Para descrevê-la, precisamos perguntar onde a pessoa esteve, por quanto tempo, realizando qual atividade e com quais possibilidades de proteção. A existência de um perigo no município não demonstra, por si só, que todos os moradores tiveram contato com ele.</p>
+<p>No caso do calor, a temperatura de uma estação caracteriza o ar naquele ponto de medição. A condição térmica experimentada por uma pessoa depende também da radiação solar, da umidade, da ventilação e dos ambientes que ela frequenta. Uma residência que retém calor durante a noite, um local de trabalho sombreado e um deslocamento sob sol intenso compõem situações diferentes ao longo do dia.</p>
+<p>Durante o esforço físico, o corpo produz mais calor. As roupas também alteram a troca de calor com o ambiente e a evaporação do suor. Assim, duas pessoas sob a mesma temperatura externa podem enfrentar condições térmicas diferentes, conforme suas atividades, roupas e acesso à sombra e à ventilação. O endereço residencial indica onde alguém mora, mas não informa todos os ambientes que frequenta. Por isso, nem o endereço nem a temperatura externa, isoladamente, descrevem o calor que essa pessoa experimenta ao longo do dia <span class="citation" data-cites="wmoWho2015heat">(<a href="../../backmatter/referencias.html#ref-wmoWho2015heat" role="doc-biblioref">World Meteorological Organization; World Health Organization, 2015</a>)</span>.</p>
+<p>A <a href="#fig-exposicao-calor-dia" class="quarto-xref">Figura&nbsp;<span>1.8</span></a> acompanha esse percurso em um exemplo didático. As cenas destacam mudanças de ambiente, atividade e possibilidades de proteção; não representam temperaturas ou intervalos medidos.</p>
+<div id="fig-exposicao-calor-dia" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" alt="Quatro vinhetas em aquarela acompanham a mesma mulher em um bairro urbano misto, com casas, edifícios residenciais e comerciais, calçadas e praça: ela sai de casa pela manhã, com uma estação meteorológica em área aberta; caminha sob sol intenso; trabalha na jardinagem de uma área pública e faz uma pausa à sombra com água; e repousa em casa à noite, sob calor retido nas paredes e na cobertura. A estação mede as condições em um ponto. Local, horário, duração, atividade e condições ambientais modificam a exposição ao longo do percurso. As cenas não representam durações medidas." data-print-src="arte-cap1-03-exposicao-print.png">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-exposicao-calor-dia-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<a href="../../assets/figures/arte-cap1-03-exposicao.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-8" title="Figura&nbsp;1.8: Uma pessoa, diferentes condições térmicas"><img src="../../assets/figures/arte-cap1-03-exposicao.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Quatro vinhetas em aquarela acompanham a mesma mulher em um bairro urbano misto, com casas, edifícios residenciais e comerciais, calçadas e praça: ela sai de casa pela manhã, com uma estação meteorológica em área aberta; caminha sob sol intenso; trabalha na jardinagem de uma área pública e faz uma pausa à sombra com água; e repousa em casa à noite, sob calor retido nas paredes e na cobertura. A estação mede as condições em um ponto. Local, horário, duração, atividade e condições ambientais modificam a exposição ao longo do percurso. As cenas não representam durações medidas."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-exposicao-calor-dia-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;1.8: Uma pessoa, diferentes condições térmicas
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte e composição: elaboração própria, com ilustração gerada por inteligência artificial. Licença: a mesma dos textos autorais da obra.</span></p>
+<!--
+ARTE CAP1-03 — Revisão urbana v2
+Finalidade e leitura: Quatro vinhetas em aquarela acompanham a mesma mulher em um bairro urbano misto, com casas, edifícios residenciais e comerciais, calçadas e praça: ela sai de casa pela manhã, com uma estação meteorológica em área aberta; caminha sob sol intenso; trabalha na jardinagem de uma área pública e faz uma pausa à sombra com água; e repousa em casa à noite, sob calor retido nas paredes e na cobertura. A estação mede as condições em um ponto. Local, horário, duração, atividade e condições ambientais modificam a exposição ao longo do percurso. As cenas não representam durações medidas.
+Identificador preservado: fig-exposicao-calor-dia.
+Arte incorporada: assets/figures/arte-cap1-03-exposicao.svg.
+Versão de impressão: assets/figures/arte-cap1-03-exposicao-print.png, em escala de cinza.
+Aquarela utilizada: assets/figures/arte-cap1-03-v2.png.
+Original anterior preservado: assets/figures/arte-cap1-03-v1.png.
+Prompt anterior preservado: assets/figures/arte-cap1-03-v1.prompt.txt.
+Prompt efetivamente utilizado: assets/figures/arte-cap1-03-v2.prompt.txt.
+Referência visual: assets/references/aquarela-grafite-nanquim.png; original v1 como referência de composição.
+Produção: edição com a ferramenta integrada image_gen; versão da ferramenta não informada.
+Composição reproduzível: scripts/build_cap1_heat_exposure.py; exportação por scripts/render_figure.py.
+Rótulos e relações conceituais editáveis; fontes e aquarela incorporadas verificadas antes da exportação.
+Montagem e revisão: Acrescentar os rótulos “Manhã”, “Deslocamento”, “Trabalho e pausas” e “Noite”. Incluir, junto da estação, “Medição em um ponto” e, abaixo da sequência, “A exposição depende de local, horário, duração, atividade e condições ambientais”. As quatro vinhetas têm função narrativa; a largura de cada uma não representa duração medida.
+Prompt completo:
+Use case: precise-object-edit.
+Asset type: ilustração científica editorial para livro brasileiro sobre clima, ambiente e saúde.
+Input images: Imagem 1 é o original a EDITAR, referência obrigatória de composição, personagens e função; Imagem 2 é SOMENTE referência de ESTILO (aquarela-grafite-nanquim.png), não copiar sua cena.
+Style/medium: Ilustração editorial em aquarela tradicional translúcida, combinada com traços finos e espontâneos de lápis grafite e nanquim. Contornos parcialmente abertos, hachuras leves e marcas discretas de rascunho. Textura sutil de papel aquarela, pigmentação irregular e transições suaves. Paleta de verdes naturais, azuis acinzentados, ocres e terracota, com saturação moderada. Preservar áreas de papel branco e bordas irregulares que se dissolvem no fundo. Pessoas com proporções naturais e diversidade de tons de pele. Linguagem visual madura, acolhedora e adequada à divulgação científica para adultos.
+Primary request: Revisar esta imagem para trazer uma cidade brasileira contemporânea, inteiramente hipotética, para o plano principal. Prédios e infraestrutura urbana precisam ser claramente reconhecíveis, não apenas uma silhueta distante no horizonte. Preservar a linguagem de aquarela e a ideia científica do original.
+Constraints: Manter ordem, quantidade e separação das vinhetas; preservar identidade, roupas e gestos dos personagens existentes, perspectiva e margens de papel branco, salvo as mudanças explicitamente solicitadas abaixo. Pessoas e mãos anatomicamente coerentes. Densidade urbana legível, sem excesso de detalhes. Mostrar diferentes condições de proteção em ambientes urbanos sem caricaturas ou equivalência automática entre cidade e dano. Não desenhar palavras, letras, números, logotipos, marcas d'água, setas, grades analíticas, legendas ou novos gráficos. Textos e conexões serão acrescentados como vetores. Contraste deve funcionar em escala de cinza. Não inventar dados quantitativos nem representar uma cidade real.
+
+Composition/framing: Manter a proporção horizontal 2:1, com exatamente QUATRO vinhetas em uma única linha e corredores de papel branco. Produzir 2048 × 1024 pixels ou maior na mesma proporção.
+Scene/backdrop: Preservar a mesma mulher de pele castanha, coque escuro, camisa terracota e calça azul em todas as cenas. Vinheta 1: saindo pela manhã de moradia térrea em bairro misto, junto de edifícios residenciais de 4 a 8 andares bem visíveis; manter a estação meteorológica à esquerda em um terreno aberto com recuo apropriado dos edifícios. Vinheta 2: caminhando por calçada exposta ao sol entre fachadas próximas de prédios residenciais e comerciais, rua asfaltada e meio-fio; conservar o calor e a pose de proteger o rosto. Vinheta 3: preservar trabalho de jardinagem e pausa com água à sombra, situados numa praça ou canteiro público entre edifícios; manter as duas representações temporais da mesma mulher dentro dessa vinheta como no original. Vinheta 4: repouso à noite na mesma moradia, com janela voltada para fachadas urbanas próximas e paredes que sugerem calor retido. A sequência é hipotética e não representa durações ou temperaturas medidas.
+-->
+<p>Para a poluição do ar, a concentração ambiental estima quanto poluente existe em determinado volume de ar. A exposição depende da presença e permanência da pessoa nesse ambiente; a quantidade inalada depende também da ventilação pulmonar, entre outros fatores. Uma estimativa para o endereço residencial pode representar exposição potencial, mas não observa todos os deslocamentos ou a dose individual. Uma aplicação de previsões de PM2,5 à antecipação de problemas respiratórios no Brasil ilustra a utilidade da informação ambiental para a vigilância, respeitada a escala em que foi avaliada <span class="citation" data-cites="roux2020alerta">(<a href="../../backmatter/referencias.html#ref-roux2020alerta" role="doc-biblioref">Roux et al., 2020</a>)</span>.</p>
+<p>Para água e contaminantes, a presença de uma substância no ambiente, o contato, a ingestão e a dose absorvida correspondem a etapas diferentes. Detectar um contaminante em uma fonte de abastecimento não informa automaticamente quem consumiu aquela água, em que quantidade ou com qual tratamento prévio. A rota de exposição precisa ser identificada antes de interpretar o resultado sanitário.</p>
+<p>A <a href="#fig-medida-exposicao-dose" class="quarto-xref">Figura&nbsp;<span>1.9</span></a> separa essas perguntas usando o abastecimento de água como exemplo. A coleta informa sobre uma amostra; a conexão à rede, o consumo e a absorção de um contaminante exigem informações distintas.</p>
+<div id="fig-medida-exposicao-dose" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-width="90%" alt="Quatro vinhetas em aquarela separam perguntas sobre água: uma profissional coleta uma amostra; casas e prédios estão conectados à rede; uma pessoa segura um copo junto à torneira; uma silhueta mostra um percurso digestivo simplificado. As perguntas distinguem o que foi medido na água, quem pode acessá-la, se houve consumo e quanto do contaminante atravessou as barreiras do organismo. Não há setas entre as cenas: uma etapa não comprova a seguinte, e a absorção requer informação própria. A rede abastece casas e prédios de apartamentos, e a janela da cozinha mostra o bairro urbano." data-print-src="arte-cap1-04-dose-print.png">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-medida-exposicao-dose-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<a href="../../assets/figures/arte-cap1-04-dose.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-9" title="Figura&nbsp;1.9: Da medida ambiental à dose absorvida"><img src="../../assets/figures/arte-cap1-04-dose.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Quatro vinhetas em aquarela separam perguntas sobre água: uma profissional coleta uma amostra; casas e prédios estão conectados à rede; uma pessoa segura um copo junto à torneira; uma silhueta mostra um percurso digestivo simplificado. As perguntas distinguem o que foi medido na água, quem pode acessá-la, se houve consumo e quanto do contaminante atravessou as barreiras do organismo. Não há setas entre as cenas: uma etapa não comprova a seguinte, e a absorção requer informação própria. A rede abastece casas e prédios de apartamentos, e a janela da cozinha mostra o bairro urbano."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-medida-exposicao-dose-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;1.9: Da medida ambiental à dose absorvida
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte e composição: elaboração própria, com ilustração gerada por inteligência artificial. Licença: a mesma dos textos autorais da obra. Revisão urbana da aquarela: image_gen, com o original e a referência visual da série.</span></p>
+<!--
+ARTE CAP1-04 — Revisão urbana v2
+Finalidade e descrição acessível: Quatro vinhetas em aquarela separam perguntas sobre água: uma profissional coleta uma amostra; casas e prédios estão conectados à rede; uma pessoa segura um copo junto à torneira; uma silhueta mostra um percurso digestivo simplificado. As perguntas distinguem o que foi medido na água, quem pode acessá-la, se houve consumo e quanto do contaminante atravessou as barreiras do organismo. Não há setas entre as cenas: uma etapa não comprova a seguinte, e a absorção requer informação própria. A rede abastece casas e prédios de apartamentos, e a janela da cozinha mostra o bairro urbano.
+Arte incorporada: assets/figures/arte-cap1-04-dose.svg.
+Impressão: assets/figures/arte-cap1-04-dose-print.png.
+Original da edição: assets/figures/arte-cap1-04-v1.png; preservado junto das versões anteriores.
+Aquarela revisada: assets/figures/arte-cap1-04-v2.png.
+Prompt completo utilizado: assets/figures/arte-cap1-04-v2.prompt.txt.
+Referência de estilo: assets/references/aquarela-grafite-nanquim.png.
+Produção: ferramenta integrada image_gen; original e referência de estilo inspecionados e fornecidos por referenced_image_paths.
+Montagem: scripts/build_cap1_remaining_art.py 04; rótulos, setas e identificadores editáveis preservados.
+Exportação: Chromium com fontes e raster incorporados; ImageMagick para PNG de 8 bits em cinza.
+Revisão: presença urbana, continuidade da aquarela, anatomia, recortes e relações conceituais. Cenários hipotéticos, sem novos dados observados.
+Licença dos arquivos autorais: GPL-3.0; fontes citadas mantêm suas condições de uso.
+
+Use case: precise-object-edit. Arte didática em aquarela para livro brasileiro sobre clima, ambiente e saúde.
+Entradas: imagem 1 é o ORIGINAL a editar, referência obrigatória de composição; imagem 2 é APENAS referência do estilo da série.
+Pedido: aumentar a presença urbana, preservando a aquarela naturalista, paleta suave de azuis, verdes, ocres e terracota, textura de papel, contornos delicados de grafite/nanquim e contraste adequado também em cinza. A cidade é brasileira e hipotética, sem marcos reconhecíveis.
+Revisão específica: Conserve quatro vinhetas 2×2. Na coleta superior esquerda, preserve profissional, mãos, frasco, torneira e reservatório; inclua prédios residenciais próximos ao fundo. Na rede superior direita, mantenha o corte do solo e todas as conexões azuis, substituindo DUAS das três casas por edifícios de apartamentos de 4 e 6 pavimentos, mantendo a terceira casa e calçada. Cada edificação continua ligada à mesma rede. No consumo inferior esquerdo, preserve homem, copo, torneira e cozinha, mostrando prédios e árvores pela janela de apartamento. Mantenha a silhueta e o trajeto digestivo inferior direito integralmente inalterados. Não adicione pessoas na rede, quantidades, setas ou afirmações de absorção.
+Invariantes: conserve enquadramento, proporção, escala das figuras humanas, anatomia natural, quantidade e posição das vinhetas, objetos conceituais e espaços brancos. Alterar cenários e arquitetura somente conforme o pedido. Não adicionar texto, títulos, legendas, setas, números, marcas ou molduras; serão aplicados como vetores editáveis. Não fundir cenas e não recortar personagens. Manter boa nitidez na impressão.
+Formato: mesma proporção do original 1536 × 1024; resolução igual ou superior. Uma única imagem final editada.
+-->
+<p>As análises territoriais são necessárias quando não dispomos de trajetórias individuais. Seu uso exige nomear a aproximação adotada: “exposição residencial potencial”, por exemplo, indica o que foi estimado e evita atribuir aos dados um contato individual que não foi observado. Também orienta a busca de informações complementares sobre trabalho, mobilidade, qualidade da moradia e interrupções do abastecimento.</p>
+</section>
+<section id="vulnerabilidade-não-é-um-rótulo" class="level3 page-columns page-full" data-number="1.3.3">
+<h3 data-number="1.3.3" class="anchored" data-anchor-id="vulnerabilidade-não-é-um-rótulo"><span class="header-section-number">1.3.3</span> Vulnerabilidade não é um rótulo</h3>
+<p>Identificar grupos que necessitam de proteção pode orientar a vigilância, mas a identificação precisa explicar quais condições produzem essa necessidade. Vulnerabilidade é uma relação entre o perigo considerado, a suscetibilidade aos seus efeitos e as possibilidades concretas de prevenção, cuidado e recuperação. Idade, deficiência e condições clínicas podem ser relevantes, mas seu significado muda conforme a exposição, a organização do território e o funcionamento dos serviços. O rótulo isolado esconde essas relações e pode fazer parecer inevitável um risco que políticas públicas poderiam reduzir <span class="citation" data-cites="who2021vulnerability">(<a href="../../backmatter/referencias.html#ref-who2021vulnerability" role="doc-biblioref">World Health Organization, 2021</a>)</span>.</p>
+<p>Falar em processos de vulnerabilização permite examinar como renda, racismo, condições de trabalho, infraestrutura e acesso desigual a direitos limitam a proteção. Uma recomendação para evitar o sol, por exemplo, tem alcance diferente para quem pode mudar seu horário e para quem depende de trabalho externo sem pausas. Cabe à análise reconhecer essas barreiras e as capacidades já existentes, como redes de vizinhança, organização comunitária e conhecimento do território. Essa leitura aproxima a avaliação de vulnerabilidade da identificação de ações possíveis <span class="citation" data-cites="lacerdaFreitas2024justica">(<a href="../../backmatter/referencias.html#ref-lacerdaFreitas2024justica" role="doc-biblioref">Lacerda; Freitas, 2024</a>)</span>.</p>
+<p>Uma pessoa idosa que vive em uma residência termicamente adequada, conta com apoio familiar e tem acesso a uma unidade de saúde próxima pode estar mais protegida durante uma onda de calor do que uma pessoa jovem submetida a trabalho físico intenso ao ar livre, sem pausas e sem acesso regular à água. O exemplo não diminui a importância da idade; mostra que suscetibilidade e exposição precisam ser observadas juntas.</p>
+<p>Capacidade também não é simplesmente o oposto da vulnerabilidade. Um município pode possuir hospital, ambulâncias e plano de contingência e ainda assim perder capacidade durante um evento se ruas ficarem bloqueadas, faltar energia, trabalhadores não conseguirem chegar ou a comunicação falhar. Avaliar capacidade exige observar funcionamento, acesso, redundância e desempenho, e não apenas a existência formal de recursos <span class="citation" data-cites="who2021vulnerability who2024resilienceindicators">(<a href="../../backmatter/referencias.html#ref-who2021vulnerability" role="doc-biblioref">World Health Organization, 2021</a>, <a href="../../backmatter/referencias.html#ref-who2024resilienceindicators" role="doc-biblioref">2024a</a>)</span>.</p>
+<p>A <a href="#fig-territorios-contraste" class="quarto-xref">Figura&nbsp;<span>1.10</span></a> ilustra essas diferenças em dois territórios hipotéticos. O contraste é didático: características favoráveis e desfavoráveis também podem coexistir em um mesmo bairro, exigindo investigação local.</p>
+<div id="fig-territorios-contraste" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" alt="Dois bairros urbanos hipotéticos, ambos com casas e prédios, durante o mesmo episódio de calor. No território A, uma pessoa idosa está à sombra, com água, apoio familiar, moradia ventilada e unidade de saúde próxima. No território B, uma pessoa jovem realiza trabalho físico ao sol, em rua com pouca sombra, moradias quentes e uma construção; vizinhos se ajudam a transportar água. Sombra, ventilação, água regular, apoio e serviços preparados favorecem a proteção. Trabalho externo intenso, água distante e serviços frágeis ampliam barreiras, sem eliminar as capacidades locais de apoio." data-print-src="arte-cap1-05-territorios-print.png">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-territorios-contraste-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<a href="../../assets/figures/arte-cap1-05-territorios.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-10" title="Figura&nbsp;1.10: O mesmo perigo pode produzir riscos diferentes. Territórios hipotéticos; condições favoráveis e desfavoráveis podem coexistir."><img src="../../assets/figures/arte-cap1-05-territorios.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Dois bairros urbanos hipotéticos, ambos com casas e prédios, durante o mesmo episódio de calor. No território A, uma pessoa idosa está à sombra, com água, apoio familiar, moradia ventilada e unidade de saúde próxima. No território B, uma pessoa jovem realiza trabalho físico ao sol, em rua com pouca sombra, moradias quentes e uma construção; vizinhos se ajudam a transportar água. Sombra, ventilação, água regular, apoio e serviços preparados favorecem a proteção. Trabalho externo intenso, água distante e serviços frágeis ampliam barreiras, sem eliminar as capacidades locais de apoio."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-territorios-contraste-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;1.10: O mesmo perigo pode produzir riscos diferentes. Territórios hipotéticos; condições favoráveis e desfavoráveis podem coexistir.
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte e composição: elaboração própria, com ilustração gerada por inteligência artificial. Licença: a mesma dos textos autorais da obra.</span></p>
+<!--
+ARTE CAP1-05 — Revisão urbana v2
+Finalidade e leitura: Dois bairros urbanos hipotéticos, ambos com casas e prédios, durante o mesmo episódio de calor. No território A, uma pessoa idosa está à sombra, com água, apoio familiar, moradia ventilada e unidade de saúde próxima. No território B, uma pessoa jovem realiza trabalho físico ao sol, em rua com pouca sombra, moradias quentes e uma construção; vizinhos se ajudam a transportar água. Sombra, ventilação, água regular, apoio e serviços preparados favorecem a proteção. Trabalho externo intenso, água distante e serviços frágeis ampliam barreiras, sem eliminar as capacidades locais de apoio.
+Identificador preservado: fig-territorios-contraste.
+Arte incorporada: assets/figures/arte-cap1-05-territorios.svg.
+Versão de impressão: assets/figures/arte-cap1-05-territorios-print.png, em escala de cinza.
+Aquarela utilizada: assets/figures/arte-cap1-05-v2.png.
+Original anterior preservado: assets/figures/arte-cap1-05-v1.png.
+Prompt anterior preservado: assets/figures/arte-cap1-05-v1.prompt.txt.
+Prompt efetivamente utilizado: assets/figures/arte-cap1-05-v2.prompt.txt.
+Referência visual: assets/references/aquarela-grafite-nanquim.png; original v1 como referência de composição.
+Produção: edição com a ferramenta integrada image_gen; versão da ferramenta não informada.
+Composição reproduzível: scripts/build_cap1_remaining_art.py 05; exportação por scripts/render_figure.py.
+Rótulos e relações conceituais editáveis; fontes e aquarela incorporadas verificadas antes da exportação.
+Montagem e revisão: Usar os rótulos “Território A” e “Território B” e conservar as condições de exposição e proteção descritas no diagrama atual. Colocar “Mesmo episódio de calor” acima de ambos. A legenda deve declarar que os territórios são hipotéticos e que condições favoráveis e desfavoráveis podem coexistir. Manter nesta composição o estilo da referência visual fornecida pelo autor.
+Prompt completo:
+Use case: precise-object-edit.
+Asset type: ilustração científica editorial para livro brasileiro sobre clima, ambiente e saúde.
+Input images: Imagem 1 é o original a EDITAR, referência obrigatória de composição, personagens e função; Imagem 2 é SOMENTE referência de ESTILO (aquarela-grafite-nanquim.png), não copiar sua cena.
+Style/medium: Ilustração editorial em aquarela tradicional translúcida, combinada com traços finos e espontâneos de lápis grafite e nanquim. Contornos parcialmente abertos, hachuras leves e marcas discretas de rascunho. Textura sutil de papel aquarela, pigmentação irregular e transições suaves. Paleta de verdes naturais, azuis acinzentados, ocres e terracota, com saturação moderada. Preservar áreas de papel branco e bordas irregulares que se dissolvem no fundo. Pessoas com proporções naturais e diversidade de tons de pele. Linguagem visual madura, acolhedora e adequada à divulgação científica para adultos.
+Primary request: Revisar esta imagem para trazer uma cidade brasileira contemporânea, inteiramente hipotética, para o plano principal. Prédios e infraestrutura urbana precisam ser claramente reconhecíveis, não apenas uma silhueta distante no horizonte. Preservar a linguagem de aquarela e a ideia científica do original.
+Constraints: Manter ordem, quantidade e separação das vinhetas; preservar identidade, roupas e gestos dos personagens existentes, perspectiva e margens de papel branco, salvo as mudanças explicitamente solicitadas abaixo. Pessoas e mãos anatomicamente coerentes. Densidade urbana legível, sem excesso de detalhes. Mostrar diferentes condições de proteção em ambientes urbanos sem caricaturas ou equivalência automática entre cidade e dano. Não desenhar palavras, letras, números, logotipos, marcas d'água, setas, grades analíticas, legendas ou novos gráficos. Textos e conexões serão acrescentados como vetores. Contraste deve funcionar em escala de cinza. Não inventar dados quantitativos nem representar uma cidade real.
+
+Composition/framing: Díptico horizontal 3:2, dois painéis de igual tamanho, faixa branca central, mesma escala e mesmo episódio de calor; resolução 1536 × 1024 pixels ou maior.
+Scene/backdrop: Transformar ambos os bairros em bairros urbanos mistos com edifícios residenciais de 4 a 8 andares próximos e legíveis, casas térreas, calçadas e serviços. À esquerda preservar a mulher idosa e sua acompanhante, água disponível, sombra generosa, ventilação e unidade de saúde acessível: a varanda fica no térreo de um conjunto de moradias junto a prédios, com árvores nas calçadas. À direita preservar o trabalhador com carrinho de mão, vizinhos carregando água, pouca sombra, trabalho externo e moradias quentes; acrescentar fachadas de edifícios próximos, pequenos comércios sem placas e construção de alvenaria com andaime ao fundo em escala discreta. Manter os dois lados igualmente dignos e arquitetonicamente comparáveis, com o mesmo sol e luminosidade; as diferenças dizem respeito a sombra, ventilação, acesso à água e serviços, não à existência de prédios.
+-->
+</section>
+</section>
+<section id="desigualdades-fazem-parte-da-explicação-do-risco" class="level2 page-columns page-full" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="desigualdades-fazem-parte-da-explicação-do-risco"><span class="header-section-number">1.4</span> Desigualdades fazem parte da explicação do risco</h2>
+<p>Os riscos ambientais e climáticos não se distribuem aleatoriamente. A localização de moradias, a qualidade da infraestrutura, o tipo de ocupação, a disponibilidade de áreas verdes, o acesso à água e a capacidade de se afastar de uma área perigosa refletem processos históricos e decisões políticas. Por isso, compreender clima e saúde exige olhar para desigualdades e para processos de vulnerabilização.</p>
+<p>Populações indígenas, comunidades tradicionais, pessoas em situação de rua, moradores de favelas e periferias, trabalhadores expostos, pessoas com deficiência e indivíduos com condições crônicas podem enfrentar barreiras específicas de proteção. Entretanto, mesmo dentro desses grupos há grande diversidade de condições. O objetivo não é transformar categorias sociais em escores automáticos, mas compreender por quais mecanismos uma população fica mais exposta, mais suscetível ou com menor acesso a recursos de proteção.</p>
+<p>As desigualdades podem aparecer em diferentes pontos da cadeia: alguns territórios recebem mais perigos; algumas pessoas permanecem expostas por mais tempo; algumas têm maior suscetibilidade; outras enfrentam mais dificuldade para acessar cuidado depois do agravo. Há ainda uma desigualdade menos visível: quem aparece nos dados. Menor acesso a serviços pode produzir menos diagnósticos registrados sem significar menor ocorrência de doença.</p>
+<p>Essa é uma razão para desconfiar de médias isoladas. Um indicador municipal pode melhorar enquanto determinados bairros ou grupos permanecem em situação desfavorável. Quando possível, o monitoramento deve combinar medidas gerais com desagregações territorial e socialmente justificadas, sem perder de vista grupos que os próprios sistemas de informação representam mal <span class="citation" data-cites="who2024sdhequity">(<a href="../../backmatter/referencias.html#ref-who2024sdhequity" role="doc-biblioref">World Health Organization, 2024b</a>)</span>.</p>
+<p>A <a href="#fig-desigualdades-risco" class="quarto-xref">Figura&nbsp;<span>1.11</span></a> situa esses mecanismos no cotidiano. A moradia modifica a proteção disponível; o trabalho condiciona o tempo de exposição e a possibilidade de fazer pausas; a mobilidade e a organização dos serviços influenciam o acesso ao cuidado. Na quarta cena, a escuta e a busca ativa ajudam a reconhecer necessidades que podem não aparecer espontaneamente nos registros. Observar essas condições permite identificar intervenções, sem tratar uma categoria social como destino inevitável.</p>
+<div id="fig-desigualdades-risco" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-width="90%" alt="Quatro aquarelas mostram uma moradora abrindo a janela, trabalhadores urbanos com diferentes momentos de esforço e pausa, uma pessoa em cadeira de rodas chegando ao serviço de saúde e uma agente comunitária ouvindo uma moradora. Os rótulos relacionam moradia, trabalho, acesso ao cuidado e presença nos dados às possibilidades de proteção. São situações hipotéticas, sem escores de vulnerabilidade." data-print-src="arte-cap1-12-desigualdades-print.png">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-desigualdades-risco-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<a href="../../assets/figures/arte-cap1-12-desigualdades.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-11" title="Figura&nbsp;1.11: Quatro caminhos das desigualdades na produção do risco"><img src="../../assets/figures/arte-cap1-12-desigualdades.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Quatro aquarelas mostram uma moradora abrindo a janela, trabalhadores urbanos com diferentes momentos de esforço e pausa, uma pessoa em cadeira de rodas chegando ao serviço de saúde e uma agente comunitária ouvindo uma moradora. Os rótulos relacionam moradia, trabalho, acesso ao cuidado e presença nos dados às possibilidades de proteção. São situações hipotéticas, sem escores de vulnerabilidade."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-desigualdades-risco-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;1.11: Quatro caminhos das desigualdades na produção do risco
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte e composição: elaboração própria, com aquarela gerada pela ferramenta image_gen. Licença: a mesma dos textos autorais da obra.</span></p>
+<!--
+ARTE CAP1-12 — Revisão conceitual do capítulo.
+Composição: scripts/build_cap1_revision.py.
+Metadados, descrição acessível e proveniência: assets/figures/arte-cap1-revisao-manifest.json.
+SVG: assets/figures/arte-cap1-12-desigualdades.svg.
+Impressão: assets/figures/arte-cap1-12-desigualdades-print.png.
+Original: assets/figures/arte-cap1-12-v1.png.
+Prompt completo efetivamente utilizado: assets/figures/arte-cap1-12-v1.prompt.txt.
+Referência de estilo: assets/references/aquarela-grafite-nanquim.png.
+Produção: image_gen; versão não informada. Rótulos editáveis acrescentados na montagem.
+-->
+<section id="justiça-ambiental-e-climática" class="level3 page-columns page-full" data-number="1.4.1">
+<h3 data-number="1.4.1" class="anchored" data-anchor-id="justiça-ambiental-e-climática"><span class="header-section-number">1.4.1</span> Justiça ambiental e climática</h3>
+<p>Justiça ambiental diz respeito à distribuição dos danos e benefícios ambientais e às condições de participação nas decisões que os produzem. Ela permite perguntar por que certos grupos convivem com saneamento precário, poluição ou moradia em áreas perigosas enquanto outros dispõem de maior proteção. O problema envolve a forma como direitos, recursos e poder de decisão se distribuem. Reduzir a exposição exige também compreender as condições que restringem as escolhas das populações.</p>
+<p>Na gestão de riscos de desastres, reconhecer vulnerabilidades sobrepostas ajuda a compreender como os danos se formam. A contribuição dos conhecimentos de povos originários e tradicionais também amplia essa leitura do território e dos processos que antecedem o evento:</p>
+<blockquote class="blockquote">
+<p>Arguimos que os desastres são a manifestação última de um fenômeno complexo e latente, vinculado à consolidação das vulnerabilidades sobrepostas.</p>
+<p><span class="citation" data-cites="lacerdaFreitas2024justica">(<a href="../../backmatter/referencias.html#ref-lacerdaFreitas2024justica" role="doc-biblioref">Lacerda; Freitas, 2024, p. 148</a>)</span></p>
+</blockquote>
+<p>A justiça climática acrescenta a desigualdade de responsabilidades pela mudança do clima e de possibilidades de enfrentar suas consequências. Quem contribuiu menos para as emissões pode dispor de menos recursos para se proteger e se recuperar. A questão envolve diferenças entre países, entre grupos sociais e entre gerações. Avaliar uma política climática requer considerar tanto a redução de danos quanto a distribuição de seus custos e benefícios <span class="citation" data-cites="ipcc2022saude">(<a href="../../backmatter/referencias.html#ref-ipcc2022saude" role="doc-biblioref">Cissé et al., 2022</a>)</span>.</p>
+<p>Para a leitura de dados em saúde pública, três dimensões ajudam a transformar essa discussão em perguntas concretas. A dimensão distributiva examina onde se concentram perigos, danos, investimentos e acesso ao cuidado. A dimensão da participação examina quem consegue influenciar prioridades, critérios de alerta e decisões sobre obras ou reassentamentos. A dimensão do reconhecimento examina quais experiências e conhecimentos são considerados legítimos. Um cadastro incompleto ou uma consulta inacessível pode tornar invisível uma necessidade, mesmo quando existem recursos destinados à proteção.</p>
+<p>Essas dimensões precisam aparecer na avaliação das respostas. Ampliar áreas verdes pode reduzir a exposição ao calor, mas a distribuição dos investimentos precisa alcançar bairros com maior necessidade. Um alerta divulgado apenas por aplicativos pode deixar de alcançar pessoas sem conexão ou com barreiras de acessibilidade. Um reassentamento pode reduzir a exposição à água e, ao mesmo tempo, dificultar o acesso ao trabalho, à escola e às redes de apoio. Esses exemplos são possibilidades de análise, não resultados atribuídos a uma intervenção específica. Mostram por que reduzir um perigo não basta para demonstrar que uma medida foi socialmente justa.</p>
+<p>A adaptação pode reproduzir desigualdades quando transfere custos às famílias, exige recursos que elas não possuem ou protege prioritariamente áreas com maior capacidade de influência. Por isso, o acompanhamento deve combinar resultados gerais com sua distribuição territorial e social. Além de perguntar quantas pessoas receberam um alerta, é necessário verificar quem pôde agir; além de contar unidades recuperadas, é necessário observar se o cuidado voltou a ser acessível. Os critérios de sucesso devem considerar as necessidades de quem enfrentava maiores barreiras antes do evento.</p>
+<p>Participação e conhecimento local ajudam a identificar essas barreiras. Moradores, trabalhadores, agentes comunitários e organizações territoriais podem reconhecer trajetos, locais de abrigo, horários de exposição e redes de apoio ausentes nas bases administrativas. A articulação com informações técnicas exige diálogo e devolução dos resultados, preservando as condições de participação desses grupos. Para o SUS, isso aproxima vigilância, controle social e ação intersetorial: o indicador deve apoiar escolhas discutidas com as populações afetadas e permitir avaliar quem foi efetivamente protegido.</p>
+<p>A <a href="#fig-justica-ambiental-climatica" class="quarto-xref">Figura&nbsp;<span>1.12</span></a> reúne essas dimensões em quatro perguntas para avaliar uma medida de adaptação.</p>
+<div id="fig-justica-ambiental-climatica" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-width="90%" alt="Quatro cenas em aquarela têm o mesmo destaque: moradores observam diferenças de sombra, água e acesso ao cuidado; moradores, trabalhadores, uma técnica e uma pessoa com deficiência participam de uma reunião; uma moradora idosa compartilha conhecimento do território com profissionais; e pessoas de diferentes gerações discutem proteção diante de fontes de emissão ligadas à produção e ao transporte. As perguntas são: quem recebe danos e proteção; quem participa das decisões; quais conhecimentos são reconhecidos; e quem contribui para o problema e arca com os custos. A representação é conceitual, sem inventário de emissões nem atribuição de quantidades. Casas, edifícios, ruas, equipamentos públicos e vegetação compõem os territórios urbanos das quatro cenas." data-print-src="arte-cap1-06-justica-print.png">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-justica-ambiental-climatica-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<a href="../../assets/figures/arte-cap1-06-justica.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-12" title="Figura&nbsp;1.12: Quatro perguntas para avaliar a justiça de uma resposta climática"><img src="../../assets/figures/arte-cap1-06-justica.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Quatro cenas em aquarela têm o mesmo destaque: moradores observam diferenças de sombra, água e acesso ao cuidado; moradores, trabalhadores, uma técnica e uma pessoa com deficiência participam de uma reunião; uma moradora idosa compartilha conhecimento do território com profissionais; e pessoas de diferentes gerações discutem proteção diante de fontes de emissão ligadas à produção e ao transporte. As perguntas são: quem recebe danos e proteção; quem participa das decisões; quais conhecimentos são reconhecidos; e quem contribui para o problema e arca com os custos. A representação é conceitual, sem inventário de emissões nem atribuição de quantidades. Casas, edifícios, ruas, equipamentos públicos e vegetação compõem os territórios urbanos das quatro cenas."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-justica-ambiental-climatica-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;1.12: Quatro perguntas para avaliar a justiça de uma resposta climática
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte e composição: elaboração própria, com ilustração gerada por inteligência artificial. Licença: a mesma dos textos autorais da obra. Revisão urbana da aquarela: image_gen, com o original e a referência visual da série.</span></p>
+<!--
+ARTE CAP1-06 — Revisão urbana v2
+Finalidade e descrição acessível: Quatro cenas em aquarela têm o mesmo destaque: moradores observam diferenças de sombra, água e acesso ao cuidado; moradores, trabalhadores, uma técnica e uma pessoa com deficiência participam de uma reunião; uma moradora idosa compartilha conhecimento do território com profissionais; e pessoas de diferentes gerações discutem proteção diante de fontes de emissão ligadas à produção e ao transporte. As perguntas são: quem recebe danos e proteção; quem participa das decisões; quais conhecimentos são reconhecidos; e quem contribui para o problema e arca com os custos. A representação é conceitual, sem inventário de emissões nem atribuição de quantidades. Casas, edifícios, ruas, equipamentos públicos e vegetação compõem os territórios urbanos das quatro cenas.
+Arte incorporada: assets/figures/arte-cap1-06-justica.svg.
+Impressão: assets/figures/arte-cap1-06-justica-print.png.
+Original da edição: assets/figures/arte-cap1-06-v1.png; preservado junto das versões anteriores.
+Aquarela revisada: assets/figures/arte-cap1-06-v2.png.
+Prompt completo utilizado: assets/figures/arte-cap1-06-v2.prompt.txt.
+Referência de estilo: assets/references/aquarela-grafite-nanquim.png.
+Produção: ferramenta integrada image_gen; original e referência de estilo inspecionados e fornecidos por referenced_image_paths.
+Montagem: scripts/build_cap1_remaining_art.py 06; rótulos, setas e identificadores editáveis preservados.
+Exportação: Chromium com fontes e raster incorporados; ImageMagick para PNG de 8 bits em cinza.
+Revisão: presença urbana, continuidade da aquarela, anatomia, recortes e relações conceituais. Cenários hipotéticos, sem novos dados observados.
+Licença dos arquivos autorais: GPL-3.0; fontes citadas mantêm suas condições de uso.
+
+Use case: precise-object-edit. Arte didática em aquarela para livro brasileiro sobre clima, ambiente e saúde.
+Entradas: imagem 1 é o ORIGINAL a editar, referência obrigatória de composição; imagem 2 é APENAS referência do estilo da série.
+Pedido: aumentar a presença urbana, preservando a aquarela naturalista, paleta suave de azuis, verdes, ocres e terracota, textura de papel, contornos delicados de grafite/nanquim e contraste adequado também em cinza. A cidade é brasileira e hipotética, sem marcos reconhecíveis.
+Revisão específica: Conserve as quatro cenas 2×2 e todos os personagens. Na cena superior esquerda de observação do território, misture prédios de 4–8 andares com casas nas duas ruas, preservando o contraste entre sombra e insolação, água e acesso à unidade. Na reunião superior direita, mantenha os cinco adultos incluindo a mulher em cadeira de rodas, a mesa e o mapa; acrescente edifícios próximos ao fundo. Na caminhada inferior esquerda, preserve idosa, agente, técnica e canal, situando-os em bairro urbano com escola, casas e prédios. Na discussão inferior direita, preserve as três pessoas, maquete, indústria, caminhão e ônibus; inclua edifícios residenciais e vias urbanas ao fundo. Preserve vegetação e espaços de proteção, sem associar prédios apenas a vulnerabilidade.
+Invariantes: conserve enquadramento, proporção, escala das figuras humanas, anatomia natural, quantidade e posição das vinhetas, objetos conceituais e espaços brancos. Alterar cenários e arquitetura somente conforme o pedido. Não adicionar texto, títulos, legendas, setas, números, marcas ou molduras; serão aplicados como vetores editáveis. Não fundir cenas e não recortar personagens. Manter boa nitidez na impressão.
+Formato: mesma proporção do original 1536 × 1024; resolução igual ou superior. Uma única imagem final editada.
+-->
+</section>
+</section>
+<section id="síntese" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="síntese"><span class="header-section-number">1.5</span> Síntese</h2>
+<p>Clima e ambiente participam da produção da saúde por caminhos que atravessam condições de vida, exposição, proteção e funcionamento dos serviços. Perigo, exposição, vulnerabilidade e risco ajudam a descrever essas relações; justiça ambiental e climática permitem examinar como danos, responsabilidades e possibilidades de decisão se distribuem.</p>
+<p>A leitura das trajetórias acompanha os efeitos no tempo: consequências diretas podem persistir e indiretas podem surgir imediatamente. A análise exige explicitar mecanismo, população, território e janela de observação, reconhecendo o que os dados permitem representar. O <a href="02-mudanca-climatica-resposta-sus.html" class="quarto-xref"><span>Capítulo 2</span></a> desenvolve as implicações para o planejamento, a vigilância e a continuidade do cuidado.</p>
+
+
+<div id="refs" class="references csl-bib-body" data-entry-spacing="1" role="list" style="display: none">
+<div id="ref-barcellos2009clima" class="csl-entry" role="listitem">
+BARCELLOS, Christovam <em>et al.</em> Mudanças climáticas e ambientais e as doenças infecciosas: cenários e incertezas para o Brasil. <strong>Epidemiologia e Serviços de Saúde</strong>, v. 18, n. 3, p. 285–304, 2009. Disponível em: &lt;https://doi.org/<a href="https://doi.org/10.5123/S1679-49742009000300011">10.5123/S1679-49742009000300011</a>&gt;.
+</div>
+<div id="ref-brasil2011saudeambiental" class="csl-entry" role="listitem">
+BRASIL. MINISTÉRIO DA SAÚDE. <strong><a href="https://bvsms.saude.gov.br/bvs/publicacoes/saude_ambiental_guia_basico.pdf">Saúde ambiental: guia básico para construção de indicadores</a></strong>. Brasília, DF: Ministério da Saúde, 2011.
+</div>
+<div id="ref-brasilsaudeambiental" class="csl-entry" role="listitem">
+BRASIL. MINISTÉRIO DA SAÚDE. <strong>Saúde ambiental</strong>. 2026. Disponível em: &lt;<a href="https://www.gov.br/saude/pt-br/composicao/svsa/saude-ambiental">https://www.gov.br/saude/pt-br/composicao/svsa/saude-ambiental</a>&gt;. Acesso em: 28 jul. 2026.
+</div>
+<div id="ref-ipcc2022saude" class="csl-entry" role="listitem">
+CISSÉ, Guéladio <em>et al.</em> <a href="https://doi.org/10.1017/9781009325844.009">Health, Wellbeing, and the Changing Structure of Communities</a>. <em>In</em>: PÖRTNER, Hans-Otto <em>et al.</em> (Orgs). <strong>Climate Change 2022: Impacts, Adaptation and Vulnerability</strong>. Cambridge: Cambridge University Press, 2022. p. 1041–1170.
+</div>
+<div id="ref-corvalan1999links" class="csl-entry" role="listitem">
+CORVALÁN, Carlos F.; KJELLSTRÖM, Tord; SMITH, Kirk R. Health, Environment and Sustainable Development: Identifying Links and Indicators to Promote Action. <strong>Epidemiology</strong>, v. 10, n. 5, p. 656–660, 1999. Disponível em: &lt;https://doi.org/<a href="https://doi.org/10.1097/00001648-199909000-00024">10.1097/00001648-199909000-00024</a>&gt;.
+</div>
+<div id="ref-freitas2014desastres" class="csl-entry" role="listitem">
+FREITAS, Carlos Machado de <em>et al.</em> Desastres naturais e saúde: uma análise da situação do Brasil. <strong>Ciência &amp; Saúde Coletiva</strong>, v. 19, n. 9, p. 3645–3656, 2014. Disponível em: &lt;https://doi.org/<a href="https://doi.org/10.1590/1413-81232014199.00732014">10.1590/1413-81232014199.00732014</a>&gt;.
+</div>
+<div id="ref-gracie2024asisa" class="csl-entry" role="listitem">
+GRACIE, Renata; RODRIGUES, Jessica Muzy (ORGS.). <strong><a href="https://arca.fiocruz.br/handle/icict/68656">Curso análise de situação de saúde ambiental: <span>ASISA-Queimadas</span></a></strong>. Rio de Janeiro: Edições Livres, 2024.
+</div>
+<div id="ref-lacerdaFreitas2024justica" class="csl-entry" role="listitem">
+LACERDA, Luiz Felipe Barboza; FREITAS, Carlos Machado de. Justiça socioambiental para gestão integral de riscos de desastres. <strong>Em Pauta: teoria social e realidade contemporânea</strong>, v. 22, n. 55, p. 148–159, 2024. Disponível em: &lt;https://doi.org/<a href="https://doi.org/10.12957/rep.2024.79890">10.12957/rep.2024.79890</a>&gt;.
+</div>
+<div id="ref-ipcc2022glossario" class="csl-entry" role="listitem">
+MATTHEWS, J. B. Robin <em>et al.</em> <a href="https://doi.org/10.1017/9781009325844.029">Annex II: Glossary</a>. <em>In</em>: PÖRTNER, Hans-Otto <em>et al.</em> (Orgs). <strong>Climate Change 2022: Impacts, Adaptation and Vulnerability</strong>. Cambridge: Cambridge University Press, 2022. p. 2897–2930.
+</div>
+<div id="ref-redmond2005natural" class="csl-entry" role="listitem">
+REDMOND, Anthony D. Natural disasters. <strong>BMJ</strong>, v. 330, n. 7502, p. 1259–1261, 2005. Disponível em: &lt;https://doi.org/<a href="https://doi.org/10.1136/bmj.330.7502.1259">10.1136/bmj.330.7502.1259</a>&gt;.
+</div>
+<div id="ref-roux2020alerta" class="csl-entry" role="listitem">
+ROUX, Emmanuel <em>et al.</em> Toward an Early Warning System for Health Issues Related to Particulate Matter Exposure in Brazil: The Feasibility of Using Global PM2.5 Concentration Forecast Products. <strong>Remote Sensing</strong>, v. 12, n. 24, p. 4074, 2020. Disponível em: &lt;https://doi.org/<a href="https://doi.org/10.3390/rs12244074">10.3390/rs12244074</a>&gt;.
+</div>
+<div id="ref-who2010sdhframework" class="csl-entry" role="listitem">
+SOLAR, Orielle; IRWIN, Alec. <strong><a href="https://www.who.int/publications/i/item/9789241500852">A conceptual framework for action on the social determinants of health</a></strong>. Geneva: World Health Organization, 2010.
+</div>
+<div id="ref-undrr2017terminology" class="csl-entry" role="listitem">
+UNITED NATIONS OFFICE FOR DISASTER RISK REDUCTION. <strong>Sendai Framework terminology on disaster risk reduction</strong>. 2017a. Disponível em: &lt;<a href="https://www.undrr.org/terminology">https://www.undrr.org/terminology</a>&gt;. Acesso em: 4 ago. 2026.
+</div>
+<div id="ref-undrr2017hazard" class="csl-entry" role="listitem">
+UNITED NATIONS OFFICE FOR DISASTER RISK REDUCTION. <strong>Hazard: Sendai Framework terminology on disaster risk reduction</strong>. 2017b. Disponível em: &lt;<a href="https://www.undrr.org/terminology/hazard">https://www.undrr.org/terminology/hazard</a>&gt;. Acesso em: 3 out. 2026.
+</div>
+<div id="ref-who2003environmentalindicators" class="csl-entry" role="listitem">
+WORLD HEALTH ORGANIZATION. <strong><a href="https://iris.who.int/handle/10665/42673">Making a difference: indicators to improve children’s environmental health</a></strong>. Geneva: World Health Organization, 2003.
+</div>
+<div id="ref-who2021vulnerability" class="csl-entry" role="listitem">
+WORLD HEALTH ORGANIZATION. <strong><a href="https://www.who.int/publications/i/item/9789240036383">Climate change and health: vulnerability and adaptation assessment</a></strong>. Geneva: World Health Organization, 2021.
+</div>
+<div id="ref-who2023framework" class="csl-entry" role="listitem">
+WORLD HEALTH ORGANIZATION. <strong><a href="https://www.who.int/publications/i/item/9789240081888">Operational framework for building climate resilient and low carbon health systems</a></strong>. Geneva: World Health Organization, 2023a.
+</div>
+<div id="ref-who2023climatehealth" class="csl-entry" role="listitem">
+WORLD HEALTH ORGANIZATION. <strong>Climate change and health</strong>. 12 out. 2023b. Disponível em: &lt;<a href="https://www.who.int/news-room/fact-sheets/detail/climate-change-and-health">https://www.who.int/news-room/fact-sheets/detail/climate-change-and-health</a>&gt;. Acesso em: 28 jul. 2026.
+</div>
+<div id="ref-who2024sdhequity" class="csl-entry" role="listitem">
+WORLD HEALTH ORGANIZATION. <strong><a href="https://www.who.int/publications/b/67490">Operational framework for monitoring social determinants of health equity</a></strong>. Geneva: World Health Organization, 2024b.
+</div>
+<div id="ref-who2024resilienceindicators" class="csl-entry" role="listitem">
+WORLD HEALTH ORGANIZATION. <strong><a href="https://www.who.int/publications/i/item/9789240088986">Health system resilience indicators: an integrated package for measuring and monitoring health system resilience in countries</a></strong>. Geneva: World Health Organization, 2024a.
+</div>
+<div id="ref-wmo2017normals" class="csl-entry" role="listitem">
+WORLD METEOROLOGICAL ORGANIZATION. <strong><a href="https://wmo.int/wmo-climatological-normals">WMO guidelines on the calculation of climate normals</a></strong>. Geneva: World Meteorological Organization, 2017.
+</div>
+<div id="ref-wmo2023climatological" class="csl-entry" role="listitem">
+WORLD METEOROLOGICAL ORGANIZATION. <strong><a href="https://community.wmo.int/site/knowledge-hub/programmes-and-initiatives/climate-services/climate-data">Guide to climatological practices</a></strong>. Geneva: World Meteorological Organization, 2023.
+</div>
+<div id="ref-wmoWho2015heat" class="csl-entry" role="listitem">
+WORLD METEOROLOGICAL ORGANIZATION; WORLD HEALTH ORGANIZATION. <strong><a href="https://www.who.int/publications/m/item/heatwaves-and-health--guidance-on-warning-system-development">Heatwaves and health: guidance on warning-system development</a></strong>. Geneva: World Meteorological Organization, 2015.
+</div>
+<div id="ref-xavier2025inundacoes" class="csl-entry" role="listitem">
+XAVIER, Diego Ricardo <em>et al.</em> Climate change and health vulnerabilities: the case of 2024 floods in <span>Rio Grande do Sul, Brazil</span>. <strong>Trends in Health Sciences</strong>, v. 67, n. 1, p. 1–10, 2025. Disponível em: &lt;https://doi.org/<a href="https://doi.org/10.47626/ths-2025-0008">10.47626/ths-2025-0008</a>&gt;.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiada");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiada");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../frontmatter/como-usar.html" class="pagination-link" aria-label="Como utilizar este livro">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Como utilizar este livro</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../chapters/part-1/02-mudanca-climatica-resposta-sus.html" class="pagination-link" aria-label="Mudança climática, planejamento e resposta do SUS">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Mudança climática, planejamento e resposta do SUS</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/rfsaldanha/dicas/blob/main/chapters/part-1/01-clima-ambiente-saude.qmd" class="toc-action"><i class="bi bi-github"></i>Ver o código fonte</a></li><li><a href="https://github.com/rfsaldanha/dicas/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></div></div></footer><script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>

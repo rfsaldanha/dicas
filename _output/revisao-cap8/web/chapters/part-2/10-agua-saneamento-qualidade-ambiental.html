@@ -1,0 +1,1655 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Guia técnico sobre conceitos, dados e indicadores de clima e ambiente aplicados à vigilância e à gestão em saúde pública.">
+
+<title>10&nbsp; Água, saneamento e qualidade ambiental – Dados e Indicadores de Clima e Ambiente para a Saúde</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 1em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../chapters/part-2/11-uso-cobertura-terra-ambiente-urbano.html" rel="next">
+<link href="../../chapters/part-2/09-qualidade-ar-queimadas-fumaca.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-bb162014f31ff550f3668977ab0f7733.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-fdd2e9c9119fd81cafe9a82057eefc34.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-bb162014f31ff550f3668977ab0f7733.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Nenhum resultado",
+    "search-matching-documents-text": "documentos correspondentes",
+    "search-copy-link-title": "Copiar link para a busca",
+    "search-hide-matches-text": "Esconder correspondências adicionais",
+    "search-more-match-text": "mais correspondência neste documento",
+    "search-more-matches-text": "mais correspondências neste documento",
+    "search-clear-button-title": "Limpar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Procurar"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles/web/styles.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/part-2/07-temperatura-condicoes-termicas.html">Parte II — Dados e indicadores temáticos</a></li><li class="breadcrumb-item"><a href="../../chapters/part-2/10-agua-saneamento-qualidade-ambiental.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Água, saneamento e qualidade ambiental</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Procurar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">Dados e Indicadores de Clima e Ambiente para a Saúde</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/rfsaldanha/dicas" title="Código fonte" class="quarto-navigation-tool px-1" aria-label="Código fonte"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo escuro"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Procurar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bem-vindo</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/ficha-tecnica.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ficha técnica</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/apresentacao.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Apresentação</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/prefacio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prefácio do autor</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/agradecimentos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Agradecimentos</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/siglas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lista de siglas</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/lista-figuras.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lista de figuras</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/lista-tabelas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lista de quadros e tabelas</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/sumario.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sumário</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/como-usar.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Como utilizar este livro</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Parte I — Fundamentos e métodos</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/01-clima-ambiente-saude.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Clima, ambiente e saúde pública</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/02-mudanca-climatica-resposta-sus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Mudança climática, planejamento e resposta do SUS</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/03-dados-variaveis-indices-indicadores.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Dos dados aos indicadores: como representar clima, ambiente e saúde</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/04-espaco-tempo-qualidade.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Compatibilizando dados: espaço, tempo e qualidade</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/05-fontes-fichas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Fontes de dados e fichas de indicadores</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/06-indicador-decisao.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Do indicador à decisão pública</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Parte II — Dados e indicadores temáticos</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/07-temperatura-condicoes-termicas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Temperatura e condições térmicas</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/08-precipitacao-secas-eventos-hidrologicos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Precipitação, secas e eventos hidrológicos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/09-qualidade-ar-queimadas-fumaca.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Qualidade do ar, queimadas e fumaça</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/10-agua-saneamento-qualidade-ambiental.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Água, saneamento e qualidade ambiental</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/11-uso-cobertura-terra-ambiente-urbano.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Uso e cobertura da terra, vegetação e ambiente urbano</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/12-eventos-severos-desastres.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Eventos meteorológicos severos e desastres</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Parte III — Indicadores integrados de clima, ambiente e saúde</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-3/13-exposicao-vulnerabilidade.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Exposição e vulnerabilidade socioambiental</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-3/14-efeitos-saude.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Efeitos do clima e do ambiente sobre a saúde</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-3/15-resposta-adaptacao-resiliencia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Capacidade de resposta, adaptação e resiliência</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Parte IV — Fichas de indicadores e fontes de dados</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/lista-fichas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lista de fichas por código e capítulo</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/indice-indicadores.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Índice alfabético de indicadores</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/16-fichas-temperatura-condicoes-termicas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Fichas — Temperatura e condições térmicas</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/17-fichas-precipitacao-secas-eventos-hidrologicos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Fichas — Precipitação, secas e eventos hidrológicos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Fichas — Qualidade do ar, queimadas e fumaça</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Fichas — Água, saneamento e qualidade ambiental</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/20-fichas-uso-cobertura-terra-ambiente-urbano.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Fichas — Uso e cobertura da terra, vegetação e ambiente urbano</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/21-fichas-eventos-severos-desastres.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Fichas — Eventos severos e desastres</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/22-fichas-exposicao-vulnerabilidade.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Fichas — Exposição e vulnerabilidade socioambiental</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/23-fichas-efeitos-saude.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Fichas — Efeitos do clima e do ambiente sobre a saúde</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/24-fichas-resposta-adaptacao-resiliencia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Fichas — Capacidade de resposta, adaptação e resiliência</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/indice-fontes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Catálogo de fontes de dados</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/glossario.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Glossário</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/referencias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Referências</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Apêndices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/apendice-metodologico.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Apêndice metodológico</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/apendice-estacoes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Estações meteorológicas e de qualidade do ar</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Índice</h2>
+   
+  <ul>
+  <li><a href="#água-para-consumo-humano" id="toc-água-para-consumo-humano" class="nav-link active" data-scroll-target="#água-para-consumo-humano"><span class="header-section-number">10.1</span> Água para consumo humano</a>
+  <ul class="collapse">
+  <li><a href="#abastecimento-acesso-e-regularidade" id="toc-abastecimento-acesso-e-regularidade" class="nav-link" data-scroll-target="#abastecimento-acesso-e-regularidade"><span class="header-section-number">10.1.1</span> Abastecimento, acesso e regularidade</a></li>
+  <li><a href="#qualidade-microbiológica" id="toc-qualidade-microbiológica" class="nav-link" data-scroll-target="#qualidade-microbiológica"><span class="header-section-number">10.1.2</span> Qualidade microbiológica</a></li>
+  <li><a href="#turbidez-e-desinfecção" id="toc-turbidez-e-desinfecção" class="nav-link" data-scroll-target="#turbidez-e-desinfecção"><span class="header-section-number">10.1.3</span> Turbidez e desinfecção</a></li>
+  <li><a href="#qualidade-química" id="toc-qualidade-química" class="nav-link" data-scroll-target="#qualidade-química"><span class="header-section-number">10.1.4</span> Qualidade química</a></li>
+  </ul></li>
+  <li><a href="#esgotamento-sanitário" id="toc-esgotamento-sanitário" class="nav-link" data-scroll-target="#esgotamento-sanitário"><span class="header-section-number">10.2</span> Esgotamento sanitário</a></li>
+  <li><a href="#higiene-drenagem-resíduos-e-contaminação-ambiental" id="toc-higiene-drenagem-resíduos-e-contaminação-ambiental" class="nav-link" data-scroll-target="#higiene-drenagem-resíduos-e-contaminação-ambiental"><span class="header-section-number">10.3</span> Higiene, drenagem, resíduos e contaminação ambiental</a></li>
+  <li><a href="#efeitos-sobre-a-saúde-e-suas-vias" id="toc-efeitos-sobre-a-saúde-e-suas-vias" class="nav-link" data-scroll-target="#efeitos-sobre-a-saúde-e-suas-vias"><span class="header-section-number">10.4</span> Efeitos sobre a saúde e suas vias</a></li>
+  <li><a href="#segurança-hídrica" id="toc-segurança-hídrica" class="nav-link" data-scroll-target="#segurança-hídrica"><span class="header-section-number">10.5</span> Segurança hídrica</a></li>
+  <li><a href="#fontes-seleção-e-principais-indicadores" id="toc-fontes-seleção-e-principais-indicadores" class="nav-link" data-scroll-target="#fontes-seleção-e-principais-indicadores"><span class="header-section-number">10.6</span> Fontes, seleção e principais indicadores</a></li>
+  <li><a href="#protocolo-de-cálculo-e-disponibilidade" id="toc-protocolo-de-cálculo-e-disponibilidade" class="nav-link" data-scroll-target="#protocolo-de-cálculo-e-disponibilidade"><span class="header-section-number">10.7</span> Protocolo de cálculo e disponibilidade</a></li>
+  <li><a href="#aplicação-na-gestão" id="toc-aplicação-na-gestão" class="nav-link" data-scroll-target="#aplicação-na-gestão"><span class="header-section-number">10.8</span> Aplicação na gestão</a></li>
+  <li><a href="#localização-das-fichas-operacionais" id="toc-localização-das-fichas-operacionais" class="nav-link" data-scroll-target="#localização-das-fichas-operacionais"><span class="header-section-number">10.9</span> Localização das fichas operacionais</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/rfsaldanha/dicas/blob/main/chapters/part-2/10-agua-saneamento-qualidade-ambiental.qmd" class="toc-action"><i class="bi bi-github"></i>Ver o código fonte</a></li><li><a href="https://github.com/rfsaldanha/dicas/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/part-2/07-temperatura-condicoes-termicas.html">Parte II — Dados e indicadores temáticos</a></li><li class="breadcrumb-item"><a href="../../chapters/part-2/10-agua-saneamento-qualidade-ambiental.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Água, saneamento e qualidade ambiental</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-agua-saneamento" class="quarto-section-identifier"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Água, saneamento e qualidade ambiental</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Água, saneamento e higiene participam da proteção da saúde em atividades tão diferentes quanto beber, preparar alimentos, tomar banho, cuidar de uma criança e realizar um procedimento em uma unidade de saúde. A proteção depende da quantidade disponível, da qualidade da água e das condições de acesso, mas também do destino das excretas e dos resíduos. Uma falha pode alcançar pessoas que não utilizam o serviço que a originou: o lançamento de esgoto, por exemplo, pode comprometer usos da água a jusante. Por isso, a análise reúne condições domiciliares, infraestrutura coletiva e qualidade ambiental <span class="citation" data-cites="who2020waterquantity who2018sanitation">(<a href="../../backmatter/referencias.html#ref-who2020waterquantity" role="doc-biblioref">Howard et al., 2020</a>; <a href="../../backmatter/referencias.html#ref-who2018sanitation" role="doc-biblioref">World Health Organization, 2018</a>)</span>.</p>
+<p>No Brasil, saneamento básico abrange abastecimento de água potável, esgotamento sanitário, limpeza urbana e manejo de resíduos sólidos, além de drenagem e manejo das águas pluviais urbanas. Esgotamento sanitário é, portanto, um componente desse conjunto. Na literatura internacional, a expressão WASH, de <em>water, sanitation and hygiene</em>, reúne água, manejo sanitário de excretas e higiene; o termo <em>sanitation</em> não deve ser automaticamente traduzido como toda a abrangência legal brasileira do saneamento básico <span class="citation" data-cites="brasil2007saneamento who2018sanitation">(<a href="../../backmatter/referencias.html#ref-brasil2007saneamento" role="doc-biblioref">Brasil, 2007</a>; <a href="../../backmatter/referencias.html#ref-who2018sanitation" role="doc-biblioref">World Health Organization, 2018</a>)</span>.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Conceito-chave: condições, serviços e saúde">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Conceito-chave: condições, serviços e saúde
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Qualidade ambiental descreve condições dos meios, como água, solo e ar, segundo o uso e o objetivo de avaliação. Potabilidade se refere aos requisitos da água destinada ao consumo humano. Serviço seguro combina acesso e funcionamento com proteção sanitária ao longo da cadeia. Higiene envolve condições e práticas de cuidado. Segurança hídrica integra quantidade, qualidade, acesso e confiabilidade ao longo do tempo. Exposição é o contato das pessoas com um agente; efeito é uma alteração da saúde que precisa ser investigada.</p>
+</div>
+</div>
+<p>Essas distinções, organizadas na <a href="#fig-cadeia-agua-saneamento" class="quarto-xref">Figura&nbsp;<span>10.1</span></a>, orientam a escolha dos indicadores. Uma ligação domiciliar informa uma condição de acesso; uma amostra informa o que foi encontrado em determinado ponto e momento; uma internação informa um evento assistencial. Nenhum desses registros, isoladamente, demonstra o funcionamento de toda a cadeia. Sua integração exige reconhecer unidades, populações e períodos, retomando a discussão de <a href="../../chapters/part-1/03-dados-variaveis-indices-indicadores.html">dados, variáveis, índices e indicadores</a>.</p>
+<div class="figure-with-source page-columns page-full">
+<div id="fig-cadeia-agua-saneamento" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-src="arte-cap10-00-conceitos-print.png" alt="Paisagem hipotética relaciona abastecimento, instalação sanitária e cuidado. O esquema distingue água segura, esgotamento, higiene, qualidade ambiental, exposição, efeitos e resposta. Segurança hídrica reúne condições que precisam persistir no tempo.">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-cadeia-agua-saneamento-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<img src="../../assets/figures/arte-cap10-00-conceitos.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Paisagem hipotética relaciona abastecimento, instalação sanitária e cuidado. O esquema distingue água segura, esgotamento, higiene, qualidade ambiental, exposição, efeitos e resposta. Segurança hídrica reúne condições que precisam persistir no tempo.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cadeia-agua-saneamento-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;10.1: Água, saneamento e saúde: conceitos e relações
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte: elaboração conceitual a partir de OMS (2018, 2020, 2022); Lei nº 11.445/2007. Autoria: composição própria; aquarela produzida com IA (image_gen). Licença: a mesma dos textos autorais da obra.</span></p>
+</div>
+<p>O <a href="../../chapters/part-2/08-precipitacao-secas-eventos-hidrologicos.html">capítulo 8</a> explica precipitação, secas e processos hidrológicos. Aqui, o foco é como os serviços e as barreiras sanitárias funcionam no cotidiano e sob perturbações. A chuva pode alterar a água captada e a seca pode restringir o abastecimento, mas a exposição depende também de manutenção, tratamento, armazenamento e capacidade institucional. Os indicadores operacionais estão nas <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html">fichas de água, saneamento e qualidade ambiental</a>; as <a href="../../chapters/part-4/23-fichas-efeitos-saude.html">fichas de efeitos na saúde</a> e as <a href="../../chapters/part-4/24-fichas-resposta-adaptacao-resiliencia.html">fichas de resposta</a> completam a leitura sem estabelecer atribuição automática.</p>
+<section id="água-para-consumo-humano" class="level2 page-columns page-full" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="água-para-consumo-humano"><span class="header-section-number">10.1</span> Água para consumo humano</h2>
+<p>Água para consumo humano inclui a destinada à ingestão, ao preparo de alimentos e à higiene pessoal. Sua origem não determina sua segurança: água de rede, poço ou solução coletiva precisa ser avaliada segundo condições de captação, tratamento, distribuição e uso. Transparência, gosto e odor influenciam a aceitação, mas a aparência não comprova ausência de contaminantes. Também é necessário distinguir os requisitos de potabilidade dos requisitos específicos de usos assistenciais, como o processamento da água para diálise <span class="citation" data-cites="brasil2024agua who2022drinking">(<a href="../../backmatter/referencias.html#ref-brasil2024agua" role="doc-biblioref">Brasil. Ministério da Saúde, 2024</a>; <a href="../../backmatter/referencias.html#ref-who2022drinking" role="doc-biblioref">World Health Organization, 2022a</a>)</span>.</p>
+<p>A norma brasileira é o Anexo XX da Portaria de Consolidação nº 5/2017 do Gabinete do Ministro do Ministério da Saúde (GM/MS), atualizado pelas Portarias nº 888/2021 e nº 2.472/2021. Ela diferencia sistema de abastecimento de água (SAA), que fornece água coletivamente por rede; solução alternativa coletiva (SAC), sem rede de distribuição; e solução alternativa individual (SAI), destinada a uma família e seus agregados. Essas categorias organizam responsabilidades e registros, sem funcionar como classificação automática de qualidade <span class="citation" data-cites="brasil2021portaria888 brasil2021portaria2472">(<a href="../../backmatter/referencias.html#ref-brasil2021portaria2472" role="doc-biblioref">Brasil. Ministério da Saúde, 2021a</a>, <a href="../../backmatter/referencias.html#ref-brasil2021portaria888" role="doc-biblioref">2021b</a>)</span>.</p>
+<p>Controle é a atividade do responsável pelo sistema ou solução coletiva para verificar e manter a qualidade. Vigilância é a atuação da autoridade de saúde pública para avaliar o atendimento à norma e o risco à população. Os dados se complementam, mas diferem em finalidade, seleção dos pontos e frequência. Uma comparação deve identificar a origem do registro; simplesmente reunir todas as amostras pode misturar monitoramento operacional, rotina sanitária e investigação de situações críticas <span class="citation" data-cites="oliveira2019sisagua brasil2024agua">(<a href="../../backmatter/referencias.html#ref-brasil2024agua" role="doc-biblioref">Brasil. Ministério da Saúde, 2024</a>; <a href="../../backmatter/referencias.html#ref-oliveira2019sisagua" role="doc-biblioref">Oliveira Júnior et al., 2019</a>)</span>.</p>
+<p>A Organização Mundial da Saúde (OMS) recomenda uma abordagem preventiva do manancial ao consumidor. O plano de segurança da água identifica perigos, situações capazes de introduzi-los e medidas para impedir ou reduzir a exposição. A verificação laboratorial participa dessa abordagem, juntamente com inspeção, acompanhamento operacional e correção. A <a href="#fig-agua-abastecimento" class="quarto-xref">Figura&nbsp;<span>10.2</span></a> representa essas etapas; o esquema é conceitual, sem prescrever uma tecnologia única de tratamento <span class="citation" data-cites="who2023wsp">(<a href="../../backmatter/referencias.html#ref-who2023wsp" role="doc-biblioref">World Health Organization; International Water Association, 2023</a>)</span>.</p>
+<div class="figure-with-source page-columns page-full">
+<div id="fig-agua-abastecimento" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-src="arte-cap10-01-abastecimento-print.png" alt="Paisagem hipotética mostra captação, tratamento, reservação e cidade. O esquema acompanha a cadeia até o uso, distinguindo controle pelo responsável e vigilância pela autoridade de saúde. A paisagem não prescreve uma tecnologia de tratamento.">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-agua-abastecimento-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<img src="../../assets/figures/arte-cap10-01-abastecimento.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Paisagem hipotética mostra captação, tratamento, reservação e cidade. O esquema acompanha a cadeia até o uso, distinguindo controle pelo responsável e vigilância pela autoridade de saúde. A paisagem não prescreve uma tecnologia de tratamento.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-agua-abastecimento-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;10.2: Do manancial ao consumo: barreiras e responsabilidades
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte: elaboração conceitual a partir de OMS (2023), Water safety plan manual; Ministério da Saúde (2024). Autoria: composição própria; aquarela produzida com IA (image_gen). Licença: a mesma dos textos autorais da obra.</span></p>
+</div>
+<p>A leitura das <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html">fichas do capítulo 19</a> deve considerar o alcance de cada medida. A ficha <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-agu-05">SAN-AGU-05</a> descreve atendimento por rede; <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-agu-02">SAN-AGU-02</a>, <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-agu-03">SAN-AGU-03</a> e <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-agu-04">SAN-AGU-04</a> resumem resultados de parâmetros específicos. Já <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-agu-01">SAN-AGU-01</a> articula componentes populacionais de serviço seguro. Em estabelecimentos de saúde, acrescentam-se a continuidade e as condições de funcionamento tratadas no <a href="../../chapters/part-3/15-resposta-adaptacao-resiliencia.html">capítulo 15</a> e nas fichas <a href="../../chapters/part-4/24-fichas-resposta-adaptacao-resiliencia.html#sec-res-wat-01">RES-WAT-01</a> e <a href="../../chapters/part-4/24-fichas-resposta-adaptacao-resiliencia.html#sec-res-was-01">RES-WAS-01</a>.</p>
+<section id="abastecimento-acesso-e-regularidade" class="level3 page-columns page-full" data-number="10.1.1">
+<h3 data-number="10.1.1" class="anchored" data-anchor-id="abastecimento-acesso-e-regularidade"><span class="header-section-number">10.1.1</span> Abastecimento, acesso e regularidade</h3>
+<p>Fonte melhorada é uma classificação do tipo de instalação e de seu potencial de proteção. Ela não atesta a qualidade de cada fornecimento. O Programa Conjunto da OMS e do Fundo das Nações Unidas para a Infância (UNICEF) de Monitoramento do Abastecimento de Água, Saneamento e Higiene (JMP) distingue níveis de serviço. O nível básico utiliza fonte melhorada com coleta em até 30 minutos, considerando ida, volta e espera; acima desse tempo, o serviço é limitado. O nível gerido de forma segura exige fonte melhorada no domicílio ou terreno, disponível quando necessária e livre de contaminação fecal e química prioritária <span class="citation" data-cites="jmp2026water">(<a href="../../backmatter/referencias.html#ref-jmp2026water" role="doc-biblioref">World Health Organization; United Nations Children’s Fund, 2026</a>)</span>.</p>
+<p>O Objetivo de Desenvolvimento Sustentável (ODS) 6.1.1 acompanha essa última condição. Sua definição reúne dimensões que podem divergir: uma residência pode ter torneira e sofrer desabastecimento; outra pode receber água em quantidade suficiente sem informações adequadas de qualidade. A <a href="#fig-agua-acesso" class="quarto-xref">Figura&nbsp;<span>10.3</span></a> mostra que localização, continuidade e qualidade precisam ser verificadas separadamente. A aparência das cenas não classifica a segurança dos serviços.</p>
+<div class="figure-with-source page-columns page-full">
+<div id="fig-agua-acesso" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-src="arte-cap10-02-acesso-print.png" alt="Duas cenas conceituais mostram uso de água no quintal e transporte de recipiente. Três requisitos de serviço seguro aparecem separados: fonte no local, disponibilidade e qualidade. A aparência da água não comprova potabilidade.">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-agua-acesso-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<img src="../../assets/figures/arte-cap10-02-acesso.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Duas cenas conceituais mostram uso de água no quintal e transporte de recipiente. Três requisitos de serviço seguro aparecem separados: fonte no local, disponibilidade e qualidade. A aparência da água não comprova potabilidade.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-agua-acesso-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;10.3: Acesso, disponibilidade e qualidade são requisitos distintos
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte: elaboração conceitual a partir de JMP, Drinking water; Howard et al.&nbsp;(2020). Autoria: composição própria; aquarela produzida com IA (image_gen). Licença: a mesma dos textos autorais da obra.</span></p>
+</div>
+<p>A quantidade necessária envolve beber, cozinhar, higiene pessoal e limpeza. Distância, tempo, esforço físico e custo interferem no volume efetivamente utilizado. A avaliação deve incluir quem busca água, a acessibilidade dos pontos e a dependência de cuidadores. Médias municipais podem ocultar famílias que restringem usos por dificuldade de pagamento ou que combinam fontes em períodos distintos. O levantamento deve registrar essas alternativas, em vez de presumir que a fonte principal declarada descreve toda a exposição <span class="citation" data-cites="who2020waterquantity">(<a href="../../backmatter/referencias.html#ref-who2020waterquantity" role="doc-biblioref">Howard et al., 2020</a>)</span>.</p>
+<p>Interrupções também modificam as condições da rede e do domicílio. Perda de pressão pode favorecer intrusão quando existem defeitos e fontes externas de contaminação; armazenamento prolongado e recipientes inadequados podem acrescentar riscos. Esses mecanismos dependem da instalação e do manejo, não sendo consequência inevitável de toda interrupção. Duração, frequência, extensão territorial e população atingida precisam acompanhar o registro de continuidade <span class="citation" data-cites="who2023wsp brasil2024agua">(<a href="../../backmatter/referencias.html#ref-brasil2024agua" role="doc-biblioref">Brasil. Ministério da Saúde, 2024</a>; <a href="../../backmatter/referencias.html#ref-who2023wsp" role="doc-biblioref">World Health Organization; International Water Association, 2023</a>)</span>.</p>
+<p>As fichas <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-agu-01">SAN-AGU-01</a> e <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-agu-05">SAN-AGU-05</a>, no <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html">capítulo 19</a>, permitem separar serviço seguro e atendimento por rede. A análise de desigualdades pode ser articulada ao <a href="../../chapters/part-3/13-exposicao-vulnerabilidade.html">capítulo sobre exposição e vulnerabilidade</a> e às <a href="../../chapters/part-4/22-fichas-exposicao-vulnerabilidade.html">fichas do capítulo 22</a>, conservando o território e o denominador de cada medida. Para unidades de saúde, <a href="../../chapters/part-4/24-fichas-resposta-adaptacao-resiliencia.html#sec-res-wat-01">RES-WAT-01</a> mede ocorrência de interrupção na semana anterior entre estabelecimentos com informação válida; esse recorte não representa a continuidade domiciliar nem todo o ano.</p>
+</section>
+<section id="qualidade-microbiológica" class="level3 page-columns page-full" data-number="10.1.2">
+<h3 data-number="10.1.2" class="anchored" data-anchor-id="qualidade-microbiológica"><span class="header-section-number">10.1.2</span> Qualidade microbiológica</h3>
+<p>A presença de <em>Escherichia coli</em>, abreviada como <em>E. coli</em>, indica contaminação fecal e necessidade de investigação sanitária. O parâmetro funciona como indicador: não identifica todos os patógenos, sua origem específica ou a doença que poderá ocorrer. Coliformes totais auxiliam a avaliação das condições do sistema, mas não possuem a mesma especificidade para contaminação fecal. Confundir esses grupos compromete tanto a interpretação quanto a construção da série <span class="citation" data-cites="who2022drinking brasil2024agua">(<a href="../../backmatter/referencias.html#ref-brasil2024agua" role="doc-biblioref">Brasil. Ministério da Saúde, 2024</a>; <a href="../../backmatter/referencias.html#ref-who2022drinking" role="doc-biblioref">World Health Organization, 2022a</a>)</span>.</p>
+<p>A ausência de <em>E. coli</em> em 100 mL é uma referência central da avaliação microbiológica. O volume faz parte da informação: resultados obtidos com volumes ou métodos diferentes não podem ser classificados apenas pelo número ou pela palavra registrada. Coleta, conservação, transporte, tempo até a análise e procedimento laboratorial influenciam a validade do resultado. Esses aspectos devem acompanhar a cadeia de identificação da amostra e as regras de aceitação <span class="citation" data-cites="brasil2024agua">(<a href="../../backmatter/referencias.html#ref-brasil2024agua" role="doc-biblioref">Brasil. Ministério da Saúde, 2024</a>)</span>.</p>
+<p>Uma amostra negativa se refere ao material examinado. Não exclui contaminação intermitente, pontos não amostrados ou agentes que se comportam diferentemente do indicador. A <a href="#fig-agua-microbiologia" class="quarto-xref">Figura&nbsp;<span>10.4</span></a> separa a observação do alcance da conclusão. Resultados positivos requerem avaliação e medidas oportunas; a investigação e a recoleta não devem ser apresentadas como motivo para adiar proteção quando houver risco identificado <span class="citation" data-cites="who2023wsp">(<a href="../../backmatter/referencias.html#ref-who2023wsp" role="doc-biblioref">World Health Organization; International Water Association, 2023</a>)</span>.</p>
+<div class="figure-with-source page-columns page-full">
+<div id="fig-agua-microbiologia" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-src="arte-cap10-03-microbiologia-print.png" alt="O percurso liga ponto e momento, coleta e análise, resultado e avaliação. Ausência de E. coli em 100 mL se refere à amostra; detecção indica necessidade de ação. Cobertura do plano e representatividade limitam conclusões populacionais.">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-agua-microbiologia-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<img src="../../assets/figures/arte-cap10-03-microbiologia.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="O percurso liga ponto e momento, coleta e análise, resultado e avaliação. Ausência de E. coli em 100 mL se refere à amostra; detecção indica necessidade de ação. Cobertura do plano e representatividade limitam conclusões populacionais.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-agua-microbiologia-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;10.4: Da amostra microbiológica ao alcance da interpretação
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte: elaboração conceitual a partir de Ministério da Saúde (2024); Oliveira Júnior et al.&nbsp;(2019). Autoria: composição própria. Licença: a mesma dos textos autorais da obra.</span></p>
+</div>
+<p>Conformidade também depende de onde se observou. Um conjunto concentrado em áreas centrais pode deixar pouco representadas soluções alternativas e localidades periféricas. Mudanças na proporção de amostras conformes podem decorrer da inclusão de pontos críticos, além de mudanças reais da água. É necessário publicar número de resultados classificáveis, distribuição dos pontos, finalidade da coleta e execução do plano, evitando tratar o universo de amostras como amostra probabilística da população <span class="citation" data-cites="oliveira2019sisagua">(<a href="../../backmatter/referencias.html#ref-oliveira2019sisagua" role="doc-biblioref">Oliveira Júnior et al., 2019</a>)</span>.</p>
+<p>A ficha <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-agu-02">SAN-AGU-02</a>, no <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html">capítulo 19</a>, fixa o cálculo para registros elegíveis do Sisagua. As regras de comparabilidade do <a href="../../chapters/part-1/04-espaco-tempo-qualidade.html">capítulo 4</a> ajudam a identificar alterações de suporte e método. Uma associação com internações ou outros desfechos exige o desenho epidemiológico discutido no <a href="../../chapters/part-3/14-efeitos-saude.html">capítulo 14</a> e a escolha de medidas nas <a href="../../chapters/part-4/23-fichas-efeitos-saude.html">fichas de efeitos</a>, sem transformar detecção ambiental em diagnóstico individual.</p>
+</section>
+<section id="turbidez-e-desinfecção" class="level3 page-columns page-full" data-number="10.1.3">
+<h3 data-number="10.1.3" class="anchored" data-anchor-id="turbidez-e-desinfecção"><span class="header-section-number">10.1.3</span> Turbidez e desinfecção</h3>
+<p>Turbidez é uma propriedade óptica relacionada ao espalhamento da luz por partículas. Pode variar com características do manancial, remoção de partículas no tratamento e condições da distribuição. Não mede diretamente a concentração de um patógeno. Sua utilidade sanitária decorre, entre outros aspectos, da avaliação da filtração e da possibilidade de partículas dificultarem a ação do desinfetante. Os critérios precisam ser aplicados à tecnologia, etapa e ponto correspondentes <span class="citation" data-cites="who2022drinking brasil2024agua">(<a href="../../backmatter/referencias.html#ref-brasil2024agua" role="doc-biblioref">Brasil. Ministério da Saúde, 2024</a>; <a href="../../backmatter/referencias.html#ref-who2022drinking" role="doc-biblioref">World Health Organization, 2022a</a>)</span>.</p>
+<p>O residual de desinfetante acompanha a permanência de uma barreira na água distribuída. Sua interpretação depende do agente empregado, do tempo de contato, das condições da água e das características do sistema. Um residual dentro da faixa não garante sozinho proteção contra todos os microrganismos; um residual insuficiente sinaliza a necessidade de investigar consumo do agente, dosagem, tempo de permanência e integridade da rede. Turbidez e residual são complementares, conforme a <a href="#fig-agua-desinfeccao" class="quarto-xref">Figura&nbsp;<span>10.5</span></a>.</p>
+<div class="figure-with-source page-columns page-full">
+<div id="fig-agua-desinfeccao" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-src="arte-cap10-04-desinfeccao-print.png" alt="Três cenas hipotéticas mostram tratamento, análise e ponto de consumo. O esquema distingue partículas, barreira de desinfecção e etapa de coleta. A figura não descreve um procedimento de coleta nem certifica a segurança pela aparência.">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-agua-desinfeccao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<img src="../../assets/figures/arte-cap10-04-desinfeccao.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Três cenas hipotéticas mostram tratamento, análise e ponto de consumo. O esquema distingue partículas, barreira de desinfecção e etapa de coleta. A figura não descreve um procedimento de coleta nem certifica a segurança pela aparência.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-agua-desinfeccao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;10.5: Turbidez e residual: observações complementares
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte: elaboração conceitual a partir de OMS (2022), Guidelines for drinking-water quality; Portarias GM/MS nº 888 e nº 2.472/2021. Autoria: composição própria; aquarela produzida com IA (image_gen). Licença: a mesma dos textos autorais da obra.</span></p>
+</div>
+<p>A norma prevê manutenção mínima de 0,2 mg/L de cloro residual livre, 2 mg/L de cloro residual combinado ou 0,2 mg/L de dióxido de cloro na distribuição e nos pontos de consumo. Esses agentes não podem ser reunidos sob uma mesma faixa. A Portaria nº 2.472/2021 também explicita a medição de cor aparente, turbidez e residual nas amostras coletadas para análises bacteriológicas, favorecendo a leitura conjunta dos parâmetros <span class="citation" data-cites="brasil2021portaria888 brasil2021portaria2472">(<a href="../../backmatter/referencias.html#ref-brasil2021portaria2472" role="doc-biblioref">Brasil. Ministério da Saúde, 2021a</a>, <a href="../../backmatter/referencias.html#ref-brasil2021portaria888" role="doc-biblioref">2021b</a>)</span>.</p>
+<p>O monitoramento deve registrar unidade, instrumento, método, calibração e momento da medição. Alterações entre coleta e análise podem reduzir a comparabilidade, especialmente de parâmetros que se modificam rapidamente. A inspeção dos processos e dos registros operacionais ajuda a distinguir ocorrência localizada de falha persistente. Comparar médias isoladas pode esconder episódios relevantes: a distribuição dos valores e a localização das excedências devem permanecer recuperáveis <span class="citation" data-cites="brasil2024agua">(<a href="../../backmatter/referencias.html#ref-brasil2024agua" role="doc-biblioref">Brasil. Ministério da Saúde, 2024</a>)</span>.</p>
+<p>As fichas <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-agu-03">SAN-AGU-03</a> e <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-agu-04">SAN-AGU-04</a>, no <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html">capítulo 19</a>, adotam recortes específicos para cloro residual livre e turbidez na distribuição. O limite utilizado nessa etapa não deve ser aplicado à filtração. O <a href="../../chapters/part-1/04-espaco-tempo-qualidade.html">capítulo 4</a> orienta o tratamento de unidades, mudanças de método e lacunas; a interpretação do resultado deve sempre retornar à etapa da cadeia em que a observação ocorreu.</p>
+</section>
+<section id="qualidade-química" class="level3 page-columns page-full" data-number="10.1.4">
+<h3 data-number="10.1.4" class="anchored" data-anchor-id="qualidade-química"><span class="header-section-number">10.1.4</span> Qualidade química</h3>
+<p>A qualidade química exige identificar a substância e a situação de exposição. Fontes podem ser geológicas, agrícolas, industriais ou associadas aos materiais e processos do próprio abastecimento. Arsênio, nitrato, fluoreto, agrotóxicos, metais e subprodutos da desinfecção têm propriedades, métodos e referências diferentes. A prioridade de monitoramento depende do contexto do manancial, das atividades no território e do histórico, juntamente com as exigências normativas <span class="citation" data-cites="who2022drinking brasil2024agua">(<a href="../../backmatter/referencias.html#ref-brasil2024agua" role="doc-biblioref">Brasil. Ministério da Saúde, 2024</a>; <a href="../../backmatter/referencias.html#ref-who2022drinking" role="doc-biblioref">World Health Organization, 2022a</a>)</span>.</p>
+<p>Concentração e duração são dimensões distintas. Alguns perigos exigem resposta a episódios agudos; outros demandam acompanhamento de exposições repetidas. O fluoreto requer leitura específica da concentração e da finalidade do monitoramento; não cabe apresentar toda presença como dano. Da mesma forma, reconhecer subprodutos da desinfecção exige aperfeiçoar o controle do processo preservando a proteção microbiológica. Uma soma indiscriminada de excedências esconderia essas diferenças <span class="citation" data-cites="brasil2024agua">(<a href="../../backmatter/referencias.html#ref-brasil2024agua" role="doc-biblioref">Brasil. Ministério da Saúde, 2024</a>)</span>.</p>
+<p>A <a href="#fig-agua-quimica" class="quarto-xref">Figura&nbsp;<span>10.6</span></a> organiza fonte, ocorrência, contato e efeito como etapas de investigação. Encontrar uma substância em água bruta não demonstra, por si só, a concentração no consumo ou a dose recebida por uma pessoa. A avaliação precisa considerar tratamento, mistura de fontes, consumo, duração e outras vias relevantes. Monitoramento ambiental e estimativa de exposição humana permanecem produtos diferentes.</p>
+<div class="figure-with-source page-columns page-full">
+<div id="fig-agua-quimica" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-src="arte-cap10-05-quimica-print.png" alt="Etapas separam fonte, ocorrência no meio, contato humano e efeito investigado. Duas notas distinguem concentração de duração e limite de quantificação de ausência. As setas indicam percurso de investigação, sem atribuição causal automática.">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-agua-quimica-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<img src="../../assets/figures/arte-cap10-05-quimica.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Etapas separam fonte, ocorrência no meio, contato humano e efeito investigado. Duas notas distinguem concentração de duração e limite de quantificação de ausência. As setas indicam percurso de investigação, sem atribuição causal automática.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-agua-quimica-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;10.6: Substância, concentração e tempo na avaliação da exposição
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte: elaboração conceitual a partir de OMS (2022); Ministério da Saúde (2024). Autoria: composição própria. Licença: a mesma dos textos autorais da obra.</span></p>
+</div>
+<p>Limite de detecção descreve a capacidade de distinguir um sinal analítico; limite de quantificação se refere à mensuração com desempenho especificado. Resultado abaixo desses limites não deve ser convertido automaticamente em zero. Se a capacidade analítica não permite avaliar o valor de referência, a conformidade pode ficar indeterminada. Conservar valor original, unidade, qualificadores e método permite revisar a classificação sem perder a informação <span class="citation" data-cites="brasil2024agua who2023dqa">(<a href="../../backmatter/referencias.html#ref-brasil2024agua" role="doc-biblioref">Brasil. Ministério da Saúde, 2024</a>; <a href="../../backmatter/referencias.html#ref-who2023dqa" role="doc-biblioref">World Health Organization, 2023a</a>)</span>.</p>
+<p>A ficha <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-agu-01">SAN-AGU-01</a>, no <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html">capítulo 19</a>, inclui químicos prioritários no protocolo de serviço seguro, mas não cobre todo o padrão brasileiro de potabilidade. O livro não apresenta uma ficha autônoma de índice químico geral. A integração com uso do solo deve remeter ao <a href="../../chapters/part-2/11-uso-cobertura-terra-ambiente-urbano.html">capítulo 11</a> e às <a href="../../chapters/part-4/20-fichas-uso-cobertura-terra-ambiente-urbano.html">fichas ambientais relacionadas</a>, enquanto a interpretação de efeitos segue o <a href="../../chapters/part-3/14-efeitos-saude.html">capítulo 14</a> e as <a href="../../chapters/part-4/23-fichas-efeitos-saude.html">fichas de saúde</a>. Nenhuma dessas remissões substitui a avaliação específica da substância.</p>
+</section>
+</section>
+<section id="esgotamento-sanitário" class="level2 page-columns page-full" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="esgotamento-sanitário"><span class="header-section-number">10.2</span> Esgotamento sanitário</h2>
+<p>O esgotamento sanitário protege a saúde quando impede que excretas alcancem pessoas por contato direto ou pela contaminação dos meios. Sua avaliação precisa acompanhar o percurso da instalação sanitária até o tratamento e a destinação. A simples presença de vaso sanitário ou ligação à rede informa apenas parte dessa trajetória. A segurança também depende de operação, manutenção e condições de trabalho de quem realiza coleta, esvaziamento e transporte <span class="citation" data-cites="who2018sanitation">(<a href="../../backmatter/referencias.html#ref-who2018sanitation" role="doc-biblioref">World Health Organization, 2018</a>)</span>.</p>
+<p>No ODS 6.2.1a, serviço gerido de forma segura utiliza instalação melhorada não compartilhada com outros domicílios e manejo seguro das excretas: tratamento e disposição no local, ou remoção e tratamento fora dele. A classificação distingue instalações compartilhadas, soluções não melhoradas e defecação a céu aberto. Soluções locais podem integrar o nível seguro, desde que sua cadeia seja demonstrada; conexão à rede não comprova tratamento <span class="citation" data-cites="jmp2026sanitation un2026sdg621">(<a href="../../backmatter/referencias.html#ref-un2026sdg621" role="doc-biblioref">United Nations Statistics Division, 2026a</a>; <a href="../../backmatter/referencias.html#ref-jmp2026sanitation" role="doc-biblioref">World Health Organization; United Nations Children’s Fund, <em>[S.d.]</em></a>)</span>.</p>
+<p>A <a href="#fig-esgotamento-cadeia" class="quarto-xref">Figura&nbsp;<span>10.7</span></a> apresenta dois percursos. Nos sistemas em rede, devem ser avaliados coleta, transporte, tratamento e destinação. Nas soluções locais, contenção e tratamento no terreno podem coexistir com remoção periódica do lodo, que também precisa de transporte e destino adequados. O planejamento de segurança do saneamento permite examinar perigos e grupos expostos em cada etapa, inclusive trabalhadores, moradores vizinhos e usuários da água ou do solo a jusante <span class="citation" data-cites="who2022ssp">(<a href="../../backmatter/referencias.html#ref-who2022ssp" role="doc-biblioref">World Health Organization, 2022b</a>)</span>.</p>
+<div class="figure-with-source page-columns page-full">
+<div id="fig-esgotamento-cadeia" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-src="arte-cap10-06-esgotamento-print.png" alt="Duas cenas conceituais representam rede urbana e solução local com remoção de lodo. Percursos distinguem coleta, transporte, tratamento e destinação, incluindo tratamento e disposição no local. A segurança depende de verificar toda a cadeia.">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-esgotamento-cadeia-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<img src="../../assets/figures/arte-cap10-06-esgotamento.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Duas cenas conceituais representam rede urbana e solução local com remoção de lodo. Percursos distinguem coleta, transporte, tratamento e destinação, incluindo tratamento e disposição no local. A segurança depende de verificar toda a cadeia.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-esgotamento-cadeia-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;10.7: Cadeias de esgotamento em rede e de soluções locais
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte: elaboração conceitual a partir de OMS (2022), Sanitation safety planning; JMP, Sanitation. Autoria: composição própria; aquarela produzida com IA (image_gen). Licença: a mesma dos textos autorais da obra.</span></p>
+</div>
+<p>A localização e a manutenção de uma solução local precisam ser compatíveis com características do terreno, ocupação, água subterrânea e acesso para operação. Fotografar uma tampa ou registrar a existência de fossa não informa estanqueidade, funcionamento ou destino do material removido. A investigação combina cadastro, inspeção e registros de esvaziamento e tratamento. Quando o destino é desconhecido, essa lacuna deve aparecer no diagnóstico, sem conversão automática em atendimento seguro ou em ausência de serviço <span class="citation" data-cites="jmp2026sanitation">(<a href="../../backmatter/referencias.html#ref-jmp2026sanitation" role="doc-biblioref">World Health Organization; United Nations Children’s Fund, <em>[S.d.]</em></a>)</span>.</p>
+<p>Cobertura populacional e tratamento de volumes respondem a perguntas diferentes. Um percentual elevado de tratamento do esgoto coletado pode coexistir com baixa coleta. Também não informa a qualidade final do efluente nem a exposição de cada morador. É necessário explicitar se o denominador corresponde à população, ao volume coletado ou ao total gerado e conservar as definições do produtor. A ficha <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-esg-03">SAN-ESG-03</a> usa o volume coletado conforme o SINISA; não estima a fração de todo o esgoto gerado no território <span class="citation" data-cites="sinisa2025resultados">(<a href="../../backmatter/referencias.html#ref-sinisa2025resultados" role="doc-biblioref">Ministério das Cidades, 2025</a>)</span>.</p>
+<p>A dimensão comunitária ajuda a entender por que a melhoria pode beneficiar pessoas além do domicílio conectado. Em Salvador, duas coortes infantis acompanhadas antes e depois de um programa de saneamento documentaram redução da diarreia associada à intervenção urbana. O estudo sustenta a relevância das condições do entorno, mas sua estimativa não deve ser transferida diretamente a qualquer município ou usada para prever o efeito de uma obra isolada <span class="citation" data-cites="barreto2007sanitation">(<a href="../../backmatter/referencias.html#ref-barreto2007sanitation" role="doc-biblioref">Barreto et al., 2007</a>)</span>.</p>
+<p>As fichas <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-esg-01">SAN-ESG-01</a>, <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-esg-02">SAN-ESG-02</a> e <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-esg-03">SAN-ESG-03</a>, reunidas no <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html">capítulo 19</a>, distinguem serviço seguro, atendimento por rede coletora e tratamento do coletado. A interpretação territorial se articula ao <a href="../../chapters/part-3/13-exposicao-vulnerabilidade.html">capítulo 13</a> e às <a href="../../chapters/part-4/22-fichas-exposicao-vulnerabilidade.html">fichas de vulnerabilidade</a>; a investigação de agravos deve utilizar as definições do <a href="../../chapters/part-3/14-efeitos-saude.html">capítulo 14</a> e as <a href="../../chapters/part-4/23-fichas-efeitos-saude.html">fichas de efeitos</a>, com população e período compatíveis.</p>
+</section>
+<section id="higiene-drenagem-resíduos-e-contaminação-ambiental" class="level2 page-columns page-full" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="higiene-drenagem-resíduos-e-contaminação-ambiental"><span class="header-section-number">10.3</span> Higiene, drenagem, resíduos e contaminação ambiental</h2>
+<p>Higiene envolve práticas e condições materiais que ajudam a interromper o contato com agentes nocivos. O ODS 6.2.1b observa uma condição específica: instalação para lavagem das mãos com água e sabão disponíveis no domicílio. Essa observação não mede frequência, duração ou técnica de lavagem, nem representa todas as dimensões da higiene. Uma instalação sem insumos no momento da visita também precisa ser distinguida da inexistência de instalação <span class="citation" data-cites="jmp2026hygiene">(<a href="../../backmatter/referencias.html#ref-jmp2026hygiene" role="doc-biblioref">World Health Organization; United Nations Children’s Fund, <em>[S.d.]</em></a>)</span>.</p>
+<p>A prática depende de acesso contínuo à água, custo dos insumos, espaço, acessibilidade e organização do cuidado. A avaliação deve considerar crianças, pessoas com deficiência e quem depende de ajuda. Privacidade e condições para o cuidado menstrual ampliam a discussão além do indicador básico. Interpretar dificuldades de higiene apenas como escolha individual oculta barreiras que exigem respostas de infraestrutura e gestão <span class="citation" data-cites="who2020waterquantity who2018sanitation">(<a href="../../backmatter/referencias.html#ref-who2020waterquantity" role="doc-biblioref">Howard et al., 2020</a>; <a href="../../backmatter/referencias.html#ref-who2018sanitation" role="doc-biblioref">World Health Organization, 2018</a>)</span>.</p>
+<p>Domicílios, escolas, abrigos e serviços de saúde constituem universos diferentes. Em estabelecimentos assistenciais, água, sanitários, higiene das mãos, limpeza e resíduos participam do controle de infecções e da qualidade do cuidado. O instrumento de melhoria de água e saneamento em estabelecimentos de saúde (WASH FIT, de <em>Water and Sanitation for Health Facility Improvement Tool</em>), da OMS e do UNICEF, organiza avaliação de riscos e melhoria progressiva dessas condições. Uma média domiciliar não permite concluir que uma unidade possui insumos, acessibilidade ou serviços funcionais nos pontos em que são necessários <span class="citation" data-cites="who2022washfit">(<a href="../../backmatter/referencias.html#ref-who2022washfit" role="doc-biblioref">World Health Organization; United Nations Children’s Fund, 2022</a>)</span>.</p>
+<p>Drenagem e manejo de resíduos integram a proteção ambiental cotidiana. Obstruções, manutenção insuficiente e ligações indevidas podem aproximar águas contaminadas de moradias, circulação e locais de trabalho. O <a href="../../chapters/part-2/08-precipitacao-secas-eventos-hidrologicos.html">capítulo 8</a> trata dos processos de alagamento; aqui interessa o contato sanitário e o desempenho dos serviços. Redes de drenagem e redes de esgoto têm funções próprias, e a identificação de uma não comprova atendimento pela outra <span class="citation" data-cites="brasil2007saneamento who2014floods">(<a href="../../backmatter/referencias.html#ref-brasil2007saneamento" role="doc-biblioref">Brasil, 2007</a>; <a href="../../backmatter/referencias.html#ref-who2014floods" role="doc-biblioref">World Health Organization Regional Office for Europe, 2014</a>)</span>.</p>
+<p>Resíduos exigem observar geração, segregação quando aplicável, acondicionamento, coleta, transporte, tratamento e destinação. A taxa de coleta não descreve todos esses componentes. Resíduos acumulados podem criar abrigos ou condições favoráveis a animais de interesse sanitário, obstruir o escoamento e expor trabalhadores; esses mecanismos devem ser investigados segundo material, manejo e contexto, sem atribuir automaticamente qualquer doença à presença de lixo. Nos serviços de saúde, a avaliação deve incluir a proteção de trabalhadores e usuários <span class="citation" data-cites="who2022washfit">(<a href="../../backmatter/referencias.html#ref-who2022washfit" role="doc-biblioref">World Health Organization; United Nations Children’s Fund, 2022</a>)</span>.</p>
+<p>A <a href="#fig-higiene-ambiente" class="quarto-xref">Figura&nbsp;<span>10.8</span></a> reúne intervenções em escalas distintas. O desenho não certifica instalações nem representa um procedimento técnico completo. Contaminação ambiental requer identificar agente, meio e localização; exposição humana acrescenta via de contato, população e tempo. Água de um córrego, água distribuída e água armazenada no domicílio não são amostras intercambiáveis. Os resultados devem conservar a finalidade de monitoramento a que pertencem <span class="citation" data-cites="who2022drinking">(<a href="../../backmatter/referencias.html#ref-who2022drinking" role="doc-biblioref">World Health Organization, 2022a</a>)</span>.</p>
+<div class="figure-with-source page-columns page-full">
+<div id="fig-higiene-ambiente" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-src="arte-cap10-07-higiene-print.png" alt="Três vinhetas mostram lavagem das mãos, manutenção de drenagem e armazenamento de resíduos de serviço de saúde. Rótulos distinguem meios e práticas, escoamento e contato, coleta e destino. Cores dos recipientes não representam uma norma de segregação.">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-higiene-ambiente-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<img src="../../assets/figures/arte-cap10-07-higiene.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Três vinhetas mostram lavagem das mãos, manutenção de drenagem e armazenamento de resíduos de serviço de saúde. Rótulos distinguem meios e práticas, escoamento e contato, coleta e destino. Cores dos recipientes não representam uma norma de segregação.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-higiene-ambiente-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;10.8: Higiene, drenagem e resíduos: escalas complementares
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte: elaboração conceitual a partir de JMP, Hygiene; OMS/UNICEF (2022), WASH FIT; Lei nº 11.445/2007. Autoria: composição própria; aquarela produzida com IA (image_gen). Licença: a mesma dos textos autorais da obra.</span></p>
+</div>
+<p>A ficha <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-hig-01">SAN-HIG-01</a>, no <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html">capítulo 19</a>, descreve meios domésticos para higiene; <a href="../../chapters/part-4/24-fichas-resposta-adaptacao-resiliencia.html#sec-res-was-01">RES-WAS-01</a>, no <a href="../../chapters/part-4/24-fichas-resposta-adaptacao-resiliencia.html">capítulo 24</a>, aborda estabelecimentos. As conexões com urbanização e desastres estão nos <a href="../../chapters/part-2/11-uso-cobertura-terra-ambiente-urbano.html">capítulos 11</a> e <a href="../../chapters/part-2/12-eventos-severos-desastres.html">12</a> e nas <a href="../../chapters/part-4/20-fichas-uso-cobertura-terra-ambiente-urbano.html">fichas do capítulo 20</a> e <a href="../../chapters/part-4/21-fichas-eventos-severos-desastres.html">do capítulo 21</a>. Esses indicadores complementares descrevem contexto e consequências; não constituem medidas diretas de toda a cadeia de resíduos ou da eficiência da drenagem.</p>
+</section>
+<section id="efeitos-sobre-a-saúde-e-suas-vias" class="level2 page-columns page-full" data-number="10.4">
+<h2 data-number="10.4" class="anchored" data-anchor-id="efeitos-sobre-a-saúde-e-suas-vias"><span class="header-section-number">10.4</span> Efeitos sobre a saúde e suas vias</h2>
+<p>A relação entre saneamento e saúde envolve diferentes cadeias de transmissão e exposição. Na via fecal-oral, agentes eliminados nas fezes podem alcançar água, mãos, alimentos, objetos e solo e, posteriormente, ser ingeridos. Proteção do abastecimento, manejo de excretas, higiene das mãos e dos alimentos atuam em pontos distintos. Uma doença diarreica pode resultar de mais de uma dessas vias; observar um caso não identifica a origem da infecção <span class="citation" data-cites="who2018sanitation">(<a href="../../backmatter/referencias.html#ref-who2018sanitation" role="doc-biblioref">World Health Organization, 2018</a>)</span>.</p>
+<p>Outros mecanismos precisam permanecer separados. A leptospirose envolve contato com água ou solo contaminados pela urina de animais infectados; a relação com esgoto e resíduos passa por condições ambientais e presença de reservatórios. Algumas parasitoses envolvem contato com solo ou hospedeiros intermediários. Substâncias químicas dependem de suas propriedades, concentração e duração da exposição. A <a href="#fig-agua-vias-saude" class="quarto-xref">Figura&nbsp;<span>10.9</span></a> distingue essas trajetórias sem atribuir uma mesma dinâmica a todos os agravos <span class="citation" data-cites="brasil2026leptospirose who2022ssp">(<a href="../../backmatter/referencias.html#ref-brasil2026leptospirose" role="doc-biblioref">Brasil. Ministério da Saúde, <em>[S.d.]</em></a>; <a href="../../backmatter/referencias.html#ref-who2022ssp" role="doc-biblioref">World Health Organization, 2022b</a>)</span>.</p>
+<div class="figure-with-source page-columns page-full">
+<div id="fig-agua-vias-saude" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-src="arte-cap10-08-vias-print.png" alt="Três linhas distinguem transmissão fecal-oral, contato com água ou solo contaminados e exposição química. As linhas se ligam à investigação de efeitos; suscetibilidade, proteção e acesso ao cuidado modificam as relações.">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-agua-vias-saude-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<img src="../../assets/figures/arte-cap10-08-vias.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Três linhas distinguem transmissão fecal-oral, contato com água ou solo contaminados e exposição química. As linhas se ligam à investigação de efeitos; suscetibilidade, proteção e acesso ao cuidado modificam as relações.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-agua-vias-saude-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;10.9: Vias de exposição e investigação dos efeitos na saúde
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte: elaboração conceitual a partir de OMS (2018, 2022); Ministério da Saúde, Leptospirose; Hernán e Robins (2020). Autoria: composição própria. Licença: a mesma dos textos autorais da obra.</span></p>
+</div>
+<p>As barreiras ambientais se combinam com suscetibilidade e acesso ao cuidado. Crianças pequenas, pessoas idosas e pessoas com condições que aumentem o risco de complicações podem requerer atenção específica. A dificuldade de obter água ou utilizar sanitários também interfere no cuidado de pessoas dependentes. O <a href="../../chapters/part-3/13-exposicao-vulnerabilidade.html">capítulo sobre exposição e vulnerabilidade</a> aprofunda essa distinção entre estar em contato, ter maior suscetibilidade e dispor de meios de proteção.</p>
+<p>Infecções entéricas recorrentes e condições nutricionais podem interagir, mas não se deve prometer que qualquer intervenção domiciliar produzirá melhora mensurável do crescimento infantil. Ensaios do programa WASH Benefits em Bangladesh e no Quênia mostraram resultados diferentes para diarreia e não sustentaram um ganho uniforme de crescimento com as intervenções de água, saneamento e higiene avaliadas. Intensidade da intervenção, adesão, condições comunitárias, rotas persistentes e desfecho estudado limitam a generalização <span class="citation" data-cites="luby2018wash null2018wash">(<a href="../../backmatter/referencias.html#ref-luby2018wash" role="doc-biblioref"><span class="nocase">Luby et al.</span>, 2018</a>; <a href="../../backmatter/referencias.html#ref-null2018wash" role="doc-biblioref"><span class="nocase">Null et al.</span>, 2018</a>)</span>.</p>
+<p>Tempo dedicado à coleta de água, insegurança no acesso a sanitários, falta de privacidade e custos adicionais podem afetar educação, trabalho e bem-estar. Esses efeitos ampliam a importância sanitária dos serviços, mas requerem medidas próprias. Um percentual de amostras conformes não representa dignidade, segurança ou carga de trabalho doméstico; uma cobertura de rede também não revela como benefícios e encargos se distribuem entre os membros da família <span class="citation" data-cites="who2020waterquantity">(<a href="../../backmatter/referencias.html#ref-who2020waterquantity" role="doc-biblioref">Howard et al., 2020</a>)</span>.</p>
+<p>Na análise epidemiológica, declare exposição, desfecho, população e janela temporal antes de combinar bases. A data de coleta pode diferir do início da contaminação, do adoecimento e do atendimento. Sazonalidade, condições sociais, alimentação, mobilidade e acesso assistencial podem influenciar as associações. Comparações municipais são úteis para planejamento, mas não permitem inferir que toda pessoa internada consumiu água do ponto amostrado. A discussão de causalidade do <a href="../../chapters/part-3/14-efeitos-saude.html">capítulo 14</a> orienta esses cuidados <span class="citation" data-cites="levy2016waterborne hernan2020causal">(<a href="../../backmatter/referencias.html#ref-hernan2020causal" role="doc-biblioref">Hernán; Robins, 2020</a>; <a href="../../backmatter/referencias.html#ref-levy2016waterborne" role="doc-biblioref">Levy et al., 2016</a>)</span>.</p>
+<p>As <a href="../../chapters/part-4/23-fichas-efeitos-saude.html">fichas de efeitos na saúde</a> definem os desfechos disponíveis. Em particular, <a href="../../chapters/part-4/23-fichas-efeitos-saude.html#sec-efe-mob-01">EFE-MOB-01</a> utiliza grupos de causas de internações do Sistema Único de Saúde (SUS) e não constitui uma ficha específica de doenças atribuíveis à água. Sua aplicação deve respeitar esse recorte. Os indicadores do <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html">capítulo 19</a> descrevem condições dos serviços e resultados de monitoramento; a investigação pode exigir dados epidemiológicos, laboratoriais e territoriais adicionais. Interrupções da assistência devem ser examinadas separadamente nas <a href="../../chapters/part-4/24-fichas-resposta-adaptacao-resiliencia.html">fichas de resposta</a>.</p>
+</section>
+<section id="segurança-hídrica" class="level2 page-columns page-full" data-number="10.5">
+<h2 data-number="10.5" class="anchored" data-anchor-id="segurança-hídrica"><span class="header-section-number">10.5</span> Segurança hídrica</h2>
+<p>Segurança hídrica é a capacidade de manter água em quantidade e qualidade adequadas para as necessidades humanas e dos ecossistemas, com confiabilidade diante de pressões e perturbações. O Plano Nacional de Segurança Hídrica, publicado em 2019 pela Agência Nacional de Águas (ANA), organiza a avaliação nas dimensões humana, econômica, ecossistêmica e de resiliência. Essa abordagem amplia a leitura para além do volume armazenado ou da existência de uma obra <span class="citation" data-cites="ana2019seguranca">(<a href="../../backmatter/referencias.html#ref-ana2019seguranca" role="doc-biblioref">Agência Nacional de Águas, 2019</a>)</span>.</p>
+<p>Para a saúde pública, o ponto de partida é traduzir essas dimensões em perguntas sobre pessoas e serviços: quem dispõe de água, quando ela está disponível, quais barreiras sanitárias funcionam e como o cuidado será mantido durante uma falha. A confiabilidade depende de manutenção, energia, pessoal, insumos, comunicação e capacidade de recuperação. Uma fonte alternativa só contribui para a proteção quando sua disponibilidade, qualidade e acesso são avaliados <span class="citation" data-cites="who2023wsp who2023framework">(<a href="../../backmatter/referencias.html#ref-who2023framework" role="doc-biblioref">World Health Organization, 2023b</a>; <a href="../../backmatter/referencias.html#ref-who2023wsp" role="doc-biblioref">World Health Organization; International Water Association, 2023</a>)</span>.</p>
+<p>A <a href="#fig-seguranca-hidrica-dimensoes" class="quarto-xref">Figura&nbsp;<span>10.10</span></a> apresenta dimensões complementares, sem pesos ou pontuação. Seu uso é orientar a leitura conjunta, não criar um índice novo. Um território pode melhorar cobertura e continuar com interrupções; outro pode ter bons resultados nas amostras e baixa cobertura da vigilância. A avaliação precisa tornar essas combinações visíveis, inclusive em soluções rurais, periferias e instituições que podem ficar pouco representadas nas médias.</p>
+<div class="figure-with-source page-columns page-full">
+<div id="fig-seguranca-hidrica-dimensoes" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-src="arte-cap10-09-seguranca-print.png" alt="Seis campos descrevem acesso, quantidade, qualidade, confiabilidade, ecossistemas e continuidade dos serviços essenciais. Campos sem pesos, escores ou magnitudes; o conjunto orienta perguntas e não constitui um índice.">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-seguranca-hidrica-dimensoes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<img src="../../assets/figures/arte-cap10-09-seguranca.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Seis campos descrevem acesso, quantidade, qualidade, confiabilidade, ecossistemas e continuidade dos serviços essenciais. Campos sem pesos, escores ou magnitudes; o conjunto orienta perguntas e não constitui um índice.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-seguranca-hidrica-dimensoes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;10.10: Dimensões complementares de segurança hídrica para a saúde
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte: elaboração conceitual a partir de ANA (2019); OMS (2023, 2024). Autoria: composição própria. Licença: a mesma dos textos autorais da obra.</span></p>
+</div>
+<div id="qua-seguranca-hidrica" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-qua figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-qua" id="qua-seguranca-hidrica-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Quadro&nbsp;10.1: Dimensões de segurança hídrica para a saúde
+</figcaption>
+<div aria-describedby="qua-seguranca-hidrica-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Dimensão sanitária</th>
+<th>Pergunta e medida relacionada</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Acesso e disponibilidade</td>
+<td>Quem utiliza serviço seguro? Componentes de <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-agu-01">SAN-AGU-01</a> e atendimento por rede em <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-agu-05">SAN-AGU-05</a>.</td>
+</tr>
+<tr class="even">
+<td>Manejo de excretas</td>
+<td>Qual cadeia é atendida? <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-esg-01">SAN-ESG-01</a>, <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-esg-02">SAN-ESG-02</a> e <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-esg-03">SAN-ESG-03</a>.</td>
+</tr>
+<tr class="odd">
+<td>Higiene</td>
+<td>Há instalação com água e sabão? <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-hig-01">SAN-HIG-01</a>.</td>
+</tr>
+<tr class="even">
+<td>Qualidade da água</td>
+<td>O que mostram as amostras elegíveis? <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-agu-02">SAN-AGU-02</a>, <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-agu-03">SAN-AGU-03</a> e <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-agu-04">SAN-AGU-04</a>.</td>
+</tr>
+<tr class="odd">
+<td>Vigilância</td>
+<td>Quais pontos e populações foram observados? Execução do plano e investigação documentada.</td>
+</tr>
+<tr class="even">
+<td>Continuidade assistencial</td>
+<td>Houve interrupção e os serviços básicos funcionam? <a href="../../chapters/part-4/24-fichas-resposta-adaptacao-resiliencia.html#sec-res-wat-01">RES-WAT-01</a> e <a href="../../chapters/part-4/24-fichas-resposta-adaptacao-resiliencia.html#sec-res-was-01">RES-WAS-01</a>.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>O quadro combina indicadores consolidados e informações de gestão que não possuem ficha autônoma. Isso evita apresentar toda necessidade informacional como indicador já calculável. Para avaliar continuidade, por exemplo, é preciso registrar evento, duração, abrangência e consequência; para avaliar resposta, relacionar a ocorrência às medidas adotadas. A existência de um plano, por si só, não demonstra sua execução <span class="citation" data-cites="who2024resilienceindicators">(<a href="../../backmatter/referencias.html#ref-who2024resilienceindicators" role="doc-biblioref">World Health Organization, 2024</a>)</span>.</p>
+<p>As <a href="../../chapters/part-4/17-fichas-precipitacao-secas-eventos-hidrologicos.html">fichas hidrometeorológicas do capítulo 17</a> e o <a href="../../chapters/part-2/08-precipitacao-secas-eventos-hidrologicos.html">capítulo 8</a> ajudam a caracterizar pressões externas, enquanto o <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html">capítulo 19</a> informa componentes sanitários. A capacidade de manter e recuperar serviços está no <a href="../../chapters/part-3/15-resposta-adaptacao-resiliencia.html">capítulo 15</a> e nas <a href="../../chapters/part-4/24-fichas-resposta-adaptacao-resiliencia.html">fichas do capítulo 24</a>. Essa divisão permite estudar como um evento afeta o abastecimento sem repetir aqui os métodos de identificação de secas e inundações.</p>
+</section>
+<section id="fontes-seleção-e-principais-indicadores" class="level2 page-columns page-full" data-number="10.6">
+<h2 data-number="10.6" class="anchored" data-anchor-id="fontes-seleção-e-principais-indicadores"><span class="header-section-number">10.6</span> Fontes, seleção e principais indicadores</h2>
+<p>A seleção começa pela pergunta, como discutido no <a href="../../chapters/part-1/05-fontes-fichas.html">capítulo sobre fontes e fichas</a>. Para saber quem utiliza um serviço, são necessários dados populacionais; para avaliar um resultado analítico, registros de amostras; para acompanhar a operação, informações de sistemas e prestadores. Unir bases pelo código municipal não resolve essas diferenças. A <a href="#fig-agua-fontes" class="quarto-xref">Figura&nbsp;<span>10.11</span></a> relaciona perguntas e unidades de observação.</p>
+<div class="figure-with-source page-columns page-full">
+<div id="fig-agua-fontes" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-src="arte-cap10-10-fontes-print.png" alt="Quatro linhas relacionam população e domicílios ao IBGE e levantamentos locais, amostras ao Sisagua, operação ao SINISA e comparação internacional ao JMP. Integrar exige compatibilizar ano, universo e denominador.">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-agua-fontes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<img src="../../assets/figures/arte-cap10-10-fontes.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Quatro linhas relacionam população e domicílios ao IBGE e levantamentos locais, amostras ao Sisagua, operação ao SINISA e comparação internacional ao JMP. Integrar exige compatibilizar ano, universo e denominador.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-agua-fontes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;10.11: Da pergunta à fonte e à unidade de observação
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte: elaboração conceitual a partir de Oliveira Júnior et al.&nbsp;(2019); JMP; SINISA 2025; capítulo 5. Autoria: composição própria. Licença: a mesma dos textos autorais da obra.</span></p>
+</div>
+<p>O <a href="../../backmatter/indice-fontes.html#vigiagua">Programa Nacional de Vigilância da Qualidade da Água para Consumo Humano (Vigiagua)</a> utiliza o Sistema de Informação de Vigilância da Qualidade da Água para Consumo Humano (Sisagua), com cadastro de formas de abastecimento e registros de controle e vigilância. Seus dados apoiam a identificação de problemas sanitários, mas a disponibilidade de um registro não assegura cobertura de todas as formas ou de toda a população <span class="citation" data-cites="oliveira2019sisagua">(<a href="../../backmatter/referencias.html#ref-oliveira2019sisagua" role="doc-biblioref">Oliveira Júnior et al., 2019</a>)</span>.</p>
+<p>O <a href="../../backmatter/indice-fontes.html#sinisa">Sistema Nacional de Informações em Saneamento Básico (SINISA)</a> reúne informações administrativas. O <a href="../../backmatter/indice-fontes.html#ibge">Instituto Brasileiro de Geografia e Estatística (IBGE)</a> produz censos e pesquisas que permitem caracterizar domicílios e população, conforme variáveis e desenho de cada levantamento. O <a href="../../backmatter/indice-fontes.html#jmp">JMP</a> harmoniza definições e estimativas internacionais. Essas funções são complementares; uma estimativa nacional não fornece automaticamente representatividade municipal <span class="citation" data-cites="sinisa2025resultados un2026sdg611 un2026sdg621">(<a href="../../backmatter/referencias.html#ref-sinisa2025resultados" role="doc-biblioref">Ministério das Cidades, 2025</a>; <a href="../../backmatter/referencias.html#ref-un2026sdg611" role="doc-biblioref">United Nations Statistics Division, 2026b</a>, <a href="../../backmatter/referencias.html#ref-un2026sdg621" role="doc-biblioref">2026a</a>)</span>.</p>
+<div id="qua-indicadores-wash" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-qua figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-qua" id="qua-indicadores-wash-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Quadro&nbsp;10.2: Indicadores de água, saneamento e higiene usados em saúde pública
+</figcaption>
+<div aria-describedby="qua-indicadores-wash-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Pergunta</th>
+<th>Fichas relacionadas</th>
+<th>Cuidado principal</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>O serviço reúne condições de segurança?</td>
+<td><a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-agu-01">SAN-AGU-01</a>, <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-esg-01">SAN-ESG-01</a></td>
+<td>Demonstrar os componentes requeridos.</td>
+</tr>
+<tr class="even">
+<td>Existem meios domésticos para higiene?</td>
+<td><a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-hig-01">SAN-HIG-01</a></td>
+<td>Disponibilidade observada não mede comportamento.</td>
+</tr>
+<tr class="odd">
+<td>Como estão os parâmetros da água?</td>
+<td><a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-agu-02">SAN-AGU-02</a>, <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-agu-03">SAN-AGU-03</a>, <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-agu-04">SAN-AGU-04</a></td>
+<td>Denominador de resultados classificáveis.</td>
+</tr>
+<tr class="even">
+<td>Qual população é atendida por rede?</td>
+<td><a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-agu-05">SAN-AGU-05</a>, <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-esg-02">SAN-ESG-02</a></td>
+<td>Atendimento administrativo não equivale a serviço seguro.</td>
+</tr>
+<tr class="odd">
+<td>Quanto do esgoto coletado é tratado?</td>
+<td><a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-esg-03">SAN-ESG-03</a></td>
+<td>Preservar o denominador de volume coletado.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Mudanças de informantes, formulário, laboratório ou cobertura podem produzir descontinuidades. Documente versão, referência temporal, não resposta e critérios de processamento; a falta de observação deve permanecer visível. O <a href="../../chapters/part-1/04-espaco-tempo-qualidade.html">capítulo 4</a> orienta essa avaliação, e as <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html">fichas do capítulo 19</a> registram os requisitos particulares. O quadro apoia a seleção sem atribuir equivalência a medidas que respondem a perguntas diferentes <span class="citation" data-cites="who2023dqa">(<a href="../../backmatter/referencias.html#ref-who2023dqa" role="doc-biblioref">World Health Organization, 2023a</a>)</span>.</p>
+</section>
+<section id="protocolo-de-cálculo-e-disponibilidade" class="level2 page-columns page-full" data-number="10.7">
+<h2 data-number="10.7" class="anchored" data-anchor-id="protocolo-de-cálculo-e-disponibilidade"><span class="header-section-number">10.7</span> Protocolo de cálculo e disponibilidade</h2>
+<p>O cálculo deve começar pela leitura da ficha e pela identificação do universo elegível. A <a href="#fig-agua-protocolo" class="quarto-xref">Figura&nbsp;<span>10.12</span></a> organiza seleção, classificação e publicação. As <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html">fichas do capítulo 19</a> são a referência operacional; o <a href="../../chapters/part-1/03-dados-variaveis-indices-indicadores.html">capítulo 3</a> esclarece o papel dos denominadores e o <a href="../../chapters/part-1/04-espaco-tempo-qualidade.html">capítulo 4</a> orienta compatibilidade espacial, temporal e qualidade.</p>
+<div class="figure-with-source page-columns page-full">
+<div id="fig-agua-protocolo" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-src="arte-cap10-11-protocolo-print.png" alt="O fluxo separa elegibilidade, validade, classificação e publicação. Três bases são distintas: população, resultados de amostras e volumes de esgoto. Ausente, indeterminado e zero conservam significados próprios.">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-agua-protocolo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<img src="../../assets/figures/arte-cap10-11-protocolo.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="O fluxo separa elegibilidade, validade, classificação e publicação. Três bases são distintas: população, resultados de amostras e volumes de esgoto. Ausente, indeterminado e zero conservam significados próprios.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-agua-protocolo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;10.12: Selecionar, classificar e publicar sem trocar denominadores
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte: elaboração conceitual a partir de Protocolos das nove fichas do capítulo 19. Autoria: composição própria. Licença: a mesma dos textos autorais da obra.</span></p>
+</div>
+<p>Os ODS representados por <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-agu-01">SAN-AGU-01</a>, <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-esg-01">SAN-ESG-01</a> e <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-hig-01">SAN-HIG-01</a> dependem de levantamentos locais representativos e componentes compatíveis. No protocolo de água segura, o mínimo das três coberturas é uma estimativa agregada, não a proporção diretamente observada de domicílios que satisfazem simultaneamente todos os requisitos. Faltando um componente obrigatório, o resultado permanece ausente. Nem a fração de amostras conformes do Sisagua nem a cobertura de rede substituem o componente populacional de qualidade <span class="citation" data-cites="un2026sdg611 un2026sdg621">(<a href="../../backmatter/referencias.html#ref-un2026sdg611" role="doc-biblioref">United Nations Statistics Division, 2026b</a>, <a href="../../backmatter/referencias.html#ref-un2026sdg621" role="doc-biblioref">2026a</a>)</span>.</p>
+<p>As fichas <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-agu-02">SAN-AGU-02</a>, <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-agu-03">SAN-AGU-03</a> e <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-agu-04">SAN-AGU-04</a> são classificadas como calculáveis com dados locais centralizados. Nelas, o recorte é motivo Rotina, forma SAA e procedência Sistema de Distribuição. As três fichas utilizam o módulo Vigilância, sem misturar resultados de Controle. É necessário aplicar a desduplicação da ficha e classificar apenas resultados com informação suficiente. <em>E. coli</em> exige ausência em 100 mL; cloro residual livre utiliza 0,2 a 5 mg/L, inclusive; turbidez, 0 a 5 unidades de turbidez (uT), inclusive. Essas faixas fixadas para comparação retrospectiva não equivalem à avaliação jurídica de cada ano ou de qualquer etapa do tratamento.</p>
+<p>Resultados censurados, como “menor que” um limite analítico, só entram como conformes ou não conformes quando todo o intervalo possível permite a mesma classificação. Caso contrário, ficam indeterminados e fora do denominador, com contagem publicada. Sem resultados classificáveis, o percentual é ausente. O denominador é de resultados elegíveis de cada parâmetro, não de pessoas; não se devem combinar percentuais como se tivessem a mesma base.</p>
+<p>As fichas <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-agu-05">SAN-AGU-05</a>, <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-esg-02">SAN-ESG-02</a> e <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-esg-03">SAN-ESG-03</a>, calculáveis com dados abertos, preservam SINISA 2025, referência 2024, com a retificação. Mantêm os indicadores IAG0001, IES0001 e IES2004, seus componentes e bloqueios. Não resposta, bloqueio e zero são estados diferentes. As séries do antigo Sistema Nacional de Informações sobre Saneamento (SNIS) não devem ser emendadas ao SINISA sem reconciliação. Acesso público ao arquivo também não comprova uma licença específica de reutilização, não identificada nas fichas <span class="citation" data-cites="sinisa2025resultados">(<a href="../../backmatter/referencias.html#ref-sinisa2025resultados" role="doc-biblioref">Ministério das Cidades, 2025</a>)</span>.</p>
+</section>
+<section id="aplicação-na-gestão" class="level2 page-columns page-full" data-number="10.8">
+<h2 data-number="10.8" class="anchored" data-anchor-id="aplicação-na-gestão"><span class="header-section-number">10.8</span> Aplicação na gestão</h2>
+<p>O diagnóstico deve reunir cobertura, continuidade, qualidade, alcance da vigilância e consequências para o cuidado. Prioridades podem surgir de baixa cobertura, falhas recorrentes ou ausência persistente de informações em territórios vulnerabilizados. Um município com poucos registros não deve parecer protegido apenas porque não há não conformidades cadastradas. O <a href="../../chapters/part-1/06-indicador-decisao.html">capítulo sobre indicador e decisão</a> orienta a passagem da medida à pergunta gerencial.</p>
+<div class="callout callout-style-default callout-important no-icon callout-titled" title="Conceito-chave: serviço, vigilância e conformidade">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Importante</span>Conceito-chave: serviço, vigilância e conformidade
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Cobertura do serviço descreve a população atendida ou usuária. Cobertura da vigilância descreve o universo efetivamente observado em relação ao previsto. Conformidade descreve resultados que atendem ao critério entre os classificáveis. A interpretação deve apresentar essas dimensões juntas e conservar seus denominadores.</p>
+</div>
+</div>
+<p>A <a href="#fig-agua-gestao" class="quarto-xref">Figura&nbsp;<span>10.13</span></a> relaciona diagnóstico e resposta. Diante de um resultado relevante, a equipe verifica identificação, ponto, parâmetro e validade; avalia população potencialmente alcançada e gravidade; articula inspeção, medidas corretivas e comunicação; e acompanha a situação até verificar a resposta. A prioridade e o tempo de atuação dependem do risco, sem aguardar o fechamento de um painel anual. O registro deve permitir relacionar problema, responsável, providência e acompanhamento <span class="citation" data-cites="who2023wsp brasil2024agua">(<a href="../../backmatter/referencias.html#ref-brasil2024agua" role="doc-biblioref">Brasil. Ministério da Saúde, 2024</a>; <a href="../../backmatter/referencias.html#ref-who2023wsp" role="doc-biblioref">World Health Organization; International Water Association, 2023</a>)</span>.</p>
+<div class="figure-with-source page-columns page-full">
+<div id="fig-agua-gestao" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-src="arte-cap10-12-gestao-print.png" alt="Três cenas hipotéticas mostram planejamento, observação e comunicação. O ciclo conecta verificar, avaliar risco, agir e acompanhar, com retorno ao planejamento. A quantidade de ações não demonstra por si só proteção alcançada.">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-agua-gestao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<img src="../../assets/figures/arte-cap10-12-gestao.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Três cenas hipotéticas mostram planejamento, observação e comunicação. O ciclo conecta verificar, avaliar risco, agir e acompanhar, com retorno ao planejamento. A quantidade de ações não demonstra por si só proteção alcançada.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-agua-gestao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;10.13: Da identificação do problema à verificação da resposta
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte: elaboração conceitual a partir de OMS (2023), Water safety plan manual; Ministério da Saúde (2024). Autoria: composição própria; aquarela produzida com IA (image_gen). Licença: a mesma dos textos autorais da obra.</span></p>
+</div>
+<p>O planejamento preventivo envolve prestadores, vigilância, atenção à saúde, regulação e outros setores conforme o problema. Planos para estabelecimentos precisam considerar procedimentos críticos, reservação, fonte alternativa avaliada e condições de retomada. Comunicação acessível deve informar a população atingida, a orientação aplicável e como obter atualização. A contagem de inspeções ou recoletas, isoladamente, não demonstra resolução do risco <span class="citation" data-cites="who2022washfit who2024resilienceindicators">(<a href="../../backmatter/referencias.html#ref-who2024resilienceindicators" role="doc-biblioref">World Health Organization, 2024</a>; <a href="../../backmatter/referencias.html#ref-who2022washfit" role="doc-biblioref">World Health Organization; United Nations Children’s Fund, 2022</a>)</span>.</p>
+<p>As <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html">fichas sanitárias</a> ajudam a acompanhar condições e resultados; as <a href="../../chapters/part-4/22-fichas-exposicao-vulnerabilidade.html">fichas de vulnerabilidade</a> apoiam a análise territorial. Os <a href="../../chapters/part-3/15-resposta-adaptacao-resiliencia.html">procedimentos de resposta do capítulo 15</a> e as fichas <a href="../../chapters/part-4/24-fichas-resposta-adaptacao-resiliencia.html#sec-res-wat-01">RES-WAT-01</a> e <a href="../../chapters/part-4/24-fichas-resposta-adaptacao-resiliencia.html#sec-res-was-01">RES-WAS-01</a>, no <a href="../../chapters/part-4/24-fichas-resposta-adaptacao-resiliencia.html">capítulo 24</a>, acrescentam a situação dos estabelecimentos. Após a intervenção, compare períodos e universos compatíveis, documentando mudanças de cobertura que possam alterar os indicadores.</p>
+</section>
+<section id="localização-das-fichas-operacionais" class="level2 page-columns page-full" data-number="10.9">
+<h2 data-number="10.9" class="anchored" data-anchor-id="localização-das-fichas-operacionais"><span class="header-section-number">10.9</span> Localização das fichas operacionais</h2>
+<p>O <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html">capítulo 19</a> reúne as nove fichas deste tema. A <a href="#fig-agua-navegacao" class="quarto-xref">Figura&nbsp;<span>10.14</span></a> organiza a passagem da pergunta ao método e à fonte. Comece pela finalidade e pela interpretação; em seguida, confira universo, fórmula, disponibilidade e limitações. Os códigos distinguem medidas que podem ter nomes próximos e denominadores diferentes.</p>
+<div class="figure-with-source page-columns page-full">
+<div id="fig-agua-navegacao" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-src="arte-cap10-13-navegacao-print.png" alt="O percurso começa no capítulo 10, passa pelas nove fichas do capítulo 19 e chega à fonte e à decisão. Três famílias distinguem serviços populacionais, amostras de água e indicadores administrativos. Capítulos complementares apoiam estudos integrados.">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-agua-navegacao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<img src="../../assets/figures/arte-cap10-13-navegacao.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="O percurso começa no capítulo 10, passa pelas nove fichas do capítulo 19 e chega à fonte e à decisão. Três famílias distinguem serviços populacionais, amostras de água e indicadores administrativos. Capítulos complementares apoiam estudos integrados.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-agua-navegacao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;10.14: Percurso entre contexto, fichas e aplicação
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte: elaboração conceitual a partir de Arquitetura editorial do livro e fichas do capítulo 19. Autoria: composição própria. Licença: a mesma dos textos autorais da obra.</span></p>
+</div>
+<p><span id="sec-san-agu-01"></span></p>
+<p><span id="sec-san-esg-01"></span></p>
+<p><span id="sec-san-hig-01"></span></p>
+<p><span id="sec-san-agu-02"></span></p>
+<p><span id="sec-san-agu-03"></span></p>
+<p><span id="sec-san-agu-04"></span></p>
+<p><span id="sec-san-agu-05"></span></p>
+<p><span id="sec-san-esg-02"></span></p>
+<p><span id="sec-san-esg-03"></span></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Ficha no capítulo 19</th>
+<th>Indicador</th>
+<th>Base de interpretação</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-agu-01">SAN-AGU-01</a></td>
+<td>Água gerida de forma segura — ODS 6.1.1</td>
+<td>População e componentes</td>
+</tr>
+<tr class="even">
+<td><a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-esg-01">SAN-ESG-01</a></td>
+<td>Saneamento gerido de forma segura — ODS 6.2.1a</td>
+<td>População e cadeia de excretas</td>
+</tr>
+<tr class="odd">
+<td><a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-hig-01">SAN-HIG-01</a></td>
+<td>Instalação para higiene — ODS 6.2.1b</td>
+<td>População em domicílios</td>
+</tr>
+<tr class="even">
+<td><a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-agu-02">SAN-AGU-02</a></td>
+<td>Amostras sem E. coli</td>
+<td>Resultados classificáveis</td>
+</tr>
+<tr class="odd">
+<td><a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-agu-03">SAN-AGU-03</a></td>
+<td>Cloro residual livre conforme — distribuição</td>
+<td>Resultados classificáveis</td>
+</tr>
+<tr class="even">
+<td><a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-agu-04">SAN-AGU-04</a></td>
+<td>Turbidez conforme — distribuição</td>
+<td>Resultados classificáveis</td>
+</tr>
+<tr class="odd">
+<td><a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-agu-05">SAN-AGU-05</a></td>
+<td>Atendimento por rede de água — IAG0001</td>
+<td>População de referência</td>
+</tr>
+<tr class="even">
+<td><a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-esg-02">SAN-ESG-02</a></td>
+<td>Atendimento por rede coletora — IES0001</td>
+<td>População de referência</td>
+</tr>
+<tr class="odd">
+<td><a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-esg-03">SAN-ESG-03</a></td>
+<td>Tratamento do esgoto coletado — IES2004</td>
+<td>Volume coletado</td>
+</tr>
+</tbody>
+</table>
+<p>Para estudos integrados, as <a href="../../chapters/part-4/17-fichas-precipitacao-secas-eventos-hidrologicos.html">fichas hidrometeorológicas</a>, <a href="../../chapters/part-4/20-fichas-uso-cobertura-terra-ambiente-urbano.html">ambientais urbanas</a>, <a href="../../chapters/part-4/21-fichas-eventos-severos-desastres.html">de desastres</a>, <a href="../../chapters/part-4/22-fichas-exposicao-vulnerabilidade.html">de vulnerabilidade</a>, <a href="../../chapters/part-4/23-fichas-efeitos-saude.html">de efeitos</a> e <a href="../../chapters/part-4/24-fichas-resposta-adaptacao-resiliencia.html">de resposta</a> oferecem medidas complementares. A combinação deve responder à pergunta definida, mantendo os recortes de cada ficha. Os vínculos de retorno presentes nas fichas permitem recuperar o contexto antes de interpretar o resultado ou orientar uma ação.</p>
+
+
+<div id="refs" class="references csl-bib-body" data-entry-spacing="1" role="list" style="display: none">
+<div id="ref-ana2019seguranca" class="csl-entry" role="listitem">
+AGÊNCIA NACIONAL DE ÁGUAS. <strong><a href="https://www.gov.br/ana/pt-br/assuntos/seguranca-hidrica/plano-nacional-de-seguranca-hidrica">Plano Nacional de Segurança Hídrica</a></strong>. Brasília, DF: ANA, 2019.
+</div>
+<div id="ref-barreto2007sanitation" class="csl-entry" role="listitem">
+BARRETO, Mauricio L. <em>et al.</em> Effect of city-wide sanitation programme on reduction in rate of childhood diarrhoea in northeast Brazil: assessment by two cohort studies. <strong>The Lancet</strong>, v. 370, n. 9599, p. 1622–1628, 2007. Disponível em: &lt;https://doi.org/<a href="https://doi.org/10.1016/S0140-6736(07)61638-9">10.1016/S0140-6736(07)61638-9</a>&gt;.
+</div>
+<div id="ref-brasil2007saneamento" class="csl-entry" role="listitem">
+BRASIL. <strong>Lei nº 11.445, de 5 de janeiro de 2007: estabelece as diretrizes nacionais para o saneamento básico</strong>. Brasília, DF, 2007. Disponível em: &lt;<a href="https://www.planalto.gov.br/ccivil_03/_ato2007-2010/2007/lei/l11445.htm">https://www.planalto.gov.br/ccivil_03/_ato2007-2010/2007/lei/l11445.htm</a>&gt;. Acesso em: 8 out. 2026.
+</div>
+<div id="ref-brasil2021portaria2472" class="csl-entry" role="listitem">
+BRASIL. MINISTÉRIO DA SAÚDE. <strong>Portaria GM/MS nº 2.472, de 28 de setembro de 2021: altera o Anexo XX da Portaria de Consolidação GM/MS nº 5, de 28 de setembro de 2017, para dispor sobre os procedimentos de controle e de vigilância da qualidade da água para consumo humano e seu padrão de potabilidade</strong>. Brasília, DF, 2021a. Disponível em: &lt;<a href="https://bvsms.saude.gov.br/bvs/saudelegis/gm/2021/prt2472_30_09_2021.html">https://bvsms.saude.gov.br/bvs/saudelegis/gm/2021/prt2472_30_09_2021.html</a>&gt;. Acesso em: 8 out. 2026.
+</div>
+<div id="ref-brasil2021portaria888" class="csl-entry" role="listitem">
+BRASIL. MINISTÉRIO DA SAÚDE. <strong>Portaria GM/MS nº 888, de 4 de maio de 2021: altera o Anexo XX da Portaria de Consolidação GM/MS nº 5, de 28 de setembro de 2017, para dispor sobre os procedimentos de controle e de vigilância da qualidade da água para consumo humano e seu padrão de potabilidade</strong>. Brasília, DF, Ministério da Saúde, 24 maio 2021b. Disponível em: &lt;<a href="https://bvsms.saude.gov.br/bvs/saudelegis/gm/2021/prt0888_24_05_2021_rep.html">https://bvsms.saude.gov.br/bvs/saudelegis/gm/2021/prt0888_24_05_2021_rep.html</a>&gt;. Acesso em: 28 jul. 2026.
+</div>
+<div id="ref-brasil2024agua" class="csl-entry" role="listitem">
+BRASIL. MINISTÉRIO DA SAÚDE. <strong><a href="https://www.gov.br/saude/pt-br/centrais-de-conteudo/publicacoes/guias-e-manuais/2024/guia-para-implementacao-da-norma-de-qualidade-da-agua-para-consumo-humano.pdf">Guia para implementação da norma de qualidade da água para consumo humano</a></strong>. Brasília, DF: Ministério da Saúde, 2024.
+</div>
+<div id="ref-brasil2026leptospirose" class="csl-entry" role="listitem">
+BRASIL. MINISTÉRIO DA SAÚDE. <strong>Leptospirose</strong>. <em>[S.d.]</em>. Disponível em: &lt;<a href="https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/l/leptospirose">https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/l/leptospirose</a>&gt;. Acesso em: 8 out. 2026.
+</div>
+<div id="ref-hernan2020causal" class="csl-entry" role="listitem">
+HERNÁN, Miguel A.; ROBINS, James M. <strong><a href="https://miguelhernan.org/whatifbook">Causal inference: what if</a></strong>. Boca Raton: Chapman &amp; Hall/CRC, 2020.
+</div>
+<div id="ref-who2020waterquantity" class="csl-entry" role="listitem">
+HOWARD, Guy <em>et al.</em> <strong><a href="https://www.who.int/publications/i/item/9789240015241">Domestic water quantity, service level and health</a></strong>. 2. ed. Geneva: World Health Organization, 2020.
+</div>
+<div id="ref-levy2016waterborne" class="csl-entry" role="listitem">
+LEVY, Karen <em>et al.</em> Untangling the impacts of climate change on waterborne diseases: a systematic review of relationships between diarrheal diseases and temperature, rainfall, flooding, and drought. <strong>Environmental Science &amp; Technology</strong>, v. 50, n. 10, p. 4905–4922, 2016. Disponível em: &lt;https://doi.org/<a href="https://doi.org/10.1021/acs.est.5b06186">10.1021/acs.est.5b06186</a>&gt;.
+</div>
+<div id="ref-luby2018wash" class="csl-entry" role="listitem">
+<span class="nocase">LUBY, Stephen P. <em>et al.</em></span> Effects of water quality, sanitation, handwashing, and nutritional interventions on diarrhoea and child growth in rural Bangladesh: a cluster randomised controlled trial. <strong>The Lancet Global Health</strong>, v. 6, n. 3, p. e302–e315, 2018. Disponível em: &lt;https://doi.org/<a href="https://doi.org/10.1016/S2214-109X(17)30490-4">10.1016/S2214-109X(17)30490-4</a>&gt;.
+</div>
+<div id="ref-sinisa2025resultados" class="csl-entry" role="listitem">
+MINISTÉRIO DAS CIDADES. <strong>SINISA 2025: resultados, ano de referência 2024</strong>. 2025. Disponível em: &lt;<a href="https://www.gov.br/cidades/pt-br/acesso-a-informacao/acoes-e-programas/saneamento/sinisa/resultados-sinisa/resultados-sinisa-2025">https://www.gov.br/cidades/pt-br/acesso-a-informacao/acoes-e-programas/saneamento/sinisa/resultados-sinisa/resultados-sinisa-2025</a>&gt;. Acesso em: 3 out. 2026.
+</div>
+<div id="ref-null2018wash" class="csl-entry" role="listitem">
+<span class="nocase">NULL, Clair <em>et al.</em></span> Effects of water quality, sanitation, handwashing, and nutritional interventions on diarrhoea and child growth in rural Kenya: a cluster-randomised controlled trial. <strong>The Lancet Global Health</strong>, v. 6, n. 3, p. e316–e329, 2018. Disponível em: &lt;https://doi.org/<a href="https://doi.org/10.1016/S2214-109X(18)30005-6">10.1016/S2214-109X(18)30005-6</a>&gt;.
+</div>
+<div id="ref-oliveira2019sisagua" class="csl-entry" role="listitem">
+OLIVEIRA JÚNIOR, Aristeu de <em>et al.</em> Sistema de Informação de Vigilância da Qualidade da Água para Consumo Humano (Sisagua): características, evolução e aplicabilidade. <strong>Epidemiologia e Serviços de Saúde</strong>, v. 28, n. 1, p. e2018117, 2019. Disponível em: &lt;https://doi.org/<a href="https://doi.org/10.5123/S1679-49742019000100024">10.5123/S1679-49742019000100024</a>&gt;.
+</div>
+<div id="ref-un2026sdg611" class="csl-entry" role="listitem">
+UNITED NATIONS STATISTICS DIVISION. <strong>SDG indicator metadata 6.1.1: proportion of population using safely managed drinking water services</strong>. 2026b. Disponível em: &lt;<a href="https://unstats.un.org/sdgs/metadata/">https://unstats.un.org/sdgs/metadata/</a>&gt;. Acesso em: 28 jul. 2026.
+</div>
+<div id="ref-un2026sdg621" class="csl-entry" role="listitem">
+UNITED NATIONS STATISTICS DIVISION. <strong>SDG indicator metadata 6.2.1: proportion of population using safely managed sanitation services and a hand-washing facility with soap and water</strong>. 2026a. Disponível em: &lt;<a href="https://unstats.un.org/sdgs/metadata/?Goal=6&amp;Target=6.2">https://unstats.un.org/sdgs/metadata/?Goal=6&amp;Target=6.2</a>&gt;. Acesso em: 28 jul. 2026.
+</div>
+<div id="ref-who2018sanitation" class="csl-entry" role="listitem">
+WORLD HEALTH ORGANIZATION. <strong><a href="https://www.who.int/publications/i/item/9789241514705">Guidelines on sanitation and health</a></strong>. Geneva: World Health Organization, 2018.
+</div>
+<div id="ref-who2022drinking" class="csl-entry" role="listitem">
+WORLD HEALTH ORGANIZATION. <strong><a href="https://www.who.int/publications/i/item/9789240045064">Guidelines for drinking-water quality: fourth edition incorporating the first and second addenda</a></strong>. 4. ed. Geneva: World Health Organization, 2022a.
+</div>
+<div id="ref-who2022ssp" class="csl-entry" role="listitem">
+WORLD HEALTH ORGANIZATION. <strong><a href="https://www.who.int/publications/i/item/9789240062887">Sanitation safety planning: step-by-step risk management for safely managed sanitation systems</a></strong>. 2. ed. Geneva: World Health Organization, 2022b.
+</div>
+<div id="ref-who2023framework" class="csl-entry" role="listitem">
+WORLD HEALTH ORGANIZATION. <strong><a href="https://www.who.int/publications/i/item/9789240081888">Operational framework for building climate resilient and low carbon health systems</a></strong>. Geneva: World Health Organization, 2023b.
+</div>
+<div id="ref-who2023dqa" class="csl-entry" role="listitem">
+WORLD HEALTH ORGANIZATION. <strong><a href="https://www.who.int/publications/i/item/9789240047365">Data quality assurance: module 1: framework and metrics</a></strong>. Geneva: World Health Organization, 2023a.
+</div>
+<div id="ref-who2024resilienceindicators" class="csl-entry" role="listitem">
+WORLD HEALTH ORGANIZATION. <strong><a href="https://www.who.int/publications/i/item/9789240088986">Health system resilience indicators: an integrated package for measuring and monitoring health system resilience in countries</a></strong>. Geneva: World Health Organization, 2024.
+</div>
+<div id="ref-who2014floods" class="csl-entry" role="listitem">
+WORLD HEALTH ORGANIZATION REGIONAL OFFICE FOR EUROPE. <strong>Floods and health: fact sheets for health professionals</strong>. 2014. Disponível em: &lt;<a href="https://www.who.int/europe/publications/i/item/WHO-EURO--2014-8519-48291-71705">https://www.who.int/europe/publications/i/item/WHO-EURO--2014-8519-48291-71705</a>&gt;. Acesso em: 28 jul. 2026.
+</div>
+<div id="ref-who2023wsp" class="csl-entry" role="listitem">
+WORLD HEALTH ORGANIZATION; INTERNATIONAL WATER ASSOCIATION. <strong><a href="https://www.who.int/publications/i/item/9789240067691">Water safety plan manual: step-by-step risk management for drinking-water suppliers</a></strong>. 2. ed. Geneva: World Health Organization, 2023.
+</div>
+<div id="ref-who2022washfit" class="csl-entry" role="listitem">
+WORLD HEALTH ORGANIZATION; UNITED NATIONS CHILDREN’S FUND. <strong><a href="https://www.who.int/publications/i/item/9789240043237">WASH FIT: a practical guide for improving quality of care through water, sanitation and hygiene in health care facilities</a></strong>. 2. ed. Geneva: World Health Organization, 2022.
+</div>
+<div id="ref-jmp2026water" class="csl-entry" role="listitem">
+WORLD HEALTH ORGANIZATION; UNITED NATIONS CHILDREN’S FUND. <strong>Drinking water</strong>. 2026. Disponível em: &lt;<a href="https://washdata.org/topics/drinking-water">https://washdata.org/topics/drinking-water</a>&gt;. Acesso em: 28 jul. 2026.
+</div>
+<div id="ref-jmp2026sanitation" class="csl-entry" role="listitem">
+WORLD HEALTH ORGANIZATION; UNITED NATIONS CHILDREN’S FUND. <strong>Sanitation</strong>. <em>[S.d.]</em>. Disponível em: &lt;<a href="https://washdata.org/topics/sanitation">https://washdata.org/topics/sanitation</a>&gt;. Acesso em: 8 out. 2026a.
+</div>
+<div id="ref-jmp2026hygiene" class="csl-entry" role="listitem">
+WORLD HEALTH ORGANIZATION; UNITED NATIONS CHILDREN’S FUND. <strong>Hygiene</strong>. <em>[S.d.]</em>. Disponível em: &lt;<a href="https://washdata.org/topics/hygiene">https://washdata.org/topics/hygiene</a>&gt;. Acesso em: 8 out. 2026b.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiada");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiada");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../chapters/part-2/09-qualidade-ar-queimadas-fumaca.html" class="pagination-link" aria-label="Qualidade do ar, queimadas e fumaça">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Qualidade do ar, queimadas e fumaça</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../chapters/part-2/11-uso-cobertura-terra-ambiente-urbano.html" class="pagination-link" aria-label="Uso e cobertura da terra, vegetação e ambiente urbano">
+        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Uso e cobertura da terra, vegetação e ambiente urbano</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/rfsaldanha/dicas/blob/main/chapters/part-2/10-agua-saneamento-qualidade-ambiental.qmd" class="toc-action"><i class="bi bi-github"></i>Ver o código fonte</a></li><li><a href="https://github.com/rfsaldanha/dicas/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></div></div></footer></body></html>

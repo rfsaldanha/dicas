@@ -64,7 +64,6 @@ required <- c(
   "assets/figures/arte-cap1-06-justica-print.png",
   "assets/figures/cadeia-representacao.svg",
   "assets/figures/mudanca-suporte.svg",
-  "assets/figures/temperatura-ar-superficie.svg",
   "assets/figures/residencia-presenca-exposicao.svg",
   "assets/figures/defasagem-exposicao-desfecho.svg",
   "scripts/build_real_figures.R", "data-raw/figures/README.md",
@@ -137,6 +136,13 @@ required <- c(required, "scripts/build_cap5_art.py", "assets/figures/arte-cap5-m
       paste0(art, ".svg"), paste0(art, "-print.png")
     ))
   }), use.names = FALSE))
+chapter_six_manifest <- yaml::read_yaml("assets/figures/arte-cap6-manifest.json")
+chapter_six_art <- vapply(chapter_six_manifest, function(a) a$svg, character(1L))
+chapter_six_ids <- vapply(chapter_six_manifest, function(a) a$id, character(1L))
+required <- c(required, "scripts/build_cap6_art.py", "assets/figures/arte-cap6-manifest.json",
+  unlist(lapply(chapter_six_manifest, function(a) {
+    paste0("assets/figures/", unlist(a[c("svg", "print", "prompt", "source")]))
+  }), use.names = FALSE))
 invisible(lapply(required, check_file))
 
 obsolete <- c(
@@ -199,8 +205,9 @@ mermaid_blocks <- unlist(lapply(chapter_files, function(path) {
     paste(lines[seq.int(start, start + relative_end)], collapse = "\n")
   }, character(1L))
 }), use.names = FALSE)
-if (length(mermaid_blocks) != 17L) {
-  fail("Esperados 17 diagramas Mermaid; encontrados ", length(mermaid_blocks), ".")
+# Os capítulos 11 e 12 usam composições SVG; permanecem quatro Mermaid na Parte III.
+if (length(mermaid_blocks) != 4L) {
+  fail("Esperados 4 diagramas Mermaid; encontrados ", length(mermaid_blocks), ".")
 }
 missing_alt <- mermaid_blocks[!grepl("(?m)^%%\\| fig-alt:", mermaid_blocks, perl = TRUE)]
 if (length(missing_alt)) fail("Há diagrama Mermaid sem texto alternativo.")
@@ -210,12 +217,19 @@ if (length(framebox_lines)) {
   fail("Há placeholders de arte remanescentes nos capítulos.")
 }
 
+chapter_seven_manifest <- yaml::read_yaml("assets/figures/arte-cap7-manifest.json")
+chapter_seven_art <- vapply(chapter_seven_manifest, function(a) a$svg, character(1L))
+chapter_nine_manifest <- yaml::read_yaml("assets/figures/arte-cap9-manifest.json")
+if (length(chapter_nine_manifest) != 11L) fail("O capítulo 9 deve ter onze figuras no manifesto.")
+chapter_nine_art <- vapply(chapter_nine_manifest, function(a) a$svg, character(1L))
 illustration_paths <- c(
+  paste0("assets/figures/", chapter_nine_art),
+  paste0("assets/figures/", chapter_seven_art),
+  paste0("assets/figures/", chapter_six_art),
   paste0("assets/figures/arte-cap5-", chapter_five_art, ".svg"),
   paste0("assets/figures/arte-cap4-", chapter_four_art, ".svg"),
   paste0("assets/figures/arte-cap3-", chapter_three_art, ".svg"),
   "assets/figures/mudanca-suporte.svg",
-  "assets/figures/temperatura-ar-superficie.svg",
   "assets/figures/residencia-presenca-exposicao.svg",
   "assets/figures/defasagem-exposicao-desfecho.svg"
 )
@@ -295,6 +309,12 @@ bib_keys <- sub(
   "^[[:space:]]*@[[:alpha:]]+[[:space:]]*\\{[[:space:]]*([^,[:space:]]+).*$",
   "\\1", bib_lines, perl = TRUE
 )
+# Uma citação narrativa pode terminar em ponto de frase; preserve chaves
+# existentes e remova essa pontuação somente quando a chave resultante existe.
+citations <- vapply(citations, function(key) {
+  candidate <- sub("[.]+$", "", key)
+  if (!(key %in% bib_keys) && candidate %in% bib_keys) candidate else key
+}, character(1L))
 missing_citations <- setdiff(unique(citations), bib_keys)
 if (length(missing_citations)) {
   fail("Citações sem entrada bibliográfica: ", paste(missing_citations, collapse = ", "))
@@ -320,7 +340,8 @@ search_index <- paste(readLines(file.path(html_root, "search.json"), warn = FALS
 if (!grepl("quarto-search", home_html, fixed = TRUE)) {
   fail("A interface de busca não foi localizada na página inicial.")
 }
-if (!grepl("Temperatura máxima diária", search_index, fixed = TRUE)) {
+if (!grepl("CLI-TEM-01", search_index, fixed = TRUE) ||
+    !grepl("16-fichas-temperatura-condicoes-termicas.html#sec-cli-tem-01", search_index, fixed = TRUE)) {
   fail("A ficha CLI-TEM-01 não foi localizada no índice de busca.")
 }
 
@@ -476,10 +497,11 @@ chapter_five_html <- paste(readLines(
   file.path(html_root, sub("[.]qmd$", ".html", chapter_five_path)),
   warn = FALSE, encoding = "UTF-8"
 ), collapse = "\n")
-chapter_five_assets <- c(paste0("arte-cap5-", chapter_five_art, ".svg"), "arte-cap3-05-ficha.svg")
+chapter_five_assets <- append(paste0("arte-cap5-", chapter_five_art, ".svg"), "arte-cap3-05-ficha.svg", after = 2L)
+chapter_five_display_ids <- append(chapter_five_ids, "fig-ficha-ripsa-livro", after = 2L)
 for (i in seq_along(chapter_five_assets)) {
   art <- chapter_five_assets[[i]]
-  id <- c(chapter_five_ids, "fig-ficha-ripsa-livro")[[i]]
+  id <- chapter_five_display_ids[[i]]
   check_file(file.path(html_root, "assets/figures", art))
   if (!grepl(paste0('id="', id, '"'), chapter_five_html, fixed = TRUE) ||
       !grepl(paste0("Figura&nbsp;5.", i, ":"), chapter_five_html, fixed = TRUE) ||
@@ -496,6 +518,27 @@ for (id in c("sec-ficha-ripsa", "qua-campos-fqi-ripsa", "fig-ficha-ripsa-livro")
 }
 if (grepl("ARTE CAP5-", gsub("(?s)<!--.*?-->", "", chapter_five_html, perl = TRUE), fixed = TRUE)) {
   fail("Instruções de produção do capítulo 5 aparecem no conteúdo renderizado.")
+}
+
+chapter_six_path <- "chapters/part-1/06-indicador-decisao.qmd"
+chapter_six_source <- paste(readLines(chapter_six_path, warn = FALSE, encoding = "UTF-8"), collapse = "\n")
+chapter_six_html <- paste(readLines(
+  file.path(html_root, sub("[.]qmd$", ".html", chapter_six_path)),
+  warn = FALSE, encoding = "UTF-8"
+), collapse = "\n")
+for (i in seq_along(chapter_six_art)) {
+  art <- chapter_six_art[[i]]
+  id <- chapter_six_ids[[i]]
+  check_file(file.path(html_root, "assets/figures", art))
+  if (!grepl(paste0('id="', id, '"'), chapter_six_html, fixed = TRUE) ||
+      !grepl(paste0("Figura&nbsp;6.", i, ":"), chapter_six_html, fixed = TRUE) ||
+      !grepl(paste0("@", id), chapter_six_source, fixed = TRUE) ||
+      !grepl(paste0("@", id), figure_list, fixed = TRUE)) {
+    fail("Figura do capítulo 6 ausente, sem chamada ou com numeração incorreta: ", id)
+  }
+}
+if (grepl("ARTE CAP6-", gsub("(?s)<!--.*?-->", "", chapter_six_html, perl = TRUE), fixed = TRUE)) {
+  fail("Instruções de produção do capítulo 6 aparecem no conteúdo renderizado.")
 }
 
 references_html_path <- file.path(html_root, "backmatter/referencias.html")
@@ -593,9 +636,28 @@ if (system2("python3", "scripts/test_part_iii.py") != 0L) {
 
 source("scripts/validate_book_structure.R")
 validate_book_structure(root, rendered = TRUE)
+if (system2("python3", c("scripts/check_cap7.py", "--rendered")) != 0L) {
+  fail("Integração editorial do capítulo 7 inválida.")
+}
+
+if (system2("python3", c("scripts/check_cap8.py", "--rendered")) != 0L) {
+  fail("Integração editorial do capítulo 8 inválida.")
+}
+
+if (system2("python3", c("scripts/check_cap10.py", "--rendered")) != 0L) {
+  fail("Integração editorial do capítulo 10 inválida.")
+}
+
+if (system2("python3", c("scripts/check_cap12.py", "--rendered")) != 0L) {
+  fail("Falha na integração editorial do capítulo 12.")
+}
 
 indicator_count <- length(list.files("indicators/includes", pattern = "\\.qmd$"))
 message(
   "Projeto validado: quatro partes; 24 capítulos; ", indicator_count, " fichas; HTML com ",
   length(html_files), " páginas; links e âncoras íntegros; PDF presente."
 )
+
+if (system2("python3", c("scripts/check_cap11.py", "--rendered")) != 0L) {
+  fail("Falha na integração editorial do capítulo 11.")
+}

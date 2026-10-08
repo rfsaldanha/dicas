@@ -6,8 +6,8 @@ validate_book_structure <- function(root = ".", rendered = FALSE) {
   read_text <- function(path) paste(readLines(file.path(root, path), warn = FALSE, encoding = "UTF-8"), collapse = "\n")
   configs <- lapply(c("_quarto-web.yml", "_quarto-print.yml"), function(p) yaml::read_yaml(file.path(root, p)))
   parts <- lapply(configs, function(config) Filter(function(x) is.list(x) && !is.null(x$part), config$book$chapters))
-  expected_parts <- c("Parte I — Fundamentos e métodos", "Parte II — Dados e indicadores temáticos",
-    "Parte III — Indicadores integrados de clima, ambiente e saúde", "Parte IV — Fichas de indicadores e fontes de dados")
+  expected_parts <- c("Parte I — Fundamentos, métodos e decisão em saúde", "Parte II — Fenômenos e indicadores de clima e ambiente",
+    "Parte III — Exposição, vulnerabilidade, efeitos e resposta em saúde", "Parte IV — Fichas de indicadores e fontes de dados")
   for (i in seq_along(configs)) {
     check(identical(vapply(parts[[i]], `[[`, character(1L), "part"), expected_parts), "O livro deve conter as quatro partes aprovadas.")
     check(identical(vapply(parts[[i]][1:3], function(x) length(x$chapters), integer(1L)), c(6L, 6L, 3L)), "Ordem ou quantidade de capítulos das partes I–III incorreta.")

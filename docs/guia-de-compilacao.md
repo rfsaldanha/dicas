@@ -148,3 +148,105 @@ Na implementação, as dependências foram isoladas em `/tmp/dicas-estacoes-env`
 O filtro `figure_metadata.lua` identifica os dois apêndices pelo título, acrescenta as letras A/B na impressão e configura a numeração das figuras, tabelas e equações. Remissões dos capítulos ao apêndice usam links ao arquivo Quarto, pois seus headings são deliberadamente não numerados no PDF. A edição HTML usa a identificação alfabética nativa do Quarto.
 
 A revisão operacional da Parte III também é verificada por `python3 scripts/test_part_iii.py` (requer PyYAML). O teste confere a resposta real arquivada do SIDRA, pesos, códigos, fronteiras etárias, janela semanal, não resposta, modelos vazios e códigos retirados. Ele integra `validate_project.R`; os casos de fronteira são entradas técnicas de teste, não dados de estabelecimentos.
+
+### Figuras da revisão do capítulo 7
+
+Recompor as 13 figuras com `DICAS_BROWSER_CHANNEL=chrome python scripts/build_cap7_art.py`,
+no ambiente de arte descrito acima. O montador aceita os códigos 00 a 12 para
+recomposição seletiva. São sete aquarelas e seis esquemas vetoriais: os originais,
+prompts, fontes e créditos estão em `assets/figures/arte-cap7-manifest.json`.
+As cenas são conceituais e não contêm observações empíricas. Os identificadores das
+figuras de ar/superfície e índices biometeorológicos foram preservados.
+
+A exportação utiliza fontes incorporadas, SVG colorido e PNG de 8 bits em cinza.
+O manifesto registra dimensões, hashes e resolução efetiva conservadora dos
+originais. Conferir especialmente as distinções entre observação e índice, as
+regras de persistência, as exceções de agregação e o ciclo de gestão.
+
+Executar `python3 scripts/check_cap7.py --rendered` após a renderização para
+conferir figuras por seção, citações, links, âncoras legadas e arquivos gráficos.
+Essa verificação integra `make validate`. As 23 fichas conservam seus protocolos;
+a seção 7.12 reúne os destinos de navegação e compatibilidade.
+
+### Figuras da revisão do capítulo 8
+
+`DICAS_BROWSER_CHANNEL=chrome python scripts/build_cap8_art.py` recompõe as 20 figuras de precipitação, seca e eventos hidrológicos no ambiente com Pillow e Playwright. O montador aceita números de produção para exportação seletiva, como `03 12`. Onze pranchas incorporam aquarelas produzidas com `image_gen`; nove são exclusivamente vetoriais. Os originais, prompts efetivamente enviados, composições SVG e variantes em cinza ficam em `assets/figures`, com proveniência em `arte-cap8-manifest.json`.
+
+A cobertura inclui introdução, nove seções e dez subseções. Os identificadores `fig-cadeia-hidrometeorologica` e `fig-processos-hidrologicos` e as sete âncoras antigas das fichas foram preservados. Execute `python3 scripts/check_cap8.py` para validar cobertura, citações, remissões, arquivos e resolução dos originais. Depois da renderização web, `python3 scripts/check_cap8.py --rendered` confere também links HTML, destinos das fichas, retornos e redirecionamento. Essa verificação integra `scripts/validate_project.R`.
+
+As cenas são hipotéticas; o calendário de persistência é apenas um esquema da regra, sem medições. Conferir em especial os quatro processos hidrológicos, a diferenciação entre CDD e SPI-3 e a ordem distinta de agregação dos seis índices anuais e do SPI-3. As provas visuais da revisão ficam em `_output/proofs/revisao-cap8/`.
+
+### Figuras da revisão do capítulo 10
+
+Recompor as 14 figuras com `DICAS_BROWSER_CHANNEL=chrome python scripts/build_cap10_art.py`,
+no ambiente de arte descrito acima. O montador aceita os códigos 00 a 13.
+São sete aquarelas e sete esquemas vetoriais; originais, prompts, fontes e créditos
+constam em `assets/figures/arte-cap10-manifest.json`. As composições conservam
+rótulos editáveis, fontes incorporadas, SVG colorido e PNG de 8 bits em cinza.
+O manifesto registra dimensões, hashes e resolução efetiva conservadora dos originais.
+Os PNGs têm 1800 px de largura, equivalentes a 381 ppi em 120 mm; os originais
+das aquarelas conservam pelo menos 375 ppi nessa largura.
+
+Executar `python3 scripts/check_cap10.py --rendered` após a renderização para
+verificar as figuras da introdução, das nove seções e das quatro subseções,
+as citações, os destinos das fichas e as nove âncoras legadas. Essa conferência
+integra `make validate`. Os protocolos das fichas e o recorte SINISA 2025,
+referência 2024, permanecem preservados. As figuras são conceituais, sem dados
+observados; formas e rótulos mantêm as distinções na edição em cinza.
+
+### Figuras da revisão do capítulo 9
+
+Recompor as 11 figuras com `DICAS_BROWSER_CHANNEL=chrome python scripts/build_cap9_art.py`,
+no ambiente de arte descrito acima. O montador aceita os códigos 00 a 10 para
+recomposição seletiva. São sete aquarelas e quatro esquemas vetoriais; fontes,
+originais, prompts, dimensões, hashes e créditos constam de
+`assets/figures/arte-cap9-manifest.json`.
+
+O código acrescenta rótulos e relações editáveis, incorpora fontes e exporta SVG
+colorido e PNG de 8 bits em cinza. As cenas são conceituais, sem dados observados.
+As exportações têm 1600 px nas aquarelas e 1800 px nos esquemas, preservando
+mais de 300 ppi a 120 mm e reduzindo o peso do PDF. A arte de monitoramento usa a versão v2, com tomadas de ar afastadas da vegetação;
+a versão v1 permanece no histórico. A figura de fogo reutiliza o mesmo recorte
+nos painéis de ocorrência e detecção, com grade meramente ilustrativa.
+
+Conferir as 11 figuras na introdução, nas oito seções e nas duas subseções de
+poluentes; ausência da síntese; remissões às fichas e aos capítulos relacionados;
+e preservação das cinco âncoras legadas. Os identificadores `fig-cadeia-ar-saude`
+e `fig-fumaca-exposicao` foram mantidos. Os protocolos operacionais das fichas não
+foram alterados. Renderizar web e impressão em sequência e executar `make validate`.
+
+### Compressão sem perda do miolo
+
+O perfil de impressão executa `scripts/optimize_pdf.py` antes do pré-voo. Quando o
+PDF ultrapassa 140 MB, recomprime os fluxos das imagens em cinza usando predição
+PNG, conservando os pixels, as dimensões, a resolução e o perfil de cor. O limite
+final continua sendo 150 MB. Texto, páginas, sumário, quantidade de links e hashes
+dos pixels decodificados são conferidos antes de substituir a saída. Uma mudança
+concorrente no PDF cancela a substituição.
+
+Para PDFs que precisem dessa etapa, instale as dependências opcionais em um
+ambiente Python e indique seu executável à compilação:
+
+```sh
+python3 -m venv /tmp/dicas-print-env
+/tmp/dicas-print-env/bin/python -m pip install -r requirements-print.txt
+DICAS_PYTHON=/tmp/dicas-print-env/bin/python quarto render --profile print
+```
+
+A variável `DICAS_PYTHON` também pode ser usada com `make print` ou
+`scripts/render_all.sh`. Não há redução de resolução nem conversão para JPEG.
+
+
+### Revisão do capítulo 12: eventos severos e desastres
+
+O capítulo possui dez figuras: cinco composições com aquarela (00, 01, 03, 04 e 05) e cinco esquemas vetoriais (02, 06, 07, 08 e 09). Reproduzir com `DICAS_BROWSER_CHANNEL=chrome python scripts/build_cap12_art.py`, no ambiente com Pillow e Playwright descrito acima. O exportador usa ImageMagick para os PNGs de impressão em cinza de 8 bits.
+
+Os originais produzidos com `image_gen`, os prompts efetivamente utilizados e o manifesto `arte-cap12-manifest.json` ficam em `assets/figures`. O manifesto registra a referência visual, as dimensões e os hashes dos originais e a resolução mínima conservadora a 120 mm. Textos, setas e relações são editáveis nos SVGs. As paisagens são hipotéticas e não representam contagens ou resultados empíricos. Os identificadores `fig-risco-desastre` e `fig-linha-tempo-desastre` permanecem preservados.
+
+Executar `python3 scripts/check_cap12.py` antes da renderização e acrescentar `--rendered` depois da compilação web. A verificação integra `make validate` e confere figuras, acessibilidade, citações, links e quatro âncoras de compatibilidade com as fichas. Na web, o capítulo habilita ampliação por lightbox; em tela estreita, as duas tabelas usam rolagem horizontal com largura mínima para preservar a leitura das colunas. As fichas e a edição do Atlas mantêm seus protocolos. Conferir também todas as figuras em desktop e celular, nos dois temas, e no PDF em tamanho real; provas da revisão ficam em `_output/proofs/revisao-cap12`. Renderizar os perfis web e print sequencialmente.
+
+### Figuras da revisão do capítulo 11
+
+Recompor as nove figuras com `DICAS_BROWSER_CHANNEL=chrome python scripts/build_cap11_art.py`, no ambiente com Pillow e Playwright descrito acima. O montador aceita códigos de 00 a 08 para seleção. Seis figuras incorporam aquarelas produzidas com `image_gen`; três são vetoriais. Originais, prompts, SVGs com fontes e rótulos editáveis, PNGs em cinza e proveniência ficam em `assets/figures`, com manifesto `arte-cap11-manifest.json`. As cenas são conceituais, sem dados observados.
+
+Executar `python3 scripts/check_cap11.py` antes da renderização e `python3 scripts/check_cap11.py --rendered` depois da web. A segunda verificação integra `make validate`. São conferidos oito seções, nove figuras, seis aquarelas, bibliografia, remissões, quatro âncoras legadas, redirecionamento e retorno das fichas. Os identificadores `fig-terra-saude` e `fig-camadas-urbanas` foram preservados. Conferir também as versões colorida e em cinza, a resolução efetiva dos originais e a distinção entre 300 m lineares e 400 m caminháveis. As provas visuais ficam em `_output/proofs/revisao-cap11/`.

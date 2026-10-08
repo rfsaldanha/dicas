@@ -18,7 +18,7 @@ Comece pelo [guia de revisão](docs/guia-de-revisao.md) e consulte o [relatório
 
 - Arquivo `_quarto.yml`: metadados centrais e configuração compartilhada.
 - Arquivos `_quarto-web.yml` e `_quarto-print.yml`: ordem do livro e configuração de cada saída.
-- Diretório `chapters/`: 24 capítulos organizados em quatro partes; a Parte I termina com “Do indicador à decisão pública”, no capítulo 6. As pastas correspondem às partes e os prefixos dos arquivos, de `01` a `24`, acompanham a ordem dos perfis Quarto. Os endereços HTML anteriores redirecionam para os atuais.
+- Diretório `chapters/`: 24 capítulos organizados em quatro partes; a Parte I termina com “Análise de situação de saúde e decisão pública”, no capítulo 6. As pastas correspondem às partes e os prefixos dos arquivos, de `01` a `24`, acompanham a ordem dos perfis Quarto. Os endereços HTML anteriores redirecionam para os atuais.
 - Diretórios `frontmatter/` e `backmatter/`: elementos pré e pós-textuais compartilhados.
 - Diretório `frontmatter/`: fonte única dos elementos pré-textuais das duas edições.
 - Diretório `indicators/data/`: fichas estruturadas em YAML.
@@ -31,6 +31,7 @@ Comece pelo [guia de revisão](docs/guia-de-revisao.md) e consulte o [relatório
 
 ## Requisitos
 
+- Git LFS para obter os PDFs completos do livro. Após clonar, execute `git lfs install` e `git lfs pull`.
 - Quarto 1.9.17 ou superior; a versão foi validada com 1.10.18.
 - R; a versão foi validada com R 4.6.1.
 - Pacote R `yaml`;

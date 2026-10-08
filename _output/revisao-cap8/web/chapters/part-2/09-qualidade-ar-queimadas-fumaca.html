@@ -1,0 +1,1631 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Guia técnico sobre conceitos, dados e indicadores de clima e ambiente aplicados à vigilância e à gestão em saúde pública.">
+
+<title>9&nbsp; Qualidade do ar, queimadas e fumaça – Dados e Indicadores de Clima e Ambiente para a Saúde</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 1em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../chapters/part-2/10-agua-saneamento-qualidade-ambiental.html" rel="next">
+<link href="../../chapters/part-2/08-precipitacao-secas-eventos-hidrologicos.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-bb162014f31ff550f3668977ab0f7733.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-fdd2e9c9119fd81cafe9a82057eefc34.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-bb162014f31ff550f3668977ab0f7733.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Nenhum resultado",
+    "search-matching-documents-text": "documentos correspondentes",
+    "search-copy-link-title": "Copiar link para a busca",
+    "search-hide-matches-text": "Esconder correspondências adicionais",
+    "search-more-match-text": "mais correspondência neste documento",
+    "search-more-matches-text": "mais correspondências neste documento",
+    "search-clear-button-title": "Limpar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Procurar"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles/web/styles.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/part-2/07-temperatura-condicoes-termicas.html">Parte II — Dados e indicadores temáticos</a></li><li class="breadcrumb-item"><a href="../../chapters/part-2/09-qualidade-ar-queimadas-fumaca.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Qualidade do ar, queimadas e fumaça</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Procurar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">Dados e Indicadores de Clima e Ambiente para a Saúde</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/rfsaldanha/dicas" title="Código fonte" class="quarto-navigation-tool px-1" aria-label="Código fonte"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo escuro"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Procurar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bem-vindo</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/ficha-tecnica.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ficha técnica</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/apresentacao.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Apresentação</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/prefacio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prefácio do autor</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/agradecimentos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Agradecimentos</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/siglas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lista de siglas</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/lista-figuras.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lista de figuras</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/lista-tabelas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lista de quadros e tabelas</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/sumario.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sumário</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/como-usar.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Como utilizar este livro</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Parte I — Fundamentos e métodos</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/01-clima-ambiente-saude.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Clima, ambiente e saúde pública</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/02-mudanca-climatica-resposta-sus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Mudança climática, planejamento e resposta do SUS</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/03-dados-variaveis-indices-indicadores.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Dos dados aos indicadores: como representar clima, ambiente e saúde</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/04-espaco-tempo-qualidade.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Compatibilizando dados: espaço, tempo e qualidade</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/05-fontes-fichas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Fontes de dados e fichas de indicadores</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/06-indicador-decisao.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Do indicador à decisão pública</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Parte II — Dados e indicadores temáticos</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/07-temperatura-condicoes-termicas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Temperatura e condições térmicas</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/08-precipitacao-secas-eventos-hidrologicos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Precipitação, secas e eventos hidrológicos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/09-qualidade-ar-queimadas-fumaca.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Qualidade do ar, queimadas e fumaça</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/10-agua-saneamento-qualidade-ambiental.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Água, saneamento e qualidade ambiental</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/11-uso-cobertura-terra-ambiente-urbano.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Uso e cobertura da terra, vegetação e ambiente urbano</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/12-eventos-severos-desastres.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Eventos meteorológicos severos e desastres</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Parte III — Indicadores integrados de clima, ambiente e saúde</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-3/13-exposicao-vulnerabilidade.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Exposição e vulnerabilidade socioambiental</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-3/14-efeitos-saude.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Efeitos do clima e do ambiente sobre a saúde</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-3/15-resposta-adaptacao-resiliencia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Capacidade de resposta, adaptação e resiliência</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Parte IV — Fichas de indicadores e fontes de dados</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/lista-fichas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lista de fichas por código e capítulo</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/indice-indicadores.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Índice alfabético de indicadores</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/16-fichas-temperatura-condicoes-termicas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Fichas — Temperatura e condições térmicas</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/17-fichas-precipitacao-secas-eventos-hidrologicos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Fichas — Precipitação, secas e eventos hidrológicos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Fichas — Qualidade do ar, queimadas e fumaça</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Fichas — Água, saneamento e qualidade ambiental</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/20-fichas-uso-cobertura-terra-ambiente-urbano.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Fichas — Uso e cobertura da terra, vegetação e ambiente urbano</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/21-fichas-eventos-severos-desastres.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Fichas — Eventos severos e desastres</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/22-fichas-exposicao-vulnerabilidade.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Fichas — Exposição e vulnerabilidade socioambiental</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/23-fichas-efeitos-saude.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Fichas — Efeitos do clima e do ambiente sobre a saúde</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/24-fichas-resposta-adaptacao-resiliencia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Fichas — Capacidade de resposta, adaptação e resiliência</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/indice-fontes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Catálogo de fontes de dados</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/glossario.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Glossário</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/referencias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Referências</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Apêndices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/apendice-metodologico.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Apêndice metodológico</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/apendice-estacoes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Estações meteorológicas e de qualidade do ar</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Índice</h2>
+   
+  <ul>
+  <li><a href="#poluição-atmosférica-e-fontes-de-emissão" id="toc-poluição-atmosférica-e-fontes-de-emissão" class="nav-link active" data-scroll-target="#poluição-atmosférica-e-fontes-de-emissão"><span class="header-section-number">9.1</span> Poluição atmosférica e fontes de emissão</a>
+  <ul class="collapse">
+  <li><a href="#material-particulado" id="toc-material-particulado" class="nav-link" data-scroll-target="#material-particulado"><span class="header-section-number">9.1.1</span> Material particulado</a></li>
+  <li><a href="#gases-poluentes" id="toc-gases-poluentes" class="nav-link" data-scroll-target="#gases-poluentes"><span class="header-section-number">9.1.2</span> Gases poluentes</a></li>
+  </ul></li>
+  <li><a href="#medição-modelagem-e-representatividade" id="toc-medição-modelagem-e-representatividade" class="nav-link" data-scroll-target="#medição-modelagem-e-representatividade"><span class="header-section-number">9.2</span> Medição, modelagem e representatividade</a></li>
+  <li><a href="#queimadas-e-incêndios" id="toc-queimadas-e-incêndios" class="nav-link" data-scroll-target="#queimadas-e-incêndios"><span class="header-section-number">9.3</span> Queimadas e incêndios</a></li>
+  <li><a href="#fumaça-e-transporte-atmosférico" id="toc-fumaça-e-transporte-atmosférico" class="nav-link" data-scroll-target="#fumaça-e-transporte-atmosférico"><span class="header-section-number">9.4</span> Fumaça e transporte atmosférico</a></li>
+  <li><a href="#exposição-e-efeitos-agudos-e-crônicos" id="toc-exposição-e-efeitos-agudos-e-crônicos" class="nav-link" data-scroll-target="#exposição-e-efeitos-agudos-e-crônicos"><span class="header-section-number">9.5</span> Exposição e efeitos agudos e crônicos</a></li>
+  <li><a href="#fontes-seleção-e-principais-indicadores" id="toc-fontes-seleção-e-principais-indicadores" class="nav-link" data-scroll-target="#fontes-seleção-e-principais-indicadores"><span class="header-section-number">9.6</span> Fontes, seleção e principais indicadores</a></li>
+  <li><a href="#protocolo-de-cálculo-e-disponibilidade" id="toc-protocolo-de-cálculo-e-disponibilidade" class="nav-link" data-scroll-target="#protocolo-de-cálculo-e-disponibilidade"><span class="header-section-number">9.7</span> Protocolo de cálculo e disponibilidade</a></li>
+  <li><a href="#alertas-e-aplicação-na-gestão" id="toc-alertas-e-aplicação-na-gestão" class="nav-link" data-scroll-target="#alertas-e-aplicação-na-gestão"><span class="header-section-number">9.8</span> Alertas e aplicação na gestão</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/rfsaldanha/dicas/blob/main/chapters/part-2/09-qualidade-ar-queimadas-fumaca.qmd" class="toc-action"><i class="bi bi-github"></i>Ver o código fonte</a></li><li><a href="https://github.com/rfsaldanha/dicas/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/part-2/07-temperatura-condicoes-termicas.html">Parte II — Dados e indicadores temáticos</a></li><li class="breadcrumb-item"><a href="../../chapters/part-2/09-qualidade-ar-queimadas-fumaca.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Qualidade do ar, queimadas e fumaça</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-qualidade-ar" class="quarto-section-identifier"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Qualidade do ar, queimadas e fumaça</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>A qualidade do ar participa das condições em que as pessoas vivem, trabalham e recebem cuidado. Respirar ar com partículas e gases poluentes pode desencadear sintomas, agravar doenças existentes e contribuir para adoecimento e morte. Os efeitos alcançam o sistema respiratório e o cardiovascular; exposições prolongadas também se relacionam ao câncer de pulmão. A Organização Mundial da Saúde (OMS) considera a poluição atmosférica um fator de risco relevante para a saúde, inclusive em concentrações inferiores às que motivavam preocupação em avaliações anteriores. A avaliação integrada da Agência de Proteção Ambiental dos Estados Unidos (EPA) complementa essa base de evidências <span class="citation" data-cites="who2021air epa2019pm">(<a href="../../backmatter/referencias.html#ref-epa2019pm" role="doc-biblioref">United States Environmental Protection Agency, 2019b</a>; <a href="../../backmatter/referencias.html#ref-who2021air" role="doc-biblioref">World Health Organization, 2021</a>)</span>.</p>
+<p>Queimadas e incêndios acrescentam uma dimensão episódica e territorial a esse problema. A fumaça pode atingir localidades afastadas do fogo, elevar a demanda por atendimento e encontrar populações já expostas a emissões do tráfego, da indústria ou de outras fontes. No Brasil, estudo de séries temporais com internações do Sistema Único de Saúde (SUS), entre 2000 e 2015, identificou associações entre material particulado fino (PM2,5) proveniente de incêndios e hospitalizações, com diferenças por causa e idade. A exposição foi estimada por modelo atmosférico; o estudo não equiparou a contagem de focos à concentração respirada <span class="citation" data-cites="ye2021wildfirebrasil">(<a href="../../backmatter/referencias.html#ref-ye2021wildfirebrasil" role="doc-biblioref">Ye et al., 2021</a>)</span>.</p>
+<p>Os incêndios também podem produzir queimaduras, traumas, deslocamento, perdas materiais e interrupção dos cuidados. Esses caminhos se somam à inalação de fumaça e exigem respostas distintas. A discussão se conecta aos <a href="../../chapters/part-1/01-clima-ambiente-saude.html">fundamentos de clima, ambiente e saúde</a>, aos <a href="../../chapters/part-2/12-eventos-severos-desastres.html">eventos severos e desastres</a> e à <a href="../../chapters/part-3/15-resposta-adaptacao-resiliencia.html">capacidade de resposta dos serviços</a> <span class="citation" data-cites="who2026wildfires brasil2024fumaca217">(<a href="../../backmatter/referencias.html#ref-brasil2024fumaca217" role="doc-biblioref">Brasil. Ministério da Saúde, 2024</a>; <a href="../../backmatter/referencias.html#ref-who2026wildfires" role="doc-biblioref">World Health Organization, <em>[S.d.]</em></a>)</span>.</p>
+<p>A distribuição do risco depende de onde estão as fontes, de como os poluentes se deslocam e de quem pode reduzir o contato. Crianças, pessoas idosas, pessoas com doenças preexistentes e trabalhadores expostos merecem atenção, mas suscetibilidade biológica e vulnerabilidade social não são sinônimos. Moradia, renda, ocupação e acesso ao cuidado modificam as possibilidades de proteção, como desenvolvido nos capítulos sobre <a href="../../chapters/part-3/13-exposicao-vulnerabilidade.html">exposição e vulnerabilidade</a> e <a href="../../chapters/part-3/14-efeitos-saude.html">efeitos sobre a saúde</a>.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Conceito-chave: da fonte ao efeito">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Conceito-chave: da fonte ao efeito
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Emissão é a liberação de poluentes por uma fonte. Concentração é a quantidade presente em determinado volume de ar. Exposição descreve o contato ao longo do tempo; dose incorpora a quantidade inalada, depositada ou absorvida, conforme a definição adotada. Efeito é uma alteração de saúde observada ou estimada. Um indicador de uma dessas etapas não mede automaticamente as demais <span class="citation" data-cites="who2003environmentalindicators epa2019exposure">(<a href="../../backmatter/referencias.html#ref-epa2019exposure" role="doc-biblioref">United States Environmental Protection Agency, 2019a</a>; <a href="../../backmatter/referencias.html#ref-who2003environmentalindicators" role="doc-biblioref">World Health Organization, 2003</a>)</span>.</p>
+</div>
+</div>
+<p>A <a href="#fig-cadeia-ar-saude" class="quarto-xref">Figura&nbsp;<span>9.1</span></a> organiza essas relações. As <a href="../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.html">fichas do capítulo 18</a> operacionalizam medidas de concentração, comunicação e extensão do fogo. O <a href="../../backmatter/apendice-estacoes.html">Apêndice B</a> complementa o percurso com instrumentos, redes e exemplos de observação.</p>
+<div class="figure-with-source page-columns page-full">
+<div id="fig-cadeia-ar-saude" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-src="arte-cap9-00-conceitos-print.png" alt="Bairro hipotético com fogo distante, fumaça, moradias e visita de saúde. O esquema distingue emissão, concentração ambiente, exposição, dose e efeito, com transporte e transformação entre fonte e concentração. Meteorologia, microambientes e suscetibilidade modificam as relações; as setas não atribuem causalidade a casos individuais.">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-cadeia-ar-saude-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<img src="../../assets/figures/arte-cap9-00-conceitos.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Bairro hipotético com fogo distante, fumaça, moradias e visita de saúde. O esquema distingue emissão, concentração ambiente, exposição, dose e efeito, com transporte e transformação entre fonte e concentração. Meteorologia, microambientes e suscetibilidade modificam as relações; as setas não atribuem causalidade a casos individuais.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cadeia-ar-saude-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;9.1: Da emissão ao efeito sobre a saúde
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte: elaboração conceitual com base em OMS (2021); EPA (2019), avaliação de exposição; fundamentos discutidos no capítulo. Autoria: composição e rótulos próprios; aquarela produzida com IA (image_gen). Sem dados observados. Licença: a mesma dos textos autorais da obra.</span></p>
+</div>
+<section id="poluição-atmosférica-e-fontes-de-emissão" class="level2 page-columns page-full" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="poluição-atmosférica-e-fontes-de-emissão"><span class="header-section-number">9.1</span> Poluição atmosférica e fontes de emissão</h2>
+<p>Poluição atmosférica resulta da presença de partículas e gases em concentração, duração e combinação capazes de afetar a saúde e o ambiente. O ar de um território reúne contribuições locais e transportadas. Por isso, identificar uma fonte próxima ajuda a formular hipóteses, mas não determina sozinho o que uma estação medirá ou o que uma pessoa inalará <span class="citation" data-cites="who2021air epa2022sensores">(<a href="../../backmatter/referencias.html#ref-epa2022sensores" role="doc-biblioref">United States Environmental Protection Agency, 2022</a>; <a href="../../backmatter/referencias.html#ref-who2021air" role="doc-biblioref">World Health Organization, 2021</a>)</span>.</p>
+<p>As fontes fixas incluem instalações industriais e de geração de energia; fontes móveis incluem veículos e máquinas em deslocamento. Fontes difusas distribuem emissões por áreas ou atividades, como poeira ressuspensa, movimentação de solo e certas práticas agrícolas. Há também contribuições naturais, como aerossol marinho e poeira mineral. Essas categorias descrevem características das fontes; não estabelecem uma ordem universal de importância sanitária. A contribuição efetiva depende da atividade, do combustível, dos controles e das condições atmosféricas.</p>
+<p>Um inventário organiza estimativas de emissão por substância, fonte, lugar e período, frequentemente em massa por unidade de tempo. Ele pode combinar informações de atividade com fatores de emissão. Já uma rede de monitoramento registra concentrações em pontos e intervalos definidos. Comparar os dois requer um modelo de dispersão ou de transporte e química; toneladas emitidas não podem ser lidas diretamente como microgramas por metro cúbico no bairro <span class="citation" data-cites="epa2022sensores">(<a href="../../backmatter/referencias.html#ref-epa2022sensores" role="doc-biblioref">United States Environmental Protection Agency, 2022</a>)</span>.</p>
+<p>Poluentes primários são lançados diretamente; poluentes secundários se formam por transformação de precursores. Partículas podem ter ambas as origens. Vento e mistura vertical redistribuem a massa emitida; deposição seca e remoção pela precipitação retiram parte dela da atmosfera. Estabilidade e inversões podem dificultar a dispersão junto à superfície. Essas relações articulam os capítulos de <a href="../../chapters/part-2/07-temperatura-condicoes-termicas.html">temperatura</a> e <a href="../../chapters/part-2/08-precipitacao-secas-eventos-hidrologicos.html">precipitação e secas</a> com a interpretação da qualidade do ar.</p>
+<p>A <a href="#fig-ar-fontes" class="quarto-xref">Figura&nbsp;<span>9.2</span></a> apresenta fontes em uma paisagem conceitual, sem atribuir participação numérica a cada uma. A organização do transporte, das atividades produtivas e da ocupação territorial também aproxima o tema do <a href="../../chapters/part-2/11-uso-cobertura-terra-ambiente-urbano.html">capítulo sobre uso e cobertura da terra</a>. A escolha entre concentração anual, episódios e comunicação deve seguir as <a href="../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.html">fichas de qualidade do ar</a>, e não apenas a disponibilidade de um inventário.</p>
+<div class="figure-with-source page-columns page-full">
+<div id="fig-ar-fontes" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-src="arte-cap9-01-fontes-print.png" alt="Paisagem hipotética reúne tráfego, indústria, solo exposto e fogo em vegetação. Rótulos distinguem fontes móveis, fixas e difusas. Poluentes primários são emitidos; secundários se formam na atmosfera. A dimensão ou cor da fumaça não representa participação nas emissões.">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-ar-fontes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<img src="../../assets/figures/arte-cap9-01-fontes.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Paisagem hipotética reúne tráfego, indústria, solo exposto e fogo em vegetação. Rótulos distinguem fontes móveis, fixas e difusas. Poluentes primários são emitidos; secundários se formam na atmosfera. A dimensão ou cor da fumaça não representa participação nas emissões.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ar-fontes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;9.2: Fontes, emissões e formação de poluentes
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte: elaboração conceitual com base em OMS (2021); EPA, Enhanced Air Sensor Guidebook (2022). Autoria: composição e rótulos próprios; aquarela produzida com IA (image_gen). Sem dados observados. Licença: a mesma dos textos autorais da obra.</span></p>
+</div>
+<section id="material-particulado" class="level3 page-columns page-full" data-number="9.1.1">
+<h3 data-number="9.1.1" class="anchored" data-anchor-id="material-particulado"><span class="header-section-number">9.1.1</span> Material particulado</h3>
+<p>Material particulado é uma mistura de partículas sólidas e gotículas suspensas no ar. O diâmetro aerodinâmico descreve o comportamento da partícula no ar por comparação com uma esfera de densidade de referência; não corresponde necessariamente à sua dimensão geométrica. Tamanho, forma e densidade afetam esse comportamento. As frações PM10 e PM2,5 são definidas por convenções de seleção por tamanho, com diâmetros de corte de 10 µm e 2,5 µm. Em documentos brasileiros, também aparecem como MP10 e MP2,5; este capítulo usa PM para manter correspondência com as fichas <span class="citation" data-cites="epa2019pm">(<a href="../../backmatter/referencias.html#ref-epa2019pm" role="doc-biblioref">United States Environmental Protection Agency, 2019b</a>)</span>.</p>
+<p>PM2,5 integra a fração PM10, de modo que as duas concentrações não devem ser somadas como componentes independentes. A fração mais grossa entre esses cortes pode ser obtida por diferença apenas quando as medições forem compatíveis. Os dispositivos de seleção possuem curvas de eficiência: os valores de corte não representam peneiras perfeitas nem fronteiras rígidas de deposição no organismo.</p>
+<p>Partículas finas podem alcançar regiões profundas do sistema respiratório. A deposição depende também da respiração e das características da pessoa; não existe correspondência exclusiva entre uma classe de tamanho e um órgão. A massa medida pode reunir carbono, compostos orgânicos, sais e componentes minerais. Duas amostras com a mesma concentração em massa podem ter composição e propriedades diferentes. Carbono negro é um componente ou marcador associado a processos de combustão, não um sinônimo de toda a massa de PM2,5 <span class="citation" data-cites="epa2019pm reid2016fumaca">(<a href="../../backmatter/referencias.html#ref-reid2016fumaca" role="doc-biblioref">Reid et al., 2016</a>; <a href="../../backmatter/referencias.html#ref-epa2019pm" role="doc-biblioref">United States Environmental Protection Agency, 2019b</a>)</span>.</p>
+<p>A <a href="#fig-ar-particulas" class="quarto-xref">Figura&nbsp;<span>9.3</span></a> separa classificação por tamanho, composição e interpretação sanitária. A <a href="../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.html#sec-amb-ar-01">ficha AMB-AR-01</a> descreve PM2,5 anual ponderado pela população urbana; a <a href="../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.html#sec-amb-ar-02">AMB-AR-02</a>, o percentil 99 das médias de 24 horas; e a <a href="../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.html#sec-amb-fum-01">AMB-FUM-01</a>, a parcela atribuível ao fogo. Seus resultados respondem a perguntas diferentes. A relação com internações e mortalidade requer os desfechos e métodos discutidos no <a href="../../chapters/part-3/14-efeitos-saude.html">capítulo 14</a>.</p>
+<div class="figure-with-source page-columns page-full">
+<div id="fig-ar-particulas" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-src="arte-cap9-02-particulas-print.png" alt="Esquema vetorial mostra PM2,5 dentro da fração PM10, cujos cortes aerodinâmicos são 2,5 e 10 micrômetros. Composição, forma e densidade aparecem como propriedades adicionais. A deposição depende de partículas e respiração; os cortes não são fronteiras anatômicas. O desenho não está em escala.">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-ar-particulas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<img src="../../assets/figures/arte-cap9-02-particulas.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Esquema vetorial mostra PM2,5 dentro da fração PM10, cujos cortes aerodinâmicos são 2,5 e 10 micrômetros. Composição, forma e densidade aparecem como propriedades adicionais. A deposição depende de partículas e respiração; os cortes não são fronteiras anatômicas. O desenho não está em escala.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ar-particulas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;9.3: Tamanho, composição e interpretação do material particulado
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte: elaboração conceitual com base em EPA, Integrated Science Assessment for Particulate Matter (2019); OMS (2021). Autoria: composição e rótulos próprios; esquema vetorial autoral. Sem dados observados. Licença: a mesma dos textos autorais da obra.</span></p>
+</div>
+</section>
+<section id="gases-poluentes" class="level3 page-columns page-full" data-number="9.1.2">
+<h3 data-number="9.1.2" class="anchored" data-anchor-id="gases-poluentes"><span class="header-section-number">9.1.2</span> Gases poluentes</h3>
+<p>O ozônio troposférico (O₃) se forma por reações fotoquímicas envolvendo óxidos de nitrogênio e compostos orgânicos voláteis, sob influência da radiação solar. Ele pode apresentar concentrações elevadas a distância das fontes de seus precursores. O ozônio na estratosfera contribui para a proteção contra radiação ultravioleta; o ozônio próximo à superfície é um poluente relevante para a saúde. Calor e insolação favorecem certas condições de formação, mas não substituem a análise dos precursores e do transporte <span class="citation" data-cites="epa2026ozonio">(<a href="../../backmatter/referencias.html#ref-epa2026ozonio" role="doc-biblioref">United States Environmental Protection Agency, 2026</a>)</span>.</p>
+<p>O dióxido de nitrogênio (NO₂) está relacionado à combustão e participa da química que forma ozônio e partículas secundárias. O dióxido de enxofre (SO₂) tem entre suas fontes a queima de combustíveis contendo enxofre e processos industriais, além de fontes naturais. O monóxido de carbono (CO), produzido por combustão incompleta, interfere no transporte de oxigênio pelo sangue. Ozônio e gases irritantes podem afetar as vias respiratórias, com relevância particular para pessoas com doenças preexistentes <span class="citation" data-cites="who2021air">(<a href="../../backmatter/referencias.html#ref-who2021air" role="doc-biblioref">World Health Organization, 2021</a>)</span>.</p>
+<p>A orientação técnica do Ministério do Meio Ambiente e Mudança do Clima (MMA) estabelece a tabela brasileira de comunicação adotada neste livro <span class="citation" data-cites="brasil2025iqar">(<a href="../../backmatter/referencias.html#ref-brasil2025iqar" role="doc-biblioref">Brasil. Ministério do Meio Ambiente e Mudança do Clima, 2025</a>)</span>. A <a href="#fig-ar-gases" class="quarto-xref">Figura&nbsp;<span>9.4</span></a> diferencia emissão direta e formação secundária. Monitorar PM2,5 não informa, por si, a concentração desses gases. No <a href="../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.html#sec-amb-ar-03">Índice de Qualidade do Ar (IQAr) — ficha AMB-AR-03</a>, cada poluente entra com sua unidade e janela temporal; a análise dos efeitos mantém a definição do desfecho apresentada no <a href="../../chapters/part-3/14-efeitos-saude.html">capítulo 14</a>.</p>
+<div class="figure-with-source page-columns page-full">
+<div id="fig-ar-gases" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-src="arte-cap9-03-gases-print.png" alt="Dois percursos distinguem emissões diretas de CO, SO₂ e óxidos de nitrogênio e formação fotoquímica de ozônio a partir de precursores. Transformações também contribuem para partículas secundárias. Concentração, unidade e tempo de média permanecem específicos de cada poluente.">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-ar-gases-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<img src="../../assets/figures/arte-cap9-03-gases.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Dois percursos distinguem emissões diretas de CO, SO₂ e óxidos de nitrogênio e formação fotoquímica de ozônio a partir de precursores. Transformações também contribuem para partículas secundárias. Concentração, unidade e tempo de média permanecem específicos de cada poluente.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ar-gases-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;9.4: Gases emitidos e poluentes formados na atmosfera
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte: elaboração conceitual com base em OMS (2021); EPA, Ground-level Ozone Basics; MMA (2025). Autoria: composição e rótulos próprios; esquema vetorial autoral. Sem dados observados. Licença: a mesma dos textos autorais da obra.</span></p>
+</div>
+<p>A <a href="#tbl-guias-oms-ar" class="quarto-xref">Tabela&nbsp;<span>9.1</span></a> reúne os níveis-guia da OMS de 2021. A média anual descreve um horizonte diferente da concentração de curto prazo. Para os valores de 24 horas indicados, o percentil 99 admite aproximadamente três ou quatro dias de excedência ao ano; não equivale ao maior valor diário nem a um teto sem exceções. Para o ozônio, a estação de pico corresponde aos seis meses consecutivos com a maior média das máximas médias diárias de oito horas <span class="citation" data-cites="who2021air">(<a href="../../backmatter/referencias.html#ref-who2021air" role="doc-biblioref">World Health Organization, 2021</a>)</span>.</p>
+<div id="tbl-guias-oms-ar" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-guias-oms-ar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabela&nbsp;9.1: Níveis-guia de qualidade do ar da OMS de 2021
+</figcaption>
+<div aria-describedby="tbl-guias-oms-ar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Poluente</th>
+<th>Tempo de média da diretriz OMS 2021</th>
+<th style="text-align: right;">Nível-guia</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>PM2,5</td>
+<td>Anual</td>
+<td style="text-align: right;">5 µg/m³</td>
+</tr>
+<tr class="even">
+<td>PM2,5</td>
+<td>24 horas, percentil 99</td>
+<td style="text-align: right;">15 µg/m³</td>
+</tr>
+<tr class="odd">
+<td>PM10</td>
+<td>Anual</td>
+<td style="text-align: right;">15 µg/m³</td>
+</tr>
+<tr class="even">
+<td>PM10</td>
+<td>24 horas, percentil 99</td>
+<td style="text-align: right;">45 µg/m³</td>
+</tr>
+<tr class="odd">
+<td>O₃</td>
+<td>Estação de pico</td>
+<td style="text-align: right;">60 µg/m³</td>
+</tr>
+<tr class="even">
+<td>O₃</td>
+<td>Máxima média diária de 8 horas, percentil 99</td>
+<td style="text-align: right;">100 µg/m³</td>
+</tr>
+<tr class="odd">
+<td>NO₂</td>
+<td>Anual</td>
+<td style="text-align: right;">10 µg/m³</td>
+</tr>
+<tr class="even">
+<td>NO₂</td>
+<td>24 horas, percentil 99</td>
+<td style="text-align: right;">25 µg/m³</td>
+</tr>
+<tr class="odd">
+<td>SO₂</td>
+<td>24 horas, percentil 99</td>
+<td style="text-align: right;">40 µg/m³</td>
+</tr>
+<tr class="even">
+<td>CO</td>
+<td>24 horas, percentil 99</td>
+<td style="text-align: right;">4 mg/m³</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Os níveis-guia orientam redução de risco e não certificam ausência de efeitos abaixo deles. No Brasil, a Resolução do Conselho Nacional do Meio Ambiente (CONAMA) nº 506/2024 estabelece padrões intermediários e finais, com calendário de implantação. Uma comparação regulatória deve identificar a etapa aplicável ao período; uma comparação com a diretriz sanitária deve ser nomeada como tal <span class="citation" data-cites="brasil2024conama506">(<a href="../../backmatter/referencias.html#ref-brasil2024conama506" role="doc-biblioref">Brasil. Conselho Nacional do Meio Ambiente, 2024</a>)</span>.</p>
+<p>A unidade também precisa acompanhar a interpretação: na tabela da OMS, CO aparece em mg/m³, enquanto a tabela brasileira do IQAr adotada na ficha usa partes por milhão (ppm) e janela de oito horas. A conversão entre concentração em massa e fração volumétrica exige condições de temperatura e pressão. Alterar somente o símbolo da unidade ou comparar médias com durações diferentes produz um resultado inválido <span class="citation" data-cites="brasil2025iqar">(<a href="../../backmatter/referencias.html#ref-brasil2025iqar" role="doc-biblioref">Brasil. Ministério do Meio Ambiente e Mudança do Clima, 2025</a>)</span>.</p>
+</section>
+</section>
+<section id="medição-modelagem-e-representatividade" class="level2 page-columns page-full" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="medição-modelagem-e-representatividade"><span class="header-section-number">9.2</span> Medição, modelagem e representatividade</h2>
+<p>Medir, estimar e prever são operações distintas. Estações de referência fornecem observações em um ponto, com métodos e procedimentos de qualidade definidos. Sua implantação pode privilegiar tráfego, área industrial, fundo urbano ou fundo regional. A localização da estação integra o significado da série: uma medida junto a uma via movimentada não representa automaticamente todos os bairros, e uma média entre estações não se torna uma média populacional apenas por receber o nome do município.</p>
+<p>O controle de qualidade começa nos metadados: método, identificação do equipamento, posição e altura da entrada de ar, entorno, fuso, intervalo de integração, unidade e histórico operacional. Calibração, manutenção, validação dos registros e critérios de completude precisam acompanhar os dados. Mudança de instrumento ou local pode produzir uma ruptura de comparabilidade. Essas decisões retomam o <a href="../../chapters/part-1/04-espaco-tempo-qualidade.html">capítulo sobre espaço, tempo e qualidade</a>; os equipamentos são descritos no <a href="../../backmatter/apendice-estacoes.html">Apêndice B</a>.</p>
+<p>Sensores de menor custo podem ampliar a cobertura, mas seu desempenho varia com ambiente, umidade, temperatura e composição das partículas. Co-localização significa operar o sensor próximo a um instrumento de referência, no mesmo período, para avaliar a concordância. Uma correção ajustada em determinada condição deve ser examinada antes de ser transferida a outra. Acompanhamento de deriva e manutenção continuam necessários depois da implantação <span class="citation" data-cites="epa2022sensores epa2026colocalizacao">(<a href="../../backmatter/referencias.html#ref-epa2022sensores" role="doc-biblioref">United States Environmental Protection Agency, 2022</a>, <a href="../../backmatter/referencias.html#ref-epa2026colocalizacao" role="doc-biblioref"><em>[S.d.]</em></a>)</span>.</p>
+<p>Satélites observam a interação da radiação com a atmosfera e a superfície. A profundidade óptica de aerossóis (<em>aerosol optical depth</em>, AOD) descreve a atenuação da radiação pela coluna de aerossóis e é adimensional; não é uma concentração superficial em µg/m³. A relação entre coluna e superfície depende da distribuição vertical, da umidade e das propriedades das partículas. Nuvens, passagem orbital e recuperação do sinal limitam a disponibilidade. Produtos de PM2,5 derivados de satélite acrescentam modelos e outras informações a essa observação <span class="citation" data-cites="epa2019pm who2026pm25">(<a href="../../backmatter/referencias.html#ref-epa2019pm" role="doc-biblioref">United States Environmental Protection Agency, 2019b</a>; <a href="../../backmatter/referencias.html#ref-who2026pm25" role="doc-biblioref">World Health Organization, 2026</a>)</span>.</p>
+<p>Modelos de transporte químico representam emissões, meteorologia e transformações. Assimilação incorpora observações ao estado modelado; reanálises procuram produzir campos retrospectivos consistentes; previsões avançam para períodos futuros. Produtos híbridos combinam fontes, mas continuam dependentes dos dados de treinamento e validação. Uma grade mais fina não garante, sozinha, maior acurácia em cada bairro <span class="citation" data-cites="hu2025firepm">(<a href="../../backmatter/referencias.html#ref-hu2025firepm" role="doc-biblioref">Hu et al., 2025</a>)</span>.</p>
+<p>A <a href="#fig-ar-observacao" class="quarto-xref">Figura&nbsp;<span>9.5</span></a> compara esses suportes. Na publicação, devem permanecer identificados observação, estimativa e previsão, assim como dados ausentes e valores provisórios. Ausência de monitoramento não significa ar limpo. A seleção documentada no <a href="../../chapters/part-1/05-fontes-fichas.html">capítulo 5</a> fundamenta a escolha entre o produto modelado da <a href="../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.html#sec-amb-ar-01">AMB-AR-01</a> e as séries de estação da <a href="../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.html#sec-amb-ar-02">AMB-AR-02</a> e da <a href="../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.html#sec-amb-ar-03">AMB-AR-03</a>.</p>
+<div class="figure-with-source page-columns page-full">
+<div id="fig-ar-observacao" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-src="arte-cap9-04-observacao-print.png" alt="Estação de referência e sensor compacto estão em terreno aberto, com técnica e cidade ao fundo. Um satélite fora de escala representa observação da coluna. Quatro campos diferenciam estação, sensor avaliado por co-localização, satélite e modelo. AOD é adimensional e não equivale a PM2,5 superficial.">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-ar-observacao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<img src="../../assets/figures/arte-cap9-04-observacao.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Estação de referência e sensor compacto estão em terreno aberto, com técnica e cidade ao fundo. Um satélite fora de escala representa observação da coluna. Quatro campos diferenciam estação, sensor avaliado por co-localização, satélite e modelo. AOD é adimensional e não equivale a PM2,5 superficial.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ar-observacao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;9.5: Observação pontual, coluna atmosférica e campo modelado
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte: elaboração conceitual com base em EPA, Enhanced Air Sensor Guidebook (2022) e guia de co-localização; Hu et al.&nbsp;(2025). Autoria: composição e rótulos próprios; aquarela produzida com IA (image_gen). Sem dados observados. Licença: a mesma dos textos autorais da obra.</span></p>
+</div>
+</section>
+<section id="queimadas-e-incêndios" class="level2 page-columns page-full" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="queimadas-e-incêndios"><span class="header-section-number">9.3</span> Queimadas e incêndios</h2>
+<p>O fogo pode integrar práticas de manejo ou ocorrer de forma indesejada e sem controle. Sua propagação depende de ignição, combustível disponível, umidade, vento e relevo. O termo queimada é usado em diferentes contextos; incêndio florestal se refere ao fogo que se propaga pela vegetação sem controle. O registro de uma ocorrência, a detecção orbital e a delimitação de sua superfície atingida são objetos distintos. A classificação legal de uma prática não pode ser deduzida somente de uma imagem. As definições e limitações de monitoramento do Programa Queimadas do Instituto Nacional de Pesquisas Espaciais (INPE) ajudam a delimitar esses objetos <span class="citation" data-cites="inpe2026faq">(<a href="../../backmatter/referencias.html#ref-inpe2026faq" role="doc-biblioref">Instituto Nacional de Pesquisas Espaciais, <em>[S.d.]</em></a>)</span>.</p>
+<p>Seca e períodos sem chuva podem reduzir a umidade de parte dos combustíveis, enquanto ocupação e manejo modificam sua quantidade e continuidade. A <a href="../../chapters/part-4/17-fichas-precipitacao-secas-eventos-hidrologicos.html#sec-cli-prc-04">duração de períodos secos — CLI-PRC-04</a> e o <a href="../../chapters/part-4/17-fichas-precipitacao-secas-eventos-hidrologicos.html#sec-cli-sec-01">índice de seca meteorológica — CLI-SEC-01</a>, no capítulo 17, ajudam a contextualizar condições antecedentes. Nenhum deles mede a ignição nem substitui um produto de risco de fogo. A leitura conjunta exige os capítulos sobre <a href="../../chapters/part-2/08-precipitacao-secas-eventos-hidrologicos.html">precipitação e secas</a> e <a href="../../chapters/part-2/11-uso-cobertura-terra-ambiente-urbano.html">uso e cobertura da terra</a>.</p>
+<p>Um foco ativo é uma detecção realizada por sensor e algoritmo em determinado momento. Um mesmo incêndio pode gerar várias detecções; fogo pequeno, breve ou encoberto pode não ser detectado. Satélite, resolução, horário, nuvens e características da combustão alteram a observação. Para comparar contagens, é necessário manter o sistema de referência e seus critérios, em vez de reunir indiscriminadamente todos os satélites disponíveis <span class="citation" data-cites="inpe2026faq">(<a href="../../backmatter/referencias.html#ref-inpe2026faq" role="doc-biblioref">Instituto Nacional de Pesquisas Espaciais, <em>[S.d.]</em></a>)</span>.</p>
+<p>Área queimada descreve a extensão mapeada da superfície atingida, geralmente por cicatrizes observadas após o fogo. Não se obtém essa área multiplicando o número de focos pela área nominal de um pixel. Tampouco uma cicatriz informa diretamente intensidade da combustão, quantidade de combustível consumido ou emissão atmosférica. A <a href="#fig-ar-fogo" class="quarto-xref">Figura&nbsp;<span>9.6</span></a> apresenta as três leituras em um território hipotético; as posições gráficas não são resultados de detecção.</p>
+<div class="figure-with-source page-columns page-full">
+<div id="fig-ar-fogo" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-src="arte-cap9-05-fogo-print.png" alt="Três painéis mostram fogo em vegetação, grade esquemática de detecção sobre a mesma cena e cicatriz após o fogo. Os dois primeiros reutilizam exatamente o mesmo recorte; a terceira vinheta representa outro momento. Células destacadas não são detecções reais e a grade não tem resolução geográfica. Focos não são contagem de incêndios nem área queimada.">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-ar-fogo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<img src="../../assets/figures/arte-cap9-05-fogo.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Três painéis mostram fogo em vegetação, grade esquemática de detecção sobre a mesma cena e cicatriz após o fogo. Os dois primeiros reutilizam exatamente o mesmo recorte; a terceira vinheta representa outro momento. Células destacadas não são detecções reais e a grade não tem resolução geográfica. Focos não são contagem de incêndios nem área queimada.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ar-fogo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;9.6: Ocorrência de fogo, foco detectado e área queimada
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte: elaboração conceitual com base em INPE, perguntas frequentes do Programa Queimadas; protocolo da ficha de área queimada. Autoria: composição e rótulos próprios; aquarela produzida com IA (image_gen). Sem dados observados. Licença: a mesma dos textos autorais da obra.</span></p>
+</div>
+<p>A <a href="../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.html#sec-amb-fog-01">ficha AMB-FOG-01</a> usa o percentual da área municipal queimada no ano, com produto e versão definidos. A união anual de cicatrizes evita contar repetidamente a mesma superfície, mas não informa quantas vezes ela queimou. O zero significa ausência de cicatriz mapeada no produto disponível, não comprovação de ausência de fogo. A avaliação das perdas, das pessoas atingidas e da interrupção de serviços pertence à leitura dos <a href="../../chapters/part-2/12-eventos-severos-desastres.html">desastres</a>, complementada pela análise atmosférica da fumaça.</p>
+</section>
+<section id="fumaça-e-transporte-atmosférico" class="level2 page-columns page-full" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="fumaça-e-transporte-atmosférico"><span class="header-section-number">9.4</span> Fumaça e transporte atmosférico</h2>
+<p>Fumaça é uma mistura variável de partículas e gases resultante da combustão. Inclui PM2,5, componentes carbonáceos, monóxido de carbono, compostos orgânicos e precursores de poluentes secundários. Combustível, umidade e fase de combustão influenciam sua composição; a mistura muda durante o transporte. Uma pluma envelhecida pode diferir daquela observada junto às chamas <span class="citation" data-cites="reid2016fumaca hu2025firepm">(<a href="../../backmatter/referencias.html#ref-hu2025firepm" role="doc-biblioref">Hu et al., 2025</a>; <a href="../../backmatter/referencias.html#ref-reid2016fumaca" role="doc-biblioref">Reid et al., 2016</a>)</span>.</p>
+<p>A altura de injeção determina em que camadas parte da emissão entra na atmosfera. Vento, turbulência e estabilidade influenciam a trajetória e a mistura vertical. A deposição e a precipitação removem poluentes, enquanto reações químicas transformam a mistura. Uma pluma elevada observada sobre um município não demonstra, por si, concentração elevada junto ao solo; a descida e a mistura com o ar da superfície precisam ser representadas. Distância ao fogo é insuficiente para caracterizar esse percurso.</p>
+<p>Esses processos aproximam a análise das condições de <a href="../../chapters/part-2/07-temperatura-condicoes-termicas.html">temperatura e estabilidade</a> e de <a href="../../chapters/part-2/08-precipitacao-secas-eventos-hidrologicos.html">chuva e seca</a>. Para a vigilância, interessam o local da população e o momento em que a fumaça pode alcançá-la. O município que registra o fogo e aquele que recebe a pluma podem ser diferentes. Fronteiras administrativas organizam a gestão, mas não delimitam o transporte atmosférico.</p>
+<p>A <a href="#fig-fumaca-exposicao" class="quarto-xref">Figura&nbsp;<span>9.7</span></a> relaciona detecção de fogo, observação de aerossóis, concentração e exposição. Medidas orbitais e estações oferecem evidências complementares. Uma imagem da pluma pode apoiar a interpretação de um episódio; ela não autoriza converter a tonalidade desenhada ou observada em dose individual.</p>
+<div class="figure-with-source page-columns page-full">
+<div id="fig-fumaca-exposicao" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-src="arte-cap9-06-transporte-print.png" alt="Pluma liga fogo em vegetação a uma cidade distante em paisagem hipotética. O esquema distingue fogo e emissões, transporte e transformação, observação orbital, concentração medida ou modelada, exposição em microambientes e dose. Pluma elevada não determina sozinha concentração no solo; PM2,5 total não é a parcela de fogo.">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-fumaca-exposicao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<img src="../../assets/figures/arte-cap9-06-transporte.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Pluma liga fogo em vegetação a uma cidade distante em paisagem hipotética. O esquema distingue fogo e emissões, transporte e transformação, observação orbital, concentração medida ou modelada, exposição em microambientes e dose. Pluma elevada não determina sozinha concentração no solo; PM2,5 total não é a parcela de fogo.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fumaca-exposicao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;9.7: Do foco de fogo à dose: medidas que não devem ser confundidas
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte: elaboração conceitual com base em INPE; Reid et al.&nbsp;(2016); Hu et al.&nbsp;(2025); EPA (2019), avaliação de exposição. Autoria: composição e rótulos próprios; aquarela produzida com IA (image_gen). Sem dados observados. Licença: a mesma dos textos autorais da obra.</span></p>
+</div>
+<div class="callout callout-style-default callout-important no-icon callout-titled" title="Conceito-chave: PM2,5 total e parcela atribuível ao fogo">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Importante</span>Conceito-chave: PM2,5 total e parcela atribuível ao fogo
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>PM2,5 total reúne contribuições de várias fontes. PM2,5 atribuível ao fogo é uma estimativa que procura separar essa contribuição por método explícito. Medir PM2,5 durante uma queimada não transforma toda a concentração em fumaça de incêndio. A atribuição da fonte e a atribuição de efeitos à exposição são duas etapas analíticas diferentes.</p>
+</div>
+</div>
+<p>Entre as abordagens de atribuição estão simulações com e sem emissões de fogo, traçadores e métodos que combinam inventários, sensoriamento e modelagem. Hu et al.&nbsp;publicaram campos diários para 2000–2023, com variantes baseadas em inventários distintos. A <a href="../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.html#sec-amb-fum-01">ficha AMB-FUM-01</a> fixa a variante GFED4.1s, ligada à base global de emissões de fogo, e o processamento populacional correspondente. Trocar de inventário exige uma nova identificação da série; não é uma simples atualização de arquivo <span class="citation" data-cites="hu2025firepm">(<a href="../../backmatter/referencias.html#ref-hu2025firepm" role="doc-biblioref">Hu et al., 2025</a>)</span>.</p>
+<p>A interpretação sanitária combina esse produto com o <a href="../../chapters/part-3/13-exposicao-vulnerabilidade.html">capítulo sobre exposição</a>. Para examinar internações, a <a href="../../chapters/part-4/23-fichas-efeitos-saude.html#sec-efe-mob-01">ficha EFE-MOB-01</a> fornece uma definição operacional do desfecho, sem classificar automaticamente cada internação como causada pela fumaça.</p>
+</section>
+<section id="exposição-e-efeitos-agudos-e-crônicos" class="level2 page-columns page-full" data-number="9.5">
+<h2 data-number="9.5" class="anchored" data-anchor-id="exposição-e-efeitos-agudos-e-crônicos"><span class="header-section-number">9.5</span> Exposição e efeitos agudos e crônicos</h2>
+<p>Exposição acrescenta duração e presença à concentração ambiental. Uma pessoa percorre microambientes: casa, rua, transporte, trabalho, escola e serviço de saúde. Infiltração do ar externo, fontes internas, ventilação e filtração modificam as concentrações encontradas. A dose inalada depende também do volume de ar respirado; atividade física pode aumentar esse volume. Dose depositada e absorvida são definições adicionais, não resultados fornecidos diretamente por uma estação <span class="citation" data-cites="epa2019exposure">(<a href="../../backmatter/referencias.html#ref-epa2019exposure" role="doc-biblioref">United States Environmental Protection Agency, 2019a</a>)</span>.</p>
+<p>Uma superfície de concentração ambiente é uma aproximação útil para estudos populacionais, desde que essa aproximação seja nomeada. Ponderar pela população desloca a pergunta de “qual a média do território?” para “qual a concentração média nos locais ponderados pela população representada?”. Isso não reconstrói deslocamentos nem condições individuais. A <a href="../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.html#sec-amb-ar-01">AMB-AR-01</a> usa um recorte urbano fixado; a <a href="../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.html#sec-amb-fum-01">AMB-FUM-01</a> utiliza seu próprio domínio populacional. Os resultados não devem ser comparados como se os denominadores fossem idênticos.</p>
+<p>Exposições de curto prazo são estudadas com concentrações horárias ou diárias e janelas de defasagem; exposições prolongadas, com médias de meses ou anos, conforme o desenho. A resposta aguda pode ocorrer sobre uma doença crônica. Assim, “agudo” e “crônico” podem qualificar tanto o horizonte de exposição quanto o processo de adoecimento, e essa distinção deve ser explicitada <span class="citation" data-cites="epa2019pm">(<a href="../../backmatter/referencias.html#ref-epa2019pm" role="doc-biblioref">United States Environmental Protection Agency, 2019b</a>)</span>.</p>
+<p>Duas localidades podem ter médias anuais semelhantes e distribuições diárias muito diferentes. Por isso, a média de longo prazo deve ser lida junto a séries diárias, percentis, duração de episódios e cobertura dos dados. O percentil 99 (P99) da <a href="../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.html#sec-amb-ar-02">AMB-AR-02</a> caracteriza a parte superior da distribuição anual, mas não conserva a sequência dos dias; sozinho, não permite reconhecer a duração de uma pluma. A <a href="#fig-ar-exposicao" class="quarto-xref">Figura&nbsp;<span>9.8</span></a> organiza esses horizontes sem simular séries ou riscos.</p>
+<div class="figure-with-source page-columns page-full">
+<div id="fig-ar-exposicao" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-src="arte-cap9-07-exposicao-print.png" alt="Três cenas conceituais apresentam trabalho na rua, mãe e criança em casa e pessoa idosa em consulta. Os quadros distinguem concentrações de curto prazo e médias prolongadas, com atividade, proteção, suscetibilidade e acesso ao cuidado. Não há séries, frequências ou riscos simulados.">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-ar-exposicao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<img src="../../assets/figures/arte-cap9-07-exposicao.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Três cenas conceituais apresentam trabalho na rua, mãe e criança em casa e pessoa idosa em consulta. Os quadros distinguem concentrações de curto prazo e médias prolongadas, com atividade, proteção, suscetibilidade e acesso ao cuidado. Não há séries, frequências ou riscos simulados.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ar-exposicao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;9.8: Microambientes, duração da exposição e efeitos na saúde
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte: elaboração conceitual com base em EPA (2019); Reid et al.&nbsp;(2016); Ye et al.&nbsp;(2021). Autoria: composição e rótulos próprios; aquarela produzida com IA (image_gen). Sem dados observados. Licença: a mesma dos textos autorais da obra.</span></p>
+</div>
+<p>Nas vias respiratórias, partículas e gases podem provocar irritação e respostas inflamatórias, agravar asma e doença pulmonar obstrutiva crônica e aumentar a procura por atendimento. A revisão de Reid et al.&nbsp;encontrou evidência mais consistente para morbidade respiratória por fumaça, com maior heterogeneidade para outros desfechos. Essa diferença deve acompanhar a comunicação: a força da evidência não é uniforme para toda doença e toda fonte <span class="citation" data-cites="reid2016fumaca">(<a href="../../backmatter/referencias.html#ref-reid2016fumaca" role="doc-biblioref">Reid et al., 2016</a>)</span>.</p>
+<p>Inflamação sistêmica, estresse oxidativo, alterações autonômicas e disfunção vascular ajudam a explicar efeitos cardiovasculares associados ao material particulado. A avaliação integrada da Agência de Proteção Ambiental dos Estados Unidos (EPA) reúne evidências epidemiológicas, experimentais e mecanísticas. A base de conhecimento sobre PM2,5 ambiente é mais ampla que a de algumas exposições específicas à fumaça; não se deve transferir automaticamente toda estimativa de risco entre misturas <span class="citation" data-cites="epa2019pm">(<a href="../../backmatter/referencias.html#ref-epa2019pm" role="doc-biblioref">United States Environmental Protection Agency, 2019b</a>)</span>.</p>
+<p>O estudo brasileiro de Ye et al.&nbsp;analisou 1.814 municípios e encontrou associações de curto prazo com internações por todas as causas, respiratórias e cardiovasculares, com variação entre regiões e idades. A resolução do modelo de exposição e a cobertura das internações integram seus limites. O resultado oferece evidência populacional, sem permitir identificar a causa de um atendimento individual ou aplicar o mesmo coeficiente a qualquer município <span class="citation" data-cites="ye2021wildfirebrasil">(<a href="../../backmatter/referencias.html#ref-ye2021wildfirebrasil" role="doc-biblioref">Ye et al., 2021</a>)</span>.</p>
+<p>Crianças têm organismos em desenvolvimento; pessoas idosas e pessoas com doenças preexistentes podem apresentar menor reserva funcional. Trabalho externo, moradia com infiltração de fumaça e dificuldades de acesso ao cuidado podem prolongar a exposição ou limitar a proteção. O <a href="../../chapters/part-4/22-fichas-exposicao-vulnerabilidade.html#sec-exp-vul-01">Índice de Vulnerabilidade Social — EXP-VUL-01</a> ajuda a contextualizar desigualdades, mas não é uma medida específica de suscetibilidade à fumaça. Sua leitura deve acompanhar o <a href="../../chapters/part-3/13-exposicao-vulnerabilidade.html">capítulo 13</a>.</p>
+<p>Para efeitos de longo prazo, a literatura sobre poluição ambiente sustenta relações com mortalidade e câncer de pulmão; a avaliação de efeitos materno-infantis e de episódios repetidos de fumaça deve identificar o desfecho e a evidência correspondente <span class="citation" data-cites="who2021air epa2019pm">(<a href="../../backmatter/referencias.html#ref-epa2019pm" role="doc-biblioref">United States Environmental Protection Agency, 2019b</a>; <a href="../../backmatter/referencias.html#ref-who2021air" role="doc-biblioref">World Health Organization, 2021</a>)</span>. Além da inalação, perdas, deslocamento e interrupção do cuidado podem afetar saúde mental e condições crônicas durante incêndios <span class="citation" data-cites="who2026wildfires">(<a href="../../backmatter/referencias.html#ref-who2026wildfires" role="doc-biblioref">World Health Organization, <em>[S.d.]</em></a>)</span>.</p>
+<p>A escolha do desenho determina quais relações podem ser investigadas. Séries temporais examinam variações da exposição e dos eventos ao longo dos dias; estudos de acompanhamento podem avaliar diferenças de exposição prolongada entre pessoas ou grupos. Uma comparação entre municípios precisa considerar composição etária, condições sociais e diferenças no registro dos desfechos. Agregar uma associação territorial para descrevê-la como risco individual ultrapassa o suporte da análise. A definição da população sob observação, do período e do conjunto de ajustes deve preceder a estimativa <span class="citation" data-cites="hernan2020causal">(<a href="../../backmatter/referencias.html#ref-hernan2020causal" role="doc-biblioref">Hernán; Robins, 2020</a>)</span>.</p>
+<p>Uma função concentração–resposta relaciona níveis de exposição à frequência ou ao risco do desfecho no contexto estudado. Risco relativo descreve uma comparação; número de eventos depende também do tamanho da população e da frequência de base. Estimar carga atribuível acrescenta a escolha de um cenário de referência e hipóteses sobre o que ocorreria sob outra exposição. O valor-guia da OMS não se converte automaticamente em um ponto abaixo do qual o efeito é zero. As escolhas de referência e de função precisam ser justificadas, como discutido no <a href="../../chapters/part-3/14-efeitos-saude.html">capítulo sobre efeitos na saúde</a> <span class="citation" data-cites="gasparrini2014attributable">(<a href="../../backmatter/referencias.html#ref-gasparrini2014attributable" role="doc-biblioref">Gasparrini; Leone, 2014</a>)</span>.</p>
+<p>Episódios repetidos acrescentam uma questão de trajetória: uma média anual pode ocultar intervalos concentrados em uma estação, enquanto a contagem de dias elevados não conserva sua intensidade. A concentração acumulada em uma janela expressa concentração multiplicada por tempo e, portanto, muda de unidade; ela ainda não é dose absorvida. Antes de comparar territórios, declare a janela, o critério de episódio e o tratamento das lacunas. Esses resumos complementam as fichas, mas não ganham automaticamente validação como novos indicadores de efeito. Para o serviço de saúde, documentar recorrência e intervalos entre episódios pode orientar planejamento; estimar a consequência sanitária exige exposição, desfecho e método compatíveis.</p>
+<p>A análise epidemiológica precisa considerar tendência, sazonalidade, calendário, temperatura e fatores definidos pelo modelo causal. Defasagem biológica, tempo até o atendimento e atraso de registro não são a mesma coisa. A redução de internações durante um evento pode refletir barreiras de acesso, e a coincidência entre focos e óbitos não demonstra causalidade <span class="citation" data-cites="hernan2020causal gasparrini2010dlnm">(<a href="../../backmatter/referencias.html#ref-gasparrini2010dlnm" role="doc-biblioref">Gasparrini; Armstrong; Kenward, 2010</a>; <a href="../../backmatter/referencias.html#ref-hernan2020causal" role="doc-biblioref">Hernán; Robins, 2020</a>)</span>. O <a href="../../chapters/part-3/14-efeitos-saude.html">capítulo 14</a> desenvolve essas escolhas; as fichas <a href="../../chapters/part-4/23-fichas-efeitos-saude.html#sec-efe-mor-01">EFE-MOR-01</a>, <a href="../../chapters/part-4/23-fichas-efeitos-saude.html#sec-efe-mor-02">EFE-MOR-02</a> e <a href="../../chapters/part-4/23-fichas-efeitos-saude.html#sec-efe-mob-01">EFE-MOB-01</a>, no capítulo 23, documentam mortalidade e internações sem convertê-las em carga atribuível à poluição.</p>
+</section>
+<section id="fontes-seleção-e-principais-indicadores" class="level2 page-columns page-full" data-number="9.6">
+<h2 data-number="9.6" class="anchored" data-anchor-id="fontes-seleção-e-principais-indicadores"><span class="header-section-number">9.6</span> Fontes, seleção e principais indicadores</h2>
+<p>A fonte deve ser escolhida a partir da pergunta sanitária. As <a href="../../backmatter/indice-fontes.html#redes-qualidade-ar">redes de qualidade do ar</a> fornecem medições onde existem estações; o <a href="../../backmatter/indice-fontes.html#monitorar-mma">MonitorAr</a> centraliza arquivos, sem eliminar diferenças de cobertura e validação entre redes. O <a href="../../backmatter/indice-fontes.html#cams">CAMS — Copernicus Atmosphere Monitoring Service</a> oferece produtos atmosféricos cuja variável, camada, resolução e edição precisam ser identificadas. O <a href="../../backmatter/indice-fontes.html#queimadas-inpe">Programa Queimadas do INPE</a>, do Instituto Nacional de Pesquisas Espaciais, organiza informações de fogo <span class="citation" data-cites="inpe2026queimadas">(<a href="../../backmatter/referencias.html#ref-inpe2026queimadas" role="doc-biblioref">Instituto Nacional de Pesquisas Espaciais, 2026</a>)</span>.</p>
+<p>Bases globais e produtos modelados são úteis para exposição de longo prazo e comparação territorial. A <a href="../../backmatter/indice-fontes.html#who-air">base da OMS</a> e os produtos operacionais das fichas têm finalidades e entradas próprias. Informar apenas “dados da OMS”, “do CAMS” ou “do INPE” não identifica um conjunto reproduzível. O <a href="../../chapters/part-1/05-fontes-fichas.html">capítulo sobre fontes e fichas</a> orienta a passagem entre instituição, produto e variável.</p>
+<p>A <a href="#fig-ar-selecao" class="quarto-xref">Figura&nbsp;<span>9.9</span></a> e o <a href="#qua-indicadores-ar" class="quarto-xref">Quadro&nbsp;<span>9.1</span></a> relacionam pergunta, medida e limite de interpretação. O indicador anual da primeira linha adapta ao município o conceito do Objetivo de Desenvolvimento Sustentável (ODS) 11.6.2; essa adaptação e seu recorte urbano estão documentados na <a href="../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.html#sec-amb-ar-01">AMB-AR-01</a>. As cinco fichas estão reunidas no <a href="../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.html">capítulo 18</a>.</p>
+<div class="figure-with-source page-columns page-full">
+<div id="fig-ar-selecao" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-src="arte-cap9-08-selecao-print.png" alt="Cinco linhas associam exposição prolongada a PM2,5 anual ponderado; concentrações diárias elevadas a P99; comunicação a IQAr; parcela de fumaça a PM2,5 de fogo; extensão territorial a área queimada. As medidas mantêm diferentes suportes e não formam uma escala única de risco.">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-ar-selecao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<img src="../../assets/figures/arte-cap9-08-selecao.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Cinco linhas associam exposição prolongada a PM2,5 anual ponderado; concentrações diárias elevadas a P99; comunicação a IQAr; parcela de fumaça a PM2,5 de fogo; extensão territorial a área queimada. As medidas mantêm diferentes suportes e não formam uma escala única de risco.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ar-selecao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;9.9: Escolher a medida conforme a pergunta
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte: elaboração conceitual com base em Protocolos das cinco fichas do capítulo 18. Autoria: composição e rótulos próprios; esquema vetorial autoral. Sem dados observados. Licença: a mesma dos textos autorais da obra.</span></p>
+</div>
+<div id="qua-indicadores-ar" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-qua figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-qua" id="qua-indicadores-ar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Quadro&nbsp;9.1: Indicadores de qualidade do ar, fogo e fumaça usados em saúde pública
+</figcaption>
+<div aria-describedby="qua-indicadores-ar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Indicador e ficha</th>
+<th>Pergunta sanitária</th>
+<th>Cuidado de interpretação</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.html#sec-amb-ar-01">PM2,5 anual ponderado — AMB-AR-01</a></td>
+<td>Como se distribui a exposição ambiente de longo prazo no recorte urbano?</td>
+<td>É estimativa modelada; a média não descreve episódios.</td>
+</tr>
+<tr class="even">
+<td><a href="../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.html#sec-amb-ar-02">P99 das médias de 24 h — AMB-AR-02</a></td>
+<td>Quão elevadas são as concentrações diárias na estação ao longo do ano?</td>
+<td>O percentil não é máximo nem duração de episódio.</td>
+</tr>
+<tr class="odd">
+<td><a href="../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.html#sec-amb-ar-03">IQAr — AMB-AR-03</a></td>
+<td>Como comunicar a condição de curto prazo?</td>
+<td>O maior subíndice determina a classe; dados ausentes exigem sinalização.</td>
+</tr>
+<tr class="even">
+<td><a href="../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.html#sec-amb-fum-01">PM2,5 de fogo ponderado — AMB-FUM-01</a></td>
+<td>Qual a exposição ambiente à parcela modelada de fogo?</td>
+<td>A atribuição depende de inventário e modelagem.</td>
+</tr>
+<tr class="odd">
+<td><a href="../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.html#sec-amb-fog-01">Área municipal queimada — AMB-FOG-01</a></td>
+<td>Qual a extensão territorial anual mapeada do fogo?</td>
+<td>Não mede emissão, concentração ou dose.</td>
+</tr>
+<tr class="even">
+<td>Focos ativos, informação contextual</td>
+<td>Onde e quando o sensor detectou fogo?</td>
+<td>Não contam necessariamente incêndios distintos; não há ficha própria no livro.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>O quadro não esgota a vigilância por poluente. PM10, O₃, NO₂, SO₂ e CO precisam conservar suas séries e tempos de média, inclusive quando usados no IQAr. Quando a pergunta envolve um evento, a média anual deve ser complementada por dados temporais apropriados; quando envolve desigualdade, a cobertura e o suporte da população precisam ser comparáveis.</p>
+<p>A comparação de fontes deve incluir a finalidade para a qual foram produzidas. Uma previsão serve ao planejamento imediato, mas seu desempenho precisa ser avaliado frente a observações; uma reanálise ou produto histórico pode apoiar estudos retrospectivos, sem oferecer a mesma atualização. Resultados de estação, grade e município devem conservar o suporte original e a operação usada para a agregação. A existência de arquivos para todo o país não implica qualidade homogênea em todos os lugares.</p>
+<p>Para documentar a escolha, registre produtor, produto, edição, variável, nível vertical, resolução, período e regras de qualidade. Acrescente o ano e o domínio da população quando houver ponderação. Comparações entre versões devem usar períodos comuns e examinar se a diferença resulta de atualização do método, das entradas ou do fenômeno. Esse registro permite que outra equipe reconstrua a seleção e reconheça o que precisa ser reprocessado, seguindo os critérios dos <a href="../../chapters/part-1/04-espaco-tempo-qualidade.html">capítulos 4</a> e <a href="../../chapters/part-1/05-fontes-fichas.html">5</a>.</p>
+<p>Um painel pode reunir essas camadas, mas cada uma deve manter unidade, fonte, horário e natureza do dado. Focos, concentração e utilização de serviços não devem receber uma escala comum que sugira equivalência. A leitura conjunta com as <a href="../../chapters/part-4/22-fichas-exposicao-vulnerabilidade.html">fichas de vulnerabilidade</a> e de <a href="../../chapters/part-4/23-fichas-efeitos-saude.html">efeitos na saúde</a> acrescenta contexto e desfechos, sem formar automaticamente um índice de risco validado.</p>
+</section>
+<section id="protocolo-de-cálculo-e-disponibilidade" class="level2 page-columns page-full" data-number="9.7">
+<h2 data-number="9.7" class="anchored" data-anchor-id="protocolo-de-cálculo-e-disponibilidade"><span class="header-section-number">9.7</span> Protocolo de cálculo e disponibilidade</h2>
+<p>O protocolo transforma uma pergunta em operações reproduzíveis. Antes de calcular, fixe produto, edição, variável, unidade, calendário, suporte espacial e regras para registros inválidos. Preserve os arquivos de entrada e a data de obtenção. A distinção entre dado provisório e validado é especialmente importante em episódios: rapidez de divulgação e consolidação posterior têm funções diferentes.</p>
+<p>SatPM identifica o produto de PM2,5 derivado da integração de informações orbitais e modelagem; GHS-POP é a grade populacional do <em>Global Human Settlement Layer</em>. GEOS-Chem é o modelo de transporte químico empregado no produto de fogo, e GFED4.1s identifica o inventário selecionado. Essas designações preservam a rastreabilidade; não autorizam substituir as entradas por outra concentração ou outra grade sem revisar o método.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Ficha</th>
+<th>Disponibilidade no protocolo</th>
+<th>Entrada fixada</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.html#sec-amb-ar-01">AMB-AR-01</a></td>
+<td>Calculável com dados abertos</td>
+<td>SatPM V6.GL.03 total, 1998–2024, e GHS-POP R2023A</td>
+</tr>
+<tr class="even">
+<td><a href="../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.html#sec-amb-ar-02">AMB-AR-02</a></td>
+<td>Calculável com dados locais centralizados</td>
+<td>PM2,5 horário por estação do MonitorAr; P99 anual</td>
+</tr>
+<tr class="odd">
+<td><a href="../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.html#sec-amb-ar-03">AMB-AR-03</a></td>
+<td>Calculável com dados locais centralizados</td>
+<td>Seis poluentes por estação; tabela IQAr de 2025</td>
+</tr>
+<tr class="even">
+<td><a href="../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.html#sec-amb-fum-01">AMB-FUM-01</a></td>
+<td>Calculável com dados abertos</td>
+<td>PM2,5 de fogo GEOS-Chem/GFED4.1s, 2000–2023</td>
+</tr>
+<tr class="odd">
+<td><a href="../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.html#sec-amb-fog-01">AMB-FOG-01</a></td>
+<td>Calculável com dados abertos</td>
+<td>MapBiomas Fogo Coleção 5 v1, 1985–2025</td>
+</tr>
+</tbody>
+</table>
+<p>Nas séries de estação, confira duplicações, fuso, unidades, flags de validação e lacunas antes de calcular as médias. A <a href="../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.html#sec-amb-ar-02">AMB-AR-02</a> exige ao menos 16 horas distintas válidas por dia, 90% dos dias no ano e metade dos dias de cada quadrimestre, calculando P99 pelo quantil tipo 7. As exigências anuais e a escolha do estimador são decisões operacionais da ficha, não uma certificação automática de conformidade regulatória.</p>
+<p>Na <a href="../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.html#sec-amb-ar-03">AMB-AR-03</a>, cada poluente mantém seu tempo de média. O₃ e CO exigem janelas móveis de oito horas, incluindo as horas anteriores ao início do dia conforme o protocolo. A tabela de 2025 é fixada para comparação retrospectiva; o boletim originalmente publicado pela rede permanece separado. A falta de qualquer um dos seis poluentes recebe indicação de IQAr parcial, mesmo quando é possível calcular o máximo dos subíndices disponíveis.</p>
+<p>Nas médias ponderadas, a operação conceitual é <span class="math inline">\(\overline{C}_{P}=\sum_i C_i P_i/\sum_i P_i\)</span>, em que <span class="math inline">\(C_i\)</span> é a concentração na unidade espacial válida e <span class="math inline">\(P_i\)</span> a população representada nessa unidade. O numerador soma concentração multiplicada pela população; o denominador soma a população incluída, mantendo a unidade da concentração no resultado. A operação deve seguir o recorte, a cobertura mínima e a ordem temporal de cada ficha. Repartir contagens populacionais por interseções exige conservar seus totais; interpolação bilinear de contagens não substitui esse procedimento.</p>
+<p>A <a href="../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.html#sec-amb-ar-01">AMB-AR-01</a> usa concentração anual e recorte urbano definido. A <a href="../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.html#sec-amb-fum-01">AMB-FUM-01</a> calcula a média populacional diária antes da agregação anual, com regras próprias de cobertura. População excluída por falta de concentração não pode desaparecer do relatório: cobertura válida e denominadores acompanham a estimativa. A <a href="../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.html#sec-amb-fog-01">AMB-FOG-01</a>, por sua vez, calcula uma proporção territorial, sem ponderação populacional.</p>
+<p>A <a href="#fig-ar-protocolo" class="quarto-xref">Figura&nbsp;<span>9.10</span></a> organiza esse percurso. As regras espaciais e temporais dialogam com o <a href="../../chapters/part-1/04-espaco-tempo-qualidade.html">capítulo 4</a>; as fórmulas completas e exceções permanecem nas <a href="../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.html">fichas do capítulo 18</a>. “Calculável” descreve disponibilidade e condições de processamento, não afirma que uma série municipal já foi calculada ou validada.</p>
+<div class="figure-with-source page-columns page-full">
+<div id="fig-ar-protocolo" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-src="arte-cap9-09-protocolo-print.png" alt="Fluxo liga escolha de produto e versão, controle de qualidade, cálculo e publicação. Três ramificações distinguem séries de estação, grades com população e cicatrizes territoriais. Cada uma mantém regras próprias; cobertura, unidade e incerteza acompanham o resultado.">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-ar-protocolo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<img src="../../assets/figures/arte-cap9-09-protocolo.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Fluxo liga escolha de produto e versão, controle de qualidade, cálculo e publicação. Três ramificações distinguem séries de estação, grades com população e cicatrizes territoriais. Cada uma mantém regras próprias; cobertura, unidade e incerteza acompanham o resultado.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ar-protocolo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;9.10: Da entrada documentada ao resultado com cobertura
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte: elaboração conceitual com base em Protocolos das cinco fichas do capítulo 18 e princípios do capítulo 4. Autoria: composição e rótulos próprios; esquema vetorial autoral. Sem dados observados. Licença: a mesma dos textos autorais da obra.</span></p>
+</div>
+<p><span id="sec-amb-ar-01"></span> Consulte a <a href="../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.html#sec-amb-ar-01">ficha AMB-AR-01 — PM2,5 anual ponderado</a>, na Parte IV.</p>
+<p><span id="sec-amb-ar-02"></span> Consulte a <a href="../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.html#sec-amb-ar-02">ficha AMB-AR-02 — PM2,5 de curto prazo — P99 24h</a>, na Parte IV.</p>
+<p><span id="sec-amb-ar-03"></span> Consulte a <a href="../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.html#sec-amb-ar-03">ficha AMB-AR-03 — Índice de Qualidade do Ar</a>, na Parte IV.</p>
+<p><span id="sec-amb-fum-01"></span> Consulte a <a href="../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.html#sec-amb-fum-01">ficha AMB-FUM-01 — PM2,5 de fumaça ponderado pela população</a>, na Parte IV.</p>
+<p><span id="sec-amb-fog-01"></span> Consulte a <a href="../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.html#sec-amb-fog-01">ficha AMB-FOG-01 — Área municipal queimada</a>, na Parte IV.</p>
+</section>
+<section id="alertas-e-aplicação-na-gestão" class="level2 page-columns page-full" data-number="9.8">
+<h2 data-number="9.8" class="anchored" data-anchor-id="alertas-e-aplicação-na-gestão"><span class="header-section-number">9.8</span> Alertas e aplicação na gestão</h2>
+<p>Um alerta conecta evidência a uma decisão com responsáveis, prazo e meios de execução. O Índice de Qualidade do Ar (IQAr) facilita a comunicação ao transformar concentrações em subíndices e adotar o maior deles. A classe deve vir acompanhada do poluente determinante, concentração, tempo de média, estação ou área representada, horário e cobertura. O índice é adimensional; não deve substituir as concentrações em análises epidemiológicas <span class="citation" data-cites="brasil2025iqar">(<a href="../../backmatter/referencias.html#ref-brasil2025iqar" role="doc-biblioref">Brasil. Ministério do Meio Ambiente e Mudança do Clima, 2025</a>)</span>.</p>
+<p>Durante fumaça, a equipe pode reunir observações e previsões de PM2,5, informação sobre fogo e trajetória da pluma, população potencialmente exposta e funcionamento dos serviços. Essas camadas conservam identificação e incerteza. O produto histórico da <a href="../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.html#sec-amb-fum-01">AMB-FUM-01</a> não é uma previsão operacional; a série retrospectiva do <a href="../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.html#sec-amb-ar-03">IQAr — AMB-AR-03</a> também não substitui o boletim atual da rede responsável.</p>
+<p>A <a href="#fig-ar-gestao" class="quarto-xref">Figura&nbsp;<span>9.11</span></a> organiza monitoramento, decisão, comunicação e avaliação. As ações retomam o <a href="../../chapters/part-1/06-indicador-decisao.html">capítulo 6</a>, que vincula indicadores a decisões, e o <a href="../../chapters/part-3/15-resposta-adaptacao-resiliencia.html">capítulo 15</a>, que trata de preparação e continuidade.</p>
+<div class="figure-with-source page-columns page-full">
+<div id="fig-ar-gestao" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-src="arte-cap9-10-gestao-print.png" alt="Três cenas de aquarela mostram equipe intersetorial, orientação no trabalho e unidade de saúde em funcionamento. O ciclo vetorial liga monitorar, decidir, comunicar e avaliar, retornando ao planejamento. Responsabilidades e recursos sustentam as ações; as cenas não medem eficácia.">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-ar-gestao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<img src="../../assets/figures/arte-cap9-10-gestao.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Três cenas de aquarela mostram equipe intersetorial, orientação no trabalho e unidade de saúde em funcionamento. O ciclo vetorial liga monitorar, decidir, comunicar e avaliar, retornando ao planejamento. Responsabilidades e recursos sustentam as ações; as cenas não medem eficácia.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ar-gestao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;9.11: Monitoramento, decisão, comunicação e avaliação
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte: elaboração conceitual com base em MMA (2025); Ministério da Saúde, Nota Técnica Conjunta 217/2024; capítulos 6 e 15. Autoria: composição e rótulos próprios; aquarela produzida com IA (image_gen). Sem dados observados. Licença: a mesma dos textos autorais da obra.</span></p>
+</div>
+<p>Uma rotina de gestão pode ser organizada em sete passos:</p>
+<ol type="1">
+<li>Verificar dado, horário, validação, representatividade e lacunas.</li>
+<li>Identificar poluente determinante e evidências da fonte, explicitando quando a atribuição é apenas uma hipótese.</li>
+<li>Avaliar evolução prevista, duração e áreas potencialmente alcançadas, com meteorologia e órgãos ambientais.</li>
+<li>Localizar grupos com maiores barreiras de proteção e serviços expostos, incluindo escolas, abrigos e instituições de longa permanência.</li>
+<li>Acionar medidas previstas no protocolo local e comunicar a informação em formatos acessíveis.</li>
+<li>Acompanhar sintomas, procura por cuidado, internações e continuidade assistencial, respeitando os atrasos dos registros.</li>
+<li>Registrar decisões, alcance das mensagens e dificuldades de execução para revisar a resposta.</li>
+</ol>
+<p>O Ministério da Saúde orienta a articulação da atenção primária com urgência, hospitais e saúde indígena nas emergências por seca, estiagem e incêndios. Conhecimento do território, fluxos de encaminhamento e preparação da rede ajudam a organizar o atendimento. Estoques, transporte e condições de funcionamento precisam acompanhar a previsão de demanda, em coordenação com ambiente, defesa civil e responsáveis pelo combate ao fogo <span class="citation" data-cites="brasil2024fumaca217">(<a href="../../backmatter/referencias.html#ref-brasil2024fumaca217" role="doc-biblioref">Brasil. Ministério da Saúde, 2024</a>)</span>.</p>
+<p>Recomendações individuais dependem de meios concretos. Reduzir atividades externas pode ser inviável sem reorganização do trabalho; permanecer em casa pode não reduzir a exposição quando a fumaça infiltra e existem fontes internas. Ambientes com ar mais limpo exigem avaliação de ventilação, filtração, ocupação e conforto térmico. A comunicação deve explicar o que pode ser feito, por quem e com qual apoio, evitando transferir toda a responsabilidade às pessoas expostas <span class="citation" data-cites="epa2019exposure who2024sdhequity">(<a href="../../backmatter/referencias.html#ref-epa2019exposure" role="doc-biblioref">United States Environmental Protection Agency, 2019a</a>; <a href="../../backmatter/referencias.html#ref-who2024sdhequity" role="doc-biblioref">World Health Organization, 2024</a>)</span>.</p>
+<p>As fichas de <a href="../../chapters/part-4/24-fichas-resposta-adaptacao-resiliencia.html#sec-res-gov-01">ponto focal — RES-GOV-01</a>, <a href="../../chapters/part-4/24-fichas-resposta-adaptacao-resiliencia.html#sec-res-ris-01">perfil de riscos — RES-RIS-01</a> e <a href="../../chapters/part-4/24-fichas-resposta-adaptacao-resiliencia.html#sec-res-pla-01">plano de continuidade — RES-PLA-01</a>, no capítulo 24, permitem verificar componentes da preparação dos estabelecimentos. A <a href="../../chapters/part-4/24-fichas-resposta-adaptacao-resiliencia.html#sec-res-alr-01">RES-ALR-01</a> descreve capacidade nacional de alerta e resposta; sua escala não deve ser confundida com desempenho de um alerta municipal de fumaça.</p>
+<p>A avaliação posterior combina alcance e compreensão das mensagens, execução das medidas, barreiras encontradas e manutenção do cuidado. As séries da <a href="../../chapters/part-4/23-fichas-efeitos-saude.html#sec-efe-mob-01">EFE-MOB-01</a> ajudam a acompanhar utilização dos serviços, mas mudanças nas internações exigem examinar acesso e cobertura do registro. A gestão transforma esse retorno em ajustes do protocolo, responsabilidades e recursos para o episódio seguinte.</p>
+
+
+<div id="refs" class="references csl-bib-body" data-entry-spacing="1" role="list" style="display: none">
+<div id="ref-brasil2024conama506" class="csl-entry" role="listitem">
+BRASIL. CONSELHO NACIONAL DO MEIO AMBIENTE. <strong>Resolução CONAMA nº 506, de 5 de julho de 2024: estabelece padrões nacionais de qualidade do ar e fornece diretrizes para sua aplicação</strong>. Brasília, DF, Diário Oficial da União, 9 jul. 2024. Disponível em: &lt;<a href="https://conama.mma.gov.br/?id=827&amp;option=com_sisconama&amp;task=arquivo.download">https://conama.mma.gov.br/?id=827&amp;option=com_sisconama&amp;task=arquivo.download</a>&gt;. Acesso em: 28 jul. 2026.
+</div>
+<div id="ref-brasil2024fumaca217" class="csl-entry" role="listitem">
+BRASIL. MINISTÉRIO DA SAÚDE. <strong><a href="https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/e/emergencias-climaticas/notas-tecnicas-e-informativas/nota-tecnica-conjunta-no-217-2024-cgesco-desco-saps-ms-e-dahu-saes-ms-e-dapsi-sesai-ms">Nota Técnica Conjunta nº 217/2024-CGESCO/DESCO/SAPS/MS – DAHU/SAES/MS – DAPSI/SESAI/MS: emergências climáticas em saúde por seca, estiagem e incêndios florestais</a></strong>. Brasília, DF: Ministério da Saúde, 2024.
+</div>
+<div id="ref-brasil2025iqar" class="csl-entry" role="listitem">
+BRASIL. MINISTÉRIO DO MEIO AMBIENTE E MUDANÇA DO CLIMA. <strong><a href="https://www.gov.br/mma/pt-br/assuntos/meio-ambiente-urbano-recursos-hidricos-qualidade-ambiental/qualidade-do-ar/indice-de-qualidade-do-ar-iqar/orientacao-tecnica-indice-de-qualidade-do-ar-jan-25.pdf">Índice de Qualidade do Ar (IQAr): orientação técnica</a></strong>. Brasília, DF: Ministério do Meio Ambiente e Mudança do Clima, 2025.
+</div>
+<div id="ref-gasparrini2010dlnm" class="csl-entry" role="listitem">
+GASPARRINI, Antonio; ARMSTRONG, Ben; KENWARD, Michael G. Distributed lag non-linear models. <strong>Statistics in Medicine</strong>, v. 29, n. 21, p. 2224–2234, 2010. Disponível em: &lt;https://doi.org/<a href="https://doi.org/10.1002/sim.3940">10.1002/sim.3940</a>&gt;.
+</div>
+<div id="ref-gasparrini2014attributable" class="csl-entry" role="listitem">
+GASPARRINI, Antonio; LEONE, Michela. Attributable risk from distributed lag models. <strong>BMC Medical Research Methodology</strong>, v. 14, p. 55, 2014. Disponível em: &lt;https://doi.org/<a href="https://doi.org/10.1186/1471-2288-14-55">10.1186/1471-2288-14-55</a>&gt;.
+</div>
+<div id="ref-hernan2020causal" class="csl-entry" role="listitem">
+HERNÁN, Miguel A.; ROBINS, James M. <strong><a href="https://miguelhernan.org/whatifbook">Causal inference: what if</a></strong>. Boca Raton: Chapman &amp; Hall/CRC, 2020.
+</div>
+<div id="ref-hu2025firepm" class="csl-entry" role="listitem">
+HU, Yonghang <em>et al.</em> <strong>Global high-resolution fire-sourced PM2.5 concentrations for 2000–2023</strong>. 2025. Disponível em: &lt;<a href="https://essd.copernicus.org/articles/17/3741/2025/">https://essd.copernicus.org/articles/17/3741/2025/</a>&gt;. Acesso em: 3 out. 2026.
+</div>
+<div id="ref-inpe2026queimadas" class="csl-entry" role="listitem">
+INSTITUTO NACIONAL DE PESQUISAS ESPACIAIS. <strong>Programa Queimadas</strong>. 2026. Disponível em: &lt;<a href="https://data.inpe.br/queimadas/">https://data.inpe.br/queimadas/</a>&gt;. Acesso em: 28 jul. 2026.
+</div>
+<div id="ref-inpe2026faq" class="csl-entry" role="listitem">
+INSTITUTO NACIONAL DE PESQUISAS ESPACIAIS. <strong>Programa Queimadas: perguntas frequentes</strong>. <em>[S.d.]</em>. Disponível em: &lt;<a href="https://data.inpe.br/queimadas/portal/faq/">https://data.inpe.br/queimadas/portal/faq/</a>&gt;. Acesso em: 8 out. 2026.
+</div>
+<div id="ref-reid2016fumaca" class="csl-entry" role="listitem">
+REID, Colleen E. <em>et al.</em> Critical Review of Health Impacts of Wildfire Smoke Exposure. <strong>Environmental Health Perspectives</strong>, v. 124, n. 9, p. 1334–1343, 2016. Disponível em: &lt;https://doi.org/<a href="https://doi.org/10.1289/ehp.1409277">10.1289/ehp.1409277</a>&gt;.
+</div>
+<div id="ref-epa2019exposure" class="csl-entry" role="listitem">
+UNITED STATES ENVIRONMENTAL PROTECTION AGENCY. <strong>Guidelines for Human Exposure Assessment</strong>. Washington, DC: U.S. Environmental Protection Agency, Risk Assessment Forum, out. 2019a. Disponível em: &lt;<a href="https://www.epa.gov/sites/production/files/2020-01/documents/guidelines_for_human_exposure_assessment_final2019.pdf">https://www.epa.gov/sites/production/files/2020-01/documents/guidelines_for_human_exposure_assessment_final2019.pdf</a>&gt;. Acesso em: 8 out. 2026.
+</div>
+<div id="ref-epa2019pm" class="csl-entry" role="listitem">
+UNITED STATES ENVIRONMENTAL PROTECTION AGENCY. <strong>Integrated Science Assessment for Particulate Matter</strong>. Washington, DC: U.S. Environmental Protection Agency, dez. 2019b. Disponível em: &lt;<a href="https://www.epa.gov/isa/integrated-science-assessment-isa-particulate-matter">https://www.epa.gov/isa/integrated-science-assessment-isa-particulate-matter</a>&gt;. Acesso em: 8 out. 2026.
+</div>
+<div id="ref-epa2022sensores" class="csl-entry" role="listitem">
+UNITED STATES ENVIRONMENTAL PROTECTION AGENCY. <strong><a href="https://www.epa.gov/air-sensor-toolbox/how-use-air-sensors-air-sensor-guidebook">Enhanced Air Sensor Guidebook</a></strong>. <em>[S.l.]</em>: U.S. Environmental Protection Agency, 2022.
+</div>
+<div id="ref-epa2026ozonio" class="csl-entry" role="listitem">
+UNITED STATES ENVIRONMENTAL PROTECTION AGENCY. <strong>Ground-level Ozone Basics</strong>. 18 fev. 2026. Disponível em: &lt;<a href="https://www.epa.gov/ground-level-ozone-pollution/ground-level-ozone-basics">https://www.epa.gov/ground-level-ozone-pollution/ground-level-ozone-basics</a>&gt;. Acesso em: 8 out. 2026.
+</div>
+<div id="ref-epa2026colocalizacao" class="csl-entry" role="listitem">
+UNITED STATES ENVIRONMENTAL PROTECTION AGENCY. <strong>Air Sensor Collocation Instruction Guide</strong>. <em>[S.d.]</em>. Disponível em: &lt;<a href="https://www.epa.gov/air-sensor-toolbox/air-sensor-collocation-instruction-guide">https://www.epa.gov/air-sensor-toolbox/air-sensor-collocation-instruction-guide</a>&gt;. Acesso em: 8 out. 2026.
+</div>
+<div id="ref-who2003environmentalindicators" class="csl-entry" role="listitem">
+WORLD HEALTH ORGANIZATION. <strong><a href="https://iris.who.int/handle/10665/42673">Making a difference: indicators to improve children’s environmental health</a></strong>. Geneva: World Health Organization, 2003.
+</div>
+<div id="ref-who2021air" class="csl-entry" role="listitem">
+WORLD HEALTH ORGANIZATION. <strong><a href="https://www.who.int/publications/i/item/9789240034228">WHO global air quality guidelines: particulate matter (PM2.5 and PM10), ozone, nitrogen dioxide, sulfur dioxide and carbon monoxide</a></strong>. Geneva: World Health Organization, 2021.
+</div>
+<div id="ref-who2024sdhequity" class="csl-entry" role="listitem">
+WORLD HEALTH ORGANIZATION. <strong><a href="https://www.who.int/publications/b/67490">Operational framework for monitoring social determinants of health equity</a></strong>. Geneva: World Health Organization, 2024.
+</div>
+<div id="ref-who2026pm25" class="csl-entry" role="listitem">
+WORLD HEALTH ORGANIZATION. <strong>WHO Ambient Air Quality Database: update 2026</strong>. 2026. Disponível em: &lt;<a href="https://www.who.int/data/gho/data/themes/air-pollution/who-air-quality-database">https://www.who.int/data/gho/data/themes/air-pollution/who-air-quality-database</a>&gt;. Acesso em: 28 jul. 2026.
+</div>
+<div id="ref-who2026wildfires" class="csl-entry" role="listitem">
+WORLD HEALTH ORGANIZATION. <strong>Wildfires</strong>. <em>[S.d.]</em>. Disponível em: &lt;<a href="https://www.who.int/health-topics/wildfires">https://www.who.int/health-topics/wildfires</a>&gt;. Acesso em: 8 out. 2026.
+</div>
+<div id="ref-ye2021wildfirebrasil" class="csl-entry" role="listitem">
+YE, Tingting <em>et al.</em> Risk and burden of hospital admissions associated with wildfire-related PM2.5 in Brazil, 2000–15: a nationwide time-series study. <strong>The Lancet Planetary Health</strong>, v. 5, n. 9, p. e599–e607, 2021. Disponível em: &lt;https://doi.org/<a href="https://doi.org/10.1016/S2542-5196(21)00173-X">10.1016/S2542-5196(21)00173-X</a>&gt;.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiada");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiada");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../chapters/part-2/08-precipitacao-secas-eventos-hidrologicos.html" class="pagination-link" aria-label="Precipitação, secas e eventos hidrológicos">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Precipitação, secas e eventos hidrológicos</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../chapters/part-2/10-agua-saneamento-qualidade-ambiental.html" class="pagination-link" aria-label="Água, saneamento e qualidade ambiental">
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Água, saneamento e qualidade ambiental</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/rfsaldanha/dicas/blob/main/chapters/part-2/09-qualidade-ar-queimadas-fumaca.qmd" class="toc-action"><i class="bi bi-github"></i>Ver o código fonte</a></li><li><a href="https://github.com/rfsaldanha/dicas/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></div></div></footer></body></html>

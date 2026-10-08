@@ -3,6 +3,7 @@ aliases:
   - /chapters/part-4/14-indicador-decisao.html
 format:
   html:
+    lightbox: true
     template-partials:
       - ../../includes/chapter-opening/title-block.html
 chapter-opening:
@@ -10,33 +11,39 @@ chapter-opening:
   alt: "Paisagem pictórica de uma cidade brasileira hipotética à margem de um rio, sem pessoas. Uma ponte e vias ribeirinhas conectam bairros e edifícios públicos entre áreas verdes. Luz dourada atravessa a bruma e se reflete na água, em contraste com nuvens azul-acinzentadas e chuva distante."
 ---
 
-# Do indicador à decisão pública {#sec-indicador-decisao}
+# Análise de situação de saúde e decisão pública {#sec-indicador-decisao}
 
-Indicadores tornam-se instrumentos públicos quando estão ligados a uma decisão, uma responsabilidade e uma ação verificável. Um painel com dezenas de séries pode descrever o território e ainda não responder quem deve fazer o quê, quando e com quais recursos. Essa orientação para o uso é coerente com a formulação clássica de indicadores de saúde e com a avaliação de programas centrada em contexto, propósito e utilização dos achados [@ripsa2026; @cdc2024evaluation].
+Indicadores tornam-se instrumentos públicos quando ajudam a compreender necessidades de saúde e a definir uma ação, uma responsabilidade e um resultado a acompanhar. Para isso, é preciso interpretar as medidas em relação à população, às condições de vida e à organização dos serviços. Um painel pode mostrar calor intenso, internações e cobertura assistencial sem esclarecer quem permanece desprotegido, quais problemas merecem prioridade ou que resposta é viável. A análise de situação de saúde (ASIS) organiza essa passagem dos dados ao conhecimento útil para a decisão [@brasil2015asis, p. 10–15].
 
-Este capítulo encerra a Parte I, ligando os conceitos, os cuidados com a qualidade e a documentação de fontes e fichas ao uso na vigilância e na gestão pública. Não cria novos indicadores: apresenta um roteiro para combinar medidas consolidadas em rotinas de análise, preparação, resposta, planejamento e avaliação. Os indicadores utilizados nos exemplos serão discutidos nas partes II e III e documentados nas fichas da Parte IV. O ponto de partida não é “quais dados temos?”, mas “qual decisão precisa ser tomada?”.
+Este capítulo encerra a Parte I, ligando os conceitos de clima, ambiente e saúde à qualificação dos dados e às fichas de indicadores discutidas no capítulo 5. As fichas permitem conhecer o significado, a origem e os limites de cada medida; a ASIS reúne essas medidas, o contexto territorial e a experiência de trabalhadores e comunidades para orientar vigilância, planejamento e avaliação. Os exemplos utilizam indicadores consolidados, apresentados nas partes II e III e documentados na Parte IV. O percurso começa por um problema de saúde ou uma necessidade de gestão, define a pergunta e retorna a ela depois da ação.
 
-```{mermaid}
-%%| label: fig-fluxo-indicador-decisao
-%%| fig-cap: "Fluxo rastreável do indicador à decisão"
-%%| fig-alt: "Fluxo parte da pergunta de gestão, seleciona indicador e fonte, analisa qualidade, interpreta o resultado, aplica regra de ação, registra a decisão e avalia o efeito."
-%%{init: {"htmlLabels": false, "flowchart": {"htmlLabels": false}}}%%
-flowchart TD
-  Q["Pergunta e decisão"] --> T["Território, população<br/>e período"]
-  T --> P["Perigo"]
-  P --> E["Exposição"]
-  E --> V["Vulnerabilidade"]
-  V --> F["Efeito em saúde"]
-  F --> R["Capacidade de resposta"]
-  R --> G["Regra de ação"]
-  G --> A["Ação, responsável,<br/>recurso e prazo"]
-  A --> M["Monitoramento e avaliação"]
-  M --> Q
-```
+## Análise de situação de saúde, clima e ambiente
+
+A ASIS é um processo de análise e síntese que caracteriza as condições de saúde de uma população, examina seus determinantes e identifica necessidades, prioridades e possibilidades de intervenção. Seu objeto inclui adoecimento, morte, condições de vida, proteção, acesso e resposta dos serviços. É contínua porque tanto a situação do território quanto as capacidades e as decisões públicas mudam [@brasil2015asis, p. 10–15].
+
+No livro *Curso análise de situação de saúde ambiental: ASISA-Queimadas*, organizado por Renata Gracie e Jessica Muzy Rodrigues, essa abordagem é aplicada às relações entre ambiente e saúde. O módulo 1 articula análise, interpretação, disseminação e respostas informadas por evidências, considerando os problemas da população e a participação dos atores envolvidos [@gracie2024asisa, p. 11–16]. Neste capítulo, a perspectiva ambiental da ASIS conecta os perigos climáticos e ambientais às formas de exposição, às desigualdades e às condições de cuidado.
+
+O livro *Saúde ambiental: guia básico para construção de indicadores* complementa esse percurso ao orientar a seleção de medidas relevantes e a explicitação de suas relações conceituais e limitações [@brasil2011saudeambiental, p. 81–83, 92–95]. Um indicador bem documentado oferece uma medida interpretável; a análise de situação estabelece o que ela significa naquele território, em conjunto com outras evidências, e quais decisões pode apoiar. As fontes e as fichas padronizadas são, portanto, parte da base técnica desse processo.
+
+A @fig-fluxo-indicador-decisao organiza o percurso adotado neste capítulo. O trabalho combina indicadores qualificados, conhecimento do território e escuta de moradores e trabalhadores. A interpretação produz uma síntese das necessidades e das desigualdades; a pactuação define prioridades e responsabilidades; o acompanhamento das respostas pode levar à revisão da pergunta e dos próprios dados.
+
+::: {.figure-with-source}
+
+![Análise de situação de saúde: do território à decisão e à revisão](../../assets/figures/arte-cap6-01-asis.svg){#fig-fluxo-indicador-decisao .lightbox width="100%" print-src="arte-cap6-01-asis-print.png" print-width="120mm" fig-alt="Uma aquarela mostra uma agente comunitária, uma moradora idosa e um trabalhador junto a uma unidade de saúde em bairro com casas, edifícios e rio. Ao lado, seis etapas ligam pergunta, evidências, interpretação, prioridades, ação e acompanhamento, com retorno ao início. Uma faixa indica participação e documentação em todo o processo."}
+
+[Fonte: Síntese didática própria a partir de Brasil e Universidade Federal de Goiás (2015, p. 10–15) e Gracie e Rodrigues (2024, p. 11–16). Cenas conceituais em território hipotético, sem dados observados. Ilustração: ferramenta integrada image_gen; composição e revisão: edição desta obra. Licença dos arquivos autorais: GPL-3.0; fontes citadas mantêm suas licenças. Prompts e originais preservados no repositório.]{.figure-source}
+
+:::
+
+<!-- ARTE CAP6-01: original assets/figures/arte-cap6-01-v1.png; prompt assets/figures/arte-cap6-01-v1.prompt.txt; composição e reprodução scripts/build_cap6_art.py; metadados assets/figures/arte-cap6-manifest.json. -->
+
+::: {.callout-note icon=false title="Conceito-chave: análise, produto e acompanhamento"}
+A ASIS é o processo que relaciona evidências, contexto e necessidades de saúde. Um perfil territorial, uma nota técnica ou um painel são produtos que podem apoiá-la. O monitoramento acompanha mudanças e entregas; a avaliação examina a implementação e os resultados das respostas. Esses trabalhos se articulam, mas a publicação de um painel, por si só, não assegura interpretação, participação ou decisão [@brasil2015asis, p. 10–15; @gracie2024asisa, p. 11–16; @cdc2024evaluation].
+:::
 
 ## Começar pela pergunta
 
-Uma pergunta operacional contém verbo, objeto, população, lugar e tempo. “Monitorar calor” é amplo demais. “Decidir até 12h se o município ativará visitas domiciliares e ampliará pontos de água para pessoas idosas que vivem sozinhas nos bairros sob alerta nas próximas 72 horas” orienta fontes, atualização e responsabilidades. O uso pretendido deve ser definido antes da seleção de medidas, porque descrição, detecção, preparação, resposta e avaliação exigem evidências e periodicidades distintas [@cdc2024evaluation].
+Uma pergunta operacional contém verbo, objeto, população, lugar e tempo. “Monitorar calor” é amplo demais. “Decidir até 12h se o município ativará visitas domiciliares e ampliará pontos de água para pessoas idosas que vivem sozinhas nos bairros sob alerta nas próximas 72 horas” orienta fontes, atualização e responsabilidades. O uso pretendido deve ser definido antes da seleção de medidas, porque descrição, detecção, preparação, resposta e avaliação exigem evidências e periodicidades distintas [@cdc2024evaluation; @brasil2011saudeambiental, p. 81–83].
 
 Perguntas comuns pertencem a funções diferentes:
 
@@ -59,7 +66,7 @@ Misturar funções leva a erros. Um mapa anual de vulnerabilidade apoia prepara�
 
 ## Seleção de um painel mínimo
 
-O painel mínimo deve cobrir as dimensões necessárias sem duplicar medidas que respondem à mesma pergunta. A estrutura a seguir articula a cadeia perigo--exposição--vulnerabilidade--efeito com a capacidade de resposta e retoma modelos de indicadores ambientais e de sistemas de saúde resilientes [@who2003environmentalindicators; @who2024resilienceindicators]:
+Na ASIS, o painel mínimo deve cobrir as dimensões necessárias à pergunta sem duplicar medidas. A estrutura a seguir organiza perigo, exposição, vulnerabilidade, efeitos e capacidade de resposta como dimensões relacionadas, a serem interpretadas no contexto territorial. Ela retoma modelos de indicadores ambientais e de sistemas de saúde resilientes [@who2003environmentalindicators; @who2024resilienceindicators]:
 
 ::: {.callout-note icon=false title="Dimensões para selecionar indicadores"}
 
@@ -71,7 +78,7 @@ O painel mínimo deve cobrir as dimensões necessárias sem duplicar medidas que
 
 :::
 
-Nem toda decisão precisa de um indicador de cada dimensão. Um alerta imediato pode usar perigo, exposição e capacidade. Uma avaliação de impacto pode exigir efeito, exposição e contrafactual. A omissão deve ser justificada pela pergunta, não pela conveniência dos dados.
+Essas dimensões não constituem uma sequência que, por si só, demonstre causalidade. Nem toda decisão precisa de um indicador de cada dimensão. Um alerta imediato pode usar perigo, exposição e capacidade. Uma avaliação de impacto pode exigir efeito, exposição e contrafactual. A omissão deve ser justificada pela pergunta, não pela conveniência dos dados.
 
 ### Critérios de escolha
 
@@ -88,7 +95,7 @@ Para cada candidato, registre:
 - Possibilidade de ação;
 - Custo de produção e manutenção.
 
-Indicadores consolidados não dispensam adequação local. Relevância, validade, comparabilidade, oportunidade, transparência e custo formam um conjunto de critérios, não uma propriedade única; a seleção deve documentar também limitações e revisões [@ripsa2026; @un2014statistics; @who2023dqa]. O WSDI (Índice de Duração de Períodos Quentes) usa referência climatológica e é valioso para comparação; um protocolo de alerta pode usar EHF (Fator de excesso de calor) ou outro índice validado e uma previsão. O indicador escolhido para caracterizar clima não precisa ser o mesmo usado para ativar uma equipe, mas a diferença deve ser explícita.
+Indicadores consolidados não dispensam adequação local. Relevância, validade, comparabilidade, oportunidade, transparência e custo formam um conjunto de critérios, não uma propriedade única; a seleção deve documentar também limitações e revisões [@ripsa2026; @un2014statistics; @who2023dqa; @brasil2011saudeambiental, p. 81–83]. O WSDI (Índice de Duração de Períodos Quentes) usa referência climatológica e é valioso para comparação; um protocolo de alerta pode usar EHF (Fator de excesso de calor) ou outro índice validado e uma previsão. O indicador escolhido para caracterizar clima não precisa ser o mesmo usado para ativar uma equipe, mas a diferença deve ser explícita.
 
 ::: {.callout-note icon=false title="Regra prática"}
 Se retirar um indicador não muda nenhuma decisão, prioridade, mensagem ou avaliação, ele provavelmente não pertence ao painel operacional.
@@ -96,7 +103,7 @@ Se retirar um indicador não muda nenhuma decisão, prioridade, mensagem ou aval
 
 ## Território, população e tempo
 
-Município, área de abrangência de unidade, bacia, setor censitário e célula de grade não são divisões equivalentes. O território da decisão deve corresponder à autoridade e à rede capaz de agir. O território da exposição deve corresponder ao fenômeno. Ambos podem exigir uma tabela de correspondência.
+Município, área de abrangência de unidade, bacia, setor censitário e célula de grade não são divisões equivalentes. O território da decisão deve corresponder à autoridade e à rede capaz de agir. O território da exposição deve corresponder ao fenômeno. Ambos podem exigir uma tabela de correspondência. A ASIS também considera como as pessoas vivem, trabalham, circulam e acessam cuidado: essas relações podem ultrapassar os limites administrativos [@gracie2024asisa, p. 11–16].
 
 Antes da análise, fixe:
 
@@ -160,26 +167,28 @@ Toda regra deve informar:
 
 Sem uma ação associada, cor é decoração. Sem autoridade, o limiar é apenas uma observação.
 
-## Análise de situação de saúde, clima e ambiente
+## Da leitura territorial à síntese de necessidades
 
-Uma análise de situação integra tendências e desigualdades, mas preserva a cadeia causal. Ela deve distinguir determinantes, exposições, resultados e capacidade, evitando tratar proximidade espacial ou temporal como prova de causalidade [@who2010sdhframework; @hernan2020causal]. Um roteiro compacto é:
+Depois de definir a pergunta, as medidas e os recortes, a equipe precisa interpretar a situação de saúde. Isso exige confrontar fontes, observar tendências, reconhecer desigualdades e discutir explicações plausíveis com quem conhece o território. Um roteiro para organizar essa leitura é:
 
-1. Descrever população, território e organização do SUS (Sistema Único de Saúde);
-2. Identificar perigos prioritários e sazonalidade;
-3. Quantificar exposição;
-4. Caracterizar condições de vulnerabilidade e proteção;
-5. Examinar desfechos e acesso aos serviços;
-6. Avaliar capacidade e interrupções;
-7. Selecionar problemas sobre os quais há ação pública;
-8. Pactuar metas, recursos e monitoramento.
+1. Descrever a população, as condições de vida e a organização do Sistema Único de Saúde (SUS);
+2. Identificar perigos climáticos e ambientais, sua sazonalidade e mudanças relevantes;
+3. Estimar quem e o que está exposto, explicitando as limitações dos dados;
+4. Examinar condições de vulnerabilidade, proteção e desigualdade entre grupos e lugares;
+5. Relacionar desfechos registrados às necessidades de cuidado e ao acesso aos serviços;
+6. Verificar capacidades, interrupções e lacunas da resposta pública;
+7. Discutir os achados com trabalhadores, gestores e comunidades, registrando divergências e informações ausentes;
+8. Sintetizar necessidades e problemas sobre os quais se podem pactuar prioridades, ações e acompanhamento.
 
-Mapas devem ser acompanhados por contagens, denominadores e séries. Valores absolutos dimensionam recursos; taxas e proporções favorecem comparação; percentis mostram posição relativa; limites normativos indicam conformidade. Um único mapa não cumpre todas essas funções.
+O roteiro aplica a orientação territorial e participativa do ASISA-Queimadas [@gracie2024asisa, p. 11–16]. Por exemplo, poucos atendimentos durante um episódio de calor podem coexistir com barreiras de acesso. Antes de interpretar o registro como baixa necessidade de cuidado, é preciso examinar cobertura, transporte, funcionamento das unidades e relatos das equipes e dos moradores. Esses relatos devem ter origem, período e forma de obtenção registrados, assim como os dados quantitativos. Divergências entre fontes são questões a investigar.
+
+A síntese deve distinguir achados observados, hipóteses explicativas e lacunas de informação. Determinantes, exposições, desfechos e capacidade de resposta precisam manter seus significados; proximidade espacial ou temporal não demonstra que uma exposição causou um desfecho [@who2010sdhframework; @hernan2020causal]. Reconhecer esse limite permite orientar ações proporcionais com a evidência disponível e formular análises específicas quando a pergunta exigir atribuição causal.
+
+Mapas devem ser acompanhados por contagens, denominadores e séries. Valores absolutos dimensionam recursos; taxas e proporções favorecem comparação; percentis mostram posição relativa; limites normativos indicam conformidade. Um único mapa não cumpre todas essas funções. A leitura conjunta deve resultar em uma síntese que informe qual problema foi identificado, quem é afetado, o que sustenta a interpretação, quais incertezas permanecem e que resposta pode ser discutida.
 
 ### Perfis municipais e estaduais
 
-Um perfil deve ser curto o suficiente para ser atualizado e detalhado o suficiente para sustentar ação. Uma arquitetura possível contém:
-
-IVS significa Índice de Vulnerabilidade Social.
+O perfil territorial é uma síntese datada da ASIS. Deve ser curto o suficiente para ser atualizado e detalhado o suficiente para sustentar ação, com vínculos para fontes, fichas e análises completas. A estrutura do @qua-perfil-territorial inclui condições de saúde e capacidade de resposta, terminando nas decisões a pactuar. IVS significa Índice de Vulnerabilidade Social.
 
 ::: {#qua-perfil-territorial}
 
@@ -188,7 +197,7 @@ IVS significa Índice de Vulnerabilidade Social.
 | Território e população | população, urbanização, mobilidade, rede e mudanças de limites |
 | Perigos | indicadores prioritários, sazonalidade, extremos e área |
 | Exposição e vulnerabilidade | pessoas expostas, IVS ou componentes locais, moradia e serviços |
-| Efeitos | contagens, taxas, excesso quando aplicável e qualidade |
+| Efeitos e necessidades de cuidado | contagens, taxas, excesso quando aplicável, acesso e limitações dos registros |
 | Capacidade | alertas, planos, água, energia, infraestrutura e continuidade |
 | Decisões | prioridades, ações, responsáveis, custos, prazos e indicadores de avaliação |
 
@@ -200,7 +209,7 @@ Perfis estaduais devem mostrar desigualdade municipal e organização regional. 
 
 ## Painéis e séries
 
-Um painel operacional deve responder rapidamente:
+O painel operacional acompanha as questões priorizadas na ASIS. Sua apresentação deve permitir chegar às definições e às fontes das medidas e responder rapidamente:
 
 - Qual é a situação;
 - Onde está;
@@ -216,35 +225,23 @@ Filtros não devem permitir combinações estatisticamente inválidas. Se pequen
 
 ### Monitoramento sazonal
 
-O calendário anual antecipa tarefas [@who2023framework; @cdc2024evaluation]:
+A análise de situação deve ser atualizada antes dos períodos de maior risco e sempre que mudanças relevantes no território ou nos serviços alterarem as necessidades de proteção. A @fig-calendario-sazonal organiza preparação, resposta e revisão em relação à ocorrência do perigo, mantendo a vigilância ao longo de todo o ciclo [@who2023framework; @cdc2024evaluation].
 
-```{mermaid}
-%%| label: fig-calendario-sazonal
-%%| fig-cap: "Exemplo de calendário adaptável de gestão sazonal"
-%%| fig-alt: "Cronograma anual relaciona preparação, monitoramento, resposta e avaliação a períodos sazonais definidos localmente."
-%%{init: {"htmlLabels": false, "flowchart": {"htmlLabels": false}}}%%
-gantt
-  title Ciclo anual de preparação, resposta e avaliação
-  dateFormat  YYYY-MM-DD
-  axisFormat  %b
-  section Preparação
-  Atualizar riscos e contatos      :a1, 2026-01-01, 90d
-  Corrigir infraestrutura crítica :a2, 2026-02-01, 150d
-  Exercitar planos                :a3, 2026-03-01, 90d
-  section Vigilância
-  Monitorar perigos sazonais      :b1, 2026-01-01, 365d
-  Qualificar saúde e capacidade   :b2, 2026-01-01, 365d
-  section Resposta
-  Ativar níveis conforme alerta   :c1, 2026-01-01, 365d
-  section Avaliação
-  Revisar eventos e correções     :d1, 2026-01-01, 365d
-```
+::: {.figure-with-source}
 
-As datas são ilustrativas; o ciclo deve seguir o clima, os vetores, os incêndios e a rede de cada território. Preparação realizada depois do início da estação é resposta tardia.
+![Preparar, responder e revisar com acompanhamento contínuo](../../assets/figures/arte-cap6-02-sazonal.svg){#fig-calendario-sazonal .lightbox width="100%" print-src="arte-cap6-02-sazonal-print.png" print-width="120mm" fig-alt="Três vinhetas em aquarela mostram preparação de uma unidade, oferta de água a uma pessoa idosa à sombra e revisão por profissionais. Blocos distinguem antes do período de maior risco, durante o episódio e depois dele. O fluxo retorna à preparação e uma faixa mantém vigilância e escuta em todas as fases, sem meses fixos."}
+
+[Fonte: Organização didática própria com base em WHO (2023) e CDC (2024). Cenas conceituais em território hipotético, sem dados observados. Ilustração: ferramenta integrada image_gen; composição e revisão: edição desta obra. Licença dos arquivos autorais: GPL-3.0; fontes citadas mantêm suas licenças. Prompts e originais preservados no repositório.]{.figure-source}
+
+:::
+
+<!-- ARTE CAP6-02: original assets/figures/arte-cap6-02-v1.png; prompt assets/figures/arte-cap6-02-v1.prompt.txt; composição e reprodução scripts/build_cap6_art.py; metadados assets/figures/arte-cap6-manifest.json. -->
+
+O calendário deve seguir o clima, os vetores, os incêndios e a rede de cada território. As fases podem se sobrepor, e eventos fora da época habitual também exigem resposta. A preparação inclui revisar quem está exposto e quais lacunas persistem; durante o episódio, acompanham-se perigo, necessidades e capacidade; depois, avaliam-se entregas e resultados para atualizar a ASIS e os planos. As setas representam essa organização do trabalho, sem fixar meses ou duração universal.
 
 ## Planejamento e orçamento
 
-Indicadores devem entrar nos instrumentos de planejamento com diagnóstico, meta, iniciativa, custo e responsabilidade. Metas sem orçamento tendem a permanecer documentais; orçamento sem indicador de entrega não permite avaliação. Uma cadeia explícita entre insumos, atividades, produtos, resultados e efeitos permite verificar tanto a implantação quanto a contribuição da intervenção [@cdc2024evaluation].
+As prioridades pactuadas a partir da ASIS devem entrar nos instrumentos de planejamento com diagnóstico, meta, iniciativa, custo e responsabilidade. A passagem à ação precisa manter explícitos a necessidade identificada, a população a alcançar e a razão da escolha da intervenção. Metas sem orçamento tendem a permanecer documentais; orçamento sem indicador de entrega não permite avaliação. Uma cadeia explícita entre insumos, atividades, produtos, resultados e efeitos permite verificar tanto a implantação quanto a contribuição da intervenção [@cdc2024evaluation].
 
 Uma ficha de ação pode conter:
 
@@ -252,7 +249,7 @@ Uma ficha de ação pode conter:
 
 | Campo | Pergunta |
 |---|---|
-| Problema | Que risco ou falha foi demonstrado? |
+| Problema | Que necessidade, risco ou falha foi identificado e com qual evidência? |
 | População | Quem deve se beneficiar? |
 | Intervenção | O que será entregue? |
 | Responsável | Quem executa e quem decide? |
@@ -271,7 +268,7 @@ Metas devem especificar numerador e denominador. “Ampliar planos para 90%” �
 
 ## Avaliação
 
-Monitoramento verifica se atividades e produtos ocorreram. Avaliação examina se contribuíram para o resultado. Uma intervenção pode ser entregue conforme planejado e não reduzir o risco; pode falhar na entrega e ainda assim coincidir com melhora por outras causas. Por isso, avaliação requer explicitar o modelo da intervenção, as perguntas, o contexto e os usos pretendidos, além de escolher um desenho compatível [@cdc2024evaluation].
+O monitoramento acompanha a evolução da situação de saúde, a execução das atividades e os produtos entregues. A avaliação examina a implementação, os resultados e a contribuição das respostas, conforme a pergunta e o desenho adotados. Uma intervenção pode ser entregue conforme planejado e não reduzir o risco; pode falhar na entrega e ainda assim coincidir com melhora por outras causas. Por isso, avaliação requer explicitar o modelo da intervenção, as perguntas, o contexto e os usos pretendidos, além de escolher um desenho compatível [@cdc2024evaluation].
 
 O desenho depende da intervenção:
 
@@ -283,6 +280,8 @@ O desenho depende da intervenção:
 - Análise de equidade e efeitos não desejados.
 
 Linha de base, grupo de comparação e desfechos devem ser definidos antes da implementação sempre que possível. Eventos extremos variam entre anos; comparar apenas o número de mortes de dois verões pode confundir intensidade do perigo e efeito da intervenção. Ajustar ou estratificar por exposição é essencial, e a interpretação causal deve considerar confundimento, seleção e erro de mensuração [@hernan2020causal].
+
+Os achados da avaliação retornam à ASIS: podem revelar necessidades não atendidas, grupos que ficaram sem acesso ou medidas que precisam ser revistas. Atualizar o diagnóstico e devolver às equipes os problemas encontrados nos registros também contribui para qualificar as fontes [@brasil2015asis, p. 10–15].
 
 ## Comunicação de risco e resultados
 
@@ -299,6 +298,8 @@ Comunicação pública precisa separar os diferentes estatutos da evidência e t
 Uma mensagem de alerta deve começar pelo perigo, local, período e ação. Detalhes metodológicos ficam acessíveis em camada complementar. Uma publicação analítica precisa fornecer métodos suficientes para reprodução.
 
 Não se deve comunicar “risco alto” sem explicar alto em relação a quê. Tampouco divulgar bairros como “vulneráveis” sem mostrar condições específicas, recursos existentes e responsabilidades públicas. Linguagem centrada em condições evita estigma e favorece ação.
+
+A devolutiva da ASIS deve permitir que trabalhadores e comunidades compreendam as prioridades, apontem problemas não representados e acompanhem as respostas pactuadas. Disponibilizar o painel é apenas uma parte dessa comunicação: a síntese precisa explicar os achados, as limitações e as razões das decisões [@gracie2024asisa, p. 11–16].
 
 Durante uma emergência, registre versões e horários. Quando a previsão mudar, atualize a orientação e explique a mudança. Incerteza não é motivo para silêncio; é parte da decisão e pode ser convertida em ações proporcionais e reversíveis.
 
@@ -324,7 +325,7 @@ Os estudos de caso aplicam essa arquitetura sem fixar limiares universais. Cada 
 
 ## Estudos de caso
 
-Os casos seguintes ilustram painéis mínimos. Os limiares operacionais precisam ser validados e pactuados localmente; não são produzidos pela simples soma dos indicadores. Índices compostos, quando usados, exigem modelo conceitual, normalização, ponderação, agregação e análise de sensibilidade transparentes [@oecd2008composite].
+Os casos seguintes são exemplos didáticos de aplicação da ASIS, sem apresentar resultados observados de um município. Cada painel deve ser lido em conjunto com as necessidades de saúde, as condições de acesso e a capacidade de resposta do território. Os limiares operacionais precisam ser validados e pactuados localmente; não são produzidos pela simples soma dos indicadores. Índices compostos, quando usados, exigem modelo conceitual, normalização, ponderação, agregação e análise de sensibilidade transparentes [@oecd2008composite].
 
 Para aprofundar as medidas usadas nos casos, consulte os capítulos de temperatura (@sec-temperatura), qualidade do ar (@sec-qualidade-ar), precipitação (@sec-precipitacao) e desastres (@sec-desastres). As dimensões de exposição e vulnerabilidade (@sec-exposicao-vulnerabilidade), efeitos em saúde (@sec-efeitos-saude) e capacidade de resposta (@sec-resposta) são desenvolvidas na Parte III. Nesta primeira leitura, os casos mostram como organizar a decisão; as definições e as fichas permitem depois examinar cada medida em detalhe.
 
@@ -333,6 +334,10 @@ Para aprofundar as medidas usadas nos casos, consulte os capítulos de temperatu
 [Decisão.]{.field-label}
 
 Ativar, escalonar e encerrar medidas de proteção durante calor perigoso, com antecedência suficiente para alcançar pessoas e serviços.
+
+[Leitura da situação.]{.field-label}
+
+Além de caracterizar o calor, a equipe deve examinar moradia, trabalho, disponibilidade de água e sombra, condições clínicas e acesso ao cuidado. A escuta das equipes e dos moradores ajuda a identificar barreiras às medidas previstas. O resultado esperado dessa análise é reconhecer onde e para quem a proteção precisa ser reforçada, com as incertezas registradas.
 
 [Painel mínimo.]{.field-label}
 
@@ -364,9 +369,13 @@ Comparar alcance das mensagens e ações, tempo de ativação, pessoas contatada
 
 ### Resposta à fumaça de incêndios
 
+O ASISA-Queimadas oferece exercícios de taxas de internação, mapas e séries temporais, além de uma nota técnica sobre o Maranhão que exemplifica sua interpretação conjunta para a vigilância [@gracie2024asisa, p. 149, 175–176, 237, 258–265].
+
 [Decisão.]{.field-label}
 
 Definir quando e onde intensificar vigilância, proteção de ambientes, orientação pública e capacidade assistencial durante episódios de fumaça.
+
+A leitura da situação relaciona a ocorrência de fumaça às condições de moradia e trabalho, à proteção disponível e ao acesso aos serviços. Relatos de dificuldade respiratória ou de barreiras ao cuidado complementam os registros assistenciais, sem substituir a medição ambiental ou demonstrar isoladamente a origem dos agravos.
 
 PM2,5 significa material particulado com diâmetro aerodinâmico igual ou inferior a 2,5 µm.
 
@@ -389,13 +398,15 @@ Rede de monitoramento, produto modelado e observação de satélite cumprem fun�
 
 Ações podem incluir mensagens sobre redução de exposição, proteção ocupacional, avaliação de ambientes internos, disponibilidade de locais com ar mais limpo, manutenção de filtros e ampliação da capacidade clínica. Recomendações precisam considerar custo, acesso e condição individual; máscaras e purificadores não podem ser a única resposta pública.
 
-Depois do episódio, revisar oportunidade do alerta, cobertura, falhas de monitoramento, concentração e duração, utilização dos serviços e desigualdades de acesso às medidas. Atribuição de internações à fumaça requer desenho analítico, não coincidência com mapas de fogo.
+Depois do episódio, revisar oportunidade do alerta, cobertura, falhas de monitoramento, concentração e duração, utilização dos serviços e desigualdades de acesso às medidas. Atribuição de internações à fumaça requer desenho analítico, não coincidência com mapas de fogo. A distinção entre compreender a situação territorial e demonstrar uma associação específica também orienta a introdução do ASISA-Queimadas [@gracie2024asisa, p. 11–14].
 
 ### Análise de risco de inundações
 
 [Decisão.]{.field-label}
 
 Priorizar preparação territorial e ativar resposta quando chuva, nível hidrológico e condições locais indicarem ameaça a pessoas, serviços e infraestrutura.
+
+A ASIS deve identificar também necessidades que podem permanecer após a retirada da água, como continuidade de tratamentos, água segura, moradia e apoio psicossocial. Registros de serviços, experiências de eventos anteriores e conhecimento dos moradores ajudam a reconhecer essas necessidades e a planejar seu acompanhamento.
 
 Rx1day significa maior precipitação em um dia.
 
@@ -424,24 +435,21 @@ Antes da estação, atualizar rotas, abrigos acessíveis, unidades na mancha, tr
 
 [Decisão.]{.field-label}
 
-Selecionar de três a cinco prioridades para o ciclo municipal de planejamento e preparar um conjunto anual e sazonal de ações.
+Pactuar um conjunto viável de prioridades para o ciclo municipal de planejamento e preparar ações anuais e sazonais, com responsabilidades e recursos definidos.
 
 O perfil não deve colocar um indicador por tema apenas para parecer completo. A seleção parte da magnitude, tendência, desigualdade, possibilidade de prevenção, capacidade local e obrigações legais. A desigualdade precisa aparecer tanto nos resultados quanto nos determinantes e na cobertura das respostas [@who2024sdhequity].
 
-```{mermaid}
-%%| label: fig-priorizacao-municipal
-%%| fig-cap: "Processo de priorização no perfil municipal"
-%%| fig-alt: "Ciclo transforma diagnóstico em problemas candidatos, aplica critérios públicos, pactua prioridades, vincula ações e orçamento e revisa resultados."
-%%{init: {"htmlLabels": false, "flowchart": {"htmlLabels": false}}}%%
-flowchart TD
-  D["Diagnóstico com indicadores consolidados"] --> P["Problemas candidatos"]
-  P --> C["Critérios públicos:<br/>magnitude, desigualdade,<br/>tendência, ação e custo"]
-  C --> S["Prioridades pactuadas"]
-  S --> A["Ações e orçamento"]
-  A --> I["Indicadores de produto e resultado"]
-  I --> R["Revisão anual e após eventos"]
-  R --> D
-```
+A @fig-priorizacao-municipal mostra como transformar a síntese territorial em escolhas justificadas. Critérios públicos orientam a discussão entre necessidades concorrentes; a decisão deve registrar as razões da escolha, as limitações e as demandas que continuarão em acompanhamento. A pontuação de indicadores, quando utilizada, apoia essa discussão, sem substituir a pactuação.
+
+::: {.figure-with-source}
+
+![Da síntese territorial às prioridades pactuadas](../../assets/figures/arte-cap6-03-prioridades.svg){#fig-priorizacao-municipal .lightbox width="100%" print-src="arte-cap6-03-prioridades-print.png" print-width="120mm" fig-alt="Uma aquarela representa moradores e profissionais reunidos em torno de um mapa esquemático. Ao lado, critérios de magnitude, tendência, desigualdade, prevenção e viabilidade orientam a pactuação de prioridades. O fluxo segue para ações, recursos e responsabilidades, acompanhamento e revisão. Os critérios não são apresentados como uma fórmula automática."}
+
+[Fonte: Síntese didática própria a partir de Brasil e Universidade Federal de Goiás (2015, p. 10–15), Gracie e Rodrigues (2024, p. 11–16) e CDC (2024). Cenas conceituais em território hipotético, sem dados observados. Ilustração: ferramenta integrada image_gen; composição e revisão: edição desta obra. Licença dos arquivos autorais: GPL-3.0; fontes citadas mantêm suas licenças. Prompts e originais preservados no repositório.]{.figure-source}
+
+:::
+
+<!-- ARTE CAP6-03: original assets/figures/arte-cap6-03-v1.png; prompt assets/figures/arte-cap6-03-v1.prompt.txt; composição e reprodução scripts/build_cap6_art.py; metadados assets/figures/arte-cap6-manifest.json. -->
 
 Um quadro final pode ter uma linha por prioridade:
 
@@ -461,7 +469,7 @@ Cada célula deve apontar para definição, fonte e documentação completas. O 
 
 ## Governança do processo
 
-Um fluxo sustentável requer princípios de independência técnica, transparência, documentação e acesso, combinados com responsabilidades definidas pelo uso dos dados [@un2014statistics; @wilkinson2016fair]:
+A continuidade da ASIS depende de integrar produção de informação, interpretação e decisão às rotinas dos serviços. A participação de trabalhadores e comunidades deve ocorrer desde a identificação dos problemas até a revisão das respostas, com devolutiva dos resultados. Um fluxo sustentável requer princípios de independência técnica, transparência, documentação e acesso, combinados com responsabilidades definidas pelo uso dos dados [@un2014statistics; @wilkinson2016fair]:
 
 - Comissão ou espaço de coordenação com mandato;
 - Responsáveis técnicos pelas fontes;
@@ -477,6 +485,6 @@ Decisões extraordinárias podem contrariar o limiar por informação não capta
 
 ## Síntese
 
-O percurso termina onde começou: uma pergunta concreta. Um indicador bem definido reduz ambiguidade; um painel mínimo organiza dimensões; uma regra de ação converte sinal em resposta; avaliação mostra o que funcionou. A qualidade do sistema não é medida pelo número de gráficos, mas pela capacidade de proteger pessoas, sustentar serviços e aprender.
+A análise de situação de saúde reúne indicadores qualificados, conhecimento do território e participação social para reconhecer necessidades, interpretar desigualdades e orientar decisões. As fichas sustentam a leitura das medidas; os perfis e painéis comunicam a síntese; as prioridades pactuadas orientam ações e recursos. Monitoramento e avaliação devolvem novas perguntas ao processo, permitindo rever fontes, explicações e respostas. Esse percurso dá continuidade aos fundamentos dos capítulos anteriores e liga a qualidade da informação à proteção das pessoas e à continuidade do cuidado.
 
-Esse roteiro completa os fundamentos e métodos da Parte I. A Parte II apresenta os fenômenos climáticos e ambientais, começando pelas condições térmicas no @sec-temperatura; a Parte III desenvolve os indicadores integrados de clima, ambiente e saúde. A Parte IV reúne suas fichas e fontes de dados. Ao consultar esses capítulos, retome a pergunta de gestão para selecionar as medidas adequadas e definir como seus resultados serão utilizados.
+Esse roteiro completa o percurso de fundamentos, métodos e decisão em saúde da Parte I. A Parte II apresenta os fenômenos climáticos e ambientais, começando pelas condições térmicas no @sec-temperatura; a Parte III examina exposição, vulnerabilidade, efeitos e resposta em saúde. A Parte IV reúne suas fichas e fontes de dados. Ao consultar esses capítulos, retome a pergunta de gestão para selecionar as medidas adequadas e definir como seus resultados serão utilizados.

@@ -10,7 +10,7 @@ chapter-opening:
   alt: "Panorama hipotético sem pessoas de uma bacia com encosta arborizada, área agrícola, rio no vale e bairro denso. Pequenos conjuntos de instrumentos ocupam terrenos abertos em cotas distintas, destacando diferenças de relevo, entorno e representatividade das observações."
 ---
 
-# Compatibilizando dados: espaço, tempo e qualidade {#sec-espaco-tempo}
+# Integração de dados: espaço, tempo e qualidade {#sec-espaco-tempo}
 
 No capítulo anterior, a pergunta central foi o que um dado ou indicador representa. Neste capítulo, o problema muda de escala: quando duas ou mais fontes podem ser combinadas sem que o significado original seja perdido? Essa questão aparece continuamente na interface clima, ambiente e saúde, porque as fontes raramente são produzidas para o mesmo lugar, o mesmo período ou a mesma população.
 
@@ -43,6 +43,8 @@ Escala de análise
 :::
 
 Uma estação meteorológica, por exemplo, possui uma coordenada, mas sua observação é feita em um ponto e sob condições específicas de instalação. Uma célula de grade de 10 km possui uma localização e uma dimensão, mas o valor pode resultar de um modelo cuja influência espacial ultrapassa o tamanho nominal da célula. Uma taxa municipal, por sua vez, não representa um ponto: ela resume eventos e população dentro de um limite administrativo. Barcellos e Bastos mostram que escolher escala e objeto de análise antecede a integração das bases e condiciona a interpretação dos resultados ambientais e sanitários [@barcellos1996geoprocessamento].
+
+O módulo 2 do ASISA-Queimadas relaciona a escolha das escalas e unidades de análise às diferentes esferas da vigilância [@gracie2024asisa, p. 79–80].
 
 A @fig-suporte-localizacao resume essa distinção em vista vertical, como um mapa. Estação, residência, ruas e rio ocupam posições idênticas nos três painéis; mudam apenas as camadas que indicam localização, suporte e unidade de análise. Compartilhar uma região do mapa não torna esses suportes equivalentes. A paisagem é hipotética e não possui escala cartográfica.
 
@@ -403,6 +405,8 @@ A completude também faz parte da agregação. Uma média diária calculada a pa
 ### Defasagens devem ter significado
 
 Uma condição ambiental e um efeito sobre a saúde nem sempre aparecem no mesmo momento. Alguns efeitos podem ocorrer no mesmo dia; outros surgem depois de horas, dias ou períodos ainda mais longos. A distância temporal plausível depende do processo que está sendo estudado.
+
+O guia de saúde ambiental também alerta que a latência e as diferenças entre local de residência e de exposição podem dificultar a associação entre indicadores ambientais e de efeitos [@brasil2011saudeambiental, p. 120].
 
 Essa distância temporal costuma ser chamada de defasagem. Sua escolha deve partir do mecanismo e da pergunta, não da busca pela associação estatisticamente mais forte. Para explicar um desfecho no dia analisado, as exposições candidatas pertencem ao mesmo dia e aos dias anteriores, conforme o mecanismo. Se a análise parte do dia da exposição, são os desfechos posteriores que precisam ser acompanhados. Trocar essas referências pode introduzir informação futura indevida. Quando houver mais de uma janela plausível, elas podem ser comparadas em análises de sensibilidade. Os métodos epidemiológicos para estimar relações defasadas serão retomados no @sec-efeitos-saude [@hernan2020causal; @gasparrini2010dlnm].
 

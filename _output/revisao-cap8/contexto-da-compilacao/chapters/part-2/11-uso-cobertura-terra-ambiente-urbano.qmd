@@ -1,0 +1,211 @@
+---
+aliases:
+  - /chapters/part-2/09-uso-cobertura-terra-ambiente-urbano.html
+---
+
+# Uso e cobertura da terra, vegetação e ambiente urbano {#sec-uso-terra}
+
+::: {.callout-note icon=false title="Conceito-chave: uso e cobertura da terra"}
+Uso e cobertura da terra organizam a relação entre sociedade, ecossistemas e ambiente construído. Cobertura descreve o que recobre fisicamente a superfície — vegetação, água, solo exposto ou material impermeável. Uso descreve função e atividade — habitação, agricultura, conservação, indústria ou recreação. Uma mesma cobertura pode sustentar usos diferentes; um uso pode reunir várias coberturas [@who2016greenspace; @ipcc2022saude].
+
+:::
+
+Para saúde pública, essas características influenciam calor, ar, água, ruído, mobilidade, alimento, vetores, contato com biodiversidade, atividade física, convívio e exposição ocupacional. A relação não é automaticamente benéfica ou prejudicial: depende da configuração, manejo, acesso e contexto [@who2016greenspace; @ipcc2022saude].
+
+```{mermaid}
+%%| label: fig-terra-saude
+%%| fig-cap: "Caminhos entre território e saúde"
+%%| fig-alt: "Mudanças de uso e cobertura da terra alteram calor, água, ar, ecologia e acesso a espaços, que interagem com população e proteção antes de afetar a saúde."
+%%{init: {"htmlLabels": false, "flowchart": {"htmlLabels": false}}}%%
+flowchart TD
+  L[Uso e cobertura da terra] --> A["Processos ambientais<br/>microclima, ar, água, solo,<br/>vetores e reservatórios"]
+  L --> T["Processos sociais e territoriais<br/>mobilidade, atividade, contato social,<br/>trabalho e meios de vida"]
+  A --> S[Saúde]
+  T --> S
+  I[Desigualdades, regulação e infraestrutura] --> S
+```
+
+## Transformações do território e mecanismos de exposição
+
+Mapas de uso e cobertura são classificações produzidas a partir de imagens, regras, treinamento e validação. A classe não é observação direta infalível. Resolução, legenda, acurácia, nuvens e ano condicionam a análise [@iso2023geoquality].
+
+Mudança de classe precisa ser calculada sobre produtos compatíveis. Comparar mapas de anos diferentes com sensores, legendas ou algoritmos distintos pode criar transições artificiais. Matrizes de mudança ajudam a separar perda, ganho e permanência.
+
+
+Vegetação natural regula água, energia e solo, sustenta biodiversidade e meios de vida. Perda e degradação podem alterar fumaça, poeira, temperatura, segurança hídrica e interfaces entre pessoas, animais e vetores [@ipcc2022saude].
+
+Desmatamento é uma transição definida por sistema de monitoramento. Perda de cobertura arbórea, corte raso, degradação, fogo e conversão de uso não são sinônimos. Uma ficha só deve usar o indicador oficial de um sistema concreto, com bioma, área mínima, período e regra de confirmação.
+
+Para saúde, a proximidade temporal e espacial entre mudança da terra e desfecho precisa ser justificada. Um município com grande área desmatada pode concentrar a mudança longe da população; trabalhadores móveis podem estar expostos fora do domicílio.
+
+
+Expansão altera paisagem, trabalho, circulação de pessoas, água, uso de agrotóxicos, fogo e contato com animais. A classe “agropecuária” não mede intensidade de insumos, condições laborais ou contaminação. Essas vias exigem dados próprios [@ipcc2022saude].
+
+Monocultura, pastagem, mosaico, irrigação e produção familiar apresentam configurações distintas. Agregar todas em uma categoria pode ser adequado ao balanço territorial, mas inadequado à epidemiologia.
+
+
+Urbanização concentra população, serviços e oportunidades, mas também superfícies impermeáveis, emissões, ruído e desigualdades. Percentual de área urbana, densidade construída e população não representam a mesma coisa [@who2016greenspace; @un2026sdg1171].
+
+Impermeabilização reduz infiltração, eleva escoamento e modifica balanço térmico. Sua relação com alagamento depende de drenagem, declividade, chuva e conexão hidrológica; sua relação com calor depende de materiais, sombra, umidade, geometria e ventilação [@jin2012uhi; @who2016greenspace].
+
+## Áreas verdes e arborização
+
+Espaços verdes podem apoiar atividade física, convívio, restauração psicológica, conforto térmico e redução de ruído. A OMS (Organização Mundial da Saúde) sintetiza esses caminhos e propõe indicadores de disponibilidade e acessibilidade [@who2016greenspace].
+
+“Verde” pode ser medido por:
+
+- NDVI (Índice de Vegetação por Diferença Normalizada) ou outro índice espectral;
+- Percentual de cobertura vegetal;
+- Cobertura de copa;
+- Área de parques e espaços públicos;
+- Distância ou tempo até um espaço;
+- Visibilidade no nível da rua;
+- Qualidade, segurança, manutenção e uso.
+
+Essas medidas não são substitutas. NDVI detecta vegetação inclusive em propriedade privada e áreas inacessíveis. Um parque cadastrado pode ter pouca vegetação. Cobertura de copa descreve sombra potencial, não acesso.
+
+NDVI é a medida mais frequente em epidemiologia de verdor residencial e foi usada em meta-análise de coortes sobre mortalidade [@rojasrueda2019greenspace]. A escolha da área de entorno — 100, 300, 500 ou 1.000 m — altera a exposição e deve anteceder a análise. Não existe ponto de corte universal de NDVI “saudável”.
+
+O ODS (Objetivo de Desenvolvimento Sustentável) 11.7.1 reúne duas séries complementares. A primeira mede a parcela da área construída da cidade destinada a espaços públicos, somando espaços públicos abertos verificados e áreas destinadas a ruas. A segunda mede a população com acesso conveniente a espaços públicos abertos por percurso caminhável de até 400 m e deve ser desagregada por sexo, idade e deficiência. As duas séries não devem ser fundidas [@un2026sdg1171]. A proposta de proximidade a espaço verde de pelo menos 1 ha em até 300 m é um indicador diferente, apresentado pela OMS Europa, e não uma garantia de benefício individual.
+
+## Ilhas de calor urbanas
+
+Ilha de calor é o contraste térmico entre área urbana e referência não urbana. Pode ser atmosférica, medida pela temperatura do ar, ou de superfície, medida por temperatura radiométrica. As duas respondem de maneira distinta ao horário e aos materiais [@jin2012uhi].
+
+Intensidade tradicional é diferença entre urbano e rural. A referência determina o resultado: altitude, vegetação, solo, água e distância precisam ser controlados. Um par de estações inadequado pode atribuir ao urbano uma diferença topográfica.
+
+Temperatura da superfície é útil para identificar materiais e heterogeneidade, mas pode divergir da temperatura do ar experimentada por pessoas. Imagens de tarde sob céu limpo tendem a destacar telhados e pavimento; o risco sanitário noturno depende de retenção de calor e condições internas.
+
+O índice SUHII (Intensidade da ilha de calor urbana de superfície) baseado em superfície permite comparação quando sensor, horário, estação e referência são harmonizados [@jin2012uhi]. Para saúde, deve ser combinado com temperatura do ar, população, moradia e vulnerabilidades.
+
+## Fragmentação, vetores e zoonoses
+
+Fragmentação divide habitat em manchas e altera bordas, conectividade e composição de espécies. Métricas incluem número, área, densidade de borda e conectividade. Seus valores dependem da resolução e da classe de interesse.
+
+Não há direção universal entre biodiversidade e doença. Mudanças podem favorecer alguns vetores ou reservatórios, reduzir predadores, modificar contato humano ou deslocar espécies. A inferência exige agente, vetor, hospedeiro, comportamento e escala [@ipcc2022saude].
+
+
+Ambiente urbano influencia saúde por múltiplas exposições simultâneas. Calor, ar, ruído, saneamento, mobilidade, moradia e verde se distribuem de modo desigual. Um índice composto pode ocultar qual intervenção é necessária.
+
+Para vetores, cobertura da terra é contexto. Dengue depende de recipientes, água, temperatura, mobilidade, imunidade e controle. Malária, leishmaniose e zoonoses têm ecologias distintas. Usar “percentual de vegetação” como indicador genérico de risco vetorial é tecnicamente inadequado.
+
+Indicadores ambientais podem apoiar estratificação quando sua relação é validada para doença e território. A unidade espacial precisa evitar falácia ecológica: exposição média do bairro não descreve cada morador.
+
+## Benefícios, riscos e desigualdades na saúde
+
+
+Menos vegetação e mais superfícies impermeáveis podem aumentar temperatura, enquanto árvores oferecem sombra e evapotranspiração. Vegetação também pode reduzir ou redistribuir poluentes conforme espécie e geometria urbana. Espaços acessíveis favorecem atividade física quando seguros, conectados e adequados.
+
+
+Contato com natureza pode apoiar restauração, reduzir estresse e favorecer interação social. Qualidade, segurança, iluminação e pertencimento modificam uso [@who2016greenspace; @rojasrueda2019greenspace]. Implantar área verde sem enfrentar deslocamento e valorização excludente pode produzir “gentrificação verde”.
+
+
+Espécies alergênicas, pesticidas, galhos, raízes, iluminação insuficiente e manutenção inadequada podem gerar riscos. A avaliação deve considerar benefícios e efeitos adversos, sem reduzir planejamento a maximizar NDVI.
+
+
+Planejamento territorial é intervenção de longo prazo. Saúde pode contribuir indicando áreas de maior carga, populações subatendidas, rotas a serviços e necessidades de resiliência. Ambiente e urbanismo detêm instrumentos sobre zoneamento, arborização, habitação, mobilidade e espaços públicos.
+
+Unidades de saúde também são parte da paisagem. Sombra, permeabilidade, áreas de espera, acesso caminhável e proteção térmica podem reduzir exposição e apoiar continuidade. Indicadores devem ser ligados a projetos, orçamento, manutenção e avaliação.
+
+Transformações territoriais afetam saúde por caminhos físicos e sociais. Alterar vegetação e impermeabilização modifica balanço de energia, água, solo e habitats; alterar uso e acesso modifica mobilidade, trabalho, alimento, convivência e distribuição de recursos. O mesmo mapa pode conter ambos os processos, mas a interpretação precisa declarar qual caminho está sendo testado [@ipcc2022saude; @who2016greenspace].
+
+A medida de exposição deve corresponder ao caminho. NDVI aproxima presença e vigor de vegetação; cobertura de copa aproxima sombra potencial; distância em rede aproxima acesso; área pública informa oferta; temperatura de superfície caracteriza materiais; impermeabilização aproxima escoamento e armazenamento de calor. Nenhuma medida representa simultaneamente quantidade, qualidade, acesso, uso e benefício. Um índice composto pode resumir prioridades, mas deve conservar os componentes para que a intervenção permaneça identificável.
+
+::: {.callout-note icon=false title="Conceito-chave: disponibilidade, acessibilidade e uso"}
+
+Disponibilidade descreve a existência ou quantidade de um recurso no território. Acessibilidade incorpora entrada, distância, rota, barreiras e horário. Uso descreve a interação efetiva das pessoas com o recurso. Um parque cadastrado pode estar disponível e ser inacessível; um espaço acessível pode não ser usado por insegurança, inadequação ou conflito; vegetação privada pode elevar NDVI sem constituir espaço público.
+
+:::
+
+A escolha da vizinhança espacial é substantiva. Área circular de entorno, rede viária, setor censitário e bacia visual representam relações diferentes. O endereço residencial pode ser apropriado para exposição doméstica e insuficiente para trabalho, escola ou deslocamento. Testar vários raios e publicar apenas o mais associado produz seleção analítica; as distâncias devem decorrer do mecanismo e ser examinadas por sensibilidade [@rojasrueda2019greenspace; @hernan2020causal].
+
+Intervenções verdes exigem linha de base e teoria de mudança. Plantio não é copa estabelecida; parque entregue não é acesso; redução de temperatura de superfície não garante redução de calor interno; valorização urbana pode deslocar moradores e redistribuir benefícios. Avaliar processo, manutenção, uso, conforto, saúde e distribuição permite distinguir implementação incompleta de hipótese inadequada. Participação local ajuda a identificar barreiras e usos que a imagem não registra [@who2016greenspace; @who2024sdhequity].
+
+Para vetores e zoonoses, a paisagem é contexto, não causa genérica. Fragmentação, água, temperatura, hospedeiros, mobilidade e controle interagem de modo específico para cada agente. Uma associação entre vegetação e casos pode mudar conforme escala, estação e comportamento. O indicador ambiental deve ser ligado a hipótese ecológica e a vigilância correspondente, sem transformar “mais verde” ou “mais fragmentado” em direção universal de risco [@ipcc2022saude].
+
+Na gestão, o produto final deve combinar mapa e carteira de ações. Cada área prioritária precisa indicar problema mensurado, população, intervenção possível, órgão responsável, manutenção, prazo e resultado esperado. Essa estrutura evita que o diagnóstico termine em mera ordenação territorial e permite avaliar se a transformação ambiental produziu benefício e equidade.
+
+## Fontes, seleção e principais indicadores
+
+O [MapBiomas](../../backmatter/indice-fontes.qmd#mapbiomas) oferece coleções de uso e cobertura com legendas e versões específicas. O [Landsat](../../backmatter/indice-fontes.qmd#landsat) fornece reflectância e temperatura da superfície para índices e análises térmicas. O [IBGE (Instituto Brasileiro de Geografia e Estatística)](../../backmatter/indice-fontes.qmd#ibge) provê população, malhas e informações urbanas.
+
+Cadastros municipais são necessários para propriedade, acesso, entradas, calçadas, equipamentos e manutenção. Imagem não revela sozinha se um espaço é público, seguro ou acessível.
+
+
+Produtos de cobertura da terra precisam de coleção, legenda, sensor, resolução, período e acurácia identificados. Classes com o mesmo nome podem mudar de definição entre coleções. Análises de transição devem usar produtos compatíveis ou harmonização documentada; caso contrário, diferença metodológica pode aparecer como mudança territorial [@iso2023geoquality].
+
+Índices espectrais e temperatura de superfície exigem cenas e composições comparáveis. Nuvem, sazonalidade, horário, correção atmosférica e resolução alteram o resultado. Máximo anual, mediana sazonal e cena única representam condições diferentes. Para exposição em saúde, a escolha deve coincidir com período, rotina e mecanismo plausível.
+
+Cadastros municipais acrescentam atributos que a imagem não observa: propriedade, entrada, acessibilidade, iluminação, manutenção e equipamentos. Censo e grades populacionais acrescentam distribuição residencial. Rede viária permite medir percurso. A integração deve registrar data e evitar assumir que recursos cadastrados estavam disponíveis durante todo o período.
+
+Em epidemiologia de espaços verdes, NDVI residencial é a medida mais difundida; proximidade, percentual de verde, parques, cobertura de copa e visibilidade também são usados. Em planejamento, ODS 11.7.1 e acesso a espaço verde representam oferta pública. Para calor urbano, intensidade da ilha de superfície caracteriza contraste térmico, com as ressalvas sobre exposição humana.
+
+ONU-Habitat é o Programa das Nações Unidas para os Assentamentos Humanos.
+
+::: {#qua-indicadores-urbano}
+
+| Indicador | Base metodológica | Uso em saúde pública | Cuidado de interpretação |
+|---|---|---|---|
+| NDVI residencial médio | epidemiologia de verdor e mortalidade | exposição residencial e desigualdade | não mede acesso, qualidade ou uso |
+| ODS 11.7.1 | ONU-Habitat/ODS | oferta territorial de espaço público e acesso populacional a até 400 m caminháveis | apresentar separadamente as duas séries; espaço aberto não é necessariamente verde |
+| População a até 300 m de verde ≥1 ha | ferramenta OMS Europa | proximidade e planejamento | depende de rede, entrada e qualidade |
+| SUHII | climatologia urbana por sensoriamento | heterogeneidade térmica e mitigação | superfície não é temperatura do ar |
+| Cobertura de copa | inventários urbanos e sensoriamento | sombra e arborização | método e limiar de copa variam |
+| Percentual impermeável | sensoriamento e cadastro | escoamento e calor | não representa impacto sem contexto |
+| Métricas de fragmentação | ecologia da paisagem | estudos de vetores e zoonoses específicos | não há risco sanitário genérico |
+
+Indicadores de vegetação e ambiente urbano usados em saúde pública
+
+:::
+
+As fichas cobrem medidas com especificação consolidada. Cobertura de copa, impermeabilização e fragmentação devem ser documentadas quando um produto e um protocolo concretos forem adotados; não se propõem versões genéricas.
+
+## Protocolo de cálculo e disponibilidade
+
+| Ficha | Rótulo | Especificação adotada |
+|---|---|---|
+| [AMB-VEG-01](../../chapters/part-4/20-fichas-uso-cobertura-terra-ambiente-urbano.qmd#sec-amb-veg-01) | Calculável com dados abertos | Landsat C2 L2; mediana anual; entorno de 300 m de centros populacionais GHS-POP |
+| [AMB-URB-01](../../chapters/part-4/20-fichas-uso-cobertura-terra-ambiente-urbano.qmd#sec-amb-urb-01) | Depende de dados locais | Cadastro datado de espaços e ruas públicos; área e acesso de 400 m publicados separadamente |
+| [AMB-URB-02](../../chapters/part-4/20-fichas-uso-cobertura-terra-ambiente-urbano.qmd#sec-amb-urb-02) | Depende de dados locais | Verde público contínuo≥1 ha; proximidade linear≤300 m |
+| [AMB-URB-03](../../chapters/part-4/20-fichas-uso-cobertura-terra-ambiente-urbano.qmd#sec-amb-urb-03) | Calculável com dados abertos | YCEO v4, 2003–2018; SUHII diurna e noturna separadas |
+
+O NDVI passa a ser denominado “do entorno residencial estimado em grade”: o centro de uma célula populacional não é um endereço residencial observado. O protocolo fixa sensor/produto, escala de reflectância, máscaras, composição anual, raio e cobertura mínima. Vegetação detectada não prova acesso público.
+
+As duas medidas de espaço público mantêm a dependência local. A adaptação municipal usa a interseção com centros urbanos GHS-SMOD 2020, classe 30, e informa não aplicação onde esse recorte não existe. Na ficha AMB-URB-01, a proporção territorial de espaços e ruas e a proporção populacional com percurso de 400 m são saídas distintas. Na AMB-URB-02, a variante é de distância linear ao espaço verde; ela não deve ser confundida com distância caminhável até uma entrada.
+
+A ilha de calor de superfície usa um produto histórico fechado, com referência térmica definida pelos produtores. O período 2003–2018 e a cobertura dos aglomerados são limites efetivos da série escolhida; não serão estendidos por troca silenciosa de sensor ou de entorno rural [@yceo2026uhi].
+
+`<span id="sec-amb-veg-01"></span>`{=html}
+Consulte a [ficha AMB-VEG-01 — NDVI do entorno residencial estimado — 300 m](../../chapters/part-4/20-fichas-uso-cobertura-terra-ambiente-urbano.qmd#sec-amb-veg-01), na Parte IV`~(p. #ref(<sec-amb-veg-01>, form: "page", supplement: none))`{=typst}.
+
+`<span id="sec-amb-urb-01"></span>`{=html}
+Consulte a [ficha AMB-URB-01 — Espaço público aberto — adaptação do ODS 11.7.1](../../chapters/part-4/20-fichas-uso-cobertura-terra-ambiente-urbano.qmd#sec-amb-urb-01), na Parte IV`~(p. #ref(<sec-amb-urb-01>, form: "page", supplement: none))`{=typst}.
+
+`<span id="sec-amb-urb-02"></span>`{=html}
+Consulte a [ficha AMB-URB-02 — Proximidade de verde público — 300 m lineares](../../chapters/part-4/20-fichas-uso-cobertura-terra-ambiente-urbano.qmd#sec-amb-urb-02), na Parte IV`~(p. #ref(<sec-amb-urb-02>, form: "page", supplement: none))`{=typst}.
+
+`<span id="sec-amb-urb-03"></span>`{=html}
+Consulte a [ficha AMB-URB-03 — SUHII anual — YCEO v4](../../chapters/part-4/20-fichas-uso-cobertura-terra-ambiente-urbano.qmd#sec-amb-urb-03), na Parte IV`~(p. #ref(<sec-amb-urb-03>, form: "page", supplement: none))`{=typst}.
+
+## Aplicação na gestão
+
+Uma análise municipal pode começar com NDVI, espaços públicos, acesso e SUHII, mas precisa acrescentar população, moradia, renda, idade, mobilidade e equipamentos. Áreas prioritárias são aquelas em que déficit ambiental coincide com maior exposição e menor capacidade de proteção.
+
+Avaliar intervenção exige linha de base e comparação: área plantada não é copa formada; parque entregue não é parque usado; redução de LST (Temperatura da superfície terrestre) em uma cena não garante redução de exposição. Registre manutenção, sobrevivência, acesso, percepção e resultados distributivos.
+
+```{mermaid}
+%%| label: fig-camadas-urbanas
+%%| fig-cap: "Camadas complementares para analisar ambiente urbano e saúde"
+%%| fig-alt: "NDVI, espaços verdes, temperatura de superfície e população convergem para uma síntese territorial que orienta prioridades, intervenções e avaliação distributiva."
+%%{init: {"htmlLabels": false, "flowchart": {"htmlLabels": false}}}%%
+flowchart TD
+  N["NDVI e cobertura vegetal:<br/>presença e vigor da vegetação"] --> I["Síntese territorial<br/>orientada pela pergunta"]
+  V["Espaços verdes e acesso:<br/>oferta pública e proximidade"] --> I
+  T["Temperatura de superfície:<br/>padrão térmico dos materiais"] --> I
+  P["População e grupos:<br/>distribuição residencial"] --> I
+  I --> A["Prioridades, intervenção<br/>e avaliação distributiva"]
+```
+
+## Síntese
+
+Uso e cobertura alteram caminhos de exposição, mas não constituem risco sanitário por si. NDVI, as duas séries do ODS 11.7.1, acesso próximo ao verde e SUHII são indicadores consolidados para dimensões específicas. Planejamento orientado à saúde deve combinar quantidade, distribuição, qualidade, acesso, população e avaliação de intervenções.

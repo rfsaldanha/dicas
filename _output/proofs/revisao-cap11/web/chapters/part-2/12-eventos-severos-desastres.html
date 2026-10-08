@@ -1,0 +1,1590 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Guia técnico sobre conceitos, dados e indicadores de clima e ambiente aplicados à vigilância e à gestão em saúde pública.">
+
+<title>12&nbsp; Eventos meteorológicos severos e desastres – Dados e Indicadores de Clima e Ambiente para a Saúde</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 1em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../chapters/part-3/13-exposicao-vulnerabilidade.html" rel="next">
+<link href="../../chapters/part-2/11-uso-cobertura-terra-ambiente-urbano.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-bb162014f31ff550f3668977ab0f7733.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-fdd2e9c9119fd81cafe9a82057eefc34.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-bb162014f31ff550f3668977ab0f7733.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Nenhum resultado",
+    "search-matching-documents-text": "documentos correspondentes",
+    "search-copy-link-title": "Copiar link para a busca",
+    "search-hide-matches-text": "Esconder correspondências adicionais",
+    "search-more-match-text": "mais correspondência neste documento",
+    "search-more-matches-text": "mais correspondências neste documento",
+    "search-clear-button-title": "Limpar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Procurar"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles/web/styles.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/part-2/07-temperatura-condicoes-termicas.html">Parte II — Dados e indicadores temáticos</a></li><li class="breadcrumb-item"><a href="../../chapters/part-2/12-eventos-severos-desastres.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Eventos meteorológicos severos e desastres</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Procurar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">Dados e Indicadores de Clima e Ambiente para a Saúde</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/rfsaldanha/dicas" title="Código fonte" class="quarto-navigation-tool px-1" aria-label="Código fonte"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo escuro"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Procurar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bem-vindo</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/ficha-tecnica.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ficha técnica</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/apresentacao.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Apresentação</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/prefacio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prefácio do autor</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/agradecimentos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Agradecimentos</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/siglas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lista de siglas</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/lista-figuras.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lista de figuras</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/lista-tabelas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lista de quadros e tabelas</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/sumario.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sumário</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/como-usar.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Como utilizar este livro</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Parte I — Fundamentos e métodos</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/01-clima-ambiente-saude.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Clima, ambiente e saúde pública</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/02-mudanca-climatica-resposta-sus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Mudança climática, planejamento e resposta do SUS</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/03-dados-variaveis-indices-indicadores.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Dos dados aos indicadores: como representar clima, ambiente e saúde</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/04-espaco-tempo-qualidade.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Compatibilizando dados: espaço, tempo e qualidade</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/05-fontes-fichas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Fontes de dados e fichas de indicadores</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/06-indicador-decisao.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Do indicador à decisão pública</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Parte II — Dados e indicadores temáticos</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/07-temperatura-condicoes-termicas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Temperatura e condições térmicas</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/08-precipitacao-secas-eventos-hidrologicos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Precipitação, secas e eventos hidrológicos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/09-qualidade-ar-queimadas-fumaca.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Qualidade do ar, queimadas e fumaça</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/10-agua-saneamento-qualidade-ambiental.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Água, saneamento e qualidade ambiental</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/11-uso-cobertura-terra-ambiente-urbano.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Uso e cobertura da terra, vegetação e ambiente urbano</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/12-eventos-severos-desastres.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Eventos meteorológicos severos e desastres</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Parte III — Indicadores integrados de clima, ambiente e saúde</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-3/13-exposicao-vulnerabilidade.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Exposição e vulnerabilidade socioambiental</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-3/14-efeitos-saude.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Efeitos do clima e do ambiente sobre a saúde</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-3/15-resposta-adaptacao-resiliencia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Capacidade de resposta, adaptação e resiliência</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Parte IV — Fichas de indicadores e fontes de dados</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/lista-fichas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lista de fichas por código e capítulo</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/indice-indicadores.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Índice alfabético de indicadores</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/16-fichas-temperatura-condicoes-termicas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Fichas — Temperatura e condições térmicas</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/17-fichas-precipitacao-secas-eventos-hidrologicos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Fichas — Precipitação, secas e eventos hidrológicos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/18-fichas-qualidade-ar-queimadas-fumaca.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Fichas — Qualidade do ar, queimadas e fumaça</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Fichas — Água, saneamento e qualidade ambiental</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/20-fichas-uso-cobertura-terra-ambiente-urbano.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Fichas — Uso e cobertura da terra, vegetação e ambiente urbano</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/21-fichas-eventos-severos-desastres.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Fichas — Eventos severos e desastres</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/22-fichas-exposicao-vulnerabilidade.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Fichas — Exposição e vulnerabilidade socioambiental</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/23-fichas-efeitos-saude.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Fichas — Efeitos do clima e do ambiente sobre a saúde</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/24-fichas-resposta-adaptacao-resiliencia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Fichas — Capacidade de resposta, adaptação e resiliência</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/indice-fontes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Catálogo de fontes de dados</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/glossario.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Glossário</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/referencias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Referências</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Apêndices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/apendice-metodologico.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Apêndice metodológico</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/apendice-estacoes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Estações meteorológicas e de qualidade do ar</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Índice</h2>
+   
+  <ul>
+  <li><a href="#perigos-meteorológicos-de-início-rápido" id="toc-perigos-meteorológicos-de-início-rápido" class="nav-link active" data-scroll-target="#perigos-meteorológicos-de-início-rápido"><span class="header-section-number">12.1</span> Perigos meteorológicos de início rápido</a></li>
+  <li><a href="#conceitos-de-desastre-e-risco" id="toc-conceitos-de-desastre-e-risco" class="nav-link" data-scroll-target="#conceitos-de-desastre-e-risco"><span class="header-section-number">12.2</span> Conceitos de desastre e risco</a></li>
+  <li><a href="#danos-humanos-e-materiais" id="toc-danos-humanos-e-materiais" class="nav-link" data-scroll-target="#danos-humanos-e-materiais"><span class="header-section-number">12.3</span> Danos humanos e materiais</a></li>
+  <li><a href="#impactos-sobre-serviços-de-saúde" id="toc-impactos-sobre-serviços-de-saúde" class="nav-link" data-scroll-target="#impactos-sobre-serviços-de-saúde"><span class="header-section-number">12.4</span> Impactos sobre serviços de saúde</a></li>
+  <li><a href="#efeitos-humanos-deslocamento-e-recuperação" id="toc-efeitos-humanos-deslocamento-e-recuperação" class="nav-link" data-scroll-target="#efeitos-humanos-deslocamento-e-recuperação"><span class="header-section-number">12.5</span> Efeitos humanos, deslocamento e recuperação</a></li>
+  <li><a href="#vigilância-e-resposta-do-sistema-de-saúde" id="toc-vigilância-e-resposta-do-sistema-de-saúde" class="nav-link" data-scroll-target="#vigilância-e-resposta-do-sistema-de-saúde"><span class="header-section-number">12.6</span> Vigilância e resposta do sistema de saúde</a></li>
+  <li><a href="#fontes-seleção-e-principais-indicadores" id="toc-fontes-seleção-e-principais-indicadores" class="nav-link" data-scroll-target="#fontes-seleção-e-principais-indicadores"><span class="header-section-number">12.7</span> Fontes, seleção e principais indicadores</a></li>
+  <li><a href="#protocolo-de-cálculo-e-disponibilidade" id="toc-protocolo-de-cálculo-e-disponibilidade" class="nav-link" data-scroll-target="#protocolo-de-cálculo-e-disponibilidade"><span class="header-section-number">12.8</span> Protocolo de cálculo e disponibilidade</a></li>
+  <li><a href="#aplicação-na-gestão" id="toc-aplicação-na-gestão" class="nav-link" data-scroll-target="#aplicação-na-gestão"><span class="header-section-number">12.9</span> Aplicação na gestão</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/rfsaldanha/dicas/blob/main/chapters/part-2/12-eventos-severos-desastres.qmd" class="toc-action"><i class="bi bi-github"></i>Ver o código fonte</a></li><li><a href="https://github.com/rfsaldanha/dicas/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/part-2/07-temperatura-condicoes-termicas.html">Parte II — Dados e indicadores temáticos</a></li><li class="breadcrumb-item"><a href="../../chapters/part-2/12-eventos-severos-desastres.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Eventos meteorológicos severos e desastres</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-desastres" class="quarto-section-identifier"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Eventos meteorológicos severos e desastres</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Eventos meteorológicos severos podem afetar a saúde por caminhos simultâneos: produzir lesões, modificar condições ambientais, deslocar pessoas e interromper os serviços dos quais depende o cuidado. Uma tempestade pode causar trauma por queda de objetos e, ao danificar a rede elétrica, comprometer equipamentos e conservação de insumos. Mesmo depois de cessar o fenômeno, perdas de moradia, renda e vínculos sociais podem prolongar as necessidades de atenção. A análise sanitária precisa, portanto, acompanhar pessoas e serviços em diferentes momentos, como discutem <span class="citation" data-cites="freitas2014desastres">Freitas et al. (<a href="../../backmatter/referencias.html#ref-freitas2014desastres" role="doc-biblioref">2014</a>)</span> e <span class="citation" data-cites="ipcc2022saude">Cissé et al. (<a href="../../backmatter/referencias.html#ref-ipcc2022saude" role="doc-biblioref">2022</a>)</span>.</p>
+<p>Evento extremo e evento severo respondem a perguntas diferentes. O Painel Intergovernamental sobre Mudança do Clima (IPCC) situa os extremos em seu contexto climático de referência. Extremo qualifica a raridade de uma condição em relação a uma distribuição de referência, considerando lugar, época do ano e duração. Severo qualifica sua intensidade ou seu potencial de produzir danos, segundo critérios próprios do fenômeno e do sistema de monitoramento. Uma ocorrência pode reunir as duas características, mas raridade estatística não mede, sozinha, gravidade sanitária. É necessário explicitar a definição usada, em continuidade com os <a href="../../chapters/part-1/01-clima-ambiente-saude.html">fundamentos de clima, ambiente e saúde</a> <span class="citation" data-cites="ipcc2021extremes ipcc2022glossario">(<a href="../../backmatter/referencias.html#ref-ipcc2022glossario" role="doc-biblioref">Matthews et al., 2022</a>; <a href="../../backmatter/referencias.html#ref-ipcc2021extremes" role="doc-biblioref">Seneviratne et al., 2021</a>)</span>.</p>
+<p>Na terminologia do Escritório das Nações Unidas para a Redução do Risco de Desastres (UNDRR), desastre é uma perturbação grave do funcionamento de uma comunidade ou sociedade, resultante da interação de eventos perigosos com condições de exposição, vulnerabilidade e capacidade. O fenômeno físico participa dessa interação, mas sua ocorrência não determina, por si só, um desastre. A possibilidade de perdas é o risco; os danos efetivamente observados precisam ser registrados e investigados. Também pode haver feridos ou interrupções localizadas sem uma perturbação social caracterizada como desastre <span class="citation" data-cites="undrr2017terminology">(<a href="../../backmatter/referencias.html#ref-undrr2017terminology" role="doc-biblioref">United Nations Office for Disaster Risk Reduction, 2017</a>)</span>.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Conceito-chave: do fenômeno ao impacto sanitário">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Conceito-chave: do fenômeno ao impacto sanitário
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Perigo é o potencial de causar dano; exposição é a presença de pessoas e bens onde esse perigo pode atuar. Vulnerabilidade reúne condições que aumentam a suscetibilidade, enquanto capacidade abrange recursos e condições para lidar com o risco. Risco expressa perdas potenciais; desastre descreve a perturbação grave que se concretiza. Efeito na saúde é uma alteração clínica ou populacional, cuja relação com o episódio precisa de evidência. Esses conceitos orientam perguntas complementares e não constituem uma sequência inevitável <span class="citation" data-cites="undrr2017terminology">(<a href="../../backmatter/referencias.html#ref-undrr2017terminology" role="doc-biblioref">United Nations Office for Disaster Risk Reduction, 2017</a>)</span>.</p>
+</div>
+</div>
+<p>A <a href="#fig-risco-desastre" class="quarto-xref">Figura&nbsp;<span>12.1</span></a> organiza essas distinções. As relações abrangem efeitos diretos, como ferimentos, e indiretos, como agravamentos associados à interrupção do tratamento. A distribuição dos impactos depende de moradia, ocupação, mobilidade, redes de apoio e acesso aos serviços. A gestão dos riscos de emergências e desastres em saúde, proposta pela Organização Mundial da Saúde (OMS), integra prevenção, preparação, resposta e recuperação e envolve todo o sistema de saúde, além de outros setores <span class="citation" data-cites="who2019edrmframework">(<a href="../../backmatter/referencias.html#ref-who2019edrmframework" role="doc-biblioref">World Health Organization, 2019</a>)</span>.</p>
+<div class="figure-with-source page-columns page-full">
+<div id="fig-risco-desastre" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-src="arte-cap12-00-conceitos-print.png" alt="Paisagem hipotética mostra chuva, moradias próximas ao rio e uma unidade de saúde em área mais alta. Oito campos distinguem extremo, severo, perigo, exposição, vulnerabilidade, capacidade, risco e desastre. Efeitos diretos e indiretos na saúde dependem da interação no território; não há uma sequência inevitável de risco para desastre.">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-risco-desastre-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<a href="../../assets/figures/arte-cap12-00-conceitos.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-1" title="Figura&nbsp;12.1: Evento, risco, desastre e saúde: conceitos complementares"><img src="../../assets/figures/arte-cap12-00-conceitos.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Paisagem hipotética mostra chuva, moradias próximas ao rio e uma unidade de saúde em área mais alta. Oito campos distinguem extremo, severo, perigo, exposição, vulnerabilidade, capacidade, risco e desastre. Efeitos diretos e indiretos na saúde dependem da interação no território; não há uma sequência inevitável de risco para desastre."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-risco-desastre-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;12.1: Evento, risco, desastre e saúde: conceitos complementares
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte: elaboração conceitual a partir de UNDRR (2017); IPCC (2021, 2022); OMS (2019). Autoria: composição própria; aquarela produzida com IA (image_gen). Licença: a mesma dos textos autorais da obra.</span></p>
+</div>
+<p>Este capítulo concentra-se nos perigos meteorológicos de início rápido e na interpretação de perdas, danos e interrupções. Calor, seca e processos hidrológicos são desenvolvidos nos <a href="../../chapters/part-2/07-temperatura-condicoes-termicas.html">capítulos 7</a> e <a href="../../chapters/part-2/08-precipitacao-secas-eventos-hidrologicos.html">8</a>. A relação com mudança climática exige análise específica de atribuição; não se presume que todo desastre tenha essa origem. A discussão conecta a <a href="../../chapters/part-1/02-mudanca-climatica-resposta-sus.html">resposta do Sistema Único de Saúde (SUS)</a> aos capítulos de <a href="../../chapters/part-3/13-exposicao-vulnerabilidade.html">exposição e vulnerabilidade</a>, <a href="../../chapters/part-3/14-efeitos-saude.html">efeitos na saúde</a> e <a href="../../chapters/part-3/15-resposta-adaptacao-resiliencia.html">resposta e resiliência</a>. As definições operacionais estão nas <a href="../../chapters/part-4/21-fichas-eventos-severos-desastres.html">fichas de desastres do capítulo 21</a>.</p>
+<section id="perigos-meteorológicos-de-início-rápido" class="level2 page-columns page-full" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="perigos-meteorológicos-de-início-rápido"><span class="header-section-number">12.1</span> Perigos meteorológicos de início rápido</h2>
+<p>Os perfis de perigo da UNDRR e do Conselho Internacional de Ciência (ISC) organizam definições, mecanismos e informações de monitoramento. Essa distinção permite tratar separadamente fenômenos que podem coexistir no mesmo episódio <span class="citation" data-cites="undrr2025thunderstorm">(<a href="../../backmatter/referencias.html#ref-undrr2025thunderstorm" role="doc-biblioref">United Nations Office for Disaster Risk Reduction; International Science Council, 2025a</a>)</span>.</p>
+<p>Tempestades convectivas estão associadas a nuvens de grande desenvolvimento vertical e podem reunir chuva intensa, rajadas, descargas elétricas e granizo. Seus componentes não precisam alcançar a maior intensidade no mesmo local ou momento. Distinguir cada perigo permite reconhecer vias de exposição e necessidades de proteção: a chuva interessa ao escoamento e à inundação; o vento, à estabilidade de estruturas e à projeção de objetos; os raios, ao contato com descargas e às falhas em redes <span class="citation" data-cites="undrr2025thunderstorm">(<a href="../../backmatter/referencias.html#ref-undrr2025thunderstorm" role="doc-biblioref">United Nations Office for Disaster Risk Reduction; International Science Council, 2025a</a>)</span>.</p>
+<p>Ciclones são sistemas de circulação atmosférica em torno de uma região de baixa pressão. Nos extratropicais, os contrastes de temperatura têm papel central em sua formação e intensificação; a categoria não é sinônimo de furacão. A atuação de um ciclone pode combinar vento, precipitação, ondas e elevação meteorológica do nível do mar. Para a saúde, a trajetória do centro é apenas parte da informação: interessa onde os perigos associados encontram população, acessos e serviços <span class="citation" data-cites="undrr2025extratropical">(<a href="../../backmatter/referencias.html#ref-undrr2025extratropical" role="doc-biblioref">United Nations Office for Disaster Risk Reduction; International Science Council, 2025b</a>)</span>.</p>
+<p>Vento médio e rajada descrevem características distintas. A rajada representa uma intensificação breve, cuja medida depende do intervalo de observação. Altura do sensor, obstáculos e relevo influenciam a comparação entre estações; uma medição pontual não reconstrói todos os locais atingidos. Ao interpretar danos, é necessário considerar materiais, manutenção, árvores, objetos soltos e redes aéreas. Uma classificação de severidade deve informar a variável e a convenção adotadas, sem transformar um limiar de outra rede em regra universal.</p>
+<p>Tornado é uma coluna de ar em rotação que se estende da base de uma nuvem cumuliforme até a superfície. Sua faixa de atuação pode ser muito localizada; uma estação próxima pode não medir os ventos mais intensos. A intensidade frequentemente é estimada pela avaliação dos danos, e essa estimativa deve ser distinguida de uma velocidade medida. Objetos projetados e colapso de estruturas são vias importantes de lesão. Relatos sem confirmação e mudanças na capacidade de observação limitam a interpretação de séries históricas <span class="citation" data-cites="undrr2025tornado">(<a href="../../backmatter/referencias.html#ref-undrr2025tornado" role="doc-biblioref">United Nations Office for Disaster Risk Reduction; International Science Council, 2025c</a>)</span>.</p>
+<p>Granizo é precipitação de partículas de gelo formadas em nuvens. Dimensão das pedras, quantidade, duração e vento associado influenciam os danos a pessoas, coberturas, veículos e lavouras. A perda do telhado pode tornar uma moradia temporariamente inadequada mesmo sem colapso de suas paredes. Relatos de moradores, radar e observações de superfície têm alcances diferentes e devem conservar sua identificação no registro <span class="citation" data-cites="undrr2025hail">(<a href="../../backmatter/referencias.html#ref-undrr2025hail" role="doc-biblioref">United Nations Office for Disaster Risk Reduction; International Science Council, 2025d</a>)</span>.</p>
+<p>Descargas atmosféricas podem ocorrer dentro das nuvens, entre elas e entre nuvem e solo. A medida de atividade elétrica precisa informar o tipo de descarga, a área, o período e as características da rede de detecção. Raios que atingem pessoas ou estruturas podem causar lesões e mortes, iniciar incêndios e afetar energia e comunicação. Densidade de descargas é uma medida do perigo; mortes atribuídas são efeitos, que exigem informação sobre as circunstâncias da ocorrência <span class="citation" data-cites="undrr2025lightning">(<a href="../../backmatter/referencias.html#ref-undrr2025lightning" role="doc-biblioref">United Nations Office for Disaster Risk Reduction; International Science Council, 2025e</a>)</span>.</p>
+<p>A <a href="#fig-desastre-perigos" class="quarto-xref">Figura&nbsp;<span>12.2</span></a> compara alguns desses mecanismos, sem representar frequência ou magnitude observada. As medidas de precipitação e os processos de inundação, enxurrada e movimento de massa são detalhados no <a href="../../chapters/part-2/08-precipitacao-secas-eventos-hidrologicos.html">capítulo 8</a> e nas <a href="../../chapters/part-4/17-fichas-precipitacao-secas-eventos-hidrologicos.html">fichas do capítulo 17</a>. Seus impactos devem ser articulados às <a href="../../chapters/part-4/21-fichas-eventos-severos-desastres.html">fichas de desastres</a>, sem usar quantidade de alertas como substituto de ocorrência confirmada. Em particular, a <a href="../../chapters/part-4/21-fichas-eventos-severos-desastres.html#sec-des-hum-01">ficha DES-HUM-01</a> mede mortes e desaparecimentos registrados, não a intensidade meteorológica.</p>
+<div class="figure-with-source page-columns page-full">
+<div id="fig-desastre-perigos" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-src="arte-cap12-01-perigos-print.png" alt="Quatro vinhetas hipotéticas mostram tempestade com raio, vento, granizo e tornado. Os rótulos relacionam perigos a lesões, danos à moradia e falhas de infraestrutura. Não representam frequência, escala comparável ou intensidade observada.">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-desastre-perigos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<a href="../../assets/figures/arte-cap12-01-perigos.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-2" title="Figura&nbsp;12.2: Perigos distintos e vias de dano em tempestades"><img src="../../assets/figures/arte-cap12-01-perigos.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Quatro vinhetas hipotéticas mostram tempestade com raio, vento, granizo e tornado. Os rótulos relacionam perigos a lesões, danos à moradia e falhas de infraestrutura. Não representam frequência, escala comparável ou intensidade observada."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-desastre-perigos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;12.2: Perigos distintos e vias de dano em tempestades
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte: elaboração conceitual a partir de UNDRR/ISC, Hazard Information Profiles (2025). Autoria: composição própria; aquarela produzida com IA (image_gen). Licença: a mesma dos textos autorais da obra.</span></p>
+</div>
+</section>
+<section id="conceitos-de-desastre-e-risco" class="level2 page-columns page-full" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="conceitos-de-desastre-e-risco"><span class="header-section-number">12.2</span> Conceitos de desastre e risco</h2>
+<p>O risco deve ser situado em um território, período e conjunto de consequências. Perguntar apenas onde pode ocorrer chuva forte descreve um perigo; perguntar onde essa chuva pode interromper o acesso à maternidade exige também examinar população atendida, vias, alternativas e capacidade assistencial. O risco é dinâmico: varia com ocupação, infraestrutura, condições sociais e decisões institucionais <span class="citation" data-cites="undrr2017terminology who2021vulnerability">(<a href="../../backmatter/referencias.html#ref-undrr2017terminology" role="doc-biblioref">United Nations Office for Disaster Risk Reduction, 2017</a>; <a href="../../backmatter/referencias.html#ref-who2021vulnerability" role="doc-biblioref">World Health Organization, 2021</a>)</span>.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Conceito-chave: componentes do risco">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Conceito-chave: componentes do risco
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="field-label">Perigo.</span> Processo, fenômeno ou atividade com potencial de causar danos, caracterizado conforme intensidade, duração, extensão e probabilidade.</p>
+<p><span class="field-label">Exposição.</span> Presença de pessoas, moradias, infraestrutura, meios de vida e outros bens em locais sujeitos ao perigo.</p>
+<p><span class="field-label">Vulnerabilidade.</span> Condições físicas, sociais, econômicas e ambientais que aumentam a suscetibilidade aos impactos.</p>
+<p><span class="field-label">Capacidade.</span> Combinação de recursos, conhecimentos, condições e instituições disponíveis para gerir riscos e seus efeitos.</p>
+<p><span class="field-label">Risco de desastre.</span> Possibilidade de perdas humanas, materiais e de outras naturezas, em determinado período, relacionada à interação desses componentes <span class="citation" data-cites="undrr2017terminology">(<a href="../../backmatter/referencias.html#ref-undrr2017terminology" role="doc-biblioref">United Nations Office for Disaster Risk Reduction, 2017</a>)</span>.</p>
+</div>
+</div>
+<p>Exposição não se limita à população residente. Trabalhadores, estudantes, turistas e pessoas em trânsito podem estar em áreas atingidas; pacientes dependem de serviços localizados fora de seu bairro ou município. A unidade escolhida muda a pergunta: residentes em uma área inundável, pessoas presentes durante a ocorrência e usuários sem acesso ao cuidado são universos diferentes. A integração deve preservar essas distinções, conforme o <a href="../../chapters/part-3/13-exposicao-vulnerabilidade.html">capítulo 13</a>.</p>
+<p>Vulnerabilidade não é uma qualidade natural de uma pessoa ou grupo. Moradia insegura, barreiras de comunicação, segregação territorial e acesso desigual à proteção resultam de processos sociais e institucionais. Idade e condição de saúde podem modificar necessidades, mas não substituem a análise dessas condições. A perspectiva da justiça socioambiental acrescenta a pergunta sobre quem participa das decisões, recebe investimentos e suporta os custos da prevenção e da reconstrução <span class="citation" data-cites="lacerdaFreitas2024justica">(<a href="../../backmatter/referencias.html#ref-lacerdaFreitas2024justica" role="doc-biblioref">Lacerda; Freitas, 2024</a>)</span>.</p>
+<p>Capacidade precisa ser observada em funcionamento. A existência de um abrigo não garante acessibilidade; um gerador instalado pode depender de combustível, manutenção e equipe. Redes comunitárias e conhecimento local também contribuem para a proteção. Entretanto, reconhecer esses recursos não transfere às comunidades a responsabilidade por suprir carências estruturais. A <a href="#fig-desastre-componentes" class="quarto-xref">Figura&nbsp;<span>12.3</span></a> compara configurações de risco sem lhes atribuir pesos ou uma classificação quantitativa.</p>
+<div class="figure-with-source page-columns page-full">
+<div id="fig-desastre-componentes" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-src="arte-cap12-02-componentes-print.png" alt="Um mesmo perigo é considerado em duas configurações hipotéticas. Uma tem ocupação exposta, moradias frágeis e acesso único; a outra combina menor exposição, estruturas protegidas e alternativas de cuidado. A comparação distingue exposição, vulnerabilidade e capacidade, sem pesos, escores ou garantia de ausência de impactos.">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-desastre-componentes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<a href="../../assets/figures/arte-cap12-02-componentes.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-3" title="Figura&nbsp;12.3: Condições do território modificam o risco"><img src="../../assets/figures/arte-cap12-02-componentes.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Um mesmo perigo é considerado em duas configurações hipotéticas. Uma tem ocupação exposta, moradias frágeis e acesso único; a outra combina menor exposição, estruturas protegidas e alternativas de cuidado. A comparação distingue exposição, vulnerabilidade e capacidade, sem pesos, escores ou garantia de ausência de impactos."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-desastre-componentes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;12.3: Condições do território modificam o risco
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte: elaboração conceitual a partir de UNDRR (2017); OMS (2021); Lacerda e Freitas (2024). Autoria: composição vetorial própria. Licença: a mesma dos textos autorais da obra.</span></p>
+</div>
+<p>Eventos compostos e efeitos em cascata ampliam essa análise. Vento e chuva podem ocorrer juntos, enquanto a interrupção de energia pode desencadear problemas no abastecimento, na comunicação e na assistência. A coexistência de perigos não demonstra, por si só, interação causal; é preciso descrever a sequência e as dependências. Da mesma forma, multiplicar escores de perigo, exposição e vulnerabilidade não produz automaticamente uma probabilidade de dano: escalas, pesos e compensações exigem justificativa <span class="citation" data-cites="ipcc2022glossario who2021edrmresearch">(<a href="../../backmatter/referencias.html#ref-ipcc2022glossario" role="doc-biblioref">Matthews et al., 2022</a>; <a href="../../backmatter/referencias.html#ref-who2021edrmresearch" role="doc-biblioref">World Health Organization, 2022</a>)</span>.</p>
+<p>Nas <a href="../../chapters/part-4/22-fichas-exposicao-vulnerabilidade.html">fichas de exposição e vulnerabilidade</a>, a <a href="../../chapters/part-4/22-fichas-exposicao-vulnerabilidade.html#sec-exp-vul-01">EXP-VUL-01</a> apresenta o Índice de Vulnerabilidade Social do Instituto de Pesquisa Econômica Aplicada (Ipea). Ele oferece contexto territorial, sem representar sozinho risco de um desastre específico. No <a href="../../chapters/part-4/24-fichas-resposta-adaptacao-resiliencia.html">capítulo 24</a>, a <a href="../../chapters/part-4/24-fichas-resposta-adaptacao-resiliencia.html#sec-res-ris-01">RES-RIS-01</a> verifica perfis de risco documentados nos estabelecimentos. A interpretação dessas capacidades é desenvolvida no <a href="../../chapters/part-3/15-resposta-adaptacao-resiliencia.html">capítulo 15</a>.</p>
+</section>
+<section id="danos-humanos-e-materiais" class="level2 page-columns page-full" data-number="12.3">
+<h2 data-number="12.3" class="anchored" data-anchor-id="danos-humanos-e-materiais"><span class="header-section-number">12.3</span> Danos humanos e materiais</h2>
+<p>Danos humanos incluem mortes, desaparecimentos, lesões e enfermidades atribuídas ao episódio. Pessoas diretamente afetadas abrangem categorias adicionais, como residentes de moradias danificadas ou destruídas e pessoas com meios de vida interrompidos. Na estrutura dos Objetivos de Desenvolvimento Sustentável (ODS) e do Marco de Sendai, mortes e desaparecimentos e pessoas diretamente afetadas são componentes distintos, que precisam permanecer identificáveis <span class="citation" data-cites="un2024disasters">(<a href="../../backmatter/referencias.html#ref-un2024disasters" role="doc-biblioref">United Nations Statistics Division, 2024a</a>)</span>.</p>
+<p>Morte e desaparecimento descrevem situações que podem mudar durante a investigação. Um desaparecido posteriormente identificado não deve permanecer em ambas as categorias na contagem individual final. Os totais agregados, entretanto, podem não permitir essa conferência. A <a href="../../chapters/part-4/21-fichas-eventos-severos-desastres.html#sec-des-hum-01">ficha DES-HUM-01</a> explicita essa limitação ao trabalhar com os registros administrativos do Atlas. O total publicado não equivale a uma lista de pessoas cuja exclusividade tenha sido auditada.</p>
+<p>A <a href="../../chapters/part-4/21-fichas-eventos-severos-desastres.html#sec-des-hum-02">ficha DES-HUM-02</a> acompanha a composição Sendai B-2 a B-5: feridos ou enfermos, residentes de moradias danificadas, residentes de moradias destruídas e pessoas com meios de vida afetados. Uma mesma pessoa pode aparecer em componentes diferentes. Por isso, a soma deve ser apresentada como contagem composta, com suas parcelas, e não como total de indivíduos únicos. Número de atendimentos, número de famílias e número de pessoas também não são intercambiáveis <span class="citation" data-cites="un2024disasters">(<a href="../../backmatter/referencias.html#ref-un2024disasters" role="doc-biblioref">United Nations Statistics Division, 2024a</a>)</span>.</p>
+<p>Danos materiais descrevem comprometimento de bens e infraestrutura; perdas econômicas incluem consequências que podem persistir depois do dano inicial. A destruição de um equipamento e a interrupção da atividade que ele permitia realizar respondem a dimensões diferentes. Para a saúde pública, valor monetário e importância funcional precisam ser lidos conjuntamente. A perda de uma pequena unidade remota pode suprimir o único acesso próximo ao cuidado, embora seu custo de reposição seja inferior ao de uma grande instalação urbana <span class="citation" data-cites="undrr2017terminology">(<a href="../../backmatter/referencias.html#ref-undrr2017terminology" role="doc-biblioref">United Nations Office for Disaster Risk Reduction, 2017</a>)</span>.</p>
+<p>A <a href="#fig-desastre-danos" class="quarto-xref">Figura&nbsp;<span>12.4</span></a> distingue pessoas, moradias e meios de vida. Ao estimar ocupantes a partir de imóveis, devem ser explicitados o coeficiente de ocupação, sua origem e a possibilidade de imóveis vazios ou de uso não residencial. Em levantamentos locais, a identificação protegida de pessoas e domicílios permite revisar categorias e acompanhar necessidades, respeitando acesso restrito e finalidade do registro.</p>
+<div class="figure-with-source page-columns page-full">
+<div id="fig-desastre-danos" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-src="arte-cap12-03-danos-print.png" alt="Três cenas conceituais mostram atendimento de uma pessoa, moradia com telhado danificado e comércio afetado por inundação. O esquema distingue componentes de afetação e destaca que uma pessoa pode aparecer em mais de um componente. Mortes e desaparecimentos são acompanhados separadamente; as vinhetas não representam contagens.">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-desastre-danos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<a href="../../assets/figures/arte-cap12-03-danos.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-4" title="Figura&nbsp;12.4: Pessoas, moradias e meios de vida: unidades diferentes"><img src="../../assets/figures/arte-cap12-03-danos.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Três cenas conceituais mostram atendimento de uma pessoa, moradia com telhado danificado e comércio afetado por inundação. O esquema distingue componentes de afetação e destaca que uma pessoa pode aparecer em mais de um componente. Mortes e desaparecimentos são acompanhados separadamente; as vinhetas não representam contagens."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-desastre-danos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;12.4: Pessoas, moradias e meios de vida: unidades diferentes
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte: elaboração conceitual a partir de Nações Unidas (2024), metadados ODS 1.5.1; fichas <a href="../../chapters/part-4/21-fichas-eventos-severos-desastres.html#sec-des-hum-01">DES-HUM-01</a> e <a href="../../chapters/part-4/21-fichas-eventos-severos-desastres.html#sec-des-hum-02">DES-HUM-02</a>. Autoria: composição própria; aquarela produzida com IA (image_gen). Licença: a mesma dos textos autorais da obra.</span></p>
+</div>
+<p>A expressão por 100 mil habitantes facilita algumas comparações, mas não elimina diferenças de cobertura ou de composição populacional. Em municípios pequenos, poucos registros podem gerar taxas muito variáveis. Apresentar contagem, denominador, período e versão é indispensável. Para caracterizar quem estava efetivamente exposto, a população municipal pode ser insuficiente; a taxa oficial e uma análise específica da população atingida devem conservar nomes e denominadores próprios.</p>
+<p>Os métodos operacionais estão no <a href="../../chapters/part-4/21-fichas-eventos-severos-desastres.html">capítulo 21</a>. Sua interpretação pode ser combinada com o <a href="../../chapters/part-3/13-exposicao-vulnerabilidade.html">capítulo 13</a> e as <a href="../../chapters/part-4/22-fichas-exposicao-vulnerabilidade.html">fichas do capítulo 22</a>, para contexto social, e com o <a href="../../chapters/part-3/14-efeitos-saude.html">capítulo 14</a> e as <a href="../../chapters/part-4/23-fichas-efeitos-saude.html">fichas do capítulo 23</a>, para leitura dos registros de saúde. Essas últimas abrangem causas selecionadas de mortalidade e internação e não substituem a investigação de lesões e mortes relacionadas ao desastre.</p>
+</section>
+<section id="impactos-sobre-serviços-de-saúde" class="level2 page-columns page-full" data-number="12.4">
+<h2 data-number="12.4" class="anchored" data-anchor-id="impactos-sobre-serviços-de-saúde"><span class="header-section-number">12.4</span> Impactos sobre serviços de saúde</h2>
+<p>Serviços de saúde são simultaneamente recursos de resposta e sistemas expostos ao desastre. Sua continuidade depende do edifício, dos equipamentos, das pessoas e das redes externas. Dano estrutural afeta elementos resistentes da construção; danos não estruturais podem atingir instalações, mobiliário e equipamentos. A perda de funcionamento também pode ocorrer com a edificação intacta, por falta de acesso, água, energia ou insumos <span class="citation" data-cites="un2024infrastructure who2024resilienceindicators">(<a href="../../backmatter/referencias.html#ref-un2024infrastructure" role="doc-biblioref">United Nations Statistics Division, 2024b</a>; <a href="../../backmatter/referencias.html#ref-who2024resilienceindicators" role="doc-biblioref">World Health Organization, 2024</a>)</span>.</p>
+<p>O indicador ODS 11.5.3 distingue infraestrutura crítica danificada ou destruída e interrupções de serviços básicos. Para o setor saúde, contar instalações físicas e contar episódios de interrupção são operações diferentes. Uma unidade pode sofrer dano sem suspender toda a assistência; outra pode interromper diferentes serviços por causas relacionadas. A informação sobre quais atividades ficaram indisponíveis é necessária para dimensionar consequências assistenciais <span class="citation" data-cites="un2024infrastructure">(<a href="../../backmatter/referencias.html#ref-un2024infrastructure" role="doc-biblioref">United Nations Statistics Division, 2024b</a>)</span>.</p>
+<p>As dependências representadas na <a href="#fig-desastre-servicos" class="quarto-xref">Figura&nbsp;<span>12.5</span></a> precisam ser examinadas em conjunto. Energia sustenta equipamentos e refrigeração; água e saneamento permitem higiene e procedimentos; comunicação coordena encaminhamentos; vias e transporte conectam usuários e trabalhadores à rede. Alternativas devem ser verificadas quanto à segurança e à capacidade real de atender. Sua simples presença em um inventário não comprova continuidade <span class="citation" data-cites="who2023framework">(<a href="../../backmatter/referencias.html#ref-who2023framework" role="doc-biblioref">World Health Organization, 2023a</a>)</span>.</p>
+<div class="figure-with-source page-columns page-full">
+<div id="fig-desastre-servicos" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-src="arte-cap12-04-servicos-print.png" alt="Unidade de saúde hipotética permanece fisicamente intacta, enquanto um poste danificado e uma via alagada afetam seu entorno. Água, energia, acesso, equipes e insumos são dependências do funcionamento. Dano físico, interrupção e alternativa assistencial são registros distintos; equipamentos desenhados não comprovam funcionamento.">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-desastre-servicos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<a href="../../assets/figures/arte-cap12-04-servicos.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-5" title="Figura&nbsp;12.5: A continuidade depende do prédio, das redes e do cuidado"><img src="../../assets/figures/arte-cap12-04-servicos.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Unidade de saúde hipotética permanece fisicamente intacta, enquanto um poste danificado e uma via alagada afetam seu entorno. Água, energia, acesso, equipes e insumos são dependências do funcionamento. Dano físico, interrupção e alternativa assistencial são registros distintos; equipamentos desenhados não comprovam funcionamento."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-desastre-servicos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;12.5: A continuidade depende do prédio, das redes e do cuidado
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte: elaboração conceitual a partir de Nações Unidas (2024), metadados ODS 11.5.3; OMS (2023, 2024). Autoria: composição própria; aquarela produzida com IA (image_gen). Licença: a mesma dos textos autorais da obra.</span></p>
+</div>
+<p>Continuidade não significa manter qualquer atividade a qualquer custo. Um serviço pode necessitar de transferência, redução temporária ou reorganização para funcionar com segurança. O registro deve distinguir suspensão total, limitação parcial, alternativa implantada e necessidade ainda não atendida. Também deve especificar início, fim, estabelecimento, serviço e vínculo com o evento. Aumento da procura e redução da oferta podem ocorrer juntos; queda na produção assistencial, isoladamente, não comprova interrupção.</p>
+<p>A <a href="../../chapters/part-4/21-fichas-eventos-severos-desastres.html#sec-des-sau-01">ficha DES-SAU-01</a> soma registros de instalações públicas de saúde danificadas ou destruídas no Atlas. Ela não identifica todos os estabelecimentos únicos nem cobre automaticamente o setor privado. A <a href="../../chapters/part-4/21-fichas-eventos-severos-desastres.html#sec-des-sau-02">DES-SAU-02</a> requer documentação local de episódios por estabelecimento, serviço e intervalo. Contagem, duração e capacidade assistencial perdida devem ser analisadas separadamente, conforme as definições do <a href="../../chapters/part-4/21-fichas-eventos-severos-desastres.html">capítulo 21</a>.</p>
+<p>Os indicadores de condições de funcionamento complementam essa leitura. As fichas <a href="../../chapters/part-4/24-fichas-resposta-adaptacao-resiliencia.html#sec-res-wat-01">RES-WAT-01</a> e <a href="../../chapters/part-4/24-fichas-resposta-adaptacao-resiliencia.html#sec-res-ene-01">RES-ENE-01</a> tratam de interrupções de água e energia na semana anterior à avaliação; não exigem, por si, atribuição a desastre. A <a href="../../chapters/part-4/24-fichas-resposta-adaptacao-resiliencia.html#sec-res-was-01">RES-WAS-01</a> caracteriza serviços básicos de água, saneamento, higiene, resíduos e limpeza. Os fundamentos estão nos <a href="../../chapters/part-2/10-agua-saneamento-qualidade-ambiental.html">capítulos 10</a> e <a href="../../chapters/part-3/15-resposta-adaptacao-resiliencia.html">15</a>, com medidas ambientais complementares nas <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html">fichas do capítulo 19</a>.</p>
+</section>
+<section id="efeitos-humanos-deslocamento-e-recuperação" class="level2 page-columns page-full" data-number="12.5">
+<h2 data-number="12.5" class="anchored" data-anchor-id="efeitos-humanos-deslocamento-e-recuperação"><span class="header-section-number">12.5</span> Efeitos humanos, deslocamento e recuperação</h2>
+<p>Os efeitos na saúde se distribuem em tempos sobrepostos. Durante o impacto, podem ocorrer afogamento, trauma, queimadura e outras lesões. Depois, surgem necessidades relacionadas à exposição ambiental, à perda de condições de vida e à interrupção do cuidado. A distinção entre efeitos imediatos e tardios organiza o acompanhamento, mas não estabelece prazos universais: duração da exposição, evolução clínica e capacidade de resposta variam entre episódios e populações <span class="citation" data-cites="freitas2014desastres">(<a href="../../backmatter/referencias.html#ref-freitas2014desastres" role="doc-biblioref">Freitas et al., 2014</a>)</span>.</p>
+<p>Efeito direto decorre da atuação do perigo sobre a pessoa; efeito indireto pode decorrer das alterações que o evento produz no ambiente e nos serviços. Essa distinção precisa de uma regra de classificação. Um óbito ocorrido na mesma semana da tempestade pode não estar relacionado a ela, enquanto um agravamento posterior pode resultar de tratamento interrompido. Preservar causa básica, circunstâncias, datas e evidência do vínculo permite revisar a atribuição. O <a href="../../chapters/part-3/14-efeitos-saude.html">capítulo 14</a> discute os limites entre registro, associação e efeito atribuído <span class="citation" data-cites="who2021edrmresearch hernan2020causal">(<a href="../../backmatter/referencias.html#ref-hernan2020causal" role="doc-biblioref">Hernán; Robins, 2020</a>; <a href="../../backmatter/referencias.html#ref-who2021edrmresearch" role="doc-biblioref">World Health Organization, 2022</a>)</span>.</p>
+<p>A ocorrência de um desastre não implica inevitavelmente uma epidemia. Os mecanismos precisam ser investigados: contaminação da água, alteração de condições de higiene, presença de agentes, mudanças na exposição a vetores e aglomeração podem criar situações específicas de transmissão. A água de inundação também pode aumentar o contato com material contaminado, como na leptospirose. As medidas de acesso, continuidade e qualidade da água, desenvolvidas no <a href="../../chapters/part-2/10-agua-saneamento-qualidade-ambiental.html">capítulo 10</a> e nas <a href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html">fichas do capítulo 19</a>, ajudam a caracterizar esses caminhos <span class="citation" data-cites="levy2016waterborne brasil2026leptospirose">(<a href="../../backmatter/referencias.html#ref-brasil2026leptospirose" role="doc-biblioref">Brasil. Ministério da Saúde, <em>[S.d.]</em></a>; <a href="../../backmatter/referencias.html#ref-levy2016waterborne" role="doc-biblioref">Levy et al., 2016</a>)</span>.</p>
+<p>Deslocamento pode ocorrer preventivamente, durante o impacto ou por impossibilidade de retorno. Pessoas acolhidas em abrigos são apenas parte da população deslocada: outras permanecem com familiares, em moradias provisórias ou fora do município. Acompanhar somente a ocupação dos abrigos pode ocultar necessidades de cuidado. O cadastro deve registrar destino, mobilidade e referência assistencial, com atualização e proteção das informações pessoais. Moradia danificada e presença em abrigo são categorias relacionadas, mas não equivalentes <span class="citation" data-cites="who2019edrmframework">(<a href="../../backmatter/referencias.html#ref-who2019edrmframework" role="doc-biblioref">World Health Organization, 2019</a>)</span>.</p>
+<p>Nos locais de acolhimento, água, saneamento, ventilação, alimentação, acessibilidade, privacidade e segurança fazem parte das condições de saúde. O reconhecimento das necessidades deve incluir crianças, gestantes, pessoas idosas, pessoas com deficiência e quem depende de medicamentos, equipamentos ou assistência regular. A atenção primária pode articular busca ativa, recomposição do vínculo e encaminhamento, considerando também pessoas acolhidas fora dos abrigos <span class="citation" data-cites="brasil2024inundacoesaps">(<a href="../../backmatter/referencias.html#ref-brasil2024inundacoesaps" role="doc-biblioref">Brasil. Ministério da Saúde. Secretaria de Atenção Primária à Saúde, 2024</a>)</span>.</p>
+<p>A continuidade do tratamento de doenças crônicas envolve mais que fornecer medicamentos: depende de transporte, informação clínica, alimentação, insumos e serviços especializados. Perder esses apoios pode comprometer o controle de condições preexistentes. Para interpretar alterações nos registros assistenciais, considerar que menor número de consultas pode refletir dificuldade de acesso. As <a href="../../chapters/part-4/23-fichas-efeitos-saude.html">fichas do capítulo 23</a> oferecem medidas de causas selecionadas, sem cobrir todas as necessidades decorrentes do desastre <span class="citation" data-cites="who2021vulnerability">(<a href="../../backmatter/referencias.html#ref-who2021vulnerability" role="doc-biblioref">World Health Organization, 2021</a>)</span>.</p>
+<p>Saúde mental exige acompanhamento proporcional às necessidades e ao tempo de evolução. Medo, tristeza e sofrimento após perdas não devem ser automaticamente classificados como transtorno. Acolhimento, apoio social e continuidade da atenção a pessoas com condições preexistentes integram a resposta; situações de sofrimento persistente ou grave requerem avaliação e cuidado apropriados. Estudos sobre inundações mostram a relevância de acompanhar efeitos além da fase aguda, sem transferir estimativas de outros contextos diretamente para a população brasileira <span class="citation" data-cites="who2025mentalEmergencies waite2017flooding">(<a href="../../backmatter/referencias.html#ref-waite2017flooding" role="doc-biblioref">Waite et al., 2017</a>; <a href="../../backmatter/referencias.html#ref-who2025mentalEmergencies" role="doc-biblioref">World Health Organization, 2025</a>)</span>.</p>
+<p>A <a href="#fig-desastre-recuperacao" class="quarto-xref">Figura&nbsp;<span>12.6</span></a> organiza o percurso de acompanhamento sem sugerir uma recuperação linear. Restabelecer água, moradia, renda, serviços e vínculos pode exigir tempos diferentes. A reabertura de uma unidade não encerra a necessidade de reabilitação e atenção psicossocial. Reconstruir com redução de risco implica rever localização, acessibilidade e condições de funcionamento, evitando reproduzir as vulnerabilidades anteriores <span class="citation" data-cites="who2024resilienceindicators">(<a href="../../backmatter/referencias.html#ref-who2024resilienceindicators" role="doc-biblioref">World Health Organization, 2024</a>)</span>.</p>
+<div class="figure-with-source page-columns page-full">
+<div id="fig-desastre-recuperacao" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-src="arte-cap12-05-recuperacao-print.png" alt="Três vinhetas conceituais mostram acolhimento de uma família, consulta de acompanhamento e cuidado no território em recuperação. Uma faixa temporal qualitativa destaca necessidades sobrepostas, continuidade do tratamento e apoio psicossocial. Não há duração fixa nem promessa de recuperação linear.">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-desastre-recuperacao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<a href="../../assets/figures/arte-cap12-05-recuperacao.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-6" title="Figura&nbsp;12.6: Acompanhamento da saúde durante o deslocamento e a recuperação"><img src="../../assets/figures/arte-cap12-05-recuperacao.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Três vinhetas conceituais mostram acolhimento de uma família, consulta de acompanhamento e cuidado no território em recuperação. Uma faixa temporal qualitativa destaca necessidades sobrepostas, continuidade do tratamento e apoio psicossocial. Não há duração fixa nem promessa de recuperação linear."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-desastre-recuperacao-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;12.6: Acompanhamento da saúde durante o deslocamento e a recuperação
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte: elaboração conceitual a partir de Freitas et al.&nbsp;(2014); Ministério da Saúde (2024); OMS (2025). Autoria: composição própria; aquarela produzida com IA (image_gen). Licença: a mesma dos textos autorais da obra.</span></p>
+</div>
+<p>Acompanhar recuperação requer combinar necessidades populacionais, contexto e capacidade. Os <a href="../../chapters/part-3/13-exposicao-vulnerabilidade.html">capítulos 13</a> e <a href="../../chapters/part-4/22-fichas-exposicao-vulnerabilidade.html">22</a> apoiam a leitura das desigualdades. Os <a href="../../chapters/part-3/15-resposta-adaptacao-resiliencia.html">capítulos 15</a> e <a href="../../chapters/part-4/24-fichas-resposta-adaptacao-resiliencia.html">24</a> orientam a avaliação de preparação e continuidade. A <a href="../../chapters/part-4/21-fichas-eventos-severos-desastres.html#sec-des-sau-02">DES-SAU-02</a> permite documentar o encerramento das interrupções, preservando o critério de retorno e os episódios ainda abertos.</p>
+</section>
+<section id="vigilância-e-resposta-do-sistema-de-saúde" class="level2 page-columns page-full" data-number="12.6">
+<h2 data-number="12.6" class="anchored" data-anchor-id="vigilância-e-resposta-do-sistema-de-saúde"><span class="header-section-number">12.6</span> Vigilância e resposta do sistema de saúde</h2>
+<p>Vigilância em desastres precisa transformar registros incompletos e rapidamente mutáveis em informação útil para a proteção. Isso exige combinar detecção, verificação, análise, comunicação e acompanhamento das ações. A resposta articula avaliação rápida, assistência, laboratório, logística, proteção dos trabalhadores e continuidade dos serviços, com responsabilidades definidas entre saúde, proteção e defesa civil e outros setores <span class="citation" data-cites="who2019edrmframework">(<a href="../../backmatter/referencias.html#ref-who2019edrmframework" role="doc-biblioref">World Health Organization, 2019</a>)</span>.</p>
+<p>Emergência em saúde pública demanda medidas urgentes de proteção e pode decorrer de eventos com diferentes origens. O termo não é sinônimo obrigatório de desastre: a necessidade de resposta sanitária não depende apenas de uma perturbação grave do funcionamento social. É preciso distinguir a situação observada, sua avaliação sanitária e os procedimentos administrativos de reconhecimento, que têm finalidades próprias <span class="citation" data-cites="undrr2017terminology brasil2024inundacoesaps">(<a href="../../backmatter/referencias.html#ref-brasil2024inundacoesaps" role="doc-biblioref">Brasil. Ministério da Saúde. Secretaria de Atenção Primária à Saúde, 2024</a>; <a href="../../backmatter/referencias.html#ref-undrr2017terminology" role="doc-biblioref">United Nations Office for Disaster Risk Reduction, 2017</a>)</span>.</p>
+<p>O alerta é prospectivo: informa condições esperadas, território, validade e incerteza. A ocorrência é o fenômeno observado em um local e intervalo. A investigação do impacto verifica quem ou o que foi atingido e de que maneira. Esses registros devem poder ser relacionados sem perder sua identidade. O <a href="../../chapters/part-1/06-indicador-decisao.html">capítulo 6</a> apresenta a passagem do indicador à decisão, incluindo responsabilidades e critérios de ação.</p>
+<div class="callout callout-style-default callout-important no-icon callout-titled" title="Conceito-chave: ocorrência, impacto atribuído e efeito em saúde">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Importante</span>Conceito-chave: ocorrência, impacto atribuído e efeito em saúde
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ocorrência situa o fenômeno no tempo e no espaço. Impacto atribuído é um dano, perda ou interrupção vinculado ao episódio segundo critério explícito. Efeito em saúde é o desfecho clínico ou populacional observado ou estimado. O vínculo entre os três exige documentação; proximidade temporal ou espacial não basta para demonstrá-lo <span class="citation" data-cites="who2021edrmresearch hernan2020causal">(<a href="../../backmatter/referencias.html#ref-hernan2020causal" role="doc-biblioref">Hernán; Robins, 2020</a>; <a href="../../backmatter/referencias.html#ref-who2021edrmresearch" role="doc-biblioref">World Health Organization, 2022</a>)</span>.</p>
+</div>
+</div>
+<p>Na avaliação rápida, a prioridade é identificar necessidades que mudam a decisão: áreas sem acesso, pessoas sem atendimento, água insegura, medicamentos indisponíveis e serviços interrompidos. A seleção de síndromes e agravos deve acompanhar os mecanismos plausíveis de exposição e o perfil local, em vez de aplicar uma lista indiferenciada. A busca ativa e o conhecimento territorial da atenção primária ajudam a reconhecer necessidades que não aparecem na demanda espontânea <span class="citation" data-cites="brasil2024inundacoesaps">(<a href="../../backmatter/referencias.html#ref-brasil2024inundacoesaps" role="doc-biblioref">Brasil. Ministério da Saúde. Secretaria de Atenção Primária à Saúde, 2024</a>)</span>.</p>
+<p>Um identificador persistente do episódio facilita a ligação entre alertas, boletins, áreas afetadas, abrigos, estabelecimentos e desfechos. Ele deve coexistir com os identificadores originais dos sistemas. Pessoa, atendimento, estabelecimento, serviço e intervalo são unidades distintas; reuni-las em uma única contagem produz resultados ambíguos. A <a href="#fig-desastre-vigilancia" class="quarto-xref">Figura&nbsp;<span>12.7</span></a> representa o fluxo de informação e a devolução necessária para corrigir registros e decisões.</p>
+<div class="figure-with-source page-columns page-full">
+<div id="fig-desastre-vigilancia" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-src="arte-cap12-06-vigilancia-print.png" alt="Fluxo liga alerta, verificação local, decisão, ação e acompanhamento. Retorno tracejado orienta revisar a informação e a decisão. Um identificador de episódio conecta registros preservando fonte, horário, versão, unidade e incerteza.">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-desastre-vigilancia-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<a href="../../assets/figures/arte-cap12-06-vigilancia.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-7" title="Figura&nbsp;12.7: Da informação verificada à ação e ao acompanhamento"><img src="../../assets/figures/arte-cap12-06-vigilancia.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Fluxo liga alerta, verificação local, decisão, ação e acompanhamento. Retorno tracejado orienta revisar a informação e a decisão. Um identificador de episódio conecta registros preservando fonte, horário, versão, unidade e incerteza."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-desastre-vigilancia-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;12.7: Da informação verificada à ação e ao acompanhamento
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte: elaboração conceitual a partir de OMS (2019, 2022, 2023); capítulo 6. Autoria: composição vetorial própria. Licença: a mesma dos textos autorais da obra.</span></p>
+</div>
+<p>Cada atualização deve conservar horário de referência, fonte, cobertura territorial, responsável e status de validação. Dados preliminares podem orientar uma ação antes da consolidação, desde que sua condição esteja explícita. Revisões posteriores não devem apagar o que estava disponível no momento da decisão. Falta de comunicação ou de cobertura é informação sobre o sistema de observação e não demonstra ausência de casos <span class="citation" data-cites="who2023dqa un2014statistics">(<a href="../../backmatter/referencias.html#ref-un2014statistics" role="doc-biblioref">United Nations General Assembly, 2014</a>; <a href="../../backmatter/referencias.html#ref-who2023dqa" role="doc-biblioref">World Health Organization, 2023b</a>)</span>.</p>
+<p>Comunicação de risco deve traduzir a informação em orientações compreensíveis e executáveis, reconhecendo idiomas, acessibilidade e condições materiais para agir. Avisar sobre um perigo não garante que as pessoas tenham recebido a mensagem ou disponham de transporte, abrigo e apoio. O acompanhamento deve distinguir emissão, recebimento, compreensão e ação. A coordenação também precisa proteger equipes e evitar que a coleta de dados comprometa o atendimento.</p>
+<p>A <a href="../../chapters/part-4/24-fichas-resposta-adaptacao-resiliencia.html#sec-res-alr-01">RES-ALR-01</a> descreve o nível nacional brasileiro de alerta precoce e resposta no instrumento de autoavaliação dos Estados Partes do Regulamento Sanitário Internacional (SPAR), componente C5.1. Ela não mede o desempenho de um alerta municipal específico. Para a organização dos estabelecimentos, as fichas <a href="../../chapters/part-4/24-fichas-resposta-adaptacao-resiliencia.html#sec-res-gov-01">RES-GOV-01</a> e <a href="../../chapters/part-4/24-fichas-resposta-adaptacao-resiliencia.html#sec-res-pla-01">RES-PLA-01</a> tratam de responsabilidade designada e planos de emergência com continuidade. A interpretação segue o <a href="../../chapters/part-3/15-resposta-adaptacao-resiliencia.html">capítulo 15</a>, combinada às <a href="../../chapters/part-4/21-fichas-eventos-severos-desastres.html">fichas de desastres</a> e às <a href="../../chapters/part-4/23-fichas-efeitos-saude.html">fichas de efeitos na saúde</a>, dentro de seus respectivos escopos.</p>
+</section>
+<section id="fontes-seleção-e-principais-indicadores" class="level2 page-columns page-full" data-number="12.7">
+<h2 data-number="12.7" class="anchored" data-anchor-id="fontes-seleção-e-principais-indicadores"><span class="header-section-number">12.7</span> Fontes, seleção e principais indicadores</h2>
+<p>A fonte deve ser escolhida pela pergunta, pela unidade observada e pelo momento do episódio. O <a href="../../backmatter/indice-fontes.html#s2id">Sistema Integrado de Informações sobre Desastres (S2iD)</a> organiza registros administrativos brasileiros de desastres, danos e perdas. O <a href="../../backmatter/indice-fontes.html#atlas-2026-v11">Atlas Digital de Desastres</a> oferece uma base consolidada desses registros. A consolidação favorece análises históricas, mas não transforma o produto em vigilância clínica nem elimina diferenças de notificação <span class="citation" data-cites="atlas2026manual">(<a href="../../backmatter/referencias.html#ref-atlas2026manual" role="doc-biblioref">Ministério da Integração e do Desenvolvimento Regional, 2026</a>)</span>.</p>
+<p>Os sistemas disponíveis pelo <a href="../../backmatter/indice-fontes.html#datasus">Departamento de Informática do SUS (DATASUS)</a> registram dimensões próprias. O Sistema de Informações sobre Mortalidade (SIM) informa óbitos e suas causas; o Sistema de Informações Hospitalares do SUS (SIH/SUS) registra internações em seu universo de cobertura; o Cadastro Nacional de Estabelecimentos de Saúde (CNES) identifica serviços e recursos cadastrados. A existência desses registros não comprova vínculo com um desastre. Para esse fim, são necessários critérios de seleção, vinculação e investigação <span class="citation" data-cites="brasil2026sim brasil2026sih brasil2026cnes">(<a href="../../backmatter/referencias.html#ref-brasil2026sim" role="doc-biblioref">Brasil. Ministério da Saúde, 2026a</a>, <a href="../../backmatter/referencias.html#ref-brasil2026sih" role="doc-biblioref">2026b</a>, <a href="../../backmatter/referencias.html#ref-brasil2026cnes" role="doc-biblioref">2026c</a>)</span>.</p>
+<p>Fontes meteorológicas e o Centro Nacional de Monitoramento e Alertas de Desastres Naturais (Cemaden) oferecem observações e produtos prospectivos, com recortes e objetivos próprios. O <a href="../../backmatter/indice-fontes.html#ibge">Instituto Brasileiro de Geografia e Estatística (IBGE)</a> fornece população e referências territoriais. Registros locais de acolhimento e de funcionamento dos serviços completam perguntas não respondidas pelos totais nacionais. A <a href="#fig-desastre-fontes" class="quarto-xref">Figura&nbsp;<span>12.8</span></a> mostra por que combinar fontes exige conservar o significado original de cada uma <span class="citation" data-cites="cemaden2026alerta">(<a href="../../backmatter/referencias.html#ref-cemaden2026alerta" role="doc-biblioref">Centro Nacional de Monitoramento e Alertas de Desastres Naturais, <em>[S.d.]</em></a>)</span>.</p>
+<div class="figure-with-source page-columns page-full">
+<div id="fig-desastre-fontes" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-src="arte-cap12-07-fontes-print.png" alt="Matriz associa condições esperadas a alertas, danos a S2iD e Atlas, eventos de saúde aos sistemas sanitários, continuidade a registros locais e população ao IBGE. A integração exige compatibilidade temporal, territorial e conceitual; vinculação não é automática.">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-desastre-fontes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<a href="../../assets/figures/arte-cap12-07-fontes.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-8" title="Figura&nbsp;12.8: Pergunta, fonte e unidade de observação"><img src="../../assets/figures/arte-cap12-07-fontes.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Matriz associa condições esperadas a alertas, danos a S2iD e Atlas, eventos de saúde aos sistemas sanitários, continuidade a registros locais e população ao IBGE. A integração exige compatibilidade temporal, territorial e conceitual; vinculação não é automática."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-desastre-fontes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;12.8: Pergunta, fonte e unidade de observação
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte: elaboração conceitual a partir de Atlas Digital de Desastres; DATASUS; IBGE; Cemaden; capítulo 5. Autoria: composição vetorial própria. Licença: a mesma dos textos autorais da obra.</span></p>
+</div>
+<p>Antes da integração, verificar data do evento e data de registro, local de residência e de ocorrência, unidade territorial e versão. Um mesmo episódio pode envolver vários municípios; um município pode registrar ocorrências distintas no mesmo dia. Coincidência de data, município e tipo de desastre não constitui, sozinha, uma chave segura de deduplicação. A rastreabilidade segue os princípios discutidos no <a href="../../chapters/part-1/05-fontes-fichas.html">capítulo 5</a>.</p>
+<p>O <a href="#qua-indicadores-desastre" class="quarto-xref">Quadro&nbsp;<span>12.1</span></a> relaciona medidas consolidadas e usos sanitários. As especificações internacionais organizam a comparação; as fichas informam o que pode ser operacionalizado com as fontes adotadas. Manter essa diferença explícita evita apresentar uma aproximação administrativa como reprodução integral de um indicador internacional <span class="citation" data-cites="un2024disasters un2024infrastructure">(<a href="../../backmatter/referencias.html#ref-un2024disasters" role="doc-biblioref">United Nations Statistics Division, 2024a</a>, <a href="../../backmatter/referencias.html#ref-un2024infrastructure" role="doc-biblioref">2024b</a>)</span>.</p>
+<div id="qua-indicadores-desastre" class="desastre-table quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-qua figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-qua" id="qua-indicadores-desastre-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Quadro&nbsp;12.1: Indicadores de desastre e alcance de sua interpretação em saúde pública
+</figcaption>
+<div aria-describedby="qua-indicadores-desastre-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Medida e localização</th>
+<th>Pergunta em saúde pública</th>
+<th>Cuidado de interpretação</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="../../chapters/part-4/21-fichas-eventos-severos-desastres.html#sec-des-hum-01">Mortes e desaparecimentos registrados — DES-HUM-01</a></td>
+<td>Qual impacto humano foi registrado?</td>
+<td>Dados agregados não permitem auditar pessoas únicas</td>
+</tr>
+<tr class="even">
+<td><a href="../../chapters/part-4/21-fichas-eventos-severos-desastres.html#sec-des-hum-02">Diretamente afetados — DES-HUM-02</a></td>
+<td>Quais componentes de afetação estão presentes?</td>
+<td>A soma Sendai B-2 a B-5 admite sobreposição entre componentes</td>
+</tr>
+<tr class="odd">
+<td><a href="../../chapters/part-4/21-fichas-eventos-severos-desastres.html#sec-des-sau-01">Danos em instalações públicas de saúde — DES-SAU-01</a></td>
+<td>Qual dano físico foi registrado na infraestrutura?</td>
+<td>Soma por evento; não corresponde a estabelecimentos únicos</td>
+</tr>
+<tr class="even">
+<td><a href="../../chapters/part-4/21-fichas-eventos-severos-desastres.html#sec-des-sau-02">Interrupções de serviços — DES-SAU-02</a></td>
+<td>Quais serviços ficaram indisponíveis?</td>
+<td>Exige registros locais de intervalos e atribuição</td>
+</tr>
+<tr class="odd">
+<td>Tempo de restauração, complementar à <a href="../../chapters/part-4/21-fichas-eventos-severos-desastres.html#sec-des-sau-02">DES-SAU-02</a></td>
+<td>Por quanto tempo persistiu a interrupção?</td>
+<td>Medida complementar, sem ficha autônoma; definir início e critério de retorno</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>A seleção deve combinar impacto, exposição e capacidade, evitando um painel composto somente por danos já ocorridos. As <a href="../../chapters/part-4/22-fichas-exposicao-vulnerabilidade.html">fichas do capítulo 22</a> acrescentam contexto social; as <a href="../../chapters/part-4/23-fichas-efeitos-saude.html">do capítulo 23</a>, medidas específicas de mortalidade e internação; as <a href="../../chapters/part-4/24-fichas-resposta-adaptacao-resiliencia.html">do capítulo 24</a>, condições de preparação e continuidade. Suas periodicidades e populações de referência devem ser mantidas, sem forçar equivalência com a data de um episódio.</p>
+</section>
+<section id="protocolo-de-cálculo-e-disponibilidade" class="level2 page-columns page-full" data-number="12.8">
+<h2 data-number="12.8" class="anchored" data-anchor-id="protocolo-de-cálculo-e-disponibilidade"><span class="header-section-number">12.8</span> Protocolo de cálculo e disponibilidade</h2>
+<p>O protocolo transforma a definição em regras de seleção, cálculo e publicação. Deve identificar produto, versão, campos, chaves, unidade de contagem, período e tratamento de incompletude. A distinção entre dado, variável e indicador, apresentada no <a href="../../chapters/part-1/03-dados-variaveis-indices-indicadores.html">capítulo 3</a>, ajuda a entender por que obter uma coluna de valores é apenas uma etapa. A compatibilidade espacial e temporal segue o <a href="../../chapters/part-1/04-espaco-tempo-qualidade.html">capítulo 4</a>.</p>
+<p>O Atlas deve ser interpretado segundo sua documentação e as regras de consolidação <span class="citation" data-cites="atlas2026manual">(<a href="../../backmatter/referencias.html#ref-atlas2026manual" role="doc-biblioref">Ministério da Integração e do Desenvolvimento Regional, 2026</a>)</span>. As duas implementações baseadas em dados abertos usam a edição do Atlas 1991–2025, v1.1 de 6 de agosto de 2026, fixada nas <a href="../../chapters/part-4/21-fichas-eventos-severos-desastres.html">fichas do capítulo 21</a>. A identificação combina protocolo e município; a agregação anual usa a data do evento. Não se somam versões diferentes da base. Duplicatas exatas podem ser removidas, enquanto conflitos não resolvidos devem ser sinalizados, com sua consequência para a completude do total.</p>
+<div class="desastre-table">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Ficha</th>
+<th>Disponibilidade</th>
+<th>Limite da implementação</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="../../chapters/part-4/21-fichas-eventos-severos-desastres.html#sec-des-hum-01">DES-HUM-01</a></td>
+<td>Calculável com dados abertos</td>
+<td>Mortes e desaparecimentos registrados; população compatível</td>
+</tr>
+<tr class="even">
+<td><a href="../../chapters/part-4/21-fichas-eventos-severos-desastres.html#sec-des-hum-02">DES-HUM-02</a></td>
+<td>Depende de dados locais</td>
+<td>Componentes Sendai B-2 a B-5; total direto do Atlas não é equivalente</td>
+</tr>
+<tr class="odd">
+<td><a href="../../chapters/part-4/21-fichas-eventos-severos-desastres.html#sec-des-sau-01">DES-SAU-01</a></td>
+<td>Calculável com dados abertos</td>
+<td>Registros de instalações públicas danificadas ou destruídas</td>
+</tr>
+<tr class="even">
+<td><a href="../../chapters/part-4/21-fichas-eventos-severos-desastres.html#sec-des-sau-02">DES-SAU-02</a></td>
+<td>Depende de dados locais</td>
+<td>Episódios documentados por estabelecimento, serviço, evento e intervalo</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>A <a href="#fig-desastre-protocolo" class="quarto-xref">Figura&nbsp;<span>12.9</span></a> diferencia os caminhos de cálculo. Na <a href="../../chapters/part-4/21-fichas-eventos-severos-desastres.html#sec-des-hum-01">DES-HUM-01</a>, os campos de mortos e desaparecidos são somados por município e ano, mantendo suas parcelas. A taxa divide essa soma pela população de referência e multiplica por 100 mil. A compatibilidade territorial deve ser verificada antes da divisão; códigos iguais ou semelhantes não dispensam a conferência de alterações de limites. Quando falta denominador compatível, a contagem pode ser apresentada e a taxa permanece ausente.</p>
+<div class="figure-with-source page-columns page-full">
+<div id="fig-desastre-protocolo" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-src="arte-cap12-08-protocolo-print.png" alt="Duas colunas separam dados abertos do Atlas, usados nas fichas DES-HUM-01 e DES-SAU-01, de dados locais necessários às fichas DES-HUM-02 e DES-SAU-02. O fluxo destaca versão, completude, unidade e publicação. Ausência de registro, incompletude e zero informado permanecem distintos.">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-desastre-protocolo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<a href="../../assets/figures/arte-cap12-08-protocolo.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-9" title="Figura&nbsp;12.9: Quatro fichas e dois caminhos de obtenção dos dados"><img src="../../assets/figures/arte-cap12-08-protocolo.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Duas colunas separam dados abertos do Atlas, usados nas fichas DES-HUM-01 e DES-SAU-01, de dados locais necessários às fichas DES-HUM-02 e DES-SAU-02. O fluxo destaca versão, completude, unidade e publicação. Ausência de registro, incompletude e zero informado permanecem distintos."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-desastre-protocolo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;12.9: Quatro fichas e dois caminhos de obtenção dos dados
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte: elaboração conceitual a partir de Protocolos das quatro fichas do capítulo 21. Autoria: composição vetorial própria. Licença: a mesma dos textos autorais da obra.</span></p>
+</div>
+<p>A ficha especifica Censos nos anos censitários e publicações anuais do IBGE nos demais, com uma ressalva para 2023: a relação publicada naquele ano usa a população do Censo 2022 com atualização territorial. O ano populacional deve ser registrado, sem apresentar esse produto como estimativa demográfica de 2023. Comparações históricas através de mudanças municipais podem exigir agregação em áreas mínimas comparáveis, baseada em correspondências oficiais.</p>
+<p>A <a href="../../chapters/part-4/21-fichas-eventos-severos-desastres.html#sec-des-hum-02">DES-HUM-02</a> requer apurar os quatro componentes de afetação. Deduplicar dentro de cada componente não elimina necessariamente a sobreposição entre eles. Dano e destruição da moradia devem ser categorias mutuamente exclusivas na situação final. Se um componente não puder ser apurado, o total permanece ausente. O campo de total de danos humanos diretos do Atlas inclui categorias diferentes, como mortes e desaparecimentos, e não reproduz a soma de afetados definida na ficha.</p>
+<p>Na <a href="../../chapters/part-4/21-fichas-eventos-severos-desastres.html#sec-des-sau-01">DES-SAU-01</a>, somam-se os registros de instalações públicas danificadas e destruídas, preservando ambas as parcelas. Campos monetários não entram nessa soma. Uma instalação pode reaparecer em diferentes eventos; por isso, o resultado não deve ser denominado número de estabelecimentos únicos. Município-ano sem registro recebe a condição de ausência de registro e valor ausente. Zero exige registros elegíveis completos com zero informado; componente faltante torna o total incompleto.</p>
+<p>Para a <a href="../../chapters/part-4/21-fichas-eventos-severos-desastres.html#sec-des-sau-02">DES-SAU-02</a>, os registros locais identificam estabelecimento, serviço, evento, início, fim, fuso e tipo de interrupção. Intervalos sobrepostos ou contíguos da mesma combinação são unidos; cada intervalo resultante constitui um episódio. O protocolo classifica como total o episódio que contenha algum trecho de interrupção total, sinalizando a mistura quando houver trechos parciais. Os episódios são contados pelo ano de início; duração é publicada separadamente e permanece censurada quando o episódio ainda está aberto.</p>
+<div class="callout callout-style-default callout-important no-icon callout-titled" title="Atenção: ausência, zero e substitutos inadequados">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Importante</span>Atenção: ausência, zero e substitutos inadequados
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Registro ausente, evento não notificado e zero informado têm significados diferentes. Despesa de assistência médica no Atlas, cadastro de estabelecimento e redução de produção assistencial não comprovam interrupção de serviço. As regras das fichas preservam essas distinções e não autorizam preencher uma série nacional com substitutos sem evidência.</p>
+</div>
+</div>
+<p>Os métodos completos, campos e limitações estão nas quatro fichas operacionais:</p>
+<p><span id="sec-des-hum-01"></span> Consulte a <a href="../../chapters/part-4/21-fichas-eventos-severos-desastres.html#sec-des-hum-01">ficha DES-HUM-01 — Mortes e desaparecimentos registrados</a>, na Parte IV.</p>
+<p><span id="sec-des-hum-02"></span> Consulte a <a href="../../chapters/part-4/21-fichas-eventos-severos-desastres.html#sec-des-hum-02">ficha DES-HUM-02 — Pessoas diretamente afetadas por desastres</a>, na Parte IV.</p>
+<p><span id="sec-des-sau-01"></span> Consulte a <a href="../../chapters/part-4/21-fichas-eventos-severos-desastres.html#sec-des-sau-01">ficha DES-SAU-01 — Danos registrados em instalações públicas de saúde</a>, na Parte IV.</p>
+<p><span id="sec-des-sau-02"></span> Consulte a <a href="../../chapters/part-4/21-fichas-eventos-severos-desastres.html#sec-des-sau-02">ficha DES-SAU-02 — Interrupções de serviços de saúde</a>, na Parte IV.</p>
+</section>
+<section id="aplicação-na-gestão" class="level2 page-columns page-full" data-number="12.9">
+<h2 data-number="12.9" class="anchored" data-anchor-id="aplicação-na-gestão"><span class="header-section-number">12.9</span> Aplicação na gestão</h2>
+<p>Na gestão, o indicador precisa estar ligado a uma pergunta e a uma responsabilidade. Antes do evento, interessa reconhecer populações e serviços expostos, alternativas de acesso e necessidades de continuidade. Durante a resposta, mudam a frequência de atualização e a urgência das decisões. Na recuperação, ganham importância a duração das interrupções, o retorno seguro dos serviços e a persistência de necessidades. A <a href="#fig-linha-tempo-desastre" class="quarto-xref">Figura&nbsp;<span>12.10</span></a> relaciona esses momentos, retomando o percurso do <a href="../../chapters/part-1/06-indicador-decisao.html">capítulo 6</a>.</p>
+<div class="figure-with-source page-columns page-full">
+<div id="fig-linha-tempo-desastre" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-src="arte-cap12-09-gestao-print.png" alt="Cinco etapas relacionam preparação, alerta, impacto e resposta, recuperação e avaliação. Cada etapa distingue os registros necessários e as decisões correspondentes. O retorno ao planejamento indica correções e aprendizagem; as fases podem se sobrepor.">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-linha-tempo-desastre-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<a href="../../assets/figures/arte-cap12-09-gestao.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-10" title="Figura&nbsp;12.10: Registros e decisões ao longo de um desastre"><img src="../../assets/figures/arte-cap12-09-gestao.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Cinco etapas relacionam preparação, alerta, impacto e resposta, recuperação e avaliação. Cada etapa distingue os registros necessários e as decisões correspondentes. O retorno ao planejamento indica correções e aprendizagem; as fases podem se sobrepor."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-linha-tempo-desastre-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;12.10: Registros e decisões ao longo de um desastre
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte: elaboração conceitual a partir de OMS (2019, 2024); capítulos 6 e 15. Autoria: composição vetorial própria. Licença: a mesma dos textos autorais da obra.</span></p>
+</div>
+<p>Um quadro de situação deve combinar perigo observado ou previsto, exposição, impactos verificados, necessidades, recursos disponíveis e ações em andamento. Cada atualização deve trazer horário, cobertura e condição de validação. Mapas precisam distinguir área do perigo, residência, local do agravo, atendimento e serviço interrompido; localizar todos os registros no endereço da unidade de saúde pode deslocar artificialmente a interpretação territorial.</p>
+<p>A priorização pode considerar gravidade das necessidades, número e perfil das pessoas atingidas, disponibilidade de alternativas e desigualdades de acesso. Indicadores apoiam essa decisão, mas seus totais não expressam todos esses critérios. Uma interrupção isolada pode ser decisiva se afetar o único serviço acessível. A leitura conjunta da <a href="../../chapters/part-4/21-fichas-eventos-severos-desastres.html#sec-des-sau-02">DES-SAU-02</a> com a <a href="../../chapters/part-4/24-fichas-resposta-adaptacao-resiliencia.html#sec-res-pla-01">RES-PLA-01</a> ajuda a relacionar impacto e preparação, sem presumir que ter um plano assegure sua execução.</p>
+<p>Na recuperação, definir o que significa restabelecer: funcionamento parcial, plena capacidade ou operação segura com adaptação. O marco de início e o critério de término precisam ser verificáveis. Acompanhar apenas unidades reabertas pode ocultar falta de pessoal, redução de serviços ou dependência de soluções temporárias. A perspectiva de resiliência desenvolvida nos <a href="../../chapters/part-3/15-resposta-adaptacao-resiliencia.html">capítulos 15</a> e <a href="../../chapters/part-4/24-fichas-resposta-adaptacao-resiliencia.html">24</a> orienta o exame dessas condições <span class="citation" data-cites="who2024resilienceindicators">(<a href="../../backmatter/referencias.html#ref-who2024resilienceindicators" role="doc-biblioref">World Health Organization, 2024</a>)</span>.</p>
+<p>A avaliação pós-evento deve reconstruir previsão, alerta, decisão, cobertura, tempos e resultados. Dano baixo pode refletir menor intensidade, pouca exposição, proteção eficaz ou sub-registro. Um alerta sem impacto não é automaticamente falso; a avaliação precisa considerar o que foi previsto e o que ocorreu, além das ações tomadas. Atribuir êxito ou falha apenas ao desfecho final ignora explicações alternativas <span class="citation" data-cites="cdc2024evaluation hernan2020causal">(<a href="../../backmatter/referencias.html#ref-cdc2024evaluation" role="doc-biblioref">Centers for Disease Control and Prevention, 2024</a>; <a href="../../backmatter/referencias.html#ref-hernan2020causal" role="doc-biblioref">Hernán; Robins, 2020</a>)</span>.</p>
+<p>O acompanhamento se completa quando os achados geram ações verificáveis: corrigir acessos, rever procedimentos, manter recursos, atualizar perfis de risco e incorporar a experiência das comunidades e dos trabalhadores. Registrar responsável, prazo, evidência de execução e nova avaliação conecta as <a href="../../chapters/part-4/21-fichas-eventos-severos-desastres.html">fichas de desastres</a> às <a href="../../chapters/part-4/24-fichas-resposta-adaptacao-resiliencia.html">fichas de resposta e continuidade</a>. Esse percurso permite usar a experiência do episódio para reduzir riscos e sustentar o cuidado no território.</p>
+
+
+<div id="refs" class="references csl-bib-body" data-entry-spacing="1" role="list" style="display: none">
+<div id="ref-brasil2026sim" class="csl-entry" role="listitem">
+BRASIL. MINISTÉRIO DA SAÚDE. <strong>Mortalidade — desde 1996 pela CID-10</strong>. 2026a. Disponível em: &lt;<a href="https://datasus.saude.gov.br/mortalidade-desde-1996-pela-cid-10">https://datasus.saude.gov.br/mortalidade-desde-1996-pela-cid-10</a>&gt;. Acesso em: 28 jul. 2026.
+</div>
+<div id="ref-brasil2026sih" class="csl-entry" role="listitem">
+BRASIL. MINISTÉRIO DA SAÚDE. <strong>Morbidade Hospitalar do SUS (SIH/SUS)</strong>. 2026b. Disponível em: &lt;<a href="https://datasus.saude.gov.br/acesso-a-informacao/morbidade-hospitalar-do-sus-sih-sus/">https://datasus.saude.gov.br/acesso-a-informacao/morbidade-hospitalar-do-sus-sih-sus/</a>&gt;. Acesso em: 28 jul. 2026.
+</div>
+<div id="ref-brasil2026cnes" class="csl-entry" role="listitem">
+BRASIL. MINISTÉRIO DA SAÚDE. <strong>Cadastro Nacional de Estabelecimentos de Saúde</strong>. 2026c. Disponível em: &lt;<a href="https://cnes.datasus.gov.br/">https://cnes.datasus.gov.br/</a>&gt;. Acesso em: 6 out. 2026.
+</div>
+<div id="ref-brasil2026leptospirose" class="csl-entry" role="listitem">
+BRASIL. MINISTÉRIO DA SAÚDE. <strong>Leptospirose</strong>. <em>[S.d.]</em>. Disponível em: &lt;<a href="https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/l/leptospirose">https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/l/leptospirose</a>&gt;. Acesso em: 8 out. 2026.
+</div>
+<div id="ref-brasil2024inundacoesaps" class="csl-entry" role="listitem">
+BRASIL. MINISTÉRIO DA SAÚDE. SECRETARIA DE ATENÇÃO PRIMÁRIA À SAÚDE. <strong><a href="https://www.gov.br/saude/pt-br/composicao/saps/publicacoes/livro/inundacoes-diretrizes-para-profissionais-de-saude-unidades-basicas-de-saude/@@download/file">Inundações: diretrizes para profissionais de saúde: unidades básicas de saúde: Publicação para emergências: recomendações para as equipes da atenção primária à saúde em situações de desastres</a></strong>. Brasília: Ministério da Saúde, 2024.
+</div>
+<div id="ref-cdc2024evaluation" class="csl-entry" role="listitem">
+CENTERS FOR DISEASE CONTROL AND PREVENTION. <strong>CDC Program Evaluation Framework, 2024</strong>. 20 ago. 2024. Disponível em: &lt;<a href="https://www.cdc.gov/mmwr/volumes/73/rr/rr7306a1.htm">https://www.cdc.gov/mmwr/volumes/73/rr/rr7306a1.htm</a>&gt;. Acesso em: 4 ago. 2026.
+</div>
+<div id="ref-cemaden2026alerta" class="csl-entry" role="listitem">
+CENTRO NACIONAL DE MONITORAMENTO E ALERTAS DE DESASTRES NATURAIS. <strong>O alerta</strong>. <em>[S.d.]</em>. Disponível em: &lt;<a href="https://www2.cemaden.gov.br/o-alerta/">https://www2.cemaden.gov.br/o-alerta/</a>&gt;. Acesso em: 8 out. 2026.
+</div>
+<div id="ref-ipcc2022saude" class="csl-entry" role="listitem">
+CISSÉ, Guéladio <em>et al.</em> <a href="https://doi.org/10.1017/9781009325844.009">Health, Wellbeing, and the Changing Structure of Communities</a>. <em>In</em>: PÖRTNER, Hans-Otto <em>et al.</em> (Orgs). <strong>Climate Change 2022: Impacts, Adaptation and Vulnerability</strong>. Cambridge: Cambridge University Press, 2022. p. 1041–1170.
+</div>
+<div id="ref-freitas2014desastres" class="csl-entry" role="listitem">
+FREITAS, Carlos Machado de <em>et al.</em> Desastres naturais e saúde: uma análise da situação do Brasil. <strong>Ciência &amp; Saúde Coletiva</strong>, v. 19, n. 9, p. 3645–3656, 2014. Disponível em: &lt;https://doi.org/<a href="https://doi.org/10.1590/1413-81232014199.00732014">10.1590/1413-81232014199.00732014</a>&gt;.
+</div>
+<div id="ref-hernan2020causal" class="csl-entry" role="listitem">
+HERNÁN, Miguel A.; ROBINS, James M. <strong><a href="https://miguelhernan.org/whatifbook">Causal inference: what if</a></strong>. Boca Raton: Chapman &amp; Hall/CRC, 2020.
+</div>
+<div id="ref-lacerdaFreitas2024justica" class="csl-entry" role="listitem">
+LACERDA, Luiz Felipe Barboza; FREITAS, Carlos Machado de. Justiça socioambiental para gestão integral de riscos de desastres. <strong>Em Pauta: teoria social e realidade contemporânea</strong>, v. 22, n. 55, p. 148–159, 2024. Disponível em: &lt;https://doi.org/<a href="https://doi.org/10.12957/rep.2024.79890">10.12957/rep.2024.79890</a>&gt;.
+</div>
+<div id="ref-levy2016waterborne" class="csl-entry" role="listitem">
+LEVY, Karen <em>et al.</em> Untangling the impacts of climate change on waterborne diseases: a systematic review of relationships between diarrheal diseases and temperature, rainfall, flooding, and drought. <strong>Environmental Science &amp; Technology</strong>, v. 50, n. 10, p. 4905–4922, 2016. Disponível em: &lt;https://doi.org/<a href="https://doi.org/10.1021/acs.est.5b06186">10.1021/acs.est.5b06186</a>&gt;.
+</div>
+<div id="ref-ipcc2022glossario" class="csl-entry" role="listitem">
+MATTHEWS, J. B. Robin <em>et al.</em> <a href="https://doi.org/10.1017/9781009325844.029">Annex II: Glossary</a>. <em>In</em>: PÖRTNER, Hans-Otto <em>et al.</em> (Orgs). <strong>Climate Change 2022: Impacts, Adaptation and Vulnerability</strong>. Cambridge: Cambridge University Press, 2022. p. 2897–2930.
+</div>
+<div id="ref-atlas2026manual" class="csl-entry" role="listitem">
+MINISTÉRIO DA INTEGRAÇÃO E DO DESENVOLVIMENTO REGIONAL. <strong>Atlas Digital de Desastres: manual de aplicação</strong>. 2026. Disponível em: &lt;<a href="https://atlasdigital.mdr.gov.br/arquivos/Atlas_Digital_Desastres_Manual_Aplicacao.pdf">https://atlasdigital.mdr.gov.br/arquivos/Atlas_Digital_Desastres_Manual_Aplicacao.pdf</a>&gt;. Acesso em: 3 out. 2026.
+</div>
+<div id="ref-ipcc2021extremes" class="csl-entry" role="listitem">
+SENEVIRATNE, Sonia I. <em>et al.</em> <a href="https://doi.org/10.1017/9781009157896.013">Weather and Climate Extreme Events in a Changing Climate</a>. <em>In</em>: MASSON-DELMOTTE, V. <em>et al.</em> (Orgs). <strong>Climate Change 2021: The Physical Science Basis. Contribution of Working Group I to the Sixth Assessment Report of the Intergovernmental Panel on Climate Change</strong>. Cambridge; New York: Cambridge University Press, 2021. p. 1513–1766.
+</div>
+<div id="ref-un2014statistics" class="csl-entry" role="listitem">
+UNITED NATIONS GENERAL ASSEMBLY. <strong>Fundamental Principles of Official Statistics: resolution A/RES/68/261</strong>. New York, United Nations, 2014. Disponível em: &lt;<a href="https://unstats.un.org/fpos">https://unstats.un.org/fpos</a>&gt;. Acesso em: 4 ago. 2026.
+</div>
+<div id="ref-undrr2017terminology" class="csl-entry" role="listitem">
+UNITED NATIONS OFFICE FOR DISASTER RISK REDUCTION. <strong>Sendai Framework terminology on disaster risk reduction</strong>. 2017. Disponível em: &lt;<a href="https://www.undrr.org/terminology">https://www.undrr.org/terminology</a>&gt;. Acesso em: 4 ago. 2026.
+</div>
+<div id="ref-undrr2025thunderstorm" class="csl-entry" role="listitem">
+UNITED NATIONS OFFICE FOR DISASTER RISK REDUCTION; INTERNATIONAL SCIENCE COUNCIL. <strong>Thunderstorm (MH0103)</strong>. 2025a. Disponível em: &lt;<a href="https://www.undrr.org/understanding-disaster-risk/terminology/hips/mh0103">https://www.undrr.org/understanding-disaster-risk/terminology/hips/mh0103</a>&gt;. Acesso em: 8 out. 2026.
+</div>
+<div id="ref-undrr2025extratropical" class="csl-entry" role="listitem">
+UNITED NATIONS OFFICE FOR DISASTER RISK REDUCTION; INTERNATIONAL SCIENCE COUNCIL. <strong>Extra-tropical Cyclone (MH0307)</strong>. 2025b. Disponível em: &lt;<a href="https://www.undrr.org/understanding-disaster-risk/terminology/hips/mh0307">https://www.undrr.org/understanding-disaster-risk/terminology/hips/mh0307</a>&gt;. Acesso em: 8 out. 2026.
+</div>
+<div id="ref-undrr2025tornado" class="csl-entry" role="listitem">
+UNITED NATIONS OFFICE FOR DISASTER RISK REDUCTION; INTERNATIONAL SCIENCE COUNCIL. <strong>Tornado (MH0305)</strong>. 2025c. Disponível em: &lt;<a href="https://www.undrr.org/understanding-disaster-risk/terminology/hips/mh0305">https://www.undrr.org/understanding-disaster-risk/terminology/hips/mh0305</a>&gt;. Acesso em: 8 out. 2026.
+</div>
+<div id="ref-undrr2025hail" class="csl-entry" role="listitem">
+UNITED NATIONS OFFICE FOR DISASTER RISK REDUCTION; INTERNATIONAL SCIENCE COUNCIL. <strong>Hail (MH0404)</strong>. 2025d. Disponível em: &lt;<a href="https://www.undrr.org/understanding-disaster-risk/terminology/hips/mh0404">https://www.undrr.org/understanding-disaster-risk/terminology/hips/mh0404</a>&gt;. Acesso em: 8 out. 2026.
+</div>
+<div id="ref-undrr2025lightning" class="csl-entry" role="listitem">
+UNITED NATIONS OFFICE FOR DISASTER RISK REDUCTION; INTERNATIONAL SCIENCE COUNCIL. <strong>Lightning (Electrical Storm) (MH0102)</strong>. 2025e. Disponível em: &lt;<a href="https://www.undrr.org/understanding-disaster-risk/terminology/hips/mh0102">https://www.undrr.org/understanding-disaster-risk/terminology/hips/mh0102</a>&gt;. Acesso em: 8 out. 2026.
+</div>
+<div id="ref-un2024infrastructure" class="csl-entry" role="listitem">
+UNITED NATIONS STATISTICS DIVISION. <strong>SDG indicator metadata 11.5.3: damage to critical infrastructure and number of disruptions to basic services, attributed to disasters</strong>. 20 dez. 2024b. Disponível em: &lt;<a href="https://unstats.un.org/sdgs/metadata/files/Metadata-11-05-03.pdf">https://unstats.un.org/sdgs/metadata/files/Metadata-11-05-03.pdf</a>&gt;. Acesso em: 28 jul. 2026.
+</div>
+<div id="ref-un2024disasters" class="csl-entry" role="listitem">
+UNITED NATIONS STATISTICS DIVISION. <strong>SDG indicator metadata 1.5.1: number of deaths, missing persons and directly affected persons attributed to disasters per 100,000 population</strong>. 20 dez. 2024a. Disponível em: &lt;<a href="https://unstats.un.org/sdgs/metadata/files/Metadata-01-05-01.pdf">https://unstats.un.org/sdgs/metadata/files/Metadata-01-05-01.pdf</a>&gt;. Acesso em: 28 jul. 2026.
+</div>
+<div id="ref-waite2017flooding" class="csl-entry" role="listitem">
+WAITE, Thomas <em>et al.</em> The English national cohort study of flooding and health: cross-sectional analysis of mental health outcomes at year one. <strong>BMC Public Health</strong>, v. 17, n. 1, p. 129, 2017. Disponível em: &lt;https://doi.org/<a href="https://doi.org/10.1186/s12889-016-4000-2">10.1186/s12889-016-4000-2</a>&gt;.
+</div>
+<div id="ref-who2019edrmframework" class="csl-entry" role="listitem">
+WORLD HEALTH ORGANIZATION. <strong><a href="https://www.who.int/publications/i/item/9789241516181">Health Emergency and Disaster Risk Management Framework</a></strong>. Geneva: World Health Organization, 2019.
+</div>
+<div id="ref-who2021vulnerability" class="csl-entry" role="listitem">
+WORLD HEALTH ORGANIZATION. <strong><a href="https://www.who.int/publications/i/item/9789240036383">Climate change and health: vulnerability and adaptation assessment</a></strong>. Geneva: World Health Organization, 2021.
+</div>
+<div id="ref-who2021edrmresearch" class="csl-entry" role="listitem">
+WORLD HEALTH ORGANIZATION. <strong><a href="https://wkc.who.int/resources/publications/i/item/9789240057968">WHO guidance on research methods for health emergency and disaster risk management</a></strong>. Geneva: World Health Organization, 2022.
+</div>
+<div id="ref-who2023framework" class="csl-entry" role="listitem">
+WORLD HEALTH ORGANIZATION. <strong><a href="https://www.who.int/publications/i/item/9789240081888">Operational framework for building climate resilient and low carbon health systems</a></strong>. Geneva: World Health Organization, 2023a.
+</div>
+<div id="ref-who2023dqa" class="csl-entry" role="listitem">
+WORLD HEALTH ORGANIZATION. <strong><a href="https://www.who.int/publications/i/item/9789240047365">Data quality assurance: module 1: framework and metrics</a></strong>. Geneva: World Health Organization, 2023b.
+</div>
+<div id="ref-who2024resilienceindicators" class="csl-entry" role="listitem">
+WORLD HEALTH ORGANIZATION. <strong><a href="https://www.who.int/publications/i/item/9789240088986">Health system resilience indicators: an integrated package for measuring and monitoring health system resilience in countries</a></strong>. Geneva: World Health Organization, 2024.
+</div>
+<div id="ref-who2025mentalEmergencies" class="csl-entry" role="listitem">
+WORLD HEALTH ORGANIZATION. <strong>Mental health in emergencies</strong>. 6 maio 2025. Disponível em: &lt;<a href="https://www.who.int/news-room/fact-sheets/detail/mental-health-in-emergencies">https://www.who.int/news-room/fact-sheets/detail/mental-health-in-emergencies</a>&gt;. Acesso em: 8 out. 2026.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiada");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiada");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../chapters/part-2/11-uso-cobertura-terra-ambiente-urbano.html" class="pagination-link" aria-label="Uso e cobertura da terra, vegetação e ambiente urbano">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Uso e cobertura da terra, vegetação e ambiente urbano</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../chapters/part-3/13-exposicao-vulnerabilidade.html" class="pagination-link" aria-label="Exposição e vulnerabilidade socioambiental">
+        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Exposição e vulnerabilidade socioambiental</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/rfsaldanha/dicas/blob/main/chapters/part-2/12-eventos-severos-desastres.qmd" class="toc-action"><i class="bi bi-github"></i>Ver o código fonte</a></li><li><a href="https://github.com/rfsaldanha/dicas/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></div></div></footer><script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>

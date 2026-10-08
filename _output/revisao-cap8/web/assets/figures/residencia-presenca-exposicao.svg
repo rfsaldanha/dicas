@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">Residência, presença e microambientes na exposição</title>
+  <desc id="desc">Linha de um dia esquemático entre moradia, transporte, trabalho ou escola, serviço ou lazer e retorno. Quatro faixas distinguem condição ambiental, microambiente, permanência e dose potencial, sem representar rastreamento individual.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 Z" fill="#34454d"/></marker>
+    <style>
+      .head{font:600 25px Arial,Helvetica,sans-serif;fill:#223039;text-anchor:middle}
+      .row{font:600 23px Arial,Helvetica,sans-serif;fill:#223039}
+      .small{font:400 20px Arial,Helvetica,sans-serif;fill:#46555c;text-anchor:middle}
+      .box{stroke:#526168;stroke-width:1.6}
+      .route{stroke:#34454d;stroke-width:3;fill:none;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="1200" height="700" fill="#ffffff"/>
+
+  <g aria-label="Ambientes ao longo do dia">
+    <line x1="170" y1="126" x2="1065" y2="126" class="route"/>
+    <g transform="translate(175 54)">
+      <polygon points="0,46 58,8 116,46" fill="#756b62"/><rect x="14" y="46" width="88" height="62" fill="#d9d4ca" stroke="#34454d" stroke-width="2"/><rect x="49" y="72" width="25" height="36" fill="#fff"/>
+      <text class="head" x="58" y="142">Moradia</text>
+    </g>
+    <g transform="translate(374 70)">
+      <rect x="0" y="24" width="112" height="54" rx="10" fill="#aebdc0" stroke="#34454d" stroke-width="2"/><rect x="15" y="34" width="58" height="22" fill="#eef3f4"/><circle cx="25" cy="82" r="12" fill="#34454d"/><circle cx="88" cy="82" r="12" fill="#34454d"/>
+      <text class="head" x="56" y="126">Transporte</text>
+    </g>
+    <g transform="translate(586 54)">
+      <rect x="0" y="35" width="142" height="74" fill="#d9d4ca" stroke="#34454d" stroke-width="2"/><rect x="20" y="52" width="26" height="22" fill="#9eb8bc"/><rect x="58" y="52" width="26" height="22" fill="#9eb8bc"/><rect x="96" y="52" width="26" height="22" fill="#9eb8bc"/><path d="M-8 35 L71 4 L150 35" fill="#756b62"/>
+      <text class="head" x="71" y="143">Trabalho ou escola</text>
+    </g>
+    <g transform="translate(834 54)">
+      <rect x="0" y="36" width="130" height="72" fill="#dfe6e5" stroke="#34454d" stroke-width="2"/><path d="M65 49 V89 M45 69 H85" stroke="#53757c" stroke-width="11"/><circle cx="112" cy="24" r="22" fill="#78977b"/>
+      <text class="head" x="65" y="143">Serviço ou lazer</text>
+    </g>
+    <g transform="translate(1042 73)">
+      <polygon points="0,34 42,6 84,34" fill="#756b62"/><rect x="10" y="34" width="64" height="45" fill="#d9d4ca" stroke="#34454d" stroke-width="2"/>
+      <text class="head" x="42" y="123">Retorno</text>
+    </g>
+  </g>
+
+  <g aria-label="Camadas da exposição" transform="translate(0 232)">
+    <text class="row" x="25" y="38">Condição ambiental</text>
+    <rect class="box" x="220" y="8" width="210" height="48" fill="#edf0ef"/><rect class="box" x="430" y="8" width="170" height="48" fill="#e5ddda"/><rect class="box" x="600" y="8" width="320" height="48" fill="#dfe8e7"/><rect class="box" x="920" y="8" width="245" height="48" fill="#edf0ef"/>
+    <text class="small" x="325" y="39">condição residencial</text><text class="small" x="515" y="39">trajeto</text><text class="small" x="760" y="39">condição no destino</text><text class="small" x="1042" y="39">retorno</text>
+
+    <text class="row" x="25" y="112">Microambiente</text>
+    <rect class="box" x="220" y="82" width="210" height="48" fill="#d9d4ca"/><rect class="box" x="430" y="82" width="170" height="48" fill="#cbd6d8"/><rect class="box" x="600" y="82" width="320" height="48" fill="#d9d4ca"/><rect class="box" x="920" y="82" width="245" height="48" fill="#c9d8d1"/>
+    <text class="small" x="325" y="113">interior da moradia</text><text class="small" x="515" y="113">veículo / via</text><text class="small" x="760" y="113">interior / exterior</text><text class="small" x="1042" y="113">sombra / ventilação</text>
+
+    <text class="row" x="25" y="186">Permanência</text>
+    <rect class="box" x="220" y="156" width="128" height="48" fill="#9eb8bc"/><rect class="box" x="348" y="156" width="82" height="48" fill="#e4e9e8"/><rect class="box" x="430" y="156" width="170" height="48" fill="#b6c8ca"/><rect class="box" x="600" y="156" width="250" height="48" fill="#789aa0"/><rect class="box" x="850" y="156" width="70" height="48" fill="#e4e9e8"/><rect class="box" x="920" y="156" width="245" height="48" fill="#afc3c4"/>
+    <text class="small" x="692" y="187" fill="#fff">tempo em cada ambiente</text>
+
+    <text class="row" x="25" y="260">Dose potencial</text>
+    <path d="M220 276 C294 244 353 290 430 261 C514 229 548 273 600 252 C687 216 788 302 920 249 C1002 217 1085 246 1165 228" fill="none" stroke="#9a3e38" stroke-width="5"/>
+    <path d="M220 288 H1165" stroke="#aeb7ba" stroke-width="1.5"/>
+    <text class="small" x="760" y="312">integra condição, proteção, atividade e duração</text>
+  </g>
+
+  <g aria-label="Diferença entre residência e presença">
+    <path d="M220 595 V624 H430 V595" fill="none" stroke="#34454d" stroke-width="3"/>
+    <text class="head" x="325" y="655">População residente</text>
+    <path d="M430 595 V624 H1165 V595" fill="none" stroke="#9a3e38" stroke-width="3"/>
+    <text class="head" x="797" y="655" fill="#9a3e38">Presença efetiva em diferentes microambientes</text>
+  </g>
+  <text x="600" y="687" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="20" fill="#526168">Esquema populacional e analítico; não representa rastreamento individual.</text>
+</svg>

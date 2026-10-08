@@ -6,7 +6,7 @@ O identificador `dicas` foi mantido: não havia arquivo, pacote ou configuraçã
 
 Os 24 capítulos e os elementos pré-textuais em QMD são compartilhados entre as duas saídas. A extensão Typst acrescenta apenas folha de rosto, verso editorial, paginação e composição gráfica próprias da edição impressa.
 
-A organização editorial tem quatro partes: fundamentos e métodos (capítulos 1–6), dados e indicadores temáticos (7–12), indicadores integrados de clima, ambiente e saúde (13–15) e fichas de indicadores e fontes de dados (16–24). “Do indicador à decisão pública” encerra a Parte I como capítulo 6. Seu caminho é `chapters/part-1/06-indicador-decisao.qmd`. As pastas correspondem às partes e os prefixos dos arquivos, de `01` a `24`, acompanham a ordem definida nos perfis Quarto.
+A organização editorial tem quatro partes: fundamentos, métodos e decisão em saúde (capítulos 1–6), fenômenos e indicadores de clima e ambiente (7–12), exposição, vulnerabilidade, efeitos e resposta em saúde (13–15) e fichas de indicadores e fontes de dados (16–24). “Análise de situação de saúde e decisão pública” encerra a Parte I como capítulo 6. Seu caminho é `chapters/part-1/06-indicador-decisao.qmd`. As pastas correspondem às partes e os prefixos dos arquivos, de `01` a `24`, acompanham a ordem definida nos perfis Quarto.
 
 ## Perfis
 
