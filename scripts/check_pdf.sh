@@ -93,8 +93,8 @@ if command -v pdftotext >/dev/null 2>&1; then
     printf 'Divisão antiga ou remissão de página malformada no PDF.\n' >&2
     exit 1
   fi
-  for title in "Agradecimentos" "Apresentação" "Prefácio do autor" \
-    "Lista de siglas" "Sumário" "Como utilizar este livro" \
+  for title in "Ficha técnica" "Bem-vindo" "Agradecimentos" "Prefácio do autor" \
+    "Lista de siglas" "Sumário" \
     "Dados, variáveis" "Temperatura e condições" \
     "Temperatura máxima diária" "Título resumido" "Responsabilidade gerencial" \
     "Análise descritiva do indicador" "Tipo de registro" \
@@ -104,6 +104,28 @@ if command -v pdftotext >/dev/null 2>&1; then
       exit 1
     fi
   done
+  if ! awk '
+    BEGIN {
+      split("Ficha técnica;Sumário;Bem-vindo;Agradecimentos;Prefácio do autor;Lista de siglas;PARTE I", expected, ";")
+    }
+    {
+      gsub(/^[[:space:]]+|[[:space:]]+$/, "")
+      for (i = 1; i <= 7; i++) {
+        if ($0 == expected[i]) {
+          seen++
+          if (seen != i) invalid = 1
+        }
+      }
+    }
+    END { exit !(seen == 7 && !invalid) }
+  ' "$text_file"; then
+    printf 'Ordem dos pré-textuais incorreta: esperados ficha técnica, sumário, Bem-vindo, agradecimentos, prefácio, siglas e Parte I.\n' >&2
+    exit 1
+  fi
+  if grep -E '^[[:space:]]*(Apresentação|Como utilizar este livro|Lista de figuras|Lista de quadros e tabelas)[[:space:]]*$' "$text_file" >/dev/null; then
+    printf 'Página retirada ainda presente no PDF.\n' >&2
+    exit 1
+  fi
   if grep -E '@(sec|fig|tbl|qua)-[[:alnum:]_.:-]+|[?][?]' "$text_file" >/dev/null; then
     printf 'Referência cruzada não resolvida localizada no PDF.\n' >&2
     exit 1

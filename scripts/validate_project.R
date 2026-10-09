@@ -21,7 +21,7 @@ if (length(chapter_files) != 24L) {
 required <- c(
   "_quarto.yml", "_quarto-web.yml", "_quarto-print.yml", "index.qmd",
   "README.md", "CONTRIBUTING.md", "references.bib",
-  "frontmatter/ficha-tecnica.qmd",
+  "frontmatter/ficha-tecnica.qmd", "frontmatter/bem-vindo.qmd", "includes/bem-vindo.qmd",
   "frontmatter/apresentacao.qmd", "frontmatter/prefacio.qmd",
   "frontmatter/agradecimentos.qmd", "frontmatter/siglas.qmd",
   "frontmatter/sumario.qmd", "frontmatter/como-usar.qmd",

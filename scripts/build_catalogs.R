@@ -9,7 +9,9 @@ root <- normalizePath(file.path(dirname(script_path), ".."), mustWork = TRUE)
 
 fail <- function(...) stop(paste0(...), call. = FALSE)
 updated_files <- 0L
+generated_paths <- character()
 write_utf8 <- function(lines, path) {
+  generated_paths <<- c(generated_paths, path)
   # A prévia acompanha também os includes. Regravar conteúdo idêntico muda
   # as datas das dependências e pode provocar renderizações desnecessárias.
   content <- charToRaw(paste0(paste0(enc2utf8(lines), "\n"), collapse = ""))
@@ -52,6 +54,35 @@ yaml_files <- sort(list.files(
   pattern = "\\.ya?ml$",
   full.names = TRUE
 ))
+
+source_path <- file.path(root, "sources", "data", "sources.yml")
+
+# Na renderização parcial, reaproveita apenas uma geração concluída cujas
+# entradas E saídas continuam idênticas. A compilação integral e a chamada
+# manual sempre validam os dados. Hashes detectam também alterações que
+# preservam a data do arquivo, como restaurações de cópias de segurança.
+input_paths <- c(
+  file.path(root, "scripts/build_catalogs.R"),
+  file.path(root, c("_quarto-web.yml", "_quarto-print.yml")),
+  yaml_files, source_path,
+  sort(list.files(file.path(root, "chapters"), pattern = "\\.qmd$",
+                  recursive = TRUE, full.names = TRUE))
+)
+input_hashes <- tools::md5sum(input_paths)
+cache_path <- file.path(root, ".quarto", "catalogs.rds")
+incremental <- "--incremental" %in% commandArgs(trailingOnly = TRUE) &&
+  Sys.getenv("QUARTO_PROJECT_RENDER_ALL") != "1"
+if (incremental && file.exists(cache_path)) {
+  cache <- tryCatch(readRDS(cache_path), error = function(e) NULL)
+  if (is.list(cache) && !anyNA(input_hashes) &&
+      identical(cache$inputs, input_hashes) &&
+      is.character(cache$outputs) && length(cache$outputs) > 0L &&
+      length(names(cache$outputs)) == length(cache$outputs) &&
+      all(file.exists(names(cache$outputs))) &&
+      identical(cache$outputs, tools::md5sum(names(cache$outputs)))) {
+    quit(save = "no", status = 0L)
+  }
+}
 
 if (!requireNamespace("yaml", quietly = TRUE)) {
   fail("O pacote R 'yaml' é necessário. Instale-o com install.packages('yaml').")
@@ -118,7 +149,6 @@ if (any(!grepl("^[A-Z]{3}-[A-Z]{2,3}-[0-9]{2}$", codes))) {
   fail("Código fora do padrão em: ", paste(names(indicators)[!grepl("^[A-Z]{3}-[A-Z]{2,3}-[0-9]{2}$", codes)], collapse = ", "), ".")
 }
 
-source_path <- file.path(root, "sources", "data", "sources.yml")
 sources <- yaml::read_yaml(source_path)
 required_source <- c(
   "id", "tipo_registro", "nome", "instituicao", "descricao", "recursos_relacionados",
@@ -437,6 +467,9 @@ write_utf8(
   c("<!-- Arquivo gerado por scripts/build_catalogs.R. -->", "", source_cards),
   file.path(root, "sources", "generated", "cards.qmd")
 )
+
+dir.create(dirname(cache_path), recursive = TRUE, showWarnings = FALSE)
+saveRDS(list(inputs = input_hashes, outputs = tools::md5sum(generated_paths)), cache_path)
 
 message(
   "Catálogos validados: ", length(indicators), " fichas; ",

@@ -8,15 +8,28 @@ validate_book_structure <- function(root = ".", rendered = FALSE) {
   parts <- lapply(configs, function(config) Filter(function(x) is.list(x) && !is.null(x$part), config$book$chapters))
   expected_parts <- c("Parte I — Fundamentos, métodos e decisão em saúde", "Parte II — Fenômenos e indicadores de clima e ambiente",
     "Parte III — Exposição, vulnerabilidade, efeitos e resposta em saúde", "Parte IV — Fichas de indicadores e fontes de dados")
+  retired <- c("frontmatter/apresentacao.qmd", "frontmatter/como-usar.qmd",
+    "backmatter/lista-figuras.qmd", "backmatter/lista-tabelas.qmd")
+  print_only <- c("frontmatter/ficha-tecnica.qmd", "frontmatter/sumario.qmd", "frontmatter/bem-vindo.qmd")
+  expected_front <- list(
+    c("index.qmd", "frontmatter/agradecimentos.qmd", "frontmatter/prefacio.qmd", "frontmatter/siglas.qmd"),
+    c("index.qmd", "frontmatter/ficha-tecnica.qmd", "frontmatter/sumario.qmd", "frontmatter/bem-vindo.qmd",
+      "frontmatter/agradecimentos.qmd", "frontmatter/prefacio.qmd", "frontmatter/siglas.qmd")
+  )
   for (i in seq_along(configs)) {
     check(identical(vapply(parts[[i]], `[[`, character(1L), "part"), expected_parts), "O livro deve conter as quatro partes aprovadas.")
     check(identical(vapply(parts[[i]][1:3], function(x) length(x$chapters), integer(1L)), c(6L, 6L, 3L)), "Ordem ou quantidade de capítulos das partes I–III incorreta.")
     last_part <- unlist(parts[[i]][[4]]$chapters, use.names = FALSE)
     check(length(last_part) == 12L && identical(last_part[c(1, 2, 12)], c("backmatter/lista-fichas.qmd", "backmatter/indice-indicadores.qmd", "backmatter/indice-fontes.qmd")), "Índices e catálogo devem abrir e encerrar a Parte IV.")
     top <- unlist(Filter(is.character, configs[[i]]$book$chapters), use.names = FALSE)
-    sequence <- c("frontmatter/siglas.qmd", "backmatter/lista-figuras.qmd", "backmatter/lista-tabelas.qmd", "frontmatter/sumario.qmd")
-    pos <- match(sequence, top)
-    check(!anyNA(pos) && all(diff(pos) == 1L), "Listas de figuras e quadros devem ficar entre siglas e sumário.")
+    first_part <- which(vapply(configs[[i]]$book$chapters, function(x) is.list(x) && !is.null(x$part), logical(1L)))[1L]
+    front <- vapply(configs[[i]]$book$chapters[seq_len(first_part - 1L)], function(x) {
+      if (is.character(x)) x else x$href
+    }, character(1L))
+    check(identical(front, expected_front[[i]]), paste("Ordem dos pré-textuais incorreta no perfil", c("web", "print")[[i]]))
+    configured <- unlist(configs[[i]]$book[c("chapters", "appendices")], use.names = FALSE)
+    excluded <- if (i == 1L) c(retired, print_only) else retired
+    check(!any(excluded %in% configured), "Página retirada ainda incluída no perfil do livro.")
     check(identical(tail(top, 2L), c("backmatter/glossario.qmd", "backmatter/referencias.qmd")), "Glossário e referências devem ser entradas independentes ao final.")
     check(identical(tail(configs[[i]]$book$chapters, 2L), as.list(c("backmatter/glossario.qmd", "backmatter/referencias.qmd"))), "Glossário e referências devem ficar após a Parte IV.")
     check(identical(unlist(configs[[i]]$book$appendices), c("backmatter/apendice-metodologico.qmd", "backmatter/apendice-estacoes.qmd")), "Ordem dos apêndices A/B incorreta.")
@@ -97,7 +110,26 @@ validate_book_structure <- function(root = ".", rendered = FALSE) {
         }
       }
     }
+    excluded_html <- sub("qmd$", "html", c(retired, print_only))
+    check(!any(file.exists(file.path(root, "_output/web", excluded_html))), "HTML de página retirada ainda presente na saída web.")
+    search <- read_text("_output/web/search.json")
+    for (path in excluded_html) {
+      check(!grepl(path, search, fixed = TRUE), paste("Página retirada ainda presente na busca:", path))
+    }
+    published <- list.files(file.path(root, "_output/web"), pattern = "[.]html$", recursive = TRUE, full.names = TRUE)
+    for (path in published) {
+      html <- paste(readLines(path, warn = FALSE, encoding = "UTF-8"), collapse = "\n")
+      for (excluded in excluded_html) {
+        check(!grepl(excluded, html, fixed = TRUE), paste("Link para página retirada:", path, excluded))
+      }
+    }
     home <- read_text("_output/web/index.html")
+    sidebar <- regmatches(home, regexpr('(?s)<nav[^>]*id="quarto-sidebar".*?</nav>', home, perl = TRUE))
+    links <- regmatches(sidebar, gregexpr('<a href="[^"]+" class="sidebar-item-text sidebar-link[^"]*"', sidebar, perl = TRUE))[[1L]]
+    targets <- sub('^<a href="(?:[.]/)?([^"]+)".*$', "\\1", links, perl = TRUE)
+    expected_links <- sub("qmd$", "html", c(expected_front[[1L]], chapter_paths[1L]))
+    check(identical(head(targets, length(expected_links)), expected_links), "A navegação web não segue a sequência dos pré-textuais e da Parte I.")
+    check(grepl('href="./frontmatter/agradecimentos.html" class="book-start"', home, fixed = TRUE), "Começar a leitura deve apontar para Agradecimentos.")
     check(!grepl("Elementos pós-textuais", home, fixed = TRUE), "A antiga parte ainda aparece na navegação.")
     check(!grepl('href="./backmatter/indice-instituicoes.html"', home, fixed = TRUE), "Instituições ainda aparecem como página independente.")
   }

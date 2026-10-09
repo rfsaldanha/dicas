@@ -37,6 +37,26 @@ make catalogs
 make validate
 ```
 
+## Prévia para edição e leitura
+
+Para editar com renderização automática:
+
+```sh
+quarto preview --profile web
+```
+
+O preview pode recompor uma página na primeira visita da sessão, mesmo que seu HTML já exista. Para uma revisão de leitura sem essa espera, compile a web uma vez e sirva os arquivos prontos:
+
+```sh
+make web
+make serve
+```
+
+Abra <http://localhost:8000>. Se a web já estiver atualizada, basta `make serve`.
+Se a porta estiver ocupada, use `make serve PORT=8001` e abra <http://localhost:8001>.
+Esse servidor é local e não recompila alterações: execute `make web` novamente
+quando quiser incorporar edições. Encerre com `Ctrl+C`.
+
 ## Saídas
 
 - Arquivo `_output/web/index.html`;
@@ -103,9 +123,9 @@ O parcial `includes/chapter-opening/title-block.html` é ativado no YAML de cada
 
 ### Renderização do livro
 
-O pré-render executa `scripts/build_catalogs.R`. Esse script lê YAML, valida campos e códigos e gera páginas e índices. Em seguida, o Quarto compõe o livro. A validação completa deve ser executada após as duas saídas existirem. Renderizar os perfis em sequência: eles compartilham artefatos intermediários do Quarto.
+O pré-render executa `Rscript scripts/build_catalogs.R --incremental`. Esse script lê YAML, valida campos e códigos e gera páginas e índices. Em seguida, o Quarto compõe o livro. A validação completa deve ser executada após as duas saídas existirem. Renderizar os perfis em sequência: eles compartilham artefatos intermediários do Quarto. Ao retirar páginas de um perfil, remover também os HTML antigos correspondentes de `_output/web` antes da compilação; a validação estrutural rejeita páginas retiradas que permaneçam na saída, na navegação ou na busca. Os arquivos-fonte das páginas retiradas são preservados.
 
-Na prévia, o pré-render também pode ser executado ao renderizar uma página individual. O gerador compara o conteúdo antes de gravar: fichas e índices inalterados conservam suas datas de modificação, para não invalidar outras páginas sem necessidade. A mensagem `Catálogos validados` informa quantos arquivos foram efetivamente atualizados; `0 arquivo(s) atualizado(s)` é esperado quando os dados não mudaram. Para verificar esse comportamento, executar `Rscript scripts/test_catalogs.R`. O teste também confere os vínculos entre contexto e fichas e rejeita destinos incorretos antes de gravar saídas. `scripts/validate_book_structure.R` verifica as quatro partes, os 24 capítulos, a sequência de prefixos `01`–`24` e suas pastas, as 64 fichas, as 52 fontes, os índices e as âncoras de compatibilidade. No HTML, também confere os números dos capítulos e os redirecionamentos dos endereços anteriores. A validação integral inclui essa conferência sobre o HTML, e o pré-voo do PDF verifica as aberturas das partes e a numeração contínua dos capítulos.
+Na prévia e nas renderizações parciais, o gerador verifica os hashes das entradas e das saídas e encerra sem mensagem quando nada mudou. O cache fica em `.quarto/catalogs.rds` e inclui os YAMLs de indicadores e fontes, os dois perfis, os capítulos e o próprio gerador. Mudanças nesses arquivos, saídas ausentes ou alteradas e cache ausente ou corrompido provocam nova validação e geração. A compilação integral (`QUARTO_PROJECT_RENDER_ALL=1`) e `make catalogs` sempre validam os dados. O gerador compara o conteúdo antes de gravar: fichas e índices inalterados conservam suas datas de modificação. A mensagem `Catálogos validados` aparece somente quando a validação é executada. Para verificar o cache, sua invalidação, a atualização seletiva e a rejeição de dados e destinos inválidos, executar `Rscript scripts/test_catalogs.R`. `scripts/validate_book_structure.R` verifica as quatro partes, os 24 capítulos, a sequência de prefixos `01`–`24` e suas pastas, as 64 fichas, as 52 fontes, os índices e as âncoras de compatibilidade. No HTML, também confere os números dos capítulos e os redirecionamentos dos endereços anteriores. A validação integral inclui essa conferência sobre o HTML, e o pré-voo do PDF verifica as aberturas das partes e a numeração contínua dos capítulos.
 
 As fontes OTF e WOFF2, acompanhadas de suas licenças, estão em `assets/fonts`. O projeto usa Libertinus Serif e Source Sans 3 sem depender de instalação global ou de um serviço de fontes web. A capa é uma composição frontal de apresentação: lombada, contracapa e sangria de produção serão dimensionadas no fechamento gráfico.
 
