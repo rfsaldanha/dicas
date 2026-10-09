@@ -85,42 +85,45 @@ def compose():
         (1500, 'Ambiente', ['Em que condições se vive?', 'Natureza e infraestrutura']),
     ]:
         parts += [label(x, 65, heading, size=52, weight=700), label(x, 960, lines, size=43)]
-    parts += [label(900, 1140, ['O mesmo território, três perguntas.',
-                              'O clima exige séries históricas; as cenas são apenas ilustrativas.'], size=42)]
+    parts += [label(900, 1105, 'O mesmo território, três perguntas.', size=42)]
     save('07', 'tempo-clima-ambiente', 'fig-tempo-clima-ambiente',
          'Tempo, clima e ambiente: três leituras do mesmo território',
          'Três painéis em aquarela mostram um bairro hipotético. À esquerda, chuva em um momento; '
          'no centro, vistas repetidas da mesma rua sob chuva, sol e vento; à direita, rio, vegetação, '
          'moradias, prédios e serviços. Os rótulos distinguem condições do momento, padrões em séries '
          'históricas e condições naturais e construídas. As três vistas centrais não constituem uma série climática.',
-         1260, parts, watercolor=True)
+         1170, parts, watercolor=True)
 
     parts = [
-        '<rect x="250" y="180" width="740" height="320" fill="#F3F0E8"/>',
-        '<rect x="990" y="180" width="740" height="320" fill="#EEF2EE"/>',
-        '<rect x="250" y="500" width="740" height="320" fill="#F3F5F6"/>',
-        '<rect x="990" y="500" width="740" height="320" fill="#F6EFEB"/>',
-        f'<path d="M250 500 H1760 M990 820 V140" fill="none" stroke="{INK}" stroke-width="4"/>',
-        label(620, 75, ['Imediatos ou', 'de curto prazo'], size=49, weight=700),
-        label(1360, 75, ['Prolongados ou', 'cumulativos'], size=49, weight=700),
-        label(225, 330, 'Direto', anchor='end', size=49, weight=700),
-        label(225, 660, 'Indireto', anchor='end', size=49, weight=700),
-        '<text x="28" y="500" transform="rotate(-90 28 500)" text-anchor="middle" font-size="40">Mecanismo predominante</text>',
-        label(620, 305, ['Trauma pela', 'ação da água']),
-        label(1360, 305, ['Sequela persistente', 'do trauma']),
-        label(620, 630, ['Interrupção do cuidado', 'por falta de energia']),
-        label(1360, 630, ['Agravamento associado à', 'interrupção de tratamentos']),
-        label(990, 905, 'Temporalidade predominante', size=48, weight=700),
-        label(900, 1005, ['Domínios analíticos, sem escala quantitativa ou sequência obrigatória.',
-                          'Um efeito prolongado pode começar durante o evento.'], size=42),
+        '<rect x="300" y="180" width="715" height="400" fill="#F3F0E8"/>',
+        '<rect x="1015" y="180" width="715" height="400" fill="#EEF2EE"/>',
+        '<rect x="300" y="580" width="715" height="430" fill="#F3F5F6"/>',
+        '<rect x="1015" y="580" width="715" height="430" fill="#F6EFEB"/>',
+        f'<path d="M300 580 H1760 M1015 1010 V140" fill="none" stroke="{INK}" stroke-width="4"/>',
+        label(657.5, 75, ['Imediatos ou', 'de curto prazo'], size=49, weight=700),
+        label(1372.5, 75, ['Prolongados ou', 'cumulativos'], size=49, weight=700),
+        label(275, 390, 'Direto', anchor='end', size=49, weight=700),
+        label(275, 805, 'Indireto', anchor='end', size=49, weight=700),
+        '<text x="50" y="595" transform="rotate(-90 50 595)" text-anchor="middle" font-size="40">Mecanismo predominante</text>',
+        label(657.5, 290, ['Trauma pela ação física', 'da água']),
+        label(657.5, 435, ['Adoecimento agudo', 'pela carga térmica']),
+        label(1372.5, 290, 'Sequela física do trauma'),
+        label(1372.5, 380, ['Consequências persistentes', 'de lesões relacionadas', 'à exposição']),
+        label(657.5, 740, ['Interrupção do cuidado por', 'falha de energia, transporte', 'ou abastecimento']),
+        label(1372.5, 655, ['Agravamento associado à', 'interrupção persistente', 'de tratamentos']),
+        label(1372.5, 865, ['Consequências da perda', 'de moradia e renda']),
+        label(1015, 1090, 'Temporalidade predominante', size=48, weight=700),
     ]
     save('08', 'quadrantes', 'fig-quadrantes-impacto',
          'Mecanismo e temporalidade: dois eixos para analisar os impactos',
          'Gráfico de quatro quadrantes sem escala numérica. Na horizontal, efeitos imediatos ou de curto prazo '
          'à esquerda e prolongados ou cumulativos à direita; na vertical, mecanismo direto acima e indireto abaixo. '
-         'Os exemplos são trauma pela água, sequela do trauma, interrupção do cuidado por falta de energia '
-         'e agravamento associado à interrupção de tratamentos. Não há sequência obrigatória entre quadrantes.',
-         1130, parts)
+         'Diretos e imediatos: trauma pela ação física da água e adoecimento agudo pela carga térmica. '
+         'Diretos e prolongados: sequela física do trauma e consequências persistentes de lesões relacionadas à exposição. '
+         'Indiretos e imediatos: interrupção do cuidado por falha de energia, transporte ou abastecimento. '
+         'Indiretos e prolongados: agravamento associado à interrupção persistente de tratamentos e consequências '
+         'da perda de moradia e renda. Não há sequência obrigatória entre quadrantes.',
+         1150, parts)
 
     # Curvas de Bézier editoriais: não representam estimativas, dados ou funções ajustadas.
     parts = [
@@ -146,8 +149,6 @@ def compose():
     ]:
         parts += [f'<path d="M{x-100} 925 H{x+15}" stroke="{color}" stroke-width="8" stroke-dasharray="{dash}" stroke-linecap="round"/>',
                   label(x+55, 940, key, size=49, weight=700, fill=color), label(x, 1010, lines, size=42, step=50)]
-    parts += [label(900, 1280, ['Curvas acrescentadas nesta adaptação: não são dados observados.',
-                               'Alturas, durações e espaçamentos não têm escala quantitativa.'], size=42)]
     save('09', 'curvas-impacto', 'fig-curvas-impacto-desastres',
          'Impactos e respostas em diferentes tempos após um desastre',
          'Esquema com eixo vertical Impactos e horizontal Escala temporal, sem valores numéricos. '
@@ -156,7 +157,7 @@ def compose():
          'C, pontilhada, condições crônicas, efeitos psicossociais, reabilitação e reconstrução. '
          'Os horizontes são horas a dias, semanas a meses e meses a anos. As curvas foram acrescentadas '
          'ao esquema temporal de Freitas et al. (2014), não são dados observados e não definem limites universais.',
-         1410, parts, source={'citation': 'freitas2014desastres', 'figure': 1,
+         1230, parts, source={'citation': 'freitas2014desastres', 'figure': 1,
              'doi': '10.1590/1413-81232014199.00732014',
              'antecedent': 'Redmond (2005), DOI 10.1136/bmj.330.7502.1259, citado por Freitas et al.',
              'adaptation': 'Composição autoral baseada no conceito; curvas didáticas acrescentadas. '
@@ -174,14 +175,13 @@ def compose():
         label(900, 1000, ['Suscetibilidade e', 'limitações de proteção'], size=42, step=50),
         '<rect x="805" y="560" width="190" height="78" rx="16" fill="white" fill-opacity="0.9"/>',
         label(900, 617, 'Risco', size=62, weight=700),
-        label(900, 1290, ['Interação conceitual entre os componentes do risco.',
-                          'Áreas e interseções não representam probabilidades.'], size=42),
+        label(900, 1270, 'Interação conceitual entre os componentes do risco.', size=42),
     ]
     save('10', 'venn-risco', 'fig-venn-risco', 'Perigo, exposição e vulnerabilidade interagem na produção do risco',
          'Três círculos parcialmente sobrepostos representam perigo, exposição e vulnerabilidade. '
          'Risco ocupa a interseção dos três. Rótulos, posições e diferentes tracejados permitem distinguir '
          'os componentes sem depender de cor. Áreas e interseções não representam probabilidades ou quantidades.',
-         1420, parts, source={'citations': ['ipcc2022glossario', 'undrr2017terminology']})
+         1330, parts, source={'citations': ['ipcc2022glossario', 'undrr2017terminology']})
 
     parts = [raster('11', 0, 110, 1800, 900)]
     for x, heading, lines in [

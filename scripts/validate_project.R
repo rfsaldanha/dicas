@@ -46,6 +46,8 @@ required <- c(
   "scripts/build_cap1_trajectories.py",
   "assets/figures/arte-cap1-03-v1.png",
   "assets/figures/arte-cap1-03-v1.prompt.txt",
+  "assets/figures/arte-cap1-03-v3.png",
+  "assets/figures/arte-cap1-03-v3.prompt.txt",
   "assets/figures/arte-cap1-03-exposicao.svg",
   "assets/figures/arte-cap1-03-exposicao-print.png",
   "scripts/build_cap1_heat_exposure.py",
@@ -377,14 +379,17 @@ for (i in seq_along(chapter_one_ids)) {
     fail("Figura do capítulo 1 ausente, sem chamada ou com numeração incorreta: ", id)
   }
 }
-# O gráfico deve seguir diretamente o parágrafo inicial; o quadro antecede o detalhamento dos eixos.
+# A figura consolidada segue o parágrafo inicial e substitui o quadro separado.
 section <- strsplit(chapter_one_source, "### Efeitos diretos, indiretos e trajetórias no tempo", fixed = TRUE)[[1L]][[2L]]
 section <- sub("(?s)<!--.*?-->", "", section, perl = TRUE)
 paragraphs <- strsplit(trimws(section), "\n\n", fixed = TRUE)[[1L]]
 if (!grepl("fig-quadrantes-impacto", paragraphs[[3L]], fixed = TRUE) ||
-    regexpr("{#qua-trajetorias-impacto}", section, fixed = TRUE) >
-      regexpr("O mecanismo predominante é", section, fixed = TRUE)) {
-  fail("Quadrantes ou Quadro 1.3 fora da posição prevista no capítulo 1.")
+    grepl("qua-trajetorias-impacto", chapter_one_source, fixed = TRUE) ||
+    grepl("qua-trajetorias-impacto", chapter_one_html, fixed = TRUE) ||
+    any(grepl("qua-trajetorias-impacto",
+              readLines("backmatter/lista-tabelas.qmd", warn = FALSE, encoding = "UTF-8"),
+              fixed = TRUE))) {
+  fail("A figura de quadrantes deve consolidar os exemplos e substituir o antigo Quadro 1.3.")
 }
 chapter_two_html <- paste(readLines(
   file.path(html_root, "chapters/part-1/02-mudanca-climatica-resposta-sus.html"),

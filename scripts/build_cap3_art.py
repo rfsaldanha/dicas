@@ -127,9 +127,7 @@ def layout(number, sw, sh):
             if i<5:
                 p.append(line(f'M660 {y+188} V{y+373}'))
         p += [box(60,1730,1680,95,fill='#f1f4f1'),
-              text(900,1792,'Dia quente isolado não define automaticamente uma onda de calor.',43),
-              text(900,1878,['Calendário ilustrativo, sem dados observados.',
-                             'A sequência destacada não estabelece a duração mínima de um episódio.'],39,step=48)]
+              text(900,1792,'Dia quente isolado não define automaticamente uma onda de calor.',43)]
     elif number == '03':
         height = 1620
         p += [text(450,65,'Vegetação contabilizada',52),text(1350,65,'Acesso ao parque',52),
@@ -152,8 +150,7 @@ def layout(number, sw, sh):
               text(900,1640,'O que pode compensar o quê?',46),
               line('M300 1597 H35 V35 H75',dashed=True),
               text(900,1780,['Consultar os componentes permite reconhecer','condições críticas que a média pode ocultar.'],48),
-              text(900,1930,'Retorno aos componentes: preservar o significado de cada dimensão.',42),
-              text(900,2000,'Serviço hipotético; sem pontuações, resultados ou ranking.',38)]
+              text(900,1930,'Retorno aos componentes: preservar o significado de cada dimensão.',42)]
     elif number == '05':
         height = 1780
         p += [box(80,20,610,130),text(385,75,'FQI da RIPSA',54),text(385,125,'Referência estrutural',42),
@@ -181,8 +178,7 @@ def layout(number, sw, sh):
               text(900,1060,'Proporção (%)',53),
               text(820,1150,'Estabelecimentos elegíveis com plano',47),line('M270 1178 H1370',arrow=False),
               text(820,1240,'Total de estabelecimentos elegíveis',47),text(1480,1195,'× 100',52),
-              text(900,1365,['Situação desconhecida precisa de tratamento explícito.','Denominador igual a zero: proporção indefinida.'],45),
-              text(900,1550,['Desenho conceitual: áreas e ícones não representam quantidades.'],39)]
+              text(900,1365,['Situação desconhecida precisa de tratamento explícito.','Denominador igual a zero: proporção indefinida.'],45)]
     elif number == '07':
         height = 1640
         p += [text(300,65,['Unidade de','observação'],50),text(900,65,['Unidade de','análise'],50),text(1500,65,'População-alvo',50),
@@ -209,8 +205,7 @@ def layout(number, sw, sh):
               text(900,1370,'Possíveis efeitos sobre a saúde',53),
               pic('efeitos',(.505,.669,.49,.328),450,1410,900,405),
               text(900,1890,'Atendimento por mal-estar associado ao calor: uma possibilidade.',41),
-              text(900,1960,'As setas organizam conceitos; não são uma equação de risco.',43),
-              text(900,2025,'Cenas hipotéticas. Exposição não implica adoecimento inevitável.',39)]
+              text(900,1960,'As setas organizam conceitos; não são uma equação de risco.',43)]
     else:
         raise ValueError(number)
     return 1800, height, p

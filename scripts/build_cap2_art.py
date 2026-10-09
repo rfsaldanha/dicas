@@ -19,12 +19,15 @@ def label(x, y, lines, size=46, step=54, weight='normal'):
     return f'<text x="{x}" y="{y}" text-anchor="middle" font-size="{size}" font-weight="{weight}">{spans}</text>'
 
 
-def picture(name, crop, x, y, w, h):
+def picture(name, crop, x, y, w, h, outline=None):
     cx, cy, cw, ch = crop
     scale = min(w / cw, h / ch)
     left, top = x + (w - cw * scale) / 2, y + (h - ch * scale) / 2
-    return (f'<defs><clipPath id="clip-{name}" clipPathUnits="userSpaceOnUse"><rect x="{left}" y="{top}" width="{cw*scale}" height="{ch*scale}"/></clipPath></defs>'
-            f'<g id="{name}" clip-path="url(#clip-{name})"><use xlink:href="#aquarela" transform="translate({left} {top}) scale({scale}) translate({-cx} {-cy})"/></g>')
+    transform = f'translate({left} {top}) scale({scale}) translate({-cx} {-cy})'
+    clip = (f'<path d="{outline}" transform="{transform}"/>' if outline else
+            f'<rect x="{left}" y="{top}" width="{cw*scale}" height="{ch*scale}"/>')
+    return (f'<defs><clipPath id="clip-{name}" clipPathUnits="userSpaceOnUse">{clip}</clipPath></defs>'
+            f'<g id="{name}" clip-path="url(#clip-{name})"><use xlink:href="#aquarela" transform="{transform}"/></g>')
 
 
 def line(d, dashed=False, arrow=True):
@@ -62,7 +65,6 @@ def layout(number, sw, sh):
             label(900, 1555, 'Documentar período e método', 48),
             label(900, 1610, 'Avaliar exposição, vulnerabilidade e capacidade de resposta', 43),
             label(900, 1715, 'Referência estatística não é limite de segurança', 46),
-            label(900, 1780, 'Finalidades complementares. Esquema conceitual, sem dados observados.', 38),
         ]
     elif number == '02':
         slug, title, width, height = 'cascatas', 'Eventos combinados e efeitos em cascata', 1800, 2070
@@ -107,7 +109,6 @@ def layout(number, sw, sh):
             label(900, 1340, 'Momentos distintos de uma mesma variável', 48),
             picture('camadas-temporais', (0, 715, sw, 230), 30, 1380, 1740, 265),
             label(900, 1700, 'Célula não é medição em cada residência. Mais zoom não cria observações.', 41),
-            label(900, 1790, 'Território hipotético; cores ilustrativas, sem valores de temperatura.', 39),
         ]
     elif number == '03':
         slug, title, width, height = 'atendimento', 'Necessidade, acesso e oferta condicionam o atendimento observado', 1800, 1900
@@ -130,7 +131,6 @@ def layout(number, sw, sh):
             label(1170, 1460, ['Os registros dependem do cuidado', 'que conseguiu ocorrer.'], 46),
             box(100, 1700, 1600, 110),
             label(900, 1770, 'Menos consultas não comprovam menor adoecimento.', 48),
-            label(900, 1860, 'Situações didáticas; sem contagens ou resultados atribuídos a um desastre real.', 38),
         ]
     elif number == '04':
         slug, title, width, height = 'adaptacao', 'Acompanhamento, continuidade do cuidado e adaptação contínua', 1800, 2070
@@ -142,19 +142,33 @@ def layout(number, sw, sh):
             'ações ocorrem em bairro urbano com edifícios, casas, vias, unidade de saúde e acesso '
             'residencial.'
         )
+        # Limites no original v2 (1536 × 1024), seguindo os espaços entre
+        # aquarelas. A vegetação da faixa lateral avança à direita no rodapé;
+        # uma janela retangular corta suas folhas ou as repete na avaliação.
+        strip_outline = 'M0 0 H170 V860 L179 907 L197 939 L216 957 V1024 H0 Z'
+        evaluation_outline = (
+            'M170 514 H818 V624 L829 664 L832 784 L838 808 L830 900 V1024 '
+            'H216 V957 L197 939 L179 907 L170 860 Z'
+        )
+        recovery_outline = (
+            'M818 518 H1536 V1024 H830 V900 L838 808 L832 784 L829 664 L818 624 Z'
+        )
         parts = [
             label(625, 85, 'Preparar', 52),
             label(1400, 65, ['Sustentar a continuidade', 'do cuidado'], 46),
-            picture('condicoes-graduais', (0, 0, 185, sh), 10, 170, 210, 1410),
-            picture('preparacao', (190, 0, 590, 505), 270, 200, 710, 500),
-            picture('continuidade', (790, 0, 746, 505), 1035, 200, 725, 500),
+            picture('condicoes-graduais', (0, 0, 216, sh), 10, 170, 210, 1410,
+                    outline=strip_outline),
+            picture('preparacao', (170, 0, 648, 514), 270, 200, 710, 500),
+            picture('continuidade', (818, 0, 718, 518), 1035, 200, 725, 500),
             box(340, 775, 1380, 130),
             label(1030, 830, ['Acompanhamento do território', 'e dos serviços'], 46),
             line('M625 705 V760', arrow=False), line('M1400 705 V760', arrow=False),
             label(625, 1040, 'Avaliar e adaptar', 50),
             label(1400, 1010, ['Acompanhar e recuperar', 'o acesso'], 46),
-            picture('avaliacao', (190, 510, 640, 514), 270, 1120, 710, 535),
-            picture('recuperacao', (830, 510, 706, 514), 1035, 1120, 725, 535),
+            picture('avaliacao', (170, 514, 668, 510), 270, 1120, 710, 535,
+                    outline=evaluation_outline),
+            picture('recuperacao', (818, 518, 718, 506), 1035, 1120, 725, 535,
+                    outline=recovery_outline),
             line('M500 985 H245 V155 H625 V185', dashed=True),
             line('M750 985 V950 H1780 V155 H1400 V185', dashed=True),
             label(900, 1750, 'A proteção alcançou quem enfrentava maiores barreiras?', 46),
@@ -191,7 +205,6 @@ def layout(number, sw, sh):
             label(900, 1555, 'Contínuo', 48, weight='bold'),
             label(900, 1620, ['Avaliar acesso, cobertura e resultados;', 'rever prioridades em todos os horizontes'], 44),
             label(900, 1790, 'Responsabilidades, comunicação, recursos e protocolo', 46),
-            label(900, 1885, 'Horizontes articulados; intervalos ilustrativos, sem escala de tempo proporcional.', 38),
         ]
     elif number == '06':
         slug, title, width, height = 'indicadores', 'Seis dimensões complementares para interpretar o risco e a resposta', 1800, 2310
@@ -220,7 +233,6 @@ def layout(number, sw, sh):
             box(80, 2040, 1640, 110),
             label(900, 2110, 'O que cada medida mostra e o que deixa de fora?', 49),
             label(900, 2210, 'Leitura conjunta, significados preservados', 46),
-            label(900, 2280, 'Dimensões podem se sobrepor. Cenas conceituais, sem dados observados.', 39),
         ]
     else:
         raise SystemExit('Arte ainda não configurada: ' + number)

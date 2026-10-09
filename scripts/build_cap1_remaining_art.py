@@ -83,7 +83,7 @@ def compose(number):
                               'desfavoráveis podem coexistir.'], size=42, step=50),
         ]
     elif number == '06':
-        slug, title, width, height = 'justica', 'Quatro perguntas da justiça ambiental e climática', 1800, 1760
+        slug, title, width, height = 'justica', 'Quatro perguntas da justiça ambiental e climática', 1800, 1630
         desc = (
             'Quatro cenas em aquarela têm o mesmo destaque: moradores observam diferenças de sombra, '
             'água e acesso ao cuidado; moradores, trabalhadores, uma técnica e uma pessoa com '
@@ -108,7 +108,6 @@ def compose(number):
             vignette('responsabilidades', (767, 510, 769, 499), 940, 900, 840, 540),
             label(450, 1505, ['Quais conhecimentos', 'são reconhecidos?']),
             label(1350, 1505, ['Quem contribui para o problema', 'e quem arca com os custos?'], size=46),
-            label(900, 1710, ['Exemplos conceituais; sem quantificação de emissões ou custos.'], size=40),
         ]
     else:
         raise SystemExit('Arte ainda não configurada: '+number)
