@@ -40,7 +40,7 @@ def check(rendered=False):
             assert r['min_effective_raster_ppi']>=300
             assert (ROOT/'assets/figures'/r['prompt']).is_file()
     anchors=re.findall(r'<span id="(sec-[^"]+)"></span>',text)
-    cardchapter=ROOT/'chapters/part-4/16-fichas-temperatura-condicoes-termicas.qmd'
+    cardchapter=ROOT/'chapters/part-4/17-fichas-temperatura-condicoes-termicas.qmd'
     expected=re.findall(r'indicators/includes/([a-z0-9-]+)\.qmd',cardchapter.read_text())
     assert len(anchors)==23 and set(anchors)=={'sec-'+c for c in expected}
     directory=text.split('## Localização das fichas operacionais')[1]

@@ -222,7 +222,7 @@ for (indicator in indicators) {
   if (!context %in% chapter_paths || !target %in% chapter_paths ||
       !grepl("^chapters/part-[23]/", context) || !grepl("^chapters/part-4/", target) ||
       !startsWith(chapter_metadata[[target]]$title, "Fichas — ") ||
-      unname(chapter_numbers[target]) != unname(chapter_numbers[context]) + 9L) {
+      unname(chapter_numbers[target]) != unname(chapter_numbers[context]) + 10L) {
     fail("Vínculo de contexto/fichas inválido para ", indicator$codigo, ".")
   }
 }

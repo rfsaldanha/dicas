@@ -47,7 +47,7 @@ def check(rendered=False):
             assert hashlib.sha256(original.read_bytes()).hexdigest()==r['sha256_original']
             assert r['min_effective_raster_ppi']>=300
             assert (ROOT/'assets/figures'/r['prompt']).is_file()
-    cards=ROOT/'chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.qmd'
+    cards=ROOT/'chapters/part-4/20-fichas-agua-saneamento-qualidade-ambiental.qmd'
     expected=re.findall(r'indicators/includes/([a-z0-9-]+)\.qmd',cards.read_text())
     anchors=re.findall(r'<span id="(sec-[^"]+)"></span>',body)
     assert len(anchors)==9 and set(anchors)=={'sec-'+c for c in expected}
@@ -74,7 +74,7 @@ def check(rendered=False):
         alias=(ROOT/'_output/web/chapters/part-2/08-agua-saneamento-qualidade-ambiental.html').read_text()
         assert '10-agua-saneamento-qualidade-ambiental.html' in alias and 'window.location.hash' in alias
         assert '## Síntese' not in html
-        assert 'href="../../chapters/part-4/19-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-agu-01"' in html
+        assert 'href="../../chapters/part-4/20-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-agu-01"' in html
     print(f'Capítulo 10: 14 figuras (7 aquarelas), 9 seções, 4 subseções, 9 âncoras, {len(refs-set(r["id"] for r in records))} referências; integração válida.')
 
 

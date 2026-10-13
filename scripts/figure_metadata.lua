@@ -2,23 +2,18 @@
 -- Os textos alternativos permanecem junto de cada diagrama, pois descrevem
 -- relações específicas; fonte, autoria e licença são comuns à série.
 
-local function typst_escape(value)
-  return value
-    :gsub("\\", "\\\\")
-    :gsub("#", "\\#")
-    :gsub("%[", "\\[")
-    :gsub("%]", "\\]")
-end
-
 local function print_source_note(value)
-  return pandoc.RawBlock(
+  -- Preserva os nós Cite até a passagem do citeproc. Converter o conteúdo
+  -- em string aqui expõe chaves bibliográficas como referências Typst.
+  local content = pandoc.Inlines({ pandoc.RawInline(
     "typst",
     "#block(above: 2pt, below: 5pt)[" ..
       "#set text(font: \"Source Sans 3\", size: 8.5pt, fill: luma(55)); " ..
-      "#set par(first-line-indent: 0pt, leading: 0.25em, spacing: 0pt); " ..
-      typst_escape(value) ..
-    "]"
-  )
+      "#set par(first-line-indent: 0pt, leading: 0.25em, spacing: 0pt); "
+  ) })
+  content:extend(type(value) == "string" and pandoc.Inlines(value) or value)
+  content:insert(pandoc.RawInline("typst", "]"))
+  return pandoc.Para(content)
 end
 
 function CodeBlock(block)
@@ -38,7 +33,7 @@ function Para(para)
   end
   local span = para.content[1]
   if span.t == "Span" and span.classes:includes("figure-source") then
-    return print_source_note(pandoc.utils.stringify(span.content))
+    return print_source_note(span.content)
   end
 end
 

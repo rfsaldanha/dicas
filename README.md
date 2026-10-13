@@ -10,7 +10,7 @@ O público principal inclui profissionais de secretarias de saúde, vigilância 
 
 ## Estado do projeto
 
-Esta é a versão editorial 0.9.0, preparada para revisão completa. Os 24 capítulos estão organizados em quatro partes; 64 fichas de indicadores consolidados e 52 fontes com cadastro detalhado estão reunidas na Parte IV; e as referências citadas estão configuradas no estilo ABNT.
+Esta é a versão editorial 0.9.0, preparada para revisão completa. Os 25 capítulos estão organizados em quatro partes; 64 fichas de indicadores consolidados e 52 fontes com cadastro detalhado estão reunidas na Parte IV; e as referências citadas estão configuradas no estilo ABNT.
 
 Comece pelo [guia de revisão](docs/guia-de-revisao.md) e consulte o [relatório da versão](docs/relatorio-versao-para-revisao.md).
 
@@ -18,7 +18,7 @@ Comece pelo [guia de revisão](docs/guia-de-revisao.md) e consulte o [relatório
 
 - Arquivo `_quarto.yml`: metadados centrais e configuração compartilhada.
 - Arquivos `_quarto-web.yml` e `_quarto-print.yml`: ordem do livro e configuração de cada saída.
-- Diretório `chapters/`: 24 capítulos organizados em quatro partes; a Parte I termina com “Análise de situação de saúde e decisão pública”, no capítulo 6. As pastas correspondem às partes e os prefixos dos arquivos, de `01` a `24`, acompanham a ordem dos perfis Quarto. Os endereços HTML anteriores redirecionam para os atuais.
+- Diretório `chapters/`: 25 capítulos organizados em quatro partes; a Parte I termina com “Análise de situação de saúde e decisão pública”, no capítulo 6. As pastas correspondem às partes e os prefixos dos arquivos, de `01` a `25`, acompanham a ordem dos perfis Quarto. Os endereços HTML anteriores redirecionam para os atuais.
 - Diretórios `frontmatter/` e `backmatter/`: elementos pré e pós-textuais compartilhados.
 - Diretório `frontmatter/`: fonte única dos elementos pré-textuais das duas edições.
 - Diretório `indicators/data/`: fichas estruturadas em YAML.

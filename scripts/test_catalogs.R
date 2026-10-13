@@ -128,7 +128,7 @@ main <- function() {
 
   valid_destination <- entry$capitulo_fichas
   for (invalid in c(entry$capitulo, "chapters/part-4/ausente.qmd",
-                    "chapters/part-4/16-fichas-temperatura-condicoes-termicas.qmd")) {
+                    "chapters/part-4/17-fichas-temperatura-condicoes-termicas.qmd")) {
     entry$capitulo_fichas <- invalid
     if (grouped) document$indicators[[1L]] <- entry else document <- entry
     yaml::write_yaml(document, input)

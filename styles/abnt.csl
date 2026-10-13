@@ -637,7 +637,11 @@ em caixa alta. Utiliza-se antes do nome da conferencia a expressao "In". Segundo
           <text macro="container-contributors"/>
           <!--Nomes de editore-->
           <text macro="secondary-contributors" suffix=". "/>
-          <text macro="container-title"/>
+          <choose>
+            <if variable="event" match="none">
+              <text variable="container-title" font-weight="bold" suffix=". "/>
+            </if>
+          </choose>
           <!--Titulo da publicacao-->
           <text variable="collection-title" prefix=": " suffix="."/>
           <text macro="locators"/>
@@ -652,7 +656,8 @@ em caixa alta. Utiliza-se antes do nome da conferencia a expressao "In". Segundo
           <!--Editor-->
           <text macro="issued" suffix=". "/>
           <!--Data-->
-          <text macro="access"/>
+          <text variable="page" prefix="p. " suffix=". "/>
+          <text macro="access" suffix="."/>
           <!--URL, data do acesso-->
         </else-if>
         <else>

@@ -84,9 +84,9 @@ if command -v pdftotext >/dev/null 2>&1; then
       count++
       if ($0 + 0 != count) invalid = 1
     }
-    END { exit !(count == 24 && !invalid) }
+    END { exit !(count == 25 && !invalid) }
   ' "$text_file"; then
-    printf 'A numeração dos capítulos deve ir de 1 a 24 no PDF.\n' >&2
+    printf 'A numeração dos capítulos deve ir de 1 a 25 no PDF.\n' >&2
     exit 1
   fi
   if grep -E 'Elementos pós-textuais|p[.] página|IV\(p[.]' "$text_file" >/dev/null; then

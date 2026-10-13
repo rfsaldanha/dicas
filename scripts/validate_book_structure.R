@@ -18,7 +18,7 @@ validate_book_structure <- function(root = ".", rendered = FALSE) {
   )
   for (i in seq_along(configs)) {
     check(identical(vapply(parts[[i]], `[[`, character(1L), "part"), expected_parts), "O livro deve conter as quatro partes aprovadas.")
-    check(identical(vapply(parts[[i]][1:3], function(x) length(x$chapters), integer(1L)), c(6L, 6L, 3L)), "Ordem ou quantidade de capítulos das partes I–III incorreta.")
+    check(identical(vapply(parts[[i]][1:3], function(x) length(x$chapters), integer(1L)), c(6L, 6L, 4L)), "Ordem ou quantidade de capítulos das partes I–III incorreta.")
     last_part <- unlist(parts[[i]][[4]]$chapters, use.names = FALSE)
     check(length(last_part) == 12L && identical(last_part[c(1, 2, 12)], c("backmatter/lista-fichas.qmd", "backmatter/indice-indicadores.qmd", "backmatter/indice-fontes.qmd")), "Índices e catálogo devem abrir e encerrar a Parte IV.")
     top <- unlist(Filter(is.character, configs[[i]]$book$chapters), use.names = FALSE)
@@ -37,15 +37,18 @@ validate_book_structure <- function(root = ".", rendered = FALSE) {
   check(identical(parts[[1]], parts[[2]]), "As partes devem ter a mesma composição nas duas edições.")
   paths <- unlist(lapply(parts[[1]], `[[`, "chapters"), use.names = FALSE)
   chapter_paths <- paths[startsWith(paths, "chapters/")]
-  check(length(chapter_paths) == 24L && !anyDuplicated(chapter_paths), "Esperados 24 capítulos únicos.")
+  check(length(chapter_paths) == 25L && !anyDuplicated(chapter_paths), "Esperados 25 capítulos únicos.")
   check(identical(sub("-.*$", "", basename(chapter_paths)), sprintf("%02d", seq_along(chapter_paths))),
-    "Os prefixos dos arquivos devem acompanhar a numeração editorial de 01 a 24.")
-  check(identical(dirname(chapter_paths), rep(paste0("chapters/part-", 1:4), c(6L, 6L, 3L, 9L))),
+    "Os prefixos dos arquivos devem acompanhar a numeração editorial de 01 a 25.")
+  check(identical(dirname(chapter_paths), rep(paste0("chapters/part-", 1:4), c(6L, 6L, 4L, 9L))),
     "Cada capítulo deve estar na pasta da sua parte editorial.")
   disk_paths <- paste0("chapters/", list.files(file.path(root, "chapters"), pattern = "\\.qmd$", recursive = TRUE))
   check(setequal(chapter_paths, disk_paths), "Os arquivos de chapters/ devem corresponder aos capítulos configurados.")
+  # O capítulo 16 é transversal; os nove pares de contexto/fichas permanecem.
+  check(identical(chapter_paths[16L], "chapters/part-3/16-comunicacao-risco-saude-clima.qmd"),
+    "Comunicação de risco deve encerrar a Parte III como capítulo 16.")
   context_paths <- chapter_paths[7:15]
-  card_paths <- chapter_paths[16:24]
+  card_paths <- chapter_paths[17:25]
   documents <- lapply(sort(list.files(file.path(root, "indicators/data"), pattern = "\\.yml$", full.names = TRUE)), function(p) yaml::read_yaml(p, merge.precedence = "override"))
   indicators <- unlist(lapply(documents, function(x) if (is.null(x$indicators)) list(x) else x$indicators), recursive = FALSE)
   codes <- vapply(indicators, `[[`, character(1L), "codigo")

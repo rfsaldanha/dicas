@@ -14,8 +14,8 @@ catalog_status <- system2("Rscript", "scripts/build_catalogs.R")
 if (catalog_status != 0L) fail("Falha na validação dos catálogos.")
 
 chapter_files <- sort(list.files("chapters", pattern = "\\.qmd$", recursive = TRUE, full.names = TRUE))
-if (length(chapter_files) != 24L) {
-  fail("Esperados 24 capítulos em chapters/; encontrados ", length(chapter_files), ".")
+if (length(chapter_files) != 25L) {
+  fail("Esperados 25 capítulos em chapters/; encontrados ", length(chapter_files), ".")
 }
 
 required <- c(
@@ -343,7 +343,7 @@ if (!grepl("quarto-search", home_html, fixed = TRUE)) {
   fail("A interface de busca não foi localizada na página inicial.")
 }
 if (!grepl("CLI-TEM-01", search_index, fixed = TRUE) ||
-    !grepl("16-fichas-temperatura-condicoes-termicas.html#sec-cli-tem-01", search_index, fixed = TRUE)) {
+    !grepl("17-fichas-temperatura-condicoes-termicas.html#sec-cli-tem-01", search_index, fixed = TRUE)) {
   fail("A ficha CLI-TEM-01 não foi localizada no índice de busca.")
 }
 
@@ -657,9 +657,13 @@ if (system2("python3", c("scripts/check_cap12.py", "--rendered")) != 0L) {
   fail("Falha na integração editorial do capítulo 12.")
 }
 
+if (system2("python3", c("scripts/check_cap16.py", "--rendered")) != 0L) {
+  fail("Falha na integração das ilustrações do capítulo 16.")
+}
+
 indicator_count <- length(list.files("indicators/includes", pattern = "\\.qmd$"))
 message(
-  "Projeto validado: quatro partes; 24 capítulos; ", indicator_count, " fichas; HTML com ",
+  "Projeto validado: quatro partes; 25 capítulos; ", indicator_count, " fichas; HTML com ",
   length(html_files), " páginas; links e âncoras íntegros; PDF presente."
 )
 

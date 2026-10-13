@@ -32,7 +32,7 @@ def check(rendered=False):
     bib=re.findall(r'(?m)^@\w+\{([^,]+)',(ROOT/'references.bib').read_text())
     assert len(bib)==len(set(bib)),'Chaves bibliográficas repetidas'
     refs=set(re.findall(r'@([A-Za-z][\w-]+)',body))
-    crossrefs={r['id'] for r in records}|{'qua-indicadores-desastre'}
+    crossrefs={r['id'] for r in records}|{'qua-indicadores-desastre', 'sec-comunicacao-risco'}
     assert not (refs-set(bib)-crossrefs),'Citação não resolvida: '+str(refs-set(bib)-crossrefs)
     listing=(ROOT/'backmatter/lista-figuras.qmd').read_text()
     ns={'s':'http://www.w3.org/2000/svg'}
@@ -49,7 +49,7 @@ def check(rendered=False):
             assert hashlib.sha256(original.read_bytes()).hexdigest()==r['sha256_original']
             assert r['min_effective_raster_ppi']>=300
             assert (ROOT/'assets/figures'/r['prompt']).is_file()
-    cards=ROOT/'chapters/part-4/21-fichas-eventos-severos-desastres.qmd'
+    cards=ROOT/'chapters/part-4/22-fichas-eventos-severos-desastres.qmd'
     expected=re.findall(r'indicators/includes/([a-z0-9-]+)\.qmd',cards.read_text())
     anchors=re.findall(r'<span id="(sec-[^"]+)"></span>',body)
     assert len(anchors)==4 and set(anchors)=={'sec-'+c for c in expected}
@@ -72,7 +72,7 @@ def check(rendered=False):
         for r in records:assert 'id="'+r['id']+'"' in html
         for anchor in anchors:assert 'id="'+anchor+'"' in html
         assert not re.search(r'<h2[^>]*>[^<]*Síntese',html)
-        assert 'href="../../chapters/part-4/21-fichas-eventos-severos-desastres.html#sec-des-hum-01"' in html
+        assert 'href="../../chapters/part-4/22-fichas-eventos-severos-desastres.html#sec-des-hum-01"' in html
         assert not re.search(r'href="(?!https?://)[^"]+\.qmd(?:#|\")',html),'Link QMD não convertido'
     print(f'Capítulo 12: 10 figuras (5 aquarelas), 9 seções, 4 âncoras, {len(refs-set(crossrefs))} referências e {len(targets)} destinos; integração válida.')
 

@@ -2,7 +2,7 @@
 
 ## Finalidade
 
-A versão 0.9.0 está preparada para revisão integral. Ela reúne 24 capítulos em quatro partes, 64 fichas de indicadores consolidados, 52 registros de fontes, referências em estilo ABNT, quadros, tabelas, diagramas numerados, ilustrações vetoriais e composições em aquarela com rótulos e conexões.
+A versão 0.9.0 está preparada para revisão integral. Ela reúne 25 capítulos em quatro partes, 64 fichas de indicadores consolidados, 52 registros de fontes, referências em estilo ABNT, quadros, tabelas, diagramas numerados, ilustrações vetoriais e composições em aquarela com rótulos e conexões.
 
 Os artefatos são:
 
@@ -16,9 +16,9 @@ Os artefatos são:
 
 1. Avaliar propósito, público, vocabulário e roteiro de aplicação nos capítulos 1 a 6, que compõem a Parte I.
 2. Revisar cada fenômeno nos capítulos 7 a 12, verificando a síntese dos principais indicadores e as remissões às fichas da Parte IV.
-3. Examinar exposição, vulnerabilidade, efeitos e capacidade nos capítulos 13 a 15.
+3. Examinar exposição, vulnerabilidade, efeitos, capacidade e comunicação de risco nos capítulos 13 a 16. No capítulo 16, conferir a definição de comunicação de risco, a sustentação dos exemplos históricos, o diálogo entre os autores e os limites do caso documentado de 2024. Verificar os modelos por canal, o fluxo para falhas de apoio, as responsabilidades públicas e as definições e limitações das medidas de avaliação local.
 4. Retomar os quatro casos do capítulo 6 para testar a aplicação dos indicadores após a revisão dos capítulos temáticos e integrados.
-5. Conferir os capítulos 16–24, seus índices, as remissões de ida e retorno e o catálogo de fontes da Parte IV; revisar também glossário, listas e referências.
+5. Conferir os capítulos 17–25, seus índices, as remissões de ida e retorno e o catálogo de fontes da Parte IV; revisar também glossário, listas e referências.
 6. Revisar site e PDF como produtos editoriais distintos.
 
 ## Conteúdo e método

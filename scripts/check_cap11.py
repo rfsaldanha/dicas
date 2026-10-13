@@ -68,7 +68,7 @@ def check(rendered=False):
             assert hashlib.sha256(original.read_bytes()).hexdigest() == r["sha256_original"]
             assert r["min_effective_raster_ppi"] >= 300
             assert (ROOT/"assets/figures"/r["prompt"]).is_file()
-    cards = ROOT/"chapters/part-4/20-fichas-uso-cobertura-terra-ambiente-urbano.qmd"
+    cards = ROOT/"chapters/part-4/21-fichas-uso-cobertura-terra-ambiente-urbano.qmd"
     expected = {"sec-"+c for c in re.findall(r"indicators/includes/([a-z0-9-]+)\.qmd", cards.read_text())}
     anchors = re.findall(r'<span id="(sec-[^"]+)"></span>', body)
     assert len(anchors) == 4 and set(anchors) == expected

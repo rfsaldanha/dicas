@@ -92,7 +92,7 @@ def check(rendered=False):
                 assert unquote(parsed.fragment) in cache[dest],href
         assert not any('.qmd' in h for h in page.links if not urlsplit(h).scheme)
         assert all(i.get('alt') for i in page.images if 'arte-cap8-' in i.get('src',''))
-        card=Page(web/'chapters/part-4/17-fichas-precipitacao-secas-eventos-hidrologicos.html')
+        card=Page(web/'chapters/part-4/18-fichas-precipitacao-secas-eventos-hidrologicos.html')
         assert expected<=set(card.ids)
         assert any('08-precipitacao-secas-eventos-hidrologicos.html#sec-precipitacao' in h for h in card.links)
         alias=(web/'chapters/part-2/06-precipitacao-secas-eventos-hidrologicos.html').read_text()

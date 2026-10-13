@@ -1,0 +1,1721 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Guia técnico sobre conceitos, dados e indicadores de clima e ambiente aplicados à vigilância e à gestão em saúde pública.">
+
+<title>16&nbsp; Comunicação de risco em saúde e clima – Dados e Indicadores de Clima e Ambiente para a Saúde</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 1em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../backmatter/lista-fichas.html" rel="next">
+<link href="../../chapters/part-3/15-resposta-adaptacao-resiliencia.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-bb162014f31ff550f3668977ab0f7733.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-fdd2e9c9119fd81cafe9a82057eefc34.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-bb162014f31ff550f3668977ab0f7733.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Nenhum resultado",
+    "search-matching-documents-text": "documentos correspondentes",
+    "search-copy-link-title": "Copiar link para a busca",
+    "search-hide-matches-text": "Esconder correspondências adicionais",
+    "search-more-match-text": "mais correspondência neste documento",
+    "search-more-matches-text": "mais correspondências neste documento",
+    "search-clear-button-title": "Limpar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Procurar"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles/web/styles.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/part-3/13-exposicao-vulnerabilidade.html">Parte III — Exposição, vulnerabilidade, efeitos e resposta em saúde</a></li><li class="breadcrumb-item"><a href="../../chapters/part-3/16-comunicacao-risco-saude-clima.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Comunicação de risco em saúde e clima</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Procurar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">Dados e Indicadores de Clima e Ambiente para a Saúde</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/rfsaldanha/dicas" title="Código fonte" class="quarto-navigation-tool px-1" aria-label="Código fonte"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo escuro"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Procurar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bem-vindo</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/agradecimentos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Agradecimentos</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/prefacio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prefácio do autor</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/siglas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lista de siglas</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Parte I — Fundamentos, métodos e decisão em saúde</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/01-clima-ambiente-saude.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Clima, ambiente e saúde pública</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/02-mudanca-climatica-resposta-sus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Mudança climática, planejamento e resposta do SUS</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/03-dados-variaveis-indices-indicadores.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Dados, variáveis, índices e indicadores</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/04-espaco-tempo-qualidade.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Integração de dados: espaço, tempo e qualidade</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/05-fontes-fichas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Seleção de fontes e qualificação de indicadores</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/06-indicador-decisao.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Análise de situação de saúde e decisão pública</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Parte II — Fenômenos e indicadores de clima e ambiente</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/07-temperatura-condicoes-termicas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Temperatura e condições térmicas</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/08-precipitacao-secas-eventos-hidrologicos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Precipitação, secas, inundações e deslizamentos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/09-qualidade-ar-queimadas-fumaca.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Qualidade do ar, queimadas e fumaça</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/10-agua-saneamento-qualidade-ambiental.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Água, saneamento e higiene</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/11-uso-cobertura-terra-ambiente-urbano.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Uso e cobertura da terra, vegetação e ambiente urbano</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/12-eventos-severos-desastres.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Eventos meteorológicos severos e desastres</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Parte III — Exposição, vulnerabilidade, efeitos e resposta em saúde</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-3/13-exposicao-vulnerabilidade.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Exposição e vulnerabilidade socioambiental</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-3/14-efeitos-saude.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Efeitos na saúde: mensuração e atribuição</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-3/15-resposta-adaptacao-resiliencia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Resiliência dos sistemas de saúde</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-3/16-comunicacao-risco-saude-clima.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Comunicação de risco em saúde e clima</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Parte IV — Fichas de indicadores e fontes de dados</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/lista-fichas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lista de fichas por código e capítulo</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/indice-indicadores.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Índice alfabético de indicadores</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/17-fichas-temperatura-condicoes-termicas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Fichas — Extremos de temperatura e estresse térmico</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/18-fichas-precipitacao-secas-eventos-hidrologicos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Fichas — Precipitação e seca meteorológica</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/19-fichas-qualidade-ar-queimadas-fumaca.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Fichas — Qualidade do ar, queimadas e fumaça</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/20-fichas-agua-saneamento-qualidade-ambiental.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Fichas — Água, esgotamento sanitário e higiene</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/21-fichas-uso-cobertura-terra-ambiente-urbano.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Fichas — Vegetação, espaços públicos e calor urbano</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/22-fichas-eventos-severos-desastres.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Fichas — Impactos dos desastres</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/23-fichas-exposicao-vulnerabilidade.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Fichas — Vulnerabilidade social e adensamento domiciliar</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/24-fichas-efeitos-saude.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Fichas — Mortalidade e internações hospitalares</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/25-fichas-resposta-adaptacao-resiliencia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Fichas — Preparação e continuidade dos serviços de saúde</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/indice-fontes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Catálogo de fontes de dados</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/glossario.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Glossário</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/referencias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Referências</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Apêndices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/apendice-metodologico.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Apêndice metodológico</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/apendice-estacoes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Estações meteorológicas e de qualidade do ar</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Índice</h2>
+   
+  <ul>
+  <li><a href="#dos-sinos-aos-sistemas-de-alerta" id="toc-dos-sinos-aos-sistemas-de-alerta" class="nav-link active" data-scroll-target="#dos-sinos-aos-sistemas-de-alerta"><span class="header-section-number">16.1</span> Dos sinos aos sistemas de alerta</a></li>
+  <li><a href="#risco-conhecimento-e-poder" id="toc-risco-conhecimento-e-poder" class="nav-link" data-scroll-target="#risco-conhecimento-e-poder"><span class="header-section-number">16.2</span> Risco, conhecimento e poder</a></li>
+  <li><a href="#comunicar-sem-culpabilizar" id="toc-comunicar-sem-culpabilizar" class="nav-link" data-scroll-target="#comunicar-sem-culpabilizar"><span class="header-section-number">16.3</span> Comunicar sem culpabilizar</a></li>
+  <li><a href="#escuta-confiança-e-participação" id="toc-escuta-confiança-e-participação" class="nav-link" data-scroll-target="#escuta-confiança-e-participação"><span class="header-section-number">16.4</span> Escuta, confiança e participação</a>
+  <ul class="collapse">
+  <li><a href="#linguagem-e-acessibilidade" id="toc-linguagem-e-acessibilidade" class="nav-link" data-scroll-target="#linguagem-e-acessibilidade"><span class="header-section-number">16.4.1</span> Linguagem e acessibilidade</a></li>
+  </ul></li>
+  <li><a href="#comunicar-evidências-e-incertezas" id="toc-comunicar-evidências-e-incertezas" class="nav-link" data-scroll-target="#comunicar-evidências-e-incertezas"><span class="header-section-number">16.5</span> Comunicar evidências e incertezas</a>
+  <ul class="collapse">
+  <li><a href="#dúvidas-rumores-e-correções" id="toc-dúvidas-rumores-e-correções" class="nav-link" data-scroll-target="#dúvidas-rumores-e-correções"><span class="header-section-number">16.5.1</span> Dúvidas, rumores e correções</a></li>
+  </ul></li>
+  <li><a href="#aplicações-em-enchentes-calor-e-queimadas" id="toc-aplicações-em-enchentes-calor-e-queimadas" class="nav-link" data-scroll-target="#aplicações-em-enchentes-calor-e-queimadas"><span class="header-section-number">16.6</span> Aplicações em enchentes, calor e queimadas</a>
+  <ul class="collapse">
+  <li><a href="#um-caso-documentado-alertas-e-escuta-em-2024" id="toc-um-caso-documentado-alertas-e-escuta-em-2024" class="nav-link" data-scroll-target="#um-caso-documentado-alertas-e-escuta-em-2024"><span class="header-section-number">16.6.1</span> Um caso documentado: alertas e escuta em 2024</a></li>
+  <li><a href="#enchentes-uma-orientação-em-diferentes-canais" id="toc-enchentes-uma-orientação-em-diferentes-canais" class="nav-link" data-scroll-target="#enchentes-uma-orientação-em-diferentes-canais"><span class="header-section-number">16.6.2</span> Enchentes: uma orientação em diferentes canais</a></li>
+  <li><a href="#calor-relacionar-cuidado-trabalho-e-infraestrutura" id="toc-calor-relacionar-cuidado-trabalho-e-infraestrutura" class="nav-link" data-scroll-target="#calor-relacionar-cuidado-trabalho-e-infraestrutura"><span class="header-section-number">16.6.3</span> Calor: relacionar cuidado, trabalho e infraestrutura</a></li>
+  <li><a href="#queimadas-e-fumaça-proteção-diante-de-riscos-combinados" id="toc-queimadas-e-fumaça-proteção-diante-de-riscos-combinados" class="nav-link" data-scroll-target="#queimadas-e-fumaça-proteção-diante-de-riscos-combinados"><span class="header-section-number">16.6.4</span> Queimadas e fumaça: proteção diante de riscos combinados</a></li>
+  <li><a href="#quando-o-apoio-falha-ou-as-orientações-divergem" id="toc-quando-o-apoio-falha-ou-as-orientações-divergem" class="nav-link" data-scroll-target="#quando-o-apoio-falha-ou-as-orientações-divergem"><span class="header-section-number">16.6.5</span> Quando o apoio falha ou as orientações divergem</a></li>
+  </ul></li>
+  <li><a href="#planejamento-e-avaliação" id="toc-planejamento-e-avaliação" class="nav-link" data-scroll-target="#planejamento-e-avaliação"><span class="header-section-number">16.7</span> Planejamento e avaliação</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/rfsaldanha/dicas/blob/main/chapters/part-3/16-comunicacao-risco-saude-clima.qmd" class="toc-action"><i class="bi bi-github"></i>Ver o código fonte</a></li><li><a href="https://github.com/rfsaldanha/dicas/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../chapters/part-3/13-exposicao-vulnerabilidade.html">Parte III — Exposição, vulnerabilidade, efeitos e resposta em saúde</a></li><li class="breadcrumb-item"><a href="../../chapters/part-3/16-comunicacao-risco-saude-clima.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Comunicação de risco em saúde e clima</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-comunicacao-risco" class="quarto-section-identifier"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Comunicação de risco em saúde e clima</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Antes das mensagens por telefone e dos painéis de monitoramento, sinos já anunciavam acontecimentos que exigiam atenção coletiva. O dossiê do Instituto do Patrimônio Histórico e Artístico Nacional (Iphan) sobre Minas Gerais registra o toque de rebate para incêndios e outras calamidades. No repertório de São João del-Rei, esse toque envolve pancadas descompassadas no sino grande, seguidas pelo sino médio. Seu significado depende de conhecimentos compartilhados entre quem toca e quem ouve <span class="citation" data-cites="iphan2016sinos">(<a href="../../backmatter/referencias.html#ref-iphan2016sinos" role="doc-biblioref">Instituto do Patrimônio Histórico e Artístico Nacional, 2016, p. 145</a>)</span>.</p>
+<p>Como transformar um sinal em compreensão e proteção? Uma pessoa pode ouvir o sino ou receber uma mensagem sem saber o que fazer. Pode também compreender a orientação e não dispor de transporte, renda ou acesso a um lugar seguro. A comunicação precisa considerar essas condições desde seu planejamento.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Conceito-chave: comunicação de risco">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Conceito-chave: comunicação de risco
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A Organização Mundial da Saúde (OMS) define comunicação de risco como intercâmbio de informações, orientações e opiniões entre especialistas, autoridades e pessoas expostas a ameaças, para apoiar decisões de prevenção e proteção <span class="citation" data-cites="who2020riskdefinition">(<a href="../../backmatter/referencias.html#ref-who2020riskdefinition" role="doc-biblioref">World Health Organization, 2020</a>)</span>. Neste capítulo, essa troca é tratada como processo contínuo, articulado à participação e às condições materiais de cuidado.</p>
+</div>
+</div>
+<p>Um alerta é uma mensagem situada: informa uma ameaça, sua abrangência e a ação necessária em determinado período. A comunicação durante uma crise reúne também atualizações, esclarecimentos, orientações sobre serviços e prestação de contas. Esses usos integram um processo que começa na preparação e acompanha a recuperação <span class="citation" data-cites="who2017riskcommunication">(<a href="../../backmatter/referencias.html#ref-who2017riskcommunication" role="doc-biblioref">World Health Organization, 2017</a>)</span>. A escuta sobre prioridades de adaptação, por exemplo, pode ocorrer muito antes de existir um alerta.</p>
+<p>O capítulo dá continuidade à análise de situação e decisão pública (<a href="../part-1/06-indicador-decisao.html" class="quarto-xref"><span>Capítulo 6</span></a>), à discussão de desastres (<a href="../part-2/12-eventos-severos-desastres.html" class="quarto-xref"><span>Capítulo 12</span></a>) e à resiliência dos sistemas de saúde (<a href="15-resposta-adaptacao-resiliencia.html" class="quarto-xref"><span>Capítulo 15</span></a>). Seu eixo é o vínculo entre informação, participação e responsabilidade pública.</p>
+<section id="dos-sinos-aos-sistemas-de-alerta" class="level2 page-columns page-full" data-number="16.1">
+<h2 data-number="16.1" class="anchored" data-anchor-id="dos-sinos-aos-sistemas-de-alerta"><span class="header-section-number">16.1</span> Dos sinos aos sistemas de alerta</h2>
+<p>No registro do Iphan, os sinos integram relações de sociabilidade, memória e trabalho. Os repertórios variam entre cidades, igrejas e ocasiões; a documentação menciona badaladas que indicavam a localização do fogo. Esse registro sustenta a existência de práticas históricas de aviso de incêndios e calamidades, sem comprovar um código universal ou usos específicos para toda espécie de queimada e enchente <span class="citation" data-cites="iphan2016sinos">(<a href="../../backmatter/referencias.html#ref-iphan2016sinos" role="doc-biblioref">Instituto do Patrimônio Histórico e Artístico Nacional, 2016, p. 120, 145</a>)</span>.</p>
+<p>Há continuidades entre esses avisos e os sistemas atuais: reconhecer o sinal, compreender seu significado, identificar quem o emite e organizar uma resposta. Hoje se articulam observações, modelos de previsão, vigilância em saúde e redes de telecomunicações. A velocidade de transmissão amplia possibilidades, enquanto falhas de energia, conexão e acessibilidade continuam exigindo alternativas locais.</p>
+<!-- ARTE CAP16-01
+Finalidade: Relacionar a antiguidade das práticas de aviso à necessidade de interpretação compartilhada, sem propor evolução tecnológica linear.
+Composição e montagem: Duas vinhetas sem conexão cronológica; rótulos inferiores e uma faixa comum de interpretação. Nenhum mapa, data ou episódio reconstruído.
+Rótulos: Aviso histórico; Toque de rebate documentado em Minas Gerais; Canais contemporâneos; Rádio, celular e conversa podem coexistir; Reconhecer o sinal e compartilhar seu significado..
+Legenda: Práticas de aviso: sinais e significados compartilhados
+Fontes: [@iphan2016sinos, p. 120, 145; @who2017riskcommunication]
+Texto alternativo: Duas vinhetas conceituais mostram um sino e uma conversa atual com rádio e celular. Os rótulos distinguem o aviso histórico documentado dos canais contemporâneos e destacam reconhecimento e interpretação compartilhados. Não há sequência de substituição tecnológica nem reconstrução de um episódio histórico.
+Prompt completo:
+Use case: scientific-educational
+Asset type: ARTE CAP16-01 — Práticas de aviso: sinais e significados compartilhados.
+Input images: a imagem fornecida é APENAS referência de técnica, paleta e tratamento humano da série, não de composição nem de conteúdo. Criar uma cena nova.
+
+Ilustração editorial em aquarela tradicional translúcida, combinada com traços finos e espontâneos de lápis grafite e nanquim. Contornos parcialmente abertos, hachuras leves e marcas discretas de rascunho. Textura sutil de papel aquarela, pigmentação irregular e transições suaves. Paleta de verdes naturais, azuis acinzentados, ocres e terracota, com saturação moderada. Preservar áreas de papel branco e bordas irregulares que se dissolvem no fundo. Pessoas com proporções naturais e diversidade de tons de pele. Linguagem visual madura, acolhedora e adequada à divulgação científica para adultos. Usar a imagem de referência fornecida pelo autor para manter o mesmo tratamento de pigmentos, contornos, luz, vegetação e figuras humanas. Preservar contraste legível também em escala de cinza. Manter mãos, dedos, braços e pernas anatomicamente coerentes, com proporções naturais, articulações plausíveis e continuidade entre os segmentos. Evitar dedos extras ou fundidos, membros duplicados, torções impossíveis e mãos ou pés disformes. Preferir gestos simples e poses claras, respeitando a perspectiva, as oclusões e as características de cada personagem. Sem texto, letras, números, logotipos ou marca-d'água: reservar espaços para rótulos acrescentados na diagramação. Evitar fotorrealismo e acabamento tridimensional. Não inventar dados, curvas quantitativas ou mapas de locais reais.
+
+Composição horizontal, proporção 3:2, largura de pelo menos 1536 pixels. Fundo branco puro com bordas orgânicas dissolvidas e contraste também legível em cinza. Cenas de tamanho suficiente para leitura em livro de 160 × 230 mm.
+
+Duas vinhetas lado a lado, separadas por papel branco, sem molduras. À esquerda, detalhe de um sino grande de bronze suspenso por estrutura de madeira plausível, boca, badalo e corda visíveis, sem pessoas, sem igreja identificável. Evocar o instrumento de aviso documentado, sem desenhar incêndio, enchente ou reconstituir época específica. À direita, pequena cena atual: uma agente comunitária conversa com duas pessoas adultas de tons de pele distintos, uma delas segura um celular com tela vazia; um rádio portátil está sobre uma pequena mesa. Fachadas discretas de bairro urbano brasileiro ao fundo. Objetos proporcionais, conversa tranquila, mãos simples. Não ligar as cenas por setas nem por linhas de tempo: são repertórios comunicativos diferentes. Reservar branco abaixo de cada vinheta para rótulos vetoriais.
+
+Uma única ilustração final sem palavras, letras, números, setas, logotipos, marca-d’água ou títulos. A fauna, a água e a paisagem da referência não precisam aparecer. Usar a referência somente para o estilo.
+-->
+<p>A <a href="#fig-comunicacao-praticas" class="quarto-xref">Figura&nbsp;<span>16.1</span></a> aproxima esses repertórios, cujo funcionamento depende de interpretação compartilhada; os canais atuais podem coexistir.</p>
+<div class="figure-with-source page-columns page-full">
+<div id="fig-comunicacao-praticas" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-width="117mm" alt="Duas vinhetas conceituais mostram um sino e uma conversa atual com rádio e celular. Os rótulos distinguem o aviso histórico documentado dos canais contemporâneos e destacam reconhecimento e interpretação compartilhados. Não há sequência de substituição tecnológica nem reconstrução de um episódio histórico." data-print-src="arte-cap16-01-praticas-print.png">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-comunicacao-praticas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<a href="../../assets/figures/arte-cap16-01-praticas.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-1" title="Figura&nbsp;16.1: Práticas de aviso: sinais e significados compartilhados"><img src="../../assets/figures/arte-cap16-01-praticas.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Duas vinhetas conceituais mostram um sino e uma conversa atual com rádio e celular. Os rótulos distinguem o aviso histórico documentado dos canais contemporâneos e destacam reconhecimento e interpretação compartilhados. Não há sequência de substituição tecnológica nem reconstrução de um episódio histórico."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-comunicacao-praticas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;16.1: Práticas de aviso: sinais e significados compartilhados
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte: elaboração conceitual a partir de <span class="citation" data-cites="iphan2016sinos who2017riskcommunication">(<a href="../../backmatter/referencias.html#ref-iphan2016sinos" role="doc-biblioref">Instituto do Patrimônio Histórico e Artístico Nacional, 2016, p. 120, 145</a>; <a href="../../backmatter/referencias.html#ref-who2017riskcommunication" role="doc-biblioref">World Health Organization, 2017</a>)</span>. Representação conceitual; a cena não reconstitui episódio histórico. Autoria: composição própria; aquarela produzida com IA (image_gen). Licença: a mesma dos textos autorais da obra.</span></p>
+</div>
+<p>Essa longa história deve ser distinguida da consolidação do campo especializado. Loose e Quinteros analisam a comunicação de riscos como área interdisciplinar, vinculada a debates contemporâneos sobre ciência, percepção, participação e gestão. Sua revisão da produção brasileira identifica dispersão dos estudos e presença de abordagens gerenciais <span class="citation" data-cites="looseQuinteros2025comunicacao">(<a href="../../backmatter/referencias.html#ref-looseQuinteros2025comunicacao" role="doc-biblioref">Loose; Quinteros, 2025</a>)</span>. O campo sistematiza problemas e métodos; as práticas humanas de aviso o antecedem.</p>
+<p>O <a href="#qua-praticas-comunicacao-risco" class="quarto-xref">Quadro&nbsp;<span>16.1</span></a> aproxima práticas com finalidades diferentes. O aviso urgente exige concisão; a preparação permite discutir alternativas; o planejamento de longo prazo demanda participação nas prioridades e nos recursos. Tecnologias antigas e recentes podem coexistir, conforme o território.</p>
+<div id="qua-praticas-comunicacao-risco" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-qua figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-qua" id="qua-praticas-comunicacao-risco-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Quadro&nbsp;16.1: Práticas históricas e atuais de comunicação de perigos e riscos
+</figcaption>
+<div aria-describedby="qua-praticas-comunicacao-risco-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Prática</th>
+<th>Função comunicativa</th>
+<th>Condição a considerar</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Toque de rebate documentado em Minas Gerais</td>
+<td>Avisar sobre incêndio ou calamidade</td>
+<td>Conhecimento local dos toques e alcance sonoro</td>
+</tr>
+<tr class="even">
+<td>Sirenes e avisos de inundação</td>
+<td>Orientar resposta diante de ameaça</td>
+<td>Rotas, transporte e acolhimento disponíveis</td>
+</tr>
+<tr class="odd">
+<td>Rádio e comunicação comunitária sobre fumaça</td>
+<td>Relacionar exposição e proteção</td>
+<td>Acesso a orientação e ambientes adequados</td>
+</tr>
+<tr class="even">
+<td>Boletins e mensagens sobre calor</td>
+<td>Antecipar cuidados e organizar serviços</td>
+<td>Água, condições de trabalho e assistência</td>
+</tr>
+<tr class="odd">
+<td>Reuniões sobre adaptação</td>
+<td>Discutir decisões e acompanhar compromissos</td>
+<td>Participação com influência sobre recursos e ações</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>A primeira linha sintetiza o registro do Iphan; as demais apresentam situações de aplicação organizadas para este capítulo.</p>
+</section>
+<section id="risco-conhecimento-e-poder" class="level2" data-number="16.2">
+<h2 data-number="16.2" class="anchored" data-anchor-id="risco-conhecimento-e-poder"><span class="header-section-number">16.2</span> Risco, conhecimento e poder</h2>
+<p>Quem consegue definir publicamente o risco e cobrar uma resposta? Em <em>Sociedade de risco</em>, Ulrich Beck examina como a produção de riqueza na modernidade se acompanha da produção de ameaças, inclusive decorrentes do desenvolvimento técnico e industrial. Seu reconhecimento envolve conhecimento científico e disputas sobre definição, distribuição e responsabilidade <span class="citation" data-cites="beck2010risco">(<a href="../../backmatter/referencias.html#ref-beck2010risco" role="doc-biblioref">Beck, 2010</a>)</span>. Para a comunicação, importa investigar quem estabelece o que será monitorado, quais evidências circulam e quais danos permanecem pouco visíveis.</p>
+<p>Considere um boletim sobre chuva intensa. A precipitação pode estar bem descrita, enquanto drenagem insuficiente, acesso à moradia e interrupção de serviços ficam ausentes. A informação meteorológica é necessária para a decisão, mas o enquadramento do problema precisa alcançar as condições que transformam o perigo em dano. Aplicando a perspectiva de Beck, cabe perguntar como a seleção das informações influencia as respostas que serão consideradas legítimas.</p>
+<p>Araújo e Cardoso permitem levar essa pergunta ao Sistema Único de Saúde (SUS): relacionam comunicação, poder e compromisso com uma distribuição mais equânime de recursos materiais e simbólicos <span class="citation" data-cites="araujoCardoso2007comunicacao">(<a href="../../backmatter/referencias.html#ref-araujoCardoso2007comunicacao" role="doc-biblioref">Araújo; Cardoso, 2007</a>)</span>. No mesmo exemplo, interessa saber se os moradores podem contestar a delimitação da área, relatar interrupções e influenciar prioridades. A produção de um mapa e a possibilidade de questioná-lo fazem parte da relação comunicativa.</p>
+<p>Valencio acrescenta uma questão decisiva: como as instituições tratam quem vive o desastre? Sua crítica ao tecnicismo examina práticas que desqualificam experiências e aprofundam o sofrimento social <span class="citation" data-cites="valencio2014tecnicismo">(<a href="../../backmatter/referencias.html#ref-valencio2014tecnicismo" role="doc-biblioref">Valencio, 2014</a>)</span>. Se a dificuldade de deixar uma moradia for interpretada como desobediência, informações sobre dependência de cuidados, falta de transporte ou insegurança no acolhimento podem desaparecer da decisão. O diálogo entre essas abordagens orienta uma leitura conjunta da produção do risco, da circulação da palavra e do tratamento das demandas.</p>
+<p>No Brasil, esse exame precisa considerar desigualdades territoriais, raciais e econômicas. A relação entre gestão de riscos e justiça socioambiental, desenvolvida por Lacerda e Freitas, ajuda a perguntar quais grupos recebem investimento e proteção <span class="citation" data-cites="lacerdaFreitas2024justica">(<a href="../../backmatter/referencias.html#ref-lacerdaFreitas2024justica" role="doc-biblioref">Lacerda; Freitas, 2024</a>)</span>. Uma população pode estar muito visível nos mapas de exposição e pouco representada na escolha das obras e dos serviços.</p>
+<p>Em entrevista à Revista Eletrônica de Comunicação, Informação &amp; Inovação em Saúde (RECIIS), do Instituto de Comunicação e Informação Científica e Tecnológica em Saúde (ICICT/Fiocruz), Eloisa Beling Loose ressalta a prevenção e a escuta de populações ribeirinhas, quilombolas e indígenas <span class="citation" data-cites="loose2025entrevista">(<a href="../../backmatter/referencias.html#ref-loose2025entrevista" role="doc-biblioref">Loose, 2025</a>)</span>. Na leitura proposta aqui, isso implica perguntar quem participa antes de definir a mensagem e quais mudanças essa participação produz no planejamento. A legitimidade também se constrói quando uma demanda modifica uma decisão e recebe uma resposta verificável.</p>
+</section>
+<section id="comunicar-sem-culpabilizar" class="level2 page-columns page-full" data-number="16.3">
+<h2 data-number="16.3" class="anchored" data-anchor-id="comunicar-sem-culpabilizar"><span class="header-section-number">16.3</span> Comunicar sem culpabilizar</h2>
+<p>Frases como “a população foi avisada” não demonstram proteção adequada. É necessário saber se o aviso chegou a tempo, se pôde ser compreendido e se havia meios para cumprir a orientação. Explicar o resultado automaticamente por descuido ou falta de consciência dos moradores oculta essas perguntas.</p>
+<p>Deixar a residência envolve destino, transporte, cuidados com crianças, pessoas dependentes, animais, medicamentos, documentos e bens. Envolve ainda a confiança no acolhimento e nas informações sobre o retorno. Uma dificuldade relatada deve desencadear atendimento ou encaminhamento. A equipe precisa registrar a necessidade e acompanhar sua resposta, evitando transformar a escuta em um julgamento moral.</p>
+<p>O artigo 196 da Constituição vincula o direito à saúde ao dever do Estado e às políticas sociais e econômicas de redução dos riscos. A Lei nº 12.608/2012, em seu texto atualizado, estabelece o dever dos entes federativos de adotar medidas de redução de riscos de acidentes ou desastres e articula prevenção, mitigação, preparação, resposta e recuperação <span class="citation" data-cites="brasil1988constituicao brasil2012pnpdec">(<a href="../../backmatter/referencias.html#ref-brasil1988constituicao" role="doc-biblioref">Brasil, 1988</a>, art. 196; <a href="../../backmatter/referencias.html#ref-brasil2012pnpdec" role="doc-biblioref">Brasil, 2012</a>, arts. 2–4)</span>.</p>
+<p>Essas responsabilidades precisam aparecer no plano local. Saúde organiza vigilância, assistência e continuidade do cuidado; proteção e defesa civil coordena ações segundo suas competências; habitação, saneamento e assistência social articulam infraestrutura e proteção social; órgãos de fiscalização acompanham atividades poluidoras, uso do solo e condições de trabalho. Empresas e empregadores têm responsabilidades próprias. A expressão “cada um faça sua parte” precisa ser substituída pela identificação de atribuições, recursos e compromissos.</p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled" title="Atenção: orientação exige condições de proteção">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Aviso</span>Atenção: orientação exige condições de proteção
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Antes de recomendar uma ação, identifique barreiras, apoio necessário e responsável por disponibilizá-lo. Uma necessidade conhecida deve entrar no fluxo de atendimento, inclusive quando a pessoa não consegue solicitar ajuda. Anuncie somente serviços e condições confirmados; registre e comunique as limitações ainda existentes.</p>
+</div>
+</div>
+<!-- ARTE CAP16-02
+Finalidade: Tornar visíveis condições materiais de proteção e sua relação com responsabilidades institucionais.
+Composição e montagem: Três cenas na mesma escala, com rótulos de cuidado, mobilidade e trabalho. Faixa inferior associa barreiras a providências públicas e compromissos institucionais.
+Rótulos: Cuidado; Continuidade do cuidado e acompanhamento; Mobilidade; Transporte e acolhimento acessíveis; Trabalho; Medidas institucionais para tornar a ação viável; Barreiras exigem providências públicas e compromissos institucionais..
+Legenda: Receber o aviso e conseguir agir são condições diferentes
+Fontes: [@beck2010risco; @araujoCardoso2007comunicacao; @valencio2014tecnicismo]
+Texto alternativo: Três cenas de um bairro hipotético mostram cuidado de pessoa idosa, mobilidade em cadeira de rodas e organização do trabalho. Rótulos associam cada necessidade à continuidade do cuidado, ao transporte acessível e às medidas institucionais. Barreiras demandam providências públicas, sem julgamento da conduta dos moradores.
+Prompt completo:
+Use case: scientific-educational
+Asset type: ARTE CAP16-02 — Receber o aviso e conseguir agir são condições diferentes.
+Input images: a imagem fornecida é APENAS referência de técnica, paleta e tratamento humano da série, não de composição nem de conteúdo. Criar uma cena nova.
+
+Ilustração editorial em aquarela tradicional translúcida, combinada com traços finos e espontâneos de lápis grafite e nanquim. Contornos parcialmente abertos, hachuras leves e marcas discretas de rascunho. Textura sutil de papel aquarela, pigmentação irregular e transições suaves. Paleta de verdes naturais, azuis acinzentados, ocres e terracota, com saturação moderada. Preservar áreas de papel branco e bordas irregulares que se dissolvem no fundo. Pessoas com proporções naturais e diversidade de tons de pele. Linguagem visual madura, acolhedora e adequada à divulgação científica para adultos. Usar a imagem de referência fornecida pelo autor para manter o mesmo tratamento de pigmentos, contornos, luz, vegetação e figuras humanas. Preservar contraste legível também em escala de cinza. Manter mãos, dedos, braços e pernas anatomicamente coerentes, com proporções naturais, articulações plausíveis e continuidade entre os segmentos. Evitar dedos extras ou fundidos, membros duplicados, torções impossíveis e mãos ou pés disformes. Preferir gestos simples e poses claras, respeitando a perspectiva, as oclusões e as características de cada personagem. Sem texto, letras, números, logotipos ou marca-d'água: reservar espaços para rótulos acrescentados na diagramação. Evitar fotorrealismo e acabamento tridimensional. Não inventar dados, curvas quantitativas ou mapas de locais reais.
+
+Composição horizontal, proporção 3:2, largura de pelo menos 1536 pixels. Fundo branco puro com bordas orgânicas dissolvidas e contraste também legível em cinza. Cenas de tamanho suficiente para leitura em livro de 160 × 230 mm.
+
+Três vinhetas de tamanho semelhante alinhadas horizontalmente, com branco entre elas, todas em um bairro brasileiro contemporâneo hipotético. À esquerda, pessoa adulta conversa com agente de saúde enquanto acompanha pessoa idosa sentada, com bolsa de cuidado simples e sem rótulos sobre mesa. Ao centro, pessoa adulta em cadeira de rodas com acompanhante conversa com profissional de transporte junto a veículo coletivo acessível estacionado em solo seco, plataforma baixa e rampa plausível desimpedida; não desenhar o embarque em movimento. À direita, pessoa que trabalha na manutenção de espaço urbano conversa com responsável pela organização do trabalho, ferramentas em repouso, postura digna, pequeno abrigo sombreado. Sem contraste moral de quem obedece e quem resiste. As situações mostram necessidades e articulação do apoio, sem prometer desfechos. Fachadas de casas e edifícios discretos conectam visualmente o conjunto. Reservar branco inferior para rótulos sobre cuidado, mobilidade e trabalho.
+
+Uma única ilustração final sem palavras, letras, números, setas, logotipos, marca-d’água ou títulos. A fauna, a água e a paisagem da referência não precisam aparecer. Usar a referência somente para o estilo.
+-->
+<p>A <a href="#fig-comunicacao-condicoes" class="quarto-xref">Figura&nbsp;<span>16.2</span></a> relaciona necessidades de cuidado, mobilidade e trabalho às condições que as instituições precisam viabilizar.</p>
+<div class="figure-with-source page-columns page-full">
+<div id="fig-comunicacao-condicoes" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-width="117mm" alt="Três cenas de um bairro hipotético mostram cuidado de pessoa idosa, mobilidade em cadeira de rodas e organização do trabalho. Rótulos associam cada necessidade à continuidade do cuidado, ao transporte acessível e às medidas institucionais. Barreiras demandam providências públicas, sem julgamento da conduta dos moradores." data-print-src="arte-cap16-02-condicoes-print.png">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-comunicacao-condicoes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<a href="../../assets/figures/arte-cap16-02-condicoes.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-2" title="Figura&nbsp;16.2: Receber o aviso e conseguir agir são condições diferentes"><img src="../../assets/figures/arte-cap16-02-condicoes.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Três cenas de um bairro hipotético mostram cuidado de pessoa idosa, mobilidade em cadeira de rodas e organização do trabalho. Rótulos associam cada necessidade à continuidade do cuidado, ao transporte acessível e às medidas institucionais. Barreiras demandam providências públicas, sem julgamento da conduta dos moradores."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-comunicacao-condicoes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;16.2: Receber o aviso e conseguir agir são condições diferentes
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte: elaboração conceitual a partir de <span class="citation" data-cites="beck2010risco araujoCardoso2007comunicacao valencio2014tecnicismo">(<a href="../../backmatter/referencias.html#ref-araujoCardoso2007comunicacao" role="doc-biblioref">Araújo; Cardoso, 2007</a>; <a href="../../backmatter/referencias.html#ref-beck2010risco" role="doc-biblioref">Beck, 2010</a>; <a href="../../backmatter/referencias.html#ref-valencio2014tecnicismo" role="doc-biblioref">Valencio, 2014</a>)</span>. Representação conceitual; cenas hipotéticas. Autoria: composição própria; aquarela produzida com IA (image_gen). Licença: a mesma dos textos autorais da obra.</span></p>
+</div>
+<p>Participação comunitária e redes de solidariedade podem orientar e ampliar a resposta. A gestão deve assegurar financiamento, equipes e continuidade, inclusive para não transferir tarefas permanentes a pessoas que também foram atingidas. Reconhecer capacidades locais envolve respeitar limites, proteger quem atua e prestar contas dos compromissos públicos.</p>
+</section>
+<section id="escuta-confiança-e-participação" class="level2 page-columns page-full" data-number="16.4">
+<h2 data-number="16.4" class="anchored" data-anchor-id="escuta-confiança-e-participação"><span class="header-section-number">16.4</span> Escuta, confiança e participação</h2>
+<p>A OMS relaciona comunicação de emergência, confiança, reconhecimento de incertezas e envolvimento das populações afetadas <span class="citation" data-cites="who2017riskcommunication">(<a href="../../backmatter/referencias.html#ref-who2017riskcommunication" role="doc-biblioref">World Health Organization, 2017</a>)</span>. No território, a escolha dos canais deve partir de dúvidas, experiências anteriores e obstáculos ao cuidado. Um histórico de avisos contraditórios ou serviços anunciados que não funcionaram precisa ser reconhecido e discutido.</p>
+<p>A escuta deve produzir devolutiva. Moradores podem informar que não reconhecem o nome oficial de uma área, que uma rota está interrompida ou que o horário de atendimento impede seu uso. Cada questão precisa de responsável, prazo de retorno e registro da providência. Quando uma sugestão não puder ser adotada, cabe justificar a decisão e discutir alternativas.</p>
+<p>Agentes comunitários de saúde, rádios, associações, escolas e comunicadores locais conectam diferentes redes. Esses participantes precisam receber versões atualizadas, ter acesso às equipes técnicas e contar com condições seguras de atuação. A coordenação deve organizar contato ativo com pessoas que dependem de apoio, por equipes e meios adequados à situação, sem pressupor internet ou deslocamento por conta própria.</p>
+<p>Saberes tradicionais e memórias locais qualificam a interpretação do território. Relatos sobre enchentes passadas, caminhos e fontes de água devem ter origem e contexto registrados e dialogar com observações técnicas. Divergências exigem investigação. Também é necessário reconhecer a diversidade interna: uma liderança não representa necessariamente todas as mulheres, pessoas idosas, jovens ou pessoas com deficiência de uma comunidade.</p>
+<!-- ARTE CAP16-03
+Finalidade: Explicar como a participação modifica decisões e exige retorno verificável.
+Composição e montagem: Quatro caixas em duas linhas. Percurso horário com setas e retorno tracejado à escuta. Faixa final sobre justificativa e alternativas. Rótulos identificam participantes e responsabilidades.
+Rótulos: Relato territorial; Moradores e comunicadores locais; Verificação conjunta; Agentes comunitários e equipes técnicas e públicas; Decisão com responsável; Recursos, providência e prazo de retorno; Devolutiva e acompanhamento; Explicar a decisão e verificar a entrega; Reabrir a escuta; Se a demanda não puder ser atendida; Justificar, discutir alternativas e acompanhar a necessidade..
+Legenda: Escuta que modifica a decisão
+Fontes: [@who2017riskcommunication; @araujoCardoso2007comunicacao; @loose2025entrevista]
+Texto alternativo: Ciclo de quatro núcleos: relato territorial por moradores e comunicadores locais; verificação com agentes comunitários e equipes técnicas; decisão com responsável, recursos e prazo; devolutiva com acompanhamento da entrega. Uma seta retorna da devolutiva à escuta. A impossibilidade de atender requer justificativa e discussão de alternativas.
+Prompt completo:
+Diagrama vetorial; montagem integral em scripts/build_cap16_art.py, sem geração raster.
+-->
+<p>A <a href="#fig-comunicacao-escuta" class="quarto-xref">Figura&nbsp;<span>16.3</span></a> explicita um percurso de participação com responsáveis e devolutiva, que deve permanecer aberto à revisão.</p>
+<div class="figure-with-source page-columns page-full">
+<div id="fig-comunicacao-escuta" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-width="117mm" alt="Ciclo de quatro núcleos: relato territorial por moradores e comunicadores locais; verificação com agentes comunitários e equipes técnicas; decisão com responsável, recursos e prazo; devolutiva com acompanhamento da entrega. Uma seta retorna da devolutiva à escuta. A impossibilidade de atender requer justificativa e discussão de alternativas." data-print-src="arte-cap16-03-escuta-print.png">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-comunicacao-escuta-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<a href="../../assets/figures/arte-cap16-03-escuta.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-3" title="Figura&nbsp;16.3: Escuta que modifica a decisão"><img src="../../assets/figures/arte-cap16-03-escuta.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Ciclo de quatro núcleos: relato territorial por moradores e comunicadores locais; verificação com agentes comunitários e equipes técnicas; decisão com responsável, recursos e prazo; devolutiva com acompanhamento da entrega. Uma seta retorna da devolutiva à escuta. A impossibilidade de atender requer justificativa e discussão de alternativas."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-comunicacao-escuta-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;16.3: Escuta que modifica a decisão
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte: elaboração conceitual a partir de <span class="citation" data-cites="who2017riskcommunication araujoCardoso2007comunicacao loose2025entrevista">(<a href="../../backmatter/referencias.html#ref-araujoCardoso2007comunicacao" role="doc-biblioref">Araújo; Cardoso, 2007</a>; <a href="../../backmatter/referencias.html#ref-loose2025entrevista" role="doc-biblioref">Loose, 2025</a>; <a href="../../backmatter/referencias.html#ref-who2017riskcommunication" role="doc-biblioref">World Health Organization, 2017</a>)</span>. Fluxo conceitual proposto no capítulo. Autoria: composição vetorial própria. Licença: a mesma dos textos autorais da obra.</span></p>
+</div>
+<section id="linguagem-e-acessibilidade" class="level3" data-number="16.4.1">
+<h3 data-number="16.4.1" class="anchored" data-anchor-id="linguagem-e-acessibilidade"><span class="header-section-number">16.4.1</span> Linguagem e acessibilidade</h3>
+<p>O <em>Guia de Linguagem Simples do ICICT</em>, de Liana Braga Paraguassu e Valéria Machado da Costa, orienta a escrita a partir do público e da finalidade. Recomenda apresentar cedo a informação principal, preferir palavras conhecidas e testar o texto com leitores reais <span class="citation" data-cites="icict2023linguagem">(<a href="../../backmatter/referencias.html#ref-icict2023linguagem" role="doc-biblioref">Paraguassu; Costa, 2023, p. 18–20, 31, 43</a>)</span>. Um teste útil pede que a pessoa explique o risco, a ação e o apoio disponível com suas palavras. A pergunta “entendeu?” informa pouco sobre dificuldades específicas.</p>
+<p>Acessibilidade inclui compatibilidade com leitores de tela, áudio, legendas, Língua Brasileira de Sinais (Libras), descrição de imagens e idiomas pertinentes. Cor deve acompanhar palavras ou símbolos compreensíveis. A escolha dos formatos precisa envolver seus usuários; uma mensagem clara pode revelar que a proposta de ação é inviável e exigir revisão do serviço.</p>
+<p>Rádio, pontos presenciais e equipes de campo podem complementar canais digitais, conforme segurança e capacidade locais. As versões devem manter as mesmas informações essenciais. Dados pessoais necessários ao atendimento exigem circulação protegida, evitando expor famílias em mapas, comentários ou grupos públicos.</p>
+</section>
+</section>
+<section id="comunicar-evidências-e-incertezas" class="level2 page-columns page-full" data-number="16.5">
+<h2 data-number="16.5" class="anchored" data-anchor-id="comunicar-evidências-e-incertezas"><span class="header-section-number">16.5</span> Comunicar evidências e incertezas</h2>
+<p>Observação é o que foi medido ou registrado; previsão estima condições futuras para uma área e um período; projeção descreve evoluções condicionadas a cenários. Um registro de chuva não antecipa sozinho uma inundação, assim como uma projeção climática não informa o horário de um evento. Essas distinções retomam o debate sobre espaço, tempo e qualidade (<a href="../part-1/04-espaco-tempo-qualidade.html" class="quarto-xref"><span>Capítulo 4</span></a>).</p>
+<p>O aviso precisa preservar fonte, território e validade. “Acima do normal” exige uma referência; probabilidades precisam nomear o evento. Probabilidade de chuva não é probabilidade de uma residência inundar. Gravidade, antecedência e consequências de esperar também importam. Quando a fonte não quantifica a probabilidade, o comunicador deve explicar a evidência disponível sem inventar percentuais.</p>
+<!-- ARTE CAP16-04
+Finalidade: Distinguir tipos de evidência e suas escalas de decisão sem inventar probabilidades.
+Composição e montagem: Três campos paralelos, sem setas entre si, com convergência a uma faixa de contexto e a decisões pertinentes. Revisão retorna à avaliação, sem converter observação em previsão ou projeção.
+Rótulos: Observação; O que foi medido ou registrado; Previsão; Estimativa para uma área e um período; Projeção; Evoluções condicionadas a cenários; Explicitar o contexto de cada informação; Fonte · território · validade · limites; Apoiar a decisão pertinente; Ação imediata ou planejamento, conforme a escala.; Reavaliar e explicar a atualização; Novas evidências, correções e mudanças na orientação.; Os três campos são paralelos; não constituem etapas sucessivas..
+Legenda: Observação, previsão e projeção apoiam decisões diferentes
+Fontes: [@rsu2026integridade, p. 4, 6–7]
+Texto alternativo: Três campos paralelos distinguem observação do que foi medido ou registrado, previsão para área e período e projeção condicionada a cenários. Todos precisam explicitar fonte, território, validade e limites e apoiar a decisão pertinente à sua escala. Novas evidências levam à revisão e à explicação das atualizações; os campos não são etapas sucessivas.
+Prompt completo:
+Diagrama vetorial; montagem integral em scripts/build_cap16_art.py, sem geração raster.
+-->
+<p>A <a href="#fig-comunicacao-evidencias" class="quarto-xref">Figura&nbsp;<span>16.4</span></a> organiza esses tipos de informação em paralelo e explicita os elementos necessários para apoiar a decisão pertinente.</p>
+<div class="figure-with-source page-columns page-full">
+<div id="fig-comunicacao-evidencias" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-width="117mm" alt="Três campos paralelos distinguem observação do que foi medido ou registrado, previsão para área e período e projeção condicionada a cenários. Todos precisam explicitar fonte, território, validade e limites e apoiar a decisão pertinente à sua escala. Novas evidências levam à revisão e à explicação das atualizações; os campos não são etapas sucessivas." data-print-src="arte-cap16-04-evidencias-print.png">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-comunicacao-evidencias-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<a href="../../assets/figures/arte-cap16-04-evidencias.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-4" title="Figura&nbsp;16.4: Observação, previsão e projeção apoiam decisões diferentes"><img src="../../assets/figures/arte-cap16-04-evidencias.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Três campos paralelos distinguem observação do que foi medido ou registrado, previsão para área e período e projeção condicionada a cenários. Todos precisam explicitar fonte, território, validade e limites e apoiar a decisão pertinente à sua escala. Novas evidências levam à revisão e à explicação das atualizações; os campos não são etapas sucessivas."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-comunicacao-evidencias-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;16.4: Observação, previsão e projeção apoiam decisões diferentes
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte: elaboração conceitual a partir de <span class="citation" data-cites="rsu2026integridade">(<a href="../../backmatter/referencias.html#ref-rsu2026integridade" role="doc-biblioref">Rede Saúde Única, 2026, p. 4, 6–7</a>)</span>. Fluxo conceitual proposto no capítulo. Autoria: composição vetorial própria. Licença: a mesma dos textos autorais da obra.</span></p>
+</div>
+<p>A nota técnica da Rede Saúde Única (RSU/Fiocruz), de 2026, orienta distinguir observações, previsões, cenários e recomendações, mantendo fontes, validade e revisão explícitas <span class="citation" data-cites="rsu2026integridade">(<a href="../../backmatter/referencias.html#ref-rsu2026integridade" role="doc-biblioref">Rede Saúde Única, 2026, p. 4, 6–7</a>)</span>. Essa organização permite entender por que uma orientação foi adotada e o que poderia modificá-la.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Conceito-chave: comunicar incerteza">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Conceito-chave: comunicar incerteza
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Explicite o que se sabe, o que permanece incerto, a decisão adotada e a próxima avaliação. Informe o que mudou nas atualizações. Corrigir um erro e revisar uma previsão diante de novos dados são situações diferentes; ambas precisam de explicação e histórico acessível.</p>
+</div>
+</div>
+<p>A incerteza sobre o risco de desastre não impede medidas preventivas e mitigadoras, conforme a Lei nº 12.608/2012 <span class="citation" data-cites="brasil2012pnpdec">(<a href="../../backmatter/referencias.html#ref-brasil2012pnpdec" role="doc-biblioref">Brasil, 2012</a>, art. 2, § 2)</span>. Uma resposta protetora pode ser necessária antes de existir estudo de atribuição climática do episódio. A comunicação deve apresentar os mecanismos conhecidos e os limites da evidência, sem converter toda ocorrência isolada em prova de mudança climática.</p>
+<section id="dúvidas-rumores-e-correções" class="level3" data-number="16.5.1">
+<h3 data-number="16.5.1" class="anchored" data-anchor-id="dúvidas-rumores-e-correções"><span class="header-section-number">16.5.1</span> Dúvidas, rumores e correções</h3>
+<p>Perguntas sobre abrigo, transporte ou fumaça podem revelar lacunas do boletim. A equipe deve distinguir demanda legítima, erro factual e conteúdo deliberadamente enganoso, evitando presumir intenção sem evidência. A nota da RSU recomenda priorizar conteúdos com potencial de dano e evitar ampliar rumores de baixo alcance apenas para refutá-los <span class="citation" data-cites="rsu2026integridade">(<a href="../../backmatter/referencias.html#ref-rsu2026integridade" role="doc-biblioref">Rede Saúde Única, 2026, p. 7</a>)</span>.</p>
+<p>Um registro de dúvidas recorrentes deve conter resposta validada, data, responsável e retorno pelos canais afetados. Se uma informação sobre fechamento de serviço estiver errada, cabe confirmar o funcionamento e corrigir. Se o serviço falhou, a resposta deve reconhecer a falha e informar providências. A interlocução com a imprensa também precisa acompanhar prevenção e recuperação, como propõe o manual organizado por Amaral, Loose e Girardi <span class="citation" data-cites="amaral2024cobertura">(<a href="../../backmatter/referencias.html#ref-amaral2024cobertura" role="doc-biblioref">Amaral; Loose; Girardi, 2024, p. 21–22</a>)</span>.</p>
+</section>
+</section>
+<section id="aplicações-em-enchentes-calor-e-queimadas" class="level2 page-columns page-full" data-number="16.6">
+<h2 data-number="16.6" class="anchored" data-anchor-id="aplicações-em-enchentes-calor-e-queimadas"><span class="header-section-number">16.6</span> Aplicações em enchentes, calor e queimadas</h2>
+<section id="um-caso-documentado-alertas-e-escuta-em-2024" class="level3" data-number="16.6.1">
+<h3 data-number="16.6.1" class="anchored" data-anchor-id="um-caso-documentado-alertas-e-escuta-em-2024"><span class="header-section-number">16.6.1</span> Um caso documentado: alertas e escuta em 2024</h3>
+<p>As enchentes no Rio Grande do Sul permitem examinar camadas distintas da comunicação. Silva e colaboradores analisaram 88 mensagens de alerta de proteção e defesa civil registradas na plataforma da Agência Nacional de Telecomunicações (Anatel). O estudo encontrou orientações gerais de proteção e pouca especificação sobre como executá-las, incluindo localização de abrigos e rotas. Sua análise do conteúdo identifica lacunas dos avisos, mas não mede diretamente recebimento, compreensão ou proteção de cada destinatário <span class="citation" data-cites="silva2024mensagens">(<a href="../../backmatter/referencias.html#ref-silva2024mensagens" role="doc-biblioref">Silva et al., 2024, p. 5–9</a>)</span>.</p>
+<p>Em Canoas, Dias e Nunes realizaram um estudo exploratório de publicações da prefeitura no Instagram. Entre 85 postagens registradas de 25 de abril a 4 de maio de 2024, selecionaram cinco dos dias 3 e 4 e seus comentários. As autoras documentam orientações sobre evacuação que mudaram, dúvidas territoriais e trocas de informação entre moradores. Nos registros do bairro Rio Branco, a indicação inicial de que não era necessário evacuar foi seguida pelo reconhecimento da necessidade de saída; também aparecem pedidos de socorro <span class="citation" data-cites="diasNunes2024canoas">(<a href="../../backmatter/referencias.html#ref-diasNunes2024canoas" role="doc-biblioref">Dias; Nunes, 2024, p. 5–13</a>)</span>.</p>
+<p>Esses registros permitem examinar o que o poder público comunicou e o que alguns usuários relataram. A seleção de postagens por suas interações não representa todos os moradores, especialmente os desconectados. Tampouco permite reconstruir cada atendimento ou atribuir perdas à comunicação isoladamente. Para avaliar a resposta, seria necessário confrontar mensagens e relatos com horários, condições de acesso e registros de resgate e acolhimento.</p>
+<p>A aplicação ao planejamento é registrar a mudança da orientação, alcançar os mesmos públicos com a atualização e transformar pedidos em encaminhamentos acompanhados. Essa é uma interpretação para a gestão proposta neste capítulo. Comentários são sinais de necessidades e de possíveis falhas a verificar; sua existência não comprova que houve atendimento. O caso também mostra por que alcance digital e capacidade de proteção devem ser avaliados separadamente.</p>
+</section>
+<section id="enchentes-uma-orientação-em-diferentes-canais" class="level3 page-columns page-full" data-number="16.6.2">
+<h3 data-number="16.6.2" class="anchored" data-anchor-id="enchentes-uma-orientação-em-diferentes-canais"><span class="header-section-number">16.6.2</span> Enchentes: uma orientação em diferentes canais</h3>
+<p>Os modelos seguintes são didáticos. Os campos entre colchetes exigem preenchimento e validação local antes da circulação. Serviços, rotas e horários precisam estar confirmados; os modelos não descrevem uma operação existente. O <a href="#qua-mensagens-protecao-publica" class="quarto-xref">Quadro&nbsp;<span>16.2</span></a> relaciona o aviso às condições materiais a verificar.</p>
+<div id="qua-mensagens-protecao-publica" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-qua figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-qua" id="qua-mensagens-protecao-publica-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Quadro&nbsp;16.2: Mensagens e condições materiais de proteção a verificar
+</figcaption>
+<div aria-describedby="qua-mensagens-protecao-publica-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Situação</th>
+<th>Conteúdo da mensagem</th>
+<th>Proteção pública correspondente</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Ameaça de inundação</td>
+<td>Área, validade, ação e atualização</td>
+<td>Transporte, acolhimento acessível e continuidade do cuidado</td>
+</tr>
+<tr class="even">
+<td>Calor intenso</td>
+<td>Período, redução de exposição e apoio</td>
+<td>Água, locais de proteção e medidas sobre o trabalho</td>
+</tr>
+<tr class="odd">
+<td>Fumaça de queimadas</td>
+<td>Evidência, área afetada e acesso a cuidado</td>
+<td>Monitoramento, ambientes adequados, insumos e assistência</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Uma mesma orientação de saída pode ser adaptada a três canais, mantendo emissor, área, ação, apoio e horário de atualização:</p>
+<ul>
+<li>Mensagem de celular: “[Órgão emissor], [data e hora]. Risco de inundação em [área e referência local], com aviso válido em [período]. Saia pela [rota verificada] para [acolhimento e endereço]. Transporte em [ponto e horário confirmados]. Apoio por [canal acessível]. Atualização às [hora], em [canal].”</li>
+<li>Rádio: “Atenção, moradores de [área e referência local]. Em [data], às [hora], [órgão emissor] orienta a saída pela [rota verificada] até [acolhimento]. O aviso vale para [período]. O transporte sai de [ponto], às [hora confirmada]. Para apoio, [canal e alternativa presencial segura]. Repetimos: [área, ação e apoio]. Próximo boletim às [hora].”</li>
+<li>Comunicação presencial: “Somos da [equipe identificada]. A orientação de [órgão], atualizada em [data e hora], para esta área é [ação], válida em [período]. O apoio disponível é [transporte e acolhimento confirmados]. Que apoio sua família precisa para sair?” A equipe registra a necessidade, aciona [responsável] e informa [forma e prazo de retorno].</li>
+</ul>
+<p>O rádio precisa repetir o núcleo da orientação; a mensagem de celular deve ser compreensível sem abrir um link; a conversa permite identificar barreiras e verificar entendimento. Formato, extensão e acessibilidade exigem teste no canal escolhido. A equipe deve explicar a validade do aviso e antecipar a atualização se a situação mudar. Um horário de revisão não significa que o perigo terminará naquele momento.</p>
+<p>O planejamento prevê busca ativa de necessidades conhecidas, transporte acessível, acompanhantes e continuidade de medicamentos e equipamentos. A solicitação individual é um dos caminhos de acesso. Famílias sem telefone também precisam ser alcançadas, e a confirmação do acolhimento deve incluir capacidade, acessibilidade e funcionamento. Na recuperação, a comunicação acompanha retorno seguro, abastecimento, cuidado e assistência social.</p>
+<!-- ARTE CAP16-05
+Finalidade: Associar orientação de saída às condições verificadas de deslocamento, acolhimento e cuidado.
+Composição e montagem: Duas vinhetas e três rótulos: rota verificada, transporte confirmado, acolhimento acessível. Faixa sobre acompanhantes e continuidade do cuidado. Identificar situação hipotética.
+Rótulos: Rota verificada; Ação e destino compreensíveis; Transporte confirmado; Acesso e apoio ao deslocamento; Acolhimento acessível; Acompanhantes e continuidade do cuidado; Situação hipotética: confirmar as condições antes de anunciar..
+Legenda: Enchentes: orientação acompanhada de transporte e acolhimento
+Fontes: [@who2017riskcommunication; @valencio2014tecnicismo]
+Texto alternativo: Situação hipotética de preparação para saída: equipe orienta moradores em rua seca junto a transporte acessível, enquanto outra vinheta mostra acolhimento com acompanhante e bolsa de cuidados. Os rótulos exigem rota verificada, transporte confirmado e acolhimento acessível, com continuidade do cuidado. Não representa Canoas ou uma operação real.
+Prompt completo:
+Use case: scientific-educational
+Asset type: ARTE CAP16-05 — Enchentes: orientação acompanhada de transporte e acolhimento.
+Input images: a imagem fornecida é APENAS referência de técnica, paleta e tratamento humano da série, não de composição nem de conteúdo. Criar uma cena nova.
+
+Ilustração editorial em aquarela tradicional translúcida, combinada com traços finos e espontâneos de lápis grafite e nanquim. Contornos parcialmente abertos, hachuras leves e marcas discretas de rascunho. Textura sutil de papel aquarela, pigmentação irregular e transições suaves. Paleta de verdes naturais, azuis acinzentados, ocres e terracota, com saturação moderada. Preservar áreas de papel branco e bordas irregulares que se dissolvem no fundo. Pessoas com proporções naturais e diversidade de tons de pele. Linguagem visual madura, acolhedora e adequada à divulgação científica para adultos. Usar a imagem de referência fornecida pelo autor para manter o mesmo tratamento de pigmentos, contornos, luz, vegetação e figuras humanas. Preservar contraste legível também em escala de cinza. Manter mãos, dedos, braços e pernas anatomicamente coerentes, com proporções naturais, articulações plausíveis e continuidade entre os segmentos. Evitar dedos extras ou fundidos, membros duplicados, torções impossíveis e mãos ou pés disformes. Preferir gestos simples e poses claras, respeitando a perspectiva, as oclusões e as características de cada personagem. Sem texto, letras, números, logotipos ou marca-d'água: reservar espaços para rótulos acrescentados na diagramação. Evitar fotorrealismo e acabamento tridimensional. Não inventar dados, curvas quantitativas ou mapas de locais reais.
+
+Composição horizontal, proporção 3:2, largura de pelo menos 1536 pixels. Fundo branco puro com bordas orgânicas dissolvidas e contraste também legível em cinza. Cenas de tamanho suficiente para leitura em livro de 160 × 230 mm.
+
+Duas vinhetas lado a lado com intervalo branco, na mesma escala de personagens. Cena principal à esquerda: em rua SECA de bairro urbano brasileiro hipotético, equipe orienta grupo pequeno para saída preventiva, ao lado de veículo coletivo estacionado e rampa acessível desimpedida. Uma pessoa usuária de cadeira de rodas aguarda com acompanhante no piso seco. Outras duas pessoas levam bolsa pequena; não mostrar travessia de água, correnteza, resgate ou embarque perigoso. Edifícios baixos ao fundo. Cena complementar à direita: interior ou varanda ampla de acolhimento público acessível, família recebida por profissional e uma pessoa idosa com acompanhante, bolsa pessoal de medicamentos fechada sobre mesa sem rótulos. Passagem livre, ambiente digno, sem multidão. Não reproduzir Canoas nem qualquer cidade real. Reservar branco inferior para três rótulos externos sobre rota, transporte e acolhimento.
+
+Uma única ilustração final sem palavras, letras, números, setas, logotipos, marca-d’água ou títulos. A fauna, a água e a paisagem da referência não precisam aparecer. Usar a referência somente para o estilo.
+-->
+<p>A situação hipotética da <a href="#fig-comunicacao-enchentes" class="quarto-xref">Figura&nbsp;<span>16.5</span></a> reúne condições a verificar antes de anunciar a saída; não representa a operação de Canoas.</p>
+<div class="figure-with-source page-columns page-full">
+<div id="fig-comunicacao-enchentes" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-width="117mm" alt="Situação hipotética de preparação para saída: equipe orienta moradores em rua seca junto a transporte acessível, enquanto outra vinheta mostra acolhimento com acompanhante e bolsa de cuidados. Os rótulos exigem rota verificada, transporte confirmado e acolhimento acessível, com continuidade do cuidado. Não representa Canoas ou uma operação real." data-print-src="arte-cap16-05-enchentes-print.png">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-comunicacao-enchentes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<a href="../../assets/figures/arte-cap16-05-enchentes.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-5" title="Figura&nbsp;16.5: Enchentes: orientação acompanhada de transporte e acolhimento"><img src="../../assets/figures/arte-cap16-05-enchentes.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Situação hipotética de preparação para saída: equipe orienta moradores em rua seca junto a transporte acessível, enquanto outra vinheta mostra acolhimento com acompanhante e bolsa de cuidados. Os rótulos exigem rota verificada, transporte confirmado e acolhimento acessível, com continuidade do cuidado. Não representa Canoas ou uma operação real."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-comunicacao-enchentes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;16.5: Enchentes: orientação acompanhada de transporte e acolhimento
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte: elaboração conceitual a partir de <span class="citation" data-cites="who2017riskcommunication valencio2014tecnicismo">(<a href="../../backmatter/referencias.html#ref-valencio2014tecnicismo" role="doc-biblioref">Valencio, 2014</a>; <a href="../../backmatter/referencias.html#ref-who2017riskcommunication" role="doc-biblioref">World Health Organization, 2017</a>)</span>. Representação conceitual; cenas hipotéticas. Autoria: composição própria; aquarela produzida com IA (image_gen). Licença: a mesma dos textos autorais da obra.</span></p>
+</div>
+</section>
+<section id="calor-relacionar-cuidado-trabalho-e-infraestrutura" class="level3 page-columns page-full" data-number="16.6.3">
+<h3 data-number="16.6.3" class="anchored" data-anchor-id="calor-relacionar-cuidado-trabalho-e-infraestrutura"><span class="header-section-number">16.6.3</span> Calor: relacionar cuidado, trabalho e infraestrutura</h3>
+<p>A OMS reconhece diferenças de exposição ao calor e de acesso à proteção, inclusive entre trabalhadores e populações com menos recursos <span class="citation" data-cites="who2026heat">(<a href="../../backmatter/referencias.html#ref-who2026heat" role="doc-biblioref">World Health Organization, 2026</a>)</span>. O modelo precisa combinar uma orientação executável e a oferta pública correspondente:</p>
+<blockquote class="blockquote">
+<p>[Órgão emissor], [data e hora]. Aviso de calor para [área], válido em [período]. Reduza o esforço físico e a exposição ao calor em [período definido pela orientação técnica]. Água disponível em [pontos confirmados]; locais de proteção em [endereços e horários]. [Equipe responsável] realizará [ação confirmada de apoio a pessoas com dificuldade de deslocamento]. Atualização às [hora], em [canal].</p>
+</blockquote>
+<p>A recomendação precisa vir acompanhada de medidas sobre a organização do trabalho, com participação dos empregadores, da saúde do trabalhador e da fiscalização competente. Pausas, acesso à água e reorganização de atividades não podem depender somente de negociação individual em situação de emergência. O plano deve identificar quem viabiliza essas condições e como trabalhadores apresentam necessidades sem exposição indevida. Recomendações clínicas específicas requerem avaliação profissional.</p>
+<!-- ARTE CAP16-06
+Finalidade: Relacionar proteção do calor à organização do trabalho e à oferta pública de apoio.
+Composição e montagem: Duas vinhetas com rótulos separados para medidas dos empregadores e serviços públicos. Faixa final sobre responsabilidades e recursos pactuados, sem limiares climáticos.
+Rótulos: Medidas dos empregadores; Pausas, água e sombra; reorganização das atividades; Apoio dos serviços públicos; Água, locais adequados e apoio ao deslocamento; Identificar responsáveis, recursos e condições de acesso..
+Legenda: Calor: proteção também depende das condições de trabalho
+Fontes: [@who2026heat]
+Texto alternativo: Duas vinhetas hipotéticas mostram trabalhadores em pausa com sombra e água, junto ao responsável pelas atividades, e apoio de serviço público a pessoa idosa com dificuldade de mobilidade. Rótulos ligam pausas e reorganização do trabalho aos empregadores e o acesso à proteção às equipes públicas. Não há limites de temperatura ou horários inventados.
+Prompt completo:
+Use case: scientific-educational
+Asset type: ARTE CAP16-06 — Calor: proteção também depende das condições de trabalho.
+Input images: a imagem fornecida é APENAS referência de técnica, paleta e tratamento humano da série, não de composição nem de conteúdo. Criar uma cena nova.
+
+Ilustração editorial em aquarela tradicional translúcida, combinada com traços finos e espontâneos de lápis grafite e nanquim. Contornos parcialmente abertos, hachuras leves e marcas discretas de rascunho. Textura sutil de papel aquarela, pigmentação irregular e transições suaves. Paleta de verdes naturais, azuis acinzentados, ocres e terracota, com saturação moderada. Preservar áreas de papel branco e bordas irregulares que se dissolvem no fundo. Pessoas com proporções naturais e diversidade de tons de pele. Linguagem visual madura, acolhedora e adequada à divulgação científica para adultos. Usar a imagem de referência fornecida pelo autor para manter o mesmo tratamento de pigmentos, contornos, luz, vegetação e figuras humanas. Preservar contraste legível também em escala de cinza. Manter mãos, dedos, braços e pernas anatomicamente coerentes, com proporções naturais, articulações plausíveis e continuidade entre os segmentos. Evitar dedos extras ou fundidos, membros duplicados, torções impossíveis e mãos ou pés disformes. Preferir gestos simples e poses claras, respeitando a perspectiva, as oclusões e as características de cada personagem. Sem texto, letras, números, logotipos ou marca-d'água: reservar espaços para rótulos acrescentados na diagramação. Evitar fotorrealismo e acabamento tridimensional. Não inventar dados, curvas quantitativas ou mapas de locais reais.
+
+Composição horizontal, proporção 3:2, largura de pelo menos 1536 pixels. Fundo branco puro com bordas orgânicas dissolvidas e contraste também legível em cinza. Cenas de tamanho suficiente para leitura em livro de 160 × 230 mm.
+
+Duas vinhetas complementares lado a lado, sem molduras. À esquerda, área urbana de manutenção externa: duas pessoas trabalhadoras descansam em assentos sob cobertura de sombra estruturada, ferramentas guardadas, água em recipiente limpo e copos, responsável pela organização das atividades conversa com a equipe. Roupas de trabalho comuns, nada heroico ou punitivo. À direita, profissional de serviço público leva água e conversa com pessoa idosa com dificuldade de mobilidade e acompanhante em espaço comunitário sombreado, amplo e acessível, bairro ao fundo. Deixar claro apoio organizado e condição de pausa, sem esperar decisão individual isolada. Luz quente moderada, sem raios solares diagramáticos nem suor dramático. Não desenhar termômetros, números, relógios, horários, marcas ou dados. Reservar faixa branca abaixo de cada vinheta para rótulos sobre medidas do trabalho e apoio público.
+
+Uma única ilustração final sem palavras, letras, números, setas, logotipos, marca-d’água ou títulos. A fauna, a água e a paisagem da referência não precisam aparecer. Usar a referência somente para o estilo.
+-->
+<p>Na <a href="#fig-comunicacao-calor" class="quarto-xref">Figura&nbsp;<span>16.6</span></a>, as condições de pausa e de acesso ao cuidado dependem de medidas organizadas por empregadores e serviços públicos.</p>
+<div class="figure-with-source page-columns page-full">
+<div id="fig-comunicacao-calor" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-width="117mm" alt="Duas vinhetas hipotéticas mostram trabalhadores em pausa com sombra e água, junto ao responsável pelas atividades, e apoio de serviço público a pessoa idosa com dificuldade de mobilidade. Rótulos ligam pausas e reorganização do trabalho aos empregadores e o acesso à proteção às equipes públicas. Não há limites de temperatura ou horários inventados." data-print-src="arte-cap16-06-calor-print.png">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-comunicacao-calor-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<a href="../../assets/figures/arte-cap16-06-calor.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-6" title="Figura&nbsp;16.6: Calor: proteção também depende das condições de trabalho"><img src="../../assets/figures/arte-cap16-06-calor.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Duas vinhetas hipotéticas mostram trabalhadores em pausa com sombra e água, junto ao responsável pelas atividades, e apoio de serviço público a pessoa idosa com dificuldade de mobilidade. Rótulos ligam pausas e reorganização do trabalho aos empregadores e o acesso à proteção às equipes públicas. Não há limites de temperatura ou horários inventados."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-comunicacao-calor-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;16.6: Calor: proteção também depende das condições de trabalho
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte: elaboração conceitual a partir de <span class="citation" data-cites="who2026heat">(<a href="../../backmatter/referencias.html#ref-who2026heat" role="doc-biblioref">World Health Organization, 2026</a>)</span>. Representação conceitual; cenas hipotéticas. Autoria: composição própria; aquarela produzida com IA (image_gen). Licença: a mesma dos textos autorais da obra.</span></p>
+</div>
+</section>
+<section id="queimadas-e-fumaça-proteção-diante-de-riscos-combinados" class="level3 page-columns page-full" data-number="16.6.4">
+<h3 data-number="16.6.4" class="anchored" data-anchor-id="queimadas-e-fumaça-proteção-diante-de-riscos-combinados"><span class="header-section-number">16.6.4</span> Queimadas e fumaça: proteção diante de riscos combinados</h3>
+<p>A OMS relaciona a exposição à fumaça a problemas respiratórios e cardiovasculares e orienta redução da exposição e atenção à necessidade de atendimento <span class="citation" data-cites="who2023wildfires">(<a href="../../backmatter/referencias.html#ref-who2023wildfires" role="doc-biblioref">World Health Organization. Regional Office for Europe, 2023</a>)</span>. Focos de fogo, transporte de fumaça e concentração respirada são informações distintas. O boletim deve declarar se utiliza medição, modelagem ou relato em verificação.</p>
+<blockquote class="blockquote">
+<p>[Órgão emissor], [data e hora]. [Fonte e tipo de evidência] indica fumaça em [área], em [período]. Reduza atividades externas. Para diminuir a exposição, estão disponíveis [ambientes com condições verificadas, endereços e horários]. [Equipe responsável] organizará [apoio confirmado a pessoas que não conseguem acessar esses locais]. Em caso de dificuldade importante para respirar ou dor no peito, procure atendimento de urgência. Atualização às [hora], em [canal].</p>
+</blockquote>
+<p>Calor e fumaça exigem coordenação: fechar uma residência excessivamente quente pode criar outro problema. A orientação deve considerar condições de ar e temperatura, trabalhadores ao ar livre e pessoas que não podem adquirir equipamentos. A gestão precisa verificar alternativas coletivas e assistência, enquanto prevenção de incêndios e redução de emissões seguem como responsabilidades públicas.</p>
+<!-- ARTE CAP16-07
+Finalidade: Mostrar que reduzir exposição à fumaça exige considerar calor, acesso e assistência conjuntamente.
+Composição e montagem: Duas cenas independentes e três rótulos inferiores. Sem fluxo de ar desenhado, gradiente quantitativo ou promessa de eficácia de equipamento. Faixa ressalta a verificação do ambiente.
+Rótulos: Verificar o ambiente; Condições de ar e temperatura; Organizar acesso; Apoio ao deslocamento conforme a necessidade; Assegurar assistência; Acolhimento e continuidade do cuidado; A equipe responsável precisa verificar a adequação do ambiente..
+Legenda: Fumaça e calor exigem proteção coordenada
+Fontes: [@who2023wildfires; @who2026heat]
+Texto alternativo: Uma paisagem hipotética com fumaça externa aparece separada de um espaço coletivo de acolhimento acessível. Três rótulos exigem verificar condições de ar e temperatura, organizar acesso e assegurar assistência. A adequação do ambiente depende de verificação; a cor da fumaça não mede concentração e fechar janelas não é apresentado como solução universal.
+Prompt completo:
+Use case: scientific-educational
+Asset type: ARTE CAP16-07 — Fumaça e calor exigem proteção coordenada.
+Input images: a imagem fornecida é APENAS referência de técnica, paleta e tratamento humano da série, não de composição nem de conteúdo. Criar uma cena nova.
+
+Ilustração editorial em aquarela tradicional translúcida, combinada com traços finos e espontâneos de lápis grafite e nanquim. Contornos parcialmente abertos, hachuras leves e marcas discretas de rascunho. Textura sutil de papel aquarela, pigmentação irregular e transições suaves. Paleta de verdes naturais, azuis acinzentados, ocres e terracota, com saturação moderada. Preservar áreas de papel branco e bordas irregulares que se dissolvem no fundo. Pessoas com proporções naturais e diversidade de tons de pele. Linguagem visual madura, acolhedora e adequada à divulgação científica para adultos. Usar a imagem de referência fornecida pelo autor para manter o mesmo tratamento de pigmentos, contornos, luz, vegetação e figuras humanas. Preservar contraste legível também em escala de cinza. Manter mãos, dedos, braços e pernas anatomicamente coerentes, com proporções naturais, articulações plausíveis e continuidade entre os segmentos. Evitar dedos extras ou fundidos, membros duplicados, torções impossíveis e mãos ou pés disformes. Preferir gestos simples e poses claras, respeitando a perspectiva, as oclusões e as características de cada personagem. Sem texto, letras, números, logotipos ou marca-d'água: reservar espaços para rótulos acrescentados na diagramação. Evitar fotorrealismo e acabamento tridimensional. Não inventar dados, curvas quantitativas ou mapas de locais reais.
+
+Composição horizontal, proporção 3:2, largura de pelo menos 1536 pixels. Fundo branco puro com bordas orgânicas dissolvidas e contraste também legível em cinza. Cenas de tamanho suficiente para leitura em livro de 160 × 230 mm.
+
+Composição horizontal em duas vinhetas separadas por branco. À esquerda, paisagem externa de pequena cidade brasileira hipotética, casas e poucos edifícios, vegetação e fumaça difusa cinza azulada no horizonte, sem labaredas espetaculares, pessoas expostas ou escalas de concentração. À direita, vista de espaço coletivo de acolhimento, acesso amplo desobstruído, pessoa adulta em cadeira de rodas com acompanhante e pessoa idosa acolhidas por profissional, água e assentos, equipamento simples de cuidado ambiental ao fundo sem marcas ou visores legíveis. Não ligar fumaça externa a janelas abertas; manter contextos claramente separados e ambiente interior sem fumaça desenhada. A imagem representa uma alternativa que deve ter condições de ar e temperatura verificadas, não uma garantia dada pela presença de aparelhos. Não usar máscara cirúrgica como promessa de proteção nem destacar fechamento de janela como solução. Reservar branco inferior para rótulos editáveis: verificação ambiental, acesso e assistência.
+
+Uma única ilustração final sem palavras, letras, números, setas, logotipos, marca-d’água ou títulos. A fauna, a água e a paisagem da referência não precisam aparecer. Usar a referência somente para o estilo.
+
+Prompt completo da revisão v2:
+Use case: precise-object-edit.
+Asset type: ARTE CAP16-07, versão 2 — fumaça e calor exigem proteção coordenada.
+Input image: a última imagem é o ORIGINAL a editar, referência de conteúdo, composição e estilo.
+Mudar SOMENTE dois detalhes na vinheta da direita. Remover inteiramente o aparelho branco com grande grade que parece climatizador evaporativo, deixando parede lisa no seu lugar. Fechar visualmente a abertura retangular ao fundo com esquadria e vidro contínuo, mostrando reflexos suaves no vidro, para não sugerir uma porta ou janela aberta ao ar externo com fumaça. O acesso ao acolhimento está fora do enquadramento. Não acrescentar outro equipamento nem rótulos. Conservar o bebedouro.
+Preservar integralmente a vinheta da esquerda, as pessoas, suas posições e anatomia, a cadeira de rodas, o espaço livre, os móveis, cores, técnica de aquarela, grafite, nanquim, textura, bordas dissolvidas e faixa branca inferior. Manter as duas cenas conceituais separadas pelo intervalo branco. Não associar intensidade pictórica da fumaça a concentração medida. Nenhum texto, número, seta ou marca.
+Manter proporção 3:2 e resolução de pelo menos 1536 × 1024 pixels. Uma imagem final.
+-->
+<p>A <a href="#fig-comunicacao-fumaca" class="quarto-xref">Figura&nbsp;<span>16.7</span></a> apresenta uma alternativa coletiva cuja adequação depende da verificação conjunta das condições ambientais e do acesso ao cuidado.</p>
+<div class="figure-with-source page-columns page-full">
+<div id="fig-comunicacao-fumaca" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-width="117mm" alt="Uma paisagem hipotética com fumaça externa aparece separada de um espaço coletivo de acolhimento acessível. Três rótulos exigem verificar condições de ar e temperatura, organizar acesso e assegurar assistência. A adequação do ambiente depende de verificação; a cor da fumaça não mede concentração e fechar janelas não é apresentado como solução universal." data-print-src="arte-cap16-07-fumaca-print.png">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-comunicacao-fumaca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<a href="../../assets/figures/arte-cap16-07-fumaca.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-7" title="Figura&nbsp;16.7: Fumaça e calor exigem proteção coordenada"><img src="../../assets/figures/arte-cap16-07-fumaca.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Uma paisagem hipotética com fumaça externa aparece separada de um espaço coletivo de acolhimento acessível. Três rótulos exigem verificar condições de ar e temperatura, organizar acesso e assegurar assistência. A adequação do ambiente depende de verificação; a cor da fumaça não mede concentração e fechar janelas não é apresentado como solução universal."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-comunicacao-fumaca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;16.7: Fumaça e calor exigem proteção coordenada
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte: elaboração conceitual a partir de <span class="citation" data-cites="who2023wildfires who2026heat">(<a href="../../backmatter/referencias.html#ref-who2026heat" role="doc-biblioref">World Health Organization, 2026</a>; <a href="../../backmatter/referencias.html#ref-who2023wildfires" role="doc-biblioref">World Health Organization. Regional Office for Europe, 2023</a>)</span>. Representação conceitual; cenas hipotéticas. Autoria: composição própria; aquarela produzida com IA (image_gen). Licença: a mesma dos textos autorais da obra.</span></p>
+</div>
+</section>
+<section id="quando-o-apoio-falha-ou-as-orientações-divergem" class="level3 page-columns page-full" data-number="16.6.5">
+<h3 data-number="16.6.5" class="anchored" data-anchor-id="quando-o-apoio-falha-ou-as-orientações-divergem"><span class="header-section-number">16.6.5</span> Quando o apoio falha ou as orientações divergem</h3>
+<p>Considere uma situação hipotética: o transporte anunciado não chega e o local de acolhimento informa que não consegue receber pessoas que necessitam de apoio específico. Como fluxo de resposta, a equipe do ponto de embarque registra o atraso e consulta o responsável pelo transporte; a gestão do acolhimento verifica a barreira de acesso. A coordenação operacional pactuada aciona esses setores e define transporte e destino alternativos. A área assistencial informa necessidades de cuidado; a comunicação divulga apenas as alternativas confirmadas, com horário e responsável pela próxima atualização.</p>
+<p>Um modelo de correção seria: “Correção do aviso de [hora]: o transporte de [ponto] não está disponível. [Coordenação responsável] está providenciando [medida efetivamente acionada]. A orientação verificada para quem aguarda é [ação segura definida pela operação]. Nova informação às [hora], por [canais].” Se ainda não houver alternativa confirmada, comunique essa limitação e as providências acionadas, sem prometer destino ou horário de chegada. Se o destino mudou, avise equipes, motoristas e pessoas já encaminhadas, confira quem aguarda e mantenha os pedidos abertos até verificar o atendimento.</p>
+<p>Quando duas instituições divergem, a coordenação pactuada reúne as áreas responsáveis, identifica versões, horários e evidências e define a orientação operacional dentro das competências de cada órgão. Enquanto a divergência é examinada, deve comunicar o que está confirmado, a medida protetora adotada e o que falta esclarecer. A população precisa de encaminhamento, sem receber a tarefa de arbitrar o conflito. Depois, cabe registrar a falha, ouvir os atingidos e informar correções de procedimento.</p>
+<!-- ARTE CAP16-08
+Finalidade: Explicitar resposta a falhas sem promessa de alternativa inexistente e sem encerrar pedidos por simples encaminhamento.
+Composição e montagem: Fluxo vertical com bifurcação entre alternativa confirmada e não confirmada. A segunda volta à coordenação. Após o apoio, verificação condiciona conclusão; ausência de confirmação mantém pedido aberto. Faixa final sobre correção de procedimentos.
+Rótulos: Transporte anunciado não chega; Situação hipotética; Registrar a falha e acionar responsável; Coordenação verifica alternativas.; Alternativa confirmada; Atualizar a orientação; organizar e realizar o apoio.; Alternativa não confirmada; Comunicar a limitação; manter a demanda pendente.; Verificar o atendimento; Conferir com equipe e usuário.; Sem confirmação; Pedido permanece aberto.; Atendimento confirmado; Concluir o registro e dar devolutiva; Registrar a entrega e ouvir os envolvidos; corrigir procedimentos com responsáveis e prazos.; Setas tracejadas: retornar à coordenação. Uma atualização da mensagem não encerra o atendimento..
+Legenda: Uma falha no apoio exige correção e acompanhamento
+Fontes: [@who2017riskcommunication; @rsu2026integridade, p. 7]
+Texto alternativo: Fluxo hipotético começa com transporte anunciado que não chega: registrar a falha, acionar responsável e verificar alternativa. Com alternativa confirmada, atualizar a orientação e realizar o apoio. Sem alternativa, comunicar a limitação, manter a demanda pendente e retornar à coordenação. Somente atendimento verificado permite concluir o registro, dar devolutiva e corrigir procedimentos; pedidos sem confirmação permanecem abertos.
+Prompt completo:
+Diagrama vetorial; montagem integral em scripts/build_cap16_art.py, sem geração raster.
+-->
+<p>A <a href="#fig-comunicacao-falhas" class="quarto-xref">Figura&nbsp;<span>16.8</span></a> organiza esse fluxo hipotético: encaminhar uma demanda ou emitir uma atualização não basta para concluir o atendimento.</p>
+<div class="figure-with-source page-columns page-full">
+<div id="fig-comunicacao-falhas" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-print-width="117mm" alt="Fluxo hipotético começa com transporte anunciado que não chega: registrar a falha, acionar responsável e verificar alternativa. Com alternativa confirmada, atualizar a orientação e realizar o apoio. Sem alternativa, comunicar a limitação, manter a demanda pendente e retornar à coordenação. Somente atendimento verificado permite concluir o registro, dar devolutiva e corrigir procedimentos; pedidos sem confirmação permanecem abertos." data-print-src="arte-cap16-08-falhas-print.png">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-comunicacao-falhas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<a href="../../assets/figures/arte-cap16-08-falhas.svg" class="lightbox page-columns page-full" data-gallery="quarto-lightbox-gallery-8" title="Figura&nbsp;16.8: Uma falha no apoio exige correção e acompanhamento"><img src="../../assets/figures/arte-cap16-08-falhas.svg" class="img-fluid figure-img column-page-right" style="width:100.0%" alt="Fluxo hipotético começa com transporte anunciado que não chega: registrar a falha, acionar responsável e verificar alternativa. Com alternativa confirmada, atualizar a orientação e realizar o apoio. Sem alternativa, comunicar a limitação, manter a demanda pendente e retornar à coordenação. Somente atendimento verificado permite concluir o registro, dar devolutiva e corrigir procedimentos; pedidos sem confirmação permanecem abertos."></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-comunicacao-falhas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;16.8: Uma falha no apoio exige correção e acompanhamento
+</figcaption>
+</figure>
+</div>
+<p><span class="figure-source">Fonte: elaboração conceitual a partir de <span class="citation" data-cites="who2017riskcommunication rsu2026integridade">(<a href="../../backmatter/referencias.html#ref-rsu2026integridade" role="doc-biblioref">Rede Saúde Única, 2026, p. 7</a>; <a href="../../backmatter/referencias.html#ref-who2017riskcommunication" role="doc-biblioref">World Health Organization, 2017</a>)</span>. Fluxo conceitual proposto no capítulo. Autoria: composição vetorial própria. Licença: a mesma dos textos autorais da obra.</span></p>
+</div>
+</section>
+</section>
+<section id="planejamento-e-avaliação" class="level2" data-number="16.7">
+<h2 data-number="16.7" class="anchored" data-anchor-id="planejamento-e-avaliação"><span class="header-section-number">16.7</span> Planejamento e avaliação</h2>
+<p>O planejamento deve integrar a análise de situação de saúde e os planos de contingência. Um roteiro de aplicação reúne:</p>
+<ol type="1">
+<li>Definir problema, território, públicos e decisão apoiada pela comunicação;</li>
+<li>Identificar dúvidas, experiências anteriores e barreiras com a população;</li>
+<li>Pactuar responsáveis, recursos e fluxos para atendimento e falhas;</li>
+<li>Validar evidências, incertezas, mensagens e serviços anunciados;</li>
+<li>Testar compreensão, acessibilidade e viabilidade com os públicos envolvidos;</li>
+<li>Organizar canais, atualização, correção, contato ativo e substitutos das equipes;</li>
+<li>Acompanhar demandas e confirmar as entregas institucionais;</li>
+<li>Divulgar resultados e providências, com responsáveis e prazos.</li>
+</ol>
+<p>O plano distingue quem valida a informação, quem decide sobre a operação e quem mantém os canais. Essas funções precisam de substitutos e contatos previamente definidos. A preparação inclui participação e exercícios; depois do evento, a revisão deve alcançar também quem não recebeu os avisos.</p>
+<p>O <a href="#qua-avaliacao-comunicacao-risco" class="quarto-xref">Quadro&nbsp;<span>16.3</span></a> organiza a passagem da emissão à proteção. As medidas propostas são exemplos para acompanhamento local, sem validação como índice ou padrão de desempenho. Atividades, entregas e efeitos exigem interpretação própria <span class="citation" data-cites="cdc2024evaluation">(<a href="../../backmatter/referencias.html#ref-cdc2024evaluation" role="doc-biblioref">Centers for Disease Control and Prevention, 2024</a>)</span>.</p>
+<div id="qua-avaliacao-comunicacao-risco" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-qua figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-qua" id="qua-avaliacao-comunicacao-risco-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Quadro&nbsp;16.3: Critérios para avaliar comunicação e condições de proteção
+</figcaption>
+<div aria-describedby="qua-avaliacao-comunicacao-risco-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Dimensão</th>
+<th>Pergunta de avaliação</th>
+<th>Registro ou medida local possível</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Emissão e oportunidade</td>
+<td>Houve tempo para agir?</td>
+<td>Horários da decisão, do aviso e da ação</td>
+</tr>
+<tr class="even">
+<td>Recebimento</td>
+<td>Quem recebeu e quem ficou de fora?</td>
+<td>Consulta territorial e canais alcançados</td>
+</tr>
+<tr class="odd">
+<td>Compreensão</td>
+<td>Risco, ação e apoio foram entendidos?</td>
+<td>Explicação em palavras próprias</td>
+</tr>
+<tr class="even">
+<td>Possibilidade de agir</td>
+<td>Que barreiras impediram a proteção?</td>
+<td>Necessidades identificadas e pendências</td>
+</tr>
+<tr class="odd">
+<td>Entrega institucional</td>
+<td>O apoio funcionou e foi acessível?</td>
+<td>Pedidos atendidos e tempos de resposta</td>
+</tr>
+<tr class="even">
+<td>Aprendizado</td>
+<td>As correções foram concluídas?</td>
+<td>Providências com verificação e retorno</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>A equipe pode operacionalizar o quadro com registros vinculados por identificador protegido. Para acompanhar pedidos de apoio, deve definir a unidade de registro, evitar duplicatas e marcar recebimento, encaminhamento, atendimento confirmado e pendência. Demandas identificadas pelas equipes também entram no registro, mesmo sem solicitação por telefone. A coordenação do atendimento consolida a informação; equipes territoriais e usuários ajudam a verificar a entrega.</p>
+<p>Uma proporção de atendimento pode usar como denominador os pedidos registrados em um período definido e, como numerador, os pedidos desse conjunto com atendimento integral confirmado até a data de corte. Atendimentos parciais e situações ainda sem verificação devem ser apresentados separadamente. Essa medida descreve a demanda registrada; não estima todas as necessidades do território. Por isso, precisa acompanhar busca ativa, consulta presencial e descrição de grupos possivelmente ausentes.</p>
+<p>O tempo de resposta pode ser calculado entre o registro da necessidade e a entrega confirmada do apoio. O relatório deve separar tempo até o primeiro contato e tempo até o atendimento, mostrar a distribuição dos intervalos e informar quantas demandas permanecem pendentes. Uma média restrita aos casos concluídos pode ocultar quem esperou mais e ainda não foi atendido. Metas devem considerar o risco e ser pactuadas antes da avaliação, sem limites arbitrários apresentados como universais.</p>
+<p>Para acompanhar aprendizado, o registro de cada barreira deve apontar providência, responsável, prazo e evidência de conclusão. A gestão consolida os resultados em períodos definidos no plano; a devolutiva comunitária verifica se a solução funcionou. Fonte, período, unidade, cobertura e limitações devem acompanhar a divulgação, preservando dados pessoais.</p>
+<p>Mensagens entregues a aparelhos não equivalem a pessoas alcançadas. Pesquisas apenas pela internet podem excluir quem ficou desconectado. Tampouco uma redução de internações demonstra efeito exclusivo da campanha: intensidade do evento, exposição e outras intervenções exigem desenho de avaliação adequado. O compromisso público é tornar verificável o percurso entre reconhecer a necessidade, decidir e entregar proteção, mantendo abertas à participação as decisões do ciclo seguinte.</p>
+
+
+<div id="refs" class="references csl-bib-body" data-entry-spacing="1" role="list" style="display: none">
+<div id="ref-amaral2024cobertura" class="csl-entry" role="listitem">
+AMARAL, Márcia Franz; LOOSE, Eloisa Beling; GIRARDI, Ilza Maria Tourinho (ORGS.). <strong><a href="https://jornalismoemeioambiente.com/wp-content/uploads/2025/02/manual-para-a-cobertura-de-desastres-climaticos.pdf">Manual para a cobertura jornalística dos desastres climáticos</a></strong>. 1. ed. Santa Maria: FACOS-UFSM, 2024.
+</div>
+<div id="ref-araujoCardoso2007comunicacao" class="csl-entry" role="listitem">
+ARAÚJO, Inesita Soares de; CARDOSO, Janine Miranda. <strong><a href="https://doi.org/10.7476/9788575413098">Comunicação e saúde</a></strong>. Rio de Janeiro: Editora Fiocruz, 2007.
+</div>
+<div id="ref-beck2010risco" class="csl-entry" role="listitem">
+BECK, Ulrich. <strong><a href="https://www.editora34.com.br/livro/567">Sociedade de risco: rumo a uma outra modernidade</a></strong>. Tradução: Sebastião Nascimento. São Paulo: Editora 34, 2010.
+</div>
+<div id="ref-brasil1988constituicao" class="csl-entry" role="listitem">
+BRASIL. <strong>Constituição da República Federativa do Brasil de 1988</strong>. Brasília, DF, Presidência da República, 1988. Disponível em: &lt;<a href="https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm">https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm</a>&gt;. Acesso em: 13 out. 2026.
+</div>
+<div id="ref-brasil2012pnpdec" class="csl-entry" role="listitem">
+BRASIL. <strong>Lei nº 12.608, de 10 de abril de 2012: institui a Política Nacional de Proteção e Defesa Civil e dá outras providências</strong>. Brasília, DF, Presidência da República, 2012. Disponível em: &lt;<a href="https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2012/lei/l12608.htm">https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2012/lei/l12608.htm</a>&gt;. Acesso em: 13 out. 2026.
+</div>
+<div id="ref-cdc2024evaluation" class="csl-entry" role="listitem">
+CENTERS FOR DISEASE CONTROL AND PREVENTION. <strong>CDC Program Evaluation Framework, 2024</strong>. 20 ago. 2024. Disponível em: &lt;<a href="https://www.cdc.gov/mmwr/volumes/73/rr/rr7306a1.htm">https://www.cdc.gov/mmwr/volumes/73/rr/rr7306a1.htm</a>&gt;. Acesso em: 4 ago. 2026.
+</div>
+<div id="ref-diasNunes2024canoas" class="csl-entry" role="listitem">
+DIAS, Laura Valentina da Conceição Oliveira; NUNES, Ana Karin. A comunicação de risco da Prefeitura Municipal de Canoas, RS, com a população nas enchentes de maio de 2024. <em>In</em>: <strong>Anais do 47º Congresso Brasileiro de Ciências da Comunicação</strong>. São Paulo: Intercom, 2024. p. 1–15. Disponível em: &lt;<a href="https://sistemas.intercom.org.br/pdf/submissao/nacional/17/07222024195327669ee2e741871.pdf">https://sistemas.intercom.org.br/pdf/submissao/nacional/17/07222024195327669ee2e741871.pdf</a>&gt;. Acesso em: 13 out. 2026.
+</div>
+<div id="ref-iphan2016sinos" class="csl-entry" role="listitem">
+INSTITUTO DO PATRIMÔNIO HISTÓRICO E ARTÍSTICO NACIONAL. <strong><a href="https://bcr.iphan.gov.br/wp-content/uploads/tainacan-items/65968/67351/Toque-dos-Sinos-em-Minas-Gerais-e-Oficio-dos-Sineiros_de_DossieIphan16_Toque-dos-Sinos-oficio-sineiros_.pdf">O toque dos sinos e o ofício de sineiro em Minas Gerais: tendo como referência as cidades de São João del-Rei, Ouro Preto, Mariana, Catas Altas, Congonhas do Campo, Diamantina, Sabará, Serro e Tiradentes</a></strong>. Brasília, DF: Iphan, 2016.
+</div>
+<div id="ref-lacerdaFreitas2024justica" class="csl-entry" role="listitem">
+LACERDA, Luiz Felipe Barboza; FREITAS, Carlos Machado de. Justiça socioambiental para gestão integral de riscos de desastres. <strong>Em Pauta: teoria social e realidade contemporânea</strong>, v. 22, n. 55, p. 148–159, 2024. Disponível em: &lt;https://doi.org/<a href="https://doi.org/10.12957/rep.2024.79890">10.12957/rep.2024.79890</a>&gt;.
+</div>
+<div id="ref-loose2025entrevista" class="csl-entry" role="listitem">
+LOOSE, Eloisa Beling. O conhecimento sistêmico sobre o meio ambiente numa perspectiva comunicacional com ênfase na questão climática. <strong>Revista Eletrônica de Comunicação, Informação &amp; Inovação em Saúde</strong>, v. 19, n. 3, p. 1–16, 2025. Disponível em: &lt;https://doi.org/<a href="https://doi.org/10.29397/reciis.v19i3.5373">10.29397/reciis.v19i3.5373</a>&gt;.
+</div>
+<div id="ref-looseQuinteros2025comunicacao" class="csl-entry" role="listitem">
+LOOSE, Eloisa Beling; QUINTEROS, Cora Catalina Gaete. Comunicação de riscos no Brasil: identificação dos estudos acerca de desastres e suas abordagens. <strong>Revista Latinoamericana de Ciencias de la Comunicación</strong>, v. 24, n. 48, p. 90–104, 2025. Disponível em: &lt;https://doi.org/<a href="https://doi.org/10.55738/alaic.v24i48.1226">10.55738/alaic.v24i48.1226</a>&gt;.
+</div>
+<div id="ref-icict2023linguagem" class="csl-entry" role="listitem">
+PARAGUASSU, Liana Braga; COSTA, Valéria Machado da. <strong><a href="https://arca.fiocruz.br/handle/icict/61432">Guia de linguagem simples do ICICT</a></strong>. Rio de Janeiro: Fundação Oswaldo Cruz. Instituto de Comunicação e Informação Científica e Tecnológica em Saúde; Fiocruz/ICICT, 2023.
+</div>
+<div id="ref-rsu2026integridade" class="csl-entry" role="listitem">
+REDE SAÚDE ÚNICA. <strong>Integridade da informação e comunicação de risco no El Niño 2026–2027: orientações para sociedade civil, gestores públicos, universidades e departamentos de comunicação</strong>. <em>[S.l.]</em>: Fundação Oswaldo Cruz. Rede Saúde Única, 10 ago. 2026. Disponível em: &lt;<a href="https://educare.fiocruz.br/resource/show?id=4NUXd4nb">https://educare.fiocruz.br/resource/show?id=4NUXd4nb</a>&gt;. Acesso em: 13 out. 2026.
+</div>
+<div id="ref-silva2024mensagens" class="csl-entry" role="listitem">
+SILVA, Luciene Pimentel da <em>et al.</em> Mensagens de alerta de desastre no Rio Grande do Sul: desafios e oportunidades na comunicação de risco. <strong>Redes</strong>, v. 29, n. 1, p. 1–22, 2024. Disponível em: &lt;https://doi.org/<a href="https://doi.org/10.17058/redes.v29i1.19701">10.17058/redes.v29i1.19701</a>&gt;.
+</div>
+<div id="ref-valencio2014tecnicismo" class="csl-entry" role="listitem">
+VALENCIO, Norma Felicidade Lopes da Silva. Desastres: tecnicismo e sofrimento social. <strong>Ciência &amp; Saúde Coletiva</strong>, v. 19, n. 9, p. 3631–3644, 2014. Disponível em: &lt;https://doi.org/<a href="https://doi.org/10.1590/1413-81232014199.06792014">10.1590/1413-81232014199.06792014</a>&gt;.
+</div>
+<div id="ref-who2017riskcommunication" class="csl-entry" role="listitem">
+WORLD HEALTH ORGANIZATION. <strong><a href="https://www.who.int/publications/i/item/9789241550208">Communicating risk in public health emergencies: a WHO guideline for emergency risk communication (ERC) policy and practice</a></strong>. Geneva: World Health Organization, 2017.
+</div>
+<div id="ref-who2020riskdefinition" class="csl-entry" role="listitem">
+WORLD HEALTH ORGANIZATION. <strong>Emergencies: risk communication</strong>. 15 jan. 2020. Disponível em: &lt;<a href="https://www.who.int/news-room/questions-and-answers/item/emergencies-risk-communication">https://www.who.int/news-room/questions-and-answers/item/emergencies-risk-communication</a>&gt;. Acesso em: 13 out. 2026.
+</div>
+<div id="ref-who2026heat" class="csl-entry" role="listitem">
+WORLD HEALTH ORGANIZATION. <strong>Heat and health</strong>. 13 jul. 2026. Disponível em: &lt;<a href="https://www.who.int/news-room/fact-sheets/detail/climate-change-heat-and-health">https://www.who.int/news-room/fact-sheets/detail/climate-change-heat-and-health</a>&gt;. Acesso em: 28 jul. 2026.
+</div>
+<div id="ref-who2023wildfires" class="csl-entry" role="listitem">
+WORLD HEALTH ORGANIZATION. REGIONAL OFFICE FOR EUROPE. <strong>Public health advice during the wildfires: how to protect your health and keep safe</strong>. 16 jun. 2023. Disponível em: &lt;<a href="https://www.who.int/europe/news-room/questions-and-answers/item/public-health-advice-during-the-wildfires--how-to-protect-your-health-and-keep-safe">https://www.who.int/europe/news-room/questions-and-answers/item/public-health-advice-during-the-wildfires--how-to-protect-your-health-and-keep-safe</a>&gt;. Acesso em: 13 out. 2026.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiada");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiada");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../chapters/part-3/15-resposta-adaptacao-resiliencia.html" class="pagination-link" aria-label="Resiliência dos sistemas de saúde">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Resiliência dos sistemas de saúde</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../backmatter/lista-fichas.html" class="pagination-link" aria-label="Lista de fichas por código e capítulo">
+        <span class="nav-page-text">Lista de fichas por código e capítulo</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/rfsaldanha/dicas/blob/main/chapters/part-3/16-comunicacao-risco-saude-clima.qmd" class="toc-action"><i class="bi bi-github"></i>Ver o código fonte</a></li><li><a href="https://github.com/rfsaldanha/dicas/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></div></div></footer><script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>

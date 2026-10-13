@@ -1,0 +1,1580 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Guia técnico sobre conceitos, dados e indicadores de clima e ambiente aplicados à vigilância e à gestão em saúde pública.">
+
+<title>22&nbsp; Fichas — Impactos dos desastres – Dados e Indicadores de Clima e Ambiente para a Saúde</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 1em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../chapters/part-4/23-fichas-exposicao-vulnerabilidade.html" rel="next">
+<link href="../../chapters/part-4/21-fichas-uso-cobertura-terra-ambiente-urbano.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-bb162014f31ff550f3668977ab0f7733.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-fdd2e9c9119fd81cafe9a82057eefc34.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-bb162014f31ff550f3668977ab0f7733.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Nenhum resultado",
+    "search-matching-documents-text": "documentos correspondentes",
+    "search-copy-link-title": "Copiar link para a busca",
+    "search-hide-matches-text": "Esconder correspondências adicionais",
+    "search-more-match-text": "mais correspondência neste documento",
+    "search-more-matches-text": "mais correspondências neste documento",
+    "search-clear-button-title": "Limpar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Procurar"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles/web/styles.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../backmatter/lista-fichas.html">Parte IV — Fichas de indicadores e fontes de dados</a></li><li class="breadcrumb-item"><a href="../../chapters/part-4/22-fichas-eventos-severos-desastres.html"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Fichas — Impactos dos desastres</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Procurar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">Dados e Indicadores de Clima e Ambiente para a Saúde</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/rfsaldanha/dicas" title="Código fonte" class="quarto-navigation-tool px-1" aria-label="Código fonte"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo escuro"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Procurar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bem-vindo</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/agradecimentos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Agradecimentos</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/prefacio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prefácio do autor</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/siglas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lista de siglas</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Parte I — Fundamentos, métodos e decisão em saúde</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/01-clima-ambiente-saude.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Clima, ambiente e saúde pública</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/02-mudanca-climatica-resposta-sus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Mudança climática, planejamento e resposta do SUS</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/03-dados-variaveis-indices-indicadores.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Dados, variáveis, índices e indicadores</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/04-espaco-tempo-qualidade.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Integração de dados: espaço, tempo e qualidade</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/05-fontes-fichas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Seleção de fontes e qualificação de indicadores</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/06-indicador-decisao.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Análise de situação de saúde e decisão pública</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Parte II — Fenômenos e indicadores de clima e ambiente</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/07-temperatura-condicoes-termicas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Temperatura e condições térmicas</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/08-precipitacao-secas-eventos-hidrologicos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Precipitação, secas, inundações e deslizamentos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/09-qualidade-ar-queimadas-fumaca.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Qualidade do ar, queimadas e fumaça</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/10-agua-saneamento-qualidade-ambiental.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Água, saneamento e higiene</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/11-uso-cobertura-terra-ambiente-urbano.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Uso e cobertura da terra, vegetação e ambiente urbano</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/12-eventos-severos-desastres.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Eventos meteorológicos severos e desastres</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Parte III — Exposição, vulnerabilidade, efeitos e resposta em saúde</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-3/13-exposicao-vulnerabilidade.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Exposição e vulnerabilidade socioambiental</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-3/14-efeitos-saude.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Efeitos na saúde: mensuração e atribuição</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-3/15-resposta-adaptacao-resiliencia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Resiliência dos sistemas de saúde</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-3/16-comunicacao-risco-saude-clima.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Comunicação de risco em saúde e clima</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Parte IV — Fichas de indicadores e fontes de dados</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/lista-fichas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lista de fichas por código e capítulo</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/indice-indicadores.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Índice alfabético de indicadores</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/17-fichas-temperatura-condicoes-termicas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Fichas — Extremos de temperatura e estresse térmico</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/18-fichas-precipitacao-secas-eventos-hidrologicos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Fichas — Precipitação e seca meteorológica</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/19-fichas-qualidade-ar-queimadas-fumaca.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Fichas — Qualidade do ar, queimadas e fumaça</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/20-fichas-agua-saneamento-qualidade-ambiental.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Fichas — Água, esgotamento sanitário e higiene</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/21-fichas-uso-cobertura-terra-ambiente-urbano.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Fichas — Vegetação, espaços públicos e calor urbano</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/22-fichas-eventos-severos-desastres.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Fichas — Impactos dos desastres</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/23-fichas-exposicao-vulnerabilidade.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Fichas — Vulnerabilidade social e adensamento domiciliar</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/24-fichas-efeitos-saude.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Fichas — Mortalidade e internações hospitalares</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/25-fichas-resposta-adaptacao-resiliencia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Fichas — Preparação e continuidade dos serviços de saúde</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/indice-fontes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Catálogo de fontes de dados</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/glossario.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Glossário</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/referencias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Referências</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Apêndices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/apendice-metodologico.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Apêndice metodológico</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/apendice-estacoes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Estações meteorológicas e de qualidade do ar</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Índice</h2>
+   
+  <ul class="collapse">
+  <li><a href="#sec-des-hum-01" id="toc-sec-des-hum-01" class="nav-link active" data-scroll-target="#sec-des-hum-01"><span class="header-section-number">22.1</span> Ficha do indicador: Mortes e desaparecimentos registrados em desastres por 100 mil habitantes</a></li>
+  <li><a href="#sec-des-hum-02" id="toc-sec-des-hum-02" class="nav-link" data-scroll-target="#sec-des-hum-02"><span class="header-section-number">22.2</span> Ficha do indicador: Número de pessoas diretamente afetadas por desastres por 100 mil habitantes (ODS 1.5.1/11.5.1/13.1.1)</a></li>
+  <li><a href="#sec-des-sau-01" id="toc-sec-des-sau-01" class="nav-link" data-scroll-target="#sec-des-sau-01"><span class="header-section-number">22.3</span> Ficha do indicador: Registros de instalações públicas de saúde danificadas ou destruídas por desastres</a></li>
+  <li><a href="#sec-des-sau-02" id="toc-sec-des-sau-02" class="nav-link" data-scroll-target="#sec-des-sau-02"><span class="header-section-number">22.4</span> Ficha do indicador: Número de interrupções de serviços de saúde atribuídas a desastres (componente ODS 11.5.3b)</a></li>
+  </ul>
+<div class="toc-actions"><ul class="collapse"><li><a href="https://github.com/rfsaldanha/dicas/blob/main/chapters/part-4/22-fichas-eventos-severos-desastres.qmd" class="toc-action"><i class="bi bi-github"></i>Ver o código fonte</a></li><li><a href="https://github.com/rfsaldanha/dicas/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../backmatter/lista-fichas.html">Parte IV — Fichas de indicadores e fontes de dados</a></li><li class="breadcrumb-item"><a href="../../chapters/part-4/22-fichas-eventos-severos-desastres.html"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Fichas — Impactos dos desastres</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-fichas-eventos-severos-desastres" class="quarto-section-identifier"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Fichas — Impactos dos desastres</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Este capítulo reúne as fichas de impactos dos desastres. A interpretação do tema, a comparação entre medidas e suas aplicações estão no <a href="../../chapters/part-2/12-eventos-severos-desastres.html">capítulo de contexto</a>: <a href="../part-2/12-eventos-severos-desastres.html" class="quarto-xref"><span>Capítulo 12</span></a>.</p>
+<section id="sec-des-hum-01" class="level2 ficha-title" data-number="22.1">
+<h2 class="ficha-title anchored" data-number="22.1" data-anchor-id="sec-des-hum-01"><span class="header-section-number">22.1</span> Ficha do indicador: Mortes e desaparecimentos registrados em desastres por 100 mil habitantes</h2>
+<div class="indicator-card">
+<p><span class="field-label">Código:</span> DES-HUM-01<br>
+<span class="field-label">Título resumido:</span> Mortes e desaparecidos registrados — Atlas<br>
+<span class="field-label">Tema:</span> Eventos meteorológicos severos e desastres<br>
+<span class="field-label">Dimensão:</span> efeito; resposta; exposição<br>
+<span class="field-label">Disponibilidade:</span> <span class="availability">Calculável com dados abertos</span></p>
+</div>
+<p>Contexto e interpretação: <a href="../../chapters/part-2/12-eventos-severos-desastres.html#sec-desastres">Eventos meteorológicos severos e desastres</a>.</p>
+<section id="identificação-e-fundamento" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="identificação-e-fundamento">Identificação e fundamento</h3>
+<p><span class="field-label">Base de consolidação.</span> Conceito de mortalidade/desaparecimento do Marco de Sendai e ODS 1.5.1/11.5.1/13.1.1; implementação com registros agregados do Atlas, explicitamente distinta de contagem individual deduplicada.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Conceito-chave">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Conceito-chave
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Soma municipal anual dos campos de mortos e desaparecidos registrados no Atlas, dividida pela população de referência e multiplicada por 100 mil.</p>
+</div>
+</div>
+</section>
+<section id="objetivo" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="objetivo">Objetivo</h3>
+<p>Monitorar a mortalidade e desaparecimento associados a desastres em escala comparável.</p>
+</section>
+<section id="interpretação" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="interpretação">Interpretação</h3>
+<p>Expressa a magnitude dos registros em relação à população de referência. Não garante ausência de duplicidade individual, não mede risco causal e não deve ser apresentada como série oficial Sendai validada.</p>
+</section>
+<section id="usos" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="usos">Usos</h3>
+<ul>
+<li>Monitorar ODS e Marco de Sendai.</li>
+<li>Comparar períodos e territórios.</li>
+<li>Avaliar políticas de redução de risco.</li>
+</ul>
+</section>
+<section id="limitações" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="limitações">Limitações</h3>
+<ul>
+<li>Atribuição e janela temporal variam.</li>
+<li>Desaparecido não é óbito confirmado.</li>
+<li>Eventos raros produzem taxas instáveis em populações pequenas.</li>
+<li>Sub-registro e revisão pós-evento alteram totais.</li>
+</ul>
+</section>
+<section id="fontes-de-dados" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="fontes-de-dados">Fontes de dados</h3>
+<ul>
+<li>Atlas Digital de Desastres — 1991–2025, v1.1 de 06/08/2026 — DH_MORTOS, DH_DESAPARECIDOS, Data_Evento e Cod_IBGE_Mun (<a href="../../backmatter/indice-fontes.html#atlas-2026-v11">cadastro</a>)</li>
+<li>IBGE — população municipal por Censo e publicação anual — Censos e população municipal publicada por ano; a relação 2023 tem referência demográfica no Censo 2022 (<a href="../../backmatter/indice-fontes.html#ibge-pop-municipal">cadastro</a>)</li>
+</ul>
+</section>
+<section id="método-de-cálculo" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="método-de-cálculo">Método de cálculo</h3>
+<p>Após os controles de chaves e completude, somar DH_MORTOS e DH_DESAPARECIDOS por município e ano de Data_Evento. Dividir pela população municipal oficial correspondente e multiplicar por 100.000. Usar Censos em 1991, 2000, 2010 e 2022; nos demais anos, a população publicada pelo IBGE para o respectivo ano no arquivo de estimativas/TCU. Para 2023, usar a relação publicada em 2023 baseada no Censo 2022 com atualização territorial e registrar ano_populacao=2022, sem chamá-la de estimativa demográfica de 2023. Se faltar denominador compatível, publicar a contagem e deixar a taxa ausente. Não somar registros de município com código/território incompatível com o denominador. Morto e desaparecido são estados finais mutuamente exclusivos na interpretação desejada, mas os campos agregados não permitem auditar individualmente essa exclusividade: publicar a limitação.</p>
+<p><span class="math display">\[
+T_{MM}=100000\times\frac{N_{mortos}+N_{desaparecidos}}{Pop_{referência}}
+\]</span></p>
+<div class="indicator-card">
+<p><span class="field-label">Numerador.</span> Soma de DH_MORTOS+DH_DESAPARECIDOS em registros elegíveis completos, no município e ano.</p>
+<p><span class="field-label">Denominador.</span> População municipal oficial na referência explicitada; população zero ou ausente invalida a taxa.</p>
+<p><span class="field-label">Unidade de medida.</span> Pessoas por 100 mil habitantes.</p>
+<p><span class="field-label">Variáveis e categorias de análise.</span> Protocolo_S2iD, Cod_IBGE_Mun, Data_Evento, COBRADE, DH_MORTOS, DH_DESAPARECIDOS, população, ano demográfico e edição.</p>
+<p><span class="field-label">Granularidade.</span> Protocolo_S2iD–Cod_IBGE_Mun–Data_Evento; síntese municipal por ano do evento.</p>
+<p><span class="field-label">Periodicidade de atualização.</span> Por edição consolidada; congelar versão e data da extração.</p>
+<p><span class="field-label">Responsabilidade gerencial.</span> Proteção e defesa civil consolida perdas e danos; saúde verifica óbitos, agravos e serviços; estatística fornece denominadores.</p>
+<p><span class="field-label">Notas.</span> Total principal inclui todos os desastres do Atlas, com desagregação por COBRADE; não atribuir todos à mudança climática. O resultado é um registro administrativo, não uma contagem individual auditada.</p>
+<p><span class="field-label">Análise descritiva do indicador.</span> Mostrar contagens e taxas, perigo, território, perfil das vítimas, incerteza e evolução de registros.</p>
+</div>
+</section>
+<section id="campos-complementares-para-clima-ambiente-e-saúde" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="campos-complementares-para-clima-ambiente-e-saúde">Campos complementares para clima, ambiente e saúde</h3>
+<div class="indicator-card">
+<p><span class="field-label">Unidade territorial.</span> Município identificado por Cod_IBGE_Mun no Atlas; conservar sua territorialização e verificar compatibilidade com qualquer denominador.</p>
+<p><span class="field-label">Resolução espacial original.</span> Registro administrativo municipal; não contém identificação individual ou de cada estabelecimento.</p>
+<p><span class="field-label">Resolução temporal.</span> Evento datado; saída anual pelo ano de Data_Evento, não Data_Registro.</p>
+<p><span class="field-label">Período de referência.</span> Ano civil do evento; versão consolidada v1.1 de 06/08/2026.</p>
+<p><span class="field-label">Limiar ou valor de referência.</span> Taxa por 100 mil habitantes; não fixa limiar universal de alerta.</p>
+</div>
+</section>
+<section id="disponibilidade-e-acesso" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="disponibilidade-e-acesso">Disponibilidade e acesso</h3>
+<p><span class="field-label">Protocolo verificado em.</span> 2026-10-03</p>
+<p><span class="field-label">Dependência de dados locais.</span> Dispensável para extrair o Atlas; registros originados na defesa civil local</p>
+<p><span class="field-label">Automação.</span> Condicionada</p>
+<p><span class="field-label">Requisitos para o cálculo.</span> CSV Atlas e denominador oficial territorialmente compatível. SIDRA fornece consultas programáticas; edições históricas fora da API exigem extrair e conferir as tabelas publicadas pelo IBGE.</p>
+<p><span class="field-label">Nível de evidência.</span> Acesso e cálculo testados</p>
+<p><span class="field-label">Alcance da verificação.</span> Campos do Atlas e cálculo amostral no registro de Teresópolis de 12/01/2011 testados. Consultas SIDRA de São Paulo para Censos 1991, 2000, 2010 e 2022 e população de referência 2011 foram acessadas. A base nacional e a extração dos PDFs históricos não foram produzidas.</p>
+<p><span class="field-label">Cobertura geográfica.</span> Municípios com registros administrativos no Atlas; diferenças de notificação e cobertura não significam diferenças equivalentes no risco.</p>
+<p><span class="field-label">Período disponível.</span> 1991–2025 na edição fixada do Atlas; a disponibilidade da taxa também depende do denominador compatível.</p>
+<p><span class="field-label">Periodicidade de atualização.</span> Por edição consolidada; congelar versão e data da extração.</p>
+<p><span class="field-label">Forma de acesso.</span> Atlas: download do CSV consolidado v1.1 de 06/08/2026. População: API SIDRA tabela 202, variável 93, anos 1991/2000/2010, categorias Total; tabela 4714, variável 93, ano 2022; tabela 6579, variável 9324, demais períodos nela disponíveis. Endpoint-base https://apisidra.ibge.gov.br/values/t/TABELA/n6/CODIGO/v/VARIAVEL/p/ANO; dividir consultas municipais para respeitar o limite da API. Demais anos usam arquivos oficiais de estimativas/TCU; 2023 usa a relação baseada no Censo 2022.</p>
+<p><span class="field-label">URL ou identificador persistente.</span> https://atlasdigital.mdr.gov.br/arquivos/2026/BD_Atlas_1991_2025_v1.1_2026.08.06_Consolidado.csv</p>
+<p><span class="field-label">Formato dos arquivos.</span> CSV consolidado; saída CSV/Parquet municipal com flags e versão.</p>
+<p><span class="field-label">Necessidade de processamento.</span> Preservar protocolo e município como chave composta; remover duplicatas exatas. Em versões diferentes, usar exclusivamente o arquivo consolidado fixado, sem somar versões. Conflitos não resolvidos dentro da mesma chave são sinalizados e excluídos da soma, com total incompleto. Não fundir eventos só porque data, município ou COBRADE coincidem.</p>
+</section>
+<section id="qualidade-comparação-e-saúde" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="qualidade-comparação-e-saúde">Qualidade, comparação e saúde</h3>
+<p><span class="field-label">Qualidade e incerteza.</span> Campos vazios, inválidos ou negativos são ausentes. Município-ano sem registro recebe sem_registro e valor ausente; zero só é publicado quando há registros elegíveis completos com zero informado. Se algum registro elegível tem componente ausente, a soma anual é incompleta e não deve ser divulgada como total conhecido. O Atlas é sujeito a sub-registro, revisões e mudanças administrativas.</p>
+<p><span class="field-label">Possibilidade de comparação.</span> Manter versão, data do evento, COBRADE e territorialização. Para tendências através de alterações municipais, usar áreas mínimas comparáveis com correspondência oficial, sem transferir contagens automaticamente para a malha 2022.</p>
+<p><span class="field-label">Relação com desfechos de saúde.</span> Mortes, pessoas afetadas e interrupção de serviços expressam efeitos diretos e condições que ampliam riscos sanitários durante e após desastres.</p>
+<p><span class="field-label">Defasagens temporais relevantes.</span> Registrar data do evento e do efeito; mortes, doenças e interrupções podem ocorrer durante ou depois e exigir janela de atribuição.</p>
+<p><span class="field-label">Aplicação na gestão.</span> Quantificar impactos, organizar resposta, direcionar recursos, monitorar redução de risco e avaliar recuperação.</p>
+</section>
+<section id="referências-metodológicas" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="referências-metodológicas">Referências metodológicas</h3>
+<ul>
+<li><span class="citation" data-cites="un2024disasters">(<a href="../../backmatter/referencias.html#ref-un2024disasters" role="doc-biblioref">United Nations Statistics Division, 2024a</a>)</span></li>
+<li><span class="citation" data-cites="atlas2026manual">(<a href="../../backmatter/referencias.html#ref-atlas2026manual" role="doc-biblioref">Ministério da Integração e do Desenvolvimento Regional, 2026</a>)</span></li>
+<li><span class="citation" data-cites="ibge2023relacao">(<a href="../../backmatter/referencias.html#ref-ibge2023relacao" role="doc-biblioref">IBGE, 2023</a>)</span></li>
+</ul>
+</section>
+</section>
+<section id="sec-des-hum-02" class="level2 ficha-title" data-number="22.2">
+<h2 class="ficha-title anchored" data-number="22.2" data-anchor-id="sec-des-hum-02"><span class="header-section-number">22.2</span> Ficha do indicador: Número de pessoas diretamente afetadas por desastres por 100 mil habitantes (ODS 1.5.1/11.5.1/13.1.1)</h2>
+<div class="indicator-card">
+<p><span class="field-label">Código:</span> DES-HUM-02<br>
+<span class="field-label">Título resumido:</span> Pessoas diretamente afetadas por desastres<br>
+<span class="field-label">Tema:</span> Eventos meteorológicos severos e desastres<br>
+<span class="field-label">Dimensão:</span> efeito; resposta; exposição<br>
+<span class="field-label">Disponibilidade:</span> <span class="availability">Depende de dados locais</span></p>
+</div>
+<p>Contexto e interpretação: <a href="../../chapters/part-2/12-eventos-severos-desastres.html#sec-desastres">Eventos meteorológicos severos e desastres</a>.</p>
+<section id="identificação-e-fundamento-1" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="identificação-e-fundamento-1">Identificação e fundamento</h3>
+<p><span class="field-label">Base de consolidação.</span> Marco de Sendai, indicador composto B-1=B-2+B-3+B-4+B-5; taxa por 100 mil habitantes.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Conceito-chave">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Conceito-chave
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Soma dos componentes de pessoas diretamente afetadas do Sendai, por município e ano, relativa à população de referência.</p>
+</div>
+</div>
+</section>
+<section id="objetivo-1" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="objetivo-1">Objetivo</h3>
+<p>Medir a extensão populacional direta dos impactos além de mortes e desaparecimentos.</p>
+</section>
+<section id="interpretação-1" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="interpretação-1">Interpretação</h3>
+<p>Magnitude agregada dos quatro componentes de impacto direto em relação à população. Pode haver sobreposição entre componentes; não interpretar como probabilidade individual.</p>
+</section>
+<section id="usos-1" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="usos-1">Usos</h3>
+<ul>
+<li>Dimensionar resposta e assistência.</li>
+<li>Monitorar ODS/Sendai.</li>
+<li>Avaliar desigualdades e recuperação.</li>
+</ul>
+</section>
+<section id="limitações-1" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="limitações-1">Limitações</h3>
+<ul>
+<li>Categorias podem se sobrepor.</li>
+<li>“Afetado” deve seguir definição de diretamente afetado.</li>
+<li>Danos a moradia podem ser convertidos em pessoas por coeficientes.</li>
+<li>Registros administrativos dependem da capacidade local.</li>
+</ul>
+</section>
+<section id="fontes-de-dados-1" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="fontes-de-dados-1">Fontes de dados</h3>
+<ul>
+<li>Registros locais de afetados diretos e interrupções de saúde — Registro local datado de impactos e sua atribuição ao evento; o esquema mínimo consta do método (<a href="../../backmatter/indice-fontes.html#registros-locais-desastres">cadastro</a>)</li>
+<li>IBGE — população municipal por Censo e publicação anual — Denominador populacional quando requerido (<a href="../../backmatter/indice-fontes.html#ibge-pop-municipal">cadastro</a>)</li>
+</ul>
+</section>
+<section id="método-de-cálculo-1" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="método-de-cálculo-1">Método de cálculo</h3>
+<p>Apurar localmente, por evento, B2=pessoas feridas ou enfermas diretamente em razão do desastre; B3=residentes das moradias danificadas; B4=residentes das moradias destruídas; B5=pessoas cujos meios de vida foram diretamente interrompidos ou destruídos. Campos mínimos: evento_id, data, município, pessoa pseudonimizada, domicílio, lesão/enfermidade atribuída, classe de dano da moradia, residentes e impacto no meio de vida. Deduplicar dentro de cada componente; para moradias, dano e destruição são categorias mutuamente exclusivas na situação final. Somar B2+B3+B4+B5 conforme Sendai e dividir pela população oficial de referência, segundo o protocolo DES-HUM-01. A soma composta pode contar a mesma pessoa em componentes diferentes; informar as quatro parcelas e não chamá-la de pessoas únicas. Se qualquer componente não puder ser apurado, o total é ausente. Não usar DH_total_danos_humanos_diretos do Atlas: esse campo inclui mortos e desaparecidos e não reproduz a definição B-1.</p>
+<p><span class="math display">\[
+T_{B1,m,y}=100\,000\frac{B2_{m,y}+B3_{m,y}+B4_{m,y}+B5_{m,y}}{Pop_{m,y}}
+\]</span></p>
+<div class="indicator-card">
+<p><span class="field-label">Numerador.</span> Soma dos quatro componentes Sendai B2–B5; contagem composta, não necessariamente pessoas únicas.</p>
+<p><span class="field-label">Denominador.</span> População oficial de referência, com ano e territorialização compatíveis.</p>
+<p><span class="field-label">Unidade de medida.</span> Pessoas por 100 mil habitantes.</p>
+<p><span class="field-label">Variáveis e categorias de análise.</span> Evento, município, data, pessoa/domicílio, residentes, lesão/enfermidade, dano de moradia e interrupção de meios de vida.</p>
+<p><span class="field-label">Granularidade.</span> Componente por evento e território.</p>
+<p><span class="field-label">Periodicidade de atualização.</span> Após cada evento, com consolidação anual e revisão dos desfechos.</p>
+<p><span class="field-label">Responsabilidade gerencial.</span> Proteção e defesa civil consolida perdas e danos; saúde verifica óbitos, agravos e serviços; estatística fornece denominadores.</p>
+<p><span class="field-label">Notas.</span> Manter a ficha e sua dependência local. Não inferir os componentes ausentes a partir de totais administrativos de significado diferente.</p>
+<p><span class="field-label">Análise descritiva do indicador.</span> Apresentar total e componentes, taxas, perigo, duração, grupos e incerteza de estimativas.</p>
+</div>
+</section>
+<section id="campos-complementares-para-clima-ambiente-e-saúde-1" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="campos-complementares-para-clima-ambiente-e-saúde-1">Campos complementares para clima, ambiente e saúde</h3>
+<div class="indicator-card">
+<p><span class="field-label">Unidade territorial.</span> Município da ocorrência; conservar limite territorial e ano do registro.</p>
+<p><span class="field-label">Resolução espacial original.</span> Pessoa/domicílio ou estabelecimento/serviço vinculado ao evento.</p>
+<p><span class="field-label">Resolução temporal.</span> Ocorrência datada; resumo anual após consolidação e revisão.</p>
+<p><span class="field-label">Período de referência.</span> Ano do evento ou início da interrupção, conforme método; registrar data de corte das revisões.</p>
+<p><span class="field-label">Limiar ou valor de referência.</span> Impacto direto documentado em um dos quatro componentes; não inclui morte/desaparecimento no numerador B-1.</p>
+</div>
+</section>
+<section id="disponibilidade-e-acesso-1" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="disponibilidade-e-acesso-1">Disponibilidade e acesso</h3>
+<p><span class="field-label">Protocolo verificado em.</span> 2026-10-03</p>
+<p><span class="field-label">Dependência de dados locais.</span> Necessária</p>
+<p><span class="field-label">Automação.</span> Não demonstrada</p>
+<p><span class="field-label">Requisitos para o cálculo.</span> Disponibilização de registro local com os componentes e identificadores especificados; não foi demonstrada uma base aberta nacional com esse conteúdo.</p>
+<p><span class="field-label">Nível de evidência.</span> Documentação verificada</p>
+<p><span class="field-label">Alcance da verificação.</span> Produto e método documentados; série municipal completa ainda não produzida.</p>
+<p><span class="field-label">Cobertura geográfica.</span> Municípios com registros locais suficientes e rotina explícita de apuração.</p>
+<p><span class="field-label">Período disponível.</span> Desde a implantação de registro local com os campos exigidos; série municipal nacional completa não demonstrada.</p>
+<p><span class="field-label">Periodicidade de atualização.</span> Após cada evento, com consolidação anual e revisão dos desfechos.</p>
+<p><span class="field-label">Forma de acesso.</span> Exportação CSV/Parquet do sistema local no esquema desta ficha; a existência de S2iD, CNES ou SIA/SUS não garante os campos necessários.</p>
+<p><span class="field-label">URL ou identificador persistente.</span> https://unstats.un.org/sdgs/metadata/files/Metadata-01-05-01.pdf</p>
+<p><span class="field-label">Formato dos arquivos.</span> Tabelas locais de eventos e impactos vinculáveis; publicação municipal agregada, sem identificação pessoal.</p>
+<p><span class="field-label">Necessidade de processamento.</span> Vincular ao desastre, classificar impacto, validar datas e identificadores, resolver revisões/duplicidades e somar apenas casos elegíveis.</p>
+</section>
+<section id="qualidade-comparação-e-saúde-1" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="qualidade-comparação-e-saúde-1">Qualidade, comparação e saúde</h3>
+<p><span class="field-label">Qualidade e incerteza.</span> Sem apuração, resultado ausente, nunca zero automático. Zero requer cobertura documentada e confirmação de ausência de ocorrências no período. Preservar desconhecido, não aplicável e incompleto.</p>
+<p><span class="field-label">Possibilidade de comparação.</span> Mesma definição de evento, componente, estabelecimento, serviço e cobertura de registro; mudanças no cadastro local precisam de quebra de série.</p>
+<p><span class="field-label">Relação com desfechos de saúde.</span> Mortes, pessoas afetadas e interrupção de serviços expressam efeitos diretos e condições que ampliam riscos sanitários durante e após desastres.</p>
+<p><span class="field-label">Defasagens temporais relevantes.</span> Registrar data do evento e do efeito; mortes, doenças e interrupções podem ocorrer durante ou depois e exigir janela de atribuição.</p>
+<p><span class="field-label">Aplicação na gestão.</span> Quantificar impactos, organizar resposta, direcionar recursos, monitorar redução de risco e avaliar recuperação.</p>
+</section>
+<section id="referências-metodológicas-1" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="referências-metodológicas-1">Referências metodológicas</h3>
+<ul>
+<li><span class="citation" data-cites="un2024disasters">(<a href="../../backmatter/referencias.html#ref-un2024disasters" role="doc-biblioref">United Nations Statistics Division, 2024a</a>)</span></li>
+</ul>
+</section>
+</section>
+<section id="sec-des-sau-01" class="level2 ficha-title" data-number="22.3">
+<h2 class="ficha-title anchored" data-number="22.3" data-anchor-id="sec-des-sau-01"><span class="header-section-number">22.3</span> Ficha do indicador: Registros de instalações públicas de saúde danificadas ou destruídas por desastres</h2>
+<div class="indicator-card">
+<p><span class="field-label">Código:</span> DES-SAU-01<br>
+<span class="field-label">Título resumido:</span> Danos registrados em instalações públicas de saúde<br>
+<span class="field-label">Tema:</span> Eventos meteorológicos severos e desastres<br>
+<span class="field-label">Dimensão:</span> efeito; resposta; exposição<br>
+<span class="field-label">Disponibilidade:</span> <span class="availability">Calculável com dados abertos</span></p>
+</div>
+<p>Contexto e interpretação: <a href="../../chapters/part-2/12-eventos-severos-desastres.html#sec-desastres">Eventos meteorológicos severos e desastres</a>.</p>
+<section id="identificação-e-fundamento-2" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="identificação-e-fundamento-2">Identificação e fundamento</h3>
+<p><span class="field-label">Base de consolidação.</span> Campos de danos materiais do Atlas Digital, relacionados ao tema Sendai D-2/ODS 11.5.3a, com escopo restrito a registros de instalações públicas e sem identificação individual.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Conceito-chave">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Conceito-chave
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Soma anual dos números registrados de instalações públicas de saúde danificadas e destruídas em eventos do Atlas.</p>
+</div>
+</div>
+</section>
+<section id="objetivo-2" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="objetivo-2">Objetivo</h3>
+<p>Monitorar dano físico à infraestrutura crítica de saúde.</p>
+</section>
+<section id="interpretação-2" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="interpretação-2">Interpretação</h3>
+<p>Maior valor indica mais ocorrências registradas de dano em instalações públicas. Não representa necessariamente mais estabelecimentos únicos nem todas as unidades públicas e privadas.</p>
+</section>
+<section id="usos-2" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="usos-2">Usos</h3>
+<ul>
+<li>Planejar resposta e reconstrução.</li>
+<li>Monitorar resiliência da infraestrutura.</li>
+<li>Priorizar mitigação e continuidade.</li>
+</ul>
+</section>
+<section id="limitações-2" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="limitações-2">Limitações</h3>
+<ul>
+<li>Critérios de dano podem variar.</li>
+<li>Um estabelecimento pode ser registrado em mais de um evento.</li>
+<li>Contagem não pondera porte ou serviços.</li>
+<li>Danos não estruturais podem interromper operação sem destruição.</li>
+</ul>
+</section>
+<section id="fontes-de-dados-2" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="fontes-de-dados-2">Fontes de dados</h3>
+<ul>
+<li>Atlas Digital de Desastres — 1991–2025, v1.1 de 06/08/2026 — CSV consolidado Atlas Digital 1991–2025, v1.1 de 06/08/2026 (<a href="../../backmatter/indice-fontes.html#atlas-2026-v11">cadastro</a>)</li>
+</ul>
+</section>
+<section id="método-de-cálculo-2" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="método-de-cálculo-2">Método de cálculo</h3>
+<p>Após controle de protocolos e valores ausentes, somar os campos exatos DM_Inst Saúde Danificadas e DM_Inst Saúde Destruidas por município e ano de Data_Evento. Preservar as duas parcelas e sua soma. Não adicionar DM_Inst Saúde Valor, que é monetário. Uma mesma instalação pode aparecer em mais de um desastre: a soma mede registros de dano por evento, não estabelecimentos únicos. Sem os dois componentes completos, não publicar total completo; apresentar a lacuna.</p>
+<p><span class="math display">\[
+D_{m,y}=\sum_{e\in(m,y)}\left(DM_{saude,danificadas,e}+DM_{saude,destruidas,e}\right)
+\]</span></p>
+<div class="indicator-card">
+<p><span class="field-label">Numerador.</span> Soma das duas contagens de danos por evento.</p>
+<p><span class="field-label">Denominador.</span> Não se aplica.</p>
+<p><span class="field-label">Unidade de medida.</span> Registros de instalações públicas afetadas por evento, acumulados no ano.</p>
+<p><span class="field-label">Variáveis e categorias de análise.</span> Protocolo, município, data do evento, COBRADE, DM_Inst Saúde Danificadas e DM_Inst Saúde Destruidas.</p>
+<p><span class="field-label">Granularidade.</span> Protocolo_S2iD–Cod_IBGE_Mun–Data_Evento; síntese municipal por ano do evento.</p>
+<p><span class="field-label">Periodicidade de atualização.</span> Por edição consolidada; congelar versão e data da extração.</p>
+<p><span class="field-label">Responsabilidade gerencial.</span> Proteção e defesa civil consolida perdas e danos; saúde verifica óbitos, agravos e serviços; estatística fornece denominadores.</p>
+<p><span class="field-label">Notas.</span> A alteração de título e unidade restringe explicitamente o significado ao que os campos permitem calcular. Para o componente Sendai completo, com estabelecimentos únicos e inclusão de privados, são necessários identificação CNES e registros locais adicionais.</p>
+<p><span class="field-label">Análise descritiva do indicador.</span> Mostrar danificados/destruídos, tipo, capacidade, serviços, território, custo e prazo de restauração.</p>
+</div>
+</section>
+<section id="campos-complementares-para-clima-ambiente-e-saúde-2" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="campos-complementares-para-clima-ambiente-e-saúde-2">Campos complementares para clima, ambiente e saúde</h3>
+<div class="indicator-card">
+<p><span class="field-label">Unidade territorial.</span> Município identificado por Cod_IBGE_Mun no Atlas; conservar sua territorialização e verificar compatibilidade com qualquer denominador.</p>
+<p><span class="field-label">Resolução espacial original.</span> Registro administrativo municipal; não contém identificação individual ou de cada estabelecimento.</p>
+<p><span class="field-label">Resolução temporal.</span> Evento datado; saída anual pelo ano de Data_Evento, não Data_Registro.</p>
+<p><span class="field-label">Período de referência.</span> Ano civil do evento; versão consolidada v1.1 de 06/08/2026.</p>
+<p><span class="field-label">Limiar ou valor de referência.</span> Dano ou destruição registrado; não exige interrupção comprovada do serviço.</p>
+</div>
+</section>
+<section id="disponibilidade-e-acesso-2" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="disponibilidade-e-acesso-2">Disponibilidade e acesso</h3>
+<p><span class="field-label">Protocolo verificado em.</span> 2026-10-03</p>
+<p><span class="field-label">Dependência de dados locais.</span> Dispensável para extrair o Atlas; registros originados na defesa civil local</p>
+<p><span class="field-label">Automação.</span> Viável</p>
+<p><span class="field-label">Requisitos para o cálculo.</span> Download do CSV consolidado fixado, controle de chaves, campos ausentes e compatibilidade territorial.</p>
+<p><span class="field-label">Nível de evidência.</span> Acesso e cálculo testados</p>
+<p><span class="field-label">Alcance da verificação.</span> Cabeçalho e amostra do CSV acessados. Registro de Teresópolis, evento de 12/01/2011, inspecionado para mortos, desaparecidos e danos em instalações de saúde. A amostra não valida a cobertura da base nacional inteira.</p>
+<p><span class="field-label">Cobertura geográfica.</span> Municípios com registros administrativos no Atlas; diferenças de notificação e cobertura não significam diferenças equivalentes no risco.</p>
+<p><span class="field-label">Período disponível.</span> 1991–2025 na edição fixada do Atlas; a disponibilidade da taxa também depende do denominador compatível.</p>
+<p><span class="field-label">Periodicidade de atualização.</span> Por edição consolidada; congelar versão e data da extração.</p>
+<p><span class="field-label">Forma de acesso.</span> Download HTTP: https://atlasdigital.mdr.gov.br/arquivos/2026/BD_Atlas_1991_2025_v1.1_2026.08.06_Consolidado.csv. Ler Latin-1, separador ponto e vírgula, datas dia/mês/ano e código municipal como texto de sete dígitos.</p>
+<p><span class="field-label">URL ou identificador persistente.</span> https://atlasdigital.mdr.gov.br/arquivos/2026/BD_Atlas_1991_2025_v1.1_2026.08.06_Consolidado.csv</p>
+<p><span class="field-label">Formato dos arquivos.</span> CSV consolidado; saída CSV/Parquet municipal com flags e versão.</p>
+<p><span class="field-label">Necessidade de processamento.</span> Preservar protocolo e município como chave composta; remover duplicatas exatas. Em versões diferentes, usar exclusivamente o arquivo consolidado fixado, sem somar versões. Conflitos não resolvidos dentro da mesma chave são sinalizados e excluídos da soma, com total incompleto. Não fundir eventos só porque data, município ou COBRADE coincidem.</p>
+</section>
+<section id="qualidade-comparação-e-saúde-2" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="qualidade-comparação-e-saúde-2">Qualidade, comparação e saúde</h3>
+<p><span class="field-label">Qualidade e incerteza.</span> Campos vazios, inválidos ou negativos são ausentes. Município-ano sem registro recebe sem_registro e valor ausente; zero só é publicado quando há registros elegíveis completos com zero informado. Se algum registro elegível tem componente ausente, a soma anual é incompleta e não deve ser divulgada como total conhecido. O Atlas é sujeito a sub-registro, revisões e mudanças administrativas.</p>
+<p><span class="field-label">Possibilidade de comparação.</span> Manter versão, data do evento, COBRADE e territorialização. Para tendências através de alterações municipais, usar áreas mínimas comparáveis com correspondência oficial, sem transferir contagens automaticamente para a malha 2022.</p>
+<p><span class="field-label">Relação com desfechos de saúde.</span> Mortes, pessoas afetadas e interrupção de serviços expressam efeitos diretos e condições que ampliam riscos sanitários durante e após desastres.</p>
+<p><span class="field-label">Defasagens temporais relevantes.</span> Registrar data do evento e do efeito; mortes, doenças e interrupções podem ocorrer durante ou depois e exigir janela de atribuição.</p>
+<p><span class="field-label">Aplicação na gestão.</span> Quantificar impactos, organizar resposta, direcionar recursos, monitorar redução de risco e avaliar recuperação.</p>
+</section>
+<section id="referências-metodológicas-2" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="referências-metodológicas-2">Referências metodológicas</h3>
+<ul>
+<li><span class="citation" data-cites="un2024infrastructure">(<a href="../../backmatter/referencias.html#ref-un2024infrastructure" role="doc-biblioref">United Nations Statistics Division, 2024b</a>)</span></li>
+<li><span class="citation" data-cites="atlas2026manual">(<a href="../../backmatter/referencias.html#ref-atlas2026manual" role="doc-biblioref">Ministério da Integração e do Desenvolvimento Regional, 2026</a>)</span></li>
+</ul>
+</section>
+</section>
+<section id="sec-des-sau-02" class="level2 ficha-title" data-number="22.4">
+<h2 class="ficha-title anchored" data-number="22.4" data-anchor-id="sec-des-sau-02"><span class="header-section-number">22.4</span> Ficha do indicador: Número de interrupções de serviços de saúde atribuídas a desastres (componente ODS 11.5.3b)</h2>
+<div class="indicator-card">
+<p><span class="field-label">Código:</span> DES-SAU-02<br>
+<span class="field-label">Título resumido:</span> Interrupções de serviços de saúde<br>
+<span class="field-label">Tema:</span> Eventos meteorológicos severos e desastres<br>
+<span class="field-label">Dimensão:</span> efeito; resposta; exposição<br>
+<span class="field-label">Disponibilidade:</span> <span class="availability">Depende de dados locais</span></p>
+</div>
+<p>Contexto e interpretação: <a href="../../chapters/part-2/12-eventos-severos-desastres.html#sec-desastres">Eventos meteorológicos severos e desastres</a>.</p>
+<section id="identificação-e-fundamento-3" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="identificação-e-fundamento-3">Identificação e fundamento</h3>
+<p><span class="field-label">Base de consolidação.</span> Sendai D-7/ODS 11.5.3b; operacionalização local por estabelecimento–serviço–evento e intervalo de interrupção.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Conceito-chave">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Conceito-chave
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Número de episódios documentados de interrupção de serviço de saúde atribuídos a desastres, com unidade de contagem explícita.</p>
+</div>
+</div>
+</section>
+<section id="objetivo-3" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="objetivo-3">Objetivo</h3>
+<p>Monitorar continuidade assistencial e efeitos funcionais, inclusive quando não há dano estrutural.</p>
+</section>
+<section id="interpretação-3" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="interpretação-3">Interpretação</h3>
+<p>Valor maior indica mais ocorrências de disrupção. Deve ser acompanhado por duração, população, serviço e gravidade.</p>
+</section>
+<section id="usos-3" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="usos-3">Usos</h3>
+<ul>
+<li>Gestão de continuidade.</li>
+<li>Avaliação de resiliência.</li>
+<li>Priorização de redundância e recuperação.</li>
+</ul>
+</section>
+<section id="limitações-3" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="limitações-3">Limitações</h3>
+<ul>
+<li>Uma unidade pode ter múltiplos serviços interrompidos.</li>
+<li>Definições de ocorrência variam.</li>
+<li>Contagem não expressa duração ou população.</li>
+<li>Quedas de qualidade são difíceis de documentar.</li>
+</ul>
+</section>
+<section id="fontes-de-dados-3" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="fontes-de-dados-3">Fontes de dados</h3>
+<ul>
+<li>Registros locais de afetados diretos e interrupções de saúde — Registro local datado de impactos e sua atribuição ao evento; o esquema mínimo consta do método (<a href="../../backmatter/indice-fontes.html#registros-locais-desastres">cadastro</a>)</li>
+<li>IBGE — população municipal por Censo e publicação anual — Denominador populacional quando requerido (<a href="../../backmatter/indice-fontes.html#ibge-pop-municipal">cadastro</a>)</li>
+</ul>
+</section>
+<section id="método-de-cálculo-3" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="método-de-cálculo-3">Método de cálculo</h3>
+<p>Registrar evento_id, COBRADE, município, estabelecimento_id (CNES quando existir), serviço_id no catálogo CNES de serviços/classificações da versão adotada, início, fim, fuso, tipo total/parcial e evidência de atribuição ao desastre. Incluir apenas intervalos em que um serviço programado ficou indisponível, integralmente ou para parte da capacidade/território; a condição parcial precisa ser documentada, não inferida de queda de produção. Para cada estabelecimento–serviço–evento, unir intervalos sobrepostos ou contíguos; cada intervalo unido é um episódio. Se um episódio unido incluir interrupção total em qualquer trecho, classificá-lo como total e sinalizar mistura com trechos parciais; classificar como parcial somente quando todos os trechos forem parciais. Contar episódios pelo ano de início, mantendo os que atravessam anos uma única vez e publicando duração como medida separada. Episódio ainda em curso entra na contagem com fim ausente e flag aberto; duração permanece censurada. Publicar totais e parciais separadamente e sua soma; falta de início, identificador ou comprovação gera registro indeterminado, não zero.</p>
+<p><span class="math display">\[
+N_{m,y}=\sum_{f,s,e}n_{f,s,e,m,y}
+\]</span></p>
+<div class="indicator-card">
+<p><span class="field-label">Numerador.</span> Soma de n, o número de episódios unidos de cada estabelecimento f, serviço s e evento e, no município m, com início no ano y.</p>
+<p><span class="field-label">Denominador.</span> Não se aplica.</p>
+<p><span class="field-label">Unidade de medida.</span> Episódios de interrupção por ano, separados em total e parcial.</p>
+<p><span class="field-label">Variáveis e categorias de análise.</span> Evento_id, COBRADE, município, estabelecimento/CNES, serviço/classificação, início, fim, fuso, tipo e evidência causal.</p>
+<p><span class="field-label">Granularidade.</span> Intervalo de interrupção por estabelecimento–serviço–evento; município como agregação de episódios.</p>
+<p><span class="field-label">Periodicidade de atualização.</span> Após cada evento, com consolidação anual e revisão dos desfechos.</p>
+<p><span class="field-label">Responsabilidade gerencial.</span> Proteção e defesa civil consolida perdas e danos; saúde verifica óbitos, agravos e serviços; estatística fornece denominadores.</p>
+<p><span class="field-label">Notas.</span> PEPL_Assis_méd e emergên no Atlas é um campo monetário, não uma contagem de interrupções. Cadastro CNES e variação na produção SIA/SUS também não comprovam interrupção. A regra de união de intervalos é a operacionalização deste livro; divulgar a unidade de contagem ao comparar com relatórios Sendai.</p>
+<p><span class="field-label">Análise descritiva do indicador.</span> Mostrar número, duração, serviços essenciais, população sem acesso, causas operacionais, substituição e tempo de recuperação.</p>
+</div>
+</section>
+<section id="campos-complementares-para-clima-ambiente-e-saúde-3" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="campos-complementares-para-clima-ambiente-e-saúde-3">Campos complementares para clima, ambiente e saúde</h3>
+<div class="indicator-card">
+<p><span class="field-label">Unidade territorial.</span> Município da ocorrência; conservar limite territorial e ano do registro.</p>
+<p><span class="field-label">Resolução espacial original.</span> Pessoa/domicílio ou estabelecimento/serviço vinculado ao evento.</p>
+<p><span class="field-label">Resolução temporal.</span> Ocorrência datada; resumo anual após consolidação e revisão.</p>
+<p><span class="field-label">Período de referência.</span> Ano do evento ou início da interrupção, conforme método; registrar data de corte das revisões.</p>
+<p><span class="field-label">Limiar ou valor de referência.</span> Indisponibilidade documentada de serviço programado, com início conhecido e vínculo ao evento; sem limiar mínimo arbitrário de horas.</p>
+</div>
+</section>
+<section id="disponibilidade-e-acesso-3" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="disponibilidade-e-acesso-3">Disponibilidade e acesso</h3>
+<p><span class="field-label">Protocolo verificado em.</span> 2026-10-03</p>
+<p><span class="field-label">Dependência de dados locais.</span> Necessária</p>
+<p><span class="field-label">Automação.</span> Não demonstrada</p>
+<p><span class="field-label">Requisitos para o cálculo.</span> Disponibilização de registro local com os componentes e identificadores especificados; não foi demonstrada uma base aberta nacional com esse conteúdo.</p>
+<p><span class="field-label">Nível de evidência.</span> Documentação verificada</p>
+<p><span class="field-label">Alcance da verificação.</span> Produto e método documentados; série municipal completa ainda não produzida.</p>
+<p><span class="field-label">Cobertura geográfica.</span> Municípios com registros locais suficientes e rotina explícita de apuração.</p>
+<p><span class="field-label">Período disponível.</span> Desde a implantação de registro local com os campos exigidos; série municipal nacional completa não demonstrada.</p>
+<p><span class="field-label">Periodicidade de atualização.</span> Após cada evento, com consolidação anual e revisão dos desfechos.</p>
+<p><span class="field-label">Forma de acesso.</span> Exportação CSV/Parquet do sistema local no esquema desta ficha; a existência de S2iD, CNES ou SIA/SUS não garante os campos necessários.</p>
+<p><span class="field-label">URL ou identificador persistente.</span> https://unstats.un.org/sdgs/metadata/files/Metadata-11-05-03.pdf</p>
+<p><span class="field-label">Formato dos arquivos.</span> Tabelas locais de eventos e impactos vinculáveis; publicação municipal agregada, sem identificação pessoal.</p>
+<p><span class="field-label">Necessidade de processamento.</span> Vincular ao desastre, classificar impacto, validar datas e identificadores, resolver revisões/duplicidades e somar apenas casos elegíveis.</p>
+</section>
+<section id="qualidade-comparação-e-saúde-3" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="qualidade-comparação-e-saúde-3">Qualidade, comparação e saúde</h3>
+<p><span class="field-label">Qualidade e incerteza.</span> Sem apuração, resultado ausente, nunca zero automático. Zero requer cobertura documentada e confirmação de ausência de ocorrências no período. Preservar desconhecido, não aplicável e incompleto.</p>
+<p><span class="field-label">Possibilidade de comparação.</span> Mesma definição de evento, componente, estabelecimento, serviço e cobertura de registro; mudanças no cadastro local precisam de quebra de série.</p>
+<p><span class="field-label">Relação com desfechos de saúde.</span> Mortes, pessoas afetadas e interrupção de serviços expressam efeitos diretos e condições que ampliam riscos sanitários durante e após desastres.</p>
+<p><span class="field-label">Defasagens temporais relevantes.</span> Registrar data do evento e do efeito; mortes, doenças e interrupções podem ocorrer durante ou depois e exigir janela de atribuição.</p>
+<p><span class="field-label">Aplicação na gestão.</span> Quantificar impactos, organizar resposta, direcionar recursos, monitorar redução de risco e avaliar recuperação.</p>
+</section>
+<section id="referências-metodológicas-3" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="referências-metodológicas-3">Referências metodológicas</h3>
+<ul>
+<li><span class="citation" data-cites="un2024infrastructure">(<a href="../../backmatter/referencias.html#ref-un2024infrastructure" role="doc-biblioref">United Nations Statistics Division, 2024b</a>)</span></li>
+<li><span class="citation" data-cites="who2024resilienceindicators">(<a href="../../backmatter/referencias.html#ref-who2024resilienceindicators" role="doc-biblioref">World Health Organization, 2024</a>)</span></li>
+</ul>
+
+
+<div id="refs" class="references csl-bib-body" data-entry-spacing="1" role="list" style="display: none">
+<div id="ref-ibge2023relacao" class="csl-entry" role="listitem">
+IBGE. <strong>IBGE divulga relação da população dos municípios</strong>. 2023. Disponível em: &lt;<a href="https://agenciadenoticias.ibge.gov.br/agencia-sala-de-imprensa/2013-agencia-de-noticias/releases/37758-ibge-divulga-relacao-da-populacao-dos-municipios">https://agenciadenoticias.ibge.gov.br/agencia-sala-de-imprensa/2013-agencia-de-noticias/releases/37758-ibge-divulga-relacao-da-populacao-dos-municipios</a>&gt;. Acesso em: 3 out. 2026.
+</div>
+<div id="ref-atlas2026manual" class="csl-entry" role="listitem">
+MINISTÉRIO DA INTEGRAÇÃO E DO DESENVOLVIMENTO REGIONAL. <strong>Atlas Digital de Desastres: manual de aplicação</strong>. 2026. Disponível em: &lt;<a href="https://atlasdigital.mdr.gov.br/arquivos/Atlas_Digital_Desastres_Manual_Aplicacao.pdf">https://atlasdigital.mdr.gov.br/arquivos/Atlas_Digital_Desastres_Manual_Aplicacao.pdf</a>&gt;. Acesso em: 3 out. 2026.
+</div>
+<div id="ref-un2024infrastructure" class="csl-entry" role="listitem">
+UNITED NATIONS STATISTICS DIVISION. <strong>SDG indicator metadata 11.5.3: damage to critical infrastructure and number of disruptions to basic services, attributed to disasters</strong>. 20 dez. 2024b. Disponível em: &lt;<a href="https://unstats.un.org/sdgs/metadata/files/Metadata-11-05-03.pdf">https://unstats.un.org/sdgs/metadata/files/Metadata-11-05-03.pdf</a>&gt;. Acesso em: 28 jul. 2026.
+</div>
+<div id="ref-un2024disasters" class="csl-entry" role="listitem">
+UNITED NATIONS STATISTICS DIVISION. <strong>SDG indicator metadata 1.5.1: number of deaths, missing persons and directly affected persons attributed to disasters per 100,000 population</strong>. 20 dez. 2024a. Disponível em: &lt;<a href="https://unstats.un.org/sdgs/metadata/files/Metadata-01-05-01.pdf">https://unstats.un.org/sdgs/metadata/files/Metadata-01-05-01.pdf</a>&gt;. Acesso em: 28 jul. 2026.
+</div>
+<div id="ref-who2024resilienceindicators" class="csl-entry" role="listitem">
+WORLD HEALTH ORGANIZATION. <strong><a href="https://www.who.int/publications/i/item/9789240088986">Health system resilience indicators: an integrated package for measuring and monitoring health system resilience in countries</a></strong>. Geneva: World Health Organization, 2024.
+</div>
+</div>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiada");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiada");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../chapters/part-4/21-fichas-uso-cobertura-terra-ambiente-urbano.html" class="pagination-link" aria-label="Fichas — Vegetação, espaços públicos e calor urbano">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Fichas — Vegetação, espaços públicos e calor urbano</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../chapters/part-4/23-fichas-exposicao-vulnerabilidade.html" class="pagination-link" aria-label="Fichas — Vulnerabilidade social e adensamento domiciliar">
+        <span class="nav-page-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Fichas — Vulnerabilidade social e adensamento domiciliar</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/rfsaldanha/dicas/blob/main/chapters/part-4/22-fichas-eventos-severos-desastres.qmd" class="toc-action"><i class="bi bi-github"></i>Ver o código fonte</a></li><li><a href="https://github.com/rfsaldanha/dicas/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></div></div></footer></body></html>

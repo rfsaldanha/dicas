@@ -1,0 +1,1442 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Guia técnico sobre conceitos, dados e indicadores de clima e ambiente aplicados à vigilância e à gestão em saúde pública.">
+
+<title>23&nbsp; Fichas — Vulnerabilidade social e adensamento domiciliar – Dados e Indicadores de Clima e Ambiente para a Saúde</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 1em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../chapters/part-4/24-fichas-efeitos-saude.html" rel="next">
+<link href="../../chapters/part-4/22-fichas-eventos-severos-desastres.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-bb162014f31ff550f3668977ab0f7733.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-fdd2e9c9119fd81cafe9a82057eefc34.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-bb162014f31ff550f3668977ab0f7733.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Nenhum resultado",
+    "search-matching-documents-text": "documentos correspondentes",
+    "search-copy-link-title": "Copiar link para a busca",
+    "search-hide-matches-text": "Esconder correspondências adicionais",
+    "search-more-match-text": "mais correspondência neste documento",
+    "search-more-matches-text": "mais correspondências neste documento",
+    "search-clear-button-title": "Limpar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Procurar"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles/web/styles.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../backmatter/lista-fichas.html">Parte IV — Fichas de indicadores e fontes de dados</a></li><li class="breadcrumb-item"><a href="../../chapters/part-4/23-fichas-exposicao-vulnerabilidade.html"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Fichas — Vulnerabilidade social e adensamento domiciliar</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Procurar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">Dados e Indicadores de Clima e Ambiente para a Saúde</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/rfsaldanha/dicas" title="Código fonte" class="quarto-navigation-tool px-1" aria-label="Código fonte"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo escuro"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Procurar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bem-vindo</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/agradecimentos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Agradecimentos</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/prefacio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prefácio do autor</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../frontmatter/siglas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lista de siglas</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Parte I — Fundamentos, métodos e decisão em saúde</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/01-clima-ambiente-saude.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Clima, ambiente e saúde pública</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/02-mudanca-climatica-resposta-sus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Mudança climática, planejamento e resposta do SUS</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/03-dados-variaveis-indices-indicadores.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Dados, variáveis, índices e indicadores</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/04-espaco-tempo-qualidade.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Integração de dados: espaço, tempo e qualidade</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/05-fontes-fichas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Seleção de fontes e qualificação de indicadores</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-1/06-indicador-decisao.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Análise de situação de saúde e decisão pública</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Parte II — Fenômenos e indicadores de clima e ambiente</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/07-temperatura-condicoes-termicas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Temperatura e condições térmicas</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/08-precipitacao-secas-eventos-hidrologicos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Precipitação, secas, inundações e deslizamentos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/09-qualidade-ar-queimadas-fumaca.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Qualidade do ar, queimadas e fumaça</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/10-agua-saneamento-qualidade-ambiental.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Água, saneamento e higiene</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/11-uso-cobertura-terra-ambiente-urbano.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Uso e cobertura da terra, vegetação e ambiente urbano</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-2/12-eventos-severos-desastres.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Eventos meteorológicos severos e desastres</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Parte III — Exposição, vulnerabilidade, efeitos e resposta em saúde</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-3/13-exposicao-vulnerabilidade.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Exposição e vulnerabilidade socioambiental</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-3/14-efeitos-saude.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Efeitos na saúde: mensuração e atribuição</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-3/15-resposta-adaptacao-resiliencia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Resiliência dos sistemas de saúde</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-3/16-comunicacao-risco-saude-clima.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Comunicação de risco em saúde e clima</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Parte IV — Fichas de indicadores e fontes de dados</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/lista-fichas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lista de fichas por código e capítulo</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/indice-indicadores.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Índice alfabético de indicadores</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/17-fichas-temperatura-condicoes-termicas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Fichas — Extremos de temperatura e estresse térmico</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/18-fichas-precipitacao-secas-eventos-hidrologicos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Fichas — Precipitação e seca meteorológica</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/19-fichas-qualidade-ar-queimadas-fumaca.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Fichas — Qualidade do ar, queimadas e fumaça</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/20-fichas-agua-saneamento-qualidade-ambiental.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Fichas — Água, esgotamento sanitário e higiene</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/21-fichas-uso-cobertura-terra-ambiente-urbano.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Fichas — Vegetação, espaços públicos e calor urbano</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/22-fichas-eventos-severos-desastres.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Fichas — Impactos dos desastres</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/23-fichas-exposicao-vulnerabilidade.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Fichas — Vulnerabilidade social e adensamento domiciliar</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/24-fichas-efeitos-saude.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Fichas — Mortalidade e internações hospitalares</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../chapters/part-4/25-fichas-resposta-adaptacao-resiliencia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Fichas — Preparação e continuidade dos serviços de saúde</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/indice-fontes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Catálogo de fontes de dados</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/glossario.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Glossário</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/referencias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Referências</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Apêndices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Alternar seção">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/apendice-metodologico.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Apêndice metodológico</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../backmatter/apendice-estacoes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Estações meteorológicas e de qualidade do ar</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Índice</h2>
+   
+  <ul class="collapse">
+  <li><a href="#sec-exp-vul-01" id="toc-sec-exp-vul-01" class="nav-link active" data-scroll-target="#sec-exp-vul-01"><span class="header-section-number">23.1</span> Ficha do indicador: Índice de Vulnerabilidade Social do Ipea (IVS)</a></li>
+  <li><a href="#sec-exp-hab-02" id="toc-sec-exp-hab-02" class="nav-link" data-scroll-target="#sec-exp-hab-02"><span class="header-section-number">23.2</span> Ficha do indicador: Percentual de domicílios com mais de três moradores por dormitório</a></li>
+  <li><a href="#sec-ivs-componentes" id="toc-sec-ivs-componentes" class="nav-link" data-scroll-target="#sec-ivs-componentes"><span class="header-section-number">23.3</span> Componentes do IVS para interpretação e conferência</a></li>
+  <li><a href="#códigos-retirados-e-destinos-preservados" id="toc-códigos-retirados-e-destinos-preservados" class="nav-link" data-scroll-target="#códigos-retirados-e-destinos-preservados"><span class="header-section-number">23.4</span> Códigos retirados e destinos preservados</a></li>
+  </ul>
+<div class="toc-actions"><ul class="collapse"><li><a href="https://github.com/rfsaldanha/dicas/blob/main/chapters/part-4/23-fichas-exposicao-vulnerabilidade.qmd" class="toc-action"><i class="bi bi-github"></i>Ver o código fonte</a></li><li><a href="https://github.com/rfsaldanha/dicas/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../backmatter/lista-fichas.html">Parte IV — Fichas de indicadores e fontes de dados</a></li><li class="breadcrumb-item"><a href="../../chapters/part-4/23-fichas-exposicao-vulnerabilidade.html"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Fichas — Vulnerabilidade social e adensamento domiciliar</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-fichas-exposicao-vulnerabilidade" class="quarto-section-identifier"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Fichas — Vulnerabilidade social e adensamento domiciliar</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Este capítulo reúne as fichas de vulnerabilidade social e adensamento domiciliar. A interpretação do tema, a comparação entre medidas e suas aplicações estão no <a href="../../chapters/part-3/13-exposicao-vulnerabilidade.html">capítulo de contexto</a>: <a href="../part-3/13-exposicao-vulnerabilidade.html" class="quarto-xref"><span>Capítulo 13</span></a>.</p>
+<section id="sec-exp-vul-01" class="level2 ficha-title" data-number="23.1">
+<h2 class="ficha-title anchored" data-number="23.1" data-anchor-id="sec-exp-vul-01"><span class="header-section-number">23.1</span> Ficha do indicador: Índice de Vulnerabilidade Social do Ipea (IVS)</h2>
+<div class="indicator-card">
+<p><span class="field-label">Código:</span> EXP-VUL-01<br>
+<span class="field-label">Título resumido:</span> Índice de Vulnerabilidade Social — IVS<br>
+<span class="field-label">Tema:</span> Exposição e vulnerabilidade socioambiental<br>
+<span class="field-label">Dimensão:</span> vulnerabilidade<br>
+<span class="field-label">Disponibilidade:</span> <span class="availability">Calculável com dados abertos</span></p>
+</div>
+<p>Contexto e interpretação: <a href="../../chapters/part-3/13-exposicao-vulnerabilidade.html#sec-exposicao-vulnerabilidade">Exposição e vulnerabilidade socioambiental</a>.</p>
+<section id="identificação-e-fundamento" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="identificação-e-fundamento">Identificação e fundamento</h3>
+<p><span class="field-label">Base de consolidação.</span> Atlas da Vulnerabilidade Social nos Municípios Brasileiros, Ipea, 2015, quadros 1–3 e metodologia. Edição municipal dos Censos 2000 e 2010.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Conceito-chave">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Conceito-chave
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Índice brasileiro de 0 a 1 que sintetiza 16 indicadores normalizados nas dimensões infraestrutura urbana, capital humano e renda e trabalho.</p>
+</div>
+</div>
+</section>
+<section id="objetivo" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="objetivo">Objetivo</h3>
+<p>Evidenciar falhas de oferta de bens e serviços e condições sociais que limitam bem-estar e oportunidades nos territórios brasileiros.</p>
+</section>
+<section id="interpretação" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="interpretação">Interpretação</h3>
+<p>Quanto maior o IVS, maior a vulnerabilidade segundo as dimensões selecionadas pelo Ipea. A média de valores publicados pode diferir na última casa decimal do IVS calculado antes do arredondamento.</p>
+</section>
+<section id="usos" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="usos">Usos</h3>
+<ul>
+<li>Descrever desigualdades territoriais brasileiras.</li>
+<li>Apoiar priorização de políticas e programas.</li>
+<li>Estratificar análises de efeitos climáticos e ambientais.</li>
+<li>Examinar separadamente infraestrutura, capital humano e renda e trabalho.</li>
+</ul>
+</section>
+<section id="limitações" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="limitações">Limitações</h3>
+<ul>
+<li>Não inclui o perigo climático nem a exposição ambiental.</li>
+<li>O valor agregado pode ocultar componentes com sentidos distintos.</li>
+<li>Versões baseadas em Censo e PNAD têm granularidade e erro diferentes.</li>
+<li>Não deve ser interpretado como atributo de indivíduos nem como explicação causal.</li>
+</ul>
+</section>
+<section id="fontes-de-dados" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="fontes-de-dados">Fontes de dados</h3>
+<ul>
+<li>Atlas da Vulnerabilidade Social — Dados: três subíndices municipais publicados pelo Ipea, fonte Censo, anos 2000 e 2010; Atlas 2015 como referência metodológica. (<a href="../../backmatter/indice-fontes.html#ipea-ivs">cadastro</a>)</li>
+</ul>
+</section>
+<section id="método-de-cálculo" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="método-de-cálculo">Método de cálculo</h3>
+<p>Obter no Atlas IVS a tabela municipal, fonte Censo, anos 2000 e 2010, com código do município e os subíndices IVS Infraestrutura Urbana, IVS Capital Humano e IVS Renda e Trabalho. Preservar os cabeçalhos originais e mapear para ivs_infraestrutura, ivs_capital_humano e ivs_renda_trabalho. Exigir uma linha por município e ano e três valores numéricos entre 0 e 1. Calcular a média aritmética sem arredondamento intermediário. Se faltar dimensão, não calcular. Comparar ao IVS publicado com tolerância de 0,001 para arredondamentos de publicação. Os 16 componentes identificados na seção de conferência deste capítulo servem à interpretação, sem reconstrução a partir de microdados ou recalibração dos subíndices.</p>
+<p><span class="math display">\[
+IVS=\frac{IVS_{infraestrutura}+IVS_{capital\ humano}+IVS_{renda\ e\ trabalho}}{3}
+\]</span></p>
+<div class="indicator-card">
+<p><span class="field-label">Numerador.</span> Soma dos três subíndices oficiais.</p>
+<p><span class="field-label">Denominador.</span> Três dimensões.</p>
+<p><span class="field-label">Unidade de medida.</span> Índice adimensional de 0 a 1.</p>
+<p><span class="field-label">Variáveis e categorias de análise.</span> Município, ano censitário, três subíndices oficiais e IVS publicado para conferência; 16 componentes identificados no quadro complementar.</p>
+<p><span class="field-label">Granularidade.</span> Município e ano censitário.</p>
+<p><span class="field-label">Periodicidade de atualização.</span> Edição fixa; nova edição exige novo protocolo.</p>
+<p><span class="field-label">Responsabilidade gerencial.</span> Instituição estatística ou responsável pelo índice, com equipes de vigilância, planejamento e participação social responsáveis pela interpretação e uso.</p>
+<p><span class="field-label">Notas.</span> O protocolo calcula a média dos três subíndices oficiais; não calcula um IVS novo. O Atlas 2015 identifica os 16 componentes, seus pesos internos e parâmetros de normalização.</p>
+<p><span class="field-label">Análise descritiva do indicador.</span> Apresentar IVS, três dimensões e componentes; mapear valores e variações; cruzar com perigos sem somá-los ao índice; mostrar populações e recursos presentes no território.</p>
+</div>
+</section>
+<section id="campos-complementares-para-clima-ambiente-e-saúde" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="campos-complementares-para-clima-ambiente-e-saúde">Campos complementares para clima, ambiente e saúde</h3>
+<div class="indicator-card">
+<p><span class="field-label">Unidade territorial.</span> Município da edição municipal do Atlas 2015.</p>
+<p><span class="field-label">Resolução espacial original.</span> Município; malha e códigos da edição do Atlas.</p>
+<p><span class="field-label">Resolução temporal.</span> Anos censitários 2000 e 2010.</p>
+<p><span class="field-label">Período de referência.</span> Censos 2000 e 2010, na edição municipal de 2015.</p>
+<p><span class="field-label">Limiar ou valor de referência.</span> Publicar o valor contínuo; não reclassificar nem alterar limites da edição oficial.</p>
+</div>
+</section>
+<section id="disponibilidade-e-acesso" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="disponibilidade-e-acesso">Disponibilidade e acesso</h3>
+<p><span class="field-label">Protocolo verificado em.</span> 2026-10-06</p>
+<p><span class="field-label">Dependência de dados locais.</span> Não depende de coleta local.</p>
+<p><span class="field-label">Automação.</span> Condicionada</p>
+<p><span class="field-label">Requisitos para o cálculo.</span> Validar a edição, as entradas e os códigos; arquivar a extração com URL, data e SHA-256. Implementação em repositório de cálculo separado.</p>
+<p><span class="field-label">Nível de evidência.</span> Documentação verificada</p>
+<p><span class="field-label">Alcance da verificação.</span> Definição conferida nas referências citadas; nenhuma série deste indicador foi calculada nesta revisão.</p>
+<p><span class="field-label">Cobertura geográfica.</span> Municípios brasileiros publicados na edição do Atlas 2015; preservar a compatibilização territorial dessa edição.</p>
+<p><span class="field-label">Período disponível.</span> 2000 e 2010. Esta especificação não inclui IVS municipal baseado no Censo 2022 nem séries PNAD.</p>
+<p><span class="field-label">Periodicidade de atualização.</span> Edição fixa; nova edição exige novo protocolo.</p>
+<p><span class="field-label">Forma de acesso.</span> Portal Atlas IVS/Ipea, consulta de municípios, fonte Censo, com exportação dos três subíndices e do IVS.</p>
+<p><span class="field-label">URL ou identificador persistente.</span> https://ivs.ipea.gov.br/</p>
+<p><span class="field-label">Formato dos arquivos.</span> Tabela exportada do Atlas; planilha/CSV arquivada com cabeçalhos originais.</p>
+<p><span class="field-label">Necessidade de processamento.</span> Mapear os três subíndices publicados, validar chaves e calcular média.</p>
+</section>
+<section id="qualidade-comparação-e-saúde" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="qualidade-comparação-e-saúde">Qualidade, comparação e saúde</h3>
+<p><span class="field-label">Qualidade e incerteza.</span> Documentar fonte, ano, universo, erro amostral, imputação, variáveis, sentido, normalização, pesos, edição, limites territoriais e impacto de valores pequenos ou ausentes.</p>
+<p><span class="field-label">Possibilidade de comparação.</span> Comparar somente valores calculados com a mesma edição, universo, componentes, pesos e território; índices relativos podem mudar mesmo sem alteração absoluta de uma localidade.</p>
+<p><span class="field-label">Relação com desfechos de saúde.</span> Privação material, discriminação, barreiras de acesso e menor capacidade de proteção modificam exposição, suscetibilidade e recuperação diante de perigos climáticos e ambientais.</p>
+<p><span class="field-label">Defasagens temporais relevantes.</span> A vulnerabilidade medida em Censo ou pesquisa domiciliar refere-se a uma data ou período anterior; registrar a distância temporal até o evento e mudanças posteriores.</p>
+<p><span class="field-label">Aplicação na gestão.</span> Orientar busca ativa, comunicação acessível, localização de recursos, proteção social e planejamento intersetorial, sem rotular pessoas ou territórios como portadores naturais de vulnerabilidade.</p>
+</section>
+<section id="referências-metodológicas" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="referências-metodológicas">Referências metodológicas</h3>
+<ul>
+<li><span class="citation" data-cites="ipea2015ivs">(<a href="../../backmatter/referencias.html#ref-ipea2015ivs" role="doc-biblioref">Costa; Marguti, 2015</a>)</span></li>
+</ul>
+</section>
+</section>
+<section id="sec-exp-hab-02" class="level2 ficha-title" data-number="23.2">
+<h2 class="ficha-title anchored" data-number="23.2" data-anchor-id="sec-exp-hab-02"><span class="header-section-number">23.2</span> Ficha do indicador: Percentual de domicílios com mais de três moradores por dormitório</h2>
+<div class="indicator-card">
+<p><span class="field-label">Código:</span> EXP-HAB-02<br>
+<span class="field-label">Título resumido:</span> Domicílios com mais de três moradores por dormitório<br>
+<span class="field-label">Tema:</span> Exposição e vulnerabilidade socioambiental<br>
+<span class="field-label">Dimensão:</span> vulnerabilidade<br>
+<span class="field-label">Disponibilidade:</span> <span class="availability">Calculável com dados abertos</span></p>
+</div>
+<p>Contexto e interpretação: <a href="../../chapters/part-3/13-exposicao-vulnerabilidade.html#sec-exposicao-vulnerabilidade">Exposição e vulnerabilidade socioambiental</a>.</p>
+<section id="identificação-e-fundamento-1" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="identificação-e-fundamento-1">Identificação e fundamento</h3>
+<p><span class="field-label">Base de consolidação.</span> IBGE, Censo Demográfico 2022, Características dos domicílios: resultados preliminares da amostra, tabela SIDRA 9933.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Conceito-chave">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Conceito-chave
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Parcela dos domicílios particulares permanentes ocupados com mais de três moradores por cômodo utilizado como dormitório, segundo as categorias da tabela 9933.</p>
+</div>
+</div>
+</section>
+<section id="objetivo-1" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="objetivo-1">Objetivo</h3>
+<p>Descrever adensamento domiciliar municipal com uma medida disponível no Censo 2022.</p>
+</section>
+<section id="interpretação-1" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="interpretação-1">Interpretação</h3>
+<p>Valores maiores indicam maior frequência de domicílios nessa classe de adensamento. Não representa o indicador ODS 11.1.1 completo nem mede inadequação habitacional em todas as dimensões.</p>
+</section>
+<section id="usos-1" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="usos-1">Usos</h3>
+<ul>
+<li>Caracterizar adensamento domiciliar.</li>
+<li>Apoiar planejamento de habitação e saúde.</li>
+</ul>
+</section>
+<section id="limitações-1" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="limitações-1">Limitações</h3>
+<ul>
+<li>Resultados preliminares da amostra, sujeitos a erro amostral e revisões.</li>
+<li>A unidade é domicílio, não pessoa.</li>
+<li>Não mede ventilação, temperatura interna, custo ou segurança da posse.</li>
+</ul>
+</section>
+<section id="fontes-de-dados-1" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="fontes-de-dados-1">Fontes de dados</h3>
+<ul>
+<li>Censo 2022 — SIDRA 9933: moradores por dormitório — Dados e definição de universo: domicílios por moradores por dormitório, Censo 2022. (<a href="../../backmatter/indice-fontes.html#ibge-sidra-9933">cadastro</a>)</li>
+</ul>
+</section>
+<section id="método-de-cálculo-1" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="método-de-cálculo-1">Método de cálculo</h3>
+<p>Consultar SIDRA 9933, ano 2022, município (nível N6), variável 381 (domicílios). Na classificação 1975, usar categoria 73090 (mais de 3 moradores por dormitório) no numerador e 73086 (Total) no denominador. Fixar classificação 63 em 95826 (Total) e 125 em 2932 (Total). Calcular 100 × numerador / denominador. Não somar a categoria Total às parcelas. Interpretar os sinais convencionais do SIDRA: hífen (-) significa zero absoluto e pode ser convertido em zero, preservando o símbolo original; X indica valor inibido, … indisponível e .. não aplicável, todos mantidos como ausentes com motivo. Campo vazio ou símbolo inesperado também impede o cálculo. Valores numéricos são usados como publicados, conservando sua precisão. Não transformar supressão ou indisponibilidade em zero. Denominador nulo ou ausente produz resultado ausente com motivo. Registrar versão da divulgação, extração e natureza amostral.</p>
+<p><span class="math display">\[
+P=100\times D_{&gt;3}/D_{total}
+\]</span></p>
+<div class="indicator-card">
+<p><span class="field-label">Numerador.</span> Variável 381, classificação 1975, categoria 73090, demais classificações em Total.</p>
+<p><span class="field-label">Denominador.</span> Variável 381, classificação 1975, categoria 73086, mesmos município, ano e totais.</p>
+<p><span class="field-label">Unidade de medida.</span> Percentual de domicílios (%).</p>
+<p><span class="field-label">Variáveis e categorias de análise.</span> Município, ano 2022 e categorias fixadas; estimativas do número de domicílios no numerador e no denominador.</p>
+<p><span class="field-label">Granularidade.</span> Município.</p>
+<p><span class="field-label">Periodicidade de atualização.</span> Divulgações e revisões do Censo 2022.</p>
+<p><span class="field-label">Responsabilidade gerencial.</span> Instituição estatística ou responsável pelo índice, com equipes de vigilância, planejamento e participação social responsáveis pela interpretação e uso.</p>
+<p><span class="field-label">Notas.</span> Substitui EXP-HAB-01; código anterior reservado. Não equivale ao ODS 11.1.1.</p>
+<p><span class="field-label">Análise descritiva do indicador.</span> Publicar município, ano, estimativas dos domicílios, percentual e indicação de resultado amostral; não interpretar como contagem bruta da amostra.</p>
+</div>
+</section>
+<section id="campos-complementares-para-clima-ambiente-e-saúde-1" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="campos-complementares-para-clima-ambiente-e-saúde-1">Campos complementares para clima, ambiente e saúde</h3>
+<div class="indicator-card">
+<p><span class="field-label">Unidade territorial.</span> Municípios do Censo 2022.</p>
+<p><span class="field-label">Resolução espacial original.</span> Município.</p>
+<p><span class="field-label">Resolução temporal.</span> Censo 2022.</p>
+<p><span class="field-label">Período de referência.</span> Data de referência do Censo 2022.</p>
+<p><span class="field-label">Limiar ou valor de referência.</span> Estritamente mais de três moradores por dormitório; a classe de mais de dois até três não integra o numerador.</p>
+</div>
+</section>
+<section id="disponibilidade-e-acesso-1" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="disponibilidade-e-acesso-1">Disponibilidade e acesso</h3>
+<p><span class="field-label">Protocolo verificado em.</span> 2026-10-06</p>
+<p><span class="field-label">Dependência de dados locais.</span> Não depende de coleta local.</p>
+<p><span class="field-label">Automação.</span> Condicionada</p>
+<p><span class="field-label">Requisitos para o cálculo.</span> Validar a edição, as entradas e os códigos; arquivar a extração com URL, data e SHA-256. Implementação em repositório de cálculo separado.</p>
+<p><span class="field-label">Nível de evidência.</span> Acesso e cálculo testados</p>
+<p><span class="field-label">Alcance da verificação.</span> Consulta real de Rio de Janeiro (3304557), Censo 2022, arquivada em data-raw/parte-iii; razão das contagens comparada ao percentual oficial da variável 1000381. Ver registro de verificação.</p>
+<p><span class="field-label">Cobertura geográfica.</span> Brasil, municípios com resultados publicados na tabela 9933.</p>
+<p><span class="field-label">Período disponível.</span> 2022.</p>
+<p><span class="field-label">Periodicidade de atualização.</span> Divulgações e revisões do Censo 2022.</p>
+<p><span class="field-label">Forma de acesso.</span> SIDRA ou API de agregados do IBGE, agregado 9933; consulta reproduzível e resposta arquivadas em data-raw/parte-iii.</p>
+<p><span class="field-label">URL ou identificador persistente.</span> https://sidra.ibge.gov.br/tabela/9933</p>
+<p><span class="field-label">Formato dos arquivos.</span> JSON e tabelas SIDRA.</p>
+<p><span class="field-label">Necessidade de processamento.</span> Consultar as duas categorias, validar símbolos especiais e dividir.</p>
+</section>
+<section id="qualidade-comparação-e-saúde-1" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="qualidade-comparação-e-saúde-1">Qualidade, comparação e saúde</h3>
+<p><span class="field-label">Qualidade e incerteza.</span> Documentar fonte, ano, universo, erro amostral, imputação, variáveis, sentido, normalização, pesos, edição, limites territoriais e impacto de valores pequenos ou ausentes.</p>
+<p><span class="field-label">Possibilidade de comparação.</span> Comparar somente valores calculados com a mesma edição, universo, componentes, pesos e território; índices relativos podem mudar mesmo sem alteração absoluta de uma localidade.</p>
+<p><span class="field-label">Relação com desfechos de saúde.</span> Privação material, discriminação, barreiras de acesso e menor capacidade de proteção modificam exposição, suscetibilidade e recuperação diante de perigos climáticos e ambientais.</p>
+<p><span class="field-label">Defasagens temporais relevantes.</span> A vulnerabilidade medida em Censo ou pesquisa domiciliar refere-se a uma data ou período anterior; registrar a distância temporal até o evento e mudanças posteriores.</p>
+<p><span class="field-label">Aplicação na gestão.</span> Orientar busca ativa, comunicação acessível, localização de recursos, proteção social e planejamento intersetorial, sem rotular pessoas ou territórios como portadores naturais de vulnerabilidade.</p>
+</section>
+<section id="referências-metodológicas-1" class="level3 unnumbered ficha-section">
+<h3 class="unnumbered ficha-section anchored" data-anchor-id="referências-metodológicas-1">Referências metodológicas</h3>
+<ul>
+<li><span class="citation" data-cites="ibge2025domicilios2022">(<a href="../../backmatter/referencias.html#ref-ibge2025domicilios2022" role="doc-biblioref">Instituto Brasileiro de Geografia e Estatística, 2025</a>)</span></li>
+</ul>
+</section>
+</section>
+<section id="sec-ivs-componentes" class="level2" data-number="23.3">
+<h2 data-number="23.3" class="anchored" data-anchor-id="sec-ivs-componentes"><span class="header-section-number">23.3</span> Componentes do IVS para interpretação e conferência</h2>
+<p>Identificação dos 16 componentes do Atlas 2015, quadros 1–3. Pesos abaixo são internos a cada dimensão; as três dimensões têm peso igual no IVS. A ficha utiliza os subíndices oficiais publicados, sem recalcular estes componentes <span class="citation" data-cites="ipea2015ivs">(<a href="../../backmatter/referencias.html#ref-ipea2015ivs" role="doc-biblioref">Costa; Marguti, 2015</a>)</span>.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Dimensão</th>
+<th>Componente</th>
+<th>Peso interno</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Infraestrutura urbana</td>
+<td>Pessoas em domicílios sem água de rede geral e sem esgoto por rede ou fossa séptica.</td>
+<td>0.300</td>
+</tr>
+<tr class="even">
+<td>Infraestrutura urbana</td>
+<td>População em domicílios urbanos sem coleta de lixo.</td>
+<td>0.300</td>
+</tr>
+<tr class="odd">
+<td>Infraestrutura urbana</td>
+<td>Ocupados de 10 anos ou mais, de baixa renda, com deslocamento ao trabalho superior a uma hora, entre os que retornam diariamente.</td>
+<td>0.400</td>
+</tr>
+<tr class="even">
+<td>Capital humano</td>
+<td>Mortalidade até um ano de idade (por mil nascidos vivos).</td>
+<td>0.125</td>
+</tr>
+<tr class="odd">
+<td>Capital humano</td>
+<td>Crianças de 0–5 anos fora de creche/escola.</td>
+<td>0.125</td>
+</tr>
+<tr class="even">
+<td>Capital humano</td>
+<td>Pessoas de 6–14 anos fora da escola.</td>
+<td>0.125</td>
+</tr>
+<tr class="odd">
+<td>Capital humano</td>
+<td>Mulheres de 10–17 anos que tiveram filhos.</td>
+<td>0.125</td>
+</tr>
+<tr class="even">
+<td>Capital humano</td>
+<td>Mães chefes de família sem fundamental completo, com filho menor de 15 anos.</td>
+<td>0.125</td>
+</tr>
+<tr class="odd">
+<td>Capital humano</td>
+<td>Analfabetismo em pessoas de 15 anos ou mais.</td>
+<td>0.125</td>
+</tr>
+<tr class="even">
+<td>Capital humano</td>
+<td>Crianças de até 14 anos em domicílios sem morador com fundamental completo.</td>
+<td>0.125</td>
+</tr>
+<tr class="odd">
+<td>Capital humano</td>
+<td>Pessoas de 15–24 anos que não estudam nem trabalham e têm baixa renda domiciliar per capita.</td>
+<td>0.125</td>
+</tr>
+<tr class="even">
+<td>Renda e trabalho</td>
+<td>Pessoas com renda domiciliar per capita igual ou inferior a meio salário mínimo de agosto de 2010.</td>
+<td>0.200</td>
+</tr>
+<tr class="odd">
+<td>Renda e trabalho</td>
+<td>Desocupação da população economicamente ativa de 18 anos ou mais.</td>
+<td>0.200</td>
+</tr>
+<tr class="even">
+<td>Renda e trabalho</td>
+<td>Pessoas de 18 anos ou mais sem fundamental completo e em ocupação informal.</td>
+<td>0.200</td>
+</tr>
+<tr class="odd">
+<td>Renda e trabalho</td>
+<td>Pessoas em domicílios de baixa renda dependentes da renda de moradores de 65 anos ou mais.</td>
+<td>0.200</td>
+</tr>
+<tr class="even">
+<td>Renda e trabalho</td>
+<td>Atividade econômica de pessoas de 10–14 anos.</td>
+<td>0.200</td>
+</tr>
+</tbody>
+</table>
+<p>Baixa renda refere-se aos limites em reais de agosto de 2010 definidos no Atlas, não ao salário mínimo atual. Para conferência das bases, conservar a definição e o denominador completos dos quadros originais; não substituir denominadores por população total. A comparação temporal deve conservar a compatibilização municipal de 2000/2010 da publicação.</p>
+</section>
+<section id="códigos-retirados-e-destinos-preservados" class="level2" data-number="23.4">
+<h2 data-number="23.4" class="anchored" data-anchor-id="códigos-retirados-e-destinos-preservados"><span class="header-section-number">23.4</span> Códigos retirados e destinos preservados</h2>
+<p>Os códigos abaixo permanecem reservados e não integram a contagem de fichas operacionais.</p>
+<section id="sec-exp-vul-02" class="level3" data-number="23.4.1">
+<h3 data-number="23.4.1" class="anchored" data-anchor-id="sec-exp-vul-02"><span class="header-section-number">23.4.1</span> EXP-VUL-02 — retirado</h3>
+<p>Retirado do catálogo operacional brasileiro. O SVI/CDC permanece como comparação metodológica no capítulo de contexto; seus percentis norte-americanos não serão recalculados para municípios brasileiros.</p>
+</section>
+<section id="sec-exp-hab-01" class="level3" data-number="23.4.2">
+<h3 data-number="23.4.2" class="anchored" data-anchor-id="sec-exp-hab-01"><span class="header-section-number">23.4.2</span> EXP-HAB-01 — retirado</h3>
+<p>Substituído por EXP-HAB-02, adensamento domiciliar do Censo 2022. A nova medida não equivale ao ODS 11.1.1 completo.</p>
+
+
+<div id="refs" class="references csl-bib-body" data-entry-spacing="1" role="list" style="display: none">
+<div id="ref-ipea2015ivs" class="csl-entry" role="listitem">
+COSTA, Marco Aurélio; MARGUTI, Bárbara Oliveira. <strong><a href="https://repositorio.ipea.gov.br/handle/11058/4381">Atlas da vulnerabilidade social nos municípios brasileiros</a></strong>. Brasília, DF: Instituto de Pesquisa Econômica Aplicada, 2015.
+</div>
+<div id="ref-ibge2025domicilios2022" class="csl-entry" role="listitem">
+INSTITUTO BRASILEIRO DE GEOGRAFIA E ESTATÍSTICA. <strong>Censo Demográfico 2022: características dos domicílios: resultados preliminares da amostra. Tabela SIDRA 9933</strong>. 2025. Disponível em: &lt;<a href="https://sidra.ibge.gov.br/tabela/9933">https://sidra.ibge.gov.br/tabela/9933</a>&gt;. Acesso em: 6 out. 2026.
+</div>
+</div>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiada");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiada");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../chapters/part-4/22-fichas-eventos-severos-desastres.html" class="pagination-link" aria-label="Fichas — Impactos dos desastres">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Fichas — Impactos dos desastres</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../chapters/part-4/24-fichas-efeitos-saude.html" class="pagination-link" aria-label="Fichas — Mortalidade e internações hospitalares">
+        <span class="nav-page-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Fichas — Mortalidade e internações hospitalares</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/rfsaldanha/dicas/blob/main/chapters/part-4/23-fichas-exposicao-vulnerabilidade.qmd" class="toc-action"><i class="bi bi-github"></i>Ver o código fonte</a></li><li><a href="https://github.com/rfsaldanha/dicas/issues/new" class="toc-action"><i class="bi empty"></i>Criar uma issue</a></li></ul></div></div></div></footer></body></html>
