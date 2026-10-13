@@ -26,56 +26,56 @@ SPECS = [
  citations='[@iphan2016sinos, p. 120, 145; @who2017riskcommunication]',
  purpose='Relacionar a antiguidade das práticas de aviso à necessidade de interpretação compartilhada, sem propor evolução tecnológica linear.',
  montage='Duas vinhetas sem conexão cronológica; rótulos inferiores e uma faixa comum de interpretação. Nenhum mapa, data ou episódio reconstruído.',
- link='A @fig-comunicacao-praticas aproxima esses repertórios, cujo funcionamento depende de interpretação compartilhada; os canais atuais podem coexistir.'),
+ link='Os canais podem funcionar juntos, como na @fig-comunicacao-praticas.'),
  dict(number='02', slug='condicoes', id='fig-comunicacao-condicoes', watercolor=True,
  title='Receber o aviso e conseguir agir são condições diferentes',
- alt='Três cenas de um bairro hipotético mostram cuidado de pessoa idosa, mobilidade em cadeira de rodas e organização do trabalho. Rótulos associam cada necessidade à continuidade do cuidado, ao transporte acessível e às medidas institucionais. Barreiras demandam providências públicas, sem julgamento da conduta dos moradores.',
+ alt='Três cenas de um bairro hipotético mostram cuidado de pessoa idosa, mobilidade em cadeira de rodas e organização do trabalho. Rótulos associam cada necessidade à continuidade do cuidado, ao transporte acessível e à organização do trabalho. Barreiras demandam providências públicas, sem julgamento da conduta dos moradores.',
  citations='[@beck2010risco; @araujoCardoso2007comunicacao; @valencio2014tecnicismo]',
  purpose='Tornar visíveis condições materiais de proteção e sua relação com responsabilidades institucionais.',
  montage='Três cenas na mesma escala, com rótulos de cuidado, mobilidade e trabalho. Faixa inferior associa barreiras a providências públicas e compromissos institucionais.',
- link='A @fig-comunicacao-condicoes relaciona necessidades de cuidado, mobilidade e trabalho às condições que as instituições precisam viabilizar.'),
+ link='Essas situações pedem providências diferentes, como mostra a @fig-comunicacao-condicoes.'),
  dict(number='03', slug='escuta', id='fig-comunicacao-escuta', watercolor=False,
  title='Escuta que modifica a decisão',
- alt='Ciclo de quatro núcleos: relato territorial por moradores e comunicadores locais; verificação com agentes comunitários e equipes técnicas; decisão com responsável, recursos e prazo; devolutiva com acompanhamento da entrega. Uma seta retorna da devolutiva à escuta. A impossibilidade de atender requer justificativa e discussão de alternativas.',
+ alt='Ciclo de quatro núcleos: relato dos moradores e comunicadores locais; verificação com agentes comunitários e equipes técnicas; decisão com responsável, recursos e prazo; resposta com acompanhamento do apoio. Uma seta retorna da resposta à escuta. A impossibilidade de atender requer justificativa e discussão de alternativas.',
  citations='[@who2017riskcommunication; @araujoCardoso2007comunicacao; @loose2025entrevista]',
- purpose='Explicar como a participação modifica decisões e exige retorno verificável.',
+ purpose='Explicar como a participação modifica decisões e exige resposta e acompanhamento.',
  montage='Quatro caixas em duas linhas. Percurso horário com setas e retorno tracejado à escuta. Faixa final sobre justificativa e alternativas. Rótulos identificam participantes e responsabilidades.',
- link='A @fig-comunicacao-escuta explicita um percurso de participação com responsáveis e devolutiva, que deve permanecer aberto à revisão.'),
+ link='O retorno à escuta, na @fig-comunicacao-escuta, permite verificar se a solução funcionou.'),
  dict(number='04', slug='evidencias', id='fig-comunicacao-evidencias', watercolor=False,
  title='Observação, previsão e projeção apoiam decisões diferentes',
  alt='Três campos paralelos distinguem observação do que foi medido ou registrado, previsão para área e período e projeção condicionada a cenários. Todos precisam explicitar fonte, território, validade e limites e apoiar a decisão pertinente à sua escala. Novas evidências levam à revisão e à explicação das atualizações; os campos não são etapas sucessivas.',
  citations='[@rsu2026integridade, p. 4, 6–7]',
  purpose='Distinguir tipos de evidência e suas escalas de decisão sem inventar probabilidades.',
  montage='Três campos paralelos, sem setas entre si, com convergência a uma faixa de contexto e a decisões pertinentes. Revisão retorna à avaliação, sem converter observação em previsão ou projeção.',
- link='A @fig-comunicacao-evidencias organiza esses tipos de informação em paralelo e explicita os elementos necessários para apoiar a decisão pertinente.'),
+ link='Na @fig-comunicacao-evidencias, cada tipo de informação apoia decisões conforme sua finalidade; a chegada de novos dados pode exigir revisão.'),
  dict(number='05', slug='enchentes', id='fig-comunicacao-enchentes', watercolor=True,
  title='Enchentes: orientação acompanhada de transporte e acolhimento',
  alt='Situação hipotética de preparação para saída: equipe orienta moradores em rua seca junto a transporte acessível, enquanto outra vinheta mostra acolhimento com acompanhante e bolsa de cuidados. Os rótulos exigem rota verificada, transporte confirmado e acolhimento acessível, com continuidade do cuidado. Não representa Canoas ou uma operação real.',
  citations='[@who2017riskcommunication; @valencio2014tecnicismo]',
  purpose='Associar orientação de saída às condições verificadas de deslocamento, acolhimento e cuidado.',
  montage='Duas vinhetas e três rótulos: rota verificada, transporte confirmado, acolhimento acessível. Faixa sobre acompanhantes e continuidade do cuidado. Identificar situação hipotética.',
- link='A situação hipotética da @fig-comunicacao-enchentes reúne condições a verificar antes de anunciar a saída; não representa a operação de Canoas.'),
+ link='Na preparação para saída da @fig-comunicacao-enchentes, o transporte acessível e o acolhimento precisam funcionar em conjunto.'),
  dict(number='06', slug='calor', id='fig-comunicacao-calor', watercolor=True,
  title='Calor: proteção também depende das condições de trabalho',
  alt='Duas vinhetas hipotéticas mostram trabalhadores em pausa com sombra e água, junto ao responsável pelas atividades, e apoio de serviço público a pessoa idosa com dificuldade de mobilidade. Rótulos ligam pausas e reorganização do trabalho aos empregadores e o acesso à proteção às equipes públicas. Não há limites de temperatura ou horários inventados.',
  citations='[@who2026heat]',
  purpose='Relacionar proteção do calor à organização do trabalho e à oferta pública de apoio.',
  montage='Duas vinhetas com rótulos separados para medidas dos empregadores e serviços públicos. Faixa final sobre responsabilidades e recursos pactuados, sem limiares climáticos.',
- link='Na @fig-comunicacao-calor, as condições de pausa e de acesso ao cuidado dependem de medidas organizadas por empregadores e serviços públicos.'),
+ link='As duas cenas da @fig-comunicacao-calor mostram responsabilidades complementares: organizar o trabalho e fazer o apoio público chegar às pessoas.'),
  dict(number='07', slug='fumaca', id='fig-comunicacao-fumaca', watercolor=True,
  title='Fumaça e calor exigem proteção coordenada',
  alt='Uma paisagem hipotética com fumaça externa aparece separada de um espaço coletivo de acolhimento acessível. Três rótulos exigem verificar condições de ar e temperatura, organizar acesso e assegurar assistência. A adequação do ambiente depende de verificação; a cor da fumaça não mede concentração e fechar janelas não é apresentado como solução universal.',
  citations='[@who2023wildfires; @who2026heat]',
  purpose='Mostrar que reduzir exposição à fumaça exige considerar calor, acesso e assistência conjuntamente.',
  montage='Duas cenas independentes e três rótulos inferiores. Sem fluxo de ar desenhado, gradiente quantitativo ou promessa de eficácia de equipamento. Faixa ressalta a verificação do ambiente.',
- link='A @fig-comunicacao-fumaca apresenta uma alternativa coletiva cuja adequação depende da verificação conjunta das condições ambientais e do acesso ao cuidado.'),
+ link='A @fig-comunicacao-fumaca reúne essas verificações.'),
  dict(number='08', slug='falhas', id='fig-comunicacao-falhas', watercolor=False,
  title='Uma falha no apoio exige correção e acompanhamento',
- alt='Fluxo hipotético começa com transporte anunciado que não chega: registrar a falha, acionar responsável e verificar alternativa. Com alternativa confirmada, atualizar a orientação e realizar o apoio. Sem alternativa, comunicar a limitação, manter a demanda pendente e retornar à coordenação. Somente atendimento verificado permite concluir o registro, dar devolutiva e corrigir procedimentos; pedidos sem confirmação permanecem abertos.',
+ alt='Fluxo hipotético começa com transporte anunciado que não chega: registrar a falha, acionar responsável e verificar alternativa. Com alternativa confirmada, atualizar a orientação e realizar o apoio. Sem alternativa, comunicar a limitação, manter a demanda pendente e retornar à coordenação. Somente atendimento verificado permite concluir o registro, dar uma resposta e corrigir procedimentos; pedidos sem confirmação permanecem abertos.',
  citations='[@who2017riskcommunication; @rsu2026integridade, p. 7]',
  purpose='Explicitar resposta a falhas sem promessa de alternativa inexistente e sem encerrar pedidos por simples encaminhamento.',
  montage='Fluxo vertical com bifurcação entre alternativa confirmada e não confirmada. A segunda volta à coordenação. Após o apoio, verificação condiciona conclusão; ausência de confirmação mantém pedido aberto. Faixa final sobre correção de procedimentos.',
- link='A @fig-comunicacao-falhas organiza esse fluxo hipotético: encaminhar uma demanda ou emitir uma atualização não basta para concluir o atendimento.')
+ link='A @fig-comunicacao-falhas mostra por que o acompanhamento continua depois da correção do aviso.')
 ]
 
 
@@ -117,8 +117,8 @@ def layout(n):
         elif n == '02':
             labels=[('Cuidado', ['Continuidade do cuidado', 'e acompanhamento']),
                     ('Mobilidade', ['Transporte e', 'acolhimento acessíveis']),
-                    ('Trabalho', ['Medidas institucionais', 'para tornar a ação viável'])]
-            footer='Barreiras exigem providências públicas e compromissos institucionais.'
+                    ('Trabalho', ['Organizar o trabalho', 'e viabilizar a saída'])]
+            footer='Poder público e empregadores precisam garantir condições de proteção.'
         elif n == '05':
             labels=[('Rota verificada', ['Ação e destino', 'compreensíveis']),
                     ('Transporte confirmado', ['Acesso e apoio', 'ao deslocamento']),
@@ -140,11 +140,11 @@ def layout(n):
         return 1540,parts
     if n == '03':
         return 1140,[
-            panel(100,40,730,270,'Relato territorial', ['Moradores e', 'comunicadores locais']),
+            panel(100,40,730,270,'Relato dos moradores', ['Moradores e', 'comunicadores locais']),
             panel(970,40,730,270,'Verificação conjunta', ['Agentes comunitários e', 'equipes técnicas e públicas'],PALE),
             arrow('M830 175 H970'), arrow('M1335 310 V510'),
-            panel(970,510,730,270,'Decisão com responsável', ['Recursos, providência', 'e prazo de retorno']),
-            panel(100,510,730,270,'Devolutiva e acompanhamento', ['Explicar a decisão e', 'verificar a entrega'],PALE),
+            panel(970,510,730,270,'Decisão com responsável', ['O que fazer e com quais recursos;', 'quem faz e quando responde']),
+            panel(100,510,730,270,'Resposta e acompanhamento', ['Explicar a decisão e', 'conferir se o apoio chegou'],PALE),
             arrow('M970 645 H830'), arrow('M465 510 V310',True),
             text(510,417,'Reabrir a escuta',size=46,anchor='start'),
             panel(100,890,1600,210,'Se a demanda não puder ser atendida',
@@ -153,17 +153,17 @@ def layout(n):
         p=[]
         for x,title,lines in [(40,'Observação',['O que foi medido', 'ou registrado']),
                              (635,'Previsão',['Estimativa para uma', 'área e um período']),
-                             (1230,'Projeção',['Evoluções condicionadas', 'a cenários'])]:
+                             (1230,'Projeção',['O que pode mudar', 'em cada cenário'])]:
             p.append(panel(x,35,530,280,title,lines,PALE))
             p.append(arrow(f'M{x+265} 315 V415'))
-        p += [panel(40,415,1720,215,'Explicitar o contexto de cada informação',
+        p += [panel(40,415,1720,215,'Apresentar a informação completa',
                     ['Fonte · território · validade · limites']),
               arrow('M900 630 V740'),
-              panel(190,740,1420,215,'Apoiar a decisão pertinente',
+              panel(190,740,1420,215,'Usar a informação para decidir',
                     ['Ação imediata ou planejamento, conforme a escala.'],PALE),
               arrow('M900 955 V1065'),
-              panel(190,1065,1420,215,'Reavaliar e explicar a atualização',
-                    ['Novas evidências, correções e mudanças na orientação.']),
+              panel(190,1065,1420,215,'Rever a orientação e explicar a mudança',
+                    ['Novos dados, correções e mudanças na situação.']),
               arrow('M1610 1170 H1740 V690 H1500 V740',True),
               text(900,1370,'Os três campos são paralelos; não constituem etapas sucessivas.',size=46)]
         return 1425,p
@@ -184,8 +184,8 @@ def layout(n):
             panel(950,930,750,225,'Sem confirmação', ['Pedido permanece aberto.']),
             arrow('M1700 1040 H1760 V360 H1490',True),
             arrow('M480 1155 V1290'), text(530,1236,'Atendimento confirmado',size=46,anchor='start'),
-            panel(100,1290,1600,230,'Concluir o registro e dar devolutiva',
-                  ['Registrar a entrega e ouvir os envolvidos;', 'corrigir procedimentos com responsáveis e prazos.']),
+            panel(100,1290,1600,230,'Concluir o registro e dar uma resposta',
+                  ['Registrar o apoio e ouvir as pessoas;', 'definir quem corrige as falhas e em que prazo.']),
             text(900,1620,['Setas tracejadas: retornar à coordenação.',
                            'Uma atualização da mensagem não encerra o atendimento.'],size=46,step=58)]
     raise ValueError(n)
