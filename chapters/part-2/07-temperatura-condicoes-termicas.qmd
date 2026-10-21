@@ -108,7 +108,7 @@ A média climatológica, também chamada de "normal climatológica" é muito uti
 
 TODO: box sobre normais climatológicas e método de cálculo.
 
-Do ponto de vista epidemiológico, a temperatura associada à menor mortalidade em um estudo depende da população, do período, do modelo e das defasagens; não é uma temperatura ideal universal. A carga associada à temperatura pode envolver muitos dias moderadamente desfavoráveis, além dos extremos raros [@gasparrini2015temperature]. A @fig-referencias-termicas compara essas três leituras.
+Do ponto de vista epidemiológico, a temperatura associada a um desfecho de saúde, como internações ou mortalidade, depende da população, do período, do modelo e das defasagens; não é uma temperatura ideal universal. A carga associada à temperatura pode envolver muitos dias moderadamente desfavoráveis, além dos extremos raros [@gasparrini2015temperature]. A @fig-referencias-termicas compara essas três leituras.
 
 ::: {.figure-with-source}
 
@@ -122,9 +122,13 @@ Na prática, acompanhe intensidade, frequência, variação diária e oportunida
 
 ## Ondas de calor e de frio
 
-Uma onda é um episódio persistente definido por regras explícitas. A descrição deve informar variável, limiar, duração mínima e continuidade, além da área e do período analisados. Máximas elevadas, mínimas elevadas e médias elevadas podem identificar episódios diferentes. No frio, uma sequência de mínimas abaixo de um percentil local também não é equivalente a qualquer sequência abaixo de um valor absoluto [@perkins2013heatwaves; @climdex2024].
+Uma onda está associada a ideia de persistência, como uma sequência ininterrupta de dias que possam ser considerados quentes ou frios. Não há uma definição única de onda que seja adequada a todos os climas e a todos os usos epidemiológicos, por isso, existem diversas definições de ondas de calor e de frio.
 
-Não há definição única adequada a todos os climas e usos sanitários. Um índice climático padronizado favorece comparação; um alerta precisa relacionar exposição prevista, efeitos relevantes e capacidade de agir. Por isso, contar episódios retrospectivamente e ativar uma resposta em saúde são tarefas conectadas, mas exigem critérios próprios [@wmoWho2015heat].
+A definição de uma onda deve informar variável considerada, limiar, duração mínima e continuidade, além da área e do período analisados. Máximas elevadas, mínimas elevadas e médias elevadas podem identificar episódios diferentes. No frio, uma sequência de mínimas abaixo de um percentil local também não é equivalente a qualquer sequência abaixo de um valor absoluto [@perkins2013heatwaves; @climdex2024].
+
+Um índice climático padronizado de onda favorece a comparação entre regiões e no tempo; um alerta sobre ondas precisa relacionar a exposição prevista, os efeitos relevantes na saúde do indivíduo e no sistema de saúde, e sua capacidade de agir. Por isso, contar episódios retrospectivamente e ativar uma resposta em saúde são tarefas conectadas, mas exigem critérios próprios [@wmoWho2015heat].
+
+TODO: explicar melhor as famílias de definições de onda de calor e de frio.
 
 ::: {.callout-note icon=false title="Conceito-chave: persistência e contagem"}
 O Índice de Duração de Períodos Quentes (WSDI) conta dias em sequências de pelo menos seis dias com TX acima do percentil 90. O Índice de Duração de Períodos Frios (CSDI) conta dias em sequências de pelo menos seis dias com TN abaixo do percentil 10. Nas fichas do livro, ambos usam percentis por dia do calendário e a base 1961–1990. Seus resultados são dias participantes, não número de ondas [@climdex2024].
@@ -146,17 +150,23 @@ A noite acrescenta outra dimensão. TN90p descreve frequência de mínimas eleva
 
 Registre início, término, duração, intensidade, extensão, população potencialmente exposta e incerteza. As [fichas térmicas](../../chapters/part-4/17-fichas-temperatura-condicoes-termicas.qmd) detalham as operações; o [capítulo de eventos severos](../../chapters/part-2/12-eventos-severos-desastres.qmd) situa os episódios no contexto dos desastres, e o [capítulo de resiliência dos sistemas de saúde](../../chapters/part-3/15-resposta-adaptacao-resiliencia.qmd) trata da organização dos alertas e das ações. A preparação para o frio deve integrar esse planejamento, mesmo onde eventos de calor recebem maior atenção [@brasil2026frio].
 
-## Umidade, sensação e conforto térmico
+## Sensação, conforto e estresse térmico
 
-A mesma temperatura do ar pode acompanhar condições muito diferentes de troca de calor. A umidade relativa expressa a proximidade da saturação do ar àquela temperatura; não é uma medida direta da quantidade de vapor independente da temperatura. Pressão de vapor e temperatura do ponto de orvalho oferecem outras representações da umidade. Converter essas variáveis exige fórmula, unidades e entradas consistentes [@wmo2024instrumentos; @masterton1979].
+A mesma temperatura do ar pode acompanhar condições muito diferentes de troca de calor, influenciando como a temperatura é percebida e gerenciada pelo corpo humano. Outros fatores meteorológicos como umidade do ar, vento e radiação solar influenciam os mecanismos de troca de calor, sua percepção e regulação do corpo.
 
-No corpo, o resfriamento pelo suor depende de sua evaporação. A disponibilidade de um gradiente de pressão de vapor, a ventilação junto à pele e a resistência da roupa condicionam essa perda de calor. Radiação solar e superfícies quentes podem ampliar a carga térmica mesmo quando a temperatura do ar varia pouco. Vento modifica trocas convectivas e evaporativas; seu efeito precisa ser interpretado com temperatura, umidade e características da exposição [@niosh2016heat].
+No corpo, o resfriamento pelo suor depende de sua evaporação, que é determinada também pela umidade do ar. A umidade relativa expressa a proximidade da saturação do ar àquela temperatura; não é uma medida direta da quantidade de vapor independente da temperatura [@wmo2024instrumentos; @masterton1979].
+
+A disponibilidade de um gradiente de pressão de vapor, a ventilação junto à pele e a resistência da roupa condicionam essa perda de calor. Radiação solar e superfícies quentes podem ampliar a carga térmica mesmo quando a temperatura do ar varia pouco. Vento modifica trocas convectivas e evaporativas; seu efeito precisa ser interpretado com temperatura, umidade e características da exposição [@niosh2016heat].
+
 
 ::: {.callout-note icon=false title="Conceito-chave: sensação, conforto e estresse térmico"}
-Sensação térmica refere-se à percepção de quente ou frio; índices chamados de “sensação” estimam condições equivalentes sob hipóteses definidas. Conforto envolve a avaliação da pessoa sobre o ambiente. Estresse térmico descreve a carga imposta pelas condições térmicas, enquanto a sobrecarga é a resposta fisiológica. Desconforto, índice elevado e doença não são medidas intercambiáveis [@brode2012utci; @niosh2016heat].
+-  Sensação térmica refere-se à percepção de quente ou frio; índices chamados de “sensação” estimam condições equivalentes sob hipóteses definidas.
+-  Conforto envolve a avaliação da pessoa sobre o ambiente.
+-  Estresse térmico descreve a carga imposta pelas condições térmicas, enquanto a sobrecarga é a resposta fisiológica.
+-  Sensação, desconforto e estresse não são medidas intercambiáveis [@brode2012utci; @niosh2016heat].
 :::
 
-A @fig-indices-biometeorologicos relaciona entradas ambientais e domínios dos índices. Cada combinação mantém atividade, vestimenta ou outras condições de referência que precisam acompanhar a interpretação.
+A @fig-indices-biometeorologicos relaciona fatores ambientais a alguns índices de sensação, conforme e estresse. Cada combinação relaciona a metereorologia, atividade, vestimenta e outras condições de referência que precisam acompanhar a interpretação.
 
 ::: {.figure-with-source}
 
@@ -166,7 +176,9 @@ A @fig-indices-biometeorologicos relaciona entradas ambientais e domínios dos �
 
 :::
 
-O [Índice de Calor — HI](../../chapters/part-4/17-fichas-temperatura-condicoes-termicas.qmd#sec-cli-est-01), do National Weather Service dos Estados Unidos, combina temperatura do ar e umidade relativa nas condições de referência de sombra e vento fraco. A regressão de Rothfusz depende de avaliação preliminar e domínio de aplicação; não deve ser extrapolada para qualquer combinação de entradas [@nws2026heat; @rothfusz1990]. O [Humidex](../../chapters/part-4/17-fichas-temperatura-condicoes-termicas.qmd#sec-cli-est-03) usa temperatura e pressão de vapor, com fórmula e categorias próprias. A semelhança das entradas não autoriza converter suas classes diretamente em classes do HI [@masterton1979; @canada2021humidexformula].
+TODO: descrever melhor as famílias de índices e mais detalhatamente os índices.
+
+O [Índice de Calor — HI](../../chapters/part-4/17-fichas-temperatura-condicoes-termicas.qmd#sec-cli-est-01), proposto pelo *National Weather Service* dos Estados Unidos, combina temperatura do ar e umidade relativa nas condições de referência de sombra e vento fraco. A regressão de Rothfusz depende de avaliação preliminar e domínio de aplicação; não deve ser extrapolada para qualquer combinação de entradas [@nws2026heat; @rothfusz1990]. O [Humidex](../../chapters/part-4/17-fichas-temperatura-condicoes-termicas.qmd#sec-cli-est-03) usa temperatura e pressão de vapor, com fórmula e categorias próprias. A semelhança das entradas não autoriza converter suas classes diretamente em classes do HI [@masterton1979; @canada2021humidexformula].
 
 A [temperatura aparente — AT](../../chapters/part-4/17-fichas-temperatura-condicoes-termicas.qmd#sec-cli-est-02), na formulação externa à sombra do Bureau of Meteorology australiano, acrescenta vento e não incorpora radiação solar direta. Já o [Índice Térmico Universal do Clima — UTCI](../../chapters/part-4/17-fichas-temperatura-condicoes-termicas.qmd#sec-cli-est-04) deriva de um modelo termofisiológico e considera temperatura do ar, umidade, vento e temperatura radiante média. Esta última resume o ambiente de radiação para a troca de calor com o corpo; não é a temperatura de uma superfície isolada. O UTCI contempla estresse por calor e por frio, embora a ficha operacional do livro selecione métricas de calor [@steadman1994; @bom2026apparent; @brode2012utci].
 
@@ -176,7 +188,7 @@ Escolha o índice pelo mecanismo e pelo contexto: confira entradas, unidades, do
 
 ## Ilhas de calor
 
-Ilha de calor urbana designa um contraste térmico entre uma área urbana e uma referência explicitada. Sua intensidade pode ser expressa como diferença de temperatura entre esses ambientes, desde que variável, horário e método sejam compatíveis. É necessário distinguir ilha de calor da superfície, medida por sensoriamento remoto, e ilha de calor do ar, observada ou estimada na atmosfera urbana [@jin2012uhi; @voogt2003thermal].
+Ilha de calor é um conceito geográfico, que designa um contraste térmico existente entre uma área urbana e um entorno de referência. Sua intensidade pode ser expressa como diferença de temperatura entre esses ambientes, desde que variável, horário e método sejam compatíveis. É necessário distinguir ilha de calor da superfície, medida por sensoriamento remoto, e ilha de calor do ar, observada ou estimada na atmosfera urbana [@jin2012uhi; @voogt2003thermal].
 
 O contraste se relaciona ao balanço de energia. Materiais e geometrias urbanas modificam absorção, armazenamento e liberação de calor; a impermeabilização e a disponibilidade de água condicionam a parcela de energia consumida na evaporação. Edificações alteram sombreamento, ventilação e troca radiativa com o céu, enquanto atividades humanas acrescentam fontes de calor. Esses mecanismos variam no espaço e ao longo do dia: um material sombreado durante a manhã pode apresentar comportamento diferente após horas de insolação [@oke1982energy].
 
@@ -198,7 +210,7 @@ Na aplicação em saúde, acrescente população, permanência, moradia e acesso
 
 ## Exposição ocupacional
 
-O trabalho combina condições ambientais, produção metabólica de calor e organização da atividade. Exposições importantes ocorrem ao ar livre e em cozinhas, fundições, lavanderias, galpões e outros ambientes internos. Ritmo, duração, roupa, equipamentos de proteção, pausas, acesso à água e aclimatização interferem na sobrecarga. Uma estação meteorológica pode contextualizar o dia, mas não caracteriza sozinha um posto próximo a uma fonte de calor ou com ventilação restrita [@who2025workplaceheat; @niosh2016heat].
+A atividade laboral e o ambiente em que ela é desenvolvida combina condições ambientais, produção metabólica de calor e organização da atividade para possíveis exposições a temperaturas prejudicias a saúde. Exposições importantes ocorrem em atividades de trabalho ao ar livre e em cozinhas, fundições, lavanderias, galpões e outros ambientes internos. O ritmo e duração das atividades, roupa, equipamentos de proteção, pausas, acesso à água e aclimatização interferem na sobrecarga. Uma estação meteorológica pode contextualizar o dia, mas não caracteriza sozinha um posto próximo a uma fonte de calor ou com ventilação restrita [@who2025workplaceheat; @niosh2016heat].
 
 A avaliação pelo WBGT/IBUTG integra medidas ambientais e a caracterização da atividade. A norma 7243:2017 da Organização Internacional de Normalização (ISO) o emprega como método de triagem; no Brasil, a [ficha de IBUTG](../../chapters/part-4/17-fichas-temperatura-condicoes-termicas.qmd#sec-cli-est-05) especifica medição no local e interpretação segundo a Norma de Higiene Ocupacional 06 (NHO 06), da Fundacentro. Na operacionalização do livro, a janela de avaliação é de 60 minutos. Ela não deve ser confundida com média diária de estação, tampouco aplicada sem estimar a taxa metabólica e verificar as condições previstas no método [@iso2017wbgt; @fundacentro2025nho06].
 
