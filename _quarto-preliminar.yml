@@ -1,0 +1,66 @@
+project:
+  output-dir: _output/preliminar
+  resources:
+    - assets/fonts/*.woff2
+    - assets/fonts/LICENSE-*.txt
+    - assets/openings/cap[1-9]-*-web.webp
+    - assets/openings/cap1[0-2]-*-web.webp
+    - data-raw/estacoes/*-2024-01-01.csv
+    - data-raw/estacoes/cetesb-mp25-2021.csv
+    - data-raw/estacoes/*-proveniencia.json
+    - data-raw/estacoes/*-original.csv
+    - data-raw/estacoes/*-original.pdf
+    - "!_output/**"
+    - "!docs/**"
+    - "!indicators/**"
+
+filters:
+  - scripts/preliminar-links.lua
+
+book:
+  site-url: https://rfsaldanha.github.io/dicas/
+  page-footer: "Versão preliminar — Partes I e II"
+  chapters:
+    - text: "Bem-vindo"
+      href: index.qmd
+    - frontmatter/agradecimentos.qmd
+    - frontmatter/prefacio.qmd
+    - frontmatter/siglas.qmd
+    - part: "Parte I — Fundamentos, métodos e decisão em saúde"
+      chapters:
+        - chapters/part-1/01-clima-ambiente-saude.qmd
+        - chapters/part-1/02-mudanca-climatica-resposta-sus.qmd
+        - chapters/part-1/03-dados-variaveis-indices-indicadores.qmd
+        - chapters/part-1/04-espaco-tempo-qualidade.qmd
+        - chapters/part-1/05-fontes-fichas.qmd
+        - chapters/part-1/06-indicador-decisao.qmd
+    - part: "Parte II — Fenômenos e indicadores de clima e ambiente"
+      chapters:
+        - chapters/part-2/07-temperatura-condicoes-termicas.qmd
+        - chapters/part-2/08-precipitacao-secas-eventos-hidrologicos.qmd
+        - chapters/part-2/09-qualidade-ar-queimadas-fumaca.qmd
+        - chapters/part-2/10-agua-saneamento-qualidade-ambiental.qmd
+        - chapters/part-2/11-uso-cobertura-terra-ambiente-urbano.qmd
+        - chapters/part-2/12-eventos-severos-desastres.qmd
+    - backmatter/glossario.qmd
+    - backmatter/referencias.qmd
+  appendices:
+    - backmatter/apendice-metodologico.qmd
+    - backmatter/apendice-estacoes.qmd
+
+format:
+  html:
+    theme:
+      light: [default, styles/web/theme.scss]
+      dark: [default, styles/web/theme-dark.scss]
+    css: styles/web/styles.css
+    fig-column: page-right
+    grid:
+      body-width: 672px
+      sidebar-width: 260px
+      margin-width: 220px
+      gutter-width: 1.5rem
+    toc: true
+    toc-depth: 3
+    code-copy: true
+    link-external-newwindow: true

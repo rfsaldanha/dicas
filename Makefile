@@ -1,4 +1,4 @@
-.PHONY: all web serve print cover validate links figures-real catalogs clean
+.PHONY: all web serve preliminar serve-preliminar validate-preliminar print cover validate links figures-real catalogs clean
 
 PORT ?= 8000
 
@@ -6,6 +6,16 @@ all: web print cover validate
 
 web:
 	quarto render --profile web
+
+preliminar:
+	python3 scripts/build_preliminar.py
+
+serve-preliminar:
+	@test -f _output/preliminar/index.html || { echo "Execute make preliminar antes de make serve-preliminar."; exit 1; }
+	python3 -m http.server $(PORT) --bind 127.0.0.1 --directory _output/preliminar
+
+validate-preliminar:
+	python3 scripts/check_preliminar.py _output/preliminar
 
 serve:
 	@test -f _output/web/index.html || { echo "Execute make web antes de make serve."; exit 1; }

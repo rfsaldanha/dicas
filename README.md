@@ -59,6 +59,46 @@ quarto render --profile print
 make
 ```
 
+## Edição preliminar no GitHub Pages
+
+A edição pública em <https://rfsaldanha.github.io/dicas/> apresenta as partes I e II
+(capítulos 1–12), os elementos iniciais, o glossário, as referências e os dois
+apêndices. As partes III e IV e os catálogos ficam fora do site; suas remissões
+permanecem como texto, sem links. O repositório público continua contendo a obra
+completa, inclusive seus fontes e PDF.
+
+```sh
+make preliminar
+make serve-preliminar
+```
+
+A prévia fica em <http://127.0.0.1:8000/> (`PORT=8001` permite escolher outra
+porta). `make preliminar` copia os fontes para um diretório temporário, sem
+saídas anteriores nem caches, executa `quarto render --profile preliminar` e
+valida as páginas, os redirecionamentos, a busca, as âncoras e os recursos locais.
+Somente depois copia o resultado para `_output/preliminar/`, que não é
+versionado. Uma falha de compilação ou validação preserva a última prévia válida.
+Para repetir somente a validação, execute `make validate-preliminar`.
+Os testes de regressão rodam com `python3 scripts/test_preliminar.py` após a
+compilação e também são executados pelo workflow antes da publicação.
+
+O perfil `preliminar` é independente: não o combine com `web` ou `print`, pois
+o Quarto pode reunir as listas de capítulos. Os comandos existentes continuam
+compilando as quatro partes. Para publicar, use **Actions → Publicar edição
+preliminar → Run workflow → main**. O workflow compila os fontes daquele commit,
+valida o resultado e publica apenas `_output/preliminar/`. Pushes e pull requests
+não acionam a publicação; execuções selecionadas em outras branches não publicam.
+
+Na configuração inicial do repositório, selecione visibilidade **Public** e,
+em **Settings → Pages → Build and deployment → Source**, **GitHub Actions**.
+O workflow usa o ambiente `github-pages`; suas regras devem permitir a branch
+`main`. A alteração de visibilidade torna também as partes III e IV e o histórico
+do repositório acessíveis no GitHub, embora esses capítulos não integrem o Pages.
+
+Requisitos adicionais dessa compilação: Python 3.10 ou superior (somente
+biblioteca padrão). O workflow fixa Quarto 1.10.18 e R 4.3.3 e instala `yaml`;
+não precisa baixar o PDF completo via Git LFS.
+
 ## Adicionar um capítulo
 
 1. Crie o `.qmd` no diretório da parte correspondente, com prefixo numérico de dois dígitos igual à sua posição no livro.
