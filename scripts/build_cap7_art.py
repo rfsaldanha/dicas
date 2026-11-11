@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Compõe as 13 figuras conceituais do capítulo 7, sem dados simulados.
+"""Compõe as 15 figuras conceituais do capítulo 7, sem dados simulados.
 
-Uso: DICAS_BROWSER_CHANNEL=chrome python scripts/build_cap7_art.py [00 ... 12]
+Uso: DICAS_BROWSER_CHANNEL=chrome python scripts/build_cap7_art.py [00 ... 14]
 Cenas produzidas com image_gen; rótulos e relações permanecem editáveis.
 """
 import base64
@@ -72,6 +72,14 @@ SPECS = [
  'Percurso entre contexto, ficha, fonte e aplicação',
  'Roteiro liga capítulo de contexto, ficha de indicador e fonte com versão e método. O retorno apoia interpretação e aplicação. Indicadores urbanos, de vulnerabilidade, efeitos e resposta complementam o percurso.',
  False, 'Arquitetura editorial do livro.'),
+('13', 'stevenson', 'fig-abrigo-stevenson',
+ 'Abrigo de Stevenson: proteção e ventilação dos instrumentos',
+ 'Duas vistas ilustrativas de um abrigo branco com venezianas, cobertura dupla e pernas sobre gramado em terreno aberto. À esquerda, o abrigo fechado; à direita, a porta aberta revela os termômetros. Rótulos explicam proteção contra radiação e chuva, ventilação e medição do ar. A abertura é um recurso didático, sem leituras observadas.',
+ True, 'Met Office (2025), How is temperature measured?; OMM (2024), WMO-No. 8.'),
+('14', 'infravermelho', 'fig-termometro-infravermelho',
+ 'Termômetro infravermelho sem contato: a pele como alvo',
+ 'Profissional de saúde e homem adulto, ambos com máscara, em ambiente interno. A profissional segura um termômetro infravermelho próximo à testa descoberta, sem contato e sem feixe luminoso. Rótulos distinguem a superfície observada, o sensor e os cuidados de posicionamento. Não há leitura numérica ou diagnóstico representado.',
+ True, 'Food and Drug Administration (2025), Non-contact infrared thermometers.'),
 ]
 
 
@@ -289,6 +297,26 @@ def layout(n):
               text(900,1100,'Capítulos de fichas complementares: 20, 22, 23 e 24.',size=46),
               text(900,1170,'A ficha oferece retorno ao contexto; os links estão no texto e no quadro.',size=43)]
         return 1230,p
+    if n == '13':
+        p += [text(440, 65, 'Vista externa', size=51, weight=700),
+              text(1320, 65, 'Interior: vista didática', size=51, weight=700),
+              picture(n, 30, 95, 1740, 1015)]
+        for x, title, lines in [
+                (40, 'Proteção', ['Contra radiação direta', 'e entrada de chuva.']),
+                (630, 'Ventilação', ['As venezianas permitem', 'a circulação do ar.']),
+                (1220, 'Medição', ['Termômetros medem o ar;', 'o abrigo os protege.'])]:
+            p.append(panel(x, 1120, 540, 220, title, lines))
+        p.append(text(900, 1410, 'Porta aberta apenas para mostrar o interior; sem leituras observadas.', size=43))
+        return 1470, p
+    if n == '14':
+        p += [picture(n, 30, 0, 1740, 1015)]
+        for x, title, lines in [
+                (40, 'Alvo: pele da testa', ['Superfície descoberta,', 'sem contato com o sensor.']),
+                (630, 'Sensor infravermelho', ['Recebe radiação da pele;', 'não mede o ar.']),
+                (1220, 'Condições de uso', ['Posição e distância', 'conforme o fabricante.'])]:
+            p.append(panel(x, 1040, 540, 220, title, lines))
+        p.append(text(900, 1330, 'Cena ilustrativa: sem leitura numérica ou diagnóstico.', size=44))
+        return 1390, p
     raise ValueError(n)
 
 
@@ -321,6 +349,11 @@ def build(spec):
                 review='Cenas, anatomia, dignidade da representação e contraste em cinza conferidos; esquema vetorial preservado; sem dados observados.')
         if number=='07':
             meta['reference_delivery']='Aquarela CAP7-06 como referência imediata de continuidade, derivada da referência visual da série.'
+        if number in {'13', '14'}:
+            meta.update(
+                reference_delivery='Arquivo original inspecionado e fornecido por referenced_image_paths; referência apenas de estilo.',
+                generation_date='2026-11-11',
+                review='Original inspecionado: instrumentos e anatomia plausíveis; sem números, feixes luminosos ou dados observados. Rótulos editáveis acrescentados pelo montador.')
         encoded=base64.b64encode(original.read_bytes()).decode('ascii')
         definition=f'<image id="aquarela" width="{sw}" height="{sh}" href="data:image/png;base64,{encoded}"/>'
     document=f'''<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="{height}" viewBox="0 0 1800 {height}" role="img" aria-labelledby="title desc">

@@ -171,12 +171,19 @@ A revisão operacional da Parte III também é verificada por `python3 scripts/t
 
 ### Figuras da revisão do capítulo 7
 
-Recompor as 13 figuras com `DICAS_BROWSER_CHANNEL=chrome python scripts/build_cap7_art.py`,
-no ambiente de arte descrito acima. O montador aceita os códigos 00 a 12 para
-recomposição seletiva. São sete aquarelas e seis esquemas vetoriais: os originais,
+Recompor as 15 figuras com `DICAS_BROWSER_CHANNEL=chrome python scripts/build_cap7_art.py`,
+no ambiente de arte descrito acima. O montador aceita os códigos 00 a 14 para
+recomposição seletiva. São nove aquarelas e seis esquemas vetoriais: os originais,
 prompts, fontes e créditos estão em `assets/figures/arte-cap7-manifest.json`.
 As cenas são conceituais e não contêm observações empíricas. Os identificadores das
 figuras de ar/superfície e índices biometeorológicos foram preservados.
+
+CAP7-13 mostra o abrigo de Stevenson fechado e uma vista didática aberta;
+CAP7-14 mostra o termômetro infravermelho sem contato dirigido à testa.
+Recompor apenas essas adições com `python scripts/build_cap7_art.py 13 14`.
+Os códigos de produção não determinam a ordem editorial. O verificador associa
+figuras e seções pelos identificadores e aceita as duas figuras adicionais nas
+seções de temperatura do ar e de superfície, mantendo as 23 âncoras existentes.
 
 A exportação utiliza fontes incorporadas, SVG colorido e PNG de 8 bits em cinza.
 O manifesto registra dimensões, hashes e resolução efetiva conservadora dos

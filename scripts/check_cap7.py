@@ -17,16 +17,29 @@ def check(rendered=False):
     sections=re.split(r'(?m)^## ',text)
     assert len(sections)==13, 'Esperadas introdução e 12 seções.'
     assert not re.search(r'(?m)^## Síntese',text), 'Síntese ainda presente.'
-    assert len(manifest)==13 and len({r['id'] for r in manifest})==13
+    assert not re.search(r'(?im)^\s*(?:TODO|FIXME)\b', text), 'Pendência editorial no capítulo.'
+    assert len(manifest)==15 and len({r['id'] for r in manifest})==15
+    figure_ids=re.findall(r'\{#(fig-[\w-]+)',text)
+    assert len(figure_ids)==15 and set(figure_ids)=={r['id'] for r in manifest}, 'Figuras e manifesto divergem.'
+    sections_by_figure={}
+    for section in sections:
+        ids=re.findall(r'\{#(fig-[\w-]+)',section)
+        assert ids, 'Seção sem figura.'
+        assert re.search(r'\]\(\.\./\.\./chapters/.+?\.qmd',section), 'Seção sem remissão a capítulo.'
+        for identifier in ids:
+            sections_by_figure[identifier]=section
+    assert sections_by_figure['fig-abrigo-stevenson'].startswith('Temperatura do ar\n')
+    assert sections_by_figure['fig-termometro-infravermelho'].startswith('Temperatura de superfície\n')
     bib=set(re.findall(r'(?m)^@\w+\{([^,]+)',(ROOT/'references.bib').read_text()))
     cited=set(re.findall(r'@([A-Za-z][\w-]+)',text))
-    assert not (cited-bib-{r['id'] for r in manifest}), 'Referência não resolvida.'
+    crossrefs=set(re.findall(r'\{#((?:fig|qua)-[\w-]+)',text))
+    assert not (cited-bib-crossrefs), 'Referência não resolvida.'
+    assert '@qua-indices-biometeorologicos' in (ROOT/'backmatter/lista-tabelas.qmd').read_text()
     figure_list=(ROOT/'backmatter/lista-figuras.qmd').read_text()
-    for section,r in zip(sections,manifest):
-        assert len(re.findall(r'\{#fig-',section))==1, 'Cada seção deve ter uma figura.'
+    for r in manifest:
+        section=sections_by_figure[r['id']]
         assert '{#'+r['id'] in section and '@'+r['id'] in section
         assert '@'+r['id'] in figure_list
-        assert re.search(r'\]\(\.\./\.\./chapters/.+?\.qmd',section), 'Seção sem remissão a capítulo.'
         for key in ('svg','print'):
             assert (ROOT/'assets/figures'/r[key]).is_file(),r[key]
         svg=ET.parse(ROOT/'assets/figures'/r['svg']).getroot()
@@ -58,6 +71,7 @@ def check(rendered=False):
             assert '{#'+anchor in body or 'id="'+anchor+'"' in body,target
     if rendered:
         html=(ROOT/'_output/web/chapters/part-2/07-temperatura-condicoes-termicas.html').read_text()
+        assert 'id="qua-indices-biometeorologicos"' in html
         for r in manifest:
             assert 'id="'+r['id']+'"' in html
         for a in anchors:
@@ -67,7 +81,7 @@ def check(rendered=False):
             relative=(CHAPTER.parent/file).resolve().relative_to(ROOT)
             dest=(ROOT/'_output/web'/relative).with_suffix('.html')
             assert 'id="'+anchor+'"' in dest.read_text(),str(dest)+'#'+anchor
-    print('Capítulo 7: 13 figuras, 12 seções, 23 âncoras; citações, links e artefatos válidos.')
+    print('Capítulo 7: 15 figuras, 12 seções, 23 âncoras; citações, links e artefatos válidos; sem TODOs.')
 
 
 if __name__=='__main__':

@@ -5,7 +5,7 @@ aliases:
 
 # Temperatura e condições térmicas {#sec-temperatura}
 
-A temperatura participa da vida cotidiana e influencia a distribuição das doenças e as condições em que o cuidado a saúde é oferecido. O organismo produz calor pelo metabolismo e o troca com o ambiente: para manter suas funções, precisa equilibrar produção, ganhos e perdas com a atmosfera. Quando esse equilíbrio se torna difícil, podem surgir respostas fisiológicas e agravos. A pergunta para a saúde pública abrange tanto episódios extremos de temperatura quanto exposições repetidas em moradias, deslocamentos, escolas, espaços de convivência e trabalho [@ebi2021heat; @ipcc2022saude].
+A temperatura participa da vida cotidiana e influencia a distribuição das doenças e as condições em que o cuidado à saúde é oferecido. O organismo produz calor pelo metabolismo e o troca com o ambiente: para manter suas funções, precisa equilibrar produção, ganhos e perdas com a atmosfera. Quando esse equilíbrio se torna difícil, podem surgir respostas fisiológicas e agravos. A pergunta para a saúde pública abrange tanto episódios extremos de temperatura quanto exposições repetidas em moradias, deslocamentos, escolas, espaços de convivência e trabalho [@ebi2021heat; @ipcc2022saude].
 
 Em momentos de calor, a necessidade de dissipar energia e repor perdas de água pode acompanhar desidratação, sobrecarga cardiovascular e lesão renal, além de doenças diretamente relacionadas ao calor. No frio, a conservação de calor corporal envolve respostas como a vasoconstrição; a exposição também se relaciona a hipotermia, efeitos cardiovasculares e exacerbações respiratórias. Estudos de mortalidade analisam associações com temperaturas altas e baixas, incluindo dias que não compõem ondas de calor ou frio formalmente definidas. A importância de cada faixa térmica depende da distribuição das exposições, do desfecho e do contexto local [@ebi2021heat; @alahmad2023temperature; @gasparrini2015temperature; @who2018housing].
 
@@ -32,13 +32,21 @@ A @fig-temperatura-conceitos organiza essas distinções. Moradia, vestimenta, a
 
 ## Temperatura do ar
 
-A temperatura do ar caracteriza o estado térmico do ar no lugar e no momento da observação. Em estações meteorológicas, a medição próxima à superfície é feita geralmente em um abrigo sombreado, procurando reduzir a influência direta da radiação solar sobre o sensor mas permitindo troca de ar com o ambiente. O tipo de abrigo, ventilação, altura, terreno e entorno integram a definição da observação; um termômetro exposto ao sol pode responder ao seu próprio aquecimento, comprometendo a interpretação como temperatura do ar [@wmo2024instrumentos].
+A temperatura do ar caracteriza o estado térmico do ar no lugar e no momento da observação. Em estações meteorológicas, a medição próxima à superfície é feita geralmente com o sensor protegido da radiação solar direta por um abrigo ventilado, que permite a troca de ar com o ambiente. O tipo de abrigo, ventilação, altura, terreno e entorno integram a definição da observação; um termômetro exposto ao sol pode responder ao seu próprio aquecimento, comprometendo a interpretação como temperatura do ar [@wmo2024instrumentos].
 
-TODO: inserir ilustração de um abrigo de stevenson.
+O abrigo de Stevenson é um exemplo dessa proteção: uma caixa branca com venezianas que permitem a circulação do ar e reduzem a incidência direta de radiação e chuva sobre os instrumentos. O abrigo não mede temperatura; essa função cabe aos termômetros ou sensores instalados em seu interior. A @fig-abrigo-stevenson mostra o exterior e uma vista didática aberta, em terreno coberto por grama baixa e afastado de obstáculos. A porta aberta serve apenas para mostrar os instrumentos; não representa a condição normal de exposição durante a medição [@metoffice2025temperature; @wmo2024instrumentos].
+
+::: {.figure-with-source}
+
+![Abrigo de Stevenson: proteção e ventilação dos instrumentos](../../assets/figures/arte-cap7-13-stevenson.svg){#fig-abrigo-stevenson fig-alt="Duas vistas ilustrativas de um abrigo branco com venezianas, cobertura dupla e pernas sobre gramado em terreno aberto. À esquerda, o abrigo fechado; à direita, a porta aberta revela os termômetros. Rótulos explicam proteção contra radiação e chuva, ventilação e medição do ar. A abertura é um recurso didático, sem leituras observadas." width="100%" print-src="arte-cap7-13-stevenson-print.png"}
+
+[Fonte: elaboração conceitual com base em Met Office (2025) e Organização Meteorológica Mundial (OMM, 2024). Autoria: composição e rótulos próprios; aquarela produzida com IA (image_gen). Vistas ilustrativas, sem dados observados. Licença: a mesma dos textos autorais da obra.]{.figure-source}
+
+:::
 
 A padronização favorece comparações, mas não torna os lugares equivalentes. Altitude, relevo, proximidade de água, vegetação e construções condicionam o entorno representado pela medição. Uma estação em terreno aberto pode descrever adequadamente sua localização e, ainda assim, não representar o quarto de uma residência, uma rua estreita ou um posto de trabalho. O [Apêndice B](../../backmatter/apendice-estacoes.qmd) detalha instrumentos e instalações; o [capítulo sobre espaço, tempo e qualidade](../../chapters/part-1/04-espaco-tempo-qualidade.qmd) explica a diferença entre localização da observação e suporte da análise.
 
-Também importa como a temperatura é registrada no tempo. A temperatura instantânea, a média da temperatura e valores extremos são registros com significados diferentes. Se a temperatura instantânea é registrada de hora em hora, os valores máximos, mínimos e a média da série de valores não irão considerar picos ou quedas ocorridas entre as medições. Em uma série de registros de temperatura, quanto mais frequente são as observações, maior é o detalhamento possível, mas o volume de dados pode apresentar desafios adicionais [@wmo2024instrumentos; @wmo2023climatological].
+Também importa como a temperatura é registrada no tempo. A temperatura instantânea, a média da temperatura e valores extremos são registros com significados diferentes. Se a temperatura instantânea é registrada de hora em hora, os valores máximos, mínimos e a média da série de valores não irão considerar picos ou quedas ocorridas entre as medições. Em uma série de registros de temperatura, quanto mais frequentes são as observações, maior é o detalhamento possível, mas o volume de dados pode apresentar desafios adicionais [@wmo2024instrumentos; @wmo2023climatological].
 
 ::: {.callout-note icon=false title="Conceito-chave: média, máxima e mínima"}
 -  $TX$ representa a temperatura máxima diária e $TN$ a mínima diária observadas em um intervalo.
@@ -46,7 +54,7 @@ Também importa como a temperatura é registrada no tempo. A temperatura instant
 -  A amplitude térmica diária é obtida com a subtração de $TX$ e $TN$.
 :::
 
-A @fig-temperatura-observacao mostra as decisões que ocorrem entre a observação de um instrumento e a síntese da observação, incluindo o registro de metadados, unidade, frequência, cobertura, critérios de exclusão e procedimento escolhido para calcular estatísticas como média e valores máximos e mínimos com valores faltantes e extremos. Por exemplo, um dado ausente causado pelo não funcionamento do equipamento não é temperatura igual a zero. Já valores extremos, muito elevados ou muito baixos, podem significar erro do equipamento ou da anotação do valor e devem ser tratados como valores ausentes. A qualidade dos dados impacta diretamente nas conclusões que podem ser obtidos com eles.
+A @fig-temperatura-observacao mostra as decisões que ocorrem entre a observação de um instrumento e a síntese da observação, incluindo o registro de metadados, unidade, frequência, cobertura, critérios de exclusão e procedimento escolhido para calcular estatísticas como média e valores máximos e mínimos com valores faltantes e extremos. Por exemplo, um dado ausente causado pelo não funcionamento do equipamento não é temperatura igual a zero. Valores muito elevados ou muito baixos podem corresponder a eventos reais ou a falhas de medição e registro. Sua posição extrema, isoladamente, não justifica a exclusão: é preciso examinar consistência temporal, metadados e observações independentes. Quando o controle de qualidade indicar um registro inválido, preserve o valor original, marque a exclusão e documente o motivo; um caso ainda duvidoso deve permanecer identificado como tal. Essas decisões afetam diretamente as conclusões e a identificação dos próprios extremos climáticos [@wmo2024instrumentos; @wmo2023climatological].
 
 ::: {.figure-with-source}
 
@@ -60,9 +68,17 @@ A escolha da síntese deve acompanhar a pergunta. A [máxima anual da temperatur
 
 ## Temperatura de superfície
 
-A temperatura de superfície descreve a condição térmica de uma superfície observada por um sensor. Nos produtos de infravermelho termal, ela é estimada a partir da radiância, com tratamento da atmosfera e da emissividade. Esta última expressa a capacidade de emissão de uma superfície em relação a um corpo negro à mesma temperatura. Ela pode ser obtida, por exemplo, com *scanners* de temperatura apontados para pessoas ou ambientes, ou por sensoriamento remoto aplicado a grandes áreas terrestres (LST - *land surface temperature*) [@nasaTemperaturaSuperficie; @voogt2003thermal]. 
+A temperatura de superfície descreve a condição térmica de uma superfície observada por um sensor. Nos produtos de infravermelho termal, ela é estimada a partir da radiância, com tratamento da atmosfera e da emissividade. Esta última expressa a capacidade de emissão de uma superfície em relação a um corpo negro à mesma temperatura. Sensores próximos ao alvo e sensores orbitais podem observar radiação infravermelha, mas seus produtos têm finalidades, escalas e calibrações diferentes. No sensoriamento remoto terrestre, a sigla LST vem de *land surface temperature*, temperatura da superfície terrestre [@nasaTemperaturaSuperficie; @voogt2003thermal].
 
-TODO: ilustração de um scanner de temperaratura, como aqueles usados durante a COVID-19.
+Um exemplo cotidiano é o termômetro infravermelho sem contato, usado na testa de uma pessoa (@fig-termometro-infravermelho). O sensor recebe radiação emitida pela pele; não mede a temperatura do ar nem observa diretamente o interior do corpo. A interpretação clínica da leitura depende do aparelho e de seu uso previsto. Posição, distância, condição da testa e ambiente influenciam a medição; as instruções do fabricante precisam ser respeitadas. Esse exemplo ajuda a reconhecer o alvo superficial, sem equiparar um termômetro clínico ao produto LST de um satélite [@fda2025infrared].
+
+::: {.figure-with-source}
+
+![Termômetro infravermelho sem contato: a pele como alvo](../../assets/figures/arte-cap7-14-infravermelho.svg){#fig-termometro-infravermelho fig-alt="Profissional de saúde e homem adulto, ambos com máscara, em ambiente interno. A profissional segura um termômetro infravermelho próximo à testa descoberta, sem contato e sem feixe luminoso. Rótulos distinguem a superfície observada, o sensor e os cuidados de posicionamento. Não há leitura numérica ou diagnóstico representado." width="100%" print-src="arte-cap7-14-infravermelho-print.png"}
+
+[Fonte: elaboração conceitual com base na Food and Drug Administration (2025). Autoria: composição e rótulos próprios; aquarela produzida com IA (image_gen). Cena ilustrativa, sem leitura observada ou diagnóstico. Licença: a mesma dos textos autorais da obra.]{.figure-source}
+
+:::
 
 Em sensoriamento remoto, um pixel urbano pode reunir materiais com propriedades diferentes. Sua temperatura estimada não equivale à leitura de um termômetro instalado em cada ponto nem descreve automaticamente fachadas ocultas, interiores ou espaços sob copas. A geometria de observação também importa: o sensor registra as superfícies visíveis naquele ângulo. Essas características explicam por que imagens térmicas e observações do ar podem apresentar contrastes espaciais e ciclos diários distintos [@voogt2003thermal].
 
@@ -92,21 +108,33 @@ Calor e frio são conceitos relativos. Em física, calor é a energia transferid
 
 O corpo troca energia por radiação, convecção, condução e evaporação, além de produzir calor pelo metabolismo. A direção e a intensidade dessas trocas dependem do ambiente e da pessoa. Vestimenta e atividade alteram o balanço; a temperatura do ar descreve apenas parte dele. No calor, a dissipação pode se tornar insuficiente; no frio, a perda pode superar a capacidade de conservar e produzir calor.
 
-Já a aclimatação do organismo envolve ajustes fisiológicos contínuos à exposições repetidas.
+A aclimatação envolve ajustes fisiológicos à exposição repetida a determinadas condições ambientais. No calor, pode favorecer o início mais precoce da sudorese, reduzir a perda de eletrólitos pelo suor e permitir uma mesma atividade com menor frequência cardíaca e menor temperatura interna. O Instituto Nacional de Segurança e Saúde Ocupacional dos Estados Unidos (NIOSH) descreve a aquisição gradual desses ajustes e sua perda parcial após afastamento da exposição. Eles dependem da intensidade e da duração da exposição e das condições da pessoa; não constituem imunidade ao calor [@niosh2026acclimatization].
 
-TODO: falar mais sobre aclimatação, pessoas que nascem em lugares quentes ou frios.
+Nascer ou ter vivido em uma região quente não basta para presumir que alguém esteja aclimatado à atividade e às condições atuais. Mudança de cidade, estação do ano ou tarefa pode modificar a exposição. Da mesma forma, ter nascido em uma região fria não garante proteção diante de vento, umidade, roupa insuficiente ou permanência prolongada no frio. A história de exposição deve ser considerada junto às condições presentes, sem atribuir uma tolerância fixa à origem geográfica. Os ajustes descritos para o calor não devem ser simplesmente invertidos para explicar o frio [@niosh2026acclimatization; @nioshcold].
 
-Adaptação inclui também mudanças comportamentais, materiais e institucionais [@niosh2016heat; @ipcc2022saude].
+Adaptação tem alcance mais amplo: inclui práticas, moradias, roupas, organização do trabalho e serviços capazes de reduzir a exposição. Pessoas acostumadas a certo clima podem dispor de recursos de proteção muito diferentes. Por isso, a aclimatação fisiológica não substitui sombra, água, pausas, abrigo adequado ou cuidado em saúde, e a sensação de estar acostumado não comprova ausência de risco [@niosh2016heat; @ipcc2022saude; @who2018housing].
 
-Um limiar absoluto para definir calor ou frio utiliza um valor fixo de referência. Por exemplo, acima de 35 graus célsius para calor e abaixo de 10 graus célsius para frio. Contudo, a percepção destas temperaturas como calor ou frio é subjetiva, considerando a aclimatação das populações e seu acesso a recursos de adaptação climática.
+Um limiar absoluto utiliza um valor fixo de temperatura. Sua escolha exige finalidade e contexto definidos; não há um único valor que delimite calor ou frio relevante para todas as populações. A percepção individual, a referência climática e um limiar de alerta sanitário são critérios diferentes e precisam ser explicitados.
 
-Outra forma é o uso de limiares relativos a distribuição de valores de temperatura observados, como quartis e percentis. O percentil 90, por exemplo, delimita a cauda superior dessa distribuição. Note que no uso de limiares, sempre haverá valores acima ou abaixo deles, mas o seu significado deve ser observado em termos práticos. Por exemplo, P90 calculado em um mês com temperaturas relativamente amenas, variando de 20 a 25 graus, pode definir como calor temperaturas acima de apenas 23 graus.
+Outra possibilidade é usar limiares relativos à distribuição das observações, como percentis. O percentil 90 delimita sua porção superior, mas seu valor depende da série, do período-base, da época do ano e do método de estimação. Conhecer apenas a menor e a maior temperatura não permite calculá-lo. Um dia acima desse percentil pode ser incomum para uma estação amena sem representar o mesmo calor absoluto de outra região; empates e mudanças entre períodos também afetam a proporção de dias que ultrapassa o limiar [@zhang2005].
 
-Já uma anomalia é a diferença entre uma observação e uma referência compatível, como a média climatológica para o mesmo período. Percentil e anomalia não são sinônimos: o primeiro informa posição relativa; a segunda, a diferença [@zhang2005; @wmo2017normals].
+Já uma anomalia é a diferença entre uma observação e uma referência compatível, como a média climatológica para o mesmo período. Percentil e anomalia não são sinônimos: o primeiro informa posição relativa; a segunda, a diferença. Uma temperatura próxima da referência climática ainda pode estar associada a efeitos sobre a saúde; a normal climatológica não estabelece uma faixa de segurança [@wmo2017normals; @gasparrini2015temperature].
 
-A média climatológica, também chamada de "normal climatológica" é muito utilizada para definir calor ou frio, pois considera o histórico climatológico prévio para comparação com a temperatura observada. Se os verões anteriores de uma cidade costumam apresentar temperaturas máximas oscilando em torno de 40 graus célsius, um dia em que seja registrada a temperatura de 42 graus célsius não pode ser visto como particularmente quente.
+::: {.callout-note icon=false title="Nota técnica: normais climatológicas e seu cálculo"}
 
-TODO: box sobre normais climatológicas e método de cálculo.
+A normal climatológica padrão resume um período de 30 anos, como 1991–2020. A Organização Meteorológica Mundial (OMM) recomenda atualizar essa referência a cada década para descrever o clima recente, mantendo também referências fixas para comparações de longo prazo. Uma média de poucos anos não deve receber automaticamente a mesma denominação [@wmo2026normals].
+
+Para obter a normal de temperatura de um mês, primeiro calcule a média desse mês em cada ano, com observações diárias válidas e método consistente; depois calcule a média dos valores mensais aceitos após controle de qualidade e verificação da completude no período-base. Assim, a normal de janeiro reúne os janeiros da base, sem misturar meses de estações diferentes:
+
+$$
+N_m = \frac{1}{n_m}\sum_{a \in A_m}\overline{T}_{m,a}.
+$$
+
+$N_m$ é a normal do mês $m$, em °C; $\overline{T}_{m,a}$ é a temperatura média desse mês no ano $a$; $A_m$ reúne os anos com valor mensal aceito, e $n_m$ é seu número. A temperatura média, a média das máximas e a média das mínimas são estatísticas distintas. No produto do Instituto Nacional de Meteorologia (INMET), a média diária compensada tem método próprio, que deve ser preservado ao reproduzir suas normais [@inmet2022normais].
+
+:::
+
+Na aplicação desse cálculo, siga os critérios de qualidade e completude da referência metodológica adotada. Documente dias e anos disponíveis, lacunas e mudanças de instrumento ou localização; não preencha ausências com zero. Compare a mesma variável, local e período do calendário. Normais mensais não substituem os percentis diários das fichas, cujos períodos-base e janelas permanecem aqueles definidos no capítulo 17 [@wmo2017normals; @inmet2022normais].
 
 Do ponto de vista epidemiológico, a temperatura associada a um desfecho de saúde, como internações ou mortalidade, depende da população, do período, do modelo e das defasagens; não é uma temperatura ideal universal. A carga associada à temperatura pode envolver muitos dias moderadamente desfavoráveis, além dos extremos raros [@gasparrini2015temperature]. A @fig-referencias-termicas compara essas três leituras.
 
@@ -166,7 +194,7 @@ A disponibilidade de um gradiente de pressão de vapor, a ventilação junto à 
 -  Sensação, desconforto e estresse não são medidas intercambiáveis [@brode2012utci; @niosh2016heat].
 :::
 
-A @fig-indices-biometeorologicos relaciona fatores ambientais a alguns índices de sensação, conforme e estresse. Cada combinação relaciona a metereorologia, atividade, vestimenta e outras condições de referência que precisam acompanhar a interpretação.
+A @fig-indices-biometeorologicos relaciona fatores ambientais a alguns índices de sensação, conforto e estresse térmico. Sua interpretação depende das variáveis meteorológicas consideradas e das hipóteses sobre atividade, vestimenta e exposição.
 
 ::: {.figure-with-source}
 
@@ -176,13 +204,45 @@ A @fig-indices-biometeorologicos relaciona fatores ambientais a alguns índices 
 
 :::
 
-TODO: descrever melhor as famílias de índices e mais detalhatamente os índices.
+Os cinco índices apresentados a seguir podem ser organizados em três grupos para orientar a escolha: aproximações simplificadas de temperatura aparente, um índice baseado em modelo termofisiológico e um índice instrumental voltado à avaliação ocupacional. Essa organização é didática: cada método tem uma história e um domínio próprios. Reunir variáveis em um número facilita a comunicação, mas não transforma o resultado em medida individual de conforto, diagnóstico ou risco clínico.
 
-O [Índice de Calor — HI](../../chapters/part-4/17-fichas-temperatura-condicoes-termicas.qmd#sec-cli-est-01), proposto pelo *National Weather Service* dos Estados Unidos, combina temperatura do ar e umidade relativa nas condições de referência de sombra e vento fraco. A regressão de Rothfusz depende de avaliação preliminar e domínio de aplicação; não deve ser extrapolada para qualquer combinação de entradas [@nws2026heat; @rothfusz1990]. O [Humidex](../../chapters/part-4/17-fichas-temperatura-condicoes-termicas.qmd#sec-cli-est-03) usa temperatura e pressão de vapor, com fórmula e categorias próprias. A semelhança das entradas não autoriza converter suas classes diretamente em classes do HI [@masterton1979; @canada2021humidexformula].
+### Índices simplificados de temperatura aparente
 
-A [temperatura aparente — AT](../../chapters/part-4/17-fichas-temperatura-condicoes-termicas.qmd#sec-cli-est-02), na formulação externa à sombra do Bureau of Meteorology australiano, acrescenta vento e não incorpora radiação solar direta. Já o [Índice Térmico Universal do Clima — UTCI](../../chapters/part-4/17-fichas-temperatura-condicoes-termicas.qmd#sec-cli-est-04) deriva de um modelo termofisiológico e considera temperatura do ar, umidade, vento e temperatura radiante média. Esta última resume o ambiente de radiação para a troca de calor com o corpo; não é a temperatura de uma superfície isolada. O UTCI contempla estresse por calor e por frio, embora a ficha operacional do livro selecione métricas de calor [@steadman1994; @bom2026apparent; @brode2012utci].
+O [Índice de Calor — HI](../../chapters/part-4/17-fichas-temperatura-condicoes-termicas.qmd#sec-cli-est-01), do inglês *Heat Index*, combina temperatura do ar e umidade relativa para representar calor aparente em condições de sombra e vento fraco. O Serviço Nacional de Meteorologia dos Estados Unidos (NWS) usa operacionalmente a regressão de Rothfusz, baseada nas relações desenvolvidas por Steadman. Ela requer avaliação preliminar e respeito ao domínio de aplicação. A equação da ficha usa graus Fahrenheit; sua saída pode ser convertida para graus Celsius, mas inserir °C nos coeficientes definidos para °F produz erro [@rothfusz1990; @nws2026heat].
 
-O [WBGT (*wet bulb globe temperature*), denominado IBUTG na aplicação brasileira](../../chapters/part-4/17-fichas-temperatura-condicoes-termicas.qmd#sec-cli-est-05), usa temperaturas de bulbo úmido natural e de globo e, quando há carga solar direta, temperatura do ar. A sigla brasileira corresponde a Índice de Bulbo Úmido Termômetro de Globo. Seu uso em trabalho exige interpretação conjunta com atividade, roupa, aclimatização e duração [@iso2017wbgt; @fundacentro2025nho06].
+O HI é útil para comunicar condições de calor úmido. Não incorpora diretamente o vento observado, a radiação recebida pela pessoa, sua roupa ou seu esforço. Assim, não descreve sozinho uma atividade intensa ao sol, e suas categorias não constituem limites sanitários universais [@nws2026heat].
+
+O [Humidex](../../chapters/part-4/17-fichas-temperatura-condicoes-termicas.qmd#sec-cli-est-03) também sintetiza calor e umidade, mas usa a pressão de vapor, que pode ser calculada a partir do ponto de orvalho. Embora sua escala evoque uma temperatura aparente, o Humidex é apresentado como índice adimensional, sem o símbolo °C. Na fórmula documentada na ficha, a temperatura do ar entra em °C e o ponto de orvalho em kelvin; confundir essas unidades altera o resultado. Vento e radiação não entram no cálculo. Suas categorias são próprias do sistema canadense e não devem ser convertidas diretamente nas do HI [@masterton1979; @canada2021humidexformula; @canada2026humidex].
+
+A [temperatura aparente — AT](../../chapters/part-4/17-fichas-temperatura-condicoes-termicas.qmd#sec-cli-est-02), do inglês *apparent temperature*, acrescenta o efeito do vento à temperatura e à pressão de vapor. A ficha adota a aproximação externa à sombra do Bureau of Meteorology australiano, com vento a 10 m e resultado em °C. Nessa formulação, maior pressão de vapor eleva a AT, enquanto maior velocidade do vento reduz seu valor, mantidas as demais entradas. Essa relação é uma propriedade da equação; não permite concluir que qualquer vento proteja qualquer pessoa em calor intenso. Existem formulações de AT para outros ambientes, inclusive internos, e o nome do índice precisa vir acompanhado da variante utilizada [@steadman1994; @bom2026thermalcomfort].
+
+### Índice baseado em modelo termofisiológico
+
+O [Índice Térmico Universal do Clima — UTCI](../../chapters/part-4/17-fichas-temperatura-condicoes-termicas.qmd#sec-cli-est-04), do inglês *Universal Thermal Climate Index*, deriva de um modelo de termorregulação integrado a um modelo de vestimenta. Combina temperatura do ar, umidade, vento e temperatura radiante média para estimar a temperatura de um ambiente de referência que produziria uma resposta fisiológica equivalente. O resultado é expresso em °C e não corresponde à temperatura corporal [@brode2012utci].
+
+A temperatura radiante média resume a troca de radiação entre o corpo e o entorno; não é a temperatura de uma única superfície. O UTCI permite considerar tanto calor quanto frio, mas representa atividade e vestimenta segundo suas hipóteses, sem reproduzir todas as pessoas e tarefas. A ficha do livro usa o produto ERA5-HEAT e seleciona métricas de calor. Ao aplicá-lo, verifique a altura de referência do vento, o domínio do cálculo e a representação da radiação: uma estimativa em grade não resolve automaticamente a sombra de uma rua [@brode2012utci; @dinapoli2021era5heat].
+
+### Índice instrumental para exposição ocupacional
+
+O [WBGT](../../chapters/part-4/17-fichas-temperatura-condicoes-termicas.qmd#sec-cli-est-05), do inglês *wet bulb globe temperature*, corresponde ao Índice de Bulbo Úmido Termômetro de Globo (IBUTG) na aplicação brasileira. Combina a temperatura de bulbo úmido natural, sensível à evaporação e à ventilação, com a temperatura de globo, que responde às trocas radiantes e convectivas. Na presença de carga solar direta, inclui também a temperatura do ar. O resultado em °C é um índice ambiental, não uma medição da temperatura interna do trabalhador [@iso2017wbgt; @fundacentro2025nho06].
+
+A ficha requer medições no posto de trabalho e avaliação do período crítico de 60 minutos segundo a Norma de Higiene Ocupacional 06 (NHO 06), da Fundacentro. Metabolismo da tarefa, vestimenta, aclimatização e duração das condições observadas participam da interpretação. O bulbo úmido natural não deve ser substituído sem justificativa por uma temperatura de bulbo úmido calculada de outro modo, nem o IBUTG local por uma média diária de estação [@fundacentro2025nho06].
+
+O @qua-indices-biometeorologicos reúne as diferenças práticas. As fórmulas, domínios e regras de agregação estão nas respectivas fichas do capítulo 17.
+
+::: {#qua-indices-biometeorologicos}
+
+| Índice e escala | Entradas ambientais | Aplicação | Limite central |
+|---|---|---|---|
+| HI; °F ou °C após conversão | Temperatura do ar e umidade relativa | Comunicação de calor úmido | Referência de sombra e vento fraco; domínio restrito. |
+| Humidex; adimensional | Temperatura do ar e pressão de vapor | Comunicação de desconforto por calor e umidade | Sem vento ou radiação; categorias próprias. |
+| AT; °C | Temperatura do ar, pressão de vapor e vento a 10 m | Temperatura aparente externa à sombra | Depende da variante; não inclui sol direto nesta formulação. |
+| UTCI; °C equivalente | Temperatura do ar, umidade, vento e temperatura radiante média | Estresse térmico externo por calor ou frio | Atividade e vestimenta de referência; a ficha seleciona calor. |
+| WBGT/IBUTG; °C | Bulbo úmido natural, globo e ar quando há carga solar direta | Avaliação da exposição ocupacional ao calor | Exige contexto do posto, tarefa, roupa, aclimatização e duração. |
+
+Índices biometeorológicos: entradas, aplicações e limites de interpretação
+
+:::
 
 Escolha o índice pelo mecanismo e pelo contexto: confira entradas, unidades, domínio, altura do vento, radiação e agregação antes de calcular. O índice aplicado à grade meteorológica não reproduz automaticamente a sombra de uma rua ou o interior de uma casa. As fórmulas e limites estão nas [fichas biometeorológicas](../../chapters/part-4/17-fichas-temperatura-condicoes-termicas.qmd); as diferenças entre ambiente externo, presença e proteção estão no [capítulo sobre exposição e vulnerabilidade](../../chapters/part-3/13-exposicao-vulnerabilidade.qmd).
 
@@ -210,7 +270,7 @@ Na aplicação em saúde, acrescente população, permanência, moradia e acesso
 
 ## Exposição ocupacional
 
-A atividade laboral combina condições ambientais e a produção metabólica de calor do corpo, podendo provovar possíveis exposições a temperaturas prejudicias a saúde. Exposições importantes ocorrem em atividades de trabalho ao ar livre e em cozinhas, fundições, lavanderias, galpões e outros ambientes internos. O ritmo e duração das atividades, roupa, equipamentos de proteção, pausas, acesso à água e aclimatização interferem na exposição. Uma estação meteorológica pode contextualizar o dia, mas não caracteriza sozinha um posto de trabalho próximo a uma fonte de calor ou com ventilação restrita [@who2025workplaceheat; @niosh2016heat].
+A atividade laboral combina condições ambientais e a produção metabólica de calor do corpo, podendo intensificar a sobrecarga térmica e os riscos à saúde. Exposições importantes ocorrem em atividades de trabalho ao ar livre e em cozinhas, fundições, lavanderias, galpões e outros ambientes internos. O ritmo e duração das atividades, roupa, equipamentos de proteção, pausas, acesso à água e aclimatização interferem na exposição. Uma estação meteorológica pode contextualizar o dia, mas não caracteriza sozinha um posto de trabalho próximo a uma fonte de calor ou com ventilação restrita [@who2025workplaceheat; @niosh2016heat].
 
 A avaliação pelos indicadores WBGT/IBUTG integra medidas ambientais e a caracterização da atividade. A norma 7243:2017 da Organização Internacional de Normalização (ISO) o emprega como método de triagem; no Brasil, a [ficha de IBUTG](../../chapters/part-4/17-fichas-temperatura-condicoes-termicas.qmd#sec-cli-est-05) especifica medição no local e interpretação segundo a Norma de Higiene Ocupacional 06 (NHO 06), da Fundacentro. Na operacionalização do livro, a janela de avaliação é de 60 minutos. Ela não deve ser confundida com média diária de estação, tampouco aplicada sem estimar a taxa metabólica e verificar as condições previstas no método [@iso2017wbgt; @fundacentro2025nho06].
 
