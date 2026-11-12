@@ -166,11 +166,11 @@
   }
 }
 
-// Vinhetas dos capítulos de fundamentos, identificadas pelo título editorial.
+// Vinhetas dos capítulos 1 a 12, identificadas pelo título editorial.
 #let dicas-chapter-openings = (
   "Análise de situação de saúde e decisão pública": (
-    source: "assets/openings/cap6-indicador-decisao-turner-print.png",
-    alt: "Paisagem pictórica de uma cidade brasileira hipotética à margem de um rio, sem pessoas. Uma ponte e vias ribeirinhas conectam bairros e edifícios públicos entre áreas verdes. Luz dourada atravessa a bruma e se reflete na água, em contraste com nuvens azul-acinzentadas e chuva distante.",
+    source: "assets/openings/cap6-indicador-decisao-print.png",
+    alt: "Aquarela de cidade brasileira hipotética sem pessoas, com rio, ponte ligando bairros, vias ribeirinhas, praça arborizada e edifícios públicos. Luz suave e traços delicados destacam as conexões entre território, acesso e serviços.",
   ),
   "Clima, ambiente e saúde pública": (
     source: "assets/openings/cap1-clima-ambiente-saude-print.png",
@@ -191,6 +191,30 @@
   "Seleção de fontes e qualificação de indicadores": (
     source: "assets/openings/cap5-fontes-fichas-print.png",
     alt: "Paisagem hipotética sem pessoas de um pequeno núcleo urbano: instalação de monitoramento ambiental, estação meteorológica em gramado aberto, sensor junto ao rio e estabelecimento de saúde integrado às ruas, casas e prédios. A cena remete a diferentes origens dos dados.",
+  ),
+  "Temperatura e condições térmicas": (
+    source: "assets/openings/cap7-temperatura-condicoes-termicas-print.png",
+    alt: "Aquarela de bairro brasileiro hipotético sem pessoas, sob sol: rua pavimentada e telhados expostos contrastam com uma praça arborizada e caminhos sombreados, remetendo às diferentes condições térmicas do território.",
+  ),
+  "Precipitação, secas, inundações e deslizamentos": (
+    source: "assets/openings/cap8-precipitacao-secas-eventos-hidrologicos-print.png",
+    alt: "Aquarela de vale brasileiro hipotético sem pessoas, com rio sinuoso, margens parcialmente expostas, vegetação seca no primeiro plano e chuva localizada sobre encostas distantes. A paisagem remete à distribuição da água e das chuvas.",
+  ),
+  "Qualidade do ar, queimadas e fumaça": (
+    source: "assets/openings/cap9-qualidade-ar-queimadas-fumaca-print.png",
+    alt: "Aquarela de transição rural e urbana brasileira hipotética sem pessoas. Uma queimada distante em vegetação baixa emite fumaça que se dispersa sobre o vale em direção a um bairro, mantendo relevo e construções visíveis.",
+  ),
+  "Água, saneamento e higiene": (
+    source: "assets/openings/cap10-agua-saneamento-qualidade-ambiental-print.png",
+    alt: "Aquarela de bairro brasileiro hipotético sem pessoas, articulando manancial, instalação de tratamento, reservatório fechado, moradias, equipamento de saúde e drenagem de rua. A cena remete à infraestrutura de água e saneamento.",
+  ),
+  "Uso e cobertura da terra, vegetação e ambiente urbano": (
+    source: "assets/openings/cap11-uso-cobertura-terra-ambiente-urbano-print.png",
+    alt: "Aquarela em vista elevada de território brasileiro hipotético sem pessoas: mata, cultivos, curso d’água com vegetação ciliar, bairros de diferentes densidades, parque e áreas pavimentadas formam um mosaico contínuo.",
+  ),
+  "Eventos meteorológicos severos e desastres": (
+    source: "assets/openings/cap12-eventos-severos-desastres-print.png",
+    alt: "Aquarela de bairro brasileiro hipotético sem pessoas após tempestade: galhos e uma árvore caída interrompem uma rua lateral, há alagamento localizado e uma via seca conduz a um edifício público. A cena relaciona danos e acesso aos serviços.",
   ),
 )
 

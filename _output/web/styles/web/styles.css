@@ -139,7 +139,11 @@ a:focus-visible, button:focus-visible, input:focus-visible,
   font-size: .9rem;
   line-height: 1.45;
 }
-#quarto-sidebar { border-right: 1px solid var(--dicas-border); }
+#quarto-sidebar {
+  border-right: 1px solid var(--dicas-border);
+  /* Ao atingir os limites do índice, a rolagem não deve mover a página. */
+  overscroll-behavior-y: contain;
+}
 .sidebar-title { font-size: 1.38rem; line-height: 1.2; }
 .sidebar-item { margin-bottom: .15rem; }
 .sidebar-item-container .active { font-weight: 600; }
