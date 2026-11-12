@@ -127,6 +127,16 @@ Conferir capa, abertura de parte, abertura de capítulo, figura e ficha extensa 
 
 ## Recursos visuais
 
+### Remissões a capítulos
+
+Use os identificadores estáveis dos títulos, como `@sec-temperatura`, para remeter a capítulos em texto, quadros e fichas. O Quarto resolve número, prefixo e destino nas edições web e impressa; não escreva “capítulo” antes de uma referência que já produz esse prefixo. Nas listas em que também seja necessário o título completo, use `[]{.chapter-title-ref target="sec-temperatura"}`: o filtro lê o título original. Os geradores de catálogos seguem a mesma regra. Na edição preliminar, referências a capítulos omitidos viram texto com o número derivado da edição completa.
+
+Mantenha links específicos para fichas e fontes. Textos alternativos e diagramas devem descrever o percurso conceitual; as remissões numeradas ficam no texto associado. Comentários históricos de produção e referências a capítulos de obras externas conservam sua identificação original. Execute `python3 scripts/check_book_refs.py` e `python3 scripts/test_book_refs.py` ao alterar esse mecanismo.
+
+### Figuras conceituais de temperatura
+
+A figura de LST apresenta a mesma área hipotética em vista superior e em cores falsas, com escala relativa sem temperaturas numéricas. Não representa um produto observado nem uma temperatura fixa por tipo de cobertura. Letras e explicações identificam os contrastes também na impressão em cinza. O esquema de limiar, percentil e anomalia é vetorial, sem séries ou distribuições simuladas. As versões anteriores da aquarela permanecem arquivadas com seus prompts; a composição ativa está registrada no manifesto do capítulo.
+
 Toda figura deve ter função, legenda, fonte, autoria, licença e texto alternativo. Elementos generativos de IA podem ser usados quando forem adequados à função editorial, desde que recebam direção de arte, revisão humana e tratamento coerente com o padrão técnico da obra, sem aparência genérica ou artificiosamente produzida. Não usar imagem meramente decorativa. Tabelas devem permanecer legíveis no celular e no miolo de 160 × 230 mm.
 
 Gráficos e mapas devem usar dados reais e rastreáveis, nunca valores simulados apresentados como observação. Devem informar fonte, período, unidade, tratamento aplicado e, sempre que possível, ser produzidos por código versionado a partir da fonte original ou de um repositório institucional do autor.

@@ -7,6 +7,7 @@ import re
 import struct
 import xml.etree.ElementTree as ET
 from pathlib import Path
+from book_refs import chapter_remission, section_ids
 
 ROOT=Path(__file__).resolve().parent.parent
 CHAPTER=ROOT/'chapters/part-2/10-agua-saneamento-qualidade-ambiental.qmd'
@@ -27,11 +28,11 @@ def check(rendered=False):
     for part,r in zip(parts,records):
         assert len(re.findall(r'\{#fig-',part))==1, 'Figura ausente ou duplicada: '+r['number']
         assert '{#'+r['id'] in part and '@'+r['id'] in part
-        assert re.search(r'\]\(../../chapters/part-4/.+?\.qmd',part),'Trecho sem ficha relacionada: '+r['number']
+        assert chapter_remission(part, part=4),'Trecho sem ficha relacionada: '+r['number']
     bib=re.findall(r'(?m)^@\w+\{([^,]+)',(ROOT/'references.bib').read_text())
     assert len(bib)==len(set(bib)),'Chaves bibliográficas repetidas'
     refs=set(re.findall(r'@([A-Za-z][\w-]+)',body))
-    assert not (refs-set(bib)-{r['id'] for r in records}), 'Citação não resolvida'
+    assert not (refs-set(bib)-{r['id'] for r in records}-section_ids()), 'Citação não resolvida'
     listing=(ROOT/'backmatter/lista-figuras.qmd').read_text()
     ns={'s':'http://www.w3.org/2000/svg'}
     for r in records:
@@ -75,7 +76,7 @@ def check(rendered=False):
         assert '10-agua-saneamento-qualidade-ambiental.html' in alias and 'window.location.hash' in alias
         assert '## Síntese' not in html
         assert 'href="../../chapters/part-4/20-fichas-agua-saneamento-qualidade-ambiental.html#sec-san-agu-01"' in html
-    print(f'Capítulo 10: 14 figuras (7 aquarelas), 9 seções, 4 subseções, 9 âncoras, {len(refs-set(r["id"] for r in records))} referências; integração válida.')
+    print(f'Capítulo 10: 14 figuras (7 aquarelas), 9 seções, 4 subseções, 9 âncoras, {len(refs-set(r["id"] for r in records)-section_ids())} referências; integração válida.')
 
 
 if __name__=='__main__':

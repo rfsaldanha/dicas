@@ -7,6 +7,7 @@ import re
 import struct
 import xml.etree.ElementTree as ET
 from pathlib import Path
+from book_refs import chapter_remission, section_ids
 
 ROOT=Path(__file__).resolve().parent.parent
 CHAPTER=ROOT/'chapters/part-2/12-eventos-severos-desastres.qmd'
@@ -27,12 +28,12 @@ def check(rendered=False):
     for part,r in zip(parts,records):
         assert len(re.findall(r'\{#fig-',part))==1,'Figura ausente ou duplicada: '+r['number']
         assert '{#'+r['id'] in part and '@'+r['id'] in part
-        assert re.search(r'\]\(../../chapters/part-4/.+?\.qmd',part),'Seção sem ficha relacionada: '+r['number']
+        assert chapter_remission(part, part=4),'Seção sem ficha relacionada: '+r['number']
         assert re.search(r'\[@[A-Za-z]|\[@|; @',part),'Seção sem referência bibliográfica: '+r['number']
     bib=re.findall(r'(?m)^@\w+\{([^,]+)',(ROOT/'references.bib').read_text())
     assert len(bib)==len(set(bib)),'Chaves bibliográficas repetidas'
     refs=set(re.findall(r'@([A-Za-z][\w-]+)',body))
-    crossrefs={r['id'] for r in records}|{'qua-indicadores-desastre', 'sec-comunicacao-risco'}
+    crossrefs={r['id'] for r in records}|{'qua-indicadores-desastre'}|section_ids()
     assert not (refs-set(bib)-crossrefs),'Citação não resolvida: '+str(refs-set(bib)-crossrefs)
     listing=(ROOT/'backmatter/lista-figuras.qmd').read_text()
     ns={'s':'http://www.w3.org/2000/svg'}

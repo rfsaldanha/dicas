@@ -7,6 +7,7 @@ import re
 import struct
 import xml.etree.ElementTree as ET
 from pathlib import Path
+from book_refs import chapter_remission, section_ids
 from html.parser import HTMLParser
 from urllib.parse import urlsplit, unquote
 
@@ -46,7 +47,7 @@ def check(rendered=False):
     for part, r in zip(parts, records):
         assert len(re.findall(r"\{#fig-", part)) == 1, r["number"]
         assert "{#"+r["id"] in part and "@"+r["id"] in part
-        assert re.search(r"\]\(../../chapters/part-4/.+?\.qmd", part), r["number"]
+        assert chapter_remission(part, part=4), r["number"]
         assert re.search(r"\[@[a-zA-Z]", part), "Seção sem referência: "+r["number"]
     bib = re.findall(r"(?m)^@\w+\{([^,]+)", (ROOT/"references.bib").read_text())
     assert len(bib) == len(set(bib))

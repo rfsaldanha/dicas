@@ -88,10 +88,10 @@ main <- function() {
   changed_lines[heading] <- sub(" {#sec-", " — teste de título {#sec-", chapter_lines[heading], fixed = TRUE)
   writeLines(changed_lines, chapter)
   run(incremental = TRUE)
-  check(!identical(before$hash, snapshot()$hash), "O título do capítulo não atualizou as fichas.")
+  check(identical(before$hash, snapshot()$hash), "A mudança de título deve preservar as remissões por identificador.")
   writeLines(chapter_lines, chapter)
   run(incremental = TRUE)
-  check(identical(before$hash, snapshot()$hash), "Restaurar o título não restaurou as fichas.")
+  check(identical(before$hash, snapshot()$hash), "Restaurar o título alterou as remissões estáveis.")
   before <- snapshot()
 
   input <- sort(list.files(file.path(fixture, "indicators/data"), full.names = TRUE))[1L]

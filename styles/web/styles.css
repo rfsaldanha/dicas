@@ -352,3 +352,20 @@ table th { font-family: var(--dicas-sans); font-weight: 600; }
     word-break: normal;
   }
 }
+/* Mantém os rótulos dos dois novos esquemas legíveis em telas estreitas.
+   A rolagem fica restrita à imagem; a legenda acompanha a coluna de leitura. */
+@media (max-width: 600px) {
+  #fig-lst-observacao figure > div[aria-describedby],
+  #fig-limiar-percentil-anomalia figure > div[aria-describedby] {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+  }
+
+  #fig-lst-observacao img,
+  #fig-limiar-percentil-anomalia img {
+    min-width: 720px;
+    max-width: none;
+  }
+}

@@ -46,7 +46,7 @@ SPECS = [
 ('12','gestao','fig-agua-gestao','Da identificação do problema à verificação da resposta',
  'Três cenas hipotéticas mostram planejamento, observação e comunicação. O ciclo conecta verificar, avaliar risco, agir e acompanhar, com retorno ao planejamento. A quantidade de ações não demonstra por si só proteção alcançada.',True,'OMS (2023), Water safety plan manual; Ministério da Saúde (2024).'),
 ('13','navegacao','fig-agua-navegacao','Percurso entre contexto, fichas e aplicação',
- 'O percurso começa no capítulo 10, passa pelas nove fichas do capítulo 19 e chega à fonte e à decisão. Três famílias distinguem serviços populacionais, amostras de água e indicadores administrativos. Capítulos complementares apoiam estudos integrados.',False,'Arquitetura editorial do livro e fichas do capítulo 19.'),
+ 'O percurso começa no contexto de água e saneamento, passa pelas nove fichas operacionais e chega à fonte e à decisão. Três famílias distinguem serviços populacionais, amostras de água e indicadores administrativos. Capítulos complementares apoiam estudos integrados.',False,'Arquitetura editorial do livro e fichas de água e saneamento.'),
 ]
 
 
@@ -157,9 +157,9 @@ def layout(n):
         p += [arrow('M820 800 H965'),arrow('M1370 900 V980'),arrow('M980 1100 H840'),arrow('M430 1000 V920'),text(900,1280,'Planejar responsabilidades e documentar o seguimento.',size=46)]
         return 1340,p
     if n=='13':
-        p=[panel(40,30,1720,185,'Capítulo 10: contexto',['Conceitos, interpretação e limites']),arrow('M900 215 V275'),panel(40,290,1720,185,'Capítulo 19: nove fichas',['Definição, método, disponibilidade e fontes'])]
+        p=[panel(40,30,1720,185,'Contexto do fenômeno',['Conceitos, interpretação e limites']),arrow('M900 215 V275'),panel(40,290,1720,185,'Nove fichas operacionais',['Definição, método, disponibilidade e fontes'])]
         p+=three(525,[('Serviços',['SAN-AGU-01','SAN-ESG-01 / SAN-HIG-01']),('Amostras',['SAN-AGU-02 e 03','SAN-AGU-04']),('Administração',['SAN-AGU-05','SAN-ESG-02 e 03'])],235)
-        p+=[arrow('M900 760 V820'),panel(40,835,1720,185,'Fonte → resultado → decisão',['Preservar versão, universo e denominador']),text(900,1090,'Fichas complementares: capítulos 17, 20, 21, 22, 23 e 24.',size=46),text(900,1155,'Links para cada destino acompanham o texto e o diretório.',size=44)]
+        p+=[arrow('M900 760 V820'),panel(40,835,1720,185,'Fonte → resultado → decisão',['Preservar versão, universo e denominador']),text(900,1090,'Consulte as fichas complementares indicadas no texto.',size=46),text(900,1155,'Links para cada destino acompanham o texto e o diretório.',size=44)]
         return 1220,p
     raise ValueError(n)
 

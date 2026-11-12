@@ -1,11 +1,15 @@
 -- As remissões editoriais continuam legíveis na edição parcial, sem links
 -- para capítulos ou catálogos que não fazem parte dela.
-local omitted_sections = {
-  ["sec-exposicao-vulnerabilidade"] = "capítulo 13",
-  ["sec-efeitos-saude"] = "capítulo 14",
-  ["sec-resposta"] = "capítulo 15",
-  ["sec-comunicacao-risco"] = "capítulo 16"
-}
+local directory = PANDOC_SCRIPT_FILE:match('^(.*[/\\])') or './'
+local metadata = dofile(directory .. 'chapter_metadata.lua')
+local present = {}
+for _, path in ipairs(metadata.paths('_quarto-preliminar.yml')) do present[path] = true end
+local omitted_sections = {}
+for id, chapter in pairs(metadata.chapters()) do
+  if not present[chapter.path] then
+    omitted_sections[id] = 'capítulo ' .. chapter.number
+  end
+end
 
 function Cite(cite)
   local has_omitted = false

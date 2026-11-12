@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
-"""Compõe as 15 figuras conceituais do capítulo 7, sem dados simulados.
+"""Compõe as 17 figuras conceituais do capítulo 7, sem dados simulados.
 
-Uso: DICAS_BROWSER_CHANNEL=chrome python scripts/build_cap7_art.py [00 ... 14]
+Uso: DICAS_BROWSER_CHANNEL=chrome python scripts/build_cap7_art.py [00 ... 16]
 Cenas produzidas com image_gen; rótulos e relações permanecem editáveis.
 """
 import base64
 import hashlib
 import json
+import io
 import sys
+import tempfile
 from pathlib import Path
 from xml.sax.saxutils import escape
 from PIL import Image
@@ -18,7 +20,7 @@ ROOT = Path(__file__).resolve().parent.parent
 ART = ROOT / 'assets/figures'
 INK, GREEN, BLUE, TERRA = '#303B36', '#536B50', '#597482', '#AE6B50'
 SAND, PALE = '#F3F0E8', '#EEF2F4'
-RASTER_VERSIONS = {'00': 'v2'}
+RASTER_VERSIONS = {'00': 'v2', '15': 'v4'}
 SPECS = [
 ('00', 'conceitos', 'fig-temperatura-conceitos',
  'Condições térmicas, exposição e efeitos na saúde',
@@ -59,7 +61,7 @@ SPECS = [
 ('09', 'selecao', 'fig-selecao-termica',
  'Escolher a medida a partir da pergunta',
  'Matriz de decisão relaciona extremos a séries de temperatura, persistência a sequências, carga térmica a variáveis simultâneas e alcance a território e população. Toda escolha passa por verificação de fonte, escala, qualidade e finalidade.',
- False, 'Fichas do capítulo 16 e critérios de seleção do capítulo 5.'),
+ False, 'Fichas térmicas e critérios de seleção de indicadores do livro.'),
 ('10', 'protocolo', 'fig-protocolo-termico',
  'Entradas, referências, cálculo e documentação',
  'Quatro etapas: qualificar entradas; fixar calendário e referência; calcular na célula e agregar; documentar resultado e cobertura. Exceções são explícitas: pessoas-dia soma exposição e extensão regional acompanha componentes espaciais.',
@@ -80,6 +82,14 @@ SPECS = [
  'Termômetro infravermelho sem contato: a pele como alvo',
  'Profissional de saúde e homem adulto, ambos com máscara, em ambiente interno. A profissional segura um termômetro infravermelho próximo à testa descoberta, sem contato e sem feixe luminoso. Rótulos distinguem a superfície observada, o sensor e os cuidados de posicionamento. Não há leitura numérica ou diagnóstico representado.',
  True, 'Food and Drug Administration (2025), Non-contact infrared thermometers.'),
+('15', 'lst', 'fig-lst-observacao',
+ 'Da superfície vista pelo satélite à representação da LST',
+ 'Dois painéis mostram a mesma área hipotética vista de cima. À esquerda, rio, copas de árvores, gramado, quatro telhados, solo descoberto e rua com ponte ligando as margens; à direita, um raster térmico em cores falsas mantém suas posições. A escala relativa não tem valores numéricos. A ponte prolonga a faixa de pavimento sobre o rio também no raster. São contrastes ilustrativos de uma condição diurna, sem temperaturas observadas ou relação fixa entre cobertura e temperatura.',
+ True, 'NASA, Land Surface Temperature; Voogt e Oke (2003).'),
+('16', 'limiar-percentil-anomalia', 'fig-limiar-percentil-anomalia',
+ 'Limiar absoluto, percentil e anomalia: três operações diferentes',
+ 'Três painéis conceituais sem dados: um eixo de temperatura posiciona T em relação ao limiar fixo L; uma faixa ordenada marca P90 e a fração superior de aproximadamente dez por cento; outro eixo mostra a diferença entre temperatura observada e referência. Posições não indicam temperaturas numéricas nem limiares de segurança.',
+ False, 'OMM, práticas climatológicas e normais; Zhang et al. (2005).'),
 ]
 
 
@@ -283,10 +293,10 @@ def layout(n):
               text(900,1410,'O ciclo abrange calor e frio; registrar decisões permite aprender.',size=44)]
         return 1470,p
     if n == '12':
-        p += [panel(40,30,1720,195,'Contexto: capítulo 7',
+        p += [panel(40,30,1720,195,'Contexto do fenômeno',
                     ['Conceito, finalidade, interpretação e limites']),
               arrow('M900 225 V285'),
-              panel(40,300,1720,195,'Ficha: capítulo 16',
+              panel(40,300,1720,195,'Ficha operacional',
                     ['Código, definição, fórmula, fonte e protocolo']),
               arrow('M900 495 V555'),
               panel(40,570,1720,195,'Fonte e processamento',
@@ -294,7 +304,7 @@ def layout(n):
               arrow('M900 765 V825'),
               panel(40,840,1720,195,'Aplicação e leitura conjunta',
                     ['Ambiente urbano • vulnerabilidade • efeitos • resposta']),
-              text(900,1100,'Capítulos de fichas complementares: 20, 22, 23 e 24.',size=46),
+              text(900,1100,'Consulte as fichas complementares indicadas no texto.',size=46),
               text(900,1170,'A ficha oferece retorno ao contexto; os links estão no texto e no quadro.',size=43)]
         return 1230,p
     if n == '13':
@@ -317,6 +327,55 @@ def layout(n):
             p.append(panel(x, 1040, 540, 220, title, lines))
         p.append(text(900, 1330, 'Cena ilustrativa: sem leitura numérica ou diagnóstico.', size=44))
         return 1390, p
+    if n == '15':
+        p += [text(450,65,'Superfície vista de cima',size=49,weight=700),
+              text(1350,65,'LST: representação conceitual',size=46,weight=700),
+              picture(n,30,90,1740,1160),
+              text(450,1190,['Água, copas, gramado,','telhados, rua, ponte e solo.'],size=43),
+              '<defs><linearGradient id="thermal"><stop offset="0" stop-color="#000099"/><stop offset=".25" stop-color="#0099ff"/><stop offset=".5" stop-color="#ffff80"/><stop offset=".75" stop-color="#ff8000"/><stop offset="1" stop-color="#ee1515"/></linearGradient></defs>',
+              '<rect x="1030" y="1145" width="620" height="38" fill="url(#thermal)" stroke="#303B36" stroke-width="2"/>',
+              text(1030,1240,'Menor',size=42,anchor='start'),text(1650,1240,'Maior',size=42,anchor='end'),
+              text(1340,1300,'Temperatura da superfície',size=42),
+              '<circle cx="1400" cy="350" r="36" fill="white" stroke="#303B36" stroke-width="3"/>',text(1400,365,'A',size=45,weight=700),
+              '<circle cx="1400" cy="830" r="36" fill="white" stroke="#303B36" stroke-width="3"/>',text(1400,845,'B',size=45,weight=700),
+              text(900,1370,'Neste esquema: copas (A), menor temperatura; pavimento (B), maior.',size=43),
+              panel(40,1430,840,225,'O sensor recebe radiância',
+                    ['Atmosfera e emissividade entram', 'na estimativa da temperatura.']),
+              panel(920,1430,840,225,'Cada pixel tem um suporte',
+                    ['Pode reunir diferentes superfícies;', 'não descreve cada material separado.']),
+              text(900,1720,'Contrastes ilustrativos de uma condição diurna; sem dados observados.',size=43),
+              text(900,1780,'As cores não fixam temperaturas por cobertura; LST não é temperatura do ar.',size=41)]
+        return 1840,p
+    if n == '16':
+        for y,title in [(25,'Limiar absoluto: comparar com um valor fixo'),
+                        (435,'Percentil: localizar na distribuição ordenada'),
+                        (875,'Anomalia: calcular a diferença em relação à referência')]:
+            p += [f'<rect x="40" y="{y}" width="1720" height="385" rx="12" fill="{SAND}"/>',
+                  text(80,y+65,title,size=46,weight=700,anchor='start')]
+        p += [arrow('M170 205 H1620'),
+              '<path d="M970 155 V250" stroke="#303B36" stroke-width="4" stroke-dasharray="10 7"/>',
+              '<circle cx="1300" cy="205" r="13" fill="#AE6B50"/>',
+              text(970,145,'L'),text(1300,145,'T'),
+              text(400,280,'Abaixo de L',size=42),text(1320,280,'Acima de L',size=42),
+              text(900,355,'Temperatura (°C) • L é definido pela finalidade da aplicação.',size=43),
+              f'<rect x="170" y="590" width="1260" height="55" fill="{BLUE}"/>',
+              f'<rect x="1430" y="590" width="140" height="55" fill="{TERRA}"/>',
+              '<path d="M1430 560 V675" stroke="#303B36" stroke-width="4"/>',
+              text(1430,550,'P90'),
+              text(750,715,'Posições até o percentil 90',size=43),
+              text(1500,715,'≈ 10%',size=42),
+              arrow('M170 760 H1570'),
+              text(900,815,'Ordem das temperaturas • Empates podem alterar a fração acima de P90.',size=41),
+              arrow('M170 1090 H1620'),
+              '<path d="M600 1040 V1120 M1250 1040 V1120" stroke="#303B36" stroke-width="4"/>',
+              text(600,1025,'T referência',size=43),text(1250,1025,'T observada',size=43),
+              arrow('M600 1150 H1250'),
+              text(925,1220,'ΔT = T observada − T referência',size=46),
+              text(900,1325,'A diferença pode ser positiva, nula ou negativa, em °C.',size=43),
+              text(900,1390,'Comparar a mesma variável, local e período do calendário.',size=43),
+              text(900,1470,'Esquema conceitual, sem dados ou temperaturas numéricas.',size=43),
+              text(900,1530,'Limiar, percentil e anomalia não estabelecem segurança sanitária.',size=43)]
+        return 1590,p
     raise ValueError(n)
 
 
@@ -354,6 +413,14 @@ def build(spec):
                 reference_delivery='Arquivo original inspecionado e fornecido por referenced_image_paths; referência apenas de estilo.',
                 generation_date='2026-11-11',
                 review='Original inspecionado: instrumentos e anatomia plausíveis; sem números, feixes luminosos ou dados observados. Rótulos editáveis acrescentados pelo montador.')
+        if number=='15':
+            meta.update(reference_delivery='Referência original fornecida por referenced_image_paths, apenas para estilo.',
+                        generation_date='2026-11-12', previous_raster='arte-cap7-15-v1.png',
+                        previous_prompt='arte-cap7-15-v1.prompt.txt',
+                        previous_variants=['arte-cap7-15-v1.png', 'arte-cap7-15-v2.png', 'arte-cap7-15-v3.png'],
+                        revision='v4 solicitada pelo autor: ponte liga a rua à outra margem em ambos os painéis; vista superior e raster térmico técnico com escala relativa vetorial, sem temperaturas numéricas.',
+                        print_processing='No painel térmico, a matiz da paleta azul–vermelho é convertida em cinza crescente; a escala acompanha a conversão. Não são calculadas temperaturas.',
+                        review='Correspondência entre rio, copas, casas, rua e solo conferida; mapa esquemático sem dados observados. Rótulos editáveis.')
         encoded=base64.b64encode(original.read_bytes()).decode('ascii')
         definition=f'<image id="aquarela" width="{sw}" height="{sh}" href="data:image/png;base64,{encoded}"/>'
     document=f'''<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="{height}" viewBox="0 0 1800 {height}" role="img" aria-labelledby="title desc">
@@ -363,7 +430,38 @@ def build(spec):
 <rect width="1800" height="{height}" fill="white"/>
 <g font-family="Libertinus Serif, Georgia, serif" fill="{INK}">{''.join(parts)}</g></svg>'''
     write_svg(ART/meta['svg'],document)
-    export_print(ART/meta['svg'],ART/meta['print'],require_raster=watercolor)
+    if number == '15':
+        # Conversão de paleta para impressão: mantém a ordem visual dos tons
+        # da ilustração, sem transformar suas cores em temperaturas.
+        original_image = Image.open(raster_path(number)).convert('RGB')
+        sw, sh = original_image.size
+        bounds = (round(sw*786/1536), round(sh*138/1024),
+                  round(sw*1518/1536), round(sh*875/1024))
+        thermal = original_image.crop(bounds)
+        hue, saturation, _ = thermal.convert('HSV').split()
+        lookup = []
+        for value in range(256):
+            degrees = value*360/255
+            if degrees > 300:
+                degrees = 0
+            lookup.append(round(45+185*(1-min(degrees,240)/240)))
+        gray = hue.point(lookup)
+        mask = saturation.point(lambda value: 255 if value >= 8 else 0)
+        gray = Image.composite(gray, thermal.convert('L'), mask)
+        original_image.paste(gray.convert('RGB'), bounds)
+        stream = io.BytesIO()
+        original_image.save(stream, format='PNG')
+        print_svg = (ART/meta['svg']).read_text().replace(encoded, base64.b64encode(stream.getvalue()).decode())
+        for color in ['#000099','#0099ff','#ffff80','#ff8000','#ee1515']:
+            hue_value = Image.new('RGB',(1,1),color).convert('HSV').getpixel((0,0))[0]
+            gray_color = '#'+format(lookup[hue_value],'02x')*3
+            print_svg = print_svg.replace(f'stop-color="{color}"', f'stop-color="{gray_color}"')
+        with tempfile.TemporaryDirectory(prefix='dicas-lst-print-') as folder:
+            source = Path(folder)/'lst.svg'
+            source.write_text(print_svg)
+            export_print(source,ART/meta['print'],require_raster=True)
+    else:
+        export_print(ART/meta['svg'],ART/meta['print'],require_raster=watercolor)
     print(basename,flush=True)
     return meta
 

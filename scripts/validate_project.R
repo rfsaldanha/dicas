@@ -641,6 +641,9 @@ if (system2("python3", "scripts/test_part_iii.py") != 0L) {
 
 source("scripts/validate_book_structure.R")
 validate_book_structure(root, rendered = TRUE)
+if (system2("python3", "scripts/check_book_refs.py") != 0L) {
+  fail("Falha na validação das remissões automáticas.")
+}
 if (system2("python3", c("scripts/check_cap7.py", "--rendered")) != 0L) {
   fail("Integração editorial do capítulo 7 inválida.")
 }

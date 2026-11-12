@@ -252,8 +252,7 @@ for (indicator in indicators) {
     paste0("[Disponibilidade:]{.field-label} ", paste0("[", as_list(indicator$disponibilidade), "]{.availability}", collapse = " ")),
     ":::",
     "",
-    paste0("Contexto e interpretação: [", context$title, "](../../",
-           indicator$capitulo, "#", context$anchor, ")."),
+    paste0("Contexto e interpretação: @", context$anchor, "."),
     "",
     "### Identificação e fundamento",
     "",
@@ -352,7 +351,7 @@ indicator_page_ref <- function(x) {
   paste0("`#ref(<sec-", tolower(x$codigo), ">, form: \"page\", supplement: none)`{=typst}")
 }
 chapter_link <- function(path) {
-  paste0("[cap. ", unname(chapter_numbers[path]), "](../", path, ")")
+  paste0("@", chapter_metadata[[path]]$anchor)
 }
 indicator_row_html <- function(x, kind) {
   link <- paste0("[", x$codigo, "](../", x$capitulo_fichas, "#sec-", tolower(x$codigo), ")")
@@ -368,8 +367,8 @@ indicator_row_print <- function(x, kind) {
     paste0("| ", x$titulo_resumido, " | ", x$codigo, " | ", indicator_page_ref(x), " |")
   } else {
     paste0("| ", x$codigo, " | ", x$titulo_resumido, " | ",
-           unname(chapter_numbers[x$capitulo]), " | ",
-           unname(chapter_numbers[x$capitulo_fichas]), " | ", indicator_page_ref(x), " |")
+           "[-@", chapter_metadata[[x$capitulo]]$anchor, "] | ",
+           "[-@", chapter_metadata[[x$capitulo_fichas]]$anchor, "] | ", indicator_page_ref(x), " |")
   }
 }
 short_titles <- vapply(indicators, function(x) as.character(x$titulo_resumido), character(1L))

@@ -59,7 +59,7 @@ SPECS = [
 ('18','gestao','fig-gestao-hidrometeorologica','Preparar, acompanhar, agir e aprender',
  'Equipe em reunião e visita a uma comunidade, em cenas hipotéticas. Ciclo vetorial articula preparação, acompanhamento, ação e avaliação; gatilhos exigem responsabilidade e contexto. A cena não representa eficácia medida.',True,'OMS (2023); Ministério da Saúde (2026); capítulo 6.'),
 ('19','navegacao','fig-navegacao-hidrologica','Da pergunta à ficha e à leitura conjunta',
- 'Roteiro liga contexto do capítulo 8, fichas do capítulo 17, fontes e protocolo, e indicadores complementares dos capítulos 16 e 18 a 24. Links no texto permitem retorno ao contexto e acesso ao indicador específico.',False,'Arquitetura editorial do livro.'),
+ 'Roteiro liga contexto do fenômeno, fichas operacionais, fontes e protocolo, e indicadores complementares de ambiente e saúde. Links no texto permitem retorno ao contexto e acesso ao indicador específico.',False,'Arquitetura editorial do livro.'),
 ]
 
 def text(x,y,lines,size=46,step=55,weight=400,anchor='middle',fill=INK):
@@ -165,10 +165,10 @@ def layout(n):
         return 1330,p
     if n=='19':
         p=[]
-        for i,(title,lines) in enumerate([('Contexto: capítulo 8',['Conceito, pergunta, mecanismo e limites']),('Ficha: capítulo 17',['Sete indicadores com definição, cálculo e disponibilidade']),('Fonte e protocolo',['Produto, versão, calendário, cobertura e processamento']),('Leitura conjunta',['Temperatura • água • ar • território • exposição • saúde • resposta'])]):
+        for i,(title,lines) in enumerate([('Contexto do fenômeno',['Conceito, pergunta, mecanismo e limites']),('Ficha operacional',['Sete indicadores com definição, cálculo e disponibilidade']),('Fonte e protocolo',['Produto, versão, calendário, cobertura e processamento']),('Leitura conjunta',['Temperatura • água • ar • território • exposição • saúde • resposta'])]):
             y=25+i*270;p.append(panel(40,y,1720,210,title,lines))
             if i<3:p.append(arrow(f'M900 {y+210} V{y+260}'))
-        p += [text(900,1160,'Fichas complementares: capítulos 16 e 18 a 24; retorno ao contexto.',size=44)]
+        p += [text(900,1160,'Consulte as fichas complementares e o retorno ao contexto no texto.',size=44)]
         return 1230,p
     raise ValueError(n)
 

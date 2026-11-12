@@ -7,6 +7,7 @@ import re
 import xml.etree.ElementTree as ET
 from html.parser import HTMLParser
 from pathlib import Path
+from book_refs import chapter_remission, section_ids
 from urllib.parse import unquote, urlsplit
 
 ROOT=Path(__file__).resolve().parent.parent
@@ -42,13 +43,13 @@ def check(rendered=False):
     bib=re.findall(r'(?m)^@\w+\{([^,]+)',(ROOT/'references.bib').read_text())
     assert len(bib)==len(set(bib)),'Chave BibTeX duplicada.'
     cited=set(re.findall(r'@([A-Za-z][\w-]+)',text))
-    assert not cited-set(bib)-ids,cited-set(bib)-ids
+    assert not cited-set(bib)-ids-section_ids(),cited-set(bib)-ids-section_ids()
     figure_list=(ROOT/'backmatter/lista-figuras.qmd').read_text()
     for part,r in zip(parts,records):
         assert len(re.findall(r'\{#fig-',part))==1,'Trecho sem figura própria ou com duplicação.'
         assert '{#'+r['id'] in part and '@'+r['id'] in part,r['id']
         assert '@'+r['id'] in figure_list,r['id']
-        assert re.search(r'\]\(\.\./\.\./chapters/[^)]+\.qmd',part),'Trecho sem remissão a capítulo.'
+        assert chapter_remission(part),'Trecho sem remissão a capítulo.'
         for key in ('svg','print'):assert (ROOT/'assets/figures'/r[key]).is_file(),r[key]
         svg=ET.parse(ROOT/'assets/figures'/r['svg']).getroot()
         ns={'s':'http://www.w3.org/2000/svg'}
@@ -94,7 +95,9 @@ def check(rendered=False):
         assert all(i.get('alt') for i in page.images if 'arte-cap8-' in i.get('src',''))
         card=Page(web/'chapters/part-4/18-fichas-precipitacao-secas-eventos-hidrologicos.html')
         assert expected<=set(card.ids)
-        assert any('08-precipitacao-secas-eventos-hidrologicos.html#sec-precipitacao' in h for h in card.links)
+        assert any(urlsplit(h).path.endswith('/08-precipitacao-secas-eventos-hidrologicos.html')
+                   and urlsplit(h).fragment in ('', 'sec-precipitacao') for h in card.links)
+        assert 'sec-precipitacao' in page.ids
         alias=(web/'chapters/part-2/06-precipitacao-secas-eventos-hidrologicos.html').read_text()
         assert '08-precipitacao-secas-eventos-hidrologicos.html' in alias
     print('Capítulo 8: 9 seções, 10 subseções, 20 figuras e 7 âncoras; citações e links válidos.'

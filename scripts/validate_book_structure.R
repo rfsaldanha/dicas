@@ -78,7 +78,9 @@ validate_book_structure <- function(root = ".", rendered = FALSE) {
     rows <- grep("^\\|", strsplit(context, "\n", fixed = TRUE)[[1L]], value = TRUE)
     check(any(grepl(target, rows, fixed = TRUE)), paste("Ficha ausente do quadro de orientação:", x$codigo))
     ficha <- read_text(paste0("indicators/includes/", slug, ".qmd"))
-    check(grepl(paste0("](../../", x$capitulo, "#sec-"), ficha, fixed = TRUE), paste("Retorno ao contexto ausente:", x$codigo))
+    context_heading <- grep("^# .*\\{#sec-", strsplit(context, "\n", fixed = TRUE)[[1L]], value = TRUE)
+    context_anchor <- sub(".*\\{#([^ }]+).*", "\\1", context_heading)
+    check(length(context_anchor) == 1L && grepl(paste0("Contexto e interpretação: @", context_anchor, "."), ficha, fixed = TRUE), paste("Retorno ao contexto ausente:", x$codigo))
     check(grepl(paste0("includes/", slug, ".qmd"), read_text(x$capitulo_fichas), fixed = TRUE), paste("Ficha incorporada em destino incorreto:", x$codigo))
     if (rendered) {
       context_html <- read_text(file.path("_output/web", sub("qmd$", "html", x$capitulo)))

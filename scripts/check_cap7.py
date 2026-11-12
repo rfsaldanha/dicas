@@ -6,6 +6,7 @@ import json
 import re
 import xml.etree.ElementTree as ET
 from pathlib import Path
+from book_refs import chapter_remission, section_ids
 
 ROOT = Path(__file__).resolve().parent.parent
 CHAPTER = ROOT/'chapters/part-2/07-temperatura-condicoes-termicas.qmd'
@@ -18,21 +19,23 @@ def check(rendered=False):
     assert len(sections)==13, 'Esperadas introdução e 12 seções.'
     assert not re.search(r'(?m)^## Síntese',text), 'Síntese ainda presente.'
     assert not re.search(r'(?im)^\s*(?:TODO|FIXME)\b', text), 'Pendência editorial no capítulo.'
-    assert len(manifest)==15 and len({r['id'] for r in manifest})==15
+    assert len(manifest)==17 and len({r['id'] for r in manifest})==17
     figure_ids=re.findall(r'\{#(fig-[\w-]+)',text)
-    assert len(figure_ids)==15 and set(figure_ids)=={r['id'] for r in manifest}, 'Figuras e manifesto divergem.'
+    assert len(figure_ids)==17 and set(figure_ids)=={r['id'] for r in manifest}, 'Figuras e manifesto divergem.'
     sections_by_figure={}
     for section in sections:
         ids=re.findall(r'\{#(fig-[\w-]+)',section)
         assert ids, 'Seção sem figura.'
-        assert re.search(r'\]\(\.\./\.\./chapters/.+?\.qmd',section), 'Seção sem remissão a capítulo.'
+        assert chapter_remission(section), 'Seção sem remissão a capítulo.'
         for identifier in ids:
             sections_by_figure[identifier]=section
     assert sections_by_figure['fig-abrigo-stevenson'].startswith('Temperatura do ar\n')
     assert sections_by_figure['fig-termometro-infravermelho'].startswith('Temperatura de superfície\n')
+    assert sections_by_figure['fig-lst-observacao'].startswith('Temperatura de superfície\n')
+    assert sections_by_figure['fig-limiar-percentil-anomalia'].startswith('Calor e frio\n')
     bib=set(re.findall(r'(?m)^@\w+\{([^,]+)',(ROOT/'references.bib').read_text()))
     cited=set(re.findall(r'@([A-Za-z][\w-]+)',text))
-    crossrefs=set(re.findall(r'\{#((?:fig|qua)-[\w-]+)',text))
+    crossrefs=set(re.findall(r'\{#((?:fig|qua)-[\w-]+)',text)) | section_ids()
     assert not (cited-bib-crossrefs), 'Referência não resolvida.'
     assert '@qua-indices-biometeorologicos' in (ROOT/'backmatter/lista-tabelas.qmd').read_text()
     figure_list=(ROOT/'backmatter/lista-figuras.qmd').read_text()
@@ -81,7 +84,7 @@ def check(rendered=False):
             relative=(CHAPTER.parent/file).resolve().relative_to(ROOT)
             dest=(ROOT/'_output/web'/relative).with_suffix('.html')
             assert 'id="'+anchor+'"' in dest.read_text(),str(dest)+'#'+anchor
-    print('Capítulo 7: 15 figuras, 12 seções, 23 âncoras; citações, links e artefatos válidos; sem TODOs.')
+    print('Capítulo 7: 17 figuras, 12 seções, 23 âncoras; citações, links e artefatos válidos; sem TODOs.')
 
 
 if __name__=='__main__':
