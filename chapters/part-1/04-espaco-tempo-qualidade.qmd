@@ -12,19 +12,19 @@ chapter-opening:
 
 # Integração de dados: espaço, tempo e qualidade {#sec-espaco-tempo}
 
-No capítulo anterior, a pergunta central foi o que um dado ou indicador representa. Neste capítulo, o problema muda de escala: quando duas ou mais fontes podem ser combinadas sem que o significado original seja perdido? Essa questão aparece continuamente na interface clima, ambiente e saúde, porque as fontes raramente são produzidas para o mesmo lugar, o mesmo período ou a mesma população.
+O capítulo anterior discutiu o significado dos dados e indicadores. Neste capítulo, a questão central é como integrar fontes sem perder o significado original de cada uma. Em clima, ambiente e saúde, as fontes raramente representam o mesmo território, período ou população.
 
-Uma estação meteorológica registra condições em um ponto; uma célula de uma grade representa um valor associado a uma área; uma taxa municipal resume eventos e população segundo um território administrativo. Do mesmo modo, uma concentração horária, uma média diária, um total mensal e uma taxa anual pertencem a janelas temporais diferentes. Unir essas informações exige mais do que encontrar uma coluna de município e outra de data: exige verificar que espaço, que tempo e que população cada valor efetivamente representa.
+Uma estação meteorológica registra condições em um ponto; uma célula de grade representa um valor associado a uma área; uma taxa municipal relaciona eventos e população em um território administrativo. Da mesma forma, concentrações horárias, médias diárias, totais mensais e taxas anuais representam intervalos distintos. Integrar essas informações exige verificar o espaço, o tempo e a população representados por cada valor.
 
-Essa compatibilização modifica o dado. Transformar uma grade em uma média municipal, converter UTC (Tempo Universal Coordenado) para horário local, agregar horas em dias, escolher um período de referência ou tratar valores ausentes são decisões analíticas. Elas podem ser necessárias e perfeitamente defensáveis, mas precisam ser coerentes com a pergunta e permanecer documentadas.
+A compatibilização transforma os dados. Calcular médias municipais a partir de grades, converter UTC (Tempo Universal Coordenado) em horário local, agregar horas em dias, definir períodos de referência e tratar valores ausentes são decisões analíticas que devem ser coerentes com a pergunta e documentadas.
 
-A qualidade deve ser examinada pela mesma lógica. Um produto pode ser adequado para comparar grandes regiões e insuficiente para orientar uma ação em um bairro; uma base consolidada pode ser excelente para análise retrospectiva e chegar tarde demais para vigilância operacional. A norma 19157-1 da Organização Internacional de Normalização (ISO) organiza a qualidade de dados geográficos a partir dos requisitos do produto e do uso [@iso2023geoquality]. Aqui, adotaremos uma formulação prática: não basta perguntar se o dado é bom; é preciso perguntar se ele é adequado para aquilo que se pretende fazer com ele.
+A qualidade também depende da finalidade. Um produto adequado para comparar regiões pode ser insuficiente para orientar ações em um bairro; uma base consolidada pode servir à análise retrospectiva, mas chegar tarde para a vigilância operacional. A norma 19157-1 da Organização Internacional de Normalização (ISO) organiza a qualidade dos dados geográficos segundo os requisitos do produto e do uso [@iso2023geoquality]. Mais do que avaliar a qualidade em termos gerais, interessa verificar a adequação dos dados à aplicação pretendida.
 
-O percurso começa pelo espaço e pelo tempo representados, passa pela avaliação da qualidade e da incerteza e chega aos limites da interpretação. Compatibilizar as bases permite construir uma comparação coerente; demonstrar causalidade ou estimar uma contribuição atribuível exige perguntas e hipóteses adicionais.
+O capítulo aborda a representação espacial e temporal, a qualidade, a incerteza e os limites da interpretação. Compatibilizar bases permite construir comparações coerentes; estimar efeitos causais ou contribuições atribuíveis exige hipóteses e métodos adicionais.
 
 ## O espaço que um dado representa
 
-Quando um conjunto de dados possui latitude e longitude, pode parecer que sua dimensão espacial está resolvida. Não está. Uma coordenada informa onde algo foi registrado ou referenciado, mas não necessariamente qual porção do espaço aquele valor representa.
+A presença de coordenadas geográficas não resolve, por si só, a dimensão espacial dos dados. A coordenada indica onde uma observação foi registrada ou referenciada, mas não necessariamente a extensão espacial representada pelo valor.
 
 ::: {.callout-note icon=false title="Conceito-chave: localização, suporte, resolução e escala"}
 
@@ -42,9 +42,9 @@ Escala de análise
 
 :::
 
-Uma estação meteorológica, por exemplo, possui uma coordenada, mas sua observação é feita em um ponto e sob condições específicas de instalação. Uma célula de grade de 10 km possui uma localização e uma dimensão, mas o valor pode resultar de um modelo cuja influência espacial ultrapassa o tamanho nominal da célula. Uma taxa municipal, por sua vez, não representa um ponto: ela resume eventos e população dentro de um limite administrativo. Barcellos e Bastos mostram que escolher escala e objeto de análise antecede a integração das bases e condiciona a interpretação dos resultados ambientais e sanitários [@barcellos1996geoprocessamento]. O módulo 2 do ASISA-Queimadas relaciona a escolha das escalas e unidades de análise às diferentes esferas da vigilância [@gracie2024asisa, p. 79–80].
+Uma estação meteorológica registra observações pontuais sob condições específicas de instalação. Em uma grade de 10 km, a localização e o tamanho da célula são conhecidos, mas o modelo pode incorporar informações de uma área maior. Uma taxa municipal, por sua vez, resume eventos e população em um território administrativo. A definição da escala e do objeto de análise antecede a integração das bases e condiciona a interpretação dos resultados [@barcellos1996geoprocessamento]. O módulo 2 do ASISA-Queimadas relaciona essas escolhas às diferentes esferas da vigilância [@gracie2024asisa, p. 79–80].
 
-A @fig-suporte-localizacao resume essa distinção em vista vertical, como um mapa. Estação, residência, ruas e rio ocupam posições idênticas nos três painéis; mudam apenas as camadas que indicam localização, suporte e unidade de análise. Compartilhar uma região do mapa não torna esses suportes equivalentes.
+A @fig-suporte-localizacao ilustra essas diferenças em três mapas do mesmo território. Estação, residência, ruas e rio mantêm suas posições; apenas as camadas de localização, suporte e unidade de análise variam. A coincidência espacial não torna esses suportes equivalentes.
 
 <!--
 ARTE CAP4-01 — Vista vertical v3
@@ -71,41 +71,41 @@ Correção geométrica precisa da imagem recém-gerada: manter posições de rua
 
 ::: {.callout-important icon=false title="Atenção: resolução não garante qualidade"}
 
-Um produto de 1 km não é necessariamente mais exato do que um produto de 10 km. Resolução informa o tamanho das unidades publicadas; exatidão, representatividade e incerteza dependem de como o produto foi produzido. Aumentar artificialmente o número de pixels por reamostragem pode tornar um mapa visualmente mais detalhado sem recuperar informação que nunca existiu na fonte.
+Um produto de 1 km não é necessariamente mais exato que um de 10 km. A resolução nominal informa o tamanho das unidades publicadas; exatidão, representatividade e incerteza dependem do método de produção. Reamostrar uma grade para pixels menores pode aumentar o detalhe visual sem acrescentar informação à fonte.
 
 :::
 
-O processo observado também possui uma escala própria. Chuvas intensas podem variar muito em pequenas distâncias. Temperatura responde a relevo, urbanização, vegetação e materiais da superfície. Algumas condições da qualidade do ar podem variar perto de vias ou fontes de emissão, enquanto fenômenos ambientais de longa duração podem abranger regiões extensas. A escolha do dado deve considerar essa escala do fenômeno, e não apenas a resolução disponível [@iso2023geoquality].
+A escala do fenômeno também importa. Chuvas intensas podem variar em pequenas distâncias; a temperatura responde ao relevo, à urbanização, à vegetação e aos materiais da superfície. A qualidade do ar pode variar nas proximidades de vias e fontes de emissão, enquanto outros fenômenos abrangem regiões extensas. A escolha dos dados deve considerar a escala do processo, além da resolução disponível [@iso2023geoquality].
 
 ### Estações, grades e satélites respondem a perguntas diferentes
 
-Estações meteorológicas e ambientais oferecem observações diretamente vinculadas a instrumentos, mas sua representatividade depende de localização, altitude, entorno, altura de medição, manutenção e variável observada. A estação mais próxima nem sempre é a que melhor representa o território de interesse. Uma estação em aeroporto, por exemplo, pode registrar condições bastante diferentes das encontradas em áreas densamente construídas da mesma cidade.
+A representatividade das observações de estações depende da localização, altitude, entorno, altura de medição, manutenção e variável observada. A estação mais próxima nem sempre representa melhor o território: uma estação em aeroporto pode registrar condições distintas das de áreas densamente construídas da mesma cidade.
 
-Uma rede de estações é também uma amostra espacial. Se os pontos se concentram em cidades, aeroportos ou áreas de fácil acesso, possuir muitas estações não significa que todos os ambientes estejam igualmente representados. Coordenadas, histórico de localização, instrumento, frequência de medição e códigos de qualidade fazem parte dos metadados necessários à interpretação [@wmo2023climatological].
+Uma rede de estações constitui uma amostra espacial. A concentração de instrumentos em cidades, aeroportos ou áreas de fácil acesso pode limitar a representação de outros ambientes. Coordenadas, histórico de localização, instrumentos, frequência de medição e códigos de qualidade são metadados essenciais à interpretação [@wmo2023climatological].
 
-Dados em grade oferecem cobertura contínua, mas podem resultar de processos muito diferentes. Uma grade pode ser produzida por interpolação entre pontos, por modelos, por combinação entre modelos e observações ou por sensores em satélites. Uma reanálise, por exemplo, combina observações disponíveis com um modelo e um sistema de assimilação para reconstruir condições passadas de forma coerente; ela não corresponde a medições feitas em cada célula [@hersbach2020era5]. No sensoriamento remoto, sensores observam a energia proveniente da superfície ou da atmosfera e algoritmos transformam essas observações em produtos como temperatura da superfície ou cobertura vegetal; nuvens, ângulo de observação e mistura de materiais dentro do pixel podem influenciar o resultado [@jin2012uhi; @iso2023geoquality]. O @sec-fontes-fichas retomará esses produtos do ponto de vista de suas fontes e documentação. Em estudos de saúde, a localização de registros também depende do endereço disponível, da qualidade da geocodificação e da unidade territorial de divulgação. Esses limites precisam acompanhar os métodos de análise espacial, como discutem Carvalho e Souza-Santos [@carvalho2005espacial].
+Dados em grade ampliam a cobertura espacial e podem resultar de interpolação, modelagem, combinação de modelos e observações ou sensoriamento remoto. Uma reanálise combina observações e modelos por assimilação de dados para reconstruir condições passadas; não corresponde a medições em cada célula [@hersbach2020era5]. No sensoriamento remoto, algoritmos convertem a energia detectada pelos sensores em produtos como temperatura da superfície ou cobertura vegetal. Nuvens, ângulo de observação e mistura de materiais no pixel influenciam os resultados [@jin2012uhi; @iso2023geoquality]. O @sec-fontes-fichas aborda a documentação desses produtos. Em saúde, a localização dos registros depende dos endereços disponíveis, da qualidade da geocodificação e da unidade territorial de divulgação, aspectos que devem integrar a análise espacial [@carvalho2005espacial].
 
 ::: {.callout-note icon=false title="Conceito-chave: graus não são quilômetros"}
-Muitas grades globais são publicadas em coordenadas geográficas, com resolução expressa em graus, como 0,25° ou 0,4°. Graus representam ângulos, não uma distância fixa na superfície terrestre. Um intervalo de latitude mantém dimensão norte–sul aproximadamente semelhante, enquanto a distância correspondente a um grau de longitude diminui à medida que nos afastamos do Equador. Consequentemente, células com a mesma dimensão angular podem possuir áreas físicas diferentes.
+Grades globais frequentemente utilizam coordenadas geográficas, com resolução expressa em graus, como 0,25° ou 0,4°. Graus são unidades angulares, não distâncias fixas. A extensão norte–sul de um intervalo de latitude é aproximadamente constante, enquanto a distância correspondente a um grau de longitude diminui com o afastamento do Equador. Assim, células com dimensões angulares iguais podem ter áreas diferentes.
 
-Isso importa sobretudo para operações baseadas em área, totais e ponderações. Reprojetar uma grade para um sistema adequado ou calcular explicitamente as áreas das interseções evita tratar todos os pixels como se tivessem a mesma superfície.
+Essa diferença afeta totais, médias por área e ponderações. Calcular as áreas das interseções ou utilizar uma projeção adequada à operação evita atribuir a mesma área física a todos os pixels.
 :::
 
 ::: {.callout-note icon=false title="Nota técnica: reamostragem de grades"}
-Reprojetar ou reamostrar uma grade exige escolher um método compatível com a variável. Vizinho mais próximo costuma ser apropriado para classes, como uso da terra; interpolação bilinear é usada em superfícies contínuas, mas suaviza valores; métodos conservativos são úteis quando é necessário preservar totais ou fluxos. Aplicar bilinear a categorias pode criar classes inexistentes, e aumentar a resolução não cria detalhe que não existia na fonte.
+A reprojeção e a reamostragem exigem métodos compatíveis com a variável. O vizinho mais próximo é frequentemente adequado a classes de uso da terra; a interpolação bilinear é usada em superfícies contínuas, mas pode suavizar valores; métodos conservativos são úteis para preservar integrais ou totais, conforme a natureza da variável. A interpolação bilinear de códigos categóricos pode criar classes inexistentes. Reamostrar para uma grade mais fina não aumenta a informação original.
 
 Ao registrar o processamento, preserve ao menos produto e versão, variável e unidade, sistema de coordenadas, resolução original, referência temporal, método de reamostragem e transformações aplicadas.
 :::
 
 ::: {.callout-warning icon=false title="Atenção: dependência espacial"}
-Células vizinhas frequentemente compartilham informação e apresentam dependência espacial. Modelos compartilham dinâmica e assimilação; superfícies interpoladas compartilham estações; sensores possuem resposta espacial que pode ultrapassar o pixel nominal. Portanto, dividir uma região em milhares de células não produz automaticamente milhares de observações estatisticamente independentes. Ignorar essa dependência pode criar uma falsa impressão de tamanho amostral e de precisão.
+Células vizinhas podem apresentar dependência espacial: modelos compartilham dinâmica e assimilação, superfícies interpoladas compartilham estações e sensores podem ter resposta espacial superior ao pixel nominal. Uma região dividida em milhares de células não contém necessariamente milhares de observações independentes. Ignorar essa dependência pode superestimar o tamanho amostral efetivo e a precisão das estimativas.
 :::
 
 ## Do suporte original ao território de gestão
 
-Grande parte da vigilância e da gestão do SUS (Sistema Único de Saúde) trabalha com municípios, regiões de saúde e estados. Os dados ambientais, porém, raramente são produzidos exatamente nesses limites. Transformar uma estação ou uma grade em um indicador territorial exige uma mudança de suporte espacial: o valor passa a representar outra unidade.
+A vigilância e a gestão do Sistema Único de Saúde (SUS) utilizam municípios, regiões de saúde e estados. Como dados ambientais raramente seguem esses limites, sua transformação em indicadores territoriais exige uma mudança de suporte espacial.
 
-Essa mudança pode parecer simples — “calcular a média do município” —, mas regras diferentes respondem a perguntas diferentes. Considere uma grade de temperatura. A média pela área municipal descreve a condição térmica média do território. Uma média ponderada pela população dá maior peso aos locais onde vivem mais pessoas e aproxima a condição térmica média nos locais de residência. O máximo territorial procura identificar a maior temperatura estimada. Nenhuma dessas estatísticas é universalmente correta; a escolha depende da pergunta [@openshaw1984].
+A média de uma grade de temperatura ponderada pela área municipal descreve a condição térmica média do território. A média ponderada pela população enfatiza os locais de residência, enquanto o máximo territorial identifica a maior temperatura estimada. Cada estatística responde a uma pergunta distinta [@openshaw1984].
 
 Para um município \(m\), uma média ponderada pela população pode ser expressa por:
 
@@ -113,11 +113,11 @@ $$
 \bar{x}_{pop,m} = \frac{\sum_g x_g\,p_{gm}}{\sum_g p_{gm}},
 $$
 
-em que \(x_g\) é o valor ambiental da célula \(g\) e \(p_{gm}\) é a população localizada na parte da célula \(g\) que pertence ao município \(m\). Essa notação deixa explícito que células e limites municipais podem se cruzar e que a população utilizada precisa estar espacialmente associada ao território analisado.
+em que \(x_g\) é o valor ambiental da célula \(g\) e \(p_{gm}\) é a população na parte dessa célula pertencente ao município \(m\). A notação explicita a necessidade de associar a população às interseções entre células e limites municipais.
 
-A expressão exige população total positiva e valores ambientais válidos nas células incluídas. Excluir células por falta de dados altera a população representada e precisa ser documentado. O exemplo real a seguir permite comparar essa escolha com a ponderação por área usando o mesmo produto e o mesmo território.
+O cálculo exige população total positiva e valores ambientais válidos nas células incluídas. A exclusão de células sem dados altera a população representada e deve ser documentada. O exemplo a seguir compara essa abordagem com a ponderação pela área.
 
-A @fig-estatistica-zonal-populacao decompõe o cálculo. Primeiro, identifica-se o valor ambiental de cada célula; depois, localiza-se a população sobre a mesma base espacial. O limite territorial seleciona as interseções que participarão da síntese. A população fora desse limite não pertence ao denominador do município, mesmo quando está em uma célula que o atravessa.
+A @fig-estatistica-zonal-populacao decompõe o cálculo em três etapas: identificação do valor ambiental de cada célula, localização da população na mesma base espacial e seleção das interseções com o território. A população fora do limite municipal não integra o denominador, mesmo quando ocupa uma célula que o atravessa.
 
 <!--
 ARTE CAP4-08
@@ -135,15 +135,15 @@ Legenda: Da grade ambiental à média territorial ponderada pela população
 
 [Fontes conceituais: Barcellos e Bastos (1996); Carvalho e Souza-Santos (2005); fórmula e definições desta seção. Elaboração para esta obra em SVG, com aquarela gerada por IA (image_gen) reutilizada da vista vertical v3 e rótulos editáveis. Licença dos arquivos autorais: GPL-3.0; fontes mantêm suas condições de uso.]{.figure-source}
 
-No painel final, cada valor ambiental é multiplicado pela população de sua interseção com o território; a soma desses produtos é dividida pela população incluída. O campo ambiental permanece igual: mudam os pesos atribuídos às suas partes. Uma média pela área usaria áreas como pesos, respondendo a outra pergunta. Os pontos da prancha apenas ilustram localizações e não equivalem a uma pessoa, a um domicílio ou a uma contagem observada. Como \(p_{gm}\) já se refere à população da interseção, não se deve multiplicá-la novamente pela fração de área sem justificativa metodológica.
+No painel final, a soma dos produtos dos valores ambientais pelas populações das interseções é dividida pela população incluída. A média por área empregaria áreas como pesos. Os pontos da figura são ilustrativos, não representam contagens de pessoas ou domicílios. Como \(p_{gm}\) já corresponde à população da interseção, multiplicá-la novamente pela fração de área exige justificativa metodológica.
 
-Ponderar pela população não transforma uma temperatura ambiental em uma medida individual de exposição. Pessoas se deslocam, trabalham e permanecem em ambientes internos; a própria superfície populacional pode ser estimada. Ainda assim, quando a pergunta se refere à condição média nos locais de residência, essa ponderação pode ser mais informativa do que uma média puramente territorial.
+A ponderação populacional aproxima as condições ambientais nos locais de residência, mas não mede exposição individual. Pessoas se deslocam, trabalham e permanecem em ambientes internos, e a própria distribuição populacional pode ser estimada. Ainda assim, essa ponderação pode ser mais informativa que a média territorial para determinadas perguntas de saúde.
 
 ### Situação concreta: três temperaturas para o mesmo estado
 
-A @fig-mudanca-suporte mostra um exemplo em que a mesma previsão de temperatura do ar do Copernicus Atmosphere Monitoring Service (CAMS) é resumida para o estado do Rio de Janeiro de três maneiras. A média pela área territorial é 19,9 °C; a média ponderada pela distribuição populacional é 21,3 °C; o máximo territorial é 23,9 °C. Não existe contradição entre os três valores. Eles respondem a perguntas diferentes.
+A @fig-mudanca-suporte apresenta três sínteses da mesma previsão de temperatura do ar do Copernicus Atmosphere Monitoring Service (CAMS) para o estado do Rio de Janeiro: média ponderada pela área de 19,9 °C, média ponderada pela população de 21,3 °C e máximo territorial de 23,9 °C. Os valores respondem a perguntas diferentes, sem contradição entre eles.
 
-A média pela área descreve a superfície territorial; a média populacional enfatiza onde as pessoas residem; o máximo localiza a condição mais elevada. A escolha entre eles deve vir antes do cálculo e deve ser registrada como parte da definição do indicador. Os valores pertencem à rodada inicializada em 28 de julho de 2026, às 00 UTC, com horizonte de 24 horas e validade em 29 de julho de 2026, às 00 UTC. São resumos de uma previsão, não observações de estações nem uma diferença universal entre os métodos [@cams2026globalforecast; @ibge2022grade; @ibge2024malhas].
+A escolha da síntese deve anteceder o cálculo e integrar a definição do indicador. Os valores correspondem à rodada inicializada em 28 de julho de 2026, às 00 UTC, com horizonte de 24 horas e validade em 29 de julho de 2026, às 00 UTC. São resumos de uma previsão, não observações de estações nem diferenças universais entre métodos [@cams2026globalforecast; @ibge2022grade; @ibge2024malhas].
 
 ![Como a mudança de suporte altera a síntese territorial: temperatura do ar no estado do Rio de Janeiro](../../assets/figures/mudanca-suporte.svg){#fig-mudanca-suporte .lightbox fig-alt="Três mapas do estado do Rio de Janeiro usam a mesma previsão CAMS de temperatura do ar. A média pela área territorial é 19,9 graus Celsius; a média ponderada pela população do Censo 2022 é 21,3 graus Celsius; e o máximo territorial é 23,9 graus Celsius." width="100%"}
 
@@ -151,15 +151,15 @@ A média pela área descreve a superfície territorial; a média populacional en
 
 ### Sobreposição espacial, interpolação areal e ponderação populacional
 
-Três operações próximas na aparência devem ser separadas conceitualmente.
+Três operações espaciais devem ser distinguidas.
 
-Sobreposição entre grade e território ocorre quando uma superfície contínua, como temperatura, é resumida para um polígono. Células cortadas pelo limite podem contribuir segundo a fração de área efetivamente contida no território. A estatística final — média, máximo, percentil ou outra — deve ser coerente com a grandeza analisada.
+A sobreposição entre grade e território permite resumir uma superfície ambiental, como a temperatura, para um polígono. Na média por área, células cortadas pelo limite contribuem de acordo com a área efetivamente contida no território. A estatística escolhida deve ser coerente com a variável e a pergunta.
 
-Interpolação areal é necessária quando uma quantidade associada a polígonos de origem precisa ser transferida para polígonos de destino diferentes. Em variáveis extensivas, como contagens populacionais, uma ponderação apenas pela área pressupõe distribuição uniforme dentro de cada polígono. Métodos dasimétricos procuram melhorar essa redistribuição utilizando informação auxiliar, como áreas construídas ou cobertura da terra, mas acrescentam dados e hipóteses [@openshaw1984; @iso2023geoquality].
+A interpolação areal transfere informações entre polígonos de origem e destino. Para variáveis extensivas, como contagens populacionais, a redistribuição proporcional à área pressupõe distribuição uniforme dentro do polígono de origem. Métodos dasimétricos utilizam informações auxiliares, como áreas construídas e cobertura da terra, acrescentando dados e hipóteses à redistribuição [@openshaw1984; @iso2023geoquality].
 
-Ponderação populacional da exposição, por sua vez, combina uma superfície ambiental com uma superfície de população já compatibilizada espacialmente. Seu objetivo não é redistribuir a temperatura ou a concentração, mas atribuir maior peso aos locais onde reside mais gente.
+A ponderação populacional combina superfícies ambientais e populacionais previamente compatibilizadas, atribuindo maior peso aos locais mais populosos, sem redistribuir os valores ambientais.
 
-A @fig-operacoes-espaciais compara as três operações mantendo explícitos seus objetos de entrada e de saída. No primeiro painel, a interseção delimita a parte da grade associada ao território. No segundo, o mesmo domínio recebe duas malhas, e o objetivo é transferir quantidades extensivas entre elas. No terceiro, as superfícies já compatibilizadas são combinadas para calcular uma síntese ponderada.
+A @fig-operacoes-espaciais distingue as entradas e saídas das três operações: recorte da grade pelo território, transferência de quantidades entre malhas e síntese ambiental ponderada pela população.
 
 <!--
 ARTE CAP4-09
@@ -177,25 +177,25 @@ Legenda: Três operações espaciais e o que cada uma transforma
 
 [Fontes conceituais: Openshaw (1984); ISO 19157-1 (2023); discussão desta seção. Elaboração para esta obra em SVG, com aquarela gerada por IA (image_gen) reutilizada da vista vertical v3 e rótulos editáveis. Licença dos arquivos autorais: GPL-3.0; fontes mantêm suas condições de uso.]{.figure-source}
 
-Na interpolação areal por área, a parcela transferida depende da proporção da área de origem coberta por cada destino. Isso pressupõe distribuição uniforme da quantidade dentro do polígono de origem. Quando origem e destino cobrem integralmente o mesmo domínio, sem sobreposições duplicadas, a redistribuição deve conservar o total; se houver recortes ou lacunas, o balanço deve se referir apenas ao domínio comum. Informação auxiliar pode modificar os pesos, mas não elimina a necessidade de declarar as hipóteses. Já a ponderação populacional não redistribui a temperatura ou a concentração: utiliza a população como peso da síntese.
+Na interpolação areal proporcional à área, a quantidade transferida depende da fração do polígono de origem contida em cada destino. Se as duas malhas cobrem integralmente o mesmo domínio, sem sobreposições duplicadas, o total deve ser conservado; diante de recortes ou lacunas, o balanço deve considerar apenas o domínio comum. Informações auxiliares podem alterar os pesos, mas não dispensam a explicitação das hipóteses.
 
-Essas operações preservam propriedades diferentes. O processamento deve declarar o que se pretende conservar — média, total, proporção, ocorrência ou distribuição —, como foram tratadas as interseções e que dados auxiliares foram utilizados.
+O processamento deve explicitar quais propriedades pretende conservar — média, total, proporção, ocorrência ou distribuição —, o tratamento das interseções e os dados auxiliares utilizados.
 
 ## Territórios administrativos também mudam
 
-Municípios, regiões de saúde e outros territórios de gestão não são unidades naturais e imutáveis. Limites podem ser alterados, municípios podem ser criados e a composição de regiões pode mudar. Por isso, uma série territorial sem referência à malha e à vigência utilizadas pode se tornar ambígua [@ibge2024malhas].
+Limites municipais e composições de regiões de saúde podem mudar ao longo do tempo. Uma série territorial deve, portanto, identificar a malha e sua vigência [@ibge2024malhas].
 
-O município é extremamente útil para planejamento e vigilância porque organiza responsabilidades, população, serviços e políticas. Isso não significa que seja ambientalmente homogêneo. Um município extenso pode reunir áreas urbanas, rurais, florestais, serranas e costeiras. Um único valor municipal é uma síntese, não uma descrição de todos os locais que existem dentro dele.
+Municípios organizam responsabilidades, população, serviços e políticas, sendo úteis ao planejamento e à vigilância. Entretanto, podem reunir ambientes urbanos, rurais, florestais, serranos e costeiros. Um valor municipal sintetiza essa diversidade sem descrevê-la integralmente.
 
-O mesmo cuidado vale para regiões de saúde. Uma média regional pode ser apropriada para planejamento assistencial e, ao mesmo tempo, ocultar um município com condição muito mais crítica. Sempre que a heterogeneidade interna for relevante para a ação, uma síntese regional deve ser acompanhada de distribuição, mapa ou desagregação das unidades componentes.
+Uma média regional pode apoiar o planejamento assistencial e ocultar municípios em condições mais críticas. Quando a heterogeneidade interna for relevante para a ação, a síntese deve ser acompanhada da distribuição, do mapa ou dos valores das unidades componentes.
 
 ### Quando os resultados dependem de como desenhamos o mapa
 
-Há ainda um problema menos intuitivo: resultados obtidos com dados agregados podem mudar quando o mesmo espaço é dividido de outra forma. Uma associação calculada entre municípios pode ser diferente da associação calculada entre bairros ou regiões. Mesmo unidades de tamanho semelhante podem produzir resultados distintos quando seus limites são redesenhados. Esse fenômeno é conhecido como problema da unidade de área modificável (*modifiable areal unit problem*, MAUP) [@openshaw1984].
+Resultados de dados agregados podem variar conforme a divisão territorial. Associações calculadas entre municípios podem diferir daquelas obtidas entre bairros ou regiões. Mesmo unidades de tamanho semelhante podem produzir resultados distintos quando seus limites mudam. Esse fenômeno é denominado problema da unidade de área modificável (*modifiable areal unit problem*, MAUP) [@openshaw1984].
 
-Isso não é resolvido simplesmente escolhendo a menor unidade disponível. Áreas muito pequenas podem produzir taxas instáveis, aumentar problemas de confidencialidade e se alinhar mal ao processo ambiental. Quando a conclusão depende fortemente da escala ou do zoneamento, é recomendável testar unidades plausíveis e relatar o que permanece estável [@carvalho2005espacial].
+Escolher a menor unidade disponível não resolve o problema: áreas pequenas podem gerar taxas instáveis, ameaçar a confidencialidade e representar mal o processo ambiental. Quando a conclusão depender da escala ou do zoneamento, recomenda-se testar unidades plausíveis e identificar os resultados que permanecem estáveis [@carvalho2005espacial].
 
-A @fig-escala-zoneamento mantém a mesma paisagem e altera somente as divisões. Do primeiro para o segundo painel, a agregação produz unidades maiores: muda a escala. Do primeiro para o terceiro, permanece o número de unidades, mas os limites mudam: muda o zoneamento. A figura explica as operações, sem estimar quanto uma associação se alteraria.
+A @fig-escala-zoneamento mantém a paisagem e modifica apenas as divisões territoriais. O segundo painel agrega as unidades do primeiro, alterando a escala; o terceiro mantém o número de unidades, mas redesenha seus limites, alterando o zoneamento. A figura não quantifica os efeitos dessas operações sobre uma associação.
 
 <!--
 ARTE CAP4-02 — Revisão urbana v2
@@ -235,15 +235,15 @@ Corrigir SOMENTE a perspectiva da imagem 1. Precisamos de VISTA ORTOGONAL VERTIC
 
 ::: {.callout-warning icon=false title="Atenção: falácia ecológica"}
 
-Se municípios com maior temperatura também apresentarem maior mortalidade, isso não demonstra que as pessoas mais expostas ao calor foram as que morreram. Uma associação observada entre áreas pertence ao nível agregado. Estudos ecológicos podem ser muito úteis para políticas e contextos territoriais, mas inferências individuais exigem dados e hipóteses adicionais [@piantadosi1988ecological]. As implicações dessa distinção para análises entre ambiente e saúde serão retomadas no @sec-efeitos-saude.
+Uma associação entre maior temperatura e maior mortalidade em municípios não demonstra que as pessoas mais expostas ao calor foram as que morreram. A associação pertence ao nível agregado. Estudos ecológicos são úteis para examinar contextos territoriais e orientar políticas, mas inferências individuais exigem dados e hipóteses adicionais [@piantadosi1988ecological]. O @sec-efeitos-saude retoma essa distinção.
 
 :::
 
 ## O tempo que um dado representa
 
-Assim como todo valor possui um suporte espacial, ele também possui uma referência temporal. Em clima e saúde, o tempo do fenômeno, da medição, do registro e da disponibilidade da informação frequentemente não coincide.
+Todo valor possui uma referência temporal, assim como um suporte espacial. Em clima e saúde, os momentos do fenômeno, da medição, do registro e da disponibilização dos dados nem sempre coincidem.
 
-Uma chuva intensa pode ocorrer hoje; uma inundação, algumas horas depois; sintomas, dias depois; um atendimento pode ser registrado no mesmo dia ou posteriormente; a base consolidada pode ser publicada semanas ou meses depois. Alinhar essas datas apenas porque aparecem na mesma coluna de “data” pode deslocar a relação que se pretende estudar. A @fig-tempos-dado distingue os momentos do fenômeno, da exposição, do possível efeito, do cuidado e do processamento da informação.
+Uma chuva intensa pode provocar uma inundação horas depois; sintomas podem surgir dias mais tarde, e os registros de atendimento podem ser consolidados semanas ou meses depois. Combinar datas sem distinguir seus significados pode distorcer a relação investigada. A @fig-tempos-dado distingue fenômeno, exposição, possível efeito, cuidado e processamento da informação.
 
 <!--
 ARTE CAP4-03 — Revisão urbana v2
@@ -272,11 +272,11 @@ Formato: mesma proporção do original 1536 × 1024; resolução igual ou superi
 
 [Fontes conceituais: Bastos et al. (2019); discussão de temporalidade deste capítulo. Elaboração e revisão para esta obra, com aquarela gerada por IA (image_gen) e rótulos editáveis. Licença dos arquivos autorais: GPL-3.0; fontes mantêm suas condições de uso. Revisão urbana da aquarela: image_gen, com o original e a referência visual da série.]{.figure-source}
 
-Na figura, as conexões tracejadas representam caminhos possíveis: exposição não implica adoecimento inevitável. O intervalo até um efeito sanitário pertence ao processo estudado; a espera por atendimento e a demora de registro ou publicação pertencem a outros processos. As vinhetas não representam a trajetória documentada de uma pessoa, e seu espaçamento não quantifica duração. Bastos e colaboradores mostram por que atrasos de notificação precisam ser considerados na leitura de dados recentes de vigilância [@bastos2019delays].
+Na figura, as conexões tracejadas indicam trajetórias possíveis, não inevitáveis. O intervalo até o efeito sanitário, a espera por atendimento e o atraso de registro ou publicação correspondem a processos distintos. O espaçamento das vinhetas não quantifica sua duração. Atrasos de notificação devem ser considerados na interpretação dos dados recentes de vigilância [@bastos2019delays].
 
-Dependendo da fonte, podem coexistir várias datas: ocorrência do fenômeno, início e fim da exposição, início dos sintomas, atendimento, internação, notificação, competência, processamento e publicação. Em produtos de previsão há ainda a data da rodada e o horário para o qual a previsão é válida. A data correta para uma análise depende da pergunta.
+Uma fonte pode conter datas de ocorrência, início e fim da exposição, sintomas, atendimento, internação, notificação, competência, processamento e publicação. Previsões acrescentam a data da rodada e o horário de validade. A pergunta determina a referência temporal adequada.
 
-Em previsões, três referências devem ser preservadas: inicialização, horizonte de previsão (*lead time*) e tempo de validade. A inicialização informa quando a rodada começou; o horizonte informa quantas horas ou dias à frente o modelo avançou; e o tempo de validade é o instante ou período ao qual o valor se refere. A @fig-tempos-previsao usa os metadados do exemplo CAMS: a rodada de 28 de julho de 2026, às 00 UTC, com horizonte de +24 h produz uma estimativa válida em 29 de julho de 2026, às 00 UTC. O horário de validade não informa quando o arquivo foi baixado, e a previsão não se torna observação por ter alcançado esse horário.^[Para a distinção entre inicialização, passo de previsão e validade, consulte a [documentação operacional do ECMWF](https://confluence.ecmwf.int/pages/viewpage.action?pageId=453673187).]
+Em previsões, devem ser preservadas a inicialização, o horizonte de previsão (*lead time*) e a validade. A inicialização indica o início da rodada; o horizonte, o intervalo transcorrido a partir dela; e a validade, o instante ou período representado pelo valor. A @fig-tempos-previsao exemplifica essas referências: rodada CAMS de 28 de julho de 2026, às 00 UTC, horizonte de +24 h e validade em 29 de julho de 2026, às 00 UTC. A validade não indica quando o arquivo foi obtido, nem transforma a previsão em observação.^[Para a distinção entre inicialização, passo de previsão e validade, consulte a [documentação operacional do ECMWF](https://confluence.ecmwf.int/pages/viewpage.action?pageId=453673187).]
 
 <!--
 ARTE CAP4-04 — Revisão urbana v2
@@ -307,9 +307,9 @@ Formato: mesma proporção do original 1536 × 1024; resolução igual ou superi
 
 ### Dia, semana e mês precisam ser definidos
 
-“Diário” não é uma propriedade suficiente. Um dia precisa de início, fim e fuso horário. Dados meteorológicos frequentemente usam UTC; sistemas de saúde podem usar horário local. Sem harmonização, eventos próximos à meia-noite podem ser associados ao dia errado. Calendários diferentes também podem aparecer em modelos climáticos.
+Uma observação diária exige início, fim e fuso horário definidos. Dados meteorológicos frequentemente utilizam UTC, enquanto sistemas de saúde podem utilizar o horário local. Sem harmonização, eventos próximos à meia-noite podem ser associados ao dia incorreto. Modelos climáticos também podem utilizar calendários distintos do civil.
 
-Uma prática segura é conservar o horário original e seu fuso, realizar conversões explicitamente e somente depois criar janelas diárias, semanais ou mensais para a análise. Quando um deslocamento de algumas horas pode alterar a associação, a sensibilidade à definição temporal deve ser verificada.
+Recomenda-se preservar o horário e o fuso originais, documentar as conversões e formar as janelas diárias, semanais ou mensais posteriormente. Quando poucas horas puderem alterar a associação investigada, deve-se avaliar a sensibilidade à definição temporal.
 
 ```{=typst}
 #block(breakable: false)[
@@ -317,7 +317,7 @@ Uma prática segura é conservar o horário original e seu fuso, realizar conver
 
 :::: {.callout-note icon=false title="Conceito-chave: UTC, fuso horário e data local"}
 
-UTC é a referência temporal internacional. Um fuso horário reúne regras para expressar a hora civil de uma localidade; seu deslocamento em relação ao UTC pode variar com a data. Converter preserva o mesmo instante, mas pode mudar o dia.
+UTC é a referência temporal internacional. O fuso horário reúne regras para expressar a hora civil de uma localidade, cujo deslocamento em relação ao UTC pode variar com a data. A conversão preserva o instante, mas pode alterar a data local.
 
 Some ao UTC o deslocamento indicado na @tbl-conversoes-utc. Cada coluna parte de um único instante; todas as datas são de 2026.
 
@@ -336,9 +336,9 @@ Some ao UTC o deslocamento indicado na @tbl-conversoes-utc. Cada coluna parte de
 
 [Fonte: IANA Time Zone Database, versão 2026c; conversões calculadas com `zoneinfo` e conferidas em 5 de outubro de 2026.]{.figure-source}
 
-Em Brasília, 29 de julho às 00 UTC corresponde a 28 de julho às 21h00. Paris tem deslocamentos diferentes em janeiro e julho. Não aplique automaticamente essas diferenças a toda uma série histórica.
+Em Brasília, 29 de julho às 00 UTC corresponde a 28 de julho às 21h00. Em Paris, o deslocamento difere entre janeiro e julho. Essas diferenças não devem ser aplicadas automaticamente a séries históricas.
 
-Identificadores como `America/Sao_Paulo` e `Europe/Paris` permitem aplicar regras históricas. Nas transições sazonais, horas locais podem se repetir ou não existir; dias civis podem ter 23 ou 25 horas. Preserve data, hora e fuso originais e converta os instantes antes de formar dias locais.
+Identificadores como `America/Sao_Paulo` e `Europe/Paris` permitem aplicar regras históricas de fuso. Em transições sazonais, horas locais podem se repetir ou não existir, produzindo dias civis de 23 ou 25 horas. Os instantes devem ser convertidos antes da agregação em dias locais.
 
 ::::
 
@@ -346,17 +346,17 @@ Identificadores como `America/Sao_Paulo` e `Europe/Paris` permitem aplicar regra
 ]
 ```
 
-O box segue as definições e regras documentadas pelo Bureau Internacional de Pesos e Medidas (BIPM), pelo Observatório Nacional, pela Internet Assigned Numbers Authority (IANA) e pelo Observatório de Paris [@bipmUTC; @on2026tempo; @ianaTimeZones; @syrte2023heure]. Os identificadores e cálculos estão preservados em `data-raw/figures/conversoes-utc-cap4.json`. A conversão de julho usa o mesmo instante de validade da previsão CAMS apresentada no capítulo.
+O quadro segue as definições e regras do Bureau Internacional de Pesos e Medidas (BIPM), do Observatório Nacional, da Internet Assigned Numbers Authority (IANA) e do Observatório de Paris [@bipmUTC; @on2026tempo; @ianaTimeZones; @syrte2023heure]. Os identificadores e cálculos estão em `data-raw/figures/conversoes-utc-cap4.json`. A conversão de julho corresponde à validade da previsão CAMS apresentada anteriormente.
 
 ::: {.callout-note icon=false title="Nota técnica: calendários dos modelos"}
-Arquivos de modelos climáticos podem utilizar calendários diferentes do calendário civil. As convenções CF (Clima e Previsão (*Climate and Forecast*)), amplamente usadas em arquivos NetCDF, preveem calendários como `365_day`/`noleap`, `366_day` e `360_day`, no qual todos os meses possuem 30 dias.^[NetCDF Climate and Forecast (CF) Metadata Conventions, seção sobre calendários: <https://cfconventions.org/cf-conventions/cf-conventions.html#calendar>.]
+Arquivos de modelos climáticos podem utilizar calendários distintos do civil. As convenções CF (*Climate and Forecast*), amplamente usadas em arquivos NetCDF, incluem calendários como `365_day`/`noleap`, `366_day` e `360_day`, este último com meses de 30 dias.^[NetCDF Climate and Forecast (CF) Metadata Conventions, seção sobre calendários: <https://cfconventions.org/cf-conventions/cf-conventions.html#calendar>.]
 
-Isso afeta junções com dados de saúde e o cálculo de médias mensais, totais anuais, sequências de dias e datas correspondentes. Antes de converter automaticamente uma coordenada temporal para datas civis, verifique o atributo `calendar` e preserve a lógica original do experimento.
+Essas diferenças afetam a integração com dados de saúde e o cálculo de médias, totais e sequências. Antes de converter coordenadas temporais em datas civis, verifique o atributo `calendar` e preserve a lógica do experimento.
 :::
 
 ### Agregar também muda o fenômeno
 
-Médias, somas, máximos e contagens não são operações neutras. Precipitação mensal costuma representar um acumulado; temperatura mensal, uma média; um máximo mensal de temperatura corresponde ao maior extremo diário; uma contagem anual de dias quentes preserva frequência, mas perde a ordem em que ocorreram.
+Médias, somas, máximos e contagens preservam propriedades distintas das séries. A precipitação mensal costuma representar um acumulado; a temperatura mensal, uma média; a máxima mensal, o maior extremo diário. Uma contagem anual de dias quentes conserva a frequência, mas não a ordem de ocorrência.
 
 ::: {#qua-transformacoes-temporais}
 
@@ -372,7 +372,7 @@ Transformações temporais e seus significados
 
 :::
 
-A @fig-transformacoes-temporais representa as operações do @qua-transformacoes-temporais. Os símbolos remetem a observações ou intervalos, sem apresentar uma série medida. A média ilustrada usa pesos iguais e requer observações comparáveis; se os intervalos representados forem diferentes, a ponderação temporal também precisa ser considerada.
+A @fig-transformacoes-temporais ilustra as operações do @qua-transformacoes-temporais sem representar uma série medida. A média utiliza pesos iguais para observações comparáveis; intervalos de durações distintas podem exigir ponderação temporal.
 
 <!--
 ARTE CAP4-10
@@ -390,23 +390,23 @@ Legenda: Média, soma, máximo, contagem e sequência: o que permanece na sínte
 
 [Fontes conceituais: Organização Meteorológica Mundial (2023); quadro de transformações temporais desta seção. Elaboração para esta obra em SVG, com rótulos e relações editáveis; sem geração de aquarela. Licença dos arquivos autorais: GPL-3.0; fontes mantêm suas condições de uso.]{.figure-source}
 
-A soma reúne quantidades acumuladas em intervalos sem sobreposição, como precipitação em milímetros. Uma intensidade em milímetros por hora precisa ser integrada pela duração antes de produzir esse total. O máximo seleciona um extremo, sem informar por quanto tempo ele persistiu. Nos dois últimos painéis, o mesmo calendário esquemático permite distinguir contagem e sequência: a primeira reúne todos os dias que atendem ao critério; a segunda procura o maior bloco consecutivo. O critério e o tratamento de dias ausentes devem ser definidos antes de ambas as operações; ausência não equivale a um dia que não atende ao critério.
+A soma reúne quantidades acumuladas em intervalos sem sobreposição, como precipitação em milímetros. Intensidades em milímetros por hora precisam ser integradas no tempo para obter o acumulado. O máximo identifica um extremo, mas não sua persistência. Contagens reúnem os dias que satisfazem o critério, enquanto a maior sequência identifica o bloco consecutivo mais longo. Ambas exigem regras explícitas para dados ausentes.
 
-O @qua-transformacoes-temporais mostra que cada operação preserva uma propriedade e pode ocultar outras. Agregar com coerência depende da unidade: uma intensidade de chuva, por exemplo, precisa ser integrada no tempo para produzir um acumulado.
+A escolha da operação deve considerar a unidade de medida e as propriedades que se pretende preservar, conforme o @qua-transformacoes-temporais.
 
-A completude também faz parte da agregação. Uma média diária calculada a partir de 24 observações e outra calculada com apenas três horários podem não ser comparáveis. Para totais, horas ou dias ausentes podem produzir subestimação. Critérios mínimos de completude devem ser definidos antes do cálculo [@wmo2023climatological].
+A completude também condiciona a agregação. Médias diárias obtidas com 24 observações e com apenas três horários podem não ser comparáveis. A ausência de horas ou dias pode subestimar totais. Os critérios mínimos de completude devem anteceder o cálculo [@wmo2023climatological].
 
-É igualmente importante reconhecer a natureza temporal da variável. Número de pessoas internadas em determinado instante representa um estoque; novas internações durante uma semana representam um fluxo; uma interrupção de energia é um evento, com início e duração. Somar estoques sucessivos pode contar a mesma pessoa várias vezes. Resumir um evento apenas pela data inicial pode esconder sua persistência.
+É necessário distinguir estoques, fluxos e eventos. O número de pessoas internadas em determinado instante é um estoque; novas internações em uma semana constituem um fluxo; uma interrupção de energia é um evento com início e duração. Somar estoques sucessivos pode contar a mesma pessoa várias vezes, enquanto resumir um evento pela data inicial oculta sua persistência.
 
 ### Defasagens devem ter significado
 
-Uma condição ambiental e um efeito sobre a saúde nem sempre aparecem no mesmo momento. Alguns efeitos podem ocorrer no mesmo dia; outros surgem depois de horas, dias ou períodos ainda mais longos. A distância temporal plausível depende do processo que está sendo estudado.
+Os efeitos de uma condição ambiental sobre a saúde podem ocorrer no mesmo dia ou surgir após horas, dias ou períodos mais longos, conforme o processo investigado.
 
-O guia de saúde ambiental também alerta que a latência e as diferenças entre local de residência e de exposição podem dificultar a associação entre indicadores ambientais e de efeitos [@brasil2011saudeambiental, p. 120].
+O guia de saúde ambiental destaca que a latência e as diferenças entre os locais de residência e exposição podem dificultar a análise das relações entre indicadores ambientais e sanitários [@brasil2011saudeambiental, p. 120].
 
-Essa distância temporal costuma ser chamada de defasagem. Sua escolha deve partir do mecanismo e da pergunta, não da busca pela associação estatisticamente mais forte. Para explicar um desfecho no dia analisado, as exposições candidatas pertencem ao mesmo dia e aos dias anteriores, conforme o mecanismo. Se a análise parte do dia da exposição, são os desfechos posteriores que precisam ser acompanhados. Trocar essas referências pode introduzir informação futura indevida. Quando houver mais de uma janela plausível, elas podem ser comparadas em análises de sensibilidade. Os métodos epidemiológicos para estimar relações defasadas serão retomados no @sec-efeitos-saude [@hernan2020causal; @gasparrini2010dlnm].
+A escolha da janela de defasagem deve partir do mecanismo e da pergunta, não da associação estatisticamente mais forte. Para investigar um desfecho, consideram-se exposições do mesmo dia e de dias anteriores, conforme a hipótese; para acompanhar uma exposição, examinam-se desfechos no mesmo dia ou posteriormente. Janelas plausíveis podem ser comparadas em análises de sensibilidade. O @sec-efeitos-saude retoma os métodos de estimação de relações defasadas [@hernan2020causal; @gasparrini2010dlnm].
 
-A @fig-janelas-defasagem apresenta duas formas de organizar a mesma pergunta temporal. Partindo do dia do desfecho, examinam-se exposições do mesmo dia e de dias anteriores. Partindo do dia da exposição, acompanham-se possíveis desfechos naquele dia e depois. A escolha da âncora muda a organização da base, mas não autoriza usar uma exposição futura para explicar um evento anterior.
+A @fig-janelas-defasagem apresenta as duas formas de organizar a análise, tomando o dia do desfecho ou o da exposição como referência. Nenhuma delas autoriza utilizar exposições futuras para explicar eventos anteriores.
 
 <!--
 ARTE CAP4-11
@@ -424,24 +424,24 @@ Legenda: Duas formas de organizar a janela de defasagem
 
 [Fontes conceituais: Hernán e Robins (2020); Gasparrini, Armstrong e Kenward (2010). Elaboração para esta obra em SVG, com rótulos e relações editáveis; sem geração de aquarela. Licença dos arquivos autorais: GPL-3.0; fontes mantêm suas condições de uso.]{.figure-source}
 
-Na figura, \(t\) identifica o dia de referência e \(k\) delimita uma janela de dias; os marcadores intermediários são ilustrativos. Defasagem zero significa exposição e desfecho no mesmo intervalo agregado, sem garantir que sua ordem dentro do dia seja conhecida. Defasagem positiva considera a exposição anterior ao desfecho. Não há uma janela universal aplicável a todos os fenômenos, e a ordenação temporal não demonstra, isoladamente, causalidade.
+Na figura, \(t\) indica o dia de referência e \(k\) delimita a janela de análise. A defasagem zero corresponde à exposição e ao desfecho no mesmo intervalo agregado, sem necessariamente estabelecer sua ordem dentro do dia. A defasagem positiva considera a exposição anterior ao desfecho. A duração da janela depende do fenômeno, e a precedência temporal não demonstra causalidade.
 
-A defasagem medida também depende da data escolhida para o desfecho. Resposta biológica, procura e acesso ao cuidado, admissão, registro e publicação são processos distintos. Se a análise usa a data de internação, a distância desde a exposição pode incluir tanto resposta biológica quanto espera assistencial; a data de registro ainda acrescenta atraso informacional. A @fig-tempos-dado distingue esses momentos; a análise precisa explicitar qual deles a janela pretende representar. A discussão de causalidade aparece em @sec-correlacao-causalidade-atribuicao, e os métodos de estimação serão aprofundados no @sec-efeitos-saude.
+A defasagem estimada depende também da data escolhida para o desfecho. Entre exposição e internação, por exemplo, podem ocorrer a resposta biológica e a espera por atendimento; a data do registro acrescenta atraso informacional. A @fig-tempos-dado distingue esses momentos, que precisam ser explicitados na definição da janela. A causalidade é discutida em @sec-correlacao-causalidade-atribuicao, e os métodos de estimação, no @sec-efeitos-saude.
 
 ## Períodos de referência e comparações no tempo
 
-Um valor pode adquirir significados diferentes conforme a referência utilizada. A OMM (Organização Meteorológica Mundial) define normais climatológicas em períodos de 30 anos e recomenda janelas padronizadas, como 1991–2020, para caracterizar o clima recente [@wmo2017normals]. Entretanto, análises de mudança climática ou índices de extremos podem precisar de uma base fixa, justamente para que o referencial não se mova junto com o clima.
+A interpretação de um valor depende da referência adotada. A Organização Meteorológica Mundial (OMM) estabelece normais climatológicas padrão de 30 anos, como 1991–2020, para caracterizar o clima recente [@wmo2017normals]. Estudos de mudança climática e índices de extremos podem exigir referências fixas, que não se alterem com o clima.
 
-Não há contradição entre essas escolhas. O período depende da finalidade:
+A escolha do período de referência depende da finalidade:
 
 - Uma normal atualizada descreve melhor condições climatológicas recentes;
 - Uma referência fixa permite acompanhar mudança em relação ao mesmo ponto de comparação;
 - Índices padronizados devem seguir a especificação usada em sua definição;
 - Critérios operacionais de alerta precisam ser definidos para a finalidade e o território em que serão usados.
 
-Trocar o período de referência pode alterar substancialmente um indicador. Uma série calculada com 1961–1990 e outra com 1991–2020 podem ser válidas para finalidades distintas, mas não devem ser unidas como se a definição tivesse permanecido inalterada.
+Alterar o período de referência pode modificar substancialmente o indicador. Séries calculadas com as bases 1961–1990 e 1991–2020 podem ser válidas para finalidades distintas, mas não devem ser unidas como se tivessem a mesma definição.
 
-Percentis exigem cuidado semelhante. O percentil 90 da temperatura máxima não representa 90% de risco. Ele indica que, segundo a amostra e o método de referência, aproximadamente 90% dos valores ficaram abaixo daquele limiar. Percentis podem ser calculados para todo o período, por estação, para dias específicos do calendário ou em janelas móveis. Essas escolhas fazem parte do indicador [@wmo2017normals; @climdex2024].
+O percentil 90 da temperatura máxima não representa 90% de risco. Ele delimita aproximadamente os 10% superiores da distribuição de referência, conforme a amostra e o método de estimação. Percentis podem ser calculados para todo o período, por estação, para dias específicos do calendário ou em janelas móveis. Essas escolhas integram a definição do indicador [@wmo2017normals; @climdex2024].
 
 Anomalias também dependem explicitamente da referência:
 
@@ -449,13 +449,13 @@ $$
 A_t = x_t - \bar{x}_{ref}.
 $$
 
-Uma anomalia positiva de temperatura indica valor acima da média de referência; não significa automaticamente evento extremo nem dano à saúde. Clima e muitos agravos possuem sazonalidade, razão pela qual comparações devem distinguir variação sazonal, tendência e mudança real da série.
+Uma anomalia positiva de temperatura indica valor acima da média de referência, não necessariamente um evento extremo ou um dano à saúde. Como o clima e muitos agravos apresentam sazonalidade, a comparação deve distinguir variações sazonais, tendências e outras mudanças na série.
 
 ## Qualidade: adequado para qual uso?
 
-Depois de compreender onde e quando um valor existe, a pergunta seguinte é se ele possui qualidade suficiente para a finalidade pretendida. Qualidade é multidimensional. Uma base pode ser muito completa e pouco representativa; precisa e enviesada; atual e ainda sujeita a revisão; coerente internamente e incompatível com outra fonte.
+A qualidade dos dados deve ser avaliada segundo a finalidade da análise. Uma base pode ser completa, mas pouco representativa; precisa, mas enviesada; oportuna, mas sujeita a revisão; internamente coerente, mas incompatível com outra fonte.
 
-Para dados de saúde, a OMS (Organização Mundial da Saúde) destaca dimensões como completude, oportunidade, consistência interna e coerência com outras fontes [@who2023dqa]. Dados geográficos acrescentam aspectos de completude, consistência lógica, qualidade posicional, temporal e temática [@iso2023geoquality]. Na produção brasileira, Lima, Schramm, Coeli e Silva discutem dimensões e métodos de avaliação dos sistemas de informação em saúde, reforçando a necessidade de examinar a qualidade de maneira explícita [@lima2009qualidade]. A síntese do @qua-qualidade-dados combina esse debate com os requisitos ambientais e geográficos; não reproduz uma classificação única nem calcula uma nota geral.
+Para dados de saúde, a Organização Mundial da Saúde (OMS) destaca completude, oportunidade, consistência interna e coerência com outras fontes [@who2023dqa]. A qualidade dos dados geográficos abrange também consistência lógica e aspectos posicionais, temporais e temáticos [@iso2023geoquality]. Lima, Schramm, Coeli e Silva discutem dimensões e métodos de avaliação dos sistemas de informação em saúde brasileiros [@lima2009qualidade]. O @qua-qualidade-dados sintetiza essas contribuições, sem reproduzir uma classificação única ou estabelecer uma nota geral.
 
 ::: {#qua-qualidade-dados}
 
@@ -474,7 +474,7 @@ Dimensões da qualidade e perguntas para avaliar a adequação ao uso
 
 :::
 
-A @fig-qualidade-uso organiza essas dimensões em torno da finalidade. A disposição dá o mesmo peso visual aos componentes: uma base oportuna pode ser incompleta, e outra muito completa pode chegar depois da decisão. É a consequência do uso que orienta quais limitações precisam ser corrigidas ou explicitadas.
+A @fig-qualidade-uso organiza as dimensões da qualidade segundo a finalidade. A representação não estabelece pesos: uma base oportuna pode ser incompleta, enquanto outra, mais completa, pode chegar depois da decisão. A aplicação pretendida determina quais limitações devem ser corrigidas ou explicitadas.
 
 <!--
 ARTE CAP4-05 — Revisão urbana v2
@@ -505,11 +505,11 @@ Formato: mesma proporção do original 1536 × 1024; resolução igual ou superi
 
 ### Exatidão, precisão e representatividade não são a mesma coisa
 
-Exatidão diz respeito à proximidade de um valor em relação à referência apropriada. Precisão se relaciona à repetibilidade ou dispersão. Um sensor pode produzir medidas muito semelhantes entre si e, ainda assim, apresentar viés sistemático. Um modelo pode reproduzir bem padrões regionais e ter dificuldade com extremos locais.
+Exatidão refere-se à proximidade de um valor em relação a uma referência apropriada; precisão, à concordância entre medições repetidas. Um sensor pode produzir medidas semelhantes entre si e apresentar viés sistemático. Um modelo pode representar adequadamente padrões regionais e não reproduzir extremos locais.
 
-Representatividade acrescenta outra questão: mesmo uma medição exata no ponto pode não descrever adequadamente o território. Esse problema é particularmente importante quando uma estação, um estabelecimento ou uma amostra é utilizada como referência para uma população muito maior.
+A representatividade diz respeito à capacidade de descrever o universo de interesse. Uma medição exata em determinado ponto pode não representar o território, especialmente quando uma estação, um estabelecimento ou uma amostra serve de referência para uma população maior.
 
-Cobertura não é sinônimo de representatividade. Uma rede pode possuir milhares de registros e ainda concentrar observações em capitais, áreas de fácil acesso ou serviços com melhor capacidade de informação. Da mesma forma, um sistema de saúde pode ter alta completude entre unidades notificantes e, ainda assim, deixar de captar populações que acessam pouco os serviços. Avaliar representatividade exige perguntar quem, onde e em que condições pode aparecer na base — e quem tende a permanecer invisível.
+Cobertura não garante representatividade. Uma rede com milhares de registros pode concentrar observações em capitais, áreas acessíveis ou serviços com maior capacidade de informação. Um sistema de saúde pode apresentar alta completude entre unidades notificantes e deixar de captar grupos com acesso limitado aos serviços. A avaliação deve identificar os locais, períodos e grupos representados, assim como aqueles insuficientemente contemplados.
 
 ### Completude: o que está faltando e por quê?
 
@@ -519,17 +519,17 @@ $$
 C = 100 \times \frac{n_{válidos}}{n_{esperados}}.
 $$
 
-O denominador precisa refletir o calendário real de operação. Se nenhum registro era esperado, a razão fica indefinida; isso não corresponde a completude de 100%. Uma estação instalada em junho não deveria ser tratada como se tivesse obrigação de registrar dados em janeiro. Da mesma forma, completude global elevada pode esconder períodos críticos. Uma série com alta completude no ano pode perder justamente os dias de maior chuva ou calor. O percentual deve ser acompanhado da distribuição das falhas no tempo e no espaço, e não funcionar como garantia isolada de qualidade.
+O denominador deve refletir o calendário de operação. Se nenhum registro era esperado, a razão é indefinida, não igual a 100%. Uma estação instalada em junho, por exemplo, não deveria registrar dados em janeiro. Além disso, uma série com alta completude anual pode apresentar lacunas justamente nos dias de maior chuva ou calor. O percentual deve ser acompanhado da distribuição espacial e temporal das falhas.
 
-O mecanismo da ausência também importa. Falhas completamente ocasionais tendem a afetar principalmente a precisão. Falhas associadas a tempestades, falta de energia, sobrecarga de serviços ou dificuldade de acesso podem retirar dados exatamente quando o fenômeno é mais intenso, produzindo viés.
+O mecanismo da ausência também importa. Falhas inteiramente aleatórias tendem a reduzir a precisão das estimativas. Quando associadas a tempestades, interrupções de energia, sobrecarga dos serviços ou dificuldades de acesso, podem comprometer os registros nos momentos de maior interesse e introduzir viés.
 
 ::: {.callout-warning icon=false title="Atenção: ausência não é zero"}
 
-Registro ausente, zero verdadeiro, valor abaixo do limite de detecção, não aplicável e valor suprimido por confidencialidade representam situações diferentes. Tratá-los todos como zero modifica totais, médias, taxas e tendências. O dicionário de dados deve preservar essas distinções.
+Registro ausente, zero verdadeiro, valor abaixo do limite de detecção, não aplicável e dado suprimido por confidencialidade têm significados distintos. Tratá-los como zero altera totais, médias, taxas e tendências. O dicionário de dados deve preservar essas distinções.
 
 :::
 
-A @fig-ausencia-zero separa cinco estados que podem parecer semelhantes em uma planilha. O pluviômetro simboliza uma observação válida igual a zero; o sensor desconectado, a falta de um registro utilizável; o laboratório, uma limitação de detecção. O formulário e a pasta protegida lembram que não aplicabilidade e supressão têm motivos distintos. A transparência do frasco não indica ausência de substância, e nenhum instrumento da ilustração apresenta uma medição real.
+A @fig-ausencia-zero ilustra cinco situações distintas: observação válida igual a zero, ausência de registro, valor abaixo do limite de detecção, não aplicabilidade e supressão por confidencialidade. Os instrumentos e recipientes são ilustrativos, sem medições reais.
 
 <!--
 ARTE CAP4-06 — Revisão urbana v2
@@ -558,41 +558,41 @@ Formato: mesma proporção do original 1536 × 1024; resolução igual ou superi
 
 [Fontes conceituais: discussão de completude e proteção deste capítulo; Lima et al. (2009); LGPD. Elaboração e revisão para esta obra, com aquarela gerada por IA (image_gen) e rótulos editáveis. Licença dos arquivos autorais: GPL-3.0; fontes mantêm suas condições de uso. Revisão urbana da aquarela: image_gen, com o original e a referência visual da série.]{.figure-source}
 
-O tratamento deve seguir o dicionário da fonte e o método analítico. Imputação requer justificativa e avaliação de sensibilidade; ausência de registro não autoriza preencher automaticamente o valor com zero. Valores suprimidos precisam conservar sua condição de proteção.
+O tratamento deve seguir o dicionário da fonte e o método analítico. A imputação exige justificativa e análise de sensibilidade; registros ausentes não devem ser automaticamente preenchidos com zero. Valores suprimidos devem permanecer protegidos.
 
 ### Extremos merecem investigação, não exclusão automática
 
-Verificações de consistência procuram valores fisicamente impossíveis, códigos inválidos, duplicidades e relações incoerentes — como temperatura mínima maior que a máxima. Essas regras devem sinalizar registros para investigação. Em clima e saúde ambiental, valores extremos verdadeiros são frequentemente os registros de maior interesse. Excluir automaticamente tudo o que parece “fora do normal” pode apagar o próprio evento que se deseja estudar.
+Verificações de consistência identificam valores fisicamente impossíveis, códigos inválidos, duplicidades e relações incoerentes, como temperatura mínima superior à máxima. Essas regras devem sinalizar registros para investigação. Excluir automaticamente valores incomuns pode eliminar extremos reais, justamente os eventos de interesse em estudos de clima e saúde.
 
-A comparação com outra fonte pode ajudar, mas concordância não garante verdade quando as duas bases compartilham o mesmo modelo, instrumento ou procedimento. Por isso, validação interna, comparação externa e conhecimento substantivo são complementares.
+A comparação externa pode auxiliar a validação, mas a concordância não constitui confirmação independente quando as fontes compartilham modelos, instrumentos ou procedimentos. Verificações internas, comparações externas e conhecimento substantivo são complementares.
 
 ### Homogeneidade e quebras de série
 
-Uma série homogênea varia principalmente por mudanças do fenômeno, e não por alterações no processo de observação. Relocação de uma estação, troca de sensor, mudança de formulário, expansão da cobertura assistencial ou alteração de algoritmo podem produzir quebras que se parecem com tendências reais.
+Em uma série homogênea, as variações refletem predominantemente mudanças do fenômeno, e não do processo de observação. Relocação de estações, troca de sensores, mudanças de formulários, expansão da cobertura assistencial e alterações de algoritmos podem produzir quebras semelhantes a tendências reais.
 
-Metadados são essenciais para distinguir essas situações. Quando ajustes de homogeneização forem realizados, o dado original deve ser preservado e a versão ajustada precisa ser identificada, com método e data de processamento [@wmo2023climatological].
+Metadados ajudam a identificar essas mudanças. Ajustes de homogeneização devem preservar os dados originais e identificar a versão ajustada, o método e a data de processamento [@wmo2023climatological].
 
 ### Comparabilidade não é apenas ter o mesmo nome
 
-Dois indicadores chamados “temperatura média municipal”, “população exposta” ou “taxa de internação” podem não ser diretamente comparáveis. Antes de colocá-los na mesma série ou tabela, é necessário verificar definição, unidade, suporte, período, população, malha territorial, critérios de completude, versão e método de cálculo.
+Indicadores com o mesmo nome podem não ser comparáveis. Antes de reuni-los em uma série ou tabela, verifique definição, unidade, suporte, período, população, malha territorial, completude, versão e método de cálculo.
 
-Mudanças metodológicas podem melhorar a qualidade e, ao mesmo tempo, romper a comparabilidade histórica. Quando isso ocorre, é preferível recalcular o passado, quando possível, ou marcar a quebra claramente em vez de produzir uma continuidade apenas visual.
+Mudanças metodológicas podem melhorar a qualidade e comprometer a comparabilidade histórica. Nesses casos, recomenda-se recalcular a série anterior, quando possível, ou sinalizar a quebra.
 
 ::: {.callout-important icon=false title="Conceito-chave: adequação ao uso"}
 
-Um dado é adequado quando sua definição, cobertura, escala, oportunidade, incerteza e documentação são suficientes para a consequência prevista. Adequação não significa perfeição. Uma fonte pode ser adequada para descrição agregada e inadequada para um alerta local em tempo real.
+A adequação de um dado depende de sua definição, cobertura, escala, oportunidade, incerteza e documentação, consideradas em relação à finalidade. Uma fonte suficiente para descrição regional pode ser inadequada para um alerta local em tempo real.
 
 :::
 
 ## Incerteza: o que permanece desconhecido
 
-Qualidade e incerteza estão relacionadas, mas não são sinônimos. Mesmo após procedimentos adequados de coleta e controle, permanecem limites de conhecimento. Eles podem decorrer de medição, cobertura, modelo, parâmetros, imputação, agregação espacial, período de referência ou cenários futuros [@iso2023geoquality; @who2023dqa].
+Qualidade e incerteza são conceitos relacionados, mas distintos. Mesmo com coleta e controle adequados, permanecem incertezas decorrentes de medição, cobertura, modelos, parâmetros, imputação, agregação espacial, referências ou cenários futuros [@iso2023geoquality; @who2023dqa].
 
-Também é importante separar incerteza de variabilidade real. Diferenças entre bairros, estações do ano ou grupos populacionais podem ser parte do fenômeno que se deseja compreender. Suavizar essas diferenças apenas para produzir um mapa mais regular pode eliminar informação relevante.
+A incerteza deve ser distinguida da variabilidade real. Diferenças entre bairros, estações do ano ou grupos populacionais podem constituir características do fenômeno. Suavizá-las apenas para produzir mapas mais regulares pode eliminar informação relevante.
 
-A incerteza na estimação de uma média ou de outro parâmetro pode diminuir com observações adicionais adequadas; a variabilidade real do fenômeno não desaparece por esse motivo. Outra parte decorre de limitações de conhecimento ou do próprio modelo: um sensor enviesado, uma população não observada ou uma definição inadequada não são corrigidos simplesmente aumentando o número de registros.
+Observações adicionais adequadas podem reduzir a incerteza de uma estimativa, mas não eliminam a variabilidade do fenômeno. Tampouco corrigem, por si só, vieses de medição, ausência de grupos populacionais ou definições inadequadas.
 
-O @qua-fontes-incerteza relaciona etapas de produção, limitações possíveis e formas de examiná-las. A avaliação deve acompanhar a cadeia inteira, porque uma escolha espacial pode modificar a exposição usada no modelo e, depois, a interpretação do efeito.
+O @qua-fontes-incerteza relaciona etapas de produção, possíveis limitações e formas de avaliação. A incerteza deve ser examinada em toda a cadeia: escolhas espaciais podem alterar a exposição estimada e a interpretação de seus efeitos.
 
 ::: {#qua-fontes-incerteza}
 
@@ -609,61 +609,61 @@ Fontes de incerteza ao longo da produção do indicador
 
 :::
 
-Intervalos de confiança, quando utilizados, expressam determinados componentes da incerteza sob um modelo estatístico; eles não representam toda a incerteza existente. Por isso, não incorporam automaticamente viés de seleção, erro na representação da exposição, mudança de definição ou incerteza do cenário. Da mesma forma, muitas casas decimais, limites cartográficos nítidos e paletas contínuas podem transmitir uma precisão maior do que a sustentada pelos dados.
+Intervalos de confiança representam componentes específicos da incerteza sob determinado modelo estatístico. Não incorporam automaticamente vieses de seleção, erros de representação da exposição, mudanças de definição ou incertezas dos cenários. Muitas casas decimais e representações cartográficas detalhadas também podem sugerir precisão superior à sustentada pelos dados.
 
 ### Análise de sensibilidade: a conclusão depende da escolha?
 
-Uma das formas mais úteis de avaliar incerteza metodológica é repetir o cálculo sob alternativas plausíveis. Pode-se comparar média por área e por população, diferentes critérios de completude, períodos de referência ou limiares. Se uma prioridade territorial muda completamente após uma pequena alteração razoável do método, a decisão é instável e essa informação deve acompanhar o resultado.
+A análise de sensibilidade consiste em repetir o cálculo sob alternativas metodológicas plausíveis, como ponderação por área ou população, critérios de completude, referências ou limiares distintos. Se uma prioridade territorial mudar substancialmente após uma pequena alteração justificável, essa instabilidade deve acompanhar a interpretação.
 
-Em aplicações mais avançadas existem métodos estatísticos e conjuntos de modelos capazes de quantificar componentes adicionais da incerteza. Para a leitura introdutória deste capítulo, porém, a ideia principal é mais simples: repetir a análise com escolhas plausíveis ajuda a revelar quais decisões metodológicas governam a conclusão.
+Métodos estatísticos e conjuntos de modelos podem quantificar componentes adicionais da incerteza. A comparação entre alternativas plausíveis ajuda a identificar quais escolhas metodológicas condicionam as conclusões.
 
 ## O que os dados permitem concluir: correlação, causalidade e atribuição {#sec-correlacao-causalidade-atribuicao}
 
-Depois de compatibilizar espaço, tempo e população, ainda é necessário decidir que pergunta a comparação pode responder. Descrever uma associação, estimar um efeito causal e atribuir uma parcela de um resultado a determinada exposição são tarefas relacionadas, com requisitos próprios. Um arquivo bem organizado ou um modelo complexo não produz, por si, uma interpretação causal.
+Compatibilizar espaço, tempo e população não determina o alcance da inferência. Descrever associações, estimar efeitos causais e atribuir parte de um resultado a uma exposição são tarefas com requisitos próprios. A organização dos dados e a complexidade do modelo não garantem interpretação causal.
 
 ### Correlação é uma medida de associação
 
-Associação é uma relação estatística entre variáveis: a distribuição de uma pode variar conforme a outra. Correlação é uma forma particular de resumir essa relação. O coeficiente de Pearson descreve direção e intensidade de uma relação linear; medidas baseadas em postos, como a de Spearman, descrevem relações monotônicas. Nenhum coeficiente resume todas as formas de dependência. Uma relação em curva pode produzir correlação linear próxima de zero, e uma correlação elevada pode resultar de causas comuns ou de como as observações foram selecionadas [@hernan2020causal].
+Associação é uma relação estatística entre variáveis. Correlação é uma forma de sintetizá-la: o coeficiente de Pearson descreve direção e intensidade da associação linear, enquanto o de Spearman, baseado em postos, descreve associações monotônicas. Uma relação não linear pode apresentar correlação de Pearson próxima de zero, e uma correlação elevada pode decorrer de causas comuns ou da seleção das observações [@hernan2020causal].
 
-Em clima e saúde, séries podem acompanhar a mesma estação do ano ou tendência de longo prazo. Áreas vizinhas podem compartilhar contexto social, infraestrutura e exposição ambiental. A agregação em municípios, a alteração de limites e a composição etária também podem modificar a associação. Por isso, uma correlação entre médias municipais não descreve automaticamente a relação entre exposições e desfechos individuais [@barcellos1996geoprocessamento; @carvalho2005espacial].
+Séries de clima e saúde podem compartilhar sazonalidade ou tendências. Áreas vizinhas podem apresentar condições sociais, infraestrutura e exposições semelhantes. Agregação territorial, mudanças de limites e composição etária também podem alterar as associações. Correlações entre médias municipais não descrevem necessariamente relações individuais [@barcellos1996geoprocessamento; @carvalho2005espacial].
 
-A significância estatística não resolve esses problemas. Ela não mede a probabilidade de uma hipótese causal ser verdadeira, a importância sanitária do resultado ou a ausência de viés. Tampouco um resultado não significativo comprova inexistência de efeito: pouca informação, erro de mensuração ou especificação inadequada podem dificultar sua detecção. A interpretação precisa considerar magnitude, incerteza, desenho e plausibilidade do processo.
+A significância estatística não informa a probabilidade de uma hipótese causal ser verdadeira, a relevância sanitária do resultado ou a ausência de viés. Um resultado não significativo tampouco comprova ausência de efeito: pouca informação, erros de mensuração e especificações inadequadas podem dificultar sua detecção. A interpretação deve considerar magnitude, incerteza, desenho e plausibilidade.
 
 ### Causalidade exige um contraste definido
 
-Uma pergunta causal explicita o que mudaria no desfecho se uma exposição ou intervenção fosse diferente, para uma população e um período definidos. A comparação é contrafactual: contrapõe resultados sob condições alternativas, embora a mesma unidade não possa ser observada simultaneamente em todas elas. No caso do calor, é necessário definir qual exposição se pretende contrastar, sua janela temporal e o desfecho acompanhado [@hernan2020causal].
+Uma pergunta causal define como um desfecho mudaria sob exposições ou intervenções alternativas, em uma população e período determinados. Esse contraste é contrafactual: a mesma unidade não pode ser observada simultaneamente sob todas as condições. Para estudar o calor, devem ser definidos a exposição contrastada, a janela temporal e o desfecho [@hernan2020causal].
 
-A exposição precisa anteceder o efeito que se deseja explicar, mas a ordem temporal, isoladamente, não demonstra causalidade. Estudos observacionais podem sustentar inferências causais quando o desenho e as hipóteses são defensáveis. Entre os requisitos estão a comparabilidade dos grupos ou períodos quanto às causas comuns relevantes, a definição suficientemente clara das exposições comparadas e a existência de informação sobre essas condições na população estudada. Seleção dos participantes, perdas de dados e erros de mensuração também precisam ser examinados.
+A exposição deve anteceder o efeito, mas essa ordem não basta para estabelecer causalidade. Estudos observacionais podem sustentar inferências causais quando o desenho e as hipóteses são defensáveis. Entre os requisitos estão a comparabilidade quanto às causas comuns relevantes, a definição clara das exposições contrastadas e a existência de informação sobre essas condições na população. Seleção, perdas e erros de mensuração também devem ser avaliados.
 
-Cesar Victora, Sharon Huttly, Sandra Fuchs e Maria Teresa Olinto defendem que a análise epidemiológica seja orientada por modelos conceituais, capazes de situar determinantes em suas relações sociais e biológicas, em vez de selecionar variáveis apenas por associações estatísticas [@victora1997frameworks]. Esse cuidado ajuda a distinguir papéis diferentes das variáveis.
+Cesar Victora, Sharon Huttly, Sandra Fuchs e Maria Teresa Olinto propõem orientar a análise epidemiológica por modelos conceituais que situem os determinantes em suas relações sociais e biológicas, em vez de selecionar variáveis apenas por associações estatísticas [@victora1997frameworks]. Esses modelos ajudam a distinguir os papéis causais das variáveis.
 
-Um confundidor é uma variável cujo controle ajuda a bloquear caminhos de associação não causal, como aqueles decorrentes de causas comuns da exposição e do desfecho. Um mediador está no caminho pelo qual a exposição pode produzir o efeito. Um fator de seleção determina quem aparece na amostra ou no sistema. Condicionar a análise a uma consequência comum da exposição e do desfecho — um colisor — pode criar uma associação que não existia na população. Ajustar um mediador pode retirar parte do efeito total que se desejava estimar; ajustar um colisor pode introduzir viés. Assim, acrescentar todas as variáveis disponíveis a uma regressão não garante melhor controle [@hernan2020causal].
+O controle de confundidores busca bloquear caminhos de associação não causal, como aqueles decorrentes de causas comuns da exposição e do desfecho. Um mediador integra o caminho pelo qual a exposição pode produzir o efeito. Fatores de seleção influenciam quem aparece na amostra ou no sistema. Condicionar a análise a um colisor — consequência comum de duas variáveis em um caminho causal — pode induzir associações não causais. Ajustar mediadores pode bloquear parte do efeito total; ajustar colisores pode introduzir viés. Incluir todas as variáveis disponíveis em uma regressão não garante melhor controle [@hernan2020causal].
 
 ::: {.callout-note icon=false title="Conceito-chave: diagramas causais representam hipóteses"}
 
-Um diagrama causal explicita relações supostas entre variáveis antes da análise. Uma seta indica uma direção causal postulada, não um efeito demonstrado pelos dados. Sua utilidade está em tornar discutíveis os caminhos de confundimento, mediação e seleção e em orientar o contraste e os ajustes necessários. O desenho não elimina a necessidade de justificar cada relação e examinar os limites da informação.
+Diagramas causais explicitam hipóteses sobre relações entre variáveis antes da análise. As setas representam relações postuladas, não efeitos demonstrados. Esses diagramas ajudam a identificar caminhos de confundimento, mediação e seleção e a orientar o contraste e os ajustes, sem dispensar a justificativa das hipóteses.
 
 :::
 
 ### Atribuir efeitos à exposição requer um contrafactual
 
-Contar internações durante um período quente informa eventos registrados naquele intervalo. Estimar excesso compara o observado com um número esperado segundo uma referência temporal. Estimar carga atribuível à temperatura pergunta quanto do desfecho mudaria sob uma exposição térmica de referência, utilizando uma relação exposição–resposta e hipóteses causais explícitas. As três operações não produzem números intercambiáveis [@gasparrini2014attributable; @hernan2020causal].
+Contar internações durante um período quente informa os eventos registrados no intervalo. Estimar o excesso compara o observado com o esperado segundo uma referência. Estimar a carga atribuível à temperatura quantifica a diferença esperada sob uma exposição térmica de referência, com base em uma relação exposição–resposta e hipóteses causais explícitas. Essas medidas não são intercambiáveis [@gasparrini2014attributable; @hernan2020causal].
 
-Excesso pode reunir efeitos de calor, fumaça, epidemias, interrupções assistenciais e outros processos. Sua ocorrência não identifica automaticamente a contribuição de cada fator. Para estimar número ou fração atribuível, é preciso justificar o contrafactual, a relação de risco, as defasagens e sua aplicação à população estudada. Alterar a referência pode alterar a estimativa, mesmo sem mudar os registros observados.
+O excesso pode refletir efeitos do calor, da fumaça, de epidemias e de interrupções assistenciais, sem identificar a contribuição de cada fator. A estimativa do número ou da fração atribuível exige justificar o contrafactual, a relação de risco, as defasagens e sua aplicação à população. Mudanças de referência podem alterar a estimativa sem modificar os registros observados.
 
-Uma estimativa populacional atribuível não identifica quais pessoas adoeceram exclusivamente por causa da exposição. Também não corresponde necessariamente ao resultado imediatamente alcançável por uma política: a intervenção pode modificar apenas parte da exposição, ter cobertura limitada ou exigir tempo. A carga evitável por uma ação concreta precisa de um cenário de intervenção compatível com essa ação.
+Estimativas populacionais de carga atribuível não identificam quais pessoas adoeceram exclusivamente pela exposição, nem correspondem necessariamente à carga evitável por uma política. Uma intervenção pode modificar apenas parte da exposição, ter cobertura limitada ou produzir efeitos gradualmente. Estimar sua contribuição requer um cenário compatível com a ação.
 
 ### Atribuição climática e atribuição sanitária respondem a perguntas diferentes
 
-Na atribuição climática de eventos, investiga-se em que medida a influência humana alterou a probabilidade ou a intensidade de um evento definido no espaço e no tempo. Uma abordagem compara o clima com influência humana e um clima contrafactual sem essa influência; outras condicionam aspectos da circulação ou do evento. A definição e as condições da comparação fazem parte do resultado. O capítulo do Painel Intergovernamental sobre Mudança do Clima (IPCC) dedicado aos extremos, assinado por Seneviratne e colaboradores e com participação de Claudine Dereczynski, sistematiza essas abordagens [@ipcc2021extremes].
+A atribuição climática de eventos investiga como a influência humana alterou a probabilidade ou a intensidade de um evento definido no espaço e no tempo. Uma abordagem compara climas com e sem influência humana; outras condicionam aspectos da circulação ou do evento. A definição do contraste integra a interpretação. O capítulo sobre extremos do Painel Intergovernamental sobre Mudança do Clima (IPCC), de Seneviratne e colaboradores, com participação de Claudine Dereczynski, sistematiza essas abordagens [@ipcc2021extremes].
 
-Atribuir mortalidade ao calor exige outra relação: a resposta sanitária à exposição térmica. Para estimar a parcela da mortalidade relacionada ao calor atribuível à mudança climática antropogênica, é necessário conectar alterações na exposição à resposta sanitária sob cenários coerentes. Vicedo-Cabrera e colaboradores, com participação brasileira de Maria de Sousa Zanotti Stagliorio Coelho e Paulo Saldiva, combinam essas etapas em um estudo de mortalidade relacionada ao calor [@vicedo2021attribution].
+A atribuição de mortalidade ao calor requer caracterizar a resposta sanitária à exposição térmica. Para estimar a parcela da mortalidade relacionada ao calor atribuível à mudança climática antropogênica, é necessário relacionar mudanças na exposição à resposta sanitária sob cenários coerentes. Vicedo-Cabrera e colaboradores, com participação brasileira de Maria de Sousa Zanotti Stagliorio Coelho e Paulo Saldiva, combinam essas etapas em um estudo de mortalidade relacionada ao calor [@vicedo2021attribution].
 
-A fração de risco de um evento climático atribuível à influência humana não é, por isso, a fração dos óbitos atribuível à mudança climática. Não se pode multiplicar automaticamente uma pela contagem de mortes: intensidade, duração, relação exposição–resposta, população e vulnerabilidade interferem na estimativa sanitária.
+A fração do risco de um evento climático atribuível à influência humana não equivale à fração de óbitos atribuível à mudança climática. Não se deve multiplicá-la diretamente pela contagem de mortes, pois a estimativa sanitária depende também da intensidade, duração, relação exposição–resposta, população e vulnerabilidade.
 
 ### A pergunta orienta a linguagem do resultado
 
-O @qua-correlacao-causalidade-atribuicao reúne os contrastes necessários. As linhas representam perguntas distintas, sem uma passagem automática da primeira para as demais. Métodos de estimação dos efeitos sanitários serão desenvolvidos no @sec-efeitos-saude.
+O @qua-correlacao-causalidade-atribuicao reúne os contrastes e limites de cada pergunta. Não há passagem automática da associação à atribuição. Os métodos de estimação dos efeitos sanitários são aprofundados no @sec-efeitos-saude.
 
 ::: {#qua-correlacao-causalidade-atribuicao}
 
@@ -681,27 +681,27 @@ Perguntas de associação, causalidade e atribuição e seus limites
 
 ## Proveniência, revisões e versionamento
 
-Dados públicos e científicos não são objetos estáticos. Registros tardios entram em sistemas de saúde; duplicidades são removidas; modelos são atualizados; estimativas populacionais são revistas; arquivos podem ser republicados. Reprodutibilidade exige identificar qual versão foi efetivamente utilizada.
+Dados públicos e científicos são continuamente revisados: registros tardios são incorporados, duplicidades removidas, modelos atualizados e estimativas populacionais revistas. A reprodutibilidade exige identificar a versão utilizada.
 
-Dados preliminares não são necessariamente ruins. Em vigilância, podem ser os únicos disponíveis em tempo oportuno. Dados consolidados podem ser mais completos, mas chegar tarde. Uma queda nos registros mais recentes pode refletir notificações ainda não recebidas, e não queda real da ocorrência; correções desse atraso dependem de modelagem e avaliação próprias [@bastos2019delays]. O problema ocorre quando versões com diferentes graus de maturidade são misturadas sem registro ou quando uma atualização altera retrospectivamente uma série e essa mudança não é identificada.
+Dados preliminares podem ser os únicos disponíveis em tempo oportuno para a vigilância. Dados consolidados tendem a ser mais completos, mas podem chegar tarde. Uma queda recente nos registros pode refletir atraso de notificação, não redução real da ocorrência; corrigir esse atraso exige modelagem e avaliação próprias [@bastos2019delays]. Diferentes graus de maturidade e alterações retrospectivas devem permanecer identificados.
 
-Uma trilha mínima de proveniência deve permitir reconstruir o caminho do dado: instituição e produto de origem, versão, data de acesso, período extraído e transformações realizadas. A documentação detalhada de fontes, arquivos, identificadores, formas de acesso e princípios de reutilização será tratada no @sec-fontes-fichas. Aqui, o ponto é garantir que uma mudança de versão ou processamento não seja confundida com uma mudança real do fenômeno.
+A trilha mínima de proveniência deve identificar instituição, produto, versão, data de acesso, período extraído e transformações. O @sec-fontes-fichas detalha a documentação de fontes, arquivos, identificadores, acesso e reutilização. O objetivo é distinguir mudanças no fenômeno de mudanças na versão ou no processamento dos dados.
 
 ## Dados de saúde, granularidade e proteção
 
-Maior detalhe nem sempre é melhor para divulgação. Pela Lei Geral de Proteção de Dados Pessoais (LGPD), informação de saúde vinculada a pessoa natural integra a categoria de dados pessoais sensíveis. Localização precisa, datas e eventos raros podem permitir identificação mesmo sem nomes. Uma estatística agregada não se torna automaticamente dado pessoal, mas sua possibilidade de associação a pessoas precisa ser examinada [@brasil2018lgpd].
+Maior granularidade nem sempre é adequada à divulgação. Pela Lei Geral de Proteção de Dados Pessoais (LGPD), informações de saúde vinculadas a pessoas naturais são dados pessoais sensíveis. Localizações precisas, datas e eventos raros podem permitir identificação mesmo sem nomes. Estatísticas agregadas não são automaticamente dados pessoais, mas deve-se avaliar a possibilidade de associação a indivíduos [@brasil2018lgpd].
 
-O detalhe necessário à análise deve ser separado daquele adequado à divulgação. Supressão de células pequenas, agregação, arredondamento e controle de acesso podem reduzir riscos e alterar a interpretação. A Agência Nacional de Proteção de Dados (ANPD), denominada Autoridade Nacional de Proteção de Dados quando publicou seu guia de 2023, orienta o tratamento para fins acadêmicos e de pesquisa conforme finalidade, hipótese legal e salvaguardas [@brasil2018lgpd; @anpd2023pesquisa].
+O detalhamento necessário à análise deve ser distinguido daquele adequado à divulgação. Supressão de pequenas contagens, agregação, arredondamento e controle de acesso podem reduzir riscos e modificar a interpretação. A Agência Nacional de Proteção de Dados (ANPD), denominada Autoridade Nacional de Proteção de Dados quando publicou seu guia de 2023, orienta o tratamento para fins acadêmicos e de pesquisa segundo a finalidade, a hipótese legal e as salvaguardas [@brasil2018lgpd; @anpd2023pesquisa].
 
-Anonimização considera os meios razoáveis e disponíveis para impedir a associação a uma pessoa; retirar nomes, isoladamente, não a garante. Na pseudonimização, a associação depende de informação adicional mantida separadamente e com segurança. Ela não equivale à anonimização. O acesso para pesquisa também não implica autorização irrestrita de divulgação [@brasil2018lgpd; @anpd2023pesquisa].
+A anonimização considera os meios razoáveis e disponíveis de associação a uma pessoa; a retirada de nomes não a garante. Na pseudonimização, a associação depende de informação adicional mantida separadamente e em segurança. A pseudonimização não equivale à anonimização, e o acesso para pesquisa não autoriza divulgação irrestrita [@brasil2018lgpd; @anpd2023pesquisa].
 
-Proteção não deve ser tratada como uma correção aplicada somente no momento de publicar a tabela. Ela influencia o desenho da base, as chaves de ligação, o nível de agregação, os ambientes de acesso e as saídas permitidas. Valores deliberadamente suprimidos para proteção não devem ser reconstruídos por diferença entre totais.
+A proteção de dados deve integrar o desenho da base, as chaves de ligação, a agregação, os ambientes de acesso e as saídas permitidas, não apenas a publicação final. Valores suprimidos por confidencialidade não devem ser reconstruídos pela diferença entre totais.
 
 ## Situação concreta: antes de cruzar calor e internações
 
-Como situação didática, sem resultados empíricos apresentados, considere uma equipe que deseja estudar se o número de internações varia durante períodos de maior temperatura. A temperatura está disponível diariamente em grade; os registros de internação possuem município de residência e data de admissão; e as taxas usarão uma estimativa populacional anual. Antes de qualquer modelo, a equipe precisa decidir como representar espaço, tempo e população em cada lado da comparação.
+Considere, como exemplo didático sem resultados empíricos, uma equipe que investiga variações no número de internações durante períodos de maior temperatura. A temperatura está disponível em uma grade diária; os registros de internação contêm município de residência e data de admissão; e as taxas utilizam estimativas populacionais anuais. Antes da modelagem, é necessário compatibilizar espaço, tempo e população.
 
-O @qua-escolhas-calor-internacoes apresenta escolhas que levam a interpretações diferentes, mesmo usando as mesmas bases. A taxa por grupo etário exige restringir numerador e denominador ao mesmo grupo; o município do estabelecimento descreve demanda assistencial e não deve ser combinado indiscriminadamente com a população residente para representar risco.
+O @qua-escolhas-calor-internacoes apresenta escolhas que alteram a interpretação das mesmas bases. Taxas específicas por idade exigem numerador e denominador referentes ao mesmo grupo. O município do estabelecimento caracteriza demanda assistencial e não deve ser associado indiscriminadamente à população residente para estimar risco.
 
 ::: {#qua-escolhas-calor-internacoes}
 
@@ -716,7 +716,7 @@ Escolhas de compatibilização no estudo de calor e internações
 
 :::
 
-Nenhuma alternativa é superior em todos os contextos. A pergunta de pesquisa ou de gestão é que define qual combinação é defensável. O @sec-efeitos-saude mostrará que escolhas adicionais são necessárias para interpretar relações entre exposição e saúde. Compatibilizar significa construir uma comparação cujo espaço, tempo e população tenham sentido conjunto. As etapas da @fig-compatibilizacao-inferencia organizam essa preparação. Quando qualidade ou cobertura forem inadequadas, o retorno à especificação pode exigir outra fonte ou uma pergunta mais restrita. Ao final, as três saídas não se sucedem: cada uma exige um desenho compatível.
+A pergunta de pesquisa ou gestão determina a combinação adequada. O @sec-efeitos-saude aborda requisitos adicionais para interpretar relações entre exposição e saúde. A @fig-compatibilizacao-inferencia organiza a preparação dos dados; limitações de qualidade ou cobertura podem exigir outra fonte ou uma pergunta mais restrita. As três saídas correspondem a perguntas distintas, cada qual com seu desenho analítico.
 
 <!--
 ARTE CAP4-07 — Revisão urbana v2
@@ -745,9 +745,9 @@ Formato: mesma proporção do original 1536 × 1024; resolução igual ou superi
 
 [Fontes conceituais: Victora et al. (1997); Hernán e Robins (2020); discussão deste capítulo. Elaboração e revisão para esta obra, com aquarela gerada por IA (image_gen) e rótulos editáveis. Licença dos arquivos autorais: GPL-3.0; fontes mantêm suas condições de uso. Revisão urbana da aquarela: image_gen, com o original e a referência visual da série.]{.figure-source}
 
-Se a análise apenas descreve variação conjunta, a linguagem será “associação entre temperatura e internações”, acompanhada dos ajustes e limitações. Para interpretar “efeito da exposição térmica sobre as internações”, a equipe precisará definir o contraste causal e justificar o desenho. Para estimar “internações atribuíveis à temperatura”, terá ainda de especificar a exposição de referência e calcular a carga sob esse contrafactual. Essas formulações exemplificam tipos de conclusão; não relatam resultados deste caso didático.
+Uma análise de variação conjunta permite descrever a “associação entre temperatura e internações”, explicitando ajustes e limitações. Interpretar o “efeito da exposição térmica sobre as internações” exige definir o contraste causal e justificar o desenho. Estimar “internações atribuíveis à temperatura” requer também uma exposição de referência e o cálculo da carga sob esse contrafactual. Essas formulações exemplificam conclusões possíveis, sem apresentar resultados empíricos.
 
-Mesmo uma estimativa de internações atribuíveis ao calor não autoriza chamá-las de “internações atribuíveis à mudança climática”. Essa pergunta exige reconstruir a exposição sob o clima contrafactual e conectar a diferença à resposta sanitária. Boa capacidade de prever internações também não prova que modificar a variável preditora produziria o efeito esperado de uma intervenção.
+Internações atribuíveis ao calor não equivalem a internações atribuíveis à mudança climática. A segunda estimativa exige reconstruir a exposição em um clima contrafactual e relacioná-la à resposta sanitária. A capacidade de prever internações também não demonstra que modificar uma variável preditora produziria o efeito esperado de uma intervenção.
 
 ::: {.callout-warning icon=false title="Atenção: erros frequentes de compatibilização e interpretação"}
 
@@ -764,7 +764,7 @@ Mesmo uma estimativa de internações atribuíveis ao calor não autoriza chamá
 
 ## Lista de verificação antes do cálculo
 
-O @qua-checklist-dados resume as perguntas que devem estar respondidas antes de combinar fontes ou produzir um indicador.
+O @qua-checklist-dados reúne as questões a responder antes de integrar fontes ou calcular indicadores.
 
 ::: {#qua-checklist-dados}
 
@@ -787,12 +787,12 @@ Lista de verificação de espaço, tempo, qualidade e interpretação
 
 ## Síntese
 
-Compatibilizar dados de clima, ambiente e saúde não é apenas alinhar colunas de espaço e tempo. Uma estação, uma célula de grade, um endereço e um município possuem suportes diferentes; uma observação horária, uma previsão válida para amanhã e uma taxa anual pertencem a referências temporais diferentes. Transformá-los para uma unidade comum exige escolhas que mudam o significado do resultado.
+A integração de dados de clima, ambiente e saúde exige compatibilizar os suportes espaciais e temporais. Estações, células de grade, endereços e municípios representam espaços distintos, assim como observações horárias, previsões e taxas anuais representam tempos distintos. Transformá-los em unidades comuns modifica o significado do resultado.
 
-Por isso, a compatibilidade deve ser construída a partir da pergunta: qual território interessa, qual população está sendo representada, que período corresponde ao mecanismo estudado e que transformações são necessárias para aproximar essas fontes sem produzir uma precisão artificial? Mudança de suporte, agregação temporal, períodos de referência, tratamento de ausências e versões fazem parte da definição final do indicador.
+A pergunta orienta a escolha do território, da população, do período e das transformações necessárias. Mudança de suporte, agregação temporal, referência, tratamento de ausências e versão das fontes integram a definição final do indicador.
 
-Qualidade também é relacional. Uma base pode ser adequada para descrição regional e inadequada para resposta local; representativa em períodos usuais e frágil justamente durante eventos extremos; suficientemente oportuna para vigilância e ainda sujeita a revisão. Avaliar qualidade significa reconhecer essas condições, comunicar incerteza e decidir se elas são aceitáveis para a consequência prevista.
+A qualidade depende da finalidade. Uma base adequada à descrição regional pode não servir à resposta local; uma série representativa em condições habituais pode falhar durante extremos; dados oportunos podem estar sujeitos a revisão. Avaliar qualidade implica reconhecer essas limitações e comunicar a incerteza em relação ao uso pretendido.
 
-A conclusão deve conservar o alcance da pergunta. Correlação resume uma relação estatística; efeito causal exige contraste e hipóteses defensáveis; atribuição estima uma contribuição em relação a um contrafactual. Distinguir atribuição climática e sanitária impede transformar coincidência temporal ou excesso de eventos em uma explicação causal não examinada.
+A conclusão deve respeitar o alcance da pergunta. Correlação descreve associação; efeito causal exige contraste e hipóteses defensáveis; atribuição estima uma contribuição em relação a um contrafactual. Atribuição climática e sanitária exigem análises distintas, que não se deduzem da coincidência temporal ou do excesso de eventos.
 
-No @sec-fontes-fichas, essas perguntas serão aplicadas à documentação das fontes e fichas. Depois, os capítulos temáticos mostrarão como cada fenômeno exige decisões próprias de escala, período e qualidade. O objetivo não será procurar a base “perfeita”, mas utilizar cada fonte no nível espacial, temporal e analítico que ela consegue sustentar.
+O @sec-fontes-fichas aplica essas questões à documentação das fontes e dos indicadores. Os capítulos temáticos detalham as escolhas de escala, período e qualidade de cada fenômeno. O objetivo é utilizar as fontes no nível espacial, temporal e analítico que conseguem sustentar.
